@@ -1,0 +1,9 @@
+unmanaged implementation in class zclsd_i_sd_kit_bon_app unique;
+
+define behavior for ZI_SD_KIT_BON_APP alias KitProcessor
+{
+
+action criarOrdem;
+action cancelOrdem;
+
+}

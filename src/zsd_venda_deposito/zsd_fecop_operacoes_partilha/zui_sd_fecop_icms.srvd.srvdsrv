@@ -1,0 +1,4 @@
+@EndUserText.label: 'Service Def para Separação FECOP e ICMS'
+define service ZUI_SD_FECOP_ICMS {
+  expose ZC_SD_FECOP_ICMS;
+}

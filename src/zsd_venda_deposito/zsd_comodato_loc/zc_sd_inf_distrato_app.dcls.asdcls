@@ -1,0 +1,11 @@
+@EndUserText.label: 'CDS de Autorização'
+@MappingRole: true
+define role ZC_SD_INF_DISTRATO_APP {
+    grant
+        select
+            on
+                ZC_SD_INF_DISTRATO_APP
+                    where
+                        inheriting conditions from entity ZI_SD_INF_DISTRATO_APP;
+                        
+}

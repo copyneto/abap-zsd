@@ -1,0 +1,26 @@
+@Metadata.layer: #CORE
+@UI.headerInfo: {
+ typeName: 'Regras de NFs vendas de café grão crú de coligadas Manaus',
+ typeNamePlural: 'Regras de NFs vendas de café grão crú de coligadas Manaus',
+    title: {
+      type: #STANDARD,
+      label: 'Material',
+      value: 'Matnr'
+    }}
+annotate view ZC_SD_MATERIAL_GC_ZF
+    with 
+{
+
+  @UI.facet: [{ id:       'Matnr',
+                position: 10,
+                label:    'Material',
+                purpose:  #STANDARD,
+                type:     #IDENTIFICATION_REFERENCE
+                 }]
+
+  @UI: { lineItem:       [{ position: 10 }],
+         identification: [{ position: 10 }] }
+  @UI.selectionField: [{ position: 10 }]
+    Matnr;
+    
+}

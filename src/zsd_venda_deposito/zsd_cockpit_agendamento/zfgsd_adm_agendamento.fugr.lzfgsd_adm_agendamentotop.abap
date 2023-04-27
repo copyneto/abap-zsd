@@ -1,0 +1,3 @@
+FUNCTION-POOL ZFGSD_ADM_AGENDAMENTO.        "MESSAGE-ID ..
+
+* INCLUDE LZFGSD_ADM_AGENDAMENTOD...         " Local class definition

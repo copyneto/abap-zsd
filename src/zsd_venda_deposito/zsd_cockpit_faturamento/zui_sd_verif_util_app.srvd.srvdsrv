@@ -1,0 +1,5 @@
+@EndUserText.label: 'Service Def  Verifica Utilização'
+define service ZUI_SD_VERIF_UTIL_APP {
+  expose ZC_SD_VERIF_UTIL_CUSTOM_APP;
+  expose ZI_SD_VH_SUBST_MATERIAL;
+}

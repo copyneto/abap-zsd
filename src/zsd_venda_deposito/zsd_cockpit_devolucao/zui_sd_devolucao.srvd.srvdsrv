@@ -1,0 +1,4 @@
+@EndUserText.label: 'Serviço Notas de devolução de clientes.'
+define service ZUI_SD_DEVOLUCAO {
+  expose ZC_SD_DEVOLUCAO;
+}

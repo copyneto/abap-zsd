@@ -1,0 +1,139 @@
+@Metadata.layer: #CORE
+
+//@UI.lineItem: [{criticality: 'StatusCriticality'}]
+annotate entity ZC_SD_REL_MATERIAL_TERC with
+{
+
+  @UI.lineItem: [{ position: 130 }]
+  @UI.selectionField: [{ position: 5 }]
+  MaterialDocument;
+
+
+  @UI.selectionField: [{ position: 4 }]
+  MaterialDocumentYear;
+
+  @UI.lineItem: [{ position: 1 }]
+  @UI.selectionField: [{ position: 3 }]
+  Plant;
+
+  @UI.lineItem: [{ position: 10 }]
+  @UI.selectionField: [{ position: 1 }]
+  Customer;
+
+  @UI.lineItem: [{ position: 20 }]
+  @EndUserText.label: 'Nome do Cliente'
+  CustomerName;
+
+  //@UI.lineItem: { position: 21 }
+  @UI.selectionField: [{ position: 2 }]
+  @EndUserText.label: 'Material'
+  @Consumption.semanticObject: 'Material'
+  @UI: { lineItem:        [ { position: 21,
+                              type:     #WITH_INTENT_BASED_NAVIGATION,
+                              semanticObjectAction: 'displayFactSheet' }]}
+  Material;
+
+  @UI.lineItem: [{ position: 30 }]
+  @EndUserText.label: 'Descr.Material'
+  MaterialName;
+
+  @UI.lineItem: [{ position: 40 }]
+  @EndUserText.label: 'Lote'
+  Batch;
+
+  @UI.lineItem: [{ position: 50 }]
+  @EndUserText.label: 'Quantidade'
+  QuantityInEntryUnit;
+
+  @UI.lineItem: [{ position: 60 }]
+  EntryUnit;
+
+  @Consumption.semanticObject: 'NotaFiscal'
+  @UI: { lineItem:        [ { position: 70,
+                              type:     #WITH_INTENT_BASED_NAVIGATION,
+                              semanticObjectAction: 'zzdisplay' }]}
+  BR_NotaFiscal;
+
+  @UI.lineItem: [{ position: 80 }]
+  @EndUserText.label: 'NroNFe'
+  BR_NFeNumber;
+
+  @UI.lineItem: [{ position: 81, criticality: 'StatusCriticality' }]
+  @EndUserText.label: 'Status do documento'
+  BR_NFeDocumentStatusDesc;
+
+  @UI.hidden: true
+  BR_NFeDocumentStatus;
+
+  @UI.lineItem: [{ position: 90 }]
+  @UI.selectionField: [{ position: 7 }]
+  @EndUserText.label: 'Data Emissão NF'
+  @Consumption.filter.selectionType: #INTERVAL
+  BR_NFIssueDate;
+
+  @UI.lineItem: [{ position: 100 }]
+  @EndUserText.label: 'Cidade'
+  BR_NFPartnerCityName;
+
+  @UI.lineItem: [{ position: 110 }]
+  @EndUserText.label: 'UF'
+  BR_NFPartnerRegionCode;
+
+  @UI.lineItem: [{ position: 120 }]
+  BR_CFOPCode;
+
+  @UI.lineItem: [{ position: 140 }]
+  @EndUserText.label: 'Doc de Ref SD'
+  ReferenceDocument;
+
+  @UI.lineItem: [{ position: 150 }]
+  StorageLocation;
+
+  @UI.lineItem: [{ position: 160 }]
+  BillingDocument;
+  
+  @UI.lineItem: [{ position: 165 }]
+  BillingDocumentType;
+  
+  @UI.lineItem: [{ position: 170 }]
+  @UI.selectionField: [{ position: 8 }]
+  @EndUserText: { label: 'Data Movimentação',
+                  quickInfo: 'Data Movimentação do estoque' }
+  @Consumption.filter.selectionType: #INTERVAL
+  PostingDate;
+
+  @UI.lineItem: [{ position: 180 }]
+  @UI.selectionField: [{ position: 6 }]
+
+  //      @Consumption.filter : {
+  //                              selectionType : #INTERVAL,
+  //                              multipleSelections : false,
+  //                              defaultValue: '631',
+  //                              defaultValueHigh: '634'
+  //      }
+  GoodsMovementType;
+
+  @UI.lineItem: [{ position: 190 }]
+  GoodsMovementTypeName;
+
+  @UI.lineItem: [{ position: 200 }]
+  BR_NFDirection;
+
+  @UI.lineItem: [{ position: 210 }]
+  MaterialBaseUnit;
+
+  @UI.lineItem: [{ position: 220 }]
+  @EndUserText.label: 'Valor Total da NF'
+  BR_NFTotalAmount;
+
+  @UI.hidden: true
+  NFCanceled;
+
+  @UI.lineItem: [{ position: 240 }]
+  @EndUserText.label: 'Sts Criticidade'
+  @Consumption.filter.hidden: true
+  //@UI.hidden: true
+  StatusCriticality;
+
+
+}

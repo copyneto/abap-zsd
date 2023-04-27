@@ -1,0 +1,11 @@
+@EndUserText.label: 'CDS de Autorização'
+@MappingRole: true
+define role ZC_SD_CAFT_TPCOND {
+    grant
+        select
+            on
+                ZC_SD_CAFT_TPCOND
+                    where
+                        inheriting conditions from entity ZI_SD_CAFT_TPCOND;
+                        
+}

@@ -1,0 +1,11 @@
+@EndUserText.label: 'CDS de Autorização'
+@MappingRole: true
+define role ZI_SD_NF_IMP_MASSA {
+    grant
+        select
+            on
+                ZI_SD_NF_IMP_MASSA
+                    where
+                         ( Werks ) = aspect pfcg_auth( ZSDWERKS, WERKS, ACTVT = '03' );
+                        
+}

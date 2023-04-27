@@ -1,0 +1,36 @@
+@Metadata.layer:#CORE
+
+@UI: { headerInfo: { typeName: 'ListaParceiro',
+                     title: { value: 'PartnRole' },
+                     description: { value: 'PartnRole' },
+                     typeNamePlural: 'Lista de parceiros para Ordens campanha '
+                   }
+     }     
+annotate view ZC_SD_IONZ_PARCEI with 
+{
+
+ @UI.facet: [
+  { id:          'facet1',
+    purpose:       #STANDARD,
+    type:          #IDENTIFICATION_REFERENCE,
+    label:         'Lista de parceiros',
+    position:      10
+  } ]
+
+  @UI: { lineItem:        [ { position: 10, label: 'Função do parceiro'} ],
+       identification:  [ { position: 10, label: 'Função do parceiro' } ],
+       selectionField:  [ { position: 10 } ] }
+       @UI: { textArrangement: #TEXT_ONLY }
+       
+    PartnRole;
+    
+    @UI.hidden: true
+    PartnRole1;
+        
+     @UI: { lineItem:        [ { position: 20, label: 'Nº cliente'} ],
+       identification:  [ { position: 20, label: 'Nº cliente' } ],
+       selectionField:  [ { position: 20 } ] }  
+    PartnNumb;
+    
+    
+}

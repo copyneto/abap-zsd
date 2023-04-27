@@ -1,0 +1,11 @@
+@EndUserText.label: 'CDS de Autorização'
+@MappingRole: true
+define role ZI_SD_MATERIAL_GC_ZF {
+    grant 
+        select
+            on
+                ZI_SD_MATERIAL_GC_ZF
+                    where
+                        ( ) = aspect pfcg_auth( ZSDMTABLE, ACTVT = '03', TABLE = 'ZTSD_MATERIAL_GC' );
+                        
+}

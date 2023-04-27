@@ -1,0 +1,3 @@
+FUNCTION-POOL ZFGSD_CMDLOC_MOVIMT_MM.       "MESSAGE-ID ..
+
+* INCLUDE LZFGSD_CMDLOC_MOVIMT_MMD...        " Local class definition

@@ -1,0 +1,4 @@
+@EndUserText.label: 'Service Def  Monitor E-Commerce'
+define service ZUI_SD_MONITOR_APP {
+  expose ZC_SD_MONITOR_APP;
+}

@@ -1,0 +1,4 @@
+@EndUserText.label: 'Service Def  Logs Mensagens'
+define service ZUI_LOGMSG_OV {
+  expose ZC_SD_LOGMSG_OV;
+}

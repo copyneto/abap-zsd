@@ -1,0 +1,4 @@
+@EndUserText.label: 'Regras DIFAL - Consumo'
+define service ZUI_SD_REGRA_DIFAL {
+  expose ZC_SD_REGRA_DIFAL;
+}

@@ -1,0 +1,478 @@
+@Metadata.layer: #CORE
+@UI: { headerInfo:           { typeName: 'Remessa em Atendimento',
+                               typeNamePlural: 'Remessas em Atendimento',
+                               title: { type: #STANDARD, value: 'SalesDocument' } },
+
+       presentationVariant: [{ sortOrder: [{ by: 'SalesDocument', direction:  #DESC }] }] }
+
+@UI.lineItem: [{criticality: 'Criticality' }]
+
+annotate view ZC_SD_COCKPIT_REMESSA with
+{
+  // ------------------------------------------------------
+  // Header information
+  // ------------------------------------------------------
+  @UI.facet: [ { id:              'HeaderSalesDocument',
+                 purpose:         #HEADER,
+                 type:            #DATAPOINT_REFERENCE,
+                 targetQualifier: 'HeaderSalesDocument',
+                 position:        10 },
+
+  //               { id:              'HeaderOutboundDelivery',
+  //                 purpose:         #HEADER,
+  //                 type:            #DATAPOINT_REFERENCE,
+  //                 targetQualifier: 'HeaderOutboundDelivery',
+  //                 position:        20 },
+  //
+  //               { id:              'HeaderFreightOrder',
+  //                 purpose:         #HEADER,
+  //                 type:            #DATAPOINT_REFERENCE,
+  //                 targetQualifier: 'HeaderFreightOrder',
+  //                 position:        30 },
+  //
+  //               { id:              'HeaderBillingDocument',
+  //                 purpose:         #HEADER,
+  //                 type:            #DATAPOINT_REFERENCE,
+  //                 targetQualifier: 'HeaderBillingDocument',
+  //                 position:        40 },
+  //
+  //               { id:              'HeaderNotaFiscal',
+  //                 purpose:         #HEADER,
+  //                 type:            #DATAPOINT_REFERENCE,
+  //                 targetQualifier: 'HeaderNotaFiscal',
+  //                 position:        50 },
+
+               { id:              'DOCUMENTOS',
+                 isSummary:       true,
+                 type:            #COLLECTION,
+                 label:           'Cabeçalho',
+                 position:        10 },
+
+                        { parentId:        'DOCUMENTOS',
+                          id:              'Documentos',
+                          type:            #FIELDGROUP_REFERENCE,
+                          position:        10,
+                          targetQualifier: 'Documentos' },
+
+               { id:              'STATUS',
+                 isSummary:       true,
+                 type:            #COLLECTION,
+                 label:           'Status',
+                 position:        20 },
+
+                        { parentId:        'STATUS',
+                          id:              'Status',
+                          type:            #FIELDGROUP_REFERENCE,
+                          position:        10,
+                          targetQualifier: 'Status' },
+
+               { id:              'ORDEMVENDA',
+                 isSummary:       true,
+                 type:            #COLLECTION,
+                 label:           'Ordem de Venda',
+                 position:        30 },
+
+                        { parentId:        'ORDEMVENDA',
+                          id:              'OrdemVenda',
+                          type:            #FIELDGROUP_REFERENCE,
+                          position:        10,
+                          targetQualifier: 'OrdemVenda' },
+
+               { id:              'REMESSA',
+                 isSummary:       true,
+                 type:            #COLLECTION,
+                 label:           'Remessa',
+                 position:        40 },
+
+                        { parentId:        'REMESSA',
+                          id:              'Remessa',
+                          type:            #FIELDGROUP_REFERENCE,
+                          position:        10,
+                          targetQualifier: 'Remessa' },
+
+               { id:              'FATURA',
+                 isSummary:       true,
+                 type:            #COLLECTION,
+                 label:           'Fatura',
+                 position:        50 },
+
+                        { parentId:        'FATURA',
+                          id:              'Fatura',
+                          type:            #FIELDGROUP_REFERENCE,
+                          position:        10,
+                          targetQualifier: 'Fatura' },
+
+  //                 { id:              'ORDEMFRETE',
+  //                   isSummary:       true,
+  //                   type:            #COLLECTION,
+  //                   label:           'Ordem de Frete',
+  //                   position:        60 },
+  //
+  //                          { parentId:        'ORDEMFRETE',
+  //                            id:              'OrdemFrete',
+  //                            type:            #FIELDGROUP_REFERENCE,
+  //                            position:        10,
+  //                            targetQualifier: 'OrdemFrete' },
+
+                 { id:              'NOTAFISCAL',
+                   isSummary:       true,
+                   type:            #COLLECTION,
+                   label:           'Nota Fiscal',
+                   position:        70 },
+
+                          { parentId:        'NOTAFISCAL',
+                            id:              'NotaFiscal',
+                            type:            #FIELDGROUP_REFERENCE,
+                            position:        10,
+                            targetQualifier: 'NotaFiscal' },
+
+               { id:              'Log',
+                 purpose:         #STANDARD,
+                 type:            #LINEITEM_REFERENCE,
+                 label:           'Log',
+                 position:        100,
+                 targetElement:   '_CockpitLog'} ]
+
+  // ------------------------------------------------------
+  // Buttons information
+  // ------------------------------------------------------
+  @UI.lineItem:         [ { position: 10, type: #FOR_ACTION, dataAction: 'releaseToRouting', label: 'Liberar para Roteirização' },
+                          { position: 20, type: #FOR_ACTION, dataAction: 'sendToRouting',    label: 'Enviar para Roteirização', invocationGrouping: #CHANGE_SET },
+                          { position: 30, type: #FOR_ACTION, dataAction: 'setDeliveryBlock', label: 'Definir Bloqueio de Remessa' },
+                          { position: 40, type: #FOR_ACTION, dataAction: 'rmvDeliveryBlock', label: 'Retirar Bloqueio de Remessa' },
+                          { position: 50, type: #FOR_ACTION, dataAction: 'deleteDelivery',   label: 'Eliminar Remessa' }]
+//                          { position: 60, type: #FOR_ACTION, dataAction: 'checkParam',       label: 'Verificar Parâmetros', invocationGrouping: #CHANGE_SET }]
+  //                          { position: 70, type: #FOR_ACTION, dataAction: 'returnSymbol',   label: 'Solicitar Retorno Simbólico', invocationGrouping: #CHANGE_SET  } ]
+
+  @UI.identification:   [ { position: 10, type: #FOR_ACTION, dataAction: 'releaseToRouting', label: 'Liberar para Roteirização' },
+                          { position: 20, type: #FOR_ACTION, dataAction: 'sendToRouting',    label: 'Enviar para Roteirização', invocationGrouping: #CHANGE_SET },
+                          { position: 30, type: #FOR_ACTION, dataAction: 'setDeliveryBlock', label: 'Definir Bloqueio de Remessa' },
+                          { position: 40, type: #FOR_ACTION, dataAction: 'rmvDeliveryBlock', label: 'Retirar Bloqueio de Remessa' },
+                          { position: 50, type: #FOR_ACTION, dataAction: 'deleteDelivery',   label: 'Eliminar Remessa' }]
+//                          { position: 60, type: #FOR_ACTION, dataAction: 'checkParam',       label: 'Verificar Parâmetros', invocationGrouping: #CHANGE_SET }]
+  //                          { position: 70, type: #FOR_ACTION, dataAction: 'returnSymbol',   label: 'Solicitar Retorno Simbólico', invocationGrouping: #CHANGE_SET  } ]
+
+  // ------------------------------------------------------
+  // Field information
+  // ------------------------------------------------------
+  //  @UI.hidden: true
+  //  VendorIntName;
+  //
+  //  @UI.hidden: true
+  //  VendorExtName;
+  @UI.hidden: true
+  PlantName;
+
+  @Consumption.semanticObject:'SalesDocument'
+  //  @UI: { lineItem:       [ { position: 10, label: 'Ordem de Venda', semanticObjectAction: 'display', type: #WITH_INTENT_BASED_NAVIGATION } ],
+  //         fieldGroup:     [ { position: 10, label: 'Ordem de Venda', qualifier: 'Documentos', semanticObjectAction: 'display', type: #WITH_INTENT_BASED_NAVIGATION } ],
+  @UI: { lineItem:        [ { position: 10, label: 'Ordem de Venda',type: #WITH_URL, url: 'URL_va03' } ],
+        fieldGroup:   [ { position: 10, label: 'Ordem de Venda', qualifier: 'Documentos' } ],
+         dataPoint:        { qualifier: 'HeaderSalesDocument', title: 'Ordem de Venda' },
+         selectionField: [ { position: 10 } ] }
+  SalesDocument;
+
+  @UI: { lineItem:       [ { position: 20, label: 'Vendedor Interno' } ],
+         fieldGroup:     [ { position: 10, label: 'Vendedor Interno', qualifier: 'OrdemVenda' } ] }
+  @UI.textArrangement: #TEXT_SEPARATE
+  VendorInt;
+
+  @UI: { lineItem:       [ { position: 30, label: 'Nome Vendedor Interno' } ],
+     fieldGroup:         [ { position: 20, label: 'Nome Vendedor Interno', qualifier: 'OrdemVenda' } ] }
+  VendorIntName;
+
+
+  @UI: { lineItem:       [ { position: 40, label: 'Vendedor Externo' } ],
+         fieldGroup:     [ { position: 30, label: 'Vendedor Externo', qualifier: 'OrdemVenda' } ] }
+  @UI.textArrangement: #TEXT_SEPARATE
+  VendorExt;
+
+  @UI: { lineItem:       [ { position: 50, label: 'Nome Vendedor Externo' } ],
+         fieldGroup:     [ { position: 40, label: 'Nome Vendedor Externo', qualifier: 'OrdemVenda' } ] }
+  VendorExtName;
+
+  @UI: { lineItem:       [ { position: 60, label: 'Tipo Ordem de Venda' } ],
+         fieldGroup:     [ { position: 50, label: 'Tipo Ordem de Venda', qualifier: 'OrdemVenda' } ],
+         selectionField: [ { position: 20 } ] }
+  @UI.textArrangement: #TEXT_SEPARATE
+  SalesOrderType;
+
+  @UI.hidden: true
+  SalesOrderTypeName;
+
+  //  @Consumption.semanticObject:'OutboundDelivery'
+  //  @UI: { lineItem:       [ { position: 70, label: 'Remessa', semanticObjectAction: 'displayInWebGUI', type: #WITH_INTENT_BASED_NAVIGATION } ],
+  //         fieldGroup:     [ { position: 20, label: 'Remessa', qualifier: 'Documentos', semanticObjectAction: 'displayInWebGUI', type: #WITH_INTENT_BASED_NAVIGATION } ],
+  //         dataPoint:        { qualifier: 'HeaderOutboundDelivery', title: 'Remessa' },
+  @UI: { lineItem:        [ { position: 70, label: 'Remessa',type: #WITH_URL, url: 'URL_vl03n' } ],
+         fieldGroup:  [ { position: 20, label: 'Remessa', qualifier: 'Documentos' } ],
+         selectionField: [ { position: 60 } ] }
+  OutboundDelivery;
+
+  @Consumption.filter.selectionType: #INTERVAL
+  @UI: { lineItem:       [ { position: 80, label: 'Data desejada Remessa' } ],
+         fieldGroup:     [ { position: 60, label: 'Data desejada Remessa', qualifier: 'OrdemVenda' } ],
+         selectionField: [ { position: 120 } ] }
+  RequestedDeliveryDate;
+
+  @UI: { lineItem:       [ { position: 90, label: 'Emissor da Ordem' } ],
+         fieldGroup:     [ { position: 70, label: 'Emissor da Ordem', qualifier: 'OrdemVenda' } ],
+         selectionField: [ { position: 30 } ] }
+  @UI.textArrangement: #TEXT_SEPARATE
+  SoldToParty;
+
+  @UI: { lineItem:       [ { position: 100, label: 'Nome Emissor da Ordem' } ],
+         fieldGroup:     [ { position: 80, label: 'Emissor da Ordem', qualifier: 'OrdemVenda' } ]}
+  SoldToPartyName;
+
+  @UI: { lineItem:       [ { position: 110, label: 'Bloqueio de Remessa' } ],
+         fieldGroup:     [ { position: 10, label: 'Bloqueio de Remessa', qualifier: 'Status' } ],
+         selectionField: [ { position: 130 } ] }
+  DeliveryBlockReason;
+
+  @UI.hidden: true
+  DeliveryBlockReasonText;
+
+  @Consumption.filter.selectionType: #INTERVAL
+  @UI: { lineItem:       [ { position: 120, label: 'Data criação OV' } ],
+         fieldGroup:     [ { position: 90, label: 'Data criação OV', qualifier: 'OrdemVenda' } ],
+         selectionField: [ { position: 40 } ] }
+  SalesCreationDate;
+
+  @Consumption.filter.selectionType: #INTERVAL
+  @UI: { lineItem:       [ { position: 130, label: 'Hora criação OV' } ],
+         fieldGroup:     [ { position: 100, label: 'Hora criação OV', qualifier: 'OrdemVenda' } ],
+         selectionField: [ { position: 50 } ] }
+  SalesCreationTime;
+
+  @UI: { lineItem:       [ { position: 150, label: 'Centro' } ],
+         fieldGroup:     [ { position: 10, label: 'Centro', qualifier: 'Remessa' } ],
+         selectionField: [ { position: 70 } ] }
+  @UI.textArrangement: #TEXT_SEPARATE
+  Plant;
+
+
+
+  @UI: { lineItem:       [ { position: 140, label: 'Valor Total' } ],
+         fieldGroup:     [ { position: 100, label: 'Valor Total', qualifier: 'OrdemVenda' } ] }
+  TotalNetAmount;
+
+  @UI.hidden: true
+  TransactionCurrency;
+
+  //  @Consumption.semanticObject:'FreightOrder'
+  //  @UI: { lineItem:       [ { position: 160, label: 'Ordem de Frete', semanticObjectAction: 'displayRoad', type: #WITH_INTENT_BASED_NAVIGATION } ],
+  //         fieldGroup:     [ { position: 120, label: 'Ordem de Frete', semanticObjectAction: 'displayRoad', type: #WITH_INTENT_BASED_NAVIGATION, qualifier: 'Documentos' } ] }
+  @UI: { lineItem:        [ { position: 160, label: 'Ordem de Frete',type: #WITH_URL, url: 'URL_frete' } ],
+         fieldGroup:  [ { position: 120, label: 'Ordem de Frete', qualifier: 'HeaderFreightOrder' } ] }
+  //           dataPoint:        { qualifier: 'HeaderFreightOrder', title: 'Ordem de Frete' } }
+  FreightOrder;
+
+  @UI: { lineItem:       [ { position: 170, label: 'Saída de Mercadoria' } ],
+         fieldGroup:     [ { position: 20, label: 'Saída de Mercadoria', qualifier: 'Status' } ] }
+  @UI.textArrangement: #TEXT_SEPARATE
+  OverallGoodsMovementStatus;
+
+  @UI.hidden: true
+  OverallGoodsMovementStatusDesc;
+
+  @Consumption.semanticObject:'BillingDocument'
+  //  @UI: { lineItem:       [ { position: 180, label: 'Fatura', semanticObjectAction: 'displayBillingDocument', type: #WITH_INTENT_BASED_NAVIGATION } ],
+  //         fieldGroup:     [ { position: 30, label: 'Fatura', qualifier: 'Documentos', semanticObjectAction: 'displayBillingDocument', type: #WITH_INTENT_BASED_NAVIGATION } ],
+  @UI: { lineItem:        [ { position: 180, label: 'Fatura',type: #WITH_URL, url: 'URL_vf03' } ],
+         fieldGroup:  [ { position: 30, label: 'Fatura', qualifier: 'Documentos' } ] ,
+         selectionField: [ { position: 140 } ] }
+  //         dataPoint:        { qualifier: 'HeaderBillingDocument', title: 'Fatura' } }
+  BillingDocument;
+
+  @UI: { lineItem:       [ { position: 190, label: 'Status Contábil' } ],
+         fieldGroup:     [ { position: 30, label: 'Status Contábil', qualifier: 'Status' } ] }
+  @UI.textArrangement: #TEXT_SEPARATE
+  AccountingPostingStatus;
+
+  @UI.hidden: true
+  AccountingPostingStatusDesc;
+
+  @UI: { fieldGroup:     [ { position: 10, label: 'Data criação Fatura', qualifier: 'Fatura' } ] }
+  BillingDocumentDate;
+
+  @UI: { fieldGroup:     [ { position: 20, label: 'Categoria Faturamento', qualifier: 'Fatura' } ] }
+  @UI.textArrangement: #TEXT_SEPARATE
+  BillingDocumentCategory;
+
+  @UI.hidden: true
+  BillingDocumentCategoryName;
+
+  @UI: { fieldGroup:     [ { position: 30, label: 'Tipo Faturamento', qualifier: 'Fatura' } ] }
+  @UI.textArrangement: #TEXT_SEPARATE
+  BillingDocumentType;
+
+  @UI.hidden: true
+  BillingDocumentTypeName;
+
+  //  @UI: { fieldGroup:     [ { position: 90, label: 'Tipo Ordem Venda', qualifier: 'OrdemVenda' } ] }
+  //  SalesDocumentType;
+  //
+  //  @UI.hidden: true
+  //  SalesDocumentTypeName;
+
+  @UI: { fieldGroup:     [ { position: 100, label: 'Canal de Distribuição', qualifier: 'OrdemVenda' } ],
+         selectionField: [ { position: 80 } ] }
+  @UI.textArrangement: #TEXT_SEPARATE
+  DistributionChannel;
+
+  @UI.hidden: true
+  DistributionChannelName;
+
+  @UI: { fieldGroup:     [ { position: 120, label: 'Escritório de vendas', qualifier: 'OrdemVenda' } ],
+         selectionField: [ { position: 90 } ] }
+  @UI.textArrangement: #TEXT_SEPARATE
+  SalesOffice;
+
+  @UI.hidden: true
+  SalesOfficeName;
+
+  @UI: { fieldGroup:     [ { position: 130, label: 'Equipe de vendas', qualifier: 'OrdemVenda' } ],
+         selectionField: [ { position: 100 } ] }
+  @UI.textArrangement: #TEXT_SEPARATE
+  SalesGroup;
+
+  @UI.hidden: true
+  SalesGroupName;
+
+  @UI: { fieldGroup:     [ { position: 140, label: 'Data criação pedido SIRIUS', qualifier: 'OrdemVenda' } ] }
+  CustomerPurchaseOrderDate;
+
+  @Consumption.filter.selectionType: #INTERVAL
+  @UI: { fieldGroup:     [ { position: 20, label: 'Data criação Remessa', qualifier: 'Remessa' } ] }
+  DeliveryCreationDate;
+
+  @Consumption.filter.selectionType: #INTERVAL
+  @UI: { fieldGroup:     [ { position: 30, label: 'Hora criação Remessa', qualifier: 'Remessa' } ] }
+  DeliveryCreationTime;
+
+  //  @UI: { lineItem:       [ { position: 190, label: 'Peso Bruto' } ],
+  @UI: { fieldGroup:     [ { position: 160, label: 'Peso Bruto', qualifier: 'OrdemVenda' } ] }
+  ItemGrossWeightAvailable;
+
+  //  @UI: { fieldGroup:     [ { position: 160, label: 'Peso Bruto Total', qualifier: 'OrdemVenda' } ] }
+  //  ItemGrossWeightTotal;
+  //
+  ////  @UI: { lineItem:       [ { position: 200, label: 'Peso Bruto (%)', type:#AS_DATAPOINT } ],
+  // @UI: {  fieldGroup:     [ { position: 170, label: 'Peso Bruto (%)', qualifier: 'OrdemVenda', criticality: 'ItemGrossWeightPercCrit', criticalityRepresentation: #WITHOUT_ICON } ],
+  //         dataPoint:        { targetValue: 100 , visualization: #PROGRESS, criticality: 'ItemGrossWeightPercCrit' } }
+  //  ItemGrossWeightPerc;
+
+  @UI.hidden: true
+  ItemGrossWeightPercCrit;
+
+  @UI: { fieldGroup:     [ { position: 150, label: 'Agendamento', qualifier: 'OrdemVenda' } ] }
+  AdditionalCustomerGroup5;
+
+  @UI.hidden: true
+  AdditionalCustomerGroup5Name;
+
+  @UI: { fieldGroup:     [ { position: 40, label: 'Status atendimento OV', qualifier: 'Status' } ] }
+  @UI.textArrangement: #TEXT_SEPARATE
+  OverallDeliveryStatus;
+
+  @UI.hidden: true
+  OverallDeliveryStatusDesc;
+
+
+  @UI: { lineItem:       [ { position: 200 } ],
+         fieldGroup:     [ { position: 40, qualifier: 'Documentos' } ],
+         selectionField: [ { position: 150 } ] }
+  //         dataPoint:        { qualifier: 'HeaderNotaFiscal', title: 'Nota Fiscal' } }
+  BR_NotaFiscal;
+
+  @Consumption.semanticObject:'NotaFiscal'
+  //  @UI: { lineItem:       [ { position: 210, semanticObjectAction: 'display', type: #WITH_INTENT_BASED_NAVIGATION  } ],
+  //         fieldGroup:     [ { position: 70, qualifier: 'NotaFiscal',semanticObjectAction: 'display', type: #WITH_INTENT_BASED_NAVIGATION  } ] }
+  @UI: { lineItem:        [ { position: 210,type: #WITH_URL, url: 'URL_j1b3n' } ],
+         fieldGroup:  [ { position: 70, qualifier: 'NotaFiscal' } ] }
+  //BR_NFeNumber;
+  NotaFiscal;
+
+  @UI: { fieldGroup:     [ { position: 10, label: 'Tipo Nota Fiscal', qualifier: 'NotaFiscal' } ] }
+  BR_NFType;
+
+  @UI.hidden: true
+  BR_NFTypeName;
+
+  //  @UI: { fieldGroup:     [ { position: 20, label: 'Tipo de documento', qualifier: 'NotaFiscal' } ] }
+  @UI.hidden: true
+  BR_NFDocumentType;
+
+  @UI.hidden: true
+  BR_NFDocumentTypeName;
+
+  //  @UI: { fieldGroup:     [ { position: 30, label: 'Direção do movimento', qualifier: 'NotaFiscal' } ] }
+  @UI.hidden: true
+  BR_NFDirection;
+
+  @UI.hidden: true
+  BR_NFDirectionDesc;
+
+  //  @UI: { fieldGroup:     [ { position: 40, label: 'Modelo', qualifier: 'NotaFiscal' } ] }
+  @UI.hidden: true
+  BR_NFModel;
+
+  @UI.hidden: true
+  BR_NFModelDesc;
+
+  @UI: { fieldGroup:     [ { position: 50, label: 'Data Criação Nota Fiscal', qualifier: 'NotaFiscal' } ] }
+  NFCreationDate;
+
+  @UI: { fieldGroup:     [ { position: 60, label: 'Hora Criação Nota Fiscal', qualifier: 'NotaFiscal' } ] }
+  NFCreationTime;
+
+  /* Abstract */
+
+  @UI.hidden: true
+  DeliveryBlockReasonNew;
+  //  @UI.hidden: true
+  //  @UI.textArrangement: #TEXT_SEPARATE
+  @UI: { lineItem:       [ { position: 260, label: 'Região de Vendas' } ],
+  fieldGroup:     [ { position: 160, label: 'Região de Vendas', qualifier: 'OrdemVenda' } ] }
+  SalesDistrict;
+  @UI.hidden: true
+  SalesDistrictName;
+  @UI: { lineItem:       [ { position: 220 } ],
+       fieldGroup:     [ { position: 70, qualifier: 'NotaFiscal' } ]}
+  DeliveryPriority;
+  @UI: {  lineItem:       [ { position: 230, criticality: 'ColorBR_NFeDocumentStatus' } ],
+        identification: [ { position: 80, criticality: 'ColorBR_NFeDocumentStatus' } ]  }
+  BR_NFeDocumentStatus;
+  @Consumption.filter.hidden: true
+  @UI.hidden: true
+  ColorBR_NFeDocumentStatus;
+  @UI: { lineItem:       [ { position: 240 } ],
+     fieldGroup:     [ { position: 50, qualifier: 'Documentos' } ]}
+  EventCode;
+  @UI: { lineItem:       [ { position: 250 } ],
+   fieldGroup:     [ { position: 80, qualifier: 'NotaFiscal'  } ]}
+  @Consumption.filter:{ selectionType: #SINGLE }
+  BR_NFIsPrinted;
+  @UI: { lineItem:       [ { position: 270, label: 'Data Criação Ordem de Frete' } ]}
+  CreatedOn;
+  //  @UI.hidden: true
+  //  CreatedOnDat;
+
+  @UI.hidden: true
+  Criticality;
+
+  @UI: {  lineItem:       [ { position: 280, criticality: 'PickingStatusColor' } ],
+          identification: [ { position: 90,  criticality: 'PickingStatusColor' } ],
+          selectionField: [ { position: 160 } ] }
+  @UI.textArrangement: #TEXT_ONLY
+  OverallPickingStatus;
+
+  @UI.lineItem:       [ { position: 290, criticality: 'Criticality', criticalityRepresentation: #WITHOUT_ICON } ]
+  Message;
+
+  @UI: { lineItem:       [ { position: 300 } ],
+         fieldGroup:     [ { position: 100, qualifier: 'Documentos' } ],
+         selectionField: [ { position: 160 } ] }
+  Route;
+}

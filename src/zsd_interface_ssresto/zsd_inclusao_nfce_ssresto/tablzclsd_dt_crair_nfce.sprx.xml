@@ -1,0 +1,116 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<abapGit version="v1.0.0" serializer="LCL_OBJECT_SPRX" serializer_version="v1.0.0">
+ <asx:abap xmlns:asx="http://www.sap.com/abapxml" version="1.0">
+  <asx:values>
+   <PROXY_HEADER>
+    <item>
+     <OBJECT>TABL</OBJECT>
+     <OBJ_NAME>ZCLSD_DT_CRAIR_NFCE</OBJ_NAME>
+     <OBJECT_M>TABL</OBJECT_M>
+     <OBJ_NAME_M>ZCLSD_DT_CRAIR_NFCE</OBJ_NAME_M>
+     <HASH_ID>77666CA081BA0FEC5EF4D1FCBA3C7FD76420C69F</HASH_ID>
+     <ID>&lt;type&gt; dtCrairNFCe http://trescoracoes.com.br/fiscal/nfce http://trescoracoes.com.br/fiscal/nfce</ID>
+     <IFR_GLOBAL>X</IFR_GLOBAL>
+     <IFR_TYPE>type</IFR_TYPE>
+     <IFR_NAME>dtCrairNFCe</IFR_NAME>
+     <IFR_NSPCE>http://trescoracoes.com.br/fiscal/nfce</IFR_NSPCE>
+     <IFR_GNSPCE>http://trescoracoes.com.br/fiscal/nfce</IFR_GNSPCE>
+     <GEN_VERS>0005</GEN_VERS>
+     <PREFIX>ZCLSD_</PREFIX>
+     <CATEGORY>ifmtypedef</CATEGORY>
+     <X-ML_NSPCE>http://trescoracoes.com.br/fiscal/nfce</X-ML_NSPCE>
+     <X-ML_NAME>dtCrairNFCe</X-ML_NAME>
+     <VERSION_ID>c5cbabe48ddf11eda86900000085a0cb</VERSION_ID>
+    </item>
+   </PROXY_HEADER>
+   <PROXY_DATA>
+    <item>
+     <OBJECT>TABL</OBJECT>
+     <OBJ_NAME>ZCLSD_DT_CRAIR_NFCE</OBJ_NAME>
+     <OBJECT1>FIEL</OBJECT1>
+     <OBJ_NAME1>CABECALHO</OBJ_NAME1>
+     <OBJECT2>FIEL</OBJECT2>
+     <OBJ_NAME2>CABECALHO</OBJ_NAME2>
+     <OBJECT_R>TABL</OBJECT_R>
+     <OBJ_NAME_R>ZCLSD_DT_CRAIR_NFCE_CABECALHO</OBJ_NAME_R>
+     <ID>&lt;element&gt; Cabecalho &lt;type&gt; dtCrairNFCe http://trescoracoes.com.br/fiscal/nfce http://trescoracoes.com.br/fiscal/nfce</ID>
+     <IFR_TYPE>element</IFR_TYPE>
+     <IFR_NAME>Cabecalho</IFR_NAME>
+     <IFR_TEXT>Dados de cabeçalho</IFR_TEXT>
+     <IFR_LANGU>EN</IFR_LANGU>
+     <IFR_TAGTYP>E</IFR_TAGTYP>
+     <IFR_MINOCC>1</IFR_MINOCC>
+     <IFR_MAXOCC>1</IFR_MAXOCC>
+     <IFR_SCALE>-2</IFR_SCALE>
+     <R3_TYPE>FIEL</R3_TYPE>
+     <R3_NAME>CABECALHO</R3_NAME>
+     <R3_TEXT>Dados de cabeçalho</R3_TEXT>
+     <R3_SEQNUM>000001</R3_SEQNUM>
+    </item>
+    <item>
+     <OBJECT>TABL</OBJECT>
+     <OBJ_NAME>ZCLSD_DT_CRAIR_NFCE</OBJ_NAME>
+     <OBJECT1>FIEL</OBJECT1>
+     <OBJ_NAME1>ITENS</OBJ_NAME1>
+     <OBJECT2>FIEL</OBJECT2>
+     <OBJ_NAME2>ITENS</OBJ_NAME2>
+     <OBJECT_R>TTYP</OBJECT_R>
+     <OBJ_NAME_R>ZCLSD_DT_CRAIR_NFCE_ITENS_TAB</OBJ_NAME_R>
+     <ID>&lt;element&gt; Itens &lt;type&gt; dtCrairNFCe http://trescoracoes.com.br/fiscal/nfce http://trescoracoes.com.br/fiscal/nfce</ID>
+     <IFR_TYPE>element</IFR_TYPE>
+     <IFR_NAME>Itens</IFR_NAME>
+     <IFR_TEXT>Dados de itens</IFR_TEXT>
+     <IFR_LANGU>EN</IFR_LANGU>
+     <IFR_TAGTYP>L</IFR_TAGTYP>
+     <IFR_MINOCC>1</IFR_MINOCC>
+     <IFR_MAXOCC>65535</IFR_MAXOCC>
+     <IFR_SCALE>-2</IFR_SCALE>
+     <R3_TYPE>FIEL</R3_TYPE>
+     <R3_NAME>ITENS</R3_NAME>
+     <R3_TEXT>Dados de itens</R3_TEXT>
+     <R3_SEQNUM>000002</R3_SEQNUM>
+    </item>
+    <item>
+     <OBJECT>TABL</OBJECT>
+     <OBJ_NAME>ZCLSD_DT_CRAIR_NFCE</OBJ_NAME>
+     <OBJECT1>FIEL</OBJECT1>
+     <OBJ_NAME1>PAGAMENTOS</OBJ_NAME1>
+     <OBJECT2>FIEL</OBJECT2>
+     <OBJ_NAME2>PAGAMENTOS</OBJ_NAME2>
+     <OBJECT_R>TTYP</OBJECT_R>
+     <OBJ_NAME_R>ZCLSD_DT_CRAIR_NFCE_PAGAME_TAB</OBJ_NAME_R>
+     <ID>&lt;element&gt; Pagamentos &lt;type&gt; dtCrairNFCe http://trescoracoes.com.br/fiscal/nfce http://trescoracoes.com.br/fiscal/nfce</ID>
+     <IFR_TYPE>element</IFR_TYPE>
+     <IFR_NAME>Pagamentos</IFR_NAME>
+     <IFR_TEXT>Formas pagamento da venda</IFR_TEXT>
+     <IFR_LANGU>EN</IFR_LANGU>
+     <IFR_TAGTYP>L</IFR_TAGTYP>
+     <IFR_MINOCC>1</IFR_MINOCC>
+     <IFR_MAXOCC>65535</IFR_MAXOCC>
+     <IFR_SCALE>-2</IFR_SCALE>
+     <R3_TYPE>FIEL</R3_TYPE>
+     <R3_NAME>PAGAMENTOS</R3_NAME>
+     <R3_TEXT>Formas pagamento da venda</R3_TEXT>
+     <R3_SEQNUM>000003</R3_SEQNUM>
+    </item>
+    <item>
+     <OBJECT>TABL</OBJECT>
+     <OBJ_NAME>ZCLSD_DT_CRAIR_NFCE</OBJ_NAME>
+     <OBJECT1>TABL</OBJECT1>
+     <OBJ_NAME1>ZCLSD_DT_CRAIR_NFCE</OBJ_NAME1>
+     <OBJECT2>TABL</OBJECT2>
+     <OBJ_NAME2>ZCLSD_DT_CRAIR_NFCE</OBJ_NAME2>
+     <ID>&lt;type&gt; dtCrairNFCe http://trescoracoes.com.br/fiscal/nfce http://trescoracoes.com.br/fiscal/nfce</ID>
+     <IFR_TYPE>type</IFR_TYPE>
+     <IFR_NAME>dtCrairNFCe</IFR_NAME>
+     <IFR_LANGU>EN</IFR_LANGU>
+     <IFR_SCALE>-2</IFR_SCALE>
+     <R3_TYPE>TABL</R3_TYPE>
+     <R3_NAME>ZCLSD_DT_CRAIR_NFCE</R3_NAME>
+     <R3_TEXT>Proxy Structure (generated)</R3_TEXT>
+     <CATEGORY>ifmtypedef</CATEGORY>
+    </item>
+   </PROXY_DATA>
+  </asx:values>
+ </asx:abap>
+</abapGit>

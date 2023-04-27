@@ -1,0 +1,10 @@
+@EndUserText.label: 'CDS de Autorização'
+@MappingRole: true
+define role ZC_SD_RECUSA_NIVEL_ITEM {
+    grant
+        select
+            on
+                ZC_SD_RECUSA_NIVEL_ITEM
+                    where
+                        ( Plant ) = aspect pfcg_auth( ZSDWERKS, WERKS, ACTVT = '03' );                        
+}

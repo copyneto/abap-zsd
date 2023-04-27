@@ -1,0 +1,24 @@
+@Metadata.layer: #CORE
+@UI.headerInfo: { title:{ label: 'DExPARA Centros de Faturamento/Centros de Depósito Fechado', 
+                  value: 'CentroFaturamento' },
+                  typeName: 'Centro Faturamento',
+                  typeNamePlural: 'Centros Faturamentos ' }
+annotate view ZC_SD_CENTRO_FAT_DF with 
+{
+  @UI.facet: [{ id:       'Geral',
+                position: 10,
+                label:    'Geral',
+                purpose:  #STANDARD,
+                type:     #IDENTIFICATION_REFERENCE
+                 }]
+
+  @UI: { lineItem:       [{ position: 10 }],
+         identification: [{ position: 10 }],
+         selectionField: [{ position: 10 }] }
+CentroFaturamento;
+  @UI: { lineItem:       [{ position: 20 }],
+         identification: [{ position: 20 }],
+         selectionField: [{ position: 20 }] }
+CentroDepFechado; 
+    
+}

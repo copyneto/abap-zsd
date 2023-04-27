@@ -1,0 +1,36 @@
+@Metadata.layer: #CORE
+@UI: {
+  headerInfo: {
+    typeName: 'NFE - Autorização para obter XML',
+    typeNamePlural: 'NFE - Autorização para obter XML',
+    title: {
+      type: #STANDARD,
+      label: 'Local De Negócios',
+      value: 'LocalNegocios'
+    }
+  }}
+annotate view ZC_SD_NFE_AUTXML_APP with
+{
+
+  @UI.facet: [ { id:         'LocalNegocios',
+               purpose:       #STANDARD,
+               type:          #IDENTIFICATION_REFERENCE,
+               label:         'Local De Negócios',
+               position:      10 }]
+
+  @UI: { lineItem:       [{ position: 10 }],
+         identification: [{ position: 10 }]}
+  @UI.selectionField: [{ position: 10 }]
+  LocalNegocios;
+
+  @UI: { lineItem:       [{ position: 20, label: 'Cnpj' }],
+      identification: [{ position: 20, label: 'Cnpj' }]}
+  @UI.selectionField: [{ position: 20 }]
+  Cnpj;
+
+  @UI: { lineItem:       [{ position: 30, label: 'Cpf' }],
+       identification: [{ position: 30, label: 'Cpf' }]}
+  @UI.selectionField: [{ position: 30 }]
+  Cpf;
+
+}

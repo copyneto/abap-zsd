@@ -1,0 +1,8 @@
+projection;
+
+define behavior for ZC_SD_NFE_TPATO alias TpAto
+{
+  use create;
+  use update;
+  use delete;
+}

@@ -1,0 +1,39 @@
+@Metadata.layer: #CORE
+
+@UI: {
+  headerInfo: { typeName: 'Pedido Intercompany via Excel',
+                typeNamePlural: 'Pedidos Intercompany via Excel',
+                title: { type: #STANDARD, label: 'Arquivo', value: 'FileDirectory' } },
+  headerInfo.description.value: 'CenterOrigin',
+  presentationVariant: [{ sortOrder: [{ by: 'CreatedDate', direction:  #DESC }, 
+                                      { by: 'CreatedTime', direction:  #DESC }] }] }
+annotate view ZC_SD_INTERC_UPLOAD with
+{
+
+  @UI:{ selectionField: [{ position: 10 }],
+        lineItem:       [{ position: 20, label: 'Centro de origem' }] }
+  @EndUserText.label: 'Centro de origem'
+  CenterOrigin;
+  
+  @UI:{ lineItem:       [{ position: 10, label: 'Arquivo' }] }
+  FileDirectory;
+
+  @UI:{ selectionField: [{ position: 20 }],
+        lineItem:       [{ position: 30, label: 'Data de Criação' }] }
+  @EndUserText.label: 'Data de Criação'
+  CreatedDate;
+
+  @UI:{ selectionField: [{ position: 30 }],
+        lineItem:       [{ position: 40, label: 'Hora de Criação' }] }
+  @EndUserText.label: 'Hora de Criação'
+  CreatedTime;
+
+  @UI:{ selectionField: [{ position: 40 }],
+        lineItem:       [{ position: 50, label: 'Usuário' }] }
+  @EndUserText.label: 'Usuário'
+  CreatedUser;
+
+  @UI.hidden: true
+  Guid;
+
+}

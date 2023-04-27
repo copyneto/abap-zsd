@@ -1,0 +1,4 @@
+@EndUserText.label: 'Service definition Relatório Fiscal de Saída'
+define service ZUI_SD_REL_FISCAL_SAIDA_APP {
+  expose ZC_SD_REL_FISCAL_SAIDA_APP;
+}

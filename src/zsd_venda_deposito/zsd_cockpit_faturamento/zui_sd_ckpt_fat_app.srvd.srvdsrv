@@ -1,0 +1,4 @@
+@EndUserText.label: 'Service Def  Cockpit de Faturamento'
+define service ZUI_SD_CKPT_FAT_APP {
+  expose ZC_SD_CKPT_FAT_APP;
+}

@@ -1,0 +1,30 @@
+managed; // implementation in class zbp_i_sd_marketplace unique;
+
+define behavior for ZI_SD_MARKETPLACE //alias <alias_name>
+persistent table ztsd_t048
+lock master
+//authorization master ( instance )
+//etag master <field_name>
+{
+  create;
+  update;
+  delete;
+
+  mapping for ZTSD_T048
+  {
+    Lifnr = lifnr;
+    Idcadinttran = idcadinttran;
+    Cnpjintermed = cnpjintermed;
+    Indintermed = indintermed;
+    IndPres = ind_pres;
+    CreatedBy = created_by;
+    CreatedAt = created_at;
+    LastChangedBy = last_changed_by;
+    LastChangedAt = last_changed_at;
+    LocalLastChangedAt = local_last_changed_at;
+
+  }
+
+  field ( readonly ) CreatedAt, CreatedBy, LastChangedAt, LastChangedBy, LocalLastChangedAt;
+  field ( readonly : update ) lifnr;
+}

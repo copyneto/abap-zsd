@@ -1,0 +1,4 @@
+@EndUserText.label: 'Service Def para cadastro de material'
+define service ZUI_SD_MATERIAL {
+  expose ZC_SD_MATERIAL;
+}

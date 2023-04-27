@@ -1,0 +1,106 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<abapGit version="v1.0.0" serializer="LCL_OBJECT_CLAS" serializer_version="v1.0.0">
+ <asx:abap xmlns:asx="http://www.sap.com/abapxml" version="1.0">
+  <asx:values>
+   <VSEOCLASS>
+    <CLSNAME>ZCLSD_VERIF_UTIL_SUB</CLSNAME>
+    <LANGU>P</LANGU>
+    <DESCRIPT>teste Sub. Produto</DESCRIPT>
+    <STATE>1</STATE>
+    <CLSCCINCL>X</CLSCCINCL>
+    <FIXPT>X</FIXPT>
+    <UNICODE>X</UNICODE>
+   </VSEOCLASS>
+   <DESCRIPTIONS>
+    <SEOCOMPOTX>
+     <CMPNAME>CALL_GET_DETAILS</CMPNAME>
+     <LANGU>P</LANGU>
+     <DESCRIPT>Busca dados da ordem</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>GS_ORDERHEADER</CMPNAME>
+     <LANGU>P</LANGU>
+     <DESCRIPT>Bapistructure of VBAK with english field names</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>GS_ORDER_HEADER_INX</CMPNAME>
+     <LANGU>P</LANGU>
+     <DESCRIPT>Barra de seleção: SD cabeçalho de ordem</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>GS_ORDER_ITEM_IN</CMPNAME>
+     <LANGU>P</LANGU>
+     <DESCRIPT>Campos de comunicação: item doc.SD</DESCRIPT>
+    </SEOCOMPOTX>
+   </DESCRIPTIONS>
+   <DESCRIPTIONS_SUB>
+    <SEOSUBCOTX>
+     <CMPNAME>CALL_BAPI_SUBSTITUIR</CMPNAME>
+     <SCONAME>IV_ORDER</SCONAME>
+     <LANGU>P</LANGU>
+     <DESCRIPT>Documento de vendas</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>CALL_GET_DETAILS</CMPNAME>
+     <SCONAME>IV_ORDER</SCONAME>
+     <LANGU>P</LANGU>
+     <DESCRIPT>Documento de vendas</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>FILL_DATA_BAPI</CMPNAME>
+     <SCONAME>IV_ORDEM</SCONAME>
+     <LANGU>P</LANGU>
+     <DESCRIPT>Número do documento de vendas e distribuição</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>GET_A816</CMPNAME>
+     <SCONAME>RV_PRECO</SCONAME>
+     <LANGU>P</LANGU>
+     <DESCRIPT>Montante ou porcentagem da condição</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>GET_A817</CMPNAME>
+     <SCONAME>IV_CENTRO</SCONAME>
+     <LANGU>P</LANGU>
+     <DESCRIPT>Centro</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>GET_A817</CMPNAME>
+     <SCONAME>IV_MATERIAL</SCONAME>
+     <LANGU>P</LANGU>
+     <DESCRIPT>Nº do material</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>GET_A817</CMPNAME>
+     <SCONAME>IV_PRICELISTTYPE</SCONAME>
+     <LANGU>P</LANGU>
+     <DESCRIPT>Tipo de lista de preços</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>GET_A817</CMPNAME>
+     <SCONAME>RV_PRECO</SCONAME>
+     <LANGU>P</LANGU>
+     <DESCRIPT>Montante ou porcentagem da condição</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>RECUSA_ITEM</CMPNAME>
+     <SCONAME>IV_ORDER</SCONAME>
+     <LANGU>P</LANGU>
+     <DESCRIPT>Documento de vendas</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>SUBSTITUIR_PRODUTO</CMPNAME>
+     <SCONAME>IV_ORDER</SCONAME>
+     <LANGU>P</LANGU>
+     <DESCRIPT>Documento de vendas</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>SUBSTITUIR_PRODUTO</CMPNAME>
+     <SCONAME>RT_MENSAGENS</SCONAME>
+     <LANGU>P</LANGU>
+     <DESCRIPT>Mensagens de erro</DESCRIPT>
+    </SEOSUBCOTX>
+   </DESCRIPTIONS_SUB>
+  </asx:values>
+ </asx:abap>
+</abapGit>

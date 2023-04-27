@@ -1,0 +1,11 @@
+managed;
+
+define behavior for ZI_SD_COMISSAO_COMEX_PROV alias Simulador
+implementation in class zclsd_comissao_comex_prov unique
+persistent table ztsd_comiss_cmx
+lock master
+{
+
+  action ( features : instance ) provisionar parameter ZI_SD_COMEX_PROV_POPUP result [1] $self;
+
+}

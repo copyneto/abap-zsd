@@ -1,0 +1,142 @@
+managed; //
+
+define behavior for ZI_SD_COCKPIT_DEVOLUCAO_GERDEV alias GeraDevolucao
+implementation in class zclsd_cockpit_devolucao_ger unique
+persistent table ztsd_devolucao
+lock master
+authorization master ( instance )
+etag master Local_Last_Changed_At
+{
+  //  association _RefVal { create; }
+  update;
+
+  field ( readonly : update ) NumNFe, TpDevolucao, DataLancamento, ValorTotalNFe, Cliente, Situacao, Motivo;
+  field ( readonly ) Last_Changed_At, Last_Changed_By, Created_At, Created_By, Local_Last_Changed_At;
+
+  action ( features : instance ) gerarOv;
+  action ( features : instance ) Calcular;
+  //  validation authorityCreate on save { create; }
+  validation VerificaModificao on save { create; update; }
+
+  mapping for ztsd_devolucao
+
+  {
+    Guid = guid;
+    LocalNegocio = local_negocio;
+    TpDevolucao = tipo_devolucao;
+    Regiao = regiao;
+    Ano = ano;
+    Mes = mes;
+    Cnpj = cnpj;
+    Modelo = modelo;
+    Serie = serie;
+    NumNFE = numero_nfe;
+    DigitoVerific = digito_verific;
+    DataLancamento = dt_lancamento;
+    Cliente = cliente;
+    Situacao = situacao;
+    Motivo = motivo;
+    ValorUnit = valor_totalnfe;
+    Quantidade = quantidade_nfe;
+    UnidMedida = unmedida_nfe;
+    Fatura = fatura;
+    Item = item;
+    UnMedidaFatura = un_fatura;
+    QuantidadeFatura = qtd_fatura;
+    ValorUnitFatura = vl_unit_fatura;
+    TotalFatura = vl_total_fatura;
+    BrutoFatura = vl_bruto_fatura;
+    AceitaValores = aceita_val;
+  }
+}
+
+// ------------------------------------------------------
+// Behavior: Referenciar e Validar
+// ------------------------------------------------------
+
+define behavior for ZI_SD_COCKPIT_DEVOLUCAO_REFVAL alias RefVal
+implementation in class zclsd_ref_valores unique
+persistent table ztsd_devolucao_i
+lock dependent by _GeracaoDev
+authorization dependent by _GeracaoDev
+etag master LocalLastChangedAt
+{
+
+  update;
+  association _GeracaoDev;
+
+  field ( readonly : update )
+  Guid, Item;
+
+  field ( readonly )
+  LocalNegocio,
+  TpDevolucao,
+  Regiao,
+  Ano,
+  Mes,
+  Cnpj,
+  Modelo,
+  Serie,
+  NumNFE,
+  DigitoVerific,
+  QuantidadeFatura,
+  UnMedidaFatura,
+  Cliente,
+  Centro,
+  BillingDocumentType,
+  SDDocumentReason,
+  SugestaoValor
+  ;
+
+  field ( readonly ) Material, TextoMaterial, CodEan, ValorUnit, LastChangedAt, LastChangedBy, CreatedAt, CreatedBy, LocalLastChangedAt;
+  //  field ( readonly )  ValorUnit,
+  //  Item, BrutoFatura, UnMedidaFatura, TotalFatura, QuantidadeFatura, ValorUnitFatura;//UnMedida, Quantidade,
+  validation aceitaValores on save
+  { field AceitaValores; update; create; }
+
+    //  determination calculaValores on modify
+    //  { field Quantidade, UnMedida, Fatura, ItemFatura, QuantidadeFatura,
+    //    ValorUnitFatura, TotalFatura, BrutoFatura, AceitaValores; update; }
+
+    determination AtualizaMaterial on modify { field Quantidade, UnMedida, Fatura, ItemFatura, QuantidadeFatura,
+                                                     ValorUnitFatura, TotalFatura, BrutoFatura; update;create; }
+
+    validation VerificaQuantidade on save { field Fatura; }
+
+    mapping for ztsd_devolucao_i
+    {
+      Guid = guid;
+      Item = item;
+      //    LocalNegocio = local_negocio;
+      //    TpDevolucao = tipo_devolucao;
+      //    Regiao = regiao;
+      //    Ano = ano;
+      //    Mes = mes;
+      //    Cnpj = cnpj;
+      //    Modelo = modelo;
+      //    Serie = serie;
+      //    NumNFE = numero_nfe;
+      //    DigitoVerific = digito_verific;
+      //    ValorUnit = valor_totalnfe;
+      Material = material;
+      TextoMaterial = texto_material;
+      Quantidade = quantidade_nfe;
+      UnMedida = unmedida_nfe;
+      Fatura = fatura;
+      ItemFatura = item_fatura;
+      UnMedidaFatura = un_fatura;
+      QuantidadeFatura = qtd_fatura;
+      ValorUnitFatura = vl_unit_fatura;
+      TotalFatura = vl_total_fatura;
+      BrutoFatura = vl_bruto_fatura;
+      DataFatura = data_fatura;
+      AceitaValores = aceita_val;
+      NFe = nfe_fatura;
+      CreatedBy = created_by;
+      CreatedAt = created_at;
+      LastChangedBy = last_changed_by;
+      LastChangedAt = last_changed_at;
+      LocalLastChangedAt = local_last_changed_at;
+
+    }
+  }

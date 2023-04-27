@@ -1,0 +1,106 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<abapGit version="v1.0.0" serializer="LCL_OBJECT_CLAS" serializer_version="v1.0.0">
+ <asx:abap xmlns:asx="http://www.sap.com/abapxml" version="1.0">
+  <asx:values>
+   <VSEOCLASS>
+    <CLSNAME>ZCLSD_VALIDA_RFB_OV</CLSNAME>
+    <LANGU>P</LANGU>
+    <DESCRIPT>Classe para Validação de Produtos RFB na OV</DESCRIPT>
+    <STATE>1</STATE>
+    <CLSCCINCL>X</CLSCCINCL>
+    <FIXPT>X</FIXPT>
+    <UNICODE>X</UNICODE>
+    <RSTAT>T</RSTAT>
+    <MSG_ID>ZMM_RFB</MSG_ID>
+   </VSEOCLASS>
+   <DESCRIPTIONS>
+    <SEOCOMPOTX>
+     <CMPNAME>CHECK</CMPNAME>
+     <LANGU>P</LANGU>
+     <DESCRIPT>Método estático para Validação de Catálogo RFB</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>GC_ERRO</CMPNAME>
+     <LANGU>P</LANGU>
+     <DESCRIPT>Cconstante Erro</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>GC_PARAM</CMPNAME>
+     <LANGU>P</LANGU>
+     <DESCRIPT>Cconstantes da tabela de Parâmetros</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>GC_STATUS</CMPNAME>
+     <LANGU>P</LANGU>
+     <DESCRIPT>Cconstantes de Status</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>GET_PARAM</CMPNAME>
+     <LANGU>P</LANGU>
+     <DESCRIPT>Busca parâmetros</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>GET_RFB</CMPNAME>
+     <LANGU>P</LANGU>
+     <DESCRIPT>Método para seleção de Catálogos RFB</DESCRIPT>
+    </SEOCOMPOTX>
+   </DESCRIPTIONS>
+   <DESCRIPTIONS_SUB>
+    <SEOSUBCOTX>
+     <CMPNAME>CHECK</CMPNAME>
+     <SCONAME>IS_VBAK</SCONAME>
+     <LANGU>P</LANGU>
+     <DESCRIPT>Cabeçalho da OV</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>CHECK</CMPNAME>
+     <SCONAME>IT_XVBAP</SCONAME>
+     <LANGU>P</LANGU>
+     <DESCRIPT>Itens da OV</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>CHECK</CMPNAME>
+     <SCONAME>RV_RESULT</SCONAME>
+     <LANGU>P</LANGU>
+     <DESCRIPT>Flag resultado para abort do processo</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>GET_PARAM</CMPNAME>
+     <SCONAME>ET_RANGE</SCONAME>
+     <LANGU>P</LANGU>
+     <DESCRIPT>Parâmetro range</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>GET_PARAM</CMPNAME>
+     <SCONAME>IV_KEY1</SCONAME>
+     <LANGU>P</LANGU>
+     <DESCRIPT>Parâmetro chave 1</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>GET_PARAM</CMPNAME>
+     <SCONAME>IV_KEY2</SCONAME>
+     <LANGU>P</LANGU>
+     <DESCRIPT>Parâmetro chave 2</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>GET_PARAM</CMPNAME>
+     <SCONAME>IV_KEY3</SCONAME>
+     <LANGU>P</LANGU>
+     <DESCRIPT>Parâmetro chave 3</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>GET_RFB</CMPNAME>
+     <SCONAME>IT_VBAP</SCONAME>
+     <LANGU>P</LANGU>
+     <DESCRIPT>Itens da OV</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>GET_RFB</CMPNAME>
+     <SCONAME>RT_RFB</SCONAME>
+     <LANGU>P</LANGU>
+     <DESCRIPT>Catálogos RFB</DESCRIPT>
+    </SEOSUBCOTX>
+   </DESCRIPTIONS_SUB>
+  </asx:values>
+ </asx:abap>
+</abapGit>

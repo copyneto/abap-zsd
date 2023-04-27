@@ -1,0 +1,71 @@
+@Metadata.layer: #CORE
+@UI: { headerInfo: { typeName: 'Análise CR/CP',
+                     typeNamePlural: 'Análise CR/CP',
+                     title: { type: #STANDARD, value: 'Parcela' } } }
+
+annotate view ZC_SD_CR_CP with
+{
+  // ------------------------------------------------------
+  // Informações de cabeçalho
+  // ------------------------------------------------------
+  @UI.facet: [ { id:            'AnaliseCRCP',
+                 purpose:       #STANDARD,
+                 type:          #IDENTIFICATION_REFERENCE,
+                 label:         'Análise CR/CP',
+                 position:      10 }  ]
+
+  // ------------------------------------------------------
+  // Informações de campo
+  // ------------------------------------------------------
+  @UI.hidden: true
+  Contrato;
+
+  //  @UI: { lineItem:        [ { position: 10, label: 'Parcela' } ],
+  //         identification:  [ { position: 10, label: 'Parcela' } ] }
+  @UI.hidden: true
+  Parcela;
+
+  @UI: { lineItem:        [ { position: 10, label: 'Parcela' } ],
+         identification:  [ { position: 10, label: 'Parcela' } ] }
+  ParcelaItem;
+
+  @UI: { lineItem:        [ { position: 20, label: 'Data Faturamento' } ],
+         identification:  [ { position: 20, label: 'Data Faturamento' } ] }
+  Datafaturamento;
+
+  @UI: { lineItem:        [ { position: 30, label: 'Doc. Fin. Fatura' } ],
+         identification:  [ { position: 30, label: 'Doc. Fin. Fatura' } ] }
+  DocFinFatura;
+
+  @UI: { lineItem:        [ { position: 40, label: 'Data Geração' } ],
+         identification:  [ { position: 40, label: 'Data Geração' } ] }
+  DataGeracao;
+  
+  @UI: { lineItem:        [ { position: 50, label: 'Vencimento' } ],
+         identification:  [ { position: 50, label: 'Vencimento' } ] }
+  Vencimento;
+
+  @UI: { lineItem:        [ { position: 60, label: 'Atribuição' } ],
+         identification:  [ { position: 60, label: 'Atribuição' } ] }
+  Atribuicao;
+
+  @UI: { lineItem:        [ { position: 70, label: 'Valor' } ],
+         identification:  [ { position: 70, label: 'Valor' } ] }
+  Valor;
+
+  @UI.hidden: true
+  Moeda;
+
+  @UI: { lineItem:        [ { position: 80, label: 'Data Doc. Fin. Recebimento' } ],
+         identification:  [ { position: 80, label: 'Data Doc. Fin. Recebimento' } ] }
+  DataCriacao;
+
+  @UI: { lineItem:        [ { position: 90, label: 'Doc. Fin. Recebimento' } ],
+         identification:  [ { position: 90, label: 'Doc. Fin. Recebimento' } ] }
+  DocFinRecebimento;
+  @UI.hidden: true
+  Fatura;
+  @UI.hidden: true
+  Ordem;
+
+}

@@ -1,0 +1,5 @@
+CLASS zclsd_agend_pallet DEFINITION PUBLIC ABSTRACT FINAL FOR BEHAVIOR OF zi_sd_ckpt_agend_pallet.
+ENDCLASS.
+
+CLASS zclsd_agend_pallet IMPLEMENTATION.
+ENDCLASS.

@@ -1,0 +1,66 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<abapGit version="v1.0.0" serializer="LCL_OBJECT_SPRX" serializer_version="v1.0.0">
+ <asx:abap xmlns:asx="http://www.sap.com/abapxml" version="1.0">
+  <asx:values>
+   <PROXY_HEADER>
+    <item>
+     <OBJECT>TABL</OBJECT>
+     <OBJ_NAME>ZCLSD_DT_DADOS_EMISSAO_DUA_DAD</OBJ_NAME>
+     <OBJECT_M>TABL</OBJECT_M>
+     <OBJ_NAME_M>ZCLSD_DT_DADOS_EMISSAO</OBJ_NAME_M>
+     <HASH_ID>4CA52B1634BFFD8A876294BF3B7CCCF8FF24A27E</HASH_ID>
+     <ID>&lt;type&gt; duaDadosMsg &lt;element&gt; duaDadosMsg &lt;type&gt; dtDadosEmissao http://trescoracoes.com.br/gnre-es/emissao http://trescoracoes.com.br/gnre-es/emissao</ID>
+     <IFR_TYPE>type</IFR_TYPE>
+     <IFR_NAME>duaDadosMsg</IFR_NAME>
+     <IFR_NSPCE>http://trescoracoes.com.br/gnre-es/emissao</IFR_NSPCE>
+     <IFR_GNSPCE>http://trescoracoes.com.br/gnre-es/emissao</IFR_GNSPCE>
+     <GEN_VERS>0005</GEN_VERS>
+     <PREFIX>ZCLSD_</PREFIX>
+     <CATEGORY>ifmtypedef</CATEGORY>
+     <X-ML_NSPCE>http://trescoracoes.com.br/gnre-es/emissao</X-ML_NSPCE>
+     <X-ML_NAME>duaDadosMsg</X-ML_NAME>
+    </item>
+   </PROXY_HEADER>
+   <PROXY_DATA>
+    <item>
+     <OBJECT>TABL</OBJECT>
+     <OBJ_NAME>ZCLSD_DT_DADOS_EMISSAO_DUA_DAD</OBJ_NAME>
+     <OBJECT1>FIEL</OBJECT1>
+     <OBJ_NAME1>EMIS_DUA</OBJ_NAME1>
+     <OBJECT2>FIEL</OBJECT2>
+     <OBJ_NAME2>EMIS_DUA</OBJ_NAME2>
+     <OBJECT_R>TABL</OBJECT_R>
+     <OBJ_NAME_R>ZCLSD_DT_DADOS_EMISSAO_EMIS_DU</OBJ_NAME_R>
+     <ID>&lt;element&gt; emisDua &lt;type&gt; duaDadosMsg &lt;element&gt; duaDadosMsg &lt;type&gt; dtDadosEmissao http://trescoracoes.com.br/gnre-es/emissao http://trescoracoes.com.br/gnre-es/emissao</ID>
+     <IFR_TYPE>element</IFR_TYPE>
+     <IFR_NAME>emisDua</IFR_NAME>
+     <IFR_LANGU>EN</IFR_LANGU>
+     <IFR_TAGTYP>E</IFR_TAGTYP>
+     <IFR_MINOCC>1</IFR_MINOCC>
+     <IFR_MAXOCC>1</IFR_MAXOCC>
+     <IFR_SCALE>-2</IFR_SCALE>
+     <R3_TYPE>FIEL</R3_TYPE>
+     <R3_NAME>EMIS_DUA</R3_NAME>
+     <R3_SEQNUM>000001</R3_SEQNUM>
+    </item>
+    <item>
+     <OBJECT>TABL</OBJECT>
+     <OBJ_NAME>ZCLSD_DT_DADOS_EMISSAO_DUA_DAD</OBJ_NAME>
+     <OBJECT1>TABL</OBJECT1>
+     <OBJ_NAME1>ZCLSD_DT_DADOS_EMISSAO_DUA_DAD</OBJ_NAME1>
+     <OBJECT2>TABL</OBJECT2>
+     <OBJ_NAME2>ZCLSD_DT_DADOS_EMISSAO_DUA_DAD</OBJ_NAME2>
+     <ID>&lt;type&gt; duaDadosMsg &lt;element&gt; duaDadosMsg &lt;type&gt; dtDadosEmissao http://trescoracoes.com.br/gnre-es/emissao http://trescoracoes.com.br/gnre-es/emissao</ID>
+     <IFR_TYPE>type</IFR_TYPE>
+     <IFR_NAME>duaDadosMsg</IFR_NAME>
+     <IFR_LANGU>EN</IFR_LANGU>
+     <IFR_SCALE>-2</IFR_SCALE>
+     <R3_TYPE>TABL</R3_TYPE>
+     <R3_NAME>ZCLSD_DT_DADOS_EMISSAO_DUA_DAD</R3_NAME>
+     <R3_TEXT>Proxy Structure (generated)</R3_TEXT>
+     <CATEGORY>ifmtypedef</CATEGORY>
+    </item>
+   </PROXY_DATA>
+  </asx:values>
+ </asx:abap>
+</abapGit>

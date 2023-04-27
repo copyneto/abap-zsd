@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<abapGit version="v1.0.0" serializer="LCL_OBJECT_SPRX" serializer_version="v1.0.0">
+ <asx:abap xmlns:asx="http://www.sap.com/abapxml" version="1.0">
+  <asx:values>
+   <PROXY_HEADER>
+    <item>
+     <OBJECT>DTEL</OBJECT>
+     <OBJ_NAME>ZTRESULT_LOTE_GNRE_INFORMACAO</OBJ_NAME>
+     <OBJECT_M>TABL</OBJECT_M>
+     <OBJ_NAME_M>ZTRESULT_LOTE_GNRE1</OBJ_NAME_M>
+     <HASH_ID>267A26DBB5D14CD69639032647D6CD4DDD40AA8B</HASH_ID>
+     <ID>&lt;type&gt; informacao &lt;element&gt; {http://www.gnre.pe.gov.br}informacao &lt;type&gt; informacoesComplementares &lt;element&gt; {http://www.gnre.pe.gov.br}informacoesComplementares &lt;type&gt; guia &lt;element&gt; {http://www.gnre.pe.gov.br}guia &lt;type&gt; resultado &lt;element&gt; {http://www.gnre.pe.gov.br}resultado &lt;type&gt; TResultLote_GNRE &lt;element&gt; TResultLote_GNRE http://www.gnre.pe.gov.br http://www.gnre.pe.gov.br</ID>
+     <IFR_TYPE>type</IFR_TYPE>
+     <IFR_NAME>informacao</IFR_NAME>
+     <IFR_NSPCE>http://www.gnre.pe.gov.br</IFR_NSPCE>
+     <IFR_GNSPCE>http://www.gnre.pe.gov.br</IFR_GNSPCE>
+     <GEN_VERS>0005</GEN_VERS>
+     <PREFIX>Z</PREFIX>
+     <CATEGORY>ifmtypedef</CATEGORY>
+     <GEN_APPL>WEBSERVICES</GEN_APPL>
+     <X-ML_NSPCE>http://www.gnre.pe.gov.br</X-ML_NSPCE>
+     <X-ML_NAME>informacao</X-ML_NAME>
+    </item>
+   </PROXY_HEADER>
+   <PROXY_DATA>
+    <item>
+     <OBJECT>DTEL</OBJECT>
+     <OBJ_NAME>ZTRESULT_LOTE_GNRE_INFORMACAO</OBJ_NAME>
+     <OBJECT1>DTEL</OBJECT1>
+     <OBJ_NAME1>ZTRESULT_LOTE_GNRE_INFORMACAO</OBJ_NAME1>
+     <OBJECT2>DTEL</OBJECT2>
+     <OBJ_NAME2>ZTRESULT_LOTE_GNRE_INFORMACAO</OBJ_NAME2>
+     <OBJECT_R>DTEL</OBJECT_R>
+     <OBJ_NAME_R>ZTSTRING1</OBJ_NAME_R>
+     <ID>&lt;type&gt; informacao &lt;element&gt; {http://www.gnre.pe.gov.br}informacao &lt;type&gt; informacoesComplementares &lt;element&gt; {http://www.gnre.pe.gov.br}informacoesComplementares &lt;type&gt; guia &lt;element&gt; {http://www.gnre.pe.gov.br}guia &lt;type&gt; resultado &lt;element&gt; {http://www.gnre.pe.gov.br}resultado &lt;type&gt; TResultLote_GNRE &lt;element&gt; TResultLote_GNRE http://www.gnre.pe.gov.br http://www.gnre.pe.gov.br</ID>
+     <IFR_TYPE>type</IFR_TYPE>
+     <IFR_NAME>informacao</IFR_NAME>
+     <IFR_XSDTYP>string</IFR_XSDTYP>
+     <IFR_MAXLEN>100</IFR_MAXLEN>
+     <IFR_MINLEN>1</IFR_MINLEN>
+     <IFR_SCALE>-2</IFR_SCALE>
+     <R3_TYPE>DTEL</R3_TYPE>
+     <R3_NAME>ZTRESULT_LOTE_GNRE_INFORMACAO</R3_NAME>
+     <R3_TEXT>Proxy Data Element (generated)</R3_TEXT>
+     <R3_DATATYP>CHAR</R3_DATATYP>
+     <R3_LENGTH>000100</R3_LENGTH>
+     <CATEGORY>ifmtypedef</CATEGORY>
+     <FURTHERDATA>﻿&lt;asx:abap xmlns:asx=&quot;http://www.sap.com/abapxml&quot; version=&quot;1.0&quot;&gt;&lt;asx:values&gt;&lt;DATA&gt;&lt;IFR_WHITESPACE&gt;preserve&lt;/IFR_WHITESPACE&gt;&lt;IFR_PATTERN&gt;[!-&amp;#255;]{1}[ -&amp;#255;]{0,}[!-&amp;#255;]{1}|[!-&amp;#255;]{1}&lt;/IFR_PATTERN&gt;&lt;/DATA&gt;&lt;/asx:values&gt;&lt;/asx:abap&gt;</FURTHERDATA>
+    </item>
+   </PROXY_DATA>
+  </asx:values>
+ </asx:abap>
+</abapGit>

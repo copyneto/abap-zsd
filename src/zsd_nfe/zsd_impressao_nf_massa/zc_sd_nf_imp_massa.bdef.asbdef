@@ -1,0 +1,6 @@
+projection;
+
+define behavior for ZC_SD_NF_IMP_MASSA alias NFs
+{
+  use action imprimir;
+}

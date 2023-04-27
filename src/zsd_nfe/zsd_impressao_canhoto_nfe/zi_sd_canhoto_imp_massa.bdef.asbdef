@@ -1,0 +1,8 @@
+unmanaged implementation in class zclsd_i_sd_canhoto_imp_massa unique;
+
+define behavior for ZI_SD_CANHOTO_IMP_MASSA alias CanhotoNF
+{
+  action  ( features : instance ) imprimir parameter ZC_SD_NF_IMP_MASSA_PRINTER;
+//  action  ( features : instance ) Desimprimir parameter ZC_SD_NF_IMP_MASSA_PRINTER;
+
+}

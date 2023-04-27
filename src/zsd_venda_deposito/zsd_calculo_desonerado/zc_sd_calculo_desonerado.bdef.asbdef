@@ -1,0 +1,8 @@
+projection;
+
+define behavior for ZC_SD_CALCULO_DESONERADO alias CALCULO_DESONERADO
+use etag {
+  use create;
+  use update;
+  use delete;
+}

@@ -1,0 +1,50 @@
+@Metadata.layer: #CORE
+
+@UI: { headerInfo: { typeName: 'Informações',
+                     title: {type: #STANDARD, value: 'NumNFE' },
+                     description: { value: 'NumNFE' },
+                     typeNamePlural: 'Cockpit Devolução - Informações'
+                   }
+     }
+annotate view ZC_SD_COCKPIT_DEVOLUCAO_INFOS with
+{
+  @UI.facet: [
+   { id:          'NumNFE',
+     purpose:       #STANDARD,
+     type:          #IDENTIFICATION_REFERENCE,
+     label:         'Informações',
+     position:      10
+   } ]
+
+  @UI: { lineItem:   [ { position: 10, label: 'Nº NFe' } ],
+    identification:  [ { position: 10, label: 'Nº NFe' } ],
+    selectionField:  [ { position: 10 } ] }
+  NumNFE;
+  @UI: { lineItem:   [ { position: 20, label: 'Ordem' } ],
+    identification:  [ { position: 20, label: 'Ordem' } ],
+    selectionField:  [ { position: 20 } ] }
+  Ordem_Info;
+  @UI: { lineItem:   [ { position: 30, label: 'Série' } ],
+    identification:  [ { position: 30, label: 'Série' } ],
+    selectionField:  [ { position: 30 } ] }
+  Serie;
+  @UI: { lineItem:   [ { position: 40, label: 'Cliente' } ],
+    identification:  [ { position: 40, label: 'Cliente' } ],
+    selectionField:  [ { position: 40 } ] }
+  Cliente_Info;
+  @UI: { lineItem:   [ { position: 50, label: 'Local de Negócio' } ],
+    identification:  [ { position: 50, label: 'Local de Negócio' } ],
+    selectionField:  [ { position: 50 } ] }
+  Local_Negocio;
+  @UI.hidden: true
+  MoedaSd;
+  @UI: { lineItem:   [ { position: 60, label: 'Valor total NFe' } ],
+    identification:  [ { position: 60, label: 'Valor total NFe' } ],
+    selectionField:  [ { position: 60 } ] }
+  NFE_Total;
+  @UI: { lineItem:       [{ position: 70, label: 'Situação Devolução', criticality: 'CorSituacao' }],
+         identification: [{ position: 70, label: 'Situação Devolução', criticality: 'CorSituacao'} ],
+         selectionField: [{ position: 70 } ] }
+  Situacao;
+
+}

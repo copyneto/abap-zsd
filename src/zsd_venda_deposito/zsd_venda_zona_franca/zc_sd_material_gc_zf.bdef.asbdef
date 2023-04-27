@@ -1,0 +1,9 @@
+projection;
+
+define behavior for ZC_SD_MATERIAL_GC_ZF
+use etag
+{
+  use create;
+  use update;
+  use delete;
+}

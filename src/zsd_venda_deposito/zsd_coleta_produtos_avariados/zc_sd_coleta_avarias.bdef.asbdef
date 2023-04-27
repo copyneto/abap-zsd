@@ -1,0 +1,8 @@
+unmanaged;
+
+define behavior for zc_sd_coleta_avarias //alias <alias_name>
+implementation in class zclsd_coleta_avarias unique
+lock master
+{
+action ( features : instance ) ImprimeForm;
+}

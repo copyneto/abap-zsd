@@ -1,0 +1,4 @@
+@EndUserText.label: 'Service Definition determi deposito entrada'
+define service zui_mm_det_deposito_entrada {
+  expose zc_mm_determi_deposito_entrada;
+}

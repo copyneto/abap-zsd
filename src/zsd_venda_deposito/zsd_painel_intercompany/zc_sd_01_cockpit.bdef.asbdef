@@ -1,0 +1,35 @@
+projection;
+
+define behavior for ZC_SD_01_COCKPIT alias Cockpit
+use etag
+{
+  use create;
+  use update;
+  use delete;
+
+  use action ContinuarPro;
+  use action CriarFrete;
+  use action defBloqueio;
+  use action retBloqueio;
+  use action entradaMercadoria;
+  use action EstornarSaida;
+
+  use association _Material;
+  use association _Log;
+}
+
+define behavior for ZC_SD_02_ITEM alias Material
+use etag
+{
+  use update;
+
+  use action CriarInter;
+
+  use association _cockpit;
+}
+
+define behavior for ZC_SD_05_LOG alias Log
+use etag
+{
+  use association _cockpit;
+}

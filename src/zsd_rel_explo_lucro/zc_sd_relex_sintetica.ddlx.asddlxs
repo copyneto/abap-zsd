@@ -1,0 +1,60 @@
+@Metadata.layer: #CORE
+annotate view ZC_SD_RELEX_Sintetica with
+{
+  @UI.selectionField: [{ position: 10 }]
+  CompanyCode;
+
+  @UI.lineItem: [{position: 10 }]
+  BR_NFDocumentType;
+
+  @UI.lineItem: [{position: 20 }]
+  @UI.selectionField: [{ position: 20 }]
+  Plant;
+
+  @UI.lineItem: [{position: 30 }]
+  SalesOrganization;
+
+  @UI.lineItem: [{position: 40, label: 'Org de Venda e Atividade' }]
+  SalesOrgAtv;
+
+  @UI.lineItem: [{position: 50, label: 'Atividade' }]
+  AdditionalMaterialGroup3Name;
+
+  @UI.lineItem: [{position: 60 }]
+  BR_NFNumber;
+
+  @UI.lineItem: [{position: 70, label: 'Lote venda' }]
+  Batch;
+
+  @UI.lineItem: [{position: 80 }]
+  @UI.selectionField: [{ position: 40 }]
+  ValuationType;
+
+  @UI.lineItem: [{position: 90 }]
+  @UI.selectionField: [{ position: 30 }]
+  BR_CFOPCode;
+
+  @UI.lineItem: [{position: 100 }]
+  QtyEmKg_sum;
+
+  @UI.lineItem: [{position: 120, label: 'Vlr Transação' }]
+  BR_NFTotalAmount_sum;
+
+  @UI.lineItem: [{position: 130 }]
+  VlrCONFIS_sum;
+
+  @UI.lineItem: [{position: 140 }]
+  VlrICMS_sum;
+
+  @UI.lineItem: [{position: 150 }]
+  VlrIPI_sum;
+
+  @UI.lineItem: [{position: 160 }]
+  VlrPIS_sum;
+
+  @UI.lineItem: [{position: 170 }]
+  VlrSUBTRIB_sum;
+
+  @UI.lineItem: [{position: 180, label: 'Vlr Trans' }]
+  ValorTrans;
+}

@@ -1,0 +1,54 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<abapGit version="v1.0.0" serializer="LCL_OBJECT_CLAS" serializer_version="v1.0.0">
+ <asx:abap xmlns:asx="http://www.sap.com/abapxml" version="1.0">
+  <asx:values>
+   <VSEOCLASS>
+    <CLSNAME>ZCLSD_PROCESSO_INDUST</CLSNAME>
+    <LANGU>P</LANGU>
+    <DESCRIPT>Processo de Industrialização entre Filiais</DESCRIPT>
+    <STATE>1</STATE>
+    <CLSCCINCL>X</CLSCCINCL>
+    <FIXPT>X</FIXPT>
+    <UNICODE>X</UNICODE>
+   </VSEOCLASS>
+   <DESCRIPTIONS_SUB>
+    <SEOSUBCOTX>
+     <CMPNAME>CALCULA_SALDO</CMPNAME>
+     <SCONAME>IS_HEADER</SCONAME>
+     <LANGU>P</LANGU>
+     <DESCRIPT>Cabeçalho da nota fiscal</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>CALCULA_SALDO</CMPNAME>
+     <SCONAME>IT_NFLIN</SCONAME>
+     <LANGU>P</LANGU>
+     <DESCRIPT>Tabela dos itens da nota fiscal (J_1BNFLIN)</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>EXIT_CRIACAO_ORDEM_VENDA</CMPNAME>
+     <SCONAME>IS_EKKO</SCONAME>
+     <LANGU>P</LANGU>
+     <DESCRIPT>Cabeçalho do documento de compra</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>EXIT_CRIACAO_ORDEM_VENDA</CMPNAME>
+     <SCONAME>IS_EKKO_OLD</SCONAME>
+     <LANGU>P</LANGU>
+     <DESCRIPT>Cabeçalho do documento de compra</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>EXIT_CRIACAO_ORDEM_VENDA</CMPNAME>
+     <SCONAME>IT_EKPO</SCONAME>
+     <LANGU>P</LANGU>
+     <DESCRIPT>Categoria de tabela estrutura de atualização EKPO</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>EXIT_CRIACAO_ORDEM_VENDA</CMPNAME>
+     <SCONAME>IV_VORGA</SCONAME>
+     <LANGU>P</LANGU>
+     <DESCRIPT>Operação</DESCRIPT>
+    </SEOSUBCOTX>
+   </DESCRIPTIONS_SUB>
+  </asx:values>
+ </asx:abap>
+</abapGit>

@@ -1,0 +1,10 @@
+unmanaged;
+
+define behavior for ZI_SD_INF_DISTRATO_APP alias DistratoApp
+//implementation in class zclsd_inf_distrato_app unique
+lock master
+{
+//  create;
+//  update;
+//  delete;
+}

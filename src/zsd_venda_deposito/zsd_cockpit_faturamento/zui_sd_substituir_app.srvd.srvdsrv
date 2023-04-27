@@ -1,0 +1,4 @@
+@EndUserText.label: 'Serv Definition para Substituir'
+define service ZUI_SD_SUBSTITUIR_APP {
+  expose ZC_SD_SUBSTITUIR_CUSTOM_APP;
+}

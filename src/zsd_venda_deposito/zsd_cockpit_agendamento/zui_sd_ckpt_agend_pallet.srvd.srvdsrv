@@ -1,0 +1,4 @@
+@EndUserText.label: 'Serv Defin Agend PALLET'
+define service ZUI_SD_CKPT_AGEND_PALLET {
+  expose ZC_SD_CKPT_AGEND_PALLET;
+}

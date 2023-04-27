@@ -1,0 +1,287 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<abapGit version="v1.0.0" serializer="LCL_OBJECT_SPRX" serializer_version="v1.0.0">
+ <asx:abap xmlns:asx="http://www.sap.com/abapxml" version="1.0">
+  <asx:values>
+   <PROXY_HEADER>
+    <item>
+     <OBJECT>TABL</OBJECT>
+     <OBJ_NAME>ZCLSD_DT_CRAIR_NFCE_CABECALHO</OBJ_NAME>
+     <OBJECT_M>TABL</OBJECT_M>
+     <OBJ_NAME_M>ZCLSD_DT_CRAIR_NFCE</OBJ_NAME_M>
+     <HASH_ID>6EF4C803C281778E1CC7D66CC33EDD3B60438DBE</HASH_ID>
+     <ID>&lt;type&gt; Cabecalho &lt;element&gt; Cabecalho &lt;type&gt; dtCrairNFCe http://trescoracoes.com.br/fiscal/nfce http://trescoracoes.com.br/fiscal/nfce</ID>
+     <IFR_TYPE>type</IFR_TYPE>
+     <IFR_NAME>Cabecalho</IFR_NAME>
+     <IFR_NSPCE>http://trescoracoes.com.br/fiscal/nfce</IFR_NSPCE>
+     <IFR_GNSPCE>http://trescoracoes.com.br/fiscal/nfce</IFR_GNSPCE>
+     <GEN_VERS>0005</GEN_VERS>
+     <PREFIX>ZCLSD_</PREFIX>
+     <CATEGORY>ifmtypedef</CATEGORY>
+     <X-ML_NSPCE>http://trescoracoes.com.br/fiscal/nfce</X-ML_NSPCE>
+     <X-ML_NAME>Cabecalho</X-ML_NAME>
+    </item>
+   </PROXY_HEADER>
+   <PROXY_DATA>
+    <item>
+     <OBJECT>TABL</OBJECT>
+     <OBJ_NAME>ZCLSD_DT_CRAIR_NFCE_CABECALHO</OBJ_NAME>
+     <OBJECT1>FIEL</OBJECT1>
+     <OBJ_NAME1>ACCKEY</OBJ_NAME1>
+     <OBJECT2>FIEL</OBJECT2>
+     <OBJ_NAME2>ACCKEY</OBJ_NAME2>
+     <ID>&lt;element&gt; ACCKEY &lt;type&gt; Cabecalho &lt;element&gt; Cabecalho &lt;type&gt; dtCrairNFCe http://trescoracoes.com.br/fiscal/nfce http://trescoracoes.com.br/fiscal/nfce</ID>
+     <IFR_TYPE>element</IFR_TYPE>
+     <IFR_NAME>ACCKEY</IFR_NAME>
+     <IFR_TEXT>Chave de acesso</IFR_TEXT>
+     <IFR_LANGU>EN</IFR_LANGU>
+     <IFR_TAGTYP>E</IFR_TAGTYP>
+     <IFR_MINOCC>1</IFR_MINOCC>
+     <IFR_MAXOCC>1</IFR_MAXOCC>
+     <IFR_XSDTYP>string</IFR_XSDTYP>
+     <IFR_MAXLEN>44</IFR_MAXLEN>
+     <IFR_SCALE>-2</IFR_SCALE>
+     <R3_TYPE>FIEL</R3_TYPE>
+     <R3_NAME>ACCKEY</R3_NAME>
+     <R3_TEXT>Chave de acesso</R3_TEXT>
+     <R3_DATATYP>CHAR</R3_DATATYP>
+     <R3_LENGTH>000044</R3_LENGTH>
+     <R3_SEQNUM>000008</R3_SEQNUM>
+    </item>
+    <item>
+     <OBJECT>TABL</OBJECT>
+     <OBJ_NAME>ZCLSD_DT_CRAIR_NFCE_CABECALHO</OBJ_NAME>
+     <OBJECT1>FIEL</OBJECT1>
+     <OBJ_NAME1>AUTHCOD</OBJ_NAME1>
+     <OBJECT2>FIEL</OBJECT2>
+     <OBJ_NAME2>AUTHCOD</OBJ_NAME2>
+     <ID>&lt;element&gt; AUTHCOD &lt;type&gt; Cabecalho &lt;element&gt; Cabecalho &lt;type&gt; dtCrairNFCe http://trescoracoes.com.br/fiscal/nfce http://trescoracoes.com.br/fiscal/nfce</ID>
+     <IFR_TYPE>element</IFR_TYPE>
+     <IFR_NAME>AUTHCOD</IFR_NAME>
+     <IFR_TEXT>Nº do log</IFR_TEXT>
+     <IFR_LANGU>EN</IFR_LANGU>
+     <IFR_TAGTYP>E</IFR_TAGTYP>
+     <IFR_MINOCC>1</IFR_MINOCC>
+     <IFR_MAXOCC>1</IFR_MAXOCC>
+     <IFR_XSDTYP>string</IFR_XSDTYP>
+     <IFR_MAXLEN>15</IFR_MAXLEN>
+     <IFR_SCALE>-2</IFR_SCALE>
+     <R3_TYPE>FIEL</R3_TYPE>
+     <R3_NAME>AUTHCOD</R3_NAME>
+     <R3_TEXT>Nº do log</R3_TEXT>
+     <R3_DATATYP>CHAR</R3_DATATYP>
+     <R3_LENGTH>000015</R3_LENGTH>
+     <R3_SEQNUM>000006</R3_SEQNUM>
+    </item>
+    <item>
+     <OBJECT>TABL</OBJECT>
+     <OBJ_NAME>ZCLSD_DT_CRAIR_NFCE_CABECALHO</OBJ_NAME>
+     <OBJECT1>FIEL</OBJECT1>
+     <OBJ_NAME1>AUTHDATE</OBJ_NAME1>
+     <OBJECT2>FIEL</OBJECT2>
+     <OBJ_NAME2>AUTHDATE</OBJ_NAME2>
+     <ID>&lt;element&gt; AUTHDATE &lt;type&gt; Cabecalho &lt;element&gt; Cabecalho &lt;type&gt; dtCrairNFCe http://trescoracoes.com.br/fiscal/nfce http://trescoracoes.com.br/fiscal/nfce</ID>
+     <IFR_TYPE>element</IFR_TYPE>
+     <IFR_NAME>AUTHDATE</IFR_NAME>
+     <IFR_TEXT>Data de processamento</IFR_TEXT>
+     <IFR_LANGU>EN</IFR_LANGU>
+     <IFR_TAGTYP>E</IFR_TAGTYP>
+     <IFR_MINOCC>1</IFR_MINOCC>
+     <IFR_MAXOCC>1</IFR_MAXOCC>
+     <IFR_XSDTYP>date</IFR_XSDTYP>
+     <IFR_SCALE>-2</IFR_SCALE>
+     <R3_TYPE>FIEL</R3_TYPE>
+     <R3_NAME>AUTHDATE</R3_NAME>
+     <R3_TEXT>Data de processamento</R3_TEXT>
+     <R3_DTREF>XSDDATE_D</R3_DTREF>
+     <R3_SEQNUM>000004</R3_SEQNUM>
+    </item>
+    <item>
+     <OBJECT>TABL</OBJECT>
+     <OBJ_NAME>ZCLSD_DT_CRAIR_NFCE_CABECALHO</OBJ_NAME>
+     <OBJECT1>FIEL</OBJECT1>
+     <OBJ_NAME1>AUTHTIME</OBJ_NAME1>
+     <OBJECT2>FIEL</OBJECT2>
+     <OBJ_NAME2>AUTHTIME</OBJ_NAME2>
+     <ID>&lt;element&gt; AUTHTIME &lt;type&gt; Cabecalho &lt;element&gt; Cabecalho &lt;type&gt; dtCrairNFCe http://trescoracoes.com.br/fiscal/nfce http://trescoracoes.com.br/fiscal/nfce</ID>
+     <IFR_TYPE>element</IFR_TYPE>
+     <IFR_NAME>AUTHTIME</IFR_NAME>
+     <IFR_TEXT>Hora de processamento</IFR_TEXT>
+     <IFR_LANGU>EN</IFR_LANGU>
+     <IFR_TAGTYP>E</IFR_TAGTYP>
+     <IFR_MINOCC>1</IFR_MINOCC>
+     <IFR_MAXOCC>1</IFR_MAXOCC>
+     <IFR_XSDTYP>time</IFR_XSDTYP>
+     <IFR_SCALE>-2</IFR_SCALE>
+     <R3_TYPE>FIEL</R3_TYPE>
+     <R3_NAME>AUTHTIME</R3_NAME>
+     <R3_TEXT>Hora de processamento</R3_TEXT>
+     <R3_DTREF>XSDTIME_T</R3_DTREF>
+     <R3_SEQNUM>000005</R3_SEQNUM>
+    </item>
+    <item>
+     <OBJECT>TABL</OBJECT>
+     <OBJ_NAME>ZCLSD_DT_CRAIR_NFCE_CABECALHO</OBJ_NAME>
+     <OBJECT1>FIEL</OBJECT1>
+     <OBJ_NAME1>CODSIT</OBJ_NAME1>
+     <OBJECT2>FIEL</OBJECT2>
+     <OBJ_NAME2>CODSIT</OBJ_NAME2>
+     <ID>&lt;element&gt; CODSIT &lt;type&gt; Cabecalho &lt;element&gt; Cabecalho &lt;type&gt; dtCrairNFCe http://trescoracoes.com.br/fiscal/nfce http://trescoracoes.com.br/fiscal/nfce</ID>
+     <IFR_TYPE>element</IFR_TYPE>
+     <IFR_NAME>CODSIT</IFR_NAME>
+     <IFR_TEXT>Código da situação</IFR_TEXT>
+     <IFR_LANGU>EN</IFR_LANGU>
+     <IFR_TAGTYP>E</IFR_TAGTYP>
+     <IFR_MINOCC>1</IFR_MINOCC>
+     <IFR_MAXOCC>1</IFR_MAXOCC>
+     <IFR_XSDTYP>string</IFR_XSDTYP>
+     <IFR_MAXLEN>2</IFR_MAXLEN>
+     <IFR_SCALE>-2</IFR_SCALE>
+     <R3_TYPE>FIEL</R3_TYPE>
+     <R3_NAME>CODSIT</R3_NAME>
+     <R3_TEXT>Código da situação</R3_TEXT>
+     <R3_DATATYP>CHAR</R3_DATATYP>
+     <R3_LENGTH>000002</R3_LENGTH>
+     <R3_SEQNUM>000010</R3_SEQNUM>
+    </item>
+    <item>
+     <OBJECT>TABL</OBJECT>
+     <OBJ_NAME>ZCLSD_DT_CRAIR_NFCE_CABECALHO</OBJ_NAME>
+     <OBJECT1>FIEL</OBJECT1>
+     <OBJ_NAME1>MODEL</OBJ_NAME1>
+     <OBJECT2>FIEL</OBJECT2>
+     <OBJ_NAME2>MODEL</OBJ_NAME2>
+     <ID>&lt;element&gt; MODEL &lt;type&gt; Cabecalho &lt;element&gt; Cabecalho &lt;type&gt; dtCrairNFCe http://trescoracoes.com.br/fiscal/nfce http://trescoracoes.com.br/fiscal/nfce</ID>
+     <IFR_TYPE>element</IFR_TYPE>
+     <IFR_NAME>MODEL</IFR_NAME>
+     <IFR_TEXT>Modelo da nota fiscal</IFR_TEXT>
+     <IFR_LANGU>EN</IFR_LANGU>
+     <IFR_TAGTYP>E</IFR_TAGTYP>
+     <IFR_MINOCC>1</IFR_MINOCC>
+     <IFR_MAXOCC>1</IFR_MAXOCC>
+     <IFR_XSDTYP>string</IFR_XSDTYP>
+     <IFR_SCALE>-2</IFR_SCALE>
+     <R3_TYPE>FIEL</R3_TYPE>
+     <R3_NAME>MODEL</R3_NAME>
+     <R3_TEXT>Modelo da nota fiscal</R3_TEXT>
+     <R3_DATATYP>STRG</R3_DATATYP>
+     <R3_SEQNUM>000009</R3_SEQNUM>
+    </item>
+    <item>
+     <OBJECT>TABL</OBJECT>
+     <OBJ_NAME>ZCLSD_DT_CRAIR_NFCE_CABECALHO</OBJ_NAME>
+     <OBJECT1>FIEL</OBJECT1>
+     <OBJ_NAME1>NETWR</OBJ_NAME1>
+     <OBJECT2>FIEL</OBJECT2>
+     <OBJ_NAME2>NETWR</OBJ_NAME2>
+     <ID>&lt;element&gt; NETWR &lt;type&gt; Cabecalho &lt;element&gt; Cabecalho &lt;type&gt; dtCrairNFCe http://trescoracoes.com.br/fiscal/nfce http://trescoracoes.com.br/fiscal/nfce</ID>
+     <IFR_TYPE>element</IFR_TYPE>
+     <IFR_NAME>NETWR</IFR_NAME>
+     <IFR_TEXT>Valor líquido da ordem</IFR_TEXT>
+     <IFR_LANGU>EN</IFR_LANGU>
+     <IFR_TAGTYP>E</IFR_TAGTYP>
+     <IFR_MINOCC>1</IFR_MINOCC>
+     <IFR_MAXOCC>1</IFR_MAXOCC>
+     <IFR_XSDTYP>decimal</IFR_XSDTYP>
+     <IFR_PREC>15</IFR_PREC>
+     <IFR_SCALE>2</IFR_SCALE>
+     <R3_TYPE>FIEL</R3_TYPE>
+     <R3_NAME>NETWR</R3_NAME>
+     <R3_TEXT>Valor líquido da ordem</R3_TEXT>
+     <R3_DATATYP>DEC</R3_DATATYP>
+     <R3_LENGTH>000017</R3_LENGTH>
+     <R3_DECIMAL>000002</R3_DECIMAL>
+     <R3_SEQNUM>000007</R3_SEQNUM>
+    </item>
+    <item>
+     <OBJECT>TABL</OBJECT>
+     <OBJ_NAME>ZCLSD_DT_CRAIR_NFCE_CABECALHO</OBJ_NAME>
+     <OBJECT1>FIEL</OBJECT1>
+     <OBJ_NAME1>NUMCF</OBJ_NAME1>
+     <OBJECT2>FIEL</OBJECT2>
+     <OBJ_NAME2>NUMCF</OBJ_NAME2>
+     <ID>&lt;element&gt; NUMCF &lt;type&gt; Cabecalho &lt;element&gt; Cabecalho &lt;type&gt; dtCrairNFCe http://trescoracoes.com.br/fiscal/nfce http://trescoracoes.com.br/fiscal/nfce</ID>
+     <IFR_TYPE>element</IFR_TYPE>
+     <IFR_NAME>NUMCF</IFR_NAME>
+     <IFR_TEXT>Número do cupom fiscal</IFR_TEXT>
+     <IFR_LANGU>EN</IFR_LANGU>
+     <IFR_TAGTYP>E</IFR_TAGTYP>
+     <IFR_MINOCC>1</IFR_MINOCC>
+     <IFR_MAXOCC>1</IFR_MAXOCC>
+     <IFR_XSDTYP>integer</IFR_XSDTYP>
+     <IFR_PREC>6</IFR_PREC>
+     <IFR_SCALE>-2</IFR_SCALE>
+     <R3_TYPE>FIEL</R3_TYPE>
+     <R3_NAME>NUMCF</R3_NAME>
+     <R3_TEXT>Número do cupom fiscal</R3_TEXT>
+     <R3_DATATYP>INT4</R3_DATATYP>
+     <R3_SEQNUM>000001</R3_SEQNUM>
+    </item>
+    <item>
+     <OBJECT>TABL</OBJECT>
+     <OBJ_NAME>ZCLSD_DT_CRAIR_NFCE_CABECALHO</OBJ_NAME>
+     <OBJECT1>FIEL</OBJECT1>
+     <OBJ_NAME1>NUMSERIE</OBJ_NAME1>
+     <OBJECT2>FIEL</OBJECT2>
+     <OBJ_NAME2>NUMSERIE</OBJ_NAME2>
+     <ID>&lt;element&gt; NUMSERIE &lt;type&gt; Cabecalho &lt;element&gt; Cabecalho &lt;type&gt; dtCrairNFCe http://trescoracoes.com.br/fiscal/nfce http://trescoracoes.com.br/fiscal/nfce</ID>
+     <IFR_TYPE>element</IFR_TYPE>
+     <IFR_NAME>NUMSERIE</IFR_NAME>
+     <IFR_TEXT>Número da série do equipamento</IFR_TEXT>
+     <IFR_LANGU>EN</IFR_LANGU>
+     <IFR_TAGTYP>E</IFR_TAGTYP>
+     <IFR_MINOCC>1</IFR_MINOCC>
+     <IFR_MAXOCC>1</IFR_MAXOCC>
+     <IFR_XSDTYP>string</IFR_XSDTYP>
+     <IFR_MAXLEN>9</IFR_MAXLEN>
+     <IFR_SCALE>-2</IFR_SCALE>
+     <R3_TYPE>FIEL</R3_TYPE>
+     <R3_NAME>NUMSERIE</R3_NAME>
+     <R3_TEXT>Número da série do equipamento</R3_TEXT>
+     <R3_DATATYP>CHAR</R3_DATATYP>
+     <R3_LENGTH>000009</R3_LENGTH>
+     <R3_SEQNUM>000002</R3_SEQNUM>
+    </item>
+    <item>
+     <OBJECT>TABL</OBJECT>
+     <OBJ_NAME>ZCLSD_DT_CRAIR_NFCE_CABECALHO</OBJ_NAME>
+     <OBJECT1>FIEL</OBJECT1>
+     <OBJ_NAME1>REQ_DATE_H</OBJ_NAME1>
+     <OBJECT2>FIEL</OBJECT2>
+     <OBJ_NAME2>REQ_DATE_H</OBJ_NAME2>
+     <ID>&lt;element&gt; REQ_DATE_H &lt;type&gt; Cabecalho &lt;element&gt; Cabecalho &lt;type&gt; dtCrairNFCe http://trescoracoes.com.br/fiscal/nfce http://trescoracoes.com.br/fiscal/nfce</ID>
+     <IFR_TYPE>element</IFR_TYPE>
+     <IFR_NAME>REQ_DATE_H</IFR_NAME>
+     <IFR_TEXT>Data de remessa</IFR_TEXT>
+     <IFR_LANGU>EN</IFR_LANGU>
+     <IFR_TAGTYP>E</IFR_TAGTYP>
+     <IFR_MINOCC>1</IFR_MINOCC>
+     <IFR_MAXOCC>1</IFR_MAXOCC>
+     <IFR_XSDTYP>date</IFR_XSDTYP>
+     <IFR_SCALE>-2</IFR_SCALE>
+     <R3_TYPE>FIEL</R3_TYPE>
+     <R3_NAME>REQ_DATE_H</R3_NAME>
+     <R3_TEXT>Data de remessa</R3_TEXT>
+     <R3_DATATYP>DATS</R3_DATATYP>
+     <R3_SEQNUM>000003</R3_SEQNUM>
+    </item>
+    <item>
+     <OBJECT>TABL</OBJECT>
+     <OBJ_NAME>ZCLSD_DT_CRAIR_NFCE_CABECALHO</OBJ_NAME>
+     <OBJECT1>TABL</OBJECT1>
+     <OBJ_NAME1>ZCLSD_DT_CRAIR_NFCE_CABECALHO</OBJ_NAME1>
+     <OBJECT2>TABL</OBJECT2>
+     <OBJ_NAME2>ZCLSD_DT_CRAIR_NFCE_CABECALHO</OBJ_NAME2>
+     <ID>&lt;type&gt; Cabecalho &lt;element&gt; Cabecalho &lt;type&gt; dtCrairNFCe http://trescoracoes.com.br/fiscal/nfce http://trescoracoes.com.br/fiscal/nfce</ID>
+     <IFR_TYPE>type</IFR_TYPE>
+     <IFR_NAME>Cabecalho</IFR_NAME>
+     <IFR_LANGU>EN</IFR_LANGU>
+     <IFR_SCALE>-2</IFR_SCALE>
+     <R3_TYPE>TABL</R3_TYPE>
+     <R3_NAME>ZCLSD_DT_CRAIR_NFCE_CABECALHO</R3_NAME>
+     <R3_TEXT>Dados de cabeçalho</R3_TEXT>
+     <CATEGORY>ifmtypedef</CATEGORY>
+    </item>
+   </PROXY_DATA>
+  </asx:values>
+ </asx:abap>
+</abapGit>

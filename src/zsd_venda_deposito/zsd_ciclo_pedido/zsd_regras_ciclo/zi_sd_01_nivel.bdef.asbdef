@@ -1,0 +1,98 @@
+managed;
+
+define behavior for ZI_SD_01_NIVEL alias Nivel
+implementation in class zclsd_i_sd_01_nnivel unique
+persistent table ztsd_nivel_ser
+lock master
+authorization master ( instance )
+etag master LocalLastChangedAt
+{
+  create;
+  update;
+  delete;
+
+  association _Hora { create; }
+  association _Dia { create; }
+
+  field ( readonly ) LastChangedAt, LastChangedBy, CreatedAt, CreatedBy, LocalLastChangedAt;
+  field ( readonly : update ) Zmed, Ziti;
+  validation authorityCreate on save { create; }
+
+  mapping for ztsd_nivel_ser
+  {
+    Ziti = ziti;
+    Zmed = zmed;
+    ZevenI = zeven_i;
+    ZevenF = zeven_f;
+    Zprah = zprah;
+    Zprad = zprad;
+    Zcale = zcale;
+    CreatedBy = created_by;
+    CreatedAt = created_at;
+    LastChangedBy = last_changed_by;
+    LastChangedAt = last_changed_at;
+    LocalLastChangedAt = local_last_changed_at;
+  }
+
+}
+
+define behavior for zi_sd_02_hora alias Hora
+implementation in class zclsd_i_sd_01_hhora unique
+persistent table ztsd_hora_corte
+lock dependent by _Nivel
+authorization dependent by _Nivel
+etag master LocalLastChangedAt
+{
+
+  association _Nivel;
+
+  update;
+  delete;
+
+  field ( readonly ) LastChangedAt, LastChangedBy, CreatedAt, CreatedBy, LocalLastChangedAt;
+  field ( readonly : update ) Zmed, Ziti, Zdia;
+
+  mapping for ztsd_hora_corte
+  {
+    Ziti = ziti;
+    Zmed = zmed;
+    Zdia = zdia;
+    Zhora = zhora;
+    CreatedAt = created_at;
+    CreatedBy = created_by;
+    LastChangedAt = last_changed_at;
+    LastChangedBy = last_changed_by;
+    LocalLastChangedAt = local_last_changed_at;
+  }
+
+}
+
+define behavior for zi_sd_03_dia alias Dia
+implementation in class zclsd_i_sd_01_dia unique
+persistent table ztsd_dia_fat
+lock dependent by _Nivel
+authorization dependent by _Nivel
+etag master LocalLastChangedAt
+{
+
+  association _Nivel;
+
+  update;
+  delete;
+
+  field ( readonly ) LastChangedAt, LastChangedBy, CreatedAt, CreatedBy, LocalLastChangedAt;
+  field ( readonly : update ) Zmed, Ziti, Zdia;
+
+  mapping for ZTSD_DIA_FAT
+  {
+    Ziti = ziti;
+    Zmed = zmed;
+    Zdia = zdia;
+    CreatedAt = created_at;
+    CreatedBy = created_by;
+    LastChangedAt = last_changed_at;
+    LastChangedBy = last_changed_by;
+    LocalLastChangedAt = local_last_changed_at;
+  }
+
+}

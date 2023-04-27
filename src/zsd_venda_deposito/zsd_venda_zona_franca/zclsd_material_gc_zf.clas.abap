@@ -1,0 +1,5 @@
+CLASS zclsd_material_gc_zf DEFINITION PUBLIC ABSTRACT FINAL FOR BEHAVIOR OF zi_sd_material_gc_zf.
+ENDCLASS.
+
+CLASS zclsd_material_gc_zf IMPLEMENTATION.
+ENDCLASS.

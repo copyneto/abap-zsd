@@ -1,0 +1,17 @@
+unmanaged ;
+
+define behavior for ZI_SD_CKPT_AGEN_APP alias Agendamento
+implementation in class zclsd_ckpt_agen_app unique
+//late numbering
+lock master
+etag master SalesOrder
+{
+//  create;
+//  update;
+//  delete;
+action ( features : instance ) CriarAgendamento parameter ZC_SD_POPUP_AGENDAMENTO;
+
+//action ( features : instance ) ExibirHistorico;
+//action ( features : instance ) ExibirOcorrencia;
+
+}

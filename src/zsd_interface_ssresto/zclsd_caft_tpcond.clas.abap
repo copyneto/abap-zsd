@@ -1,0 +1,5 @@
+CLASS zclsd_caft_tpcond DEFINITION PUBLIC ABSTRACT FINAL FOR BEHAVIOR OF zi_sd_caft_tpcond.
+ENDCLASS.
+
+CLASS zclsd_caft_tpcond IMPLEMENTATION.
+ENDCLASS.

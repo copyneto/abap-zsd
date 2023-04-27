@@ -1,0 +1,239 @@
+@Metadata.layer: #CORE
+@UI: {
+  headerInfo: {
+    typeName: 'Registros',
+    typeNamePlural: 'Registros',
+    title: {
+      type: #STANDARD,
+      label: 'Ordem de Venda',
+      value: 'SalesOrder'
+    }
+  },
+  presentationVariant: [{
+  requestAtLeast: ['ChaveOrdemRemessa', 'ChaveDinamica', 'SalesOrderItem', 'StatusColor'] }]}
+
+annotate view ZC_SD_CKPT_AGEN_APP with
+{
+
+  @UI.facet: [ { id:           'Registros',
+              purpose:         #STANDARD,
+              type:            #IDENTIFICATION_REFERENCE,
+              label:           'Registros',
+              position:        10 } ]
+
+  @UI.hidden: true
+  ChaveOrdemRemessa;
+  @UI.hidden: true
+  ChaveDinamica;
+
+  //    @UI: { lineItem: [ { position: 360 } ],
+  //  identification:  [ { position: 360 } ]}
+  //  MotivoAgenda;
+  @UI: { lineItem: [ { position: 370 , label: 'Motivo Agenda'} ],
+  identification:  [ { position: 370 , label: 'Motivo Agenda'} ],
+  selectionField:  [ { position: 130 } ] }
+  MotivoAgenda;
+  @UI: { lineItem: [ { position: 380 } ],
+  identification:  [ { position: 380 } ]}
+  MotivoText;
+
+  @UI: { lineItem: [ { position: 10, label: 'Ordem do cliente' },
+                   { type: #FOR_ACTION, dataAction: 'CriarAgendamento', invocationGrouping: #CHANGE_SET
+                 , label: 'Criar Agendamento'  }],
+  identification:  [ { position: 10, label: 'Ordem do cliente' } ],
+  selectionField:  [ { position: 10 } ] }
+  SalesOrder;
+
+  @UI: { lineItem: [ { position: 20, label: 'Item' } ],
+  identification:  [ { position: 20, label: 'Item' } ],
+  selectionField:  [ { position: 20 } ] }
+  @UI.hidden: true
+  SalesOrderItem;
+  @UI.hidden: true
+  Ordem_remessa;
+
+
+  @UI: { lineItem: [ { position: 30, label: 'Emissor da ordem' } ],
+  identification:  [ { position: 30, label: 'Emissor da ordem' } ],
+  selectionField:  [ { position: 30 } ] }
+  SoldToParty;
+
+  @UI: { lineItem: [ { position: 40, label: 'Nome Emissor da ordem' } ],
+  identification:  [ { position: 40, label: 'Nome Emissor da ordem' } ] }
+  SoldToPartyName;
+
+  @UI: { lineItem: [ { position: 50, label: 'Referência do cliente' } ],
+  identification:  [ { position: 50, label: 'Referência do cliente' } ],
+  selectionField:  [ { position: 40 } ] }
+  PurchaseOrderByCustomer;
+
+  @UI: { lineItem: [ { position: 60, label: 'Data solicitada de remessa' } ],
+  identification:  [ { position: 60, label: 'Data solicitada de remessa' } ],
+  selectionField:  [ { position: 50 } ] }
+  @Consumption.filter: { selectionType: #INTERVAL, multipleSelections: true }
+  RequestedDeliveryDate;
+
+  @UI: { lineItem: [ { position: 70, label: 'Status', criticality: 'StatusColor' } ],
+  identification:  [ { position: 70, label: 'Status', criticality: 'StatusColor' } ],
+  selectionField:  [ { position: 110 } ] }
+  @UI.textArrangement: #TEXT_ONLY
+  Status;
+  @UI.hidden: true
+  StatusColor;
+
+  @UI: { lineItem: [ { position: 80, label: 'Remessa' } ],
+  identification:  [ { position: 80, label: 'Remessa' } ],
+  selectionField:  [ { position: 60 } ] }
+  Remessa;
+
+  @UI: { lineItem: [ { position: 90, label: 'Data agendada' } ],
+  identification:  [ { position: 90, label: 'Data agendada' } ],
+  selectionField:  [ { position: 120 } ]  }
+  DataAgendada;
+
+  @UI: { lineItem: [ { position: 100, label: 'Hora agendada' } ],
+  identification:  [ { position: 100, label: 'Hora agendada' } ],
+  selectionField:  [ { position: 140 } ]}
+  HoraAgendada;
+
+  //  @UI: { lineItem: [ { position: 110, label: 'Data de entrega' } ],
+  //  identification:  [ { position: 110, label: 'Data de entrega' } ] }
+  //  DataEntrega;
+
+  @UI: { lineItem: [ { position: 120, label: 'Observações' } ],
+  identification:  [ { position: 120, label: 'Observações' } ] }
+  Observacoes;
+
+  @UI: { lineItem: [ { position: 130, label: 'Centro' } ],
+  identification:  [ { position: 130, label: 'Centro' } ],
+  selectionField:  [ { position: 90 } ] }
+  Plant;
+
+  @UI: { lineItem: [ { position: 140, label: 'Senha cliente' } ],
+  identification:  [ { position: 140, label: 'Senha cliente' } ] }
+  Senha;
+
+  @UI: { lineItem: [ { position: 150, label: 'Ordem de frete' } ],
+  identification:  [ { position: 150, label: 'Ordem de frete' } ],
+  selectionField:  [ { position: 70 } ] }
+  OrdemFrete;
+
+  @UI: { lineItem: [ { position: 160, label: 'Unidade de frete' } ],
+  identification:  [ { position: 160, label: 'Unidade de frete' } ] }
+  UnidadeFrete;
+
+  @UI: { lineItem: [ { position: 170, label: 'Nota Fiscal' } ],
+  identification:  [ { position: 170, label: 'Nota Fiscal' } ],
+  selectionField:  [ { position: 80 } ] }
+  NotaFiscal;
+
+  @UI.hidden: true
+  ItemWeightUnit;
+
+  @UI: { lineItem: [ { position: 180, label: 'Peso bruto' } ],
+  identification:  [ { position: 180, label: 'Peso bruto' } ] }
+  ItemGrossWeight;
+
+  @UI: { lineItem: [ { position: 190, label: 'Peso líquido' } ],
+  identification:  [ { position: 190, label: 'Peso líquido' } ] }
+  ItemNetWeight;
+
+  @UI: { lineItem: [ { position: 190, label: 'Total NF-e' } ],
+  identification:  [ { position: 190, label: 'Total NF-e' } ] }
+  Total_Nfe;
+
+  @UI: { lineItem: [ { position: 200, label: 'Tipo ordem' } ],
+  identification:  [ { position: 200, label: 'Tipo ordem' } ],
+  selectionField:  [ { position: 70 } ]  }
+  SalesOrderType;
+
+  //@UI: { lineItem: [ { position: 210, label: 'Código do produto' } ],
+  //identification:  [ { position: 210, label: 'Código do produto' } ] }
+  @UI.hidden: true
+  Material;
+
+  @UI: { lineItem: [ { position: 220, label: 'Descrição produto' } ],
+  identification:  [ { position: 220, label: 'Descrição produto' } ] }
+  @UI.hidden: true
+  SalesOrderItemText;
+
+  @UI: { lineItem: [ { position: 230, label: 'Paletização' } ],
+  identification:  [ { position: 230, label: 'Paletização' } ] }
+  //  CustomerAccountAssignmentGroup;
+  PalletTotal;
+
+  @UI: { lineItem: [ { position: 240, label: 'Pallet Fracionado' } ],
+  identification:  [ { position: 240, label: 'Pallet Fracionado' } ] }
+  //  CustomerAccountAssignmentGroup;
+  PalletFracionado;
+
+  @UI: { lineItem: [ { position: 250, label: 'UF' } ],
+  identification:  [ { position: 250, label: 'UF' } ] }
+  regio;
+
+  @UI: { lineItem: [ { position: 260, label: 'Cidade do cliente' } ],
+  identification:  [ { position: 260, label: 'Cidade do cliente' } ] }
+  ort01;
+
+  @UI: { lineItem: [ { position: 270, label: 'Bairro do cliente' } ],
+  identification:  [ { position: 270, label: 'Bairro do cliente' } ] }
+  ort02;
+
+  @UI: { lineItem: [ { position: 280, label: 'Região de Vendas' } ],
+  identification:  [ { position: 280, label: 'Região de Vendas' } ],
+  selectionField:  [ { position: 90 } ]  }
+  SalesDistrict;
+
+  @UI: { lineItem: [ { position: 290, label: 'Itinerario' } ],
+  identification:  [ { position: 290, label: 'Itinerario' } ],
+  selectionField:  [ { position: 100 } ]  }
+  Route;
+
+  @UI: {  selectionField:  [ { position: 110 } ] }
+  CustomerPurchaseOrderDate;
+
+
+  @UI: {selectionField:  [ { position: 80 } ] }
+  Supplier;
+
+  @UI: { lineItem: [ { position: 300, label: 'Data criação do pedido' } ],
+  identification:  [ { position: 300, label: 'Data criação do pedido' } ],
+  selectionField:  [ { position: 60 } ]  }
+  //  @Consumption.filter: { selectionType: #INTERVAL, multipleSelections: true }
+  CreationDate;
+
+  @UI: { lineItem: [ { position: 310, label: 'Volumes' } ],
+  identification:  [ { position: 310, label: 'Volumes' } ] }
+  ItemVolume;
+  @UI: { lineItem: [ { position: 320, label: 'Unidade de Volume' } ],
+  identification:  [ { position: 320, label: 'Unidade de Volume' } ] }
+  ItemVolumeUnit;
+  @UI: { lineItem: [ { position: 330, label: 'Unidade de medida' } ],
+  identification:  [ { position: 330, label: 'Unidade de medida' } ] }
+  @UI.hidden: true
+  OrderQuantityUnit;
+
+  @UI: { lineItem: [ { position: 340, label: 'Grupo de Agendamento' } ],
+  identification:  [ { position: 340, label: 'Grupo de Agendamento' } ],
+  selectionField:  [ { position: 100 } ] }
+  kvgr5;
+
+  @UI.hidden: true
+  AgrupametoText;
+
+  @UI: { lineItem: [ { position: 350, label: 'Status da Ordem', criticality: 'OverallSDProcessStatusColor' } ],
+  identification:  [ { position: 350, label: 'Status da Ordem', criticality: 'OverallSDProcessStatusColor' } ],
+  selectionField:  [ { position: 110 } ] }
+  OverallSDProcessStatus;
+  @UI.hidden: true
+  OverallSDProcessStatusColor;
+
+  @UI: { lineItem: [ { position: 360 } ],
+  identification:  [ { position: 360 } ],
+  selectionField:  [ { position: 120 } ] }
+  DistributionChannel;
+  //    @UI: { lineItem: [ { position: 370 } ],
+  //  identification:  [ { position: 370 } ]}
+  //  DataFrete;
+
+}

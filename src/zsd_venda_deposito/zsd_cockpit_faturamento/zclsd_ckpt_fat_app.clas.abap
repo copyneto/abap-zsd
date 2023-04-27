@@ -1,0 +1,5 @@
+CLASS zclsd_ckpt_fat_app DEFINITION PUBLIC ABSTRACT FINAL FOR BEHAVIOR OF zi_sd_ckpt_fat_app.
+ENDCLASS.
+
+CLASS zclsd_ckpt_fat_app IMPLEMENTATION.
+ENDCLASS.

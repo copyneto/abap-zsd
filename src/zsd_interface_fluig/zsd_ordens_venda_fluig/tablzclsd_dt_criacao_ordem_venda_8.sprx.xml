@@ -1,0 +1,248 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<abapGit version="v1.0.0" serializer="LCL_OBJECT_SPRX" serializer_version="v1.0.0">
+ <asx:abap xmlns:asx="http://www.sap.com/abapxml" version="1.0">
+  <asx:values>
+   <PROXY_HEADER>
+    <item>
+     <OBJECT>TABL</OBJECT>
+     <OBJ_NAME>ZCLSD_DT_CRIACAO_ORDEM_VENDA_8</OBJ_NAME>
+     <OBJECT_M>TABL</OBJECT_M>
+     <OBJ_NAME_M>ZCLSD_DT_CRIACAO_ORDEM_VENDA_F</OBJ_NAME_M>
+     <HASH_ID>82E3822860D4830B47D0278DD9BEE8202EB4120D</HASH_ID>
+     <ID>&lt;type&gt; MATERIAIS &lt;element&gt; MATERIAIS &lt;type&gt; ITENS &lt;element&gt; ITENS &lt;type&gt; Cabecalho &lt;element&gt; Cabecalho &lt;type&gt; dtCriacaoOrdemVendaFluig http://trescoracoes.com.br/vendas/ordem http://trescoracoes.com.br/vendas/ordem</ID>
+     <IFR_TYPE>type</IFR_TYPE>
+     <IFR_NAME>MATERIAIS</IFR_NAME>
+     <IFR_NSPCE>http://trescoracoes.com.br/vendas/ordem</IFR_NSPCE>
+     <IFR_GNSPCE>http://trescoracoes.com.br/vendas/ordem</IFR_GNSPCE>
+     <GEN_VERS>0005</GEN_VERS>
+     <PREFIX>ZCLSD_</PREFIX>
+     <CATEGORY>ifmtypedef</CATEGORY>
+     <X-ML_NSPCE>http://trescoracoes.com.br/vendas/ordem</X-ML_NSPCE>
+     <X-ML_NAME>MATERIAIS</X-ML_NAME>
+    </item>
+   </PROXY_HEADER>
+   <PROXY_DATA>
+    <item>
+     <OBJECT>TABL</OBJECT>
+     <OBJ_NAME>ZCLSD_DT_CRIACAO_ORDEM_VENDA_8</OBJ_NAME>
+     <OBJECT1>FIEL</OBJECT1>
+     <OBJ_NAME1>COSTCENTER</OBJ_NAME1>
+     <OBJECT2>FIEL</OBJECT2>
+     <OBJ_NAME2>COSTCENTER</OBJ_NAME2>
+     <ID>&lt;element&gt; COSTCENTER &lt;type&gt; MATERIAIS &lt;element&gt; MATERIAIS &lt;type&gt; ITENS &lt;element&gt; ITENS &lt;type&gt; Cabecalho &lt;element&gt; Cabecalho &lt;type&gt; dtCriacaoOrdemVendaFluig http://trescoracoes.com.br/vendas/ordem http://trescoracoes.com.br/vendas/ordem</ID>
+     <IFR_TYPE>element</IFR_TYPE>
+     <IFR_NAME>COSTCENTER</IFR_NAME>
+     <IFR_TEXT>Centro de Custo</IFR_TEXT>
+     <IFR_LANGU>EN</IFR_LANGU>
+     <IFR_TAGTYP>E</IFR_TAGTYP>
+     <IFR_MAXOCC>1</IFR_MAXOCC>
+     <IFR_OPTNL>X</IFR_OPTNL>
+     <IFR_XSDTYP>string</IFR_XSDTYP>
+     <IFR_SCALE>-2</IFR_SCALE>
+     <R3_TYPE>FIEL</R3_TYPE>
+     <R3_NAME>COSTCENTER</R3_NAME>
+     <R3_TEXT>Centro de Custo</R3_TEXT>
+     <R3_DATATYP>STRG</R3_DATATYP>
+     <R3_SEQNUM>000004</R3_SEQNUM>
+    </item>
+    <item>
+     <OBJECT>TABL</OBJECT>
+     <OBJ_NAME>ZCLSD_DT_CRIACAO_ORDEM_VENDA_8</OBJ_NAME>
+     <OBJECT1>FIEL</OBJECT1>
+     <OBJ_NAME1>IND</OBJ_NAME1>
+     <OBJECT2>FIEL</OBJECT2>
+     <OBJ_NAME2>IND</OBJ_NAME2>
+     <ID>&lt;element&gt; IND &lt;type&gt; MATERIAIS &lt;element&gt; MATERIAIS &lt;type&gt; ITENS &lt;element&gt; ITENS &lt;type&gt; Cabecalho &lt;element&gt; Cabecalho &lt;type&gt; dtCriacaoOrdemVendaFluig http://trescoracoes.com.br/vendas/ordem http://trescoracoes.com.br/vendas/ordem</ID>
+     <IFR_TYPE>element</IFR_TYPE>
+     <IFR_NAME>IND</IFR_NAME>
+     <IFR_TEXT>Indicador</IFR_TEXT>
+     <IFR_LANGU>EN</IFR_LANGU>
+     <IFR_TAGTYP>E</IFR_TAGTYP>
+     <IFR_MINOCC>1</IFR_MINOCC>
+     <IFR_MAXOCC>1</IFR_MAXOCC>
+     <IFR_XSDTYP>string</IFR_XSDTYP>
+     <IFR_SCALE>-2</IFR_SCALE>
+     <R3_TYPE>FIEL</R3_TYPE>
+     <R3_NAME>IND</R3_NAME>
+     <R3_TEXT>Indicador</R3_TEXT>
+     <R3_DATATYP>STRG</R3_DATATYP>
+     <R3_SEQNUM>000008</R3_SEQNUM>
+    </item>
+    <item>
+     <OBJECT>TABL</OBJECT>
+     <OBJ_NAME>ZCLSD_DT_CRIACAO_ORDEM_VENDA_8</OBJ_NAME>
+     <OBJECT1>FIEL</OBJECT1>
+     <OBJ_NAME1>MATERIAL</OBJ_NAME1>
+     <OBJECT2>FIEL</OBJECT2>
+     <OBJ_NAME2>MATERIAL</OBJ_NAME2>
+     <ID>&lt;element&gt; MATERIAL &lt;type&gt; MATERIAIS &lt;element&gt; MATERIAIS &lt;type&gt; ITENS &lt;element&gt; ITENS &lt;type&gt; Cabecalho &lt;element&gt; Cabecalho &lt;type&gt; dtCriacaoOrdemVendaFluig http://trescoracoes.com.br/vendas/ordem http://trescoracoes.com.br/vendas/ordem</ID>
+     <IFR_TYPE>element</IFR_TYPE>
+     <IFR_NAME>MATERIAL</IFR_NAME>
+     <IFR_TEXT>Código do Material</IFR_TEXT>
+     <IFR_LANGU>EN</IFR_LANGU>
+     <IFR_TAGTYP>E</IFR_TAGTYP>
+     <IFR_MINOCC>1</IFR_MINOCC>
+     <IFR_MAXOCC>1</IFR_MAXOCC>
+     <IFR_XSDTYP>string</IFR_XSDTYP>
+     <IFR_SCALE>-2</IFR_SCALE>
+     <R3_TYPE>FIEL</R3_TYPE>
+     <R3_NAME>MATERIAL</R3_NAME>
+     <R3_TEXT>Código do Material</R3_TEXT>
+     <R3_DATATYP>STRG</R3_DATATYP>
+     <R3_SEQNUM>000001</R3_SEQNUM>
+    </item>
+    <item>
+     <OBJECT>TABL</OBJECT>
+     <OBJ_NAME>ZCLSD_DT_CRIACAO_ORDEM_VENDA_8</OBJ_NAME>
+     <OBJECT1>FIEL</OBJECT1>
+     <OBJ_NAME1>PLANT</OBJ_NAME1>
+     <OBJECT2>FIEL</OBJECT2>
+     <OBJ_NAME2>PLANT</OBJ_NAME2>
+     <ID>&lt;element&gt; PLANT &lt;type&gt; MATERIAIS &lt;element&gt; MATERIAIS &lt;type&gt; ITENS &lt;element&gt; ITENS &lt;type&gt; Cabecalho &lt;element&gt; Cabecalho &lt;type&gt; dtCriacaoOrdemVendaFluig http://trescoracoes.com.br/vendas/ordem http://trescoracoes.com.br/vendas/ordem</ID>
+     <IFR_TYPE>element</IFR_TYPE>
+     <IFR_NAME>PLANT</IFR_NAME>
+     <IFR_TEXT>Centro</IFR_TEXT>
+     <IFR_LANGU>EN</IFR_LANGU>
+     <IFR_TAGTYP>E</IFR_TAGTYP>
+     <IFR_MINOCC>1</IFR_MINOCC>
+     <IFR_MAXOCC>1</IFR_MAXOCC>
+     <IFR_XSDTYP>string</IFR_XSDTYP>
+     <IFR_SCALE>-2</IFR_SCALE>
+     <R3_TYPE>FIEL</R3_TYPE>
+     <R3_NAME>PLANT</R3_NAME>
+     <R3_TEXT>Centro</R3_TEXT>
+     <R3_DATATYP>STRG</R3_DATATYP>
+     <R3_SEQNUM>000002</R3_SEQNUM>
+    </item>
+    <item>
+     <OBJECT>TABL</OBJECT>
+     <OBJ_NAME>ZCLSD_DT_CRIACAO_ORDEM_VENDA_8</OBJ_NAME>
+     <OBJECT1>FIEL</OBJECT1>
+     <OBJ_NAME1>STORE_LOC</OBJ_NAME1>
+     <OBJECT2>FIEL</OBJECT2>
+     <OBJ_NAME2>STORE_LOC</OBJ_NAME2>
+     <ID>&lt;element&gt; STORE_LOC &lt;type&gt; MATERIAIS &lt;element&gt; MATERIAIS &lt;type&gt; ITENS &lt;element&gt; ITENS &lt;type&gt; Cabecalho &lt;element&gt; Cabecalho &lt;type&gt; dtCriacaoOrdemVendaFluig http://trescoracoes.com.br/vendas/ordem http://trescoracoes.com.br/vendas/ordem</ID>
+     <IFR_TYPE>element</IFR_TYPE>
+     <IFR_NAME>STORE_LOC</IFR_NAME>
+     <IFR_LANGU>EN</IFR_LANGU>
+     <IFR_TAGTYP>E</IFR_TAGTYP>
+     <IFR_MAXOCC>1</IFR_MAXOCC>
+     <IFR_OPTNL>X</IFR_OPTNL>
+     <IFR_XSDTYP>string</IFR_XSDTYP>
+     <IFR_SCALE>-2</IFR_SCALE>
+     <R3_TYPE>FIEL</R3_TYPE>
+     <R3_NAME>STORE_LOC</R3_NAME>
+     <R3_DATATYP>STRG</R3_DATATYP>
+     <R3_SEQNUM>000003</R3_SEQNUM>
+    </item>
+    <item>
+     <OBJECT>TABL</OBJECT>
+     <OBJ_NAME>ZCLSD_DT_CRIACAO_ORDEM_VENDA_8</OBJ_NAME>
+     <OBJECT1>FIEL</OBJECT1>
+     <OBJ_NAME1>TARGET_QTY</OBJ_NAME1>
+     <OBJECT2>FIEL</OBJECT2>
+     <OBJ_NAME2>TARGET_QTY</OBJ_NAME2>
+     <ID>&lt;element&gt; TARGET_QTY &lt;type&gt; MATERIAIS &lt;element&gt; MATERIAIS &lt;type&gt; ITENS &lt;element&gt; ITENS &lt;type&gt; Cabecalho &lt;element&gt; Cabecalho &lt;type&gt; dtCriacaoOrdemVendaFluig http://trescoracoes.com.br/vendas/ordem http://trescoracoes.com.br/vendas/ordem</ID>
+     <IFR_TYPE>element</IFR_TYPE>
+     <IFR_NAME>TARGET_QTY</IFR_NAME>
+     <IFR_TEXT>Quantidade</IFR_TEXT>
+     <IFR_LANGU>EN</IFR_LANGU>
+     <IFR_TAGTYP>E</IFR_TAGTYP>
+     <IFR_MINOCC>1</IFR_MINOCC>
+     <IFR_MAXOCC>1</IFR_MAXOCC>
+     <IFR_XSDTYP>decimal</IFR_XSDTYP>
+     <IFR_SCALE>-2</IFR_SCALE>
+     <R3_TYPE>FIEL</R3_TYPE>
+     <R3_NAME>TARGET_QTY</R3_NAME>
+     <R3_TEXT>Quantidade</R3_TEXT>
+     <R3_DATATYP>STRG</R3_DATATYP>
+     <R3_SEQNUM>000006</R3_SEQNUM>
+    </item>
+    <item>
+     <OBJECT>TABL</OBJECT>
+     <OBJ_NAME>ZCLSD_DT_CRIACAO_ORDEM_VENDA_8</OBJ_NAME>
+     <OBJECT1>FIEL</OBJECT1>
+     <OBJ_NAME1>TARGET_QU</OBJ_NAME1>
+     <OBJECT2>FIEL</OBJECT2>
+     <OBJ_NAME2>TARGET_QU</OBJ_NAME2>
+     <ID>&lt;element&gt; TARGET_QU &lt;type&gt; MATERIAIS &lt;element&gt; MATERIAIS &lt;type&gt; ITENS &lt;element&gt; ITENS &lt;type&gt; Cabecalho &lt;element&gt; Cabecalho &lt;type&gt; dtCriacaoOrdemVendaFluig http://trescoracoes.com.br/vendas/ordem http://trescoracoes.com.br/vendas/ordem</ID>
+     <IFR_TYPE>element</IFR_TYPE>
+     <IFR_NAME>TARGET_QU</IFR_NAME>
+     <IFR_LANGU>EN</IFR_LANGU>
+     <IFR_TAGTYP>E</IFR_TAGTYP>
+     <IFR_MAXOCC>1</IFR_MAXOCC>
+     <IFR_OPTNL>X</IFR_OPTNL>
+     <IFR_XSDTYP>string</IFR_XSDTYP>
+     <IFR_SCALE>-2</IFR_SCALE>
+     <R3_TYPE>FIEL</R3_TYPE>
+     <R3_NAME>TARGET_QU</R3_NAME>
+     <R3_DATATYP>STRG</R3_DATATYP>
+     <R3_SEQNUM>000009</R3_SEQNUM>
+    </item>
+    <item>
+     <OBJECT>TABL</OBJECT>
+     <OBJ_NAME>ZCLSD_DT_CRIACAO_ORDEM_VENDA_8</OBJ_NAME>
+     <OBJECT1>FIEL</OBJECT1>
+     <OBJ_NAME1>VALOR_UNIT</OBJ_NAME1>
+     <OBJECT2>FIEL</OBJECT2>
+     <OBJ_NAME2>VALOR_UNIT</OBJ_NAME2>
+     <ID>&lt;element&gt; VALOR_UNIT &lt;type&gt; MATERIAIS &lt;element&gt; MATERIAIS &lt;type&gt; ITENS &lt;element&gt; ITENS &lt;type&gt; Cabecalho &lt;element&gt; Cabecalho &lt;type&gt; dtCriacaoOrdemVendaFluig http://trescoracoes.com.br/vendas/ordem http://trescoracoes.com.br/vendas/ordem</ID>
+     <IFR_TYPE>element</IFR_TYPE>
+     <IFR_NAME>VALOR_UNIT</IFR_NAME>
+     <IFR_TEXT>Valor Unitário</IFR_TEXT>
+     <IFR_LANGU>EN</IFR_LANGU>
+     <IFR_TAGTYP>E</IFR_TAGTYP>
+     <IFR_MAXOCC>1</IFR_MAXOCC>
+     <IFR_OPTNL>X</IFR_OPTNL>
+     <IFR_XSDTYP>decimal</IFR_XSDTYP>
+     <IFR_SCALE>-2</IFR_SCALE>
+     <R3_TYPE>FIEL</R3_TYPE>
+     <R3_NAME>VALOR_UNIT</R3_NAME>
+     <R3_TEXT>Valor Unitário</R3_TEXT>
+     <R3_DATATYP>STRG</R3_DATATYP>
+     <R3_SEQNUM>000007</R3_SEQNUM>
+    </item>
+    <item>
+     <OBJECT>TABL</OBJECT>
+     <OBJ_NAME>ZCLSD_DT_CRIACAO_ORDEM_VENDA_8</OBJ_NAME>
+     <OBJECT1>FIEL</OBJECT1>
+     <OBJ_NAME1>WBS_ELEMENT</OBJ_NAME1>
+     <OBJECT2>FIEL</OBJECT2>
+     <OBJ_NAME2>WBS_ELEMENT</OBJ_NAME2>
+     <ID>&lt;element&gt; WBS_ELEMENT &lt;type&gt; MATERIAIS &lt;element&gt; MATERIAIS &lt;type&gt; ITENS &lt;element&gt; ITENS &lt;type&gt; Cabecalho &lt;element&gt; Cabecalho &lt;type&gt; dtCriacaoOrdemVendaFluig http://trescoracoes.com.br/vendas/ordem http://trescoracoes.com.br/vendas/ordem</ID>
+     <IFR_TYPE>element</IFR_TYPE>
+     <IFR_NAME>WBS_ELEMENT</IFR_NAME>
+     <IFR_TEXT>Elemento PEP</IFR_TEXT>
+     <IFR_LANGU>EN</IFR_LANGU>
+     <IFR_TAGTYP>E</IFR_TAGTYP>
+     <IFR_MAXOCC>1</IFR_MAXOCC>
+     <IFR_OPTNL>X</IFR_OPTNL>
+     <IFR_XSDTYP>string</IFR_XSDTYP>
+     <IFR_SCALE>-2</IFR_SCALE>
+     <R3_TYPE>FIEL</R3_TYPE>
+     <R3_NAME>WBS_ELEMENT</R3_NAME>
+     <R3_TEXT>Elemento PEP</R3_TEXT>
+     <R3_DATATYP>STRG</R3_DATATYP>
+     <R3_SEQNUM>000005</R3_SEQNUM>
+    </item>
+    <item>
+     <OBJECT>TABL</OBJECT>
+     <OBJ_NAME>ZCLSD_DT_CRIACAO_ORDEM_VENDA_8</OBJ_NAME>
+     <OBJECT1>TABL</OBJECT1>
+     <OBJ_NAME1>ZCLSD_DT_CRIACAO_ORDEM_VENDA_8</OBJ_NAME1>
+     <OBJECT2>TABL</OBJECT2>
+     <OBJ_NAME2>ZCLSD_DT_CRIACAO_ORDEM_VENDA_8</OBJ_NAME2>
+     <ID>&lt;type&gt; MATERIAIS &lt;element&gt; MATERIAIS &lt;type&gt; ITENS &lt;element&gt; ITENS &lt;type&gt; Cabecalho &lt;element&gt; Cabecalho &lt;type&gt; dtCriacaoOrdemVendaFluig http://trescoracoes.com.br/vendas/ordem http://trescoracoes.com.br/vendas/ordem</ID>
+     <IFR_TYPE>type</IFR_TYPE>
+     <IFR_NAME>MATERIAIS</IFR_NAME>
+     <IFR_LANGU>EN</IFR_LANGU>
+     <IFR_SCALE>-2</IFR_SCALE>
+     <R3_TYPE>TABL</R3_TYPE>
+     <R3_NAME>ZCLSD_DT_CRIACAO_ORDEM_VENDA_8</R3_NAME>
+     <R3_TEXT>Proxy Structure (generated)</R3_TEXT>
+     <CATEGORY>ifmtypedef</CATEGORY>
+    </item>
+   </PROXY_DATA>
+  </asx:values>
+ </asx:abap>
+</abapGit>

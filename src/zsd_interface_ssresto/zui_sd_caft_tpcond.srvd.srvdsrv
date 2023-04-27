@@ -1,0 +1,4 @@
+@EndUserText.label: 'Service definition Tipo de condição de pgmt.'
+define service ZUI_SD_CAFT_TPCOND {
+  expose ZC_SD_CAFT_TPCOND;
+}

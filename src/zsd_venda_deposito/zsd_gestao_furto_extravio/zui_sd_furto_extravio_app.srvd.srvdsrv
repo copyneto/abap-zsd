@@ -1,0 +1,4 @@
+@EndUserText.label: 'Service Def App Gestãofurto e extravio'
+define service ZUI_SD_FURTO_EXTRAVIO_APP {
+  expose ZC_SD_FURTO_EXTRAVIO_APP;
+}

@@ -1,0 +1,307 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<abapGit version="v1.0.0" serializer="LCL_OBJECT_MSAG" serializer_version="v1.0.0">
+ <asx:abap xmlns:asx="http://www.sap.com/abapxml" version="1.0">
+  <asx:values>
+   <T100A>
+    <ARBGB>ZSD_INTERC_UPLD</ARBGB>
+    <MASTERLANG>P</MASTERLANG>
+   </T100A>
+   <T100>
+    <T100>
+     <SPRSL>P</SPRSL>
+     <ARBGB>ZSD_INTERC_UPLD</ARBGB>
+     <MSGNR>000</MSGNR>
+     <TEXT>&amp;1&amp;2&amp;3&amp;4</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>P</SPRSL>
+     <ARBGB>ZSD_INTERC_UPLD</ARBGB>
+     <MSGNR>001</MSGNR>
+     <TEXT>Todos os campos de transporte são obrigatórios!</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>P</SPRSL>
+     <ARBGB>ZSD_INTERC_UPLD</ARBGB>
+     <MSGNR>002</MSGNR>
+     <TEXT>Documento de entrada inválido.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>P</SPRSL>
+     <ARBGB>ZSD_INTERC_UPLD</ARBGB>
+     <MSGNR>003</MSGNR>
+     <TEXT>Tipo de operação inválido.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>P</SPRSL>
+     <ARBGB>ZSD_INTERC_UPLD</ARBGB>
+     <MSGNR>004</MSGNR>
+     <TEXT>Agente de frete (&amp;1) não possui o mesmo CNPJ do local de negócio (&amp;2).</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>P</SPRSL>
+     <ARBGB>ZSD_INTERC_UPLD</ARBGB>
+     <MSGNR>005</MSGNR>
+     <TEXT>Agente de frete (&amp;1) possui o mesmo CNPJ do local de negócio (&amp;2).</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>P</SPRSL>
+     <ARBGB>ZSD_INTERC_UPLD</ARBGB>
+     <MSGNR>006</MSGNR>
+     <TEXT>Agente de frete (&amp;1) não possui o mesmo CNPJ do destinatário (&amp;2)</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>P</SPRSL>
+     <ARBGB>ZSD_INTERC_UPLD</ARBGB>
+     <MSGNR>007</MSGNR>
+     <TEXT>Agente de frete (&amp;1) possui o mesmo CNPJ do destinatário (&amp;2).</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>P</SPRSL>
+     <ARBGB>ZSD_INTERC_UPLD</ARBGB>
+     <MSGNR>008</MSGNR>
+     <TEXT>Obrigatório o preenchimento das informações de Transporte</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>P</SPRSL>
+     <ARBGB>ZSD_INTERC_UPLD</ARBGB>
+     <MSGNR>009</MSGNR>
+     <TEXT>Opção Sem frete não deve ter as informações de Transporte preenchidas</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>P</SPRSL>
+     <ARBGB>ZSD_INTERC_UPLD</ARBGB>
+     <MSGNR>010</MSGNR>
+     <TEXT>Informar o Centro Receptor</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>P</SPRSL>
+     <ARBGB>ZSD_INTERC_UPLD</ARBGB>
+     <MSGNR>011</MSGNR>
+     <TEXT>Tipo de Operação é Obrigatório.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>P</SPRSL>
+     <ARBGB>ZSD_INTERC_UPLD</ARBGB>
+     <MSGNR>012</MSGNR>
+     <TEXT>Organização de Compras é obrigatório.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>P</SPRSL>
+     <ARBGB>ZSD_INTERC_UPLD</ARBGB>
+     <MSGNR>013</MSGNR>
+     <TEXT>Grupo de Compradores é obrigatório.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>P</SPRSL>
+     <ARBGB>ZSD_INTERC_UPLD</ARBGB>
+     <MSGNR>014</MSGNR>
+     <TEXT>Depósito de Origem é obrigatório.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>P</SPRSL>
+     <ARBGB>ZSD_INTERC_UPLD</ARBGB>
+     <MSGNR>015</MSGNR>
+     <TEXT>Depósito de Destino é obrigatório.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>P</SPRSL>
+     <ARBGB>ZSD_INTERC_UPLD</ARBGB>
+     <MSGNR>016</MSGNR>
+     <TEXT>Processo é obrigatório.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>P</SPRSL>
+     <ARBGB>ZSD_INTERC_UPLD</ARBGB>
+     <MSGNR>017</MSGNR>
+     <TEXT>Remessa de Origem é obrigatório.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>P</SPRSL>
+     <ARBGB>ZSD_INTERC_UPLD</ARBGB>
+     <MSGNR>018</MSGNR>
+     <TEXT>Documento de remessa &amp;1 não existe.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>P</SPRSL>
+     <ARBGB>ZSD_INTERC_UPLD</ARBGB>
+     <MSGNR>019</MSGNR>
+     <TEXT>Tipo de Operação &amp;1 não corresponde ao Processo &amp;2.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>P</SPRSL>
+     <ARBGB>ZSD_INTERC_UPLD</ARBGB>
+     <MSGNR>020</MSGNR>
+     <TEXT>Etapa pendente &amp;1 - &amp;2.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>P</SPRSL>
+     <ARBGB>ZSD_INTERC_UPLD</ARBGB>
+     <MSGNR>021</MSGNR>
+     <TEXT>Verificar Log de Aplicativos(Objeto = NFE, SubObj = MONITOR, Id.Ext = &amp;1)</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>P</SPRSL>
+     <ARBGB>ZSD_INTERC_UPLD</ARBGB>
+     <MSGNR>022</MSGNR>
+     <TEXT>O Bloqueio de Remessa é obrigatório.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>P</SPRSL>
+     <ARBGB>ZSD_INTERC_UPLD</ARBGB>
+     <MSGNR>023</MSGNR>
+     <TEXT>Centro de Origem é obrigatório.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>P</SPRSL>
+     <ARBGB>ZSD_INTERC_UPLD</ARBGB>
+     <MSGNR>024</MSGNR>
+     <TEXT>Centro de Destino é obrigatório.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>P</SPRSL>
+     <ARBGB>ZSD_INTERC_UPLD</ARBGB>
+     <MSGNR>025</MSGNR>
+     <TEXT>Tipo de Frete é obrigatório.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>P</SPRSL>
+     <ARBGB>ZSD_INTERC_UPLD</ARBGB>
+     <MSGNR>026</MSGNR>
+     <TEXT>Condição de Expedição é obrigatório.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>P</SPRSL>
+     <ARBGB>ZSD_INTERC_UPLD</ARBGB>
+     <MSGNR>027</MSGNR>
+     <TEXT>Centro de destino não pode ser de outra empresa.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>P</SPRSL>
+     <ARBGB>ZSD_INTERC_UPLD</ARBGB>
+     <MSGNR>028</MSGNR>
+     <TEXT>Centro Receptor é obrigatório.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>P</SPRSL>
+     <ARBGB>ZSD_INTERC_UPLD</ARBGB>
+     <MSGNR>029</MSGNR>
+     <TEXT>Operação ñ permitida. Favor informar um Centro de Faturamento no campo &amp;1</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>P</SPRSL>
+     <ARBGB>ZSD_INTERC_UPLD</ARBGB>
+     <MSGNR>030</MSGNR>
+     <TEXT>Os centros são da mesma empresa, utilize o processo de transferência</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>P</SPRSL>
+     <ARBGB>ZSD_INTERC_UPLD</ARBGB>
+     <MSGNR>031</MSGNR>
+     <TEXT>Segunda etapa já realizada. Documento: &amp;1</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>P</SPRSL>
+     <ARBGB>ZSD_INTERC_UPLD</ARBGB>
+     <MSGNR>032</MSGNR>
+     <TEXT>A quantidade dos Itens precisa ser maior que zero!</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>P</SPRSL>
+     <ARBGB>ZSD_INTERC_UPLD</ARBGB>
+     <MSGNR>033</MSGNR>
+     <TEXT>Favor preencher o Material ou o Grupo de Mercadorias.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>P</SPRSL>
+     <ARBGB>ZSD_INTERC_UPLD</ARBGB>
+     <MSGNR>034</MSGNR>
+     <TEXT>Favor preencher apenas um dos campos (Material ou Grupo de Mercadorias).</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>P</SPRSL>
+     <ARBGB>ZSD_INTERC_UPLD</ARBGB>
+     <MSGNR>035</MSGNR>
+     <TEXT>Não é possível criar OF! Existem campos com valores divergentes.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>P</SPRSL>
+     <ARBGB>ZSD_INTERC_UPLD</ARBGB>
+     <MSGNR>036</MSGNR>
+     <TEXT>NFe de saída &amp;1 não autorizada.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>P</SPRSL>
+     <ARBGB>ZSD_INTERC_UPLD</ARBGB>
+     <MSGNR>037</MSGNR>
+     <TEXT>Documento de Entrada de Mercadorias não foi criado para o pedido &amp;1.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>P</SPRSL>
+     <ARBGB>ZSD_INTERC_UPLD</ARBGB>
+     <MSGNR>038</MSGNR>
+     <TEXT>Documento de Entrada de Fatura não foi criado para o pedido &amp;1.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>P</SPRSL>
+     <ARBGB>ZSD_INTERC_UPLD</ARBGB>
+     <MSGNR>039</MSGNR>
+     <TEXT>Código de Utilização é obrigatório.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>P</SPRSL>
+     <ARBGB>ZSD_INTERC_UPLD</ARBGB>
+     <MSGNR>040</MSGNR>
+     <TEXT>Centro receptor não está cadastrado como dep fechado para o centro:  &amp;1.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>P</SPRSL>
+     <ARBGB>ZSD_INTERC_UPLD</ARBGB>
+     <MSGNR>041</MSGNR>
+     <TEXT>Depósito de Destino &amp;1 não cadastrado para o Centro &amp;2</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>P</SPRSL>
+     <ARBGB>ZSD_INTERC_UPLD</ARBGB>
+     <MSGNR>042</MSGNR>
+     <TEXT>Depósito de Destino &amp;1 não cadastrado para o Centro &amp;2</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>P</SPRSL>
+     <ARBGB>ZSD_INTERC_UPLD</ARBGB>
+     <MSGNR>043</MSGNR>
+     <TEXT>Informar valor válido para campo &amp;1, valor informado &amp;2.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>P</SPRSL>
+     <ARBGB>ZSD_INTERC_UPLD</ARBGB>
+     <MSGNR>044</MSGNR>
+     <TEXT>Guid &amp;1 inválido.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>P</SPRSL>
+     <ARBGB>ZSD_INTERC_UPLD</ARBGB>
+     <MSGNR>045</MSGNR>
+     <TEXT>Dados não encontrados para processamento com código Guid &amp;1 informado.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>P</SPRSL>
+     <ARBGB>ZSD_INTERC_UPLD</ARBGB>
+     <MSGNR>046</MSGNR>
+     <TEXT>Doc. gerado com o guid informado, não é possível realizar lançamento.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>P</SPRSL>
+     <ARBGB>ZSD_INTERC_UPLD</ARBGB>
+     <MSGNR>047</MSGNR>
+     <TEXT>Material não pode estar vazio.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>P</SPRSL>
+     <ARBGB>ZSD_INTERC_UPLD</ARBGB>
+     <MSGNR>048</MSGNR>
+     <TEXT>Unidade base não pode estar vazio.</TEXT>
+    </T100>
+   </T100>
+  </asx:values>
+ </asx:abap>
+</abapGit>

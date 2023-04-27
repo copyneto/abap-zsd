@@ -1,0 +1,8 @@
+projection;
+
+define behavior for ZC_SD_VERIF_UTIL_APP alias VerifUtil
+{
+
+//  use action SubstituirProduto;
+  use action EliminarProduto;
+}

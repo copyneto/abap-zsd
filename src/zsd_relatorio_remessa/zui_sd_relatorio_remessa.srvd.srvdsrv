@@ -1,0 +1,4 @@
+@EndUserText.label: 'Relatório de remessas'
+define service ZUI_SD_RELATORIO_REMESSA {
+  expose ZC_SD_RELATORIO_REMESSA as Remessa;
+}

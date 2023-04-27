@@ -1,0 +1,7 @@
+@Metadata.layer: #CORE
+annotate entity ZC_SD_NF_IMP_MASSA_PRINTER with
+{
+  @Consumption.valueHelpDefinition: [{ entity : {name: 'ZI_CA_VH_PADEST', element: 'Printer' }}]
+  @EndUserText.label: 'Impressora'
+  Printer;
+}

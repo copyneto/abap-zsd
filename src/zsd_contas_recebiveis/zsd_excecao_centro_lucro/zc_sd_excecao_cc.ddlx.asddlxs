@@ -1,0 +1,63 @@
+@Metadata.layer: #CORE
+@UI: { headerInfo: { typeName: 'Exceção para determinação de Centro de Custo',
+                     typeNamePlural: 'Exceção para determinação de Centro de Custo' } }
+annotate entity ZC_SD_EXCECAO_CC
+    with 
+{
+
+    // ------------------------------------------------------
+    // Header information
+    // ------------------------------------------------------
+    @UI.facet: [ { id:            'DADOS',
+                 isSummary:       true,
+                 type:            #COLLECTION,
+                 label:           'Exceção para determinação de Centro de Custo',
+                 position:        10 },
+
+                { parentId:        'DADOS',
+                  id:              'DADOS_PRINCIPAIS',
+                  type:            #FIELDGROUP_REFERENCE,
+                  position:        10,
+                  label: 'Dados principais',
+                  targetQualifier: 'DADOS_PRINCIPAIS' },
+
+                { parentId:        'DADOS',
+                  id:              'DADOS_CONTROLE',
+                  type:            #FIELDGROUP_REFERENCE,
+                  position:        10,
+                  label: 'Dados de controle',
+                  targetQualifier: 'DADOS_CONTROLE' } ]
+                          
+    // ------------------------------------------------------
+    // Field information
+    // ------------------------------------------------------                          
+    @UI: { lineItem:     [ { position: 10 } ],
+         fieldGroup:     [ { position: 10, qualifier: 'DADOS_PRINCIPAIS' } ],
+         selectionField: [ { position: 10 } ] }    
+    Centro;
+    @UI: { lineItem:     [ { position: 20 } ]}    
+    DescricaoCentro;
+    @UI: { lineItem:     [ { position: 30 } ],
+         fieldGroup:     [ { position: 20, qualifier: 'DADOS_PRINCIPAIS' } ],
+         selectionField: [ { position: 20 } ] }    
+    RegiaoVendas;
+    @UI: { lineItem:     [ { position: 40 } ]}    
+    DescricaoRegiaoVendas;
+    @UI: { lineItem:     [ { position: 50 } ],
+         fieldGroup:     [ { position: 30, qualifier: 'DADOS_PRINCIPAIS' } ],
+         selectionField: [ { position: 30 } ] }    
+    CentroCusto;
+    @UI: { lineItem:     [ { position: 60 } ]}    
+    DescricaoCentroCusto;
+    @UI: { fieldGroup:   [ { position: 10, qualifier: 'DADOS_CONTROLE' } ] }
+    CreatedBy;
+    @UI: { fieldGroup:   [ { position: 20, qualifier: 'DADOS_CONTROLE' } ] }
+    CreatedAt;
+    @UI: { fieldGroup:   [ { position: 30, qualifier: 'DADOS_CONTROLE' } ] }
+    LastChangedBy;
+    @UI: { fieldGroup:   [ { position: 40, qualifier: 'DADOS_CONTROLE' } ] }
+    LastChangedAt;
+    @UI: { fieldGroup:   [ { position: 50, qualifier: 'DADOS_CONTROLE' } ] }
+    LocalLastChangedAt;
+    
+}

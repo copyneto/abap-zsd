@@ -1,0 +1,45 @@
+@Metadata.layer:#CORE
+@UI: { headerInfo: { typeName: 'Anexo',
+                     typeNamePlural: 'Anexo',
+                     title: { type: #STANDARD, value: 'line' } } }
+
+annotate view ZC_SD_COCKPIT_DEVOLUCAO_ANEXO with
+{ // ------------------------------------------------------
+  // Header information
+  // ------------------------------------------------------
+  @UI.facet: [ { id:            'Arquivo',
+                 purpose:       #STANDARD,
+                 type:          #IDENTIFICATION_REFERENCE,
+                 label:         'Anexo',
+                 position:      10 }  ]
+
+  // ------------------------------------------------------
+  // Field information
+  // ------------------------------------------------------
+  @UI.hidden: true
+  LocalNegocio;
+  
+  @UI.hidden: true
+  TipoDevolucao;
+  
+  @UI.hidden: true
+  Nfe;
+  
+  @UI.hidden: true
+  Cnpj;
+  
+  @UI: { lineItem:        [ { position: 10, label: 'Linha' } ],
+         identification:  [ { position: 10, label: 'Linha' } ]  }
+  Line;
+
+  @UI: { lineItem:        [ { position: 20, label: 'Arquivo' } ],
+         identification:  [ { position: 20, label: 'Arquivo' } ]  }
+  Filename;
+
+  @UI: { lineItem:        [ { position: 30, label: 'Extensão' } ],
+         identification:  [ { position: 30, label: 'Extensão' } ]  }
+  Mimetype;
+
+  @UI.hidden: true
+  Value;
+}

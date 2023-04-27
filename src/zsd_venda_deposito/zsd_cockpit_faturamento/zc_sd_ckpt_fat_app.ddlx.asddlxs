@@ -1,0 +1,239 @@
+@Metadata.layer: #CORE
+@UI: { headerInfo: { typeName: 'Cockpit Faturamento',
+                     typeNamePlural: 'Cockpit Faturamento',
+                     title: { type: #STANDARD, label: 'Ordem do Cliente', value: 'SalesOrder' } } }
+annotate view ZC_SD_CKPT_FAT_APP with
+{
+  // ------------------------------------------------------
+  // Informações de cabeçalho
+  // ------------------------------------------------------
+  @UI.facet: [ { id:              'Cockpit',
+                 purpose:         #STANDARD,
+                 type:            #IDENTIFICATION_REFERENCE,
+                 label:           'Ordem do Cliente',
+                 position:        10 } ]
+
+  // ------------------------------------------------------
+  // Informações de campo
+  // ------------------------------------------------------
+  @UI: {  lineItem:       [ { position: 10, label: 'Ordem do Cliente' },
+  //                             { type: #FOR_ACTION, dataAction: 'recusarOrdem',               label: 'Recusar Ordem'  },
+  //                             { type: #FOR_ACTION, dataAction: 'consultarDisponibilidade',   label: 'Consultar Disponibilidade'  } ,
+                             { type: #FOR_ACTION, dataAction: 'gerarRemessa',               label: 'Gerar Remessa', invocationGrouping: #CHANGE_SET  } ],
+          identification: [ { position: 10, label: 'Ordem do Cliente'} ],
+          selectionField: [ { position: 10 } ] }
+  SalesOrder;
+
+  @UI: {  lineItem:       [ { position: 20 } ],
+          identification: [ { position: 20 } ],
+          selectionField: [ { position: 20 } ] }
+  Customer;
+
+  @UI: {  lineItem:       [ { position: 30 } ],
+          identification: [ { position: 30 } ],
+          selectionField: [ { position: 40 } ] }
+  SalesOrderType;
+
+  @UI: {  lineItem:       [ { position: 40, label: 'Data da criação da ordem' } ],
+          identification: [ { position: 40, label: 'Data da criação da ordem' } ],
+          selectionField: [ { position: 30 } ] }
+  CreationDate;
+
+  @UI: {  lineItem:       [ { position: 50, criticality: 'ColorDeliveryBlockReason' } ],
+          identification: [ { position: 50, criticality: 'ColorDeliveryBlockReason' } ]  }
+  StatusDeliveryBlockReason;
+
+  @UI: {  lineItem:       [ { position: 60, criticality: 'ColorTotalCreditCheckStatus' } ],
+          identification: [ { position: 60, criticality: 'ColorTotalCreditCheckStatus' } ]  }
+  StatusTotalCreditCheckStatus;
+
+  @UI: {  lineItem:       [ { position: 70, criticality: 'ColorStatus' } ],
+          identification: [ { position: 70, criticality: 'ColorStatus' } ]  }
+  Status;
+  @UI: {  lineItem:       [ { position: 80, criticality: 'ColorStatusDF' } ],
+        identification: [ { position: 80, criticality: 'ColorStatusDF' } ]  }
+  StatusDF;
+
+  @UI: {  lineItem:       [ { position: 90 } ],
+          identification: [ { position: 90 } ]  }
+  TotalNetAmount;
+
+  @UI: {  lineItem:       [ { position: 100 } ],
+          identification: [ { position: 100 } ]  }
+  @Consumption.filter.hidden: true
+  @UI.hidden: true
+  TransactionCurrency;
+
+  @UI: {  lineItem:       [ { position: 110 } ],
+          identification: [ { position: 110 } ],
+          selectionField: [ { position: 50 } ] }
+  SalesOrganization;
+
+  @UI: {  lineItem:       [ { position: 120 } ],
+          identification: [ { position: 120 } ],
+          selectionField: [ { position: 70 } ] }
+  SalesOffice;
+
+  @UI: {  lineItem:       [ { position: 130 } ],
+          identification: [ { position: 130 } ],
+          selectionField: [ { position: 60 } ] }
+  DistributionChannel;
+
+  @UI: {  lineItem:       [ { position: 140 } ],
+          identification: [ { position: 140 } ]  }
+  ItemGrossWeight;
+
+  @UI: {  lineItem:       [ { position: 150 } ],
+          identification: [ { position: 150 } ]  }
+  @Consumption.filter.hidden: true
+  @UI.hidden: true
+  ItemWeightUnit;
+
+  //  @UI: {  lineItem:       [ { position: 150 } ],
+  //          identification: [ { position: 150 } ],
+  //          selectionField: [ { position: 90 } ] }
+  //  Personnel;
+
+  @UI: {  lineItem:       [ { position: 160 } ],
+          identification: [ { position: 160 } ],
+          selectionField: [ { position: 90 } ] }
+  PersonnelInt;
+
+  //  @UI.hidden: true
+  @UI: {  lineItem:       [ { position: 170 } ],
+          identification: [ { position: 170 } ] }
+  PersonnelIntName;
+
+  @UI: {  lineItem:       [ { position: 180 } ],
+          identification: [ { position: 180 } ],
+          selectionField: [ { position: 100 } ] }
+  PersonnelExt;
+
+  //  @UI.hidden: true
+  @UI: {  lineItem:       [ { position: 190 } ],
+          identification: [ { position: 190 } ] }
+  PersonnelExtName;
+
+  @UI: {  lineItem:       [ { position: 200 } ],
+          identification: [ { position: 200 } ],
+          selectionField: [ { position: 90 } ] }
+  SalesGroup;
+
+  @UI: {  lineItem:       [ { position: 210 } ],
+          identification: [ { position: 210 } ]  }
+  CustomerPurchaseOrderDate;
+
+  @UI: {  lineItem:       [ { position: 220 } ],
+          identification: [ { position: 220 } ] }
+  Regio;
+
+  @UI: {  lineItem:       [ { position: 230 } ],
+          identification: [ { position: 230 } ]  }
+  RequestedDeliveryDate;
+
+  @UI: {  lineItem:       [ { position: 240 } ],
+          identification: [ { position: 240 } ]  }
+  DataFatura;
+
+  @UI: {  lineItem:       [ { position: 250 } ],
+          identification: [ { position: 250 } ],
+          selectionField: [ { position: 320 } ] }
+  DataLiberacao;
+
+  @UI: {  lineItem:       [ { position: 260 } ],
+          identification: [ { position: 260 } ]  }
+  Agendamento;
+
+  @UI: {  lineItem:       [ { position: 270 } ],
+          identification: [ { position: 270 } ]  }
+  @UI.textArrangement: #TEXT_SEPARATE
+  OverallDeliveryStatus;
+
+  @UI: {  lineItem:       [ { position: 280 } ],
+          identification: [ { position: 280 } ]  }
+  CorrespncExternalReference;
+
+  @UI: {  lineItem:       [ { position: 290, criticality: 'ColorStatusDeliveryBlockReason' } ],
+          identification: [ { position: 290, criticality: 'ColorStatusDeliveryBlockReason' } ]  }
+  StatusDeliveryBlockReasonComex;
+
+  @UI: {  lineItem:       [ { position: 300, criticality: 'ColorValorMin' } ],
+          identification: [ { position: 300, criticality: 'ColorValorMin' } ]  }
+  ValorMin;
+
+  @Consumption.filter.hidden: true
+  @UI.hidden: true
+  ColorDeliveryBlockReason;
+  @Consumption.filter.hidden: true
+  @UI.hidden: true
+  ColorTotalCreditCheckStatus;
+  @Consumption.filter.hidden: true
+  @UI.hidden: true
+  ColorStatus;
+  @Consumption.filter.hidden: true
+  @UI.hidden: true
+  AreaAtendimentoTexto;
+  @Consumption.filter.hidden: true
+  @UI.hidden: true
+  OverallDeliveryStatusDesc;
+  @Consumption.filter.hidden: true
+  @UI.hidden: true
+  CodigoServicoTexto;
+  @Consumption.filter.hidden: true
+  @UI.hidden: true
+  ColorStatusDeliveryBlockReason;
+
+  @UI.hidden: true
+  @UI: {  selectionField: [ { position: 310 } ] }
+  Material;
+
+  @UI.hidden: true
+  @UI: {  selectionField: [ { position: 320 } ] }
+  SalesOrderItem;
+
+  //  @UI.hidden: true
+  //  orderquantityunit;
+
+  @UI.hidden: true
+  ColorValorMin;
+
+  @UI: {  lineItem:       [ { position: 330 } ],
+          identification: [ { position: 330 } ]  }
+  ValorMinOv;
+
+  @UI: {  lineItem:       [ { position: 340 } ],
+          identification: [ { position: 340 } ]  }
+  VlrPendOV;
+
+  @UI: {  lineItem:       [ { position: 350 } ],
+          identification: [ { position: 350 } ],
+          selectionField: [ { position: 340 } ] }
+  CustomerGroup;
+
+  @UI: {  lineItem:       [ { position: 360 } ],
+          identification: [ { position: 360 } ],
+          selectionField: [ { position: 350 } ] }
+  CustomerPurchaseOrderType;
+
+  @UI: {  lineItem:       [ { position: 370 } ],
+        identification: [ { position: 370 } ],
+        selectionField: [ { position: 360 } ] }
+  Plant;
+  @UI: {  lineItem:       [ { position: 380 } ],
+       identification: [ { position: 380 } ],
+       selectionField: [ { position: 370 } ] }
+  CentroDepFechado;
+  @UI: {  lineItem:       [ { position: 390 } ],
+     identification: [ { position: 390 } ],
+     selectionField: [ { position: 50 } ] }
+  PedidoAux;
+
+  @UI: {  lineItem:       [ { position: 400 } ],
+          identification: [ { position: 400 } ],
+          selectionField: [ { position: 380 } ] }
+  DeliveryPriority;
+
+  @UI: {  lineItem:       [ { position: 410 } ],
+          identification: [ { position: 410 } ] }
+  DeliveryPriorityDesc;
+}

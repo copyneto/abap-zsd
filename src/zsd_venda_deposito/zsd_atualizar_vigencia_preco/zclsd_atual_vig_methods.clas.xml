@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<abapGit version="v1.0.0" serializer="LCL_OBJECT_CLAS" serializer_version="v1.0.0">
+ <asx:abap xmlns:asx="http://www.sap.com/abapxml" version="1.0">
+  <asx:values>
+   <VSEOCLASS>
+    <CLSNAME>ZCLSD_ATUAL_VIG_METHODS</CLSNAME>
+    <LANGU>P</LANGU>
+    <DESCRIPT>Classe para metodos do APP Atualizar Vigência Preço</DESCRIPT>
+    <STATE>1</STATE>
+    <CLSCCINCL>X</CLSCCINCL>
+    <FIXPT>X</FIXPT>
+    <UNICODE>X</UNICODE>
+   </VSEOCLASS>
+   <DESCRIPTIONS_SUB>
+    <SEOSUBCOTX>
+     <CMPNAME>ATUALIZAR</CMPNAME>
+     <SCONAME>ET_RETURN</SCONAME>
+     <LANGU>P</LANGU>
+     <DESCRIPT>table type of bapiret2</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>ATUALIZAR</CMPNAME>
+     <SCONAME>IS_RECORD</SCONAME>
+     <LANGU>P</LANGU>
+     <DESCRIPT>App Atualizar Vigência Preço</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>ATUALIZAR</CMPNAME>
+     <SCONAME>IV_DATA_FIM</SCONAME>
+     <LANGU>P</LANGU>
+     <DESCRIPT>Campo do tipo DATS</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>ATUALIZAR</CMPNAME>
+     <SCONAME>IV_DATA_IN</SCONAME>
+     <LANGU>P</LANGU>
+     <DESCRIPT>Campo do tipo DATS</DESCRIPT>
+    </SEOSUBCOTX>
+   </DESCRIPTIONS_SUB>
+  </asx:values>
+ </asx:abap>
+</abapGit>

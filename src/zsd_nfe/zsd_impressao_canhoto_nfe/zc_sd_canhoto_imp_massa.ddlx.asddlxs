@@ -1,0 +1,80 @@
+@Metadata.layer: #CORE
+
+@UI: { headerInfo: { typeName: 'Canhoto Nota Fiscal',
+                     typeNamePlural: 'Canhotos Notas Fiscais'
+                   }
+     }
+
+annotate view ZC_SD_CANHOTO_IMP_MASSA with
+{
+  // ------------------------------------------------------
+  // Informações de cabeçalho
+  // ------------------------------------------------------
+
+  @UI.facet: [ { id:         'Nfenum',
+               purpose:       #STANDARD,
+               type:          #IDENTIFICATION_REFERENCE,
+               label:         'Nota Fiscal',
+               position:      10 }]
+   // -----------------------------------------------------
+  // Action
+  // ------------------------------------------------------
+
+  @UI: { lineItem:        [ { type: #STANDARD },
+                            //{ type: #FOR_ACTION, dataAction: 'Desimprimir', position: 20, label: 'Desimprimir', invocationGrouping: #CHANGE_SET },
+                            { type: #FOR_ACTION, dataAction: 'imprimir', position: 10, label: 'Imprimir Canhoto', invocationGrouping: #CHANGE_SET } ],
+         identification:  [ { type: #STANDARD },
+                            { type: #FOR_ACTION, dataAction: 'imprimir', label: 'Imprimir Canhoto' } ] }
+
+   // -----------------------------------------------------
+  // Informações de campo
+  // ------------------------------------------------------
+  @UI: { lineItem:        [ { position: 10, label: 'Ordem de Frete' } ],
+         identification:  [ { position: 10, label: 'Ordem de Frete' } ],
+         selectionField:  [ { position: 10 }] }
+
+  @Consumption.filter.mandatory: true
+  TorId;
+
+  @UI: { lineItem:        [ { position: 20, label: 'NFe' } ],
+         identification:  [ { position: 20, label: 'NFe' } ],
+         selectionField:  [ { position: 20 }]}
+  Nfenum;
+
+
+  @UI: { lineItem:        [ { position: 30, label: 'Cliente' } ],
+       identification:    [ { position: 30, label: 'Cliente' } ] }
+  Parid;
+
+  @UI: { lineItem:        [ { position: 40, label: 'Nome do Cliente' } ],
+       identification:    [ { position: 40, label: 'Nome do Cliente' } ] }
+  Name1;
+
+  @UI: { lineItem:        [ { position: 41, label: 'Nº do Pedido' } ],
+       identification:    [ { position: 41, label: 'Nº do Pedido' } ] }
+  OriginReferenceDocument;
+
+  @UI: { lineItem:        [ { position: 42, label: 'TipoDocVenda' } ],
+       identification:    [ { position: 42, label: 'TipoDocVenda' } ] }
+  Auart;
+
+  @UI: { lineItem:        [ { position: 50, label: 'Nº do Pedido do Cliente' } ],
+       identification:    [ { position: 50, label: 'Nº do Pedido do Cliente' } ] }
+  PedidoCliente;
+
+  @UI: { lineItem:        [ { position: 60, label: 'Forma de Pagamento' } ],
+     identification:      [ { position: 60, label: 'Forma de Pagamento' } ] }
+  TPag;
+
+  @UI.hidden: true
+  TPagText;
+
+  @UI: { lineItem:        [ { position: 70, label: 'Vendedor' } ],
+     identification:      [ { position: 70, label: 'Vendedor' } ] }
+  BR_NFPartner;
+
+  @UI: { lineItem:        [ { position: 80, label: 'Valor Total NFe' } ],
+     identification:      [ { position: 80, label: 'Valor Total NFe' } ] }
+  NfTot;
+
+}

@@ -1,0 +1,4 @@
+@EndUserText.label: 'Service Def  Cadastro regra PIS e COFINS'
+define service ZUI_SD_PIS_COFINS {
+  expose ZC_SD_PIS_COFINS;
+}

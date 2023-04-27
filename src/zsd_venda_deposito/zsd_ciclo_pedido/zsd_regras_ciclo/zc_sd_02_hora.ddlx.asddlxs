@@ -1,0 +1,35 @@
+@Metadata.layer: #CORE
+@UI.headerInfo: {  typeNamePlural: 'Horas', typeName: 'Hora',
+    title: {  type: #STANDARD } }
+//@UI.presentationVariant: [{ sortOrder: [{ by: 'Zdia', direction: #ASC }] }]
+annotate view zc_sd_02_hora with
+{
+  @UI.facet: [ { id: 'Hora',
+                 purpose: #STANDARD,
+                 type: #IDENTIFICATION_REFERENCE,
+                 label: 'Informações Gerais',
+                 position: 10 }]
+
+  @UI.hidden: true
+  Ziti;
+  @UI.hidden: true
+  Zmed;
+  @UI:{ lineItem:       [{ position: 10 }], 
+        identification: [{ position: 10 }] }
+  @EndUserText.label: 'Validade'
+  Zdia;
+  @UI:{ lineItem:       [{ position: 20 }],
+        identification: [{ position: 20 }] }
+  Zhora;
+  @UI.hidden: true
+  CreatedBy;
+  @UI.hidden: true
+  CreatedAt;
+  @UI.hidden: true
+  LastChangedBy;
+  @UI.hidden: true
+  LastChangedAt;
+  @UI.hidden: true
+  LocalLastChangedAt;
+
+}

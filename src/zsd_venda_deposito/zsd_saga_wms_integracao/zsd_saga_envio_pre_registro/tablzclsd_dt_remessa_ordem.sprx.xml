@@ -1,0 +1,485 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<abapGit version="v1.0.0" serializer="LCL_OBJECT_SPRX" serializer_version="v1.0.0">
+ <asx:abap xmlns:asx="http://www.sap.com/abapxml" version="1.0">
+  <asx:values>
+   <PROXY_HEADER>
+    <item>
+     <OBJECT>TABL</OBJECT>
+     <OBJ_NAME>ZCLSD_DT_REMESSA_ORDEM</OBJ_NAME>
+     <OBJECT_M>TABL</OBJECT_M>
+     <OBJ_NAME_M>ZCLSD_DT_REMESSA_ORDEM</OBJ_NAME_M>
+     <HASH_ID>AB6B6346AA1654B3177A776BCF70DB39D823EEDC</HASH_ID>
+     <ID>&lt;type&gt; dtRemessaOrdem http://trescoracoes.com.br/vendas/ordem http://trescoracoes.com.br/vendas/ordem</ID>
+     <IFR_GLOBAL>X</IFR_GLOBAL>
+     <IFR_TYPE>type</IFR_TYPE>
+     <IFR_NAME>dtRemessaOrdem</IFR_NAME>
+     <IFR_NSPCE>http://trescoracoes.com.br/vendas/ordem</IFR_NSPCE>
+     <IFR_GNSPCE>http://trescoracoes.com.br/vendas/ordem</IFR_GNSPCE>
+     <GEN_VERS>0005</GEN_VERS>
+     <PREFIX>ZCLSD_</PREFIX>
+     <CATEGORY>ifmtypedef</CATEGORY>
+     <X-ML_NSPCE>http://trescoracoes.com.br/vendas/ordem</X-ML_NSPCE>
+     <X-ML_NAME>dtRemessaOrdem</X-ML_NAME>
+     <VERSION_ID>5e870ab9aca411eda79900000085a0cb</VERSION_ID>
+    </item>
+   </PROXY_HEADER>
+   <PROXY_DATA>
+    <item>
+     <OBJECT>TABL</OBJECT>
+     <OBJ_NAME>ZCLSD_DT_REMESSA_ORDEM</OBJ_NAME>
+     <OBJECT1>FIEL</OBJECT1>
+     <OBJ_NAME1>ANZPK</OBJ_NAME1>
+     <OBJECT2>FIEL</OBJECT2>
+     <OBJ_NAME2>ANZPK</OBJ_NAME2>
+     <ID>&lt;element&gt; ANZPK &lt;type&gt; dtRemessaOrdem http://trescoracoes.com.br/vendas/ordem http://trescoracoes.com.br/vendas/ordem</ID>
+     <IFR_TYPE>element</IFR_TYPE>
+     <IFR_NAME>ANZPK</IFR_NAME>
+     <IFR_TEXT>Número total dos volumes da remessa</IFR_TEXT>
+     <IFR_LANGU>EN</IFR_LANGU>
+     <IFR_TAGTYP>E</IFR_TAGTYP>
+     <IFR_MAXOCC>1</IFR_MAXOCC>
+     <IFR_OPTNL>X</IFR_OPTNL>
+     <IFR_XSDTYP>string</IFR_XSDTYP>
+     <IFR_MAXLEN>5</IFR_MAXLEN>
+     <IFR_SCALE>-2</IFR_SCALE>
+     <R3_TYPE>FIEL</R3_TYPE>
+     <R3_NAME>ANZPK</R3_NAME>
+     <R3_TEXT>Número total dos volumes da remessa</R3_TEXT>
+     <R3_DATATYP>CHAR</R3_DATATYP>
+     <R3_LENGTH>000005</R3_LENGTH>
+     <R3_SEQNUM>000014</R3_SEQNUM>
+    </item>
+    <item>
+     <OBJECT>TABL</OBJECT>
+     <OBJ_NAME>ZCLSD_DT_REMESSA_ORDEM</OBJ_NAME>
+     <OBJECT1>FIEL</OBJECT1>
+     <OBJ_NAME1>BSARK</OBJ_NAME1>
+     <OBJECT2>FIEL</OBJECT2>
+     <OBJ_NAME2>BSARK</OBJ_NAME2>
+     <ID>&lt;element&gt; BSARK &lt;type&gt; dtRemessaOrdem http://trescoracoes.com.br/vendas/ordem http://trescoracoes.com.br/vendas/ordem</ID>
+     <IFR_TYPE>element</IFR_TYPE>
+     <IFR_NAME>BSARK</IFR_NAME>
+     <IFR_TEXT>Tipo de Pedido</IFR_TEXT>
+     <IFR_LANGU>EN</IFR_LANGU>
+     <IFR_TAGTYP>E</IFR_TAGTYP>
+     <IFR_MAXOCC>1</IFR_MAXOCC>
+     <IFR_OPTNL>X</IFR_OPTNL>
+     <IFR_XSDTYP>string</IFR_XSDTYP>
+     <IFR_MAXLEN>4</IFR_MAXLEN>
+     <IFR_SCALE>-2</IFR_SCALE>
+     <R3_TYPE>FIEL</R3_TYPE>
+     <R3_NAME>BSARK</R3_NAME>
+     <R3_TEXT>Tipo de Pedido</R3_TEXT>
+     <R3_DATATYP>CHAR</R3_DATATYP>
+     <R3_LENGTH>000004</R3_LENGTH>
+     <R3_SEQNUM>000016</R3_SEQNUM>
+    </item>
+    <item>
+     <OBJECT>TABL</OBJECT>
+     <OBJ_NAME>ZCLSD_DT_REMESSA_ORDEM</OBJ_NAME>
+     <OBJECT1>FIEL</OBJECT1>
+     <OBJ_NAME1>ERDAT</OBJ_NAME1>
+     <OBJECT2>FIEL</OBJECT2>
+     <OBJ_NAME2>ERDAT</OBJ_NAME2>
+     <ID>&lt;element&gt; ERDAT &lt;type&gt; dtRemessaOrdem http://trescoracoes.com.br/vendas/ordem http://trescoracoes.com.br/vendas/ordem</ID>
+     <IFR_TYPE>element</IFR_TYPE>
+     <IFR_NAME>ERDAT</IFR_NAME>
+     <IFR_TEXT>Data de criação do registro</IFR_TEXT>
+     <IFR_LANGU>EN</IFR_LANGU>
+     <IFR_TAGTYP>E</IFR_TAGTYP>
+     <IFR_MAXOCC>1</IFR_MAXOCC>
+     <IFR_OPTNL>X</IFR_OPTNL>
+     <IFR_XSDTYP>string</IFR_XSDTYP>
+     <IFR_SCALE>-2</IFR_SCALE>
+     <R3_TYPE>FIEL</R3_TYPE>
+     <R3_NAME>ERDAT</R3_NAME>
+     <R3_TEXT>Data de criação do registro</R3_TEXT>
+     <R3_DATATYP>STRG</R3_DATATYP>
+     <R3_SEQNUM>000011</R3_SEQNUM>
+    </item>
+    <item>
+     <OBJECT>TABL</OBJECT>
+     <OBJ_NAME>ZCLSD_DT_REMESSA_ORDEM</OBJ_NAME>
+     <OBJECT1>FIEL</OBJECT1>
+     <OBJ_NAME1>ITENS</OBJ_NAME1>
+     <OBJECT2>FIEL</OBJECT2>
+     <OBJ_NAME2>ITENS</OBJ_NAME2>
+     <OBJECT_R>TTYP</OBJECT_R>
+     <OBJ_NAME_R>ZCLSD_DT_REMESSA_ORDEM_ITE_TAB</OBJ_NAME_R>
+     <ID>&lt;element&gt; ITENS &lt;type&gt; dtRemessaOrdem http://trescoracoes.com.br/vendas/ordem http://trescoracoes.com.br/vendas/ordem</ID>
+     <IFR_TYPE>element</IFR_TYPE>
+     <IFR_NAME>ITENS</IFR_NAME>
+     <IFR_LANGU>EN</IFR_LANGU>
+     <IFR_TAGTYP>L</IFR_TAGTYP>
+     <IFR_MAXOCC>65535</IFR_MAXOCC>
+     <IFR_OPTNL>X</IFR_OPTNL>
+     <IFR_SCALE>-2</IFR_SCALE>
+     <R3_TYPE>FIEL</R3_TYPE>
+     <R3_NAME>ITENS</R3_NAME>
+     <R3_SEQNUM>000017</R3_SEQNUM>
+    </item>
+    <item>
+     <OBJECT>TABL</OBJECT>
+     <OBJ_NAME>ZCLSD_DT_REMESSA_ORDEM</OBJ_NAME>
+     <OBJECT1>FIEL</OBJECT1>
+     <OBJ_NAME1>KUNAG</OBJ_NAME1>
+     <OBJECT2>FIEL</OBJECT2>
+     <OBJ_NAME2>KUNAG</OBJ_NAME2>
+     <ID>&lt;element&gt; KUNAG &lt;type&gt; dtRemessaOrdem http://trescoracoes.com.br/vendas/ordem http://trescoracoes.com.br/vendas/ordem</ID>
+     <IFR_TYPE>element</IFR_TYPE>
+     <IFR_NAME>KUNAG</IFR_NAME>
+     <IFR_TEXT>Emissor da ordem</IFR_TEXT>
+     <IFR_LANGU>EN</IFR_LANGU>
+     <IFR_TAGTYP>E</IFR_TAGTYP>
+     <IFR_MINOCC>1</IFR_MINOCC>
+     <IFR_MAXOCC>1</IFR_MAXOCC>
+     <IFR_XSDTYP>string</IFR_XSDTYP>
+     <IFR_MAXLEN>10</IFR_MAXLEN>
+     <IFR_SCALE>-2</IFR_SCALE>
+     <R3_TYPE>FIEL</R3_TYPE>
+     <R3_NAME>KUNAG</R3_NAME>
+     <R3_TEXT>Emissor da ordem</R3_TEXT>
+     <R3_DATATYP>CHAR</R3_DATATYP>
+     <R3_LENGTH>000010</R3_LENGTH>
+     <R3_SEQNUM>000006</R3_SEQNUM>
+    </item>
+    <item>
+     <OBJECT>TABL</OBJECT>
+     <OBJ_NAME>ZCLSD_DT_REMESSA_ORDEM</OBJ_NAME>
+     <OBJECT1>FIEL</OBJECT1>
+     <OBJ_NAME1>LGORT</OBJ_NAME1>
+     <OBJECT2>FIEL</OBJECT2>
+     <OBJ_NAME2>LGORT</OBJ_NAME2>
+     <ID>&lt;element&gt; LGORT &lt;type&gt; dtRemessaOrdem http://trescoracoes.com.br/vendas/ordem http://trescoracoes.com.br/vendas/ordem</ID>
+     <IFR_TYPE>element</IFR_TYPE>
+     <IFR_NAME>LGORT</IFR_NAME>
+     <IFR_TEXT>Depósito</IFR_TEXT>
+     <IFR_LANGU>EN</IFR_LANGU>
+     <IFR_TAGTYP>E</IFR_TAGTYP>
+     <IFR_MAXOCC>1</IFR_MAXOCC>
+     <IFR_OPTNL>X</IFR_OPTNL>
+     <IFR_XSDTYP>string</IFR_XSDTYP>
+     <IFR_MAXLEN>4</IFR_MAXLEN>
+     <IFR_SCALE>-2</IFR_SCALE>
+     <R3_TYPE>FIEL</R3_TYPE>
+     <R3_NAME>LGORT</R3_NAME>
+     <R3_TEXT>Depósito</R3_TEXT>
+     <R3_DATATYP>CHAR</R3_DATATYP>
+     <R3_LENGTH>000004</R3_LENGTH>
+     <R3_SEQNUM>000010</R3_SEQNUM>
+    </item>
+    <item>
+     <OBJECT>TABL</OBJECT>
+     <OBJ_NAME>ZCLSD_DT_REMESSA_ORDEM</OBJ_NAME>
+     <OBJECT1>FIEL</OBJECT1>
+     <OBJ_NAME1>LIFNR</OBJ_NAME1>
+     <OBJECT2>FIEL</OBJECT2>
+     <OBJ_NAME2>LIFNR</OBJ_NAME2>
+     <ID>&lt;element&gt; LIFNR &lt;type&gt; dtRemessaOrdem http://trescoracoes.com.br/vendas/ordem http://trescoracoes.com.br/vendas/ordem</ID>
+     <IFR_TYPE>element</IFR_TYPE>
+     <IFR_NAME>LIFNR</IFR_NAME>
+     <IFR_TEXT>Nº conta do fornecedor</IFR_TEXT>
+     <IFR_LANGU>EN</IFR_LANGU>
+     <IFR_TAGTYP>E</IFR_TAGTYP>
+     <IFR_MINOCC>1</IFR_MINOCC>
+     <IFR_MAXOCC>1</IFR_MAXOCC>
+     <IFR_XSDTYP>string</IFR_XSDTYP>
+     <IFR_MAXLEN>10</IFR_MAXLEN>
+     <IFR_SCALE>-2</IFR_SCALE>
+     <R3_TYPE>FIEL</R3_TYPE>
+     <R3_NAME>LIFNR</R3_NAME>
+     <R3_TEXT>Nº conta do fornecedor</R3_TEXT>
+     <R3_DATATYP>CHAR</R3_DATATYP>
+     <R3_LENGTH>000010</R3_LENGTH>
+     <R3_SEQNUM>000007</R3_SEQNUM>
+    </item>
+    <item>
+     <OBJECT>TABL</OBJECT>
+     <OBJ_NAME>ZCLSD_DT_REMESSA_ORDEM</OBJ_NAME>
+     <OBJECT1>FIEL</OBJECT1>
+     <OBJ_NAME1>LPRIO</OBJ_NAME1>
+     <OBJECT2>FIEL</OBJECT2>
+     <OBJ_NAME2>LPRIO</OBJ_NAME2>
+     <ID>&lt;element&gt; LPRIO &lt;type&gt; dtRemessaOrdem http://trescoracoes.com.br/vendas/ordem http://trescoracoes.com.br/vendas/ordem</ID>
+     <IFR_TYPE>element</IFR_TYPE>
+     <IFR_NAME>LPRIO</IFR_NAME>
+     <IFR_TEXT>Prioridade de remessa</IFR_TEXT>
+     <IFR_LANGU>EN</IFR_LANGU>
+     <IFR_TAGTYP>E</IFR_TAGTYP>
+     <IFR_MINOCC>1</IFR_MINOCC>
+     <IFR_MAXOCC>1</IFR_MAXOCC>
+     <IFR_XSDTYP>string</IFR_XSDTYP>
+     <IFR_MAXLEN>2</IFR_MAXLEN>
+     <IFR_SCALE>-2</IFR_SCALE>
+     <R3_TYPE>FIEL</R3_TYPE>
+     <R3_NAME>LPRIO</R3_NAME>
+     <R3_TEXT>Prioridade de remessa</R3_TEXT>
+     <R3_DATATYP>CHAR</R3_DATATYP>
+     <R3_LENGTH>000002</R3_LENGTH>
+     <R3_SEQNUM>000008</R3_SEQNUM>
+    </item>
+    <item>
+     <OBJECT>TABL</OBJECT>
+     <OBJ_NAME>ZCLSD_DT_REMESSA_ORDEM</OBJ_NAME>
+     <OBJECT1>FIEL</OBJECT1>
+     <OBJ_NAME1>TRANSPORTE</OBJ_NAME1>
+     <OBJECT2>FIEL</OBJECT2>
+     <OBJ_NAME2>TRANSPORTE</OBJ_NAME2>
+     <OBJECT_R>TABL</OBJECT_R>
+     <OBJ_NAME_R>ZCLSD_DT_REMESSA_ORDEM_TRANSPO</OBJ_NAME_R>
+     <ID>&lt;element&gt; TRANSPORTE &lt;type&gt; dtRemessaOrdem http://trescoracoes.com.br/vendas/ordem http://trescoracoes.com.br/vendas/ordem</ID>
+     <IFR_TYPE>element</IFR_TYPE>
+     <IFR_NAME>TRANSPORTE</IFR_NAME>
+     <IFR_LANGU>EN</IFR_LANGU>
+     <IFR_TAGTYP>E</IFR_TAGTYP>
+     <IFR_MAXOCC>1</IFR_MAXOCC>
+     <IFR_OPTNL>X</IFR_OPTNL>
+     <IFR_SCALE>-2</IFR_SCALE>
+     <R3_TYPE>FIEL</R3_TYPE>
+     <R3_NAME>TRANSPORTE</R3_NAME>
+     <R3_SEQNUM>000018</R3_SEQNUM>
+    </item>
+    <item>
+     <OBJECT>TABL</OBJECT>
+     <OBJ_NAME>ZCLSD_DT_REMESSA_ORDEM</OBJ_NAME>
+     <OBJECT1>FIEL</OBJECT1>
+     <OBJ_NAME1>VBELN</OBJ_NAME1>
+     <OBJECT2>FIEL</OBJECT2>
+     <OBJ_NAME2>VBELN</OBJ_NAME2>
+     <ID>&lt;element&gt; VBELN &lt;type&gt; dtRemessaOrdem http://trescoracoes.com.br/vendas/ordem http://trescoracoes.com.br/vendas/ordem</ID>
+     <IFR_TYPE>element</IFR_TYPE>
+     <IFR_NAME>VBELN</IFR_NAME>
+     <IFR_TEXT>Fornecimento</IFR_TEXT>
+     <IFR_LANGU>EN</IFR_LANGU>
+     <IFR_TAGTYP>E</IFR_TAGTYP>
+     <IFR_MINOCC>1</IFR_MINOCC>
+     <IFR_MAXOCC>1</IFR_MAXOCC>
+     <IFR_XSDTYP>string</IFR_XSDTYP>
+     <IFR_MAXLEN>40</IFR_MAXLEN>
+     <IFR_SCALE>-2</IFR_SCALE>
+     <R3_TYPE>FIEL</R3_TYPE>
+     <R3_NAME>VBELN</R3_NAME>
+     <R3_TEXT>Fornecimento</R3_TEXT>
+     <R3_DATATYP>CHAR</R3_DATATYP>
+     <R3_LENGTH>000040</R3_LENGTH>
+     <R3_SEQNUM>000004</R3_SEQNUM>
+    </item>
+    <item>
+     <OBJECT>TABL</OBJECT>
+     <OBJ_NAME>ZCLSD_DT_REMESSA_ORDEM</OBJ_NAME>
+     <OBJECT1>FIEL</OBJECT1>
+     <OBJ_NAME1>WERKS</OBJ_NAME1>
+     <OBJECT2>FIEL</OBJECT2>
+     <OBJ_NAME2>WERKS</OBJ_NAME2>
+     <ID>&lt;element&gt; WERKS &lt;type&gt; dtRemessaOrdem http://trescoracoes.com.br/vendas/ordem http://trescoracoes.com.br/vendas/ordem</ID>
+     <IFR_TYPE>element</IFR_TYPE>
+     <IFR_NAME>WERKS</IFR_NAME>
+     <IFR_TEXT>Centro receptor para remessas</IFR_TEXT>
+     <IFR_LANGU>EN</IFR_LANGU>
+     <IFR_TAGTYP>E</IFR_TAGTYP>
+     <IFR_MINOCC>1</IFR_MINOCC>
+     <IFR_MAXOCC>1</IFR_MAXOCC>
+     <IFR_XSDTYP>string</IFR_XSDTYP>
+     <IFR_MAXLEN>4</IFR_MAXLEN>
+     <IFR_SCALE>-2</IFR_SCALE>
+     <R3_TYPE>FIEL</R3_TYPE>
+     <R3_NAME>WERKS</R3_NAME>
+     <R3_TEXT>Centro receptor para remessas</R3_TEXT>
+     <R3_DATATYP>CHAR</R3_DATATYP>
+     <R3_LENGTH>000004</R3_LENGTH>
+     <R3_SEQNUM>000001</R3_SEQNUM>
+    </item>
+    <item>
+     <OBJECT>TABL</OBJECT>
+     <OBJ_NAME>ZCLSD_DT_REMESSA_ORDEM</OBJ_NAME>
+     <OBJECT1>FIEL</OBJECT1>
+     <OBJ_NAME1>XBELNR</OBJ_NAME1>
+     <OBJECT2>FIEL</OBJECT2>
+     <OBJ_NAME2>XBELNR</OBJ_NAME2>
+     <ID>&lt;element&gt; XBELNR &lt;type&gt; dtRemessaOrdem http://trescoracoes.com.br/vendas/ordem http://trescoracoes.com.br/vendas/ordem</ID>
+     <IFR_TYPE>element</IFR_TYPE>
+     <IFR_NAME>XBELNR</IFR_NAME>
+     <IFR_TEXT>Nº documento de referência</IFR_TEXT>
+     <IFR_LANGU>EN</IFR_LANGU>
+     <IFR_TAGTYP>E</IFR_TAGTYP>
+     <IFR_MAXOCC>1</IFR_MAXOCC>
+     <IFR_OPTNL>X</IFR_OPTNL>
+     <IFR_XSDTYP>string</IFR_XSDTYP>
+     <IFR_MAXLEN>40</IFR_MAXLEN>
+     <IFR_SCALE>-2</IFR_SCALE>
+     <R3_TYPE>FIEL</R3_TYPE>
+     <R3_NAME>XBELNR</R3_NAME>
+     <R3_TEXT>Nº documento de referência</R3_TEXT>
+     <R3_DATATYP>CHAR</R3_DATATYP>
+     <R3_LENGTH>000040</R3_LENGTH>
+     <R3_SEQNUM>000005</R3_SEQNUM>
+    </item>
+    <item>
+     <OBJECT>TABL</OBJECT>
+     <OBJ_NAME>ZCLSD_DT_REMESSA_ORDEM</OBJ_NAME>
+     <OBJECT1>FIEL</OBJECT1>
+     <OBJ_NAME1>ZDATAAGENDAMENTO</OBJ_NAME1>
+     <OBJECT2>FIEL</OBJECT2>
+     <OBJ_NAME2>ZDATAAGENDAMENTO</OBJ_NAME2>
+     <ID>&lt;element&gt; ZDATAAGENDAMENTO &lt;type&gt; dtRemessaOrdem http://trescoracoes.com.br/vendas/ordem http://trescoracoes.com.br/vendas/ordem</ID>
+     <IFR_TYPE>element</IFR_TYPE>
+     <IFR_NAME>ZDATAAGENDAMENTO</IFR_NAME>
+     <IFR_TEXT>Data de agendamento</IFR_TEXT>
+     <IFR_LANGU>EN</IFR_LANGU>
+     <IFR_TAGTYP>E</IFR_TAGTYP>
+     <IFR_MAXOCC>1</IFR_MAXOCC>
+     <IFR_OPTNL>X</IFR_OPTNL>
+     <IFR_XSDTYP>string</IFR_XSDTYP>
+     <IFR_SCALE>-2</IFR_SCALE>
+     <R3_TYPE>FIEL</R3_TYPE>
+     <R3_NAME>ZDATAAGENDAMENTO</R3_NAME>
+     <R3_TEXT>Data de agendamento</R3_TEXT>
+     <R3_DATATYP>STRG</R3_DATATYP>
+     <R3_SEQNUM>000012</R3_SEQNUM>
+    </item>
+    <item>
+     <OBJECT>TABL</OBJECT>
+     <OBJ_NAME>ZCLSD_DT_REMESSA_ORDEM</OBJ_NAME>
+     <OBJECT1>FIEL</OBJECT1>
+     <OBJ_NAME1>ZNRITENS</OBJ_NAME1>
+     <OBJECT2>FIEL</OBJECT2>
+     <OBJ_NAME2>ZNRITENS</OBJ_NAME2>
+     <ID>&lt;element&gt; ZNRITENS &lt;type&gt; dtRemessaOrdem http://trescoracoes.com.br/vendas/ordem http://trescoracoes.com.br/vendas/ordem</ID>
+     <IFR_TYPE>element</IFR_TYPE>
+     <IFR_NAME>ZNRITENS</IFR_NAME>
+     <IFR_TEXT>Número de itens na remessa</IFR_TEXT>
+     <IFR_LANGU>EN</IFR_LANGU>
+     <IFR_TAGTYP>E</IFR_TAGTYP>
+     <IFR_MAXOCC>1</IFR_MAXOCC>
+     <IFR_OPTNL>X</IFR_OPTNL>
+     <IFR_XSDTYP>string</IFR_XSDTYP>
+     <IFR_MAXLEN>3</IFR_MAXLEN>
+     <IFR_SCALE>-2</IFR_SCALE>
+     <R3_TYPE>FIEL</R3_TYPE>
+     <R3_NAME>ZNRITENS</R3_NAME>
+     <R3_TEXT>Número de itens na remessa</R3_TEXT>
+     <R3_DATATYP>CHAR</R3_DATATYP>
+     <R3_LENGTH>000003</R3_LENGTH>
+     <R3_SEQNUM>000013</R3_SEQNUM>
+    </item>
+    <item>
+     <OBJECT>TABL</OBJECT>
+     <OBJ_NAME>ZCLSD_DT_REMESSA_ORDEM</OBJ_NAME>
+     <OBJECT1>FIEL</OBJECT1>
+     <OBJ_NAME1>ZOBSPOSTAL</OBJ_NAME1>
+     <OBJECT2>FIEL</OBJECT2>
+     <OBJ_NAME2>ZOBSPOSTAL</OBJ_NAME2>
+     <ID>&lt;element&gt; ZOBSPOSTAL &lt;type&gt; dtRemessaOrdem http://trescoracoes.com.br/vendas/ordem http://trescoracoes.com.br/vendas/ordem</ID>
+     <IFR_TYPE>element</IFR_TYPE>
+     <IFR_NAME>ZOBSPOSTAL</IFR_NAME>
+     <IFR_TEXT>Endereço de entrega</IFR_TEXT>
+     <IFR_LANGU>EN</IFR_LANGU>
+     <IFR_TAGTYP>E</IFR_TAGTYP>
+     <IFR_MAXOCC>1</IFR_MAXOCC>
+     <IFR_OPTNL>X</IFR_OPTNL>
+     <IFR_XSDTYP>string</IFR_XSDTYP>
+     <IFR_MAXLEN>120</IFR_MAXLEN>
+     <IFR_SCALE>-2</IFR_SCALE>
+     <R3_TYPE>FIEL</R3_TYPE>
+     <R3_NAME>ZOBSPOSTAL</R3_NAME>
+     <R3_TEXT>Endereço de entrega</R3_TEXT>
+     <R3_DATATYP>CHAR</R3_DATATYP>
+     <R3_LENGTH>000120</R3_LENGTH>
+     <R3_SEQNUM>000015</R3_SEQNUM>
+    </item>
+    <item>
+     <OBJECT>TABL</OBJECT>
+     <OBJ_NAME>ZCLSD_DT_REMESSA_ORDEM</OBJ_NAME>
+     <OBJECT1>FIEL</OBJECT1>
+     <OBJ_NAME1>ZORDEMFRETE</OBJ_NAME1>
+     <OBJECT2>FIEL</OBJECT2>
+     <OBJ_NAME2>ZORDEMFRETE</OBJ_NAME2>
+     <ID>&lt;element&gt; ZORDEMFRETE &lt;type&gt; dtRemessaOrdem http://trescoracoes.com.br/vendas/ordem http://trescoracoes.com.br/vendas/ordem</ID>
+     <IFR_TYPE>element</IFR_TYPE>
+     <IFR_NAME>ZORDEMFRETE</IFR_NAME>
+     <IFR_TEXT>Ordem de frete</IFR_TEXT>
+     <IFR_LANGU>EN</IFR_LANGU>
+     <IFR_TAGTYP>E</IFR_TAGTYP>
+     <IFR_MAXOCC>1</IFR_MAXOCC>
+     <IFR_OPTNL>X</IFR_OPTNL>
+     <IFR_XSDTYP>string</IFR_XSDTYP>
+     <IFR_MAXLEN>12</IFR_MAXLEN>
+     <IFR_SCALE>-2</IFR_SCALE>
+     <R3_TYPE>FIEL</R3_TYPE>
+     <R3_NAME>ZORDEMFRETE</R3_NAME>
+     <R3_TEXT>Ordem de frete</R3_TEXT>
+     <R3_DATATYP>CHAR</R3_DATATYP>
+     <R3_LENGTH>000012</R3_LENGTH>
+     <R3_SEQNUM>000009</R3_SEQNUM>
+    </item>
+    <item>
+     <OBJECT>TABL</OBJECT>
+     <OBJ_NAME>ZCLSD_DT_REMESSA_ORDEM</OBJ_NAME>
+     <OBJECT1>FIEL</OBJECT1>
+     <OBJ_NAME1>ZTIPO</OBJ_NAME1>
+     <OBJECT2>FIEL</OBJECT2>
+     <OBJ_NAME2>ZTIPO</OBJ_NAME2>
+     <ID>&lt;element&gt; ZTIPO &lt;type&gt; dtRemessaOrdem http://trescoracoes.com.br/vendas/ordem http://trescoracoes.com.br/vendas/ordem</ID>
+     <IFR_TYPE>element</IFR_TYPE>
+     <IFR_NAME>ZTIPO</IFR_NAME>
+     <IFR_TEXT>Tipo da operação</IFR_TEXT>
+     <IFR_LANGU>EN</IFR_LANGU>
+     <IFR_TAGTYP>E</IFR_TAGTYP>
+     <IFR_MINOCC>1</IFR_MINOCC>
+     <IFR_MAXOCC>1</IFR_MAXOCC>
+     <IFR_XSDTYP>string</IFR_XSDTYP>
+     <IFR_MAXLEN>2</IFR_MAXLEN>
+     <IFR_SCALE>-2</IFR_SCALE>
+     <R3_TYPE>FIEL</R3_TYPE>
+     <R3_NAME>ZTIPO</R3_NAME>
+     <R3_TEXT>Tipo da operação</R3_TEXT>
+     <R3_DATATYP>CHAR</R3_DATATYP>
+     <R3_LENGTH>000002</R3_LENGTH>
+     <R3_SEQNUM>000002</R3_SEQNUM>
+    </item>
+    <item>
+     <OBJECT>TABL</OBJECT>
+     <OBJ_NAME>ZCLSD_DT_REMESSA_ORDEM</OBJ_NAME>
+     <OBJECT1>FIEL</OBJECT1>
+     <OBJ_NAME1>ZTIPOGERACAO</OBJ_NAME1>
+     <OBJECT2>FIEL</OBJECT2>
+     <OBJ_NAME2>ZTIPOGERACAO</OBJ_NAME2>
+     <ID>&lt;element&gt; ZTIPOGERACAO &lt;type&gt; dtRemessaOrdem http://trescoracoes.com.br/vendas/ordem http://trescoracoes.com.br/vendas/ordem</ID>
+     <IFR_TYPE>element</IFR_TYPE>
+     <IFR_NAME>ZTIPOGERACAO</IFR_NAME>
+     <IFR_TEXT>Tipo da Geração</IFR_TEXT>
+     <IFR_LANGU>EN</IFR_LANGU>
+     <IFR_TAGTYP>E</IFR_TAGTYP>
+     <IFR_MINOCC>1</IFR_MINOCC>
+     <IFR_MAXOCC>1</IFR_MAXOCC>
+     <IFR_XSDTYP>string</IFR_XSDTYP>
+     <IFR_MAXLEN>1</IFR_MAXLEN>
+     <IFR_SCALE>-2</IFR_SCALE>
+     <R3_TYPE>FIEL</R3_TYPE>
+     <R3_NAME>ZTIPOGERACAO</R3_NAME>
+     <R3_TEXT>Tipo da Geração</R3_TEXT>
+     <R3_DATATYP>CHAR</R3_DATATYP>
+     <R3_LENGTH>000001</R3_LENGTH>
+     <R3_SEQNUM>000003</R3_SEQNUM>
+    </item>
+    <item>
+     <OBJECT>TABL</OBJECT>
+     <OBJ_NAME>ZCLSD_DT_REMESSA_ORDEM</OBJ_NAME>
+     <OBJECT1>TABL</OBJECT1>
+     <OBJ_NAME1>ZCLSD_DT_REMESSA_ORDEM</OBJ_NAME1>
+     <OBJECT2>TABL</OBJECT2>
+     <OBJ_NAME2>ZCLSD_DT_REMESSA_ORDEM</OBJ_NAME2>
+     <ID>&lt;type&gt; dtRemessaOrdem http://trescoracoes.com.br/vendas/ordem http://trescoracoes.com.br/vendas/ordem</ID>
+     <IFR_TYPE>type</IFR_TYPE>
+     <IFR_NAME>dtRemessaOrdem</IFR_NAME>
+     <IFR_LANGU>EN</IFR_LANGU>
+     <IFR_SCALE>-2</IFR_SCALE>
+     <R3_TYPE>TABL</R3_TYPE>
+     <R3_NAME>ZCLSD_DT_REMESSA_ORDEM</R3_NAME>
+     <R3_TEXT>Proxy Structure (generated)</R3_TEXT>
+     <CATEGORY>ifmtypedef</CATEGORY>
+    </item>
+   </PROXY_DATA>
+  </asx:values>
+ </asx:abap>
+</abapGit>

@@ -1,0 +1,27 @@
+managed;
+
+define behavior for ZI_SD_INCL_USER alias Usuario
+// implementation in class zbp_i_sd_incl_user unique;
+implementation in class zclsd_incl_user unique
+persistent table ztsd_incl_user
+lock master
+authorization master ( instance )
+etag master LocalLastChangedAt
+{
+  create;
+  update;
+  delete;
+
+  field ( mandatory : create ) Usuario;
+  field ( readonly : update ) Usuario, CreatedBy, CreatedAt, LastChangedBy, LastChangedAt, LocalLastChangedAt;
+
+  validation authorityCreate on save { create; }
+
+  mapping for ztsd_incl_user
+  {
+
+    Usuario = usuario;
+
+  }
+
+}

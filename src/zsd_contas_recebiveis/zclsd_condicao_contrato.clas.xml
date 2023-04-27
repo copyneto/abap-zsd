@@ -1,0 +1,238 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<abapGit version="v1.0.0" serializer="LCL_OBJECT_CLAS" serializer_version="v1.0.0">
+ <asx:abap xmlns:asx="http://www.sap.com/abapxml" version="1.0">
+  <asx:values>
+   <VSEOCLASS>
+    <CLSNAME>ZCLSD_CONDICAO_CONTRATO</CLSNAME>
+    <LANGU>P</LANGU>
+    <DESCRIPT>Verificação das condições de contrato por SD</DESCRIPT>
+    <STATE>1</STATE>
+    <CLSCCINCL>X</CLSCCINCL>
+    <FIXPT>X</FIXPT>
+    <UNICODE>X</UNICODE>
+   </VSEOCLASS>
+   <DESCRIPTIONS>
+    <SEOCOMPOTX>
+     <CMPNAME>CALCULAR</CMPNAME>
+     <LANGU>P</LANGU>
+     <DESCRIPT>Utilizado nas fórmulas SD 607, 608 e 609</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>GC_ROTINA_607</CMPNAME>
+     <LANGU>P</LANGU>
+     <DESCRIPT>Número da rotina utilizada para cópia</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>GC_ROTINA_608</CMPNAME>
+     <LANGU>P</LANGU>
+     <DESCRIPT>Número da rotina utilizada para cópia</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>GC_ROTINA_609</CMPNAME>
+     <LANGU>P</LANGU>
+     <DESCRIPT>Número da rotina utilizada para cópia</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>GC_ROTINA_625</CMPNAME>
+     <LANGU>P</LANGU>
+     <DESCRIPT>Número da rotina utilizada para cópia</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>GC_TIPO_IMPOSTO_ICMS</CMPNAME>
+     <LANGU>P</LANGU>
+     <DESCRIPT>Tipo de Imposto</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>GC_TIPO_IMPOSTO_ICMSST</CMPNAME>
+     <LANGU>P</LANGU>
+     <DESCRIPT>Tipo de Imposto</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>GC_TIPO_IMPOSTO_IPI</CMPNAME>
+     <LANGU>P</LANGU>
+     <DESCRIPT>Tipo de Imposto</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>GC_TIPO_IMPOSTO_PIS_COFINS</CMPNAME>
+     <LANGU>P</LANGU>
+     <DESCRIPT>Tipo de Imposto</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>GC_TIPO_IMPOSTO_TODOS</CMPNAME>
+     <LANGU>P</LANGU>
+     <DESCRIPT>Tipo de Imposto</DESCRIPT>
+    </SEOCOMPOTX>
+   </DESCRIPTIONS>
+   <DESCRIPTIONS_SUB>
+    <SEOSUBCOTX>
+     <CMPNAME>CALCULAR</CMPNAME>
+     <SCONAME>CV_KWERT</SCONAME>
+     <LANGU>P</LANGU>
+     <DESCRIPT>Valor condição</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>CALCULAR</CMPNAME>
+     <SCONAME>IS_KOMK</SCONAME>
+     <LANGU>P</LANGU>
+     <DESCRIPT>Determinação de preço - cabeçalho comunicação</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>CALCULAR</CMPNAME>
+     <SCONAME>IS_KOMP</SCONAME>
+     <LANGU>P</LANGU>
+     <DESCRIPT>Determinação de preço item de comunicação</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>CALCULAR</CMPNAME>
+     <SCONAME>IT_XKOMV</SCONAME>
+     <LANGU>P</LANGU>
+     <DESCRIPT>Montante ou porcentagem da condição</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>CALCULAR</CMPNAME>
+     <SCONAME>IV_ROTINA</SCONAME>
+     <LANGU>P</LANGU>
+     <DESCRIPT>Número da rotina utilizada para cópia</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>CALCULAR_DATA_BASE</CMPNAME>
+     <SCONAME>IV_AUBEL</SCONAME>
+     <LANGU>P</LANGU>
+     <DESCRIPT>Documento de vendas</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>CALCULAR_DATA_BASE</CMPNAME>
+     <SCONAME>IV_KUNNR</SCONAME>
+     <LANGU>P</LANGU>
+     <DESCRIPT>Nº cliente</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>CALCULAR_DATA_BASE</CMPNAME>
+     <SCONAME>IV_SPART</SCONAME>
+     <LANGU>P</LANGU>
+     <DESCRIPT>Setor de atividade</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>CALCULAR_DATA_BASE</CMPNAME>
+     <SCONAME>IV_VBELN</SCONAME>
+     <LANGU>P</LANGU>
+     <DESCRIPT>Número do documento de vendas e distribuição</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>CALCULAR_DATA_BASE</CMPNAME>
+     <SCONAME>IV_VKORG</SCONAME>
+     <LANGU>P</LANGU>
+     <DESCRIPT>Organização de vendas</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>CALCULAR_DATA_BASE</CMPNAME>
+     <SCONAME>IV_VTWEG</SCONAME>
+     <LANGU>P</LANGU>
+     <DESCRIPT>Canal de distribuição</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>CALCULAR_DATA_BASE</CMPNAME>
+     <SCONAME>RV_DATA_BASE</SCONAME>
+     <LANGU>P</LANGU>
+     <DESCRIPT>Data base para cálculo do vencimento</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>CALCULAR_TAXA_ITEM</CMPNAME>
+     <SCONAME>CT_XACCCR</SCONAME>
+     <LANGU>P</LANGU>
+     <DESCRIPT>Interface com contabilidade: informação sobre moeda</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>CALCULAR_TAXA_ITEM</CMPNAME>
+     <SCONAME>IV_KUNNR</SCONAME>
+     <LANGU>P</LANGU>
+     <DESCRIPT>Nº cliente</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>CALCULAR_TAXA_ITEM</CMPNAME>
+     <SCONAME>IV_SPART</SCONAME>
+     <LANGU>P</LANGU>
+     <DESCRIPT>Setor de atividade</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>CALCULAR_TAXA_ITEM</CMPNAME>
+     <SCONAME>IV_VBELN</SCONAME>
+     <LANGU>P</LANGU>
+     <DESCRIPT>Número do documento de vendas e distribuição</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>CALCULAR_TAXA_ITEM</CMPNAME>
+     <SCONAME>IV_VBTYP</SCONAME>
+     <LANGU>P</LANGU>
+     <DESCRIPT>Ctg.documento de vendas e distribuição</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>CALCULAR_TAXA_ITEM</CMPNAME>
+     <SCONAME>IV_VKORG</SCONAME>
+     <LANGU>P</LANGU>
+     <DESCRIPT>Organização de vendas</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>CALCULAR_TAXA_ITEM</CMPNAME>
+     <SCONAME>IV_VTWEG</SCONAME>
+     <LANGU>P</LANGU>
+     <DESCRIPT>Canal de distribuição</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>GET_CLIENTE</CMPNAME>
+     <SCONAME>IV_KUNNR</SCONAME>
+     <LANGU>P</LANGU>
+     <DESCRIPT>Nº cliente</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>GET_COND_PGTO</CMPNAME>
+     <SCONAME>IV_KUNNR</SCONAME>
+     <LANGU>P</LANGU>
+     <DESCRIPT>Nº cliente</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>GET_COND_PGTO</CMPNAME>
+     <SCONAME>IV_SPART</SCONAME>
+     <LANGU>P</LANGU>
+     <DESCRIPT>Setor de atividade</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>GET_COND_PGTO</CMPNAME>
+     <SCONAME>IV_VKORG</SCONAME>
+     <LANGU>P</LANGU>
+     <DESCRIPT>Organização de vendas</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>GET_COND_PGTO</CMPNAME>
+     <SCONAME>IV_VTWEG</SCONAME>
+     <LANGU>P</LANGU>
+     <DESCRIPT>Canal de distribuição</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>GET_COND_PGTO</CMPNAME>
+     <SCONAME>RV_ZTERM</SCONAME>
+     <LANGU>P</LANGU>
+     <DESCRIPT>Chave de condições de pagamento</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>GET_DATA_BASE</CMPNAME>
+     <SCONAME>CV_DATA_BASE</SCONAME>
+     <LANGU>P</LANGU>
+     <DESCRIPT>Data base para cálculo do vencimento</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>GET_DATA_BASE</CMPNAME>
+     <SCONAME>IV_DT_BASE_JANELA</SCONAME>
+     <LANGU>P</LANGU>
+     <DESCRIPT>Data base janela</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>GET_FAMILIA</CMPNAME>
+     <SCONAME>IV_VBELN</SCONAME>
+     <LANGU>P</LANGU>
+     <DESCRIPT>Número do documento de vendas e distribuição</DESCRIPT>
+    </SEOSUBCOTX>
+   </DESCRIPTIONS_SUB>
+  </asx:values>
+ </asx:abap>
+</abapGit>

@@ -1,0 +1,8 @@
+projection;
+
+define behavior for zc_mm_determi_deposito_entrada //alias <alias_name>
+{
+  use create;
+  use update;
+  use delete;
+}

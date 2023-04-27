@@ -1,0 +1,31 @@
+@Metadata.layer: #CORE
+@UI.headerInfo: {  typeNamePlural: 'Dias', typeName: 'Dia de Faturamento',
+    title: {  type: #STANDARD } }
+
+annotate view ZC_SD_03_DIA with
+{
+  @UI.facet: [ { id: 'Dia',
+                 purpose: #STANDARD,
+                 type: #IDENTIFICATION_REFERENCE,
+                 label: 'Informações Gerais',
+                 position: 10 }]
+  @UI.hidden: true
+  Ziti;
+  @UI.hidden: true
+  Zmed;
+  @UI:{ lineItem:       [{ position: 10 }], 
+        identification: [{ position: 10 }] }
+  Zdia;
+  @UI.hidden: true
+  CreatedBy;
+  @UI.hidden: true
+  CreatedAt;
+  @UI.hidden: true
+  LastChangedBy;
+  @UI.hidden: true
+  LastChangedAt;
+  @UI.hidden: true
+  LocalLastChangedAt;
+
+
+}

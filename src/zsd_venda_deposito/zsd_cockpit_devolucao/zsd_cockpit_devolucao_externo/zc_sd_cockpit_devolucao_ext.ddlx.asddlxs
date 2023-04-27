@@ -1,0 +1,105 @@
+@Metadata.layer:#CORE
+@UI: { headerInfo: { typeName: 'Cockpit de Devolução - Ordens',
+                     typeNamePlural: 'Cockpit Devolução - Ordens ',
+                     title: { type: #STANDARD, value: 'Ordem' },
+                            description: { value: 'Ordem' } } }
+annotate view ZC_SD_COCKPIT_DEVOLUCAO_EXT with
+{
+  @UI.facet: [
+           { id:           'Ordem',
+             purpose:      #STANDARD,
+             type:         #IDENTIFICATION_REFERENCE,
+             label:        'Cockpit de Devolução - Ordens',
+             position:      10
+           } ]
+
+
+      // ------------------------------------------------------
+  // Buttons information
+  // ------------------------------------------------------
+
+  @UI: { lineItem:      [{ position: 10, label: 'Ordem de devolução', type: #WITH_URL, url: 'URL_va03' },
+        { type: #FOR_ACTION, dataAction: 'DesbloquearRemessa',  label: 'Desbloquear Remessa'  }],
+        identification: [{ position: 10, label: 'Ordem de devolução', type: #WITH_URL, url: 'URL_va03' }],
+        selectionField: [{ position: 10 }] }
+  Ordem;
+  @UI: { lineItem:       [{ position: 20, label: 'Tipo de ordem' }],
+         identification: [{ position: 20, label: 'Tipo de ordem' } ],
+         selectionField: [{ position: 20 }] }
+  TipoOrdem;
+  @UI: { lineItem:       [{ position: 30, label: 'Cliente' }],
+         identification: [{ position: 30, label: 'Cliente' } ] }
+  Cliente;
+  @UI: { lineItem:       [{ position: 40, label: 'Nome Cliente' }],
+         identification: [{ position: 40, label: 'Nome Cliente' } ] }
+  NomeCliente;
+  @UI: { lineItem:       [{ position: 50, label: 'CNPJ/CPF do cliente' }],
+         identification: [{ position: 50, label: 'NCNPJ/CPF do cliente' } ],
+         selectionField: [{ position: 40 }] }
+  CnpjCpf;
+  @UI: { lineItem:       [{ position: 60, label: 'Remessa', type: #WITH_URL, url: 'URL_vl03n' }],
+         identification: [{ position: 60, label: 'Remessa', type: #WITH_URL, url: 'URL_vl03n' } ],
+         selectionField: [{ position: 50 }] }
+  Remessa;
+  @UI: { lineItem:       [{ position: 70, label: 'Bloqueio de remessa' }],
+         identification: [{ position: 70, label: 'Bloqueio de remessa' } ] }
+  BloqueioRemessa;
+  @UI: { lineItem:       [{ position: 80, label: 'Entrada de mercadoria' }],
+         identification: [{ position: 80, label: 'Entrada de mercadoria' } ] }
+  EM;
+  @UI: { lineItem:       [{ position: 90, label: 'Documento de faturamento', type: #WITH_URL, url: 'URL_vf03' }],
+         identification: [{ position: 90, label: 'Documento de faturamento', type: #WITH_URL, url: 'URL_vf03' } ],
+         selectionField: [{ position: 60 }] }
+  Fatura;
+  @UI: { lineItem:       [{ position: 100, label: 'DocNum', type: #WITH_URL, url: 'URL_j1b3n' }],
+         identification: [{ position: 100, label: 'DocNum', type: #WITH_URL, url: 'URL_j1b3n' } ] }
+  Docnum;
+  @UI: { lineItem:       [{ position: 110, label: 'Número Nf-e' }],
+         identification: [{ position: 110, label: 'Número Nf-e' } ],
+         selectionField: [{ position: 70 }] }
+  Nfenum;
+  @UI: { lineItem:       [{ position: 120, label: 'Status Nfe', criticality: 'NfStatusColor' }],
+         identification: [{ position: 120, label: 'Status Nfe', criticality: 'NfStatusColor' } ],
+         selectionField: [{ position: 80 }] }
+  NfStatus;
+  @UI.hidden: true
+  NfStatusColor;
+  @UI: { lineItem:       [{ position: 130, label: 'Total Nfe' }],
+         identification: [{ position: 130, label: 'Total Nfe' } ] }
+  NfTotal;
+  @UI.hidden: true
+  MoedaSD;
+  @UI: { lineItem:       [{ position: 140, label: 'Motivo da ordem' }],
+         identification: [{ position: 140, label: 'Motivo da ordem' } ] }  
+  MotivoOrdem;
+  @UI: { lineItem:       [{ position: 150, label: 'Situação', criticality: 'SituacaoColor' }],
+         identification: [{ position: 150, label: 'Situação', criticality: 'SituacaoColor' } ] }
+  Situacao;
+  @UI.hidden: true
+  SituacaoColor;
+  @UI: { lineItem:       [{ position: 160, label: 'Centro' }],
+         identification: [{ position: 160, label: 'Centro' } ],
+         selectionField: [{ position: 90 }] }
+  Centro;
+  @UI: { lineItem:       [{ position: 170, label: 'Local de negócios' }],
+         identification: [{ position: 170, label: 'Local de negócios' } ] }
+  LocalNegocio;
+  @UI: { lineItem:       [{ position: 180, label: 'Tipo de pedido' }],
+         identification: [{ position: 180, label: 'Tipo de pedido' } ] }
+  TipoPedido;
+  @UI: { lineItem:       [{ position: 190, label: 'Protocolo de ocorrência' }],
+         identification: [{ position: 190, label: 'Protocolo de ocorrência' } ] }
+  ProtocoloOcorrencia;
+  @UI: { lineItem:       [{ position: 200, label: 'Data ocorrência' }],
+         identification: [{ position: 200, label: 'Data ocorrência' } ] }
+  DataOcorrencia;
+  @UI: { lineItem:       [{ position: 210, label: 'Hora ocorrência' }],
+         identification: [{ position: 210, label: 'Hora ocorrência' } ] }
+  HoraOcorrencia;
+  @UI: { lineItem:       [{ position: 220, label: 'Criado por' }],
+         identification: [{ position: 220, label: 'Criado por' } ] }
+  CriadoPor;
+  @UI: { lineItem:       [{ position: 230, label: 'Meio de pagamento' }],
+         identification: [{ position: 230, label: 'Meio de pagamento' } ]}
+  MeioPagamento;
+}

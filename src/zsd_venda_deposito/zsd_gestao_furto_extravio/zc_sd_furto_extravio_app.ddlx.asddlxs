@@ -1,0 +1,70 @@
+@Metadata.layer: #CORE
+@UI: { headerInfo: { typeName: 'Gestão de Furto e Extravio',
+                     typeNamePlural: 'Gestão de Furto e Extravio',
+                     title: { type: #STANDARD, label: 'Ordem de Venda', value: 'SalesOrder' } } }
+annotate view ZC_SD_FURTO_EXTRAVIO_APP with
+{
+
+  @UI.facet: [ { id:              'Monitor',
+                 purpose:         #STANDARD,
+                 type:            #IDENTIFICATION_REFERENCE,
+                 label:           'Monitor',
+                 position:        10 } ]
+
+  @UI: {  lineItem:       [ { position: 10, label: 'Ordem de Venda', type: #WITH_URL, url: 'URL_SalesOrder' } ],
+          identification: [ { position: 10, label: 'Ordem de Venda', type: #WITH_URL, url: 'URL_SalesOrder' } ],
+          selectionField: [ { position: 10 } ] }
+ @Consumption.semanticObject: 'SalesOrder'
+  SalesOrder;
+
+  @UI: {  lineItem:       [ { position: 20 } , { label: 'NF-e de Venda' } ],
+          identification: [ { position: 20, label: 'NF-e de venda ' } ]  }
+  BR_NFeNumber;
+
+  @UI: {  lineItem:       [ { position: 30 } , { label: 'Ordem Nota de Débito', type: #WITH_URL, url: 'URL_SalesOrderDeb' } ],
+          identification: [ { position: 30, label: 'Ordem Nota de Débito', type: #WITH_URL, url: 'URL_SalesOrderDeb' } ]  }
+  SalesOrderDeb;
+
+  @UI: {  lineItem:       [ { position: 40 } , { label: 'Fatura Nota Débito' } ],
+          identification: [ { position: 40, label: 'Fatura Nota Débito' } ]  }
+  SubsequentDocument;
+
+  @UI: {  lineItem:       [ { position: 50 } , { label: 'Nota Débito' } ],
+          identification: [ { position: 50, label: 'Nota Débito' } ]  ,
+          selectionField: [ { position: 70 } ] }
+  CorrespncExternalReference;
+
+  @UI: {  lineItem:       [ { position: 60 } , { label: 'Transportadora' } ],
+          identification: [ { position: 60, label: 'Transportadora' } ]  ,
+          selectionField: [ { position: 50 } ] }
+  Soldtoparty;
+  
+  @UI: {  lineItem:       [ { position: 70 } , { label: 'Nome da transportadora' } ],
+          identification: [ { position: 70, label: 'Nome da transportadora' } ] }
+  SoldtopartyName;  
+
+  @UI: {  lineItem:       [ { position: 80 }],
+          identification: [ { position: 80 }] }
+  SDdocumentreason;
+
+  @UI: {  lineItem:       [ { position: 90 }],
+        identification: [ { position: 90 }] ,
+        selectionField: [ { position: 30 } ] }
+  DistributionChannel;
+  @UI: {  lineItem:       [ { position: 100, criticality: 'StatusColor' }],
+          identification: [ { position: 100, criticality: 'StatusColor' } ] }
+  Status;
+
+  @UI.hidden: true
+  StatusColor;
+
+  @UI: { selectionField: [ { position: 20 } ] }
+  CreationDate;
+
+  @UI: { selectionField: [ { position: 40 } ] }
+  PurchaseOrderByCustomer;
+  
+  @Consumption.filter:{ mandatory:true }
+  @UI: { selectionField: [ { position: 60 } ] }
+  ShippingPoint;
+}

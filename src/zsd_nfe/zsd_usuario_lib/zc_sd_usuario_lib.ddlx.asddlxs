@@ -1,0 +1,26 @@
+@Metadata.layer: #CORE
+@UI: { headerInfo: { typeName: 'Usuários de Liberação',
+                     title: { value: 'Usuario' },
+                     typeNamePlural: 'Usuários de Liberação'
+                   }
+     }
+annotate view ZC_SD_USUARIO_LIB with
+{
+  @UI.facet: [{ id:       'Usuario',
+                position: 10,
+                label:    'Cadastro',
+                purpose:  #STANDARD,
+                type:     #IDENTIFICATION_REFERENCE
+                 }]
+
+  @UI: { lineItem:       [{ position: 10 }],
+         identification: [{ position: 10 }] }
+  @UI.selectionField: [{ position: 10 }]
+  Usuario;
+
+  @UI: { lineItem:        [ { position: 20 } ],
+       identification:  [ { position: 20 }  ] }
+  @UI.selectionField: [{ position: 20 }]
+  Programa;
+
+}

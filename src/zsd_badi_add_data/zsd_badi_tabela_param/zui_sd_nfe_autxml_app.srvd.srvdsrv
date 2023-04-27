@@ -1,0 +1,4 @@
+@EndUserText.label: 'Service Def NFE - Autorização para obter XML'
+define service ZUI_SD_NFE_AUTXML_APP {
+  expose ZC_SD_NFE_AUTXML_APP;
+}

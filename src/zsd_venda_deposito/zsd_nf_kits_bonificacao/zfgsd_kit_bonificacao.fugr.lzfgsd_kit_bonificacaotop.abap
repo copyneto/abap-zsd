@@ -1,0 +1,3 @@
+FUNCTION-POOL ZFGSD_KIT_BONIFICACAO.        "MESSAGE-ID ..
+
+* INCLUDE LZFGSD_KIT_BONIFICACAOD...         " Local class definition

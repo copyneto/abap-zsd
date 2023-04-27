@@ -1,0 +1,4 @@
+@EndUserText.label: 'Service Def Regras vendas café grão crú'
+define service ZUI_SD_MATERIAL_GC_ZF {
+  expose ZC_SD_MATERIAL_GC_ZF;
+}

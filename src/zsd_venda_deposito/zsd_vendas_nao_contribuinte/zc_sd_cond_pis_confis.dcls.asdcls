@@ -1,0 +1,11 @@
+@EndUserText.label: 'Condições Pis Confis'
+@MappingRole: true
+define role ZC_SD_COND_PIS_CONFIS {
+    grant
+        select
+            on
+                ZC_SD_COND_PIS_CONFIS
+                    where
+                        inheriting conditions from entity ZI_SD_COND_PIS_CONFIS;
+                        
+}

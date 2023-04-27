@@ -1,0 +1,4 @@
+@EndUserText.label: 'Relatório Devoluções Analitico'
+define service ZUI_SD_BR_REL_ANALIT_DEVOLUCAO {
+  expose ZC_SD_BR_REL_ANALIT_DEVOLUCAO as AppAnalitycalDevolucao;
+}

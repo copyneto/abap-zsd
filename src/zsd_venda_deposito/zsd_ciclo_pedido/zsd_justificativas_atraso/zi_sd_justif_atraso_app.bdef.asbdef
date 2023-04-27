@@ -1,0 +1,35 @@
+managed;
+
+define behavior for ZI_SD_JUSTIF_ATRASO_APP alias JustifAtraso
+implementation in class zclsd_justif_atraso_app unique
+persistent table ztsd_atraso_just
+lock master
+authorization master ( instance )
+etag master OrdemVenda
+{
+//  create;
+  update;
+//  delete;
+
+
+
+  field ( readonly ) LastChangedAt, LastChangedBy, CreatedAt, CreatedBy, LocalLastChangedAt, OrdemVenda, Centro, Medicao, DataPlanejada;
+  //  field ( readonly : update ) Zmed, Ziti;
+
+  mapping for ztsd_atraso_just
+  {
+
+    OrdemVenda = ordem_venda;
+    Centro = centro;
+    Medicao = medicao;
+    DataPlanejada = data_planejada;
+    MotivoAtraso = motivo_atraso;
+    CreatedBy = created_by;
+    CreatedAt = created_at;
+    LastChangedBy = last_changed_by;
+    LastChangedAt = last_changed_at;
+    LocalLastChangedAt = local_last_changed_at;
+
+  }
+
+}

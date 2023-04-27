@@ -1,0 +1,88 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<abapGit version="v1.0.0" serializer="LCL_OBJECT_CLAS" serializer_version="v1.0.0">
+ <asx:abap xmlns:asx="http://www.sap.com/abapxml" version="1.0">
+  <asx:values>
+   <VSEOCLASS>
+    <CLSNAME>ZCLSD_GET_TAX_CALCULATIONS</CLSNAME>
+    <LANGU>P</LANGU>
+    <DESCRIPT>Classe para obter cálculos de impostos</DESCRIPT>
+    <STATE>1</STATE>
+    <CLSCCINCL>X</CLSCCINCL>
+    <FIXPT>X</FIXPT>
+    <UNICODE>X</UNICODE>
+   </VSEOCLASS>
+   <DESCRIPTIONS>
+    <SEOCOMPOTX>
+     <CMPNAME>GO_INSTANCE</CMPNAME>
+     <LANGU>P</LANGU>
+     <DESCRIPT>Classe para obter cálculos de impostos</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>GS_ULT_IPI</CMPNAME>
+     <LANGU>P</LANGU>
+     <DESCRIPT>Pr</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>GV_BUKRS_OLD</CMPNAME>
+     <LANGU>P</LANGU>
+     <DESCRIPT>Empresa</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>GV_CENTRO_OLD</CMPNAME>
+     <LANGU>P</LANGU>
+     <DESCRIPT>Centro (próprio ou externo)</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>GV_IPI</CMPNAME>
+     <LANGU>P</LANGU>
+     <DESCRIPT>Flag geral</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>GV_KPOSN_OLD</CMPNAME>
+     <LANGU>P</LANGU>
+     <DESCRIPT>Nº item ao qual se aplicam as condições</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>GV_MATERIAL_OLD</CMPNAME>
+     <LANGU>P</LANGU>
+     <DESCRIPT>Nº do material</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>GV_VBELN_OLD</CMPNAME>
+     <LANGU>P</LANGU>
+     <DESCRIPT>Remessa</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>GV_ZIPIVAL</CMPNAME>
+     <LANGU>P</LANGU>
+     <DESCRIPT>IPI</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>MAIN</CMPNAME>
+     <LANGU>P</LANGU>
+     <DESCRIPT>Executa todos os processos.</DESCRIPT>
+    </SEOCOMPOTX>
+   </DESCRIPTIONS>
+   <DESCRIPTIONS_SUB>
+    <SEOSUBCOTX>
+     <CMPNAME>GET_INSTANCE</CMPNAME>
+     <SCONAME>RO_INSTANCE</SCONAME>
+     <LANGU>P</LANGU>
+     <DESCRIPT>Classe para obter cálculos de impostos</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>GET_KEYS</CMPNAME>
+     <SCONAME>IV_ULT_IPI</SCONAME>
+     <LANGU>P</LANGU>
+     <DESCRIPT>Preço médio móvel/preço interno periódico</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>MAIN</CMPNAME>
+     <SCONAME>IV_ULT_IPI</SCONAME>
+     <LANGU>P</LANGU>
+     <DESCRIPT>Preço médio móvel/preço interno periódico</DESCRIPT>
+    </SEOSUBCOTX>
+   </DESCRIPTIONS_SUB>
+  </asx:values>
+ </asx:abap>
+</abapGit>

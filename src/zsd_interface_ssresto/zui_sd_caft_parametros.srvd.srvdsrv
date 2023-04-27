@@ -1,0 +1,4 @@
+@EndUserText.label: 'Service definition Tabela Parâmetros'
+define service ZUI_SD_CAFT_PARAMETROS {
+  expose ZC_SD_CAFT_PARAMETROS;
+}

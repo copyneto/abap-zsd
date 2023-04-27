@@ -1,0 +1,11 @@
+unmanaged implementation in class zclsd_ordem_vendas_upld unique;
+
+define behavior for ZC_SD_ORDEM_VENDAS_UPLD alias CreateSalesOrder
+//late numbering
+//lock master
+//etag master LastChangedByUser
+{
+  create;
+  field ( mandatory : create ) SalesDocumentType, SalesOrganization, DistributionChannel;
+
+}

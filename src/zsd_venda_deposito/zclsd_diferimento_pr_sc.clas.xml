@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<abapGit version="v1.0.0" serializer="LCL_OBJECT_CLAS" serializer_version="v1.0.0">
+ <asx:abap xmlns:asx="http://www.sap.com/abapxml" version="1.0">
+  <asx:values>
+   <VSEOCLASS>
+    <CLSNAME>ZCLSD_DIFERIMENTO_PR_SC</CLSNAME>
+    <LANGU>P</LANGU>
+    <DESCRIPT>Diferimento PR e SC</DESCRIPT>
+    <STATE>1</STATE>
+    <CLSCCINCL>X</CLSCCINCL>
+    <FIXPT>X</FIXPT>
+    <UNICODE>X</UNICODE>
+   </VSEOCLASS>
+   <DESCRIPTIONS>
+    <SEOCOMPOTX>
+     <CMPNAME>GC_CHAVE1_DIF</CMPNAME>
+     <LANGU>P</LANGU>
+     <DESCRIPT>Chave do Parâmetro</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>GC_CHAVE2_ICMS</CMPNAME>
+     <LANGU>P</LANGU>
+     <DESCRIPT>Chave do Parâmetro</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>GC_CHAVE2_ST</CMPNAME>
+     <LANGU>P</LANGU>
+     <DESCRIPT>Chave do Parâmetro</DESCRIPT>
+    </SEOCOMPOTX>
+   </DESCRIPTIONS>
+   <DESCRIPTIONS_SUB>
+    <SEOSUBCOTX>
+     <CMPNAME>ATUALIZA_VALOR_PROVISAO_ICMS</CMPNAME>
+     <SCONAME>IT_VBRP</SCONAME>
+     <LANGU>P</LANGU>
+     <DESCRIPT>Tipo de tabela pra VBRP</DESCRIPT>
+    </SEOSUBCOTX>
+   </DESCRIPTIONS_SUB>
+  </asx:values>
+ </asx:abap>
+</abapGit>

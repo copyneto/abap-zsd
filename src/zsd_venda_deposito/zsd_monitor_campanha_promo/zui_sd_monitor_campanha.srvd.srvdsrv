@@ -1,0 +1,4 @@
+@EndUserText.label: 'Service Def  Monitor Campanhas Promo'
+define service ZUI_SD_MONITOR_CAMPANHA {
+  expose ZC_SD_MONITOR_CAMPANHA;
+}

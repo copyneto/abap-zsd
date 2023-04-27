@@ -1,0 +1,12 @@
+unmanaged; // implementation in class zbp_i_sd_ecommerce unique;
+
+define behavior for ZI_SD_ECOMMERCE alias _Ecommerce
+//persistent table <???>
+//lock master
+//authorization master ( instance )
+//etag master <field_name>
+{
+//  create;
+//  update;
+//  delete;
+}

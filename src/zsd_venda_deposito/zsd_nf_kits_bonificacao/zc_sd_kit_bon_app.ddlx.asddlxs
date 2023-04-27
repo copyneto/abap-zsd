@@ -1,0 +1,165 @@
+@Metadata.layer: #CORE
+
+@UI: {
+  headerInfo: {
+    typeName: 'Kits',
+    typeNamePlural: 'Kits',
+    title: {
+      type: #STANDARD,
+      label: 'Kits',
+      value: 'Competencia'
+    }
+  }}
+
+annotate view ZC_SD_KIT_BON_APP with
+{
+
+
+  @UI.facet: [ { id:         'competencia',
+              purpose:       #STANDARD,
+              type:          #IDENTIFICATION_REFERENCE,
+              label:         'Competencia',
+              position:      10 },
+            { id:            'Plant',
+              purpose:       #STANDARD,
+              type:          #LINEITEM_REFERENCE,
+              label:         'Centro',
+              position:      20}]
+
+
+
+  @UI.lineItem: [{position: 10 }]
+  @UI.selectionField: [{ position: 10 }]
+  competencia;
+  @UI.lineItem: [{position: 20 }]
+  @UI.selectionField: [{ position: 20 }]
+  Plant;
+  @UI.lineItem: [{position: 30 }]
+  Vbeln;
+  @UI.lineItem: [{position: 31}]
+  PediSubc;  
+  @UI.lineItem: [{position: 40 }]
+  kunnr;
+
+  @UI: { lineItem:        [ { position: 50, label: 'Material (Kit)' },
+                            {   type: #FOR_ACTION, dataAction: 'cancelOrdem',   label: 'Recursar Ordem', invocationGrouping: #CHANGE_SET  },
+                            {   type: #FOR_ACTION, dataAction: 'criarOrdem',    label: 'Criar Ordem do Cliente', invocationGrouping: #CHANGE_SET } ],
+         identification:  [ { position: 50, label: 'Material Kit' } ],
+         selectionField:  [ { position: 30 } ]  }
+  MatnrKit;
+  @UI.lineItem: [{position: 60, label: 'Material (Kit) - denominação'}]
+  @UI.selectionField: [{exclude: true}]
+  MaterialName_kit;
+  @UI.lineItem: [{position: 70 }]
+  @UI.selectionField: [{exclude: true}]
+  DocKit;
+  @UI.lineItem: [{position: 80 }]
+  @UI.selectionField: [{ position: 40 }]
+  MatnrFree;
+  @UI.lineItem: [{position: 90, label: 'Material (Gratuito) - denominação' }]
+  @UI.selectionField: [{exclude: true}]
+  MaterialName_free;
+  @UI.lineItem: [{position: 100 }]
+  @UI.selectionField: [{exclude: true}]
+  BaseUnit;
+  @UI.lineItem: [{position: 110 }]
+  @UI.selectionField: [{exclude: true}]
+  QuantityInEntryUnit;
+  @UI.lineItem: [{position: 120 }]
+  @UI.selectionField: [{exclude: true}]
+  TotalGoodsMvtAmtInCCCrcy;
+  @UI.lineItem: [{position: 130 }]
+  @UI.hidden: true
+  @UI.selectionField: [{exclude: true}]
+  CompanyCodeCurrency;
+  @UI.lineItem: [{position: 140 }]
+  @UI.selectionField: [{exclude: true}]
+  PostingDate;
+  @UI.lineItem: [{position: 150 }]
+  @UI.selectionField: [{exclude: true}]
+  SubsequentDocument;
+  @UI.lineItem: [ {position: 170, label: 'Nota Fiscal', semanticObjectAction: 'display', type: #WITH_INTENT_BASED_NAVIGATION }]  
+  @UI.selectionField: [{exclude: true}]
+  @Consumption.semanticObject: 'NotaFiscal'
+  NotaFiscal;
+  @UI.selectionField: [{exclude: true}]
+  @UI.lineItem: [{position: 180 , criticality: 'BR_NFeDocumentStatusColor' } ]
+  BR_NFeDocumentStatus;
+  @UI.lineItem: [ {position: 200, label: 'Nfe Retorno', type: #WITH_URL, url: 'URL_NfRetorno' }]  
+  @UI.selectionField: [{exclude: true}]
+  NfRetorno;
+  @UI.lineItem: [ {position: 1171, label: 'Nfe Retorno Status', criticality: 'NfRetorno_StatusColor' }]
+  @UI.selectionField: [{exclude: true}]
+  NfRetorno_Status;
+  @UI.lineItem: [{position: 1180 }]
+  @UI.selectionField: [{exclude: true}]
+  ManufacturingOrder;
+  @UI.lineItem: [{position: 1190, criticality: 'EstornoColor' }]
+  @UI.selectionField: [{exclude: true}]
+  DocEstorno;
+  @UI.hidden: true
+  EstornoColor;
+  @UI.lineItem: [{position: 1200 }]
+  @UI.selectionField: [{exclude: true}]
+  GoodsMovementType;
+  @UI.lineItem: [{position: 1210 }]
+  @UI.selectionField: [{exclude: true}]
+  CreatedAt;
+  @UI.lineItem: [{position: 1210 }]
+  @UI.selectionField: [{exclude: true}]
+  LastChangedAt;
+  @UI.lineItem: [{position: 1220 }]
+  @UI.selectionField: [{exclude: true}]
+  CreatedBy;
+  @UI.lineItem: [{position: 1230 }]
+  @UI.selectionField: [{exclude: true}]
+  BR_NFTotalAmount;
+  @UI.lineItem: [{position: 1240 }]
+  @UI.selectionField: [{exclude: true}]
+  vlricms;
+  @UI.lineItem: [{position: 1250 }]
+  @UI.selectionField: [{exclude: true}]
+  vlricss;
+  @UI.lineItem: [{position: 1260 }]
+  @UI.selectionField: [{exclude: true}]
+  baseicss;
+  @UI.lineItem: [{position: 1270 }]
+  @UI.selectionField: [{exclude: true}]
+  vlripi;
+  @UI.lineItem: [{position: 1280 }]
+  @UI.selectionField: [{exclude: true}]
+  BR_NFPostingDate;
+  @UI.selectionField: [{exclude: true}]
+  @UI.lineItem: [{position: 1290 }]
+  baseicms;
+  @UI.lineItem: [{position: 1300 }]
+  @UI.selectionField: [{exclude: true}]
+  baseipi;
+  @UI.selectionField: [{exclude: true}]
+  @UI.lineItem: [{position: 1320 }]
+  @UI.hidden: true
+  EntryUnit;
+  //  @UI.lineItem: [{position: 140 }]
+  //  status_block;
+  //  @UI.lineItem: [{position: 140 }]
+  //  status_processamento;
+  @UI.lineItem: [{position: 1330 }]
+  @UI.hidden: true
+  @UI.selectionField: [{exclude: true}]
+  LastChangedBy;
+  @UI.lineItem: [{position: 1340 }]
+  @UI.hidden: true
+  @UI.selectionField: [{exclude: true}]
+  LocalLastChangedAt;
+  //  @UI.lineItem: [{position: 220 }]
+  //  br_notafiscal;
+  //  @UI.lineItem: [{position: 330 }]
+  //  @UI.hidden: true
+  //  @UI.selectionField: [{exclude: true}]
+  //  MaterialName_kit;
+  //  @UI.lineItem: [{position: 340 }]
+  //  @UI.hidden: true
+  //  @UI.selectionField: [{exclude: true}]
+  //  MaterialName_free;
+
+}

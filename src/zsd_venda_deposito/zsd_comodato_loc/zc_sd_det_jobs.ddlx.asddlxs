@@ -1,0 +1,76 @@
+@Metadata.layer: #CORE
+@UI: { headerInfo: { typeName: 'Detalhe JOB',
+                     typeNamePlural: 'Detalhes JOB',
+                     title: { type: #STANDARD, value: 'Low' } },
+       presentationVariant: [{ sortOrder: [{ by: 'Low', direction:  #ASC },
+                                           { by: 'DataInicio', direction:  #DESC },
+                                           { by: 'HoraInicio', direction:  #DESC },
+                                           { by: 'DataFim', direction:  #ASC },
+                                           { by: 'HoraFim', direction:  #ASC }
+       ] }] }
+
+annotate view ZC_SD_DET_JOBS with
+{
+  // ------------------------------------------------------
+  // Informações de cabeçalho
+  // ------------------------------------------------------
+  @UI.facet: [ { id:            'DetalheJob',
+                 purpose:       #STANDARD,
+                 type:          #IDENTIFICATION_REFERENCE,
+                 label:         'Detalhe JOB',
+                 position:      10 }  ]
+
+  // ------------------------------------------------------
+  // Informações de campo
+  // ------------------------------------------------------
+  @UI.hidden: true
+  Contrato;
+
+  @UI.hidden: true
+  Modulo;
+
+  @UI.hidden: true
+  Chave1;
+
+  @UI.hidden: true
+  Chave2;
+
+  @UI: { lineItem:        [ { position: 10, label: 'Chave' } ],
+         identification:  [ { position: 10, label: 'Chave' } ] }
+  Chave3;
+
+  @UI.hidden: true
+  Sign;
+
+  @UI.hidden: true
+  Opt;
+
+  @UI: { lineItem:        [ { position: 20, label: 'Nome do Job' } ],
+         identification:  [ { position: 20, label: 'Nome do Job' } ] }
+  Low;
+
+  @UI: { lineItem:        [ { position: 30, label: 'Descrição' } ],
+         identification:  [ { position: 30, label: 'Descrição' } ] }
+  Descricao;
+
+  @UI: { lineItem:        [ { position: 40, label: 'Número do Job' } ],
+         identification:  [ { position: 40, label: 'Número do Job' } ] }
+  NumeroJob;
+
+  @UI: { lineItem:        [ { position: 50, label: 'Data Início' } ],
+         identification:  [ { position: 50, label: 'Data Início' } ] }
+  DataInicio;
+
+  @UI: { lineItem:        [ { position: 60, label: 'Hora Início' } ],
+         identification:  [ { position: 60, label: 'Hora Início' } ] }
+  HoraInicio;
+
+  @UI: { lineItem:        [ { position: 70, label: 'Data Fim' } ],
+         identification:  [ { position: 70, label: 'Data Fim' } ] }
+  DataFim;
+
+  @UI: { lineItem:        [ { position: 80, label: 'Hora Fim' } ],
+         identification:  [ { position: 80, label: 'Hora Fim' } ] }
+  HoraFim;
+
+}

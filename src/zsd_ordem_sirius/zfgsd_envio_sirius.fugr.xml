@@ -1,0 +1,65 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<abapGit version="v1.0.0" serializer="LCL_OBJECT_FUGR" serializer_version="v1.0.0">
+ <asx:abap xmlns:asx="http://www.sap.com/abapxml" version="1.0">
+  <asx:values>
+   <AREAT>Funções aux. Envio Sirius</AREAT>
+   <INCLUDES>
+    <SOBJ_NAME>LZFGSD_ENVIO_SIRIUSTOP</SOBJ_NAME>
+    <SOBJ_NAME>SAPLZFGSD_ENVIO_SIRIUS</SOBJ_NAME>
+   </INCLUDES>
+   <FUNCTIONS>
+    <item>
+     <FUNCNAME>ZFMSD_ENVIO_FATURA_SIRIUS</FUNCNAME>
+     <REMOTE_CALL>R</REMOTE_CALL>
+     <SHORT_TEXT>Envio de fatura para o Sirius</SHORT_TEXT>
+     <IMPORT>
+      <RSIMP>
+       <PARAMETER>IV_NFENUM</PARAMETER>
+       <TYP>J_1BNFDOC-NFENUM</TYP>
+      </RSIMP>
+      <RSIMP>
+       <PARAMETER>IV_CODE</PARAMETER>
+       <TYP>J_1BNFDOC-CODE</TYP>
+      </RSIMP>
+      <RSIMP>
+       <PARAMETER>IV_SALESDOCUMENT</PARAMETER>
+       <TYP>ZI_SD_NFITEMSIRIUS-SALESDOCUMENT</TYP>
+      </RSIMP>
+      <RSIMP>
+       <PARAMETER>IV_BILLINGDOCUMENT</PARAMETER>
+       <TYP>I_BILLINGDOCUMENTITEMBASIC-BILLINGDOCUMENT</TYP>
+      </RSIMP>
+     </IMPORT>
+     <TABLES>
+      <RSTBL>
+       <PARAMETER>ET_RETURN</PARAMETER>
+       <TYP>BAPIRET2_TAB</TYP>
+      </RSTBL>
+     </TABLES>
+     <DOCUMENTATION>
+      <RSFDO>
+       <PARAMETER>IV_NFENUM</PARAMETER>
+       <KIND>P</KIND>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>IV_CODE</PARAMETER>
+       <KIND>P</KIND>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>IV_SALESDOCUMENT</PARAMETER>
+       <KIND>P</KIND>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>IV_BILLINGDOCUMENT</PARAMETER>
+       <KIND>P</KIND>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>ET_RETURN</PARAMETER>
+       <KIND>P</KIND>
+      </RSFDO>
+     </DOCUMENTATION>
+    </item>
+   </FUNCTIONS>
+  </asx:values>
+ </asx:abap>
+</abapGit>

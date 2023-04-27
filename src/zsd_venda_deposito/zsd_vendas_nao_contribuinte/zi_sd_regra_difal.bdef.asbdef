@@ -1,0 +1,31 @@
+managed; // implementation in class zbp_i_sd_regra_difal unique;
+
+define behavior for ZI_SD_REGRA_DIFAL alias RegraDifal
+implementation in class zclsd_regra_difal unique
+persistent table ztsd_regra_difal
+lock master
+authorization master ( instance )
+etag master LocalLastChangedAt
+{
+  create;
+  update;
+  delete;
+
+  field ( mandatory : create ) TypeOrder;
+  field ( readonly : update ) TypeOrder;
+  field ( readonly ) LastChangedAt, LastChangedBy, CreatedAt, CreatedBy, LocalLastChangedAt;
+
+ validation authorityCreate on save { create; }
+
+  mapping for ztsd_regra_difal
+  {
+    TypeOrder               = auart;
+    TaxCode                 = j_1btxsdc;
+    CreatedBy               = created_by;
+    CreatedAt               = created_at;
+    LastChangedBy           = last_changed_by;
+    LastChangedAt           = last_changed_at;
+    LocalLastChangedAt      = local_last_changed_at;
+
+  }
+}

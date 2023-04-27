@@ -1,0 +1,567 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<abapGit version="v1.0.0" serializer="LCL_OBJECT_MSAG" serializer_version="v1.0.0">
+ <asx:abap xmlns:asx="http://www.sap.com/abapxml" version="1.0">
+  <asx:values>
+   <T100A>
+    <ARBGB>ZSD_GESTAO_PRECOS</ARBGB>
+    <MASTERLANG>P</MASTERLANG>
+    <STEXT>Gestão de Preços</STEXT>
+   </T100A>
+   <T100>
+    <T100>
+     <SPRSL>P</SPRSL>
+     <ARBGB>ZSD_GESTAO_PRECOS</ARBGB>
+     <MSGNR>000</MSGNR>
+     <TEXT>&amp;1&amp;2&amp;3&amp;4</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>P</SPRSL>
+     <ARBGB>ZSD_GESTAO_PRECOS</ARBGB>
+     <MSGNR>001</MSGNR>
+     <TEXT>Arquivo de carga vazio.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>P</SPRSL>
+     <ARBGB>ZSD_GESTAO_PRECOS</ARBGB>
+     <MSGNR>002</MSGNR>
+     <TEXT>Falha ao salvar arquivo de carga.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>P</SPRSL>
+     <ARBGB>ZSD_GESTAO_PRECOS</ARBGB>
+     <MSGNR>003</MSGNR>
+     <TEXT>Objeto de numeração &amp;1 não existe. Cadastrar na SNRO.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>P</SPRSL>
+     <ARBGB>ZSD_GESTAO_PRECOS</ARBGB>
+     <MSGNR>004</MSGNR>
+     <TEXT>Tipo de condição não configurado.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>P</SPRSL>
+     <ARBGB>ZSD_GESTAO_PRECOS</ARBGB>
+     <MSGNR>005</MSGNR>
+     <TEXT>Linha &amp;1:Existe outra linha com os mesmos dados</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>P</SPRSL>
+     <ARBGB>ZSD_GESTAO_PRECOS</ARBGB>
+     <MSGNR>006</MSGNR>
+     <TEXT>Linha &amp;1:Lista de preço existe em mais de um centro.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>P</SPRSL>
+     <ARBGB>ZSD_GESTAO_PRECOS</ARBGB>
+     <MSGNR>007</MSGNR>
+     <TEXT>Linha &amp;1:Canal de distribuição &apos;&amp;2&apos; não existe.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>P</SPRSL>
+     <ARBGB>ZSD_GESTAO_PRECOS</ARBGB>
+     <MSGNR>008</MSGNR>
+     <TEXT>Linha &amp;1:Centro &apos;&amp;2&apos; não existe.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>P</SPRSL>
+     <ARBGB>ZSD_GESTAO_PRECOS</ARBGB>
+     <MSGNR>009</MSGNR>
+     <TEXT>Linha &amp;1:Tipo de lista de preço &apos;&amp;2&apos; não existe.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>P</SPRSL>
+     <ARBGB>ZSD_GESTAO_PRECOS</ARBGB>
+     <MSGNR>010</MSGNR>
+     <TEXT>Linha &amp;1:Código do produto &apos;&amp;2&apos; não existe.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>P</SPRSL>
+     <ARBGB>ZSD_GESTAO_PRECOS</ARBGB>
+     <MSGNR>011</MSGNR>
+     <TEXT>Linha &amp;1:Unidade de medida &apos;&amp;2&apos; não existe para produto &apos;&amp;3&apos;.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>P</SPRSL>
+     <ARBGB>ZSD_GESTAO_PRECOS</ARBGB>
+     <MSGNR>012</MSGNR>
+     <TEXT>Linha &amp;1:Escala possui valor fracionado &apos;&amp;2&apos;.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>P</SPRSL>
+     <ARBGB>ZSD_GESTAO_PRECOS</ARBGB>
+     <MSGNR>013</MSGNR>
+     <TEXT>Linha &amp;1:Preço sugerido é inferior ao Preço mínimo.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>P</SPRSL>
+     <ARBGB>ZSD_GESTAO_PRECOS</ARBGB>
+     <MSGNR>014</MSGNR>
+     <TEXT>Linha &amp;1:Preço máximo é inferior ao Preço mínimo.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>P</SPRSL>
+     <ARBGB>ZSD_GESTAO_PRECOS</ARBGB>
+     <MSGNR>015</MSGNR>
+     <TEXT>Linha &amp;1:Valor Mínimo difere para linhas com mesma composição.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>P</SPRSL>
+     <ARBGB>ZSD_GESTAO_PRECOS</ARBGB>
+     <MSGNR>016</MSGNR>
+     <TEXT>Linha &amp;1:Valor Máximo difere para linhas com mesma composição.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>P</SPRSL>
+     <ARBGB>ZSD_GESTAO_PRECOS</ARBGB>
+     <MSGNR>017</MSGNR>
+     <TEXT>Linha &amp;1:Escala não é crescente para linhas com mesma composição.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>P</SPRSL>
+     <ARBGB>ZSD_GESTAO_PRECOS</ARBGB>
+     <MSGNR>018</MSGNR>
+     <TEXT>Linha &amp;1:Vlr Sugerido não é decrescente para linhas com mesma composição.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>P</SPRSL>
+     <ARBGB>ZSD_GESTAO_PRECOS</ARBGB>
+     <MSGNR>019</MSGNR>
+     <TEXT>Linha &amp;1:Centro &apos;&amp;2&apos; e lista de preço &apos;&amp;3&apos; existe em outra configuração.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>P</SPRSL>
+     <ARBGB>ZSD_GESTAO_PRECOS</ARBGB>
+     <MSGNR>020</MSGNR>
+     <TEXT>Linha &amp;1: Data início é superior à Data fim.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>P</SPRSL>
+     <ARBGB>ZSD_GESTAO_PRECOS</ARBGB>
+     <MSGNR>021</MSGNR>
+     <TEXT>Cabeçalho validado com sucesso.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>P</SPRSL>
+     <ARBGB>ZSD_GESTAO_PRECOS</ARBGB>
+     <MSGNR>022</MSGNR>
+     <TEXT>Itens validados com sucesso.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>P</SPRSL>
+     <ARBGB>ZSD_GESTAO_PRECOS</ARBGB>
+     <MSGNR>023</MSGNR>
+     <TEXT>Tp. Condição &apos;Preço&apos; não configurado em parâmetro. (&amp;1/&amp;2/&amp;3/&amp;4).</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>P</SPRSL>
+     <ARBGB>ZSD_GESTAO_PRECOS</ARBGB>
+     <MSGNR>024</MSGNR>
+     <TEXT>Tp. Condição &apos;Valor Mínimo Crivo&apos; não configurado em parâm. (&amp;1/&amp;2/&amp;3/&amp;4)</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>P</SPRSL>
+     <ARBGB>ZSD_GESTAO_PRECOS</ARBGB>
+     <MSGNR>025</MSGNR>
+     <TEXT>Linha &amp;1:Centro &amp;3/Produto &amp;2 não cadastrada para cálculo do Mínimo.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>P</SPRSL>
+     <ARBGB>ZSD_GESTAO_PRECOS</ARBGB>
+     <MSGNR>026</MSGNR>
+     <TEXT>Mínimo validado com sucesso.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>P</SPRSL>
+     <ARBGB>ZSD_GESTAO_PRECOS</ARBGB>
+     <MSGNR>027</MSGNR>
+     <TEXT>Layout indisponível.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>P</SPRSL>
+     <ARBGB>ZSD_GESTAO_PRECOS</ARBGB>
+     <MSGNR>028</MSGNR>
+     <TEXT>Invasão validado com sucesso</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>P</SPRSL>
+     <ARBGB>ZSD_GESTAO_PRECOS</ARBGB>
+     <MSGNR>029</MSGNR>
+     <TEXT>Tp. Condição &apos;Invasão&apos; não configurado em parâm. (&amp;1/&amp;2/&amp;3/&amp;4).</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>P</SPRSL>
+     <ARBGB>ZSD_GESTAO_PRECOS</ARBGB>
+     <MSGNR>030</MSGNR>
+     <TEXT>Carga realizada com sucesso.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>P</SPRSL>
+     <ARBGB>ZSD_GESTAO_PRECOS</ARBGB>
+     <MSGNR>031</MSGNR>
+     <TEXT>Linha &amp;1: Nenhuma operação realizada, revisar lançamento da BAPI.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>P</SPRSL>
+     <ARBGB>ZSD_GESTAO_PRECOS</ARBGB>
+     <MSGNR>032</MSGNR>
+     <TEXT>Linha &amp;1: Condição &amp;2 criada com sucesso.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>P</SPRSL>
+     <ARBGB>ZSD_GESTAO_PRECOS</ARBGB>
+     <MSGNR>033</MSGNR>
+     <TEXT>Usuário aprovador em branco.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>P</SPRSL>
+     <ARBGB>ZSD_GESTAO_PRECOS</ARBGB>
+     <MSGNR>034</MSGNR>
+     <TEXT>Usuário aprovador &apos;&amp;1&apos; não existe.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>P</SPRSL>
+     <ARBGB>ZSD_GESTAO_PRECOS</ARBGB>
+     <MSGNR>035</MSGNR>
+     <TEXT>Alguns erros foram encontrados durante validação. Favor verificar.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>P</SPRSL>
+     <ARBGB>ZSD_GESTAO_PRECOS</ARBGB>
+     <MSGNR>036</MSGNR>
+     <TEXT>Informar data de processamento.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>P</SPRSL>
+     <ARBGB>ZSD_GESTAO_PRECOS</ARBGB>
+     <MSGNR>037</MSGNR>
+     <TEXT>Linha &amp;1:Data processamento deve estar entre a &apos;Data Desde&apos; e &apos;Data Até&apos;.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>P</SPRSL>
+     <ARBGB>ZSD_GESTAO_PRECOS</ARBGB>
+     <MSGNR>038</MSGNR>
+     <TEXT>Erros encontrados a nível de item.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>P</SPRSL>
+     <ARBGB>ZSD_GESTAO_PRECOS</ARBGB>
+     <MSGNR>039</MSGNR>
+     <TEXT>Condição criada com sucesso.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>P</SPRSL>
+     <ARBGB>ZSD_GESTAO_PRECOS</ARBGB>
+     <MSGNR>040</MSGNR>
+     <TEXT>Linha &amp;1: Condição &amp;2 excluída com sucesso.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>P</SPRSL>
+     <ARBGB>ZSD_GESTAO_PRECOS</ARBGB>
+     <MSGNR>041</MSGNR>
+     <TEXT>Linha &amp;1:Preço sugerido é superior ao Preço máximo.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>P</SPRSL>
+     <ARBGB>ZSD_GESTAO_PRECOS</ARBGB>
+     <MSGNR>042</MSGNR>
+     <TEXT>Linha &amp;1:Unidade de venda &amp;2 não permitida para SKU &amp;3.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>P</SPRSL>
+     <ARBGB>ZSD_GESTAO_PRECOS</ARBGB>
+     <MSGNR>043</MSGNR>
+     <TEXT>Linha &amp;1:Campo &amp;2 está vazio.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>P</SPRSL>
+     <ARBGB>ZSD_GESTAO_PRECOS</ARBGB>
+     <MSGNR>044</MSGNR>
+     <TEXT>Linha &amp;1:Valor não permitido para coluna &apos;Exclusão&apos;.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>P</SPRSL>
+     <ARBGB>ZSD_GESTAO_PRECOS</ARBGB>
+     <MSGNR>045</MSGNR>
+     <TEXT>Linha &amp;1:&apos;Data desde&apos; e &apos;Data até&apos; devem ser iguais para exclusão.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>P</SPRSL>
+     <ARBGB>ZSD_GESTAO_PRECOS</ARBGB>
+     <MSGNR>046</MSGNR>
+     <TEXT>Linha &amp;1:Registro não exite na condição.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>P</SPRSL>
+     <ARBGB>ZSD_GESTAO_PRECOS</ARBGB>
+     <MSGNR>047</MSGNR>
+     <TEXT>Linha &amp;1:Registro validado.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>P</SPRSL>
+     <ARBGB>ZSD_GESTAO_PRECOS</ARBGB>
+     <MSGNR>048</MSGNR>
+     <TEXT>Linha &amp;1:Valor mínimo &apos;&amp;2&apos; menor que o permitido &apos;&amp;3&apos;.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>P</SPRSL>
+     <ARBGB>ZSD_GESTAO_PRECOS</ARBGB>
+     <MSGNR>049</MSGNR>
+     <TEXT>Linha &amp;1:Cliente &amp;2, tabela &amp;3 com risco de invasão.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>P</SPRSL>
+     <ARBGB>ZSD_GESTAO_PRECOS</ARBGB>
+     <MSGNR>050</MSGNR>
+     <TEXT>Linha &amp;1:Material &amp;2, tabela &amp;3 verificar faixa de escala inicial.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>P</SPRSL>
+     <ARBGB>ZSD_GESTAO_PRECOS</ARBGB>
+     <MSGNR>051</MSGNR>
+     <TEXT>Linha &amp;1: Data inválida.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>P</SPRSL>
+     <ARBGB>ZSD_GESTAO_PRECOS</ARBGB>
+     <MSGNR>052</MSGNR>
+     <TEXT>Linha &amp;1: &apos;Data até&apos; é menor do que &apos;Data desde&apos; .</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>P</SPRSL>
+     <ARBGB>ZSD_GESTAO_PRECOS</ARBGB>
+     <MSGNR>053</MSGNR>
+     <TEXT>Data início é superior à Data fim.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>P</SPRSL>
+     <ARBGB>ZSD_GESTAO_PRECOS</ARBGB>
+     <MSGNR>054</MSGNR>
+     <TEXT>Data inválida.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>P</SPRSL>
+     <ARBGB>ZSD_GESTAO_PRECOS</ARBGB>
+     <MSGNR>055</MSGNR>
+     <TEXT>&apos;Data até&apos; é menor do que &apos;Data desde&apos; .</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>P</SPRSL>
+     <ARBGB>ZSD_GESTAO_PRECOS</ARBGB>
+     <MSGNR>056</MSGNR>
+     <TEXT>Linha &amp;1:Preço mínimo deve ser igual para linhas com a mesma composição.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>P</SPRSL>
+     <ARBGB>ZSD_GESTAO_PRECOS</ARBGB>
+     <MSGNR>057</MSGNR>
+     <TEXT>Linha &amp;1:Preço máximo deve ser igual para linhas com a mesma composição.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>P</SPRSL>
+     <ARBGB>ZSD_GESTAO_PRECOS</ARBGB>
+     <MSGNR>058</MSGNR>
+     <TEXT>Linha &amp;1:Verificar moeda para canal de exportação.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>P</SPRSL>
+     <ARBGB>ZSD_GESTAO_PRECOS</ARBGB>
+     <MSGNR>059</MSGNR>
+     <TEXT>Linha &amp;1:Cliente &apos;&amp;2&apos; não existe.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>P</SPRSL>
+     <ARBGB>ZSD_GESTAO_PRECOS</ARBGB>
+     <MSGNR>060</MSGNR>
+     <TEXT>Erro! Consulte o campo de mensagens abaixo e providencie as correções.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>P</SPRSL>
+     <ARBGB>ZSD_GESTAO_PRECOS</ARBGB>
+     <MSGNR>061</MSGNR>
+     <TEXT>Alerta! Consulte o campo de mensagens abaixo e acompanhe sua solicitação.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>P</SPRSL>
+     <ARBGB>ZSD_GESTAO_PRECOS</ARBGB>
+     <MSGNR>062</MSGNR>
+     <TEXT>Registros Validados! Acompanhe sua solicitação pelo Cockpit.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>P</SPRSL>
+     <ARBGB>ZSD_GESTAO_PRECOS</ARBGB>
+     <MSGNR>063</MSGNR>
+     <TEXT>Vigência de Preço atualizada com sucesso.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>P</SPRSL>
+     <ARBGB>ZSD_GESTAO_PRECOS</ARBGB>
+     <MSGNR>064</MSGNR>
+     <TEXT>Linha &amp;1: Vigência já exite na condição.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>P</SPRSL>
+     <ARBGB>ZSD_GESTAO_PRECOS</ARBGB>
+     <MSGNR>065</MSGNR>
+     <TEXT>Linha &amp;1: Escala não pode ser inferior à zero.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>P</SPRSL>
+     <ARBGB>ZSD_GESTAO_PRECOS</ARBGB>
+     <MSGNR>066</MSGNR>
+     <TEXT>Linha &amp;1: Moeda &apos;&amp;2&apos; é inválida.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>P</SPRSL>
+     <ARBGB>ZSD_GESTAO_PRECOS</ARBGB>
+     <MSGNR>067</MSGNR>
+     <TEXT>Linha &amp;1:Valor mínimo não pode ser inferior à zero.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>P</SPRSL>
+     <ARBGB>ZSD_GESTAO_PRECOS</ARBGB>
+     <MSGNR>068</MSGNR>
+     <TEXT>Linha &amp;1:Valor máximo não pode ser inferior à zero.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>P</SPRSL>
+     <ARBGB>ZSD_GESTAO_PRECOS</ARBGB>
+     <MSGNR>069</MSGNR>
+     <TEXT>Linha &amp;1:Valor Sugerido não pode ser inferior à zero.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>P</SPRSL>
+     <ARBGB>ZSD_GESTAO_PRECOS</ARBGB>
+     <MSGNR>070</MSGNR>
+     <TEXT>Linha &amp;1:Valor não pode ser inferior à zero.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>P</SPRSL>
+     <ARBGB>ZSD_GESTAO_PRECOS</ARBGB>
+     <MSGNR>071</MSGNR>
+     <TEXT>Usuário não autorizado!</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>P</SPRSL>
+     <ARBGB>ZSD_GESTAO_PRECOS</ARBGB>
+     <MSGNR>072</MSGNR>
+     <TEXT>&apos;Válido até&apos; menor que &apos;Válido desde&apos;.</TEXT>
+    </T100>
+   </T100>
+   <LONGTEXTS>
+    <item>
+     <DOKIL>
+      <ID>NA</ID>
+      <OBJECT>ZSD_GESTAO_PRECOS004</OBJECT>
+      <LANGU>P</LANGU>
+      <TYP>E</TYP>
+      <VERSION>0002</VERSION>
+      <MASTERLANG>X</MASTERLANG>
+      <TXTLINES>00007</TXTLINES>
+     </DOKIL>
+     <HEAD>
+      <TDOBJECT>DOKU</TDOBJECT>
+      <TDNAME>ZSD_GESTAO_PRECOS004</TDNAME>
+      <TDID>NA</TDID>
+      <TDSPRAS>P</TDSPRAS>
+      <TDFORM>S_DOCU_SHOW</TDFORM>
+      <TDSTYLE>S_DOCUS1</TDSTYLE>
+      <TDVERSION>00002</TDVERSION>
+      <TDLINESIZE>072</TDLINESIZE>
+     </HEAD>
+     <LINES>
+      <TLINE>
+       <TDFORMAT>U1</TDFORMAT>
+       <TDLINE>&amp;CAUSE&amp;</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>AS</TDFORMAT>
+       <TDLINE>Tipo de condição não cadastrado</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>U1</TDFORMAT>
+       <TDLINE>&amp;SYSTEM_RESPONSE&amp;</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>AS</TDFORMAT>
+       <TDLINE>Tipo de condição não cadastrado na Tabela de Parâmetros</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>U1</TDFORMAT>
+       <TDLINE>&amp;WHAT_TO_DO&amp;</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>AS</TDFORMAT>
+       <TDLINE>Cadastrar Tipo de condição no seguinte parâmetro:</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>B2</TDFORMAT>
+       <TDLINE>Modulo = &amp;V1&amp;</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>B2</TDFORMAT>
+       <TDLINE>Chave1 = &amp;V2&amp;</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>B2</TDFORMAT>
+       <TDLINE>Chave2 = &amp;V3&amp;</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>B2</TDFORMAT>
+       <TDLINE>Chave3 = &amp;V4&amp;</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>U1</TDFORMAT>
+       <TDLINE>&amp;SYS_ADMIN&amp;</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>AS</TDFORMAT>
+      </TLINE>
+     </LINES>
+    </item>
+    <item>
+     <DOKIL>
+      <ID>NA</ID>
+      <OBJECT>ZSD_GESTAO_PRECOS061</OBJECT>
+      <LANGU>P</LANGU>
+      <TYP>E</TYP>
+      <VERSION>0001</VERSION>
+      <MASTERLANG>X</MASTERLANG>
+      <TXTLINES>00003</TXTLINES>
+     </DOKIL>
+     <HEAD>
+      <TDOBJECT>DOKU</TDOBJECT>
+      <TDNAME>ZSD_GESTAO_PRECOS061</TDNAME>
+      <TDID>NA</TDID>
+      <TDSPRAS>P</TDSPRAS>
+      <TDFORM>S_DOCU_SHOW</TDFORM>
+      <TDSTYLE>S_DOCUS1</TDSTYLE>
+      <TDVERSION>00001</TDVERSION>
+      <TDLINESIZE>072</TDLINESIZE>
+     </HEAD>
+     <LINES>
+      <TLINE>
+       <TDFORMAT>U1</TDFORMAT>
+       <TDLINE>&amp;CAUSE&amp;</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>AS</TDFORMAT>
+       <TDLINE>Alerta!</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>U1</TDFORMAT>
+       <TDLINE>&amp;WHAT_TO_DO&amp;</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>AS</TDFORMAT>
+       <TDLINE>Consulte o campo de mensagens abaixo e acompanhe sua solicitação pelo</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>AS</TDFORMAT>
+       <TDLINE>Cockpit.</TDLINE>
+      </TLINE>
+     </LINES>
+    </item>
+   </LONGTEXTS>
+  </asx:values>
+ </asx:abap>
+</abapGit>

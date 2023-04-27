@@ -1,0 +1,379 @@
+@Metadata.layer: #CORE
+@UI: {
+  headerInfo: {
+    typeName: 'Criar fluxo intercompany',
+    typeNamePlural: 'Pedidos Coligados',
+    title:      { value: 'TpOperName', type: #STANDARD },
+    description:{ value: 'ProcessoName',  type: #STANDARD } },
+//    title:      { type: #STANDARD },
+//    description:{ type: #STANDARD } },
+
+    selectionVariant: [
+//      { text: 'Todos',         qualifier: 'ALL'},
+      { text: 'Intercompany',  qualifier: 'INTERC', filter: 'Processo EQ 2'},
+      { text: 'Transferência', qualifier: 'TRANSF', filter: 'Processo EQ 1'} ],
+
+    presentationVariant: [
+      { text: 'Default',
+        sortOrder: [{ by: 'LocalLastChangedAt', direction: #DESC }]} ]
+}
+annotate view ZC_SD_01_COCKPIT with
+{
+
+  @UI.facet: [
+
+    { position:        10,
+      targetQualifier: 'OrdemVenda',
+      purpose:         #HEADER,
+      type:            #DATAPOINT_REFERENCE,
+      hidden:          #(HiddenSO) },
+  //      hidden:          true },
+
+    { position:        10,
+      targetQualifier: 'PedidoCompra',
+      purpose:         #HEADER,
+      type:            #DATAPOINT_REFERENCE,
+      hidden:          #(HiddenPO) },
+  //      hidden:          true },
+
+    { position:        20,
+      targetQualifier: 'Remessa',
+      purpose:         #HEADER,
+      type:            #DATAPOINT_REFERENCE,
+      hidden:          #(HiddenRemessa) },
+  //      hidden:          true },
+
+    { position:        30,
+      targetQualifier: 'Fatura',
+      purpose:         #HEADER,
+      type:            #DATAPOINT_REFERENCE,
+      hidden:          #(HiddenFatura) },
+  //      hidden:          true },
+
+    { position:        40,
+      targetQualifier: 'NFSaida',
+      purpose:         #HEADER,
+      type:            #DATAPOINT_REFERENCE,
+      hidden:          #(HiddenNFOut) },
+  //      hidden:          true },
+
+    { position:        50,
+      targetQualifier: 'OrdemFrete',
+      purpose:         #HEADER,
+      type:            #DATAPOINT_REFERENCE,
+      hidden:          #(HiddenOF) },
+  //      hidden:          true },
+
+    { position:        60,
+      targetQualifier: 'NFEntrada',
+      purpose:         #HEADER,
+      type:            #DATAPOINT_REFERENCE,
+      hidden:          #(HiddenNFInb) },
+  //      hidden:          true },
+
+    { position: 10,
+      label:    'Síntese',
+      type:     #COLLECTION,
+      id:       'IdSintese' },
+
+        { position:        10,
+          label:           'Dados',
+          type:            #IDENTIFICATION_REFERENCE,
+          parentId:        'IdSintese' },
+
+    { position: 20,
+      label:    'Dados de Transporte',
+      type:     #COLLECTION,
+      id:       'IdTransp' },
+
+          { position:        10,
+            label:           'Dados',
+            type:            #FIELDGROUP_REFERENCE,
+            targetQualifier: 'transpGroup',
+            parentId:        'IdTransp' },
+
+    { position: 30,
+      label:    'Dados Adicionais',
+      type:     #COLLECTION,
+      id:       'Adicionais' },
+
+          { position:        10,
+            label:           'Compras',
+            type:            #FIELDGROUP_REFERENCE,
+            targetQualifier: 'POGroup',
+            parentId:        'Adicionais' },
+
+//          { position:        20,
+//            label:           'Vendas',
+//            type:            #FIELDGROUP_REFERENCE,
+//            targetQualifier: 'SDGroup',
+//            parentId:        'Adicionais' },
+
+           { position:        20,
+             label:           'Documentos de Origem',
+             type:            #FIELDGROUP_REFERENCE,
+             targetQualifier: 'Origem',
+             parentId:        'Adicionais' },
+
+           { position:        30,
+             label:           'Opções do Material',
+             type:            #FIELDGROUP_REFERENCE,
+             targetQualifier: 'OpPrdGroup',
+             parentId:        'Adicionais' },
+
+    { position: 40,
+      label:    'Textos',
+      type:     #COLLECTION,
+      id:       'Textos' },
+
+          { position:        10,
+            label:           'Texto para NF-e',
+            type:            #FIELDGROUP_REFERENCE,
+            targetQualifier: 'nfGroup',
+            parentId:        'Textos' },
+
+          { position:        20,
+            label:           'Texto Gerais',
+            type:            #FIELDGROUP_REFERENCE,
+            targetQualifier: 'geralGroup',
+            parentId:        'Textos' },
+
+    { position:      50,
+      label:         'Itens',
+      type:          #LINEITEM_REFERENCE,
+      targetElement: '_Material',
+      id:            'IdMat' },
+  
+  
+      { position:      60,
+      label:         'Log Pedido',
+      type:          #LINEITEM_REFERENCE,
+      targetElement: '_Log',
+      id:            'IdLog' }
+  ]
+
+  //  @Consumption.semanticObject: 'SalesOrder'
+  @UI: { lineItem:        [ { position: 10, type: #WITH_URL, url: 'URL_va03' } ],
+  //  @UI: { lineItem:        [ { position: 10, type: #WITH_INTENT_BASED_NAVIGATION, semanticObjectAction: 'display' } ],
+       selectionField:  [ { position: 40 } ],
+       dataPoint:       { qualifier: 'OrdemVenda', criticality: 'DocPrinCritic' } }
+  SalesOrder;
+
+  @UI: { lineItem:        [ { position: 20, type: #WITH_URL, url: 'URL_me23n'  } ],
+         selectionField:  [ { position: 30 } ],
+         dataPoint:       { qualifier: 'PedidoCompra', criticality: 'DocPrinCritic' } }
+  PurchaseOrder;
+
+  @UI: { lineItem:        [ { hidden: true } ],
+         identification:  [ { position: 10 }],
+         selectionField:  [ { position: 70 } ]  }
+  Processo;
+
+  @UI: { lineItem:        [ { hidden: true } ],
+         identification:  [ { position: 20, label: 'Tipo de Operação' }],
+         selectionField:  [ { position: 80 } ] }
+  TipoOperacao;
+
+  @UI: { lineItem:        [ { position: 30 } ],
+         identification:  [ { position: 30, label: 'Centro de Origem' }],
+         selectionField:  [ { position: 10 } ] }
+  Werks_Origem;
+
+  @UI: { lineItem:        [ { position: 40 } ],
+         identification:  [ { position: 40, label: 'Depósito de Origem' } ] }
+  Lgort_Origem;
+
+  @UI: { lineItem:        [ { position: 50 } ],
+         identification:  [ { position: 50, label: 'Centro de Destino' }],
+         selectionField:  [ { position: 20 } ] }
+  Werks_Destino;
+
+  @UI: { lineItem:        [ { position: 60 } ],
+         identification:  [ { position: 60, label: 'Depósito de Destino' }] }
+  Lgort_Destino;
+
+  @UI: { lineItem:        [ { position: 70 } ],
+         identification:  [ { position: 70, label: 'Centro Receptor' }]}
+  Werks_Receptor;
+
+  @UI: { lineItem:        [ { position: 80 } ],
+         selectionField:  [ { position: 60 } ] }
+  @Consumption.filter.selectionType: #INTERVAL
+  Creationdate;
+
+  @UI: { lineItem:        [ { position: 90, type: #WITH_URL, url: 'URL_vl03n' } ],
+         selectionField:  [ { position: 50 } ],
+         dataPoint:       { qualifier: 'Remessa' } }
+  Remessa;
+  
+  @UI: { lineItem:        [ { position: 100, label: 'Status Remessa' } ] }
+  OverallGoodsMovementStatus;
+
+  @UI: { lineItem:        [ { position: 110 } ]}
+  @Consumption.valueHelpDefinition: [{ entity:{ name: 'ZI_MM_VH_MOTIVO_BLOQ_REMESSA', element : 'DeliveryBlockReason' }}]
+  DeliveryBlockReason;
+
+  @UI: { lineItem:        [ { position: 120 } ] }
+  @Consumption.valueHelpDefinition: [{ entity:{ name: 'I_OverallSDProcessStatus', element : 'OverallSDProcessStatus' }}]
+  OverallPickingStatus;
+
+  @UI: { lineItem:        [ { position: 130, type: #WITH_URL, url: 'URL_vf03' } ],
+         dataPoint:       { qualifier: 'Fatura' } }
+  Docfat;
+
+  @UI: { lineItem:        [ { position: 140, type: #WITH_URL, url: 'URL_FreightOrder' } ],
+         dataPoint:       { qualifier: 'OrdemFrete' } }
+  Docnuv;
+
+  @UI: { lineItem:        [ { position: 150, type: #WITH_URL, url: 'URL_J1B3N' } ],
+         dataPoint:       { qualifier: 'NFSaida', title: 'NF Saída' } }
+  br_notafiscal;
+
+  @UI: { lineItem:        [ { position: 155, type: #WITH_URL, url: 'URL_J1B3N' } ],
+         dataPoint:       { qualifier: 'NFSaida', title: 'NFe Saída' } }
+  BR_NFeNumber;
+
+  @UI: { lineItem:        [ { position: 160 } ] }
+  br_nfedocumentstatus;
+
+  @UI: { lineItem:        [ { position: 170, type: #WITH_URL, url: 'URL_J1B3N_INB' } ],
+         dataPoint:       { qualifier: 'NFEntrada', title: 'NF Entrada' } }
+  nfentrada;
+
+  @UI: { lineItem:        [ { position: 175, type: #WITH_URL, url: 'URL_J1B3N_INB' } ],
+         dataPoint:       { qualifier: 'NFEntrada', title: 'NFe Entrada' } }
+  BR_NFeNumberEntrada;
+
+  @UI: { lineItem:        [ { position: 180, type: #WITH_URL, url: 'URL_VL03N_INB' } ],
+         fieldGroup:      [ { qualifier: 'Origem', position: 10, label: 'Remessa de Transferência - Devolução' }]   }
+  RemessaOrigem;
+
+  @UI: { lineItem:        [ { position: 190, type: #WITH_URL, url: 'URL_me23_2' } ] }
+  Correspncexternalreference;
+
+  @UI: { lineItem:        [ { position: 200 } ] }
+  SalesOrder2;
+
+  @UI: { lineItem:        [ { position: 210 } ],
+         fieldGroup:      [ { qualifier: 'POGroup', position: 10, label: 'Organização de Compras' }]}
+  ekorg;
+
+  @UI: { lineItem:        [ { position: 220 } ],
+         fieldGroup:      [ { qualifier: 'POGroup', position: 20, label: 'Grupo de Compradores' }]}
+  ekgrp;
+
+  @UI: { lineItem:        [ { position: 230 } ],
+         fieldGroup:      [ { qualifier: 'transpGroup', position: 10, label: 'Incoterms' }] }
+  Tpfrete;
+
+  @UI: { lineItem:        [ { position: 240 } ],
+         fieldGroup:      [ { qualifier: 'transpGroup', position: 20, label: 'Tipo de Expedição' }] }
+  Tpexp;
+
+  @UI: { lineItem:        [ { position: 245 } ],
+         fieldGroup:      [ { qualifier: 'transpGroup', position: 25, label: 'Condição de Expedição' }] }
+  CondExp;
+
+  @UI: { lineItem:        [ { position: 250 } ],
+         fieldGroup:      [ { qualifier: 'transpGroup', position: 30, label: 'Agente de Frete' }] }
+  Agfrete;
+
+  @UI: { lineItem:        [ { position: 260 } ],
+         fieldGroup:      [ { qualifier: 'transpGroup', position: 40 }] }
+  Motora;
+
+  @UI: { lineItem:        [ { position: 760 } ],
+         fieldGroup:      [ { qualifier: 'transpGroup', position: 50 }]}
+  Ztraid;
+
+  @UI: { lineItem:        [ { position: 2870 } ],
+         fieldGroup:      [ { qualifier: 'transpGroup', position: 60, label: 'Placa Semireboque 1' }]}
+  Ztrai1;
+
+  @UI: { lineItem:        [ { position: 290 } ],
+         fieldGroup:      [ { qualifier: 'transpGroup', position: 70, label: 'Placa Semireboque 2' }]}
+  Ztrai2;
+
+  @UI: { lineItem:        [ { position: 300 } ],
+         fieldGroup:      [ { qualifier: 'transpGroup', position: 80, label: 'Placa Semireboque 3' }]}
+  Ztrai3;
+
+  @UI: { lineItem:        [ { position: 310 } ],
+         fieldGroup:      [ { qualifier: 'transpGroup', position: 90 }] }
+  IdSaga;
+
+  @UI: { lineItem:        [ { position: 320 } ],
+         fieldGroup:      [ { qualifier: 'nfGroup' }],
+         multiLineText: true }
+  Txtnf;
+
+  @UI: { lineItem:        [ { position: 330 } ],
+         fieldGroup:      [ { qualifier: 'geralGroup' }],
+         multiLineText: true }
+  Txtgeral;
+
+  @UI: { lineItem:        [ { hidden: true } ],
+         fieldGroup:      [ { qualifier: 'OpPrdGroup', position: 10 }]}
+  abrvw;
+
+  @UI: { lineItem:        [ { hidden: true } ],
+         fieldGroup:      [ { qualifier: 'OpPrdGroup', position: 20 }]}
+  Fracionado;
+
+  @UI: { lineItem:        [ { hidden: true } ]}
+  CreatedBy;
+  @UI: { lineItem:        [ { hidden: true } ]}
+  CreatedAtDate;
+  @UI: { lineItem:        [ { hidden: true } ]}
+  LastChangedBy;
+  @UI: { lineItem:        [ { hidden: true } ]}
+  LastChangedAtDate;
+  @UI: { hidden: true }
+  LocalLastChangedAt;
+
+  @UI: { lineItem: [ { position: 10, type: #FOR_ACTION, dataAction: 'ContinuarPro', label: 'Continuar Processo', invocationGrouping: #CHANGE_SET },
+                     { position: 20, type: #FOR_ACTION, dataAction: 'CriarFrete',   label: 'Criar Ord. Frete', invocationGrouping: #CHANGE_SET },
+                     { position: 30, type: #FOR_ACTION, dataAction: 'defBloqueio',  label: 'Definir Bloq. Rem.', invocationGrouping: #CHANGE_SET },
+                     { position: 40, type: #FOR_ACTION, dataAction: 'retBloqueio',  label: 'Retirar Bloq. Rem.', invocationGrouping: #CHANGE_SET },
+                     { position: 50, type: #FOR_ACTION, dataAction: 'entradaMercadoria',  label: 'Entrada Mercadoria', invocationGrouping: #CHANGE_SET },
+                     { position: 50, type: #FOR_ACTION, dataAction: 'EstornarSaida',  label: 'Reveter Saida Mercadoria', invocationGrouping: #CHANGE_SET } ] }
+  @UI.hidden: true
+  Guid;
+  @UI.hidden: true
+  URL_me23n;
+  @UI.hidden: true
+  URL_va03;
+  @UI.hidden: true
+  URL_vl03n;
+  @UI.hidden: true
+  URL_vf03;
+  @UI.hidden: true
+  URL_J1B3N;
+  @UI.hidden: true
+  URL_me23_2;
+  @UI.hidden: true
+  URL_VL03N_INB;
+  @UI.hidden: true
+  URL_J1B3N_INB;
+  @UI.hidden: true
+  URL_FreightOrder;
+  @UI.hidden: true
+  HiddenPO;
+  @UI.hidden: true
+  HiddenSO;
+  @UI.hidden: true
+  HiddenRemessa;
+  @UI.hidden: true
+  HiddenFatura;
+  @UI.hidden: true
+  HiddenNFOut;
+  @UI.hidden: true
+  HiddenOF;
+  @UI.hidden: true
+  HiddenNFInb;
+  @UI.hidden: true
+  DocPrinCritic;
+  @UI.hidden: true
+  DelivBlockReason;
+
+}

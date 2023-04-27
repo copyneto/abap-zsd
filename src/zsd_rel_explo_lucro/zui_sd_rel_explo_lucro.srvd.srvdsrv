@@ -1,0 +1,6 @@
+@EndUserText.label: 'Serviço'
+define service ZUI_SD_REL_EXPLO_LUCRO {
+  expose ZC_SD_RELEX_Analytics;
+  expose ZC_SD_RELEX_SINTETICA_VIRT as ZC_SD_RELEX_Sintetica;
+  expose ZI_CA_VH_WERKS;
+}

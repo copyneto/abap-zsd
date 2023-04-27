@@ -1,0 +1,30 @@
+managed; // implementation in class zbp_i_sd_ionz_parcei unique;
+
+define behavior for ZI_SD_IONZ_PARCEI alias _Parceiro
+implementation in class zclsd_ionz_parcei unique
+persistent table ztsd_ionz_parcei
+lock master
+authorization master ( instance )
+etag master LocalLastChangedAt
+{
+  create;
+  update;
+  delete;
+
+  field ( mandatory : create ) PartnRole, PartnNumb;
+  field ( readonly : update ) PartnRole, PartnNumb;
+  field ( readonly ) PartnRole1, CreatedAt, CreatedBy, LastChangedAt, LastChangedBy, LocalLastChangedAt;
+
+  validation authorityCreate on save { create; }
+
+  mapping for ztsd_ionz_parcei
+  {
+    PartnRole = partn_role;
+    PartnNumb = partn_Numb;
+    CreatedBy = Created_By;
+    CreatedAt = Created_At;
+    LastChangedBy = Last_Changed_By;
+    LastChangedAt = Last_Changed_At;
+    LocalLastChangedAt = Local_Last_Changed_At;
+  }
+}

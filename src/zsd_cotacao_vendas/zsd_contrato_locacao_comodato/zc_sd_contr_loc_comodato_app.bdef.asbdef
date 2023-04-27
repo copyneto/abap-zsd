@@ -1,0 +1,5 @@
+projection;
+
+define behavior for ZC_SD_CONTR_LOC_COMODATO_APP alias ContrLocCom
+{
+}

@@ -1,0 +1,12 @@
+unmanaged;
+
+define behavior for ZI_SD_CONTR_LOC_COMODATO_APP alias ContrLocCom
+implementation in class zclsd_contr_loc_comodato_app unique
+//late numbering
+lock master
+etag master SalesContract
+{
+//  create;
+//  update;
+//  delete;
+}

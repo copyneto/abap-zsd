@@ -1,0 +1,4 @@
+@EndUserText.label: 'Service definition-Interc Upld via Excel'
+define service ZUI_INTERC_UPLOAD {
+  expose ZC_SD_INTERC_UPLOAD as IntercompanyUpload;
+}

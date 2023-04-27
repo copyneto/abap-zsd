@@ -1,0 +1,4 @@
+@EndUserText.label: 'Service Def Cód Benef e ICMS desonerado'
+define service ZUI_SD_CALCULO_DESONERADO {
+  expose ZC_SD_CALCULO_DESONERADO;
+}

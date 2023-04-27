@@ -1,0 +1,11 @@
+@EndUserText.label: 'CDS de Autorização'
+@MappingRole: true
+define role ZI_SD_UNID_VENDA_EXPORTACAO {
+    grant 
+        select
+            on
+                ZI_SD_UNID_VENDA_EXPORTACAO
+                    where
+                        ( ) = aspect pfcg_auth( ZSDMTABLE, ACTVT = '03', TABLE = 'ZTSD_UNID_TRIB' );
+                        
+}

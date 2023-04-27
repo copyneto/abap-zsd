@@ -1,0 +1,63 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<abapGit version="v1.0.0" serializer="LCL_OBJECT_FUGR" serializer_version="v1.0.0">
+ <asx:abap xmlns:asx="http://www.sap.com/abapxml" version="1.0">
+  <asx:values>
+   <AREAT>BAPI_OUTB_DELIVERY_CHANGE</AREAT>
+   <INCLUDES>
+    <SOBJ_NAME>LZFGSD_OUTB_DELIVERY_CHANGETOP</SOBJ_NAME>
+    <SOBJ_NAME>SAPLZFGSD_OUTB_DELIVERY_CHANGE</SOBJ_NAME>
+   </INCLUDES>
+   <FUNCTIONS>
+    <item>
+     <FUNCNAME>ZFMSD_OUTB_DELIVERY_CHANGE</FUNCNAME>
+     <REMOTE_CALL>R</REMOTE_CALL>
+     <SHORT_TEXT>BAPI_OUTB_DELIVERY_CHANGE</SHORT_TEXT>
+     <IMPORT>
+      <RSIMP>
+       <PARAMETER>IS_HEADER_DATA</PARAMETER>
+       <TYP>BAPIOBDLVHDRCHG</TYP>
+      </RSIMP>
+      <RSIMP>
+       <PARAMETER>IS_HEADER_CONTROL</PARAMETER>
+       <OPTIONAL>X</OPTIONAL>
+       <TYP>BAPIOBDLVHDRCTRLCHG</TYP>
+      </RSIMP>
+      <RSIMP>
+       <PARAMETER>IV_DELIVERY</PARAMETER>
+       <OPTIONAL>X</OPTIONAL>
+       <TYP>BAPIOBDLVHDRCHG-DELIV_NUMB</TYP>
+      </RSIMP>
+     </IMPORT>
+     <EXPORT>
+      <RSEXP>
+       <PARAMETER>ET_RETURN</PARAMETER>
+       <TYP>BAPIRET2_T</TYP>
+      </RSEXP>
+     </EXPORT>
+     <DOCUMENTATION>
+      <RSFDO>
+       <PARAMETER>IS_HEADER_DATA</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Modificação entrega dados de picking nível de cabeçalho</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>IS_HEADER_CONTROL</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Dados de controle entrega nível de cabeçalho</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>IV_DELIVERY</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Remessa</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>ET_RETURN</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Tabela de retorno</STEXT>
+      </RSFDO>
+     </DOCUMENTATION>
+    </item>
+   </FUNCTIONS>
+  </asx:values>
+ </asx:abap>
+</abapGit>

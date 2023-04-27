@@ -1,0 +1,66 @@
+@Metadata.layer: #CORE
+@UI: { headerInfo: { typeName: 'Mensagem',
+                     typeNamePlural: 'Mensagens',
+                     title: { type: #STANDARD, value: 'Line' } } }
+
+@UI.presentationVariant: [{ sortOrder: [{ by: 'Line', direction:  #DESC }] }] 
+                     
+@UI.lineItem: [{criticality: 'Criticality' }]
+
+annotate view ZC_SD_COCKPIT_REMESSA_LOG
+    with 
+{
+
+  // ------------------------------------------------------
+  // Header information
+  // ------------------------------------------------------
+  @UI.facet: [ { id:            'Log',
+                 purpose:       #STANDARD,
+                 type:          #IDENTIFICATION_REFERENCE,
+                 label:         'Log',
+                 position:      10 } ]
+
+  // ------------------------------------------------------
+  // Field information
+  // ------------------------------------------------------
+  @UI.hidden: true
+  SalesDocument;
+  
+  @UI.hidden: true
+  OutboundDelivery;
+  
+  @UI.lineItem:        [ { position: 10 } ]
+  @UI.identification:  [ { position: 10 } ]
+  Line;
+  
+  @UI.hidden: true
+  Criticality;
+  
+  @UI.lineItem:        [ { position: 20 } ]
+  @UI.identification:  [ { position: 20 } ]
+  Message;
+  
+  @UI.lineItem:        [ { position: 30 } ]
+  @UI.identification:  [ { position: 30 } ]
+  CreatedBy;
+  
+  @UI.hidden: true
+  CreatedByName;
+  
+  @UI.lineItem:        [ { position: 40 } ]
+  @UI.identification:  [ { position: 40 } ]
+  CreatedAt;
+  
+  @UI.hidden: true
+  LastChangedBy;
+  
+  @UI.hidden: true
+  LastChangedByName;
+  
+  @UI.hidden: true
+  LastChangedAt;
+  
+  @UI.hidden: true
+  LocalLastChangedAt;
+    
+}

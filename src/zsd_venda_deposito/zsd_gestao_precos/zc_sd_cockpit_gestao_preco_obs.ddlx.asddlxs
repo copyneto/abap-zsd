@@ -1,0 +1,44 @@
+@Metadata.layer: #CORE
+@UI: { headerInfo: { title: { type: #STANDARD, value: 'Observacoes' },
+                     typeName: 'Observacoes',
+                     typeNamePlural: 'Observações' } }
+
+@UI.presentationVariant: [{ sortOrder: [{ by: 'Line', direction: #ASC }] }]
+annotate view ZC_SD_COCKPIT_GESTAO_PRECO_OBS with
+{
+
+  // ------------------------------------------------------
+  // Header information
+  // ------------------------------------------------------
+  @UI.facet: [ { id:            'Observacoes',
+                 purpose:       #STANDARD,
+                 type:          #IDENTIFICATION_REFERENCE,
+                 label:         'Observações',
+                 position:      10 }  ]
+
+  // ------------------------------------------------------
+  // Field information
+  // ------------------------------------------------------
+
+  @UI.hidden: true
+  Guid;
+
+  @UI.hidden: true
+  Line;
+
+  @UI: { lineItem:        [ { position: 10, label: 'Observação' } ],
+         identification:  [ { position: 10, label: 'Observação' } ]}
+  Observacoes;
+  
+  @UI.hidden: true
+  CreatedBy;
+  @UI.hidden: true
+  CreatedAt;
+  @UI.hidden: true
+  LastChangedBy;
+  @UI.hidden: true
+  LastChangedAt;
+  @UI.hidden: true
+  LocalLastChangedAt;
+
+}

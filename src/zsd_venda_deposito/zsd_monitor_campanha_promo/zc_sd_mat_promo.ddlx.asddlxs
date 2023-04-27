@@ -1,0 +1,44 @@
+@Metadata.layer: #CORE
+@UI.headerInfo: {
+ typeName: 'Material para Campanha Promocional',
+ typeNamePlural: 'Material para Campanha Promocional',
+    title: {
+      type: #STANDARD,
+      label: 'Material',
+      value: 'Zmatnr'
+    }}
+
+annotate view ZC_SD_MAT_PROMO
+    with 
+{
+  @UI.facet: [{ id:       'Zmatnr',
+                position: 10,
+                label:    'Material',
+                purpose:  #STANDARD,
+                type:     #IDENTIFICATION_REFERENCE
+                 }] 
+    @UI: { lineItem:       [{ position: 10 }],
+           identification: [{ position: 10 }] }
+    @UI.selectionField:    [{ position: 10 }]
+    Zmatnr;
+    @UI: { lineItem:       [{ position: 20 }],
+           identification: [{ position: 20 }] }
+    @UI.selectionField:    [{ position: 20 }]
+    Modelo;
+    @UI: { lineItem:       [{ position: 30 }],
+           identification: [{ position: 30 }] }
+    @UI.selectionField:    [{ position: 30 }]
+    Zmenge;
+    @UI: { lineItem:       [{ position: 40 }],
+           identification: [{ position: 40 }] }
+    @UI.selectionField:    [{ position: 40 }]    
+    Zloevm;
+    @UI: { lineItem:       [{ position: 50 }],
+           identification: [{ position: 50 }] }
+    @UI.selectionField:    [{ position: 50 }]    
+    Zlgort;
+    @UI: { lineItem:       [{ position: 60 }],
+           identification: [{ position: 60 }] }
+    @UI.selectionField:    [{ position: 60 }]    
+    Zcentro;
+}

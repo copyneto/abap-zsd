@@ -1,0 +1,69 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<abapGit version="v1.0.0" serializer="LCL_OBJECT_SPRX" serializer_version="v1.0.0">
+ <asx:abap xmlns:asx="http://www.sap.com/abapxml" version="1.0">
+  <asx:values>
+   <PROXY_HEADER>
+    <item>
+     <OBJECT>TABL</OBJECT>
+     <OBJ_NAME>ZDADOS_GNRE_2_00_2_RETORNO_CON</OBJ_NAME>
+     <OBJECT_M>TABL</OBJECT_M>
+     <OBJ_NAME_M>ZDADOS_GNRE_2_00_2_RETORNO_CON</OBJ_NAME_M>
+     <HASH_ID>6ABA4099E228CC1974D341E32AD335CCEC56766A</HASH_ID>
+     <ID>&lt;group&gt; dadosGnre_2.00_2_retorno_cons http://www.gnre.pe.gov.br http://www.gnre.pe.gov.br</ID>
+     <IFR_GLOBAL>X</IFR_GLOBAL>
+     <IFR_TYPE>group</IFR_TYPE>
+     <IFR_NAME>dadosGnre_2.00_2_retorno_cons</IFR_NAME>
+     <IFR_NSPCE>http://www.gnre.pe.gov.br</IFR_NSPCE>
+     <IFR_GNSPCE>http://www.gnre.pe.gov.br</IFR_GNSPCE>
+     <GEN_VERS>0005</GEN_VERS>
+     <PREFIX>Z</PREFIX>
+     <CATEGORY>group</CATEGORY>
+     <GEN_APPL>WEBSERVICES</GEN_APPL>
+     <X-ML_NSPCE>http://www.gnre.pe.gov.br</X-ML_NSPCE>
+     <X-ML_NAME>dadosGnre_2.00_2_retorno_cons</X-ML_NAME>
+    </item>
+   </PROXY_HEADER>
+   <PROXY_DATA>
+    <item>
+     <OBJECT>TABL</OBJECT>
+     <OBJ_NAME>ZDADOS_GNRE_2_00_2_RETORNO_CON</OBJ_NAME>
+     <OBJECT1>FIEL</OBJECT1>
+     <OBJ_NAME1>VALOR_GNRE</OBJ_NAME1>
+     <OBJECT2>FIEL</OBJECT2>
+     <OBJ_NAME2>VALOR_GNRE</OBJ_NAME2>
+     <OBJECT_R>DTEL</OBJECT_R>
+     <OBJ_NAME_R>ZTDEC_1502</OBJ_NAME_R>
+     <ID>&lt;element&gt; {http://www.gnre.pe.gov.br}valorGNRE &lt;group&gt; dadosGnre_2.00_2_retorno_cons http://www.gnre.pe.gov.br http://www.gnre.pe.gov.br</ID>
+     <IFR_TYPE>element</IFR_TYPE>
+     <IFR_NAME>valorGNRE</IFR_NAME>
+     <IFR_TAGTYP>E</IFR_TAGTYP>
+     <IFR_MAXOCC>1</IFR_MAXOCC>
+     <IFR_OPTNL>X</IFR_OPTNL>
+     <IFR_QUALIF>X</IFR_QUALIF>
+     <IFR_SCALE>-2</IFR_SCALE>
+     <R3_TYPE>FIEL</R3_TYPE>
+     <R3_NAME>VALOR_GNRE</R3_NAME>
+     <R3_SEQNUM>000001</R3_SEQNUM>
+    </item>
+    <item>
+     <OBJECT>TABL</OBJECT>
+     <OBJ_NAME>ZDADOS_GNRE_2_00_2_RETORNO_CON</OBJ_NAME>
+     <OBJECT1>TABL</OBJECT1>
+     <OBJ_NAME1>ZDADOS_GNRE_2_00_2_RETORNO_CON</OBJ_NAME1>
+     <OBJECT2>TABL</OBJECT2>
+     <OBJ_NAME2>ZDADOS_GNRE_2_00_2_RETORNO_CON</OBJ_NAME2>
+     <ID>&lt;group&gt; dadosGnre_2.00_2_retorno_cons http://www.gnre.pe.gov.br http://www.gnre.pe.gov.br</ID>
+     <IFR_TYPE>group</IFR_TYPE>
+     <IFR_NAME>dadosGnre_2.00_2_retorno_cons</IFR_NAME>
+     <IFR_MINOCC>1</IFR_MINOCC>
+     <IFR_MAXOCC>1</IFR_MAXOCC>
+     <IFR_SCALE>-2</IFR_SCALE>
+     <R3_TYPE>TABL</R3_TYPE>
+     <R3_NAME>ZDADOS_GNRE_2_00_2_RETORNO_CON</R3_NAME>
+     <R3_TEXT>Proxy Structure (generated)</R3_TEXT>
+     <CATEGORY>group</CATEGORY>
+    </item>
+   </PROXY_DATA>
+  </asx:values>
+ </asx:abap>
+</abapGit>

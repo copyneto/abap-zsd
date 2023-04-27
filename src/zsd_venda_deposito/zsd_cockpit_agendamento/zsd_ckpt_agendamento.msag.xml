@@ -1,0 +1,122 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<abapGit version="v1.0.0" serializer="LCL_OBJECT_MSAG" serializer_version="v1.0.0">
+ <asx:abap xmlns:asx="http://www.sap.com/abapxml" version="1.0">
+  <asx:values>
+   <T100A>
+    <ARBGB>ZSD_CKPT_AGENDAMENTO</ARBGB>
+    <MASTERLANG>P</MASTERLANG>
+    <STEXT>Cockpit de Agendamento</STEXT>
+   </T100A>
+   <T100>
+    <T100>
+     <SPRSL>P</SPRSL>
+     <ARBGB>ZSD_CKPT_AGENDAMENTO</ARBGB>
+     <MSGNR>000</MSGNR>
+     <TEXT>&amp;1&amp;2&amp;3&amp;4</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>P</SPRSL>
+     <ARBGB>ZSD_CKPT_AGENDAMENTO</ARBGB>
+     <MSGNR>001</MSGNR>
+     <TEXT>Agendamento realizado com sucesso.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>P</SPRSL>
+     <ARBGB>ZSD_CKPT_AGENDAMENTO</ARBGB>
+     <MSGNR>002</MSGNR>
+     <TEXT>Erro ao gravar agendamento.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>P</SPRSL>
+     <ARBGB>ZSD_CKPT_AGENDAMENTO</ARBGB>
+     <MSGNR>003</MSGNR>
+     <TEXT>Para a Ordem &amp;1, o cliente não é permitido agendamento.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>P</SPRSL>
+     <ARBGB>ZSD_CKPT_AGENDAMENTO</ARBGB>
+     <MSGNR>004</MSGNR>
+     <TEXT>Agendamento permitido apenas para a ordens sem remessas.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>P</SPRSL>
+     <ARBGB>ZSD_CKPT_AGENDAMENTO</ARBGB>
+     <MSGNR>005</MSGNR>
+     <TEXT>&amp;1 ordem selecionada já possui agendamento.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>P</SPRSL>
+     <ARBGB>ZSD_CKPT_AGENDAMENTO</ARBGB>
+     <MSGNR>006</MSGNR>
+     <TEXT>&amp;1 ordens selecionadas já possuem agendamento.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>P</SPRSL>
+     <ARBGB>ZSD_CKPT_AGENDAMENTO</ARBGB>
+     <MSGNR>007</MSGNR>
+     <TEXT>Realizar reagendamento individual.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>P</SPRSL>
+     <ARBGB>ZSD_CKPT_AGENDAMENTO</ARBGB>
+     <MSGNR>008</MSGNR>
+     <TEXT>Reagendamento realizado com sucesso</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>P</SPRSL>
+     <ARBGB>ZSD_CKPT_AGENDAMENTO</ARBGB>
+     <MSGNR>009</MSGNR>
+     <TEXT>Arquivo de carga vazio.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>P</SPRSL>
+     <ARBGB>ZSD_CKPT_AGENDAMENTO</ARBGB>
+     <MSGNR>010</MSGNR>
+     <TEXT>Falha ao salvar arquivo de carga.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>P</SPRSL>
+     <ARBGB>ZSD_CKPT_AGENDAMENTO</ARBGB>
+     <MSGNR>011</MSGNR>
+     <TEXT>Linha &amp;1: Material &amp;2 não existe.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>P</SPRSL>
+     <ARBGB>ZSD_CKPT_AGENDAMENTO</ARBGB>
+     <MSGNR>012</MSGNR>
+     <TEXT>Linha &amp;1: Cliente &amp;2 não existe.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>P</SPRSL>
+     <ARBGB>ZSD_CKPT_AGENDAMENTO</ARBGB>
+     <MSGNR>013</MSGNR>
+     <TEXT>Campos Mandatórios: Devem estar preenchido</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>P</SPRSL>
+     <ARBGB>ZSD_CKPT_AGENDAMENTO</ARBGB>
+     <MSGNR>014</MSGNR>
+     <TEXT>Dados já existentes na tabela</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>P</SPRSL>
+     <ARBGB>ZSD_CKPT_AGENDAMENTO</ARBGB>
+     <MSGNR>015</MSGNR>
+     <TEXT>Linha &amp;1: Registro duplicado.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>P</SPRSL>
+     <ARBGB>ZSD_CKPT_AGENDAMENTO</ARBGB>
+     <MSGNR>016</MSGNR>
+     <TEXT>Impossível realizar agendamento com data retroativa</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>P</SPRSL>
+     <ARBGB>ZSD_CKPT_AGENDAMENTO</ARBGB>
+     <MSGNR>017</MSGNR>
+     <TEXT>Usuário não autorizado!</TEXT>
+    </T100>
+   </T100>
+  </asx:values>
+ </asx:abap>
+</abapGit>

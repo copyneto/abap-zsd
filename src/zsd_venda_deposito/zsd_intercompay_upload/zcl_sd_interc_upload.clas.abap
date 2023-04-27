@@ -1,0 +1,5 @@
+CLASS zcl_sd_interc_upload DEFINITION PUBLIC ABSTRACT FINAL FOR BEHAVIOR OF zi_sd_interc_upload.
+ENDCLASS.
+
+CLASS zcl_sd_interc_upload IMPLEMENTATION.
+ENDCLASS.

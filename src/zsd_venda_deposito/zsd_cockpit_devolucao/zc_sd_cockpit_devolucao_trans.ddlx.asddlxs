@@ -1,0 +1,41 @@
+@Metadata.layer: #CORE
+
+@UI: { headerInfo: { typeName: 'Transporte',
+                     title: {type: #STANDARD, value: 'Transportadora' },
+                     description: { value: 'Transportadora' },
+                     typeNamePlural: 'Cockpit Devolução - Informações'
+                   }
+     }
+annotate view ZC_SD_COCKPIT_DEVOLUCAO_TRANS with
+{
+  @UI.facet: [
+   { id:          'Transportadora',
+     purpose:       #STANDARD,
+     type:          #IDENTIFICATION_REFERENCE,
+     label:         'Informações',
+     position:      10
+   } ]
+
+  @UI: { lineItem:   [ { position: 10, label: 'Transportadora' } ],
+    identification:  [ { position: 10, label: 'Transportadora' } ],
+    selectionField:  [ { position: 10 } ] }
+  Transportadora;
+
+  @UI: { lineItem:   [ { position: 20, label: 'Motorista' } ],
+    identification:  [ { position: 20, label: 'Motorista' } ],
+    selectionField:  [ { position: 20 } ] }
+  Motorista;
+
+  @UI: { lineItem:   [ { position: 30, label: 'Placa' } ],
+    identification:  [ { position: 30, label: 'Placa' } ],
+    selectionField:  [ { position: 30 } ] }
+  Placa;
+
+  @UI: { lineItem:   [ { position: 40, label: 'Tipo Expedição' } ],
+    identification:  [ { position: 40, label: 'Tipo Expedição' } ],
+    selectionField:  [ { position: 40 } ] }
+  Tipo_Expedicao;
+
+
+
+}

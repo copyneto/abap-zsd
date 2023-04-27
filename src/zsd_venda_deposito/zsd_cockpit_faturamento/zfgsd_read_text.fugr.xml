@@ -1,0 +1,128 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<abapGit version="v1.0.0" serializer="LCL_OBJECT_FUGR" serializer_version="v1.0.0">
+ <asx:abap xmlns:asx="http://www.sap.com/abapxml" version="1.0">
+  <asx:values>
+   <AREAT>Read Text</AREAT>
+   <INCLUDES>
+    <SOBJ_NAME>LZFGSD_READ_TEXTTOP</SOBJ_NAME>
+    <SOBJ_NAME>SAPLZFGSD_READ_TEXT</SOBJ_NAME>
+   </INCLUDES>
+   <FUNCTIONS>
+    <item>
+     <FUNCNAME>ZFMSD_READ_TEXT</FUNCNAME>
+     <REMOTE_CALL>R</REMOTE_CALL>
+     <SHORT_TEXT>Read Text</SHORT_TEXT>
+     <IMPORT>
+      <RSIMP>
+       <PARAMETER>IV_ID</PARAMETER>
+       <DBFIELD>THEAD-TDID</DBFIELD>
+      </RSIMP>
+      <RSIMP>
+       <PARAMETER>IV_LANGUAGE</PARAMETER>
+       <DBFIELD>THEAD-TDSPRAS</DBFIELD>
+      </RSIMP>
+      <RSIMP>
+       <PARAMETER>IV_NAME</PARAMETER>
+       <DBFIELD>THEAD-TDNAME</DBFIELD>
+      </RSIMP>
+      <RSIMP>
+       <PARAMETER>IV_OBJECT</PARAMETER>
+       <DBFIELD>THEAD-TDOBJECT</DBFIELD>
+      </RSIMP>
+     </IMPORT>
+     <TABLES>
+      <RSTBL>
+       <PARAMETER>T_LINES</PARAMETER>
+       <DBSTRUCT>TLINE</DBSTRUCT>
+      </RSTBL>
+     </TABLES>
+     <EXCEPTION>
+      <RSEXC>
+       <EXCEPTION>ID</EXCEPTION>
+      </RSEXC>
+      <RSEXC>
+       <EXCEPTION>LANGUAGE</EXCEPTION>
+      </RSEXC>
+      <RSEXC>
+       <EXCEPTION>NAME</EXCEPTION>
+      </RSEXC>
+      <RSEXC>
+       <EXCEPTION>NOT_FOUND</EXCEPTION>
+      </RSEXC>
+      <RSEXC>
+       <EXCEPTION>OBJECT</EXCEPTION>
+      </RSEXC>
+      <RSEXC>
+       <EXCEPTION>REFERENCE_CHECK</EXCEPTION>
+      </RSEXC>
+      <RSEXC>
+       <EXCEPTION>WRONG_ACCESS_TO_ARCHIVE</EXCEPTION>
+      </RSEXC>
+     </EXCEPTION>
+     <DOCUMENTATION>
+      <RSFDO>
+       <PARAMETER>IV_ID</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Text ID of text to be read</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>IV_LANGUAGE</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Language of text to be read</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>IV_NAME</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Name of text to be read</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>IV_OBJECT</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Object of text to be read</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>T_LINES</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Lines of text read</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>ID</PARAMETER>
+       <KIND>X</KIND>
+       <STEXT>Text ID invalid</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>LANGUAGE</PARAMETER>
+       <KIND>X</KIND>
+       <STEXT>Invalid language</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>NAME</PARAMETER>
+       <KIND>X</KIND>
+       <STEXT>Invalid text name</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>NOT_FOUND</PARAMETER>
+       <KIND>X</KIND>
+       <STEXT>Text not found</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>OBJECT</PARAMETER>
+       <KIND>X</KIND>
+       <STEXT>Invalid text object</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>REFERENCE_CHECK</PARAMETER>
+       <KIND>X</KIND>
+       <STEXT>Reference chain interrupted</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>WRONG_ACCESS_TO_ARCHIVE</PARAMETER>
+       <KIND>X</KIND>
+       <STEXT>Archive handle invalid for access</STEXT>
+      </RSFDO>
+     </DOCUMENTATION>
+    </item>
+   </FUNCTIONS>
+  </asx:values>
+ </asx:abap>
+</abapGit>

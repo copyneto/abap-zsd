@@ -1,0 +1,98 @@
+@Metadata.layer: #CORE
+@UI: {
+  headerInfo: { typeName: ' Tabela de Paletização (Padrão Cliente)',
+                typeNamePlural: ' Tabela de Paletização (Padrão Cliente)',
+                title: { type: #STANDARD, label: 'TCliente', value: 'Cliente' } },
+  presentationVariant: [{ sortOrder: [{ by: 'Cliente', direction:  #DESC }] }] }
+annotate view ZC_SD_CKPT_AGEND_PALLET with
+{
+  @UI.facet: [ { id:      'Facet',
+             purpose: #STANDARD,
+             type:    #COLLECTION,
+             label:   'Principal',
+             position: 10 },
+         { id:              'geral',
+           purpose:         #STANDARD,
+           parentId:        'Facet',
+           type:            #FIELDGROUP_REFERENCE,
+           label:           'Dados Gerais',
+           targetQualifier: 'geral',
+           position:         20 } ,
+         {  id:             'Modificar',
+            purpose:        #STANDARD,
+            label:          'Dados Modificação',
+            parentId:       'Facet',
+            type:           #FIELDGROUP_REFERENCE,
+            targetQualifier: 'Modificar',
+            position:       20 } ]
+
+  @UI.lineItem:        [ { position: 10, label: 'Cliente'} ]
+  @UI.identification:  [ { position: 10, label: 'Cliente' } ]
+  @UI.fieldGroup:      [ { position: 10, qualifier: 'geral' } ]
+  @UI.selectionField:  [ { position: 10 } ]
+  @UI.textArrangement: #TEXT_SEPARATE
+  Cliente;
+  @UI.lineItem:        [ { position: 20, label: 'Nome'} ]
+  @UI.identification:  [ { position: 20, label: 'Nome' } ]
+  @UI.fieldGroup:      [ { position: 20, qualifier: 'geral' } ]
+  @UI.selectionField:  [ { position: 20 } ]
+  ClienteTexto;
+  @UI.lineItem:        [ { position: 30, label: 'Material'} ]
+  @UI.identification:  [ { position: 30, label: 'Material' } ]
+  @UI.fieldGroup:      [ { position: 30, qualifier: 'geral' } ]
+  @UI.selectionField:  [ { position: 30 } ]
+  @UI.textArrangement: #TEXT_SEPARATE
+  Material;
+  @UI.lineItem:        [ { position: 40, label: 'Texto breve material'} ]
+  @UI.identification:  [ { position: 40, label: 'Texto breve material' } ]
+  @UI.fieldGroup:      [ { position: 40, qualifier: 'geral' } ]
+  @UI.selectionField:  [ { position: 40 } ]
+  MaterialTexto;
+  @UI.lineItem:        [ { position: 50, label: 'Lastro'} ]
+  @UI.identification:  [ { position: 50, label: 'Lastro' } ]
+  @UI.fieldGroup:      [ { position: 50, qualifier: 'geral' } ]
+  @UI.selectionField:  [ { position: 50 } ]
+  Lastro;
+  @UI.lineItem:        [ { position: 60, label: 'Altura'} ]
+  @UI.identification:  [ { position: 60, label: 'Altura' } ]
+  @UI.fieldGroup:      [ { position: 60, qualifier: 'geral' } ]
+  @UI.selectionField:  [ { position: 60 } ]
+  Altura;
+  @UI.lineItem:        [ { position: 70, label: 'Qtd.Total'} ]
+  @UI.identification:  [ { position: 70, label: 'Qtd.Total ' } ]
+  @UI.fieldGroup:      [ { position: 70, qualifier: 'geral' } ]
+  @UI.selectionField:  [ { position: 70 } ]
+  QtdTotal;
+  @UI.lineItem:        [ { position: 80, label: 'Unidade de medida Pallet'} ]
+  @UI.identification:  [ { position: 80, label: 'Unidade de medida Pallet' } ]
+  @UI.fieldGroup:      [ { position: 80, qualifier: 'geral' } ]
+  @UI.selectionField:  [ { position: 80 } ]
+  UnidadeDeMedidaPallet;
+  @UI.lineItem:        [ { position: 90, label: 'Criado Por' } ]
+  @UI.identification:  [ { position: 90, label: 'Criado Por' } ]
+  @UI.fieldGroup:      [ { position: 90, qualifier: 'Modificar' } ]
+  CreatedBy;
+  @UI.lineItem:        [ { position: 100, label: 'Criado Em' } ]
+  @UI.identification:  [ { position: 100, label: 'Criado Em' } ]
+  @UI.fieldGroup:      [ { position: 100, qualifier: 'Modificar' } ]
+  @EndUserText.label: 'Criado Em'
+  CreatedAt;
+  @UI.lineItem:        [ { position: 110, label: 'Alterado Por' } ]
+  @UI.identification:  [ { position: 110, label: 'Alterado Por' } ]
+  @UI.fieldGroup:      [ { position: 110, qualifier: 'Modificar'} ]
+  LastChangedBy;
+  @UI.lineItem:        [ { position: 120, label: 'Alterado Em' } ]
+  @UI.identification:  [ { position: 120, label: 'Alterado Em' } ]
+  @UI.fieldGroup:      [ { position: 120, qualifier: 'Modificar' } ]
+  @EndUserText.label: 'Alterado Em' 
+  LastChangedAt;
+//  @UI.lineItem:        [ { position: 130, label: 'Registro hora'} ]
+//  @UI.identification:  [ { position: 130, label: 'Registro hora'} ]
+//  @UI.fieldGroup:      [ { position: 130, qualifier: 'Modificar'} ]
+//  @EndUserText.label: 'Registro hora'
+  @UI.hidden: true
+  LocalLastChangedAt;
+  @UI.hidden: true
+  Guid;
+
+}

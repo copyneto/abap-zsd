@@ -1,0 +1,33 @@
+@Metadata.layer: #CORE
+
+@UI: { headerInfo: { typeName: 'Tabela de parâmetros',
+                     title: {type: #STANDARD, value: 'Id' },
+                     description: { value: 'Id' },
+                     typeNamePlural: 'Tabela de parâmetros'
+                   }
+     }
+annotate view ZC_SD_CAFT_PARAMETROS
+    with 
+{
+  @UI.facet: [
+   { id:          'Id',
+     purpose:       #STANDARD,
+     type:          #IDENTIFICATION_REFERENCE,
+     label:         'Parâmetros',
+     position:      10
+   } ]
+
+  @UI: { lineItem:   [ { position: 10, label: 'ID' } ],
+    identification:  [ { position: 10, label: 'ID' } ],
+    selectionField:  [ { position: 10 } ] }
+    Id;
+  @UI: { lineItem:   [ { position: 20, label: 'Item' } ],
+    identification:  [ { position: 20, label: 'Item' } ],
+    selectionField:  [ { position: 20 } ] }
+    Item;
+  @UI: { lineItem:   [ { position: 30, label: 'Valor' } ],
+    identification:  [ { position: 30, label: 'Valor' } ],
+    selectionField:  [ { position: 30 } ] }
+    Value;
+    
+}

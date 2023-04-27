@@ -1,0 +1,18 @@
+unmanaged;
+
+define behavior for ZI_SD_CKPT_FAT_APP alias CockpitFaturamento
+implementation in class zclsd_ckpt_fat_app unique
+//late numbering
+lock master
+etag master SalesOrder
+{
+//  create;
+//  update;
+//  delete;
+
+action ( features : instance ) gerarRemessa;
+action ( features : instance ) consultarDisponibilidade;
+//action ( features : instance ) recusarOrdem;
+
+
+}

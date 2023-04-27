@@ -1,0 +1,176 @@
+@Metadata.layer: #CORE
+@UI: { headerInfo: { typeName: 'Monitor E-Commerce',
+                     typeNamePlural: 'Monitor E-Commerce',
+                     title: { type: #STANDARD, label: 'Ordem do Cliente', value: 'SalesOrder' } } }
+
+
+annotate view ZC_SD_MONITOR_APP with
+{
+  // ------------------------------------------------------
+  // Informações de cabeçalho
+  // ------------------------------------------------------
+  @UI.facet: [ { id:              'Monitor',
+                 purpose:         #STANDARD,
+                 type:            #IDENTIFICATION_REFERENCE,
+                 label:           'Monitor',
+                 position:        10 } ]
+
+  // ------------------------------------------------------
+  // Informações de campo
+  // ------------------------------------------------------
+  @Consumption.semanticObject: 'SalesOrder'
+  @UI: {  lineItem:       [ { position: 10, type: #WITH_URL, url: 'URL_va03' }, //type: #WITH_INTENT_BASED_NAVIGATION, semanticObjectAction: 'display' },
+                            { type: #FOR_ACTION, dataAction: 'desbloquearOrdem',  label: 'Desbloquear Ordem'  },
+                            { type: #FOR_ACTION, dataAction: 'imprimirNfe',       label: 'Imprimir NFe'  } ,
+                            { type: #FOR_ACTION, dataAction: 'gerarOrdemFrete',   label: 'Gerar Ordem de Frete'  } ,
+                            { type: #FOR_ACTION, dataAction: 'gerarFaturamento',  label: 'Gerar Faturamento'  } ,
+                            { type: #FOR_ACTION, dataAction: 'saidaMercadoria',   label: 'Saída de Mercadoria'  } ],
+          identification: [ { position: 10, label: 'Ordem do Cliente', type: #WITH_URL, url: 'URL_va03' } ], //type: #WITH_INTENT_BASED_NAVIGATION, semanticObjectAction: 'display'} ],
+          selectionField: [ { position: 10 } ] }
+  @EndUserText.label: 'Ordem do Cliente'
+  SalesOrder;
+
+  @UI: {  lineItem:       [ { position: 20, label: 'Tipo da Ordem Venda' } ],
+          selectionField: [ { position: 70 } ] }
+  SalesOrderType;
+  @UI: {  lineItem:       [ { position: 30 } , { label: 'Emissor da ordem' } ],
+          identification: [ { position: 20, label: 'Emissor da ordem' } ]  }
+  Customer;
+
+  @UI: {  lineItem:       [ { position: 40, label: 'Número do pedido' } ],
+          identification: [ { position: 30, label: 'Número do pedido' } ] ,
+          selectionField: [ { position: 30 } ] }
+  PurchaseOrder;
+
+  @UI: {  lineItem:       [ { position: 50, label: 'Data Criação' } ],
+          identification: [ { position: 40, label: 'Data Criação' } ],
+          selectionField: [ { position: 20 } ]  }
+  @Consumption.filter: { mandatory: true,
+                         selectionType: #INTERVAL,
+                         multipleSelections: false }
+  CreationDate;
+
+  @UI: {  lineItem:       [ { position: 60 }, { label: 'Status Global' }, { criticality: 'StatusColor' } ],
+          identification: [ { position: 50, label: 'Status Global', criticality: 'StatusColor' } ],
+          selectionField: [ { position: 50 } ] }
+  Status;
+
+  @Consumption.semanticObject: 'OutboundDelivery'
+  @UI: {  lineItem:       [ { position: 70, type: #WITH_URL, url: 'URL_vl03n' } ], //type: #WITH_INTENT_BASED_NAVIGATION, semanticObjectAction: 'displayInWebGUI' } ],
+          identification: [ { position: 60, type: #WITH_URL, url: 'URL_vl03n' } ],// type: #WITH_INTENT_BASED_NAVIGATION, semanticObjectAction: 'displayInWebGUI' } ],
+          selectionField: [ { position: 60 } ]  }
+  @EndUserText.label: 'Fornecimento'
+  //OutboundDelivery;
+  RemessaDisplay;
+
+  @Consumption.filter.hidden: true
+  @UI.hidden: true
+  OutboundDelivery;
+
+  @Consumption.semanticObject: 'BillingDocument'
+  @UI: {  lineItem:       [ { position: 80, type: #WITH_URL, url: 'URL_vf03' } ], //type: #WITH_INTENT_BASED_NAVIGATION, semanticObjectAction: 'displayBillingDocument' } ],
+          identification: [ { position: 70, type: #WITH_URL, url: 'URL_vf03' } ] }//type: #WITH_INTENT_BASED_NAVIGATION, semanticObjectAction: 'displayBillingDocument' } ] }
+  @EndUserText.label: 'Fatura'
+  //  BillingDocument;
+  FaturaDisplay;
+
+  @Consumption.filter.hidden: true
+  @UI.hidden: true
+  BillingDocument;
+
+
+  @UI: {  lineItem:       [ { position: 90, label: 'NF-e' } ],
+          identification: [ { position: 80, label: 'NF-e' } ] }
+  NfeNumDisplay;
+  //  NfeNum;
+  //NfeNumDisplay;
+
+  @Consumption.semanticObject: 'NotaFiscal'
+  @UI: {  lineItem:       [ { position: 100, label: 'Documento NF', type: #WITH_URL, url: 'URL_j1b3n' } ],//type: #WITH_INTENT_BASED_NAVIGATION, semanticObjectAction: 'display' } ],
+          identification: [ { position: 90, label: 'Documento NF', type: #WITH_URL, url: 'URL_j1b3n' } ] }//type: #WITH_INTENT_BASED_NAVIGATION, semanticObjectAction: 'display' } ] }
+  NotaFiscal;
+
+  @Consumption.filter.hidden: true
+  @UI.hidden: true
+  NfeNum;
+
+  @Consumption.semanticObject: 'FreightOrder'
+  @UI: {  lineItem:       [ { position: 110, label: 'Ordem de frete', type: #WITH_URL, url: 'URL_frete' } ], //type: #WITH_INTENT_BASED_NAVIGATION, semanticObjectAction: 'display' } ],
+          identification: [ { position: 100, label: 'Ordem de frete', type: #WITH_URL, url: 'URL_frete' } ] }//type: #WITH_INTENT_BASED_NAVIGATION, semanticObjectAction: 'display' } ] }
+  FreightOrder; //OrdemFrete;
+
+  @UI: {  lineItem:       [ { position: 120, label: 'Bloqueio Remessa' } ],
+          identification: [ { position: 190 } ] }
+  DeliveryBlockReason;
+
+  @UI: {  lineItem:       [ { position: 130 } ],
+          selectionField: [ { position: 80 } ]  }
+  Supplier;
+
+  @UI: { lineItem:       [ { position: 140 } ],
+         identification: [ { position: 110 } ] }
+  @Consumption.filter.hidden: true
+  SupplierName;
+
+  @UI: {  lineItem:       [ { position: 150 } ],
+          identification: [ { position: 90 } ],
+          selectionField: [ { position: 90 } ] }
+  @Consumption.filter.mandatory: true
+  //@Consumption.valueHelpDefinition: [{entity: {name: 'I_Plant', element: 'Plant' }}]
+  @Consumption.valueHelpDefinition: [{ entity : {name: 'ZI_SD_VH_WERKS_PAR', element: 'WerksCode'  } }]
+  Centro;
+
+  @UI: {  lineItem:       [ { position: 160 } ] }
+  DistributionChannel;
+
+  @UI: {  lineItem:       [ { position: 170 } ],
+          selectionField: [ { position: 70 } ]  }
+  Region;
+
+  @UI: {  lineItem:       [ { position: 180 } ] }
+  UnidadeFrete;
+
+  @UI: {  lineItem:       [ { position: 190 } ],
+          identification: [ { position: 130, label: 'Status Nfe', criticality: 'StatusNfeColor' } ] }
+  StatusNfe;
+
+  @UI: {  lineItem:       [ { position: 200 } ] }
+  BillingDocumentIsCancelled;
+
+  @UI: {  lineItem:       [ { position: 210 } ],
+          identification: [ { position: 140 } ] }
+  DateTimeCreate;
+
+  @UI: {  lineItem:       [ { position: 220 } ],
+          identification: [ { position: 150 } ] }
+  DateTimePicking;
+
+  @UI: {  lineItem:       [ { position: 230 } ],
+          identification: [ { position: 160 } ] }
+  DateTimeMovement;
+
+  @UI: {  lineItem:       [ { position: 240 } ],
+          identification: [ { position: 170 } ] }
+  DateTimeCreateBilling;
+
+  @UI: {  lineItem:       [ { position: 250 } ],
+          identification: [ { position: 180 } ],
+          selectionField: [ { position: 100 } ]  }
+  ActualDateSaida;
+
+  @UI: {  identification: [ { position: 120, criticality: 'StatusPrintColor' } ] }
+  StatusPrint;
+
+  @UI.hidden: true
+  StatusColor;
+
+  @UI.hidden: true
+  StatusNfeColor;
+
+  @UI.hidden: true
+  StatusPrintColor;
+
+  @UI.hidden: true
+  PlantName;
+
+}

@@ -1,0 +1,130 @@
+@Metadata.layer: #CORE
+@UI: {
+  headerInfo: {
+    typeName: 'Cadastro de Material',
+    typeNamePlural: 'Cadastro de Materiais',
+    title: {
+      type: #STANDARD,
+      label: 'Material',
+      value: 'Material'
+    }
+  }}
+annotate view ZC_SD_MATERIAL with
+{
+  @UI.facet: [ { id:         'Material',
+               purpose:       #STANDARD,
+               type:          #IDENTIFICATION_REFERENCE,
+               label:         'Material',
+               position:      10 }]
+
+  @UI: { lineItem:         [{ position: 20 }],
+           identification: [{ position: 20 }],
+           identification: [{ label: 'Centro' }] }
+  @UI.selectionField: [{ position: 10 }]
+  Centro;
+
+  @UI: { lineItem:       [{ position: 30 }],
+         identification: [{ position: 30 }],
+         identification: [{ label: 'Estado' }] }
+  @UI.selectionField: [{ position: 20 }]
+  Uf;
+
+  @UI: { lineItem:       [{ position: 40 }],
+         identification: [{ position: 40 }],
+         identification: [{ label: 'Material' }] }
+  @UI.selectionField: [{ position: 30 }]
+  Material;
+
+  @UI.hidden: true
+  //  @UI: {
+  //         lineItem: [{ position: 50 }],
+  //         identification: [{ position: 50 }],
+  //         identification: [{ label: 'Descrição' }] }
+  Descricao;
+
+  @UI: { lineItem:       [{ position: 60 }],
+         identification: [{ position: 60 }],
+         identification: [{ label: 'Agregado' }] }
+  Agregado;
+
+  @UI: { lineItem:       [{ position: 70 }],
+         identification: [{ position: 70 }],
+         identification: [{ label: 'ICMS Destino' }] }
+  IcmsDest;
+
+  @UI: { lineItem:       [{ position: 80 }],
+         identification: [{ position: 80 }],
+         identification: [{ label: 'ICMS Origem' }] }
+  IcmsOrig;
+
+  @UI: { lineItem:       [{ position: 90 }],
+         identification: [{ position: 90 }],
+         identification: [{ label: 'Compra interna' }] }
+  CompraInterna;
+
+  @UI: { lineItem:       [{ position: 100 }],
+         identification: [{ position: 100 }],
+         identification: [{ label: 'Base Red. Origem' }] }
+  BaseRedOrig;
+
+  @UI: { lineItem:       [{ position: 110 }],
+         identification: [{ position: 110 }],
+         identification: [{ label: 'Base Red. Destino' }] }
+  BaseRedDest;
+
+  @UI: { lineItem:       [{ position: 120 }],
+         identification: [{ position: 120 }],
+         identification: [{ label: 'Taxa FCP' }] }
+  TaxaFcp;
+
+  @UI: { lineItem:       [{ position: 130 }],
+         identification: [{ position: 130 }],
+         identification: [{ label: 'ICMS efetivo' }] }
+  IcmsEfet;
+
+  @UI: { lineItem:       [{ position: 140 }],
+         identification: [{ position: 140 }],
+         identification: [{ label: 'Base Red. Efetivo' }] }
+  Baseredefet;
+
+  @UI: { lineItem:       [{ position: 150 }],
+         identification: [{ position: 150 }],
+         identification: [{ label: 'Preço Comparação' }] }
+  PrecoCompar;
+
+  @UI: { lineItem:       [{ position: 160 }],
+         identification: [{ position: 160 }],
+         identification: [{ label: 'Preço Pauta' }] }
+  PrecoPauta;
+
+  @UI: { lineItem:       [{ position: 170 }],
+         identification: [{ position: 170 }],
+         identification: [{ label: 'Agregação ICMS Pauta' }] }
+  AgregadoPauta;
+
+  @UI: { lineItem:       [{ position: 180 }],
+         identification: [{ position: 180 }],
+         identification: [{ label: 'N° Unidade' }] }
+  NroUnids;
+
+  @UI: { lineItem:       [{ position: 190 }],
+         identification: [{ position: 190 }],
+         identification: [{ label: 'Unidade de medida' }] }
+  Um;
+
+  @UI: { lineItem:       [{ position: 200 }],
+         identification: [{ position: 200 }] }
+  PercentualBcIcms;
+
+  @UI: { lineItem:       [{ position: 210 }],
+         identification: [{ position: 210 }],
+         identification: [{ label: 'Modalidade' }] }
+  Modalidade;
+
+  @UI: {
+     lineItem:       [{ position: 230 }],
+     identification: [{ position: 260 }] }
+  @EndUserText.label: 'Cálculo Efetivo'
+  CalcEfetivo;
+
+}

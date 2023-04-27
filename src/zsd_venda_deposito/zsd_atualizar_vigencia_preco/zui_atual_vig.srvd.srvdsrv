@@ -1,0 +1,4 @@
+@EndUserText.label: 'Atualizar Vigência'
+define service Zui_atual_vig {
+  expose zc_sd_atual_vig as AtualizarVig;
+}

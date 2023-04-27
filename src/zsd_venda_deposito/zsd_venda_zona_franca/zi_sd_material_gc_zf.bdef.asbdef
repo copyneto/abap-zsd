@@ -1,0 +1,28 @@
+managed;
+
+define behavior for ZI_SD_MATERIAL_GC_ZF
+implementation in class zclsd_material_gc_zf unique
+persistent table ztsd_material_gc
+lock master
+authorization master ( instance )
+etag master LocalLastChangedAt
+{
+  create;
+  update;
+  delete;
+
+  field ( mandatory : create ) Matnr;
+  field ( readonly : update ) Matnr;
+  field ( readonly ) CreatedAt, CreatedBy, LastChangedAt, LastChangedBy, LocalLastChangedAt;
+
+  validation authorityCreate on save { create; }
+
+  mapping for ztsd_material_gc
+  {
+    Matnr = matnr;
+    CreatedBy = created_by;
+    CreatedAt = created_at;
+    LastChangedBy = last_changed_by;
+    LastChangedAt = last_changed_at;
+    LocalLastChangedAt = local_last_changed_at;
+  } }

@@ -1,0 +1,131 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<abapGit version="v1.0.0" serializer="LCL_OBJECT_CLAS" serializer_version="v1.0.0">
+ <asx:abap xmlns:asx="http://www.sap.com/abapxml" version="1.0">
+  <asx:values>
+   <VSEOCLASS>
+    <CLSNAME>ZCLSD_NFCE_SSRESTO</CLSNAME>
+    <LANGU>P</LANGU>
+    <DESCRIPT>Operações NFCe SSResto</DESCRIPT>
+    <STATE>1</STATE>
+    <CLSCCINCL>X</CLSCCINCL>
+    <FIXPT>X</FIXPT>
+    <UNICODE>X</UNICODE>
+   </VSEOCLASS>
+   <DESCRIPTIONS>
+    <SEOCOMPOTX>
+     <CMPNAME>GC_FLAG_INSERT_BAPI</CMPNAME>
+     <LANGU>P</LANGU>
+     <DESCRIPT>Código de atualização</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>GC_MODULO</CMPNAME>
+     <LANGU>P</LANGU>
+     <DESCRIPT>Módulo</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>GC_NMTB_CUPOM_OV</CMPNAME>
+     <LANGU>P</LANGU>
+     <DESCRIPT>Char 20</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>GC_NMTB_HEADER</CMPNAME>
+     <LANGU>P</LANGU>
+     <DESCRIPT>Char 20</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>GC_NMTB_ITEM</CMPNAME>
+     <LANGU>P</LANGU>
+     <DESCRIPT>Char 20</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>GC_NMTB_PAG</CMPNAME>
+     <LANGU>P</LANGU>
+     <DESCRIPT>Char 20</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>GC_NMTB_PARAMETRO</CMPNAME>
+     <LANGU>P</LANGU>
+     <DESCRIPT>Char 20</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>GC_PAR_CANAL_DISTRIBUICAO</CMPNAME>
+     <LANGU>P</LANGU>
+     <DESCRIPT>Canal de distribuição</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>GC_PAR_CHAVE</CMPNAME>
+     <LANGU>P</LANGU>
+     <DESCRIPT>Chave da tabela de parâmetro</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>GC_PAR_COND_TYPE</CMPNAME>
+     <LANGU>P</LANGU>
+     <DESCRIPT>Tipo de condição</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>GC_PAR_ORG_OV</CMPNAME>
+     <LANGU>P</LANGU>
+     <DESCRIPT>Organização de vendas</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>GC_PAR_PARTNER</CMPNAME>
+     <LANGU>P</LANGU>
+     <DESCRIPT>Parceiro</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>GC_PAR_PARTNER_ROLE</CMPNAME>
+     <LANGU>P</LANGU>
+     <DESCRIPT>Parceiro Role</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>GC_PAR_SETOR_ATIVIDADE</CMPNAME>
+     <LANGU>P</LANGU>
+     <DESCRIPT>Setor de atividade</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>GC_PAR_TP_OV</CMPNAME>
+     <LANGU>P</LANGU>
+     <DESCRIPT>Tipo de documento de vendas</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>GC_PO_METHOD</CMPNAME>
+     <LANGU>P</LANGU>
+     <DESCRIPT>Tipo de nº do pedido do cliente</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>GC_STATUS_AUTORIZADO</CMPNAME>
+     <LANGU>P</LANGU>
+     <DESCRIPT>Componente do nº versão</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>GC_STATUS_CANCELADO</CMPNAME>
+     <LANGU>P</LANGU>
+     <DESCRIPT>Componente do nº versão</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>GS_CUPOM</CMPNAME>
+     <LANGU>P</LANGU>
+     <DESCRIPT>Cafeterias - Doc. de vendas gerado a partir do Cupom Fiscal</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>GS_HEADER</CMPNAME>
+     <LANGU>P</LANGU>
+     <DESCRIPT>Cafeterias - Informações de cabeçalho do cupom fiscal</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>PROCESSA_INTERFACE_NFCE_PUT</CMPNAME>
+     <LANGU>P</LANGU>
+     <DESCRIPT>Processo de Inclusão de NFCe</DESCRIPT>
+    </SEOCOMPOTX>
+   </DESCRIPTIONS>
+   <DESCRIPTIONS_SUB>
+    <SEOSUBCOTX>
+     <CMPNAME>PUT_CUPOM_OV</CMPNAME>
+     <SCONAME>IV_OV</SCONAME>
+     <LANGU>P</LANGU>
+     <DESCRIPT>Documento de vendas</DESCRIPT>
+    </SEOSUBCOTX>
+   </DESCRIPTIONS_SUB>
+  </asx:values>
+ </asx:abap>
+</abapGit>

@@ -1,0 +1,90 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<abapGit version="v1.0.0" serializer="LCL_OBJECT_SPRX" serializer_version="v1.0.0">
+ <asx:abap xmlns:asx="http://www.sap.com/abapxml" version="1.0">
+  <asx:values>
+   <PROXY_HEADER>
+    <item>
+     <OBJECT>TABL</OBJECT>
+     <OBJ_NAME>ZTRESULT_LOTE_GNRE_SITUACAO_PR</OBJ_NAME>
+     <OBJECT_M>TABL</OBJECT_M>
+     <OBJ_NAME_M>ZTRESULT_LOTE_GNRE</OBJ_NAME_M>
+     <HASH_ID>1EDFA2150F776CCD0FB51F3094C1ABCB7F07FD38</HASH_ID>
+     <ID>&lt;type&gt; situacaoProcess &lt;element&gt; {http://www.gnre.pe.gov.br}situacaoProcess &lt;type&gt; TResultLote_GNRE &lt;element&gt; TResultLote_GNRE http://www.gnre.pe.gov.br http://www.gnre.pe.gov.br</ID>
+     <IFR_TYPE>type</IFR_TYPE>
+     <IFR_NAME>situacaoProcess</IFR_NAME>
+     <IFR_NSPCE>http://www.gnre.pe.gov.br</IFR_NSPCE>
+     <IFR_GNSPCE>http://www.gnre.pe.gov.br</IFR_GNSPCE>
+     <GEN_VERS>0005</GEN_VERS>
+     <PREFIX>Z</PREFIX>
+     <CATEGORY>ifmtypedef</CATEGORY>
+     <GEN_APPL>WEBSERVICES</GEN_APPL>
+     <X-ML_NSPCE>http://www.gnre.pe.gov.br</X-ML_NSPCE>
+     <X-ML_NAME>situacaoProcess</X-ML_NAME>
+    </item>
+   </PROXY_HEADER>
+   <PROXY_DATA>
+    <item>
+     <OBJECT>TABL</OBJECT>
+     <OBJ_NAME>ZTRESULT_LOTE_GNRE_SITUACAO_PR</OBJ_NAME>
+     <OBJECT1>FIEL</OBJECT1>
+     <OBJ_NAME1>CODIGO</OBJ_NAME1>
+     <OBJECT2>FIEL</OBJECT2>
+     <OBJ_NAME2>CODIGO</OBJ_NAME2>
+     <ID>&lt;element&gt; {http://www.gnre.pe.gov.br}codigo &lt;type&gt; situacaoProcess &lt;element&gt; {http://www.gnre.pe.gov.br}situacaoProcess &lt;type&gt; TResultLote_GNRE &lt;element&gt; TResultLote_GNRE http://www.gnre.pe.gov.br http://www.gnre.pe.gov.br</ID>
+     <IFR_TYPE>element</IFR_TYPE>
+     <IFR_NAME>codigo</IFR_NAME>
+     <IFR_TAGTYP>E</IFR_TAGTYP>
+     <IFR_MINOCC>1</IFR_MINOCC>
+     <IFR_MAXOCC>1</IFR_MAXOCC>
+     <IFR_QUALIF>X</IFR_QUALIF>
+     <IFR_XSDTYP>string</IFR_XSDTYP>
+     <IFR_PATTRN>[1-9][0-9]{2}</IFR_PATTRN>
+     <IFR_SCALE>-2</IFR_SCALE>
+     <R3_TYPE>FIEL</R3_TYPE>
+     <R3_NAME>CODIGO</R3_NAME>
+     <R3_DATATYP>STRG</R3_DATATYP>
+     <R3_SEQNUM>000001</R3_SEQNUM>
+    </item>
+    <item>
+     <OBJECT>TABL</OBJECT>
+     <OBJ_NAME>ZTRESULT_LOTE_GNRE_SITUACAO_PR</OBJ_NAME>
+     <OBJECT1>FIEL</OBJECT1>
+     <OBJ_NAME1>DESCRICAO</OBJ_NAME1>
+     <OBJECT2>FIEL</OBJECT2>
+     <OBJ_NAME2>DESCRICAO</OBJ_NAME2>
+     <ID>&lt;element&gt; {http://www.gnre.pe.gov.br}descricao &lt;type&gt; situacaoProcess &lt;element&gt; {http://www.gnre.pe.gov.br}situacaoProcess &lt;type&gt; TResultLote_GNRE &lt;element&gt; TResultLote_GNRE http://www.gnre.pe.gov.br http://www.gnre.pe.gov.br</ID>
+     <IFR_TYPE>element</IFR_TYPE>
+     <IFR_NAME>descricao</IFR_NAME>
+     <IFR_TAGTYP>E</IFR_TAGTYP>
+     <IFR_MINOCC>1</IFR_MINOCC>
+     <IFR_MAXOCC>1</IFR_MAXOCC>
+     <IFR_QUALIF>X</IFR_QUALIF>
+     <IFR_XSDTYP>string</IFR_XSDTYP>
+     <IFR_MAXLEN>255</IFR_MAXLEN>
+     <IFR_SCALE>-2</IFR_SCALE>
+     <R3_TYPE>FIEL</R3_TYPE>
+     <R3_NAME>DESCRICAO</R3_NAME>
+     <R3_DATATYP>CHAR</R3_DATATYP>
+     <R3_LENGTH>000255</R3_LENGTH>
+     <R3_SEQNUM>000002</R3_SEQNUM>
+    </item>
+    <item>
+     <OBJECT>TABL</OBJECT>
+     <OBJ_NAME>ZTRESULT_LOTE_GNRE_SITUACAO_PR</OBJ_NAME>
+     <OBJECT1>TABL</OBJECT1>
+     <OBJ_NAME1>ZTRESULT_LOTE_GNRE_SITUACAO_PR</OBJ_NAME1>
+     <OBJECT2>TABL</OBJECT2>
+     <OBJ_NAME2>ZTRESULT_LOTE_GNRE_SITUACAO_PR</OBJ_NAME2>
+     <ID>&lt;type&gt; situacaoProcess &lt;element&gt; {http://www.gnre.pe.gov.br}situacaoProcess &lt;type&gt; TResultLote_GNRE &lt;element&gt; TResultLote_GNRE http://www.gnre.pe.gov.br http://www.gnre.pe.gov.br</ID>
+     <IFR_TYPE>type</IFR_TYPE>
+     <IFR_NAME>situacaoProcess</IFR_NAME>
+     <IFR_SCALE>-2</IFR_SCALE>
+     <R3_TYPE>TABL</R3_TYPE>
+     <R3_NAME>ZTRESULT_LOTE_GNRE_SITUACAO_PR</R3_NAME>
+     <R3_TEXT>Proxy Structure (generated)</R3_TEXT>
+     <CATEGORY>ifmtypedef</CATEGORY>
+    </item>
+   </PROXY_DATA>
+  </asx:values>
+ </asx:abap>
+</abapGit>

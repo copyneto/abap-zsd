@@ -1,0 +1,291 @@
+managed;
+
+define behavior for ZI_SD_COCKPIT_DEVOLUCAO alias Cockpit
+implementation in class zclsd_cockpit_devolucao unique
+persistent table ztsd_devolucao
+authorization master ( instance )
+etag master LocalLastChangedAt
+lock master
+{
+  create ( precheck );
+  update;
+
+  association _Arquivo;
+  association _NotaFiscal;
+  association _Informacoes;
+  association _Transporte;
+
+  action ( features : instance ) DesbloquearOv;
+  action ( features : instance ) DesbloquearRemessa;
+  action ( features : instance ) EliminarPreLancamento;
+
+  field ( readonly ) Cliente, DtLancamento, LocalNegocio, BloqueioRemessa, OrdemDevolucao, Remessa,
+  EntradaMercadoria, Fatura, NfTotal, MoedaSD, StatusNFe, DocNum;
+  field ( readonly, numbering : managed ) Guid;
+  field ( mandatory : create ) Nfe, Serie, Centro, TipoDevolucao, Cnpj, ChaveAcesso, Motivo, DtRecebimento, DtAdministrativo;
+  field ( readonly : update ) Nfe, Serie, Centro, TipoDevolucao, Cnpj, ChaveAcesso, Motivo, DtRecebimento, DtAdministrativo;
+
+  validation authorityCreate on save { create; }
+
+  determination criarLancamento on save { field ChaveAcesso; create; }
+  determination verificaanexo on modify { field ChaveAcesso; update; }
+//  determination verificasituacao on modify { field Situacao; update; }
+  mapping for ztsd_devolucao
+
+  {
+    Guid = guid;
+    LocalNegocio = local_negocio;
+    TipoDevolucao = tipo_devolucao;
+    Regiao = regiao;
+    Ano = ano;
+    Mes = mes;
+    Cnpj = cnpj;
+    Modelo = modelo;
+    Serie = serie;
+    Nfe = numero_nfe;
+    Centro = centro;
+    Cliente = cliente;
+    NfTotal = valor_totalnfe;
+    MoedaSD = moedasd;
+    DigitoVerific = digito_verific;
+    NroAleatorio = nro_aleatorio;
+    FormaPagamento = form_pagamento;
+    Banco = banco;
+    Agencia = agencia;
+    Conta = conta;
+    ProtOcorrencia = prot_ocorrencia;
+    DenomiBanco = denomi_banco;
+    DtRecebimento = dt_logistica;
+    DtAdministrativo = dt_administrativo;
+    DtLancamento = dt_lancamento;
+    Motivo = motivo;
+    Transportadora = transportadora;
+    Motorista = motorista;
+    TipoExpedicao = tipo_expedicao;
+    Placa = placa;
+    Situacao = situacao;
+    ChaveAcesso = chaveacesso;
+    CreatedAt = created_at;
+    CreatedBy = created_by;
+    LastChangedAt = last_changed_at;
+    LastChangedBy = last_changed_by;
+    LocalLastChangedAt = local_last_changed_at;
+  }
+}
+// ------------------------------------------------------
+// Behavior: Anexo
+// ------------------------------------------------------
+define behavior for ZI_SD_COCKPIT_DEVOLUCAO_ANEXO alias Arquivo
+persistent table ztsd_anexo_dev
+lock dependent by _Cockpit
+authorization dependent by _Cockpit
+etag master LocalLastChangedAt
+{
+  association _Cockpit;
+
+  delete;
+
+  field ( readonly : update )
+  Guid,
+  LocalNegocio,
+  TipoDevolucao,
+  Regiao,
+  Ano,
+  Mes,
+  Cnpj,
+  Modelo,
+  Serie,
+  Nfe,
+  DigitoVerific;
+
+  field ( readonly ) Filename, Mimetype, Value;
+  field ( readonly ) LastChangedAt, LastChangedBy, CreatedAt, CreatedBy, LocalLastChangedAt;
+
+  mapping for ztsd_anexo_dev
+  {
+    Guid = guid;
+    LocalNegocio = local_negocio;
+    TipoDevolucao = tipo_devolucao;
+    Regiao = regiao;
+    Ano = ano;
+    Mes = mes;
+    Cnpj = cnpj;
+    Modelo = modelo;
+    Serie = serie;
+    Nfe = numero_nfe;
+    DigitoVerific = digito_verific;
+    Line = line;
+    Filename = filename;
+    Mimetype = mimetype;
+    Value = value;
+    CreatedBy = created_by;
+    CreatedAt = created_at;
+    LastChangedBy = last_changed_by;
+    LastChangedAt = last_changed_at;
+    LocalLastChangedAt = local_last_changed_at;
+  }
+}
+
+// ------------------------------------------------------
+// Behavior: Nota Fiscal
+// ------------------------------------------------------
+define behavior for ZI_SD_COCKPIT_NOTA_FISCAL alias NotaFiscal
+implementation in class zclsd_form_pagamento unique
+persistent table ztsd_devolucao
+lock dependent by _Cockpit
+authorization dependent by _Cockpit
+etag master LocalLastChangedAt
+{
+  update;
+  association _Cockpit;
+
+  field ( readonly : update )
+  Guid,
+  LocalNegocio,
+  TipoDevolucao,
+  Regiao,
+  Ano,
+  Mes,
+  Cnpj,
+  Modelo,
+  Serie,
+  Nfe,
+  DigitoVerific,
+  ChaveAcesso,
+  Cliente,
+  DtRegistro,
+  DtRecebimento,
+  DtAdministrativo,
+  DtLancamento,
+  HrRegistro;
+  field ( readonly ) LastChangedAt, LastChangedBy, CreatedAt, CreatedBy, LocalLastChangedAt;
+
+  field ( mandatory ) FormPagamento;
+  validation dadosBancarios on save { field FormPagamento; update; create; }
+  validation verificaanexo on save { field FormPagamento; update; create; }
+
+  action ( features : instance ) confirmaDadosBancarios result [1] $self;
+
+
+  mapping for ztsd_devolucao
+  {
+    Guid = guid;
+    LocalNegocio = local_negocio;
+    TipoDevolucao = tipo_devolucao;
+    Regiao = regiao;
+    Ano = ano;
+    Mes = mes;
+    Cnpj = cnpj;
+    Modelo = modelo;
+    Serie = serie;
+    Nfe = numero_nfe;
+    DigitoVerific = digito_verific;
+    DtRecebimento = dt_logistica;
+    Motivo = motivo;
+    ProtOcorrencia = prot_ocorrencia;
+    DtAdministrativo = dt_administrativo;
+    FormPagamento = form_pagamento;
+    FlagDadosBancarios = flag;
+    Banco = banco;
+    Agencia = agencia;
+    Conta = conta;
+    DenomiBanco = denomi_banco;
+    CreatedBy = created_by;
+    CreatedAt = created_at;
+    LastChangedBy = last_changed_by;
+    LastChangedAt = last_changed_at;
+    LocalLastChangedAt = local_last_changed_at;
+  }
+}
+
+// ------------------------------------------------------
+// Behavior: Informações
+// ------------------------------------------------------
+
+define behavior for ZI_SD_COCKPIT_DEVOLUCAO_INFOS alias Informacoes
+implementation in class zclsd_cockpit_devolucao_infos unique
+persistent table ztsd_devolucao
+lock dependent by _Cockpit
+authorization dependent by _Cockpit
+etag master LocalLastChangedAt
+{
+  update;
+  association _Cockpit;
+
+  field ( readonly : update )
+  Guid;
+
+  field ( readonly ) Regiao, Ano, Mes, Modelo, DigitoVerific, Tipo_Devolucao, cnpj, NumNFE, Serie, Cliente_Info, Local_Negocio, NFE_Total;
+  field ( readonly ) LastChangedAt, LastChangedBy, CreatedAt, CreatedBy, LocalLastChangedAt;
+  determination verificasituacao on modify { field Situacao; update; }
+
+  mapping for ztsd_devolucao
+  {
+    Guid = guid;
+    Local_Negocio = local_negocio;
+    Tipo_Devolucao = tipo_devolucao;
+    Regiao = regiao;
+    Ano = ano;
+    Mes = mes;
+    Cnpj = cnpj;
+    Modelo = modelo;
+    Serie = serie;
+    NumNFE = numero_nfe;
+    DigitoVerific = digito_verific;
+    Ordem_Info = Ordem;
+    Cliente_Info = Cliente;
+    NFE_Total = valor_totalnfe;
+    Situacao = situacao;
+    CreatedBy = created_by;
+    CreatedAt = created_at;
+    LastChangedBy = last_changed_by;
+    LastChangedAt = last_changed_at;
+    LocalLastChangedAt = local_last_changed_at;
+
+  }
+}
+
+// ------------------------------------------------------
+// Behavior: Transporte
+// ------------------------------------------------------
+
+define behavior for ZI_SD_COCKPIT_DEVOLUCAO_TRANS alias Transporte
+persistent table ztsd_devolucao
+lock dependent by _Cockpit
+authorization dependent by _Cockpit
+etag master LocalLastChangedAt
+{
+  update;
+  association _Cockpit;
+
+  field ( readonly : update )
+  Guid;
+
+  field ( readonly ) Regiao, Ano, Mes, Modelo, DigitoVerific, Local_Negocio, Tipo_Devolucao, NumNFE, cnpj, Serie;
+  field ( readonly ) LastChangedAt, LastChangedBy, CreatedAt, CreatedBy, LocalLastChangedAt;
+
+  mapping for ztsd_devolucao
+  {
+    Guid = guid;
+    Regiao = regiao;
+    Ano = ano;
+    Mes = mes;
+    Modelo = modelo;
+    Serie = serie;
+    DigitoVerific = digito_verific;
+    Local_Negocio = local_negocio;
+    Tipo_Devolucao = tipo_devolucao;
+    NumNFE = numero_nfe;
+    cnpj = CNPJ;
+    Transportadora = transportadora;
+    Motorista = motorista;
+    Placa = placa;
+    Tipo_Expedicao = tipo_expedicao;
+    CreatedBy = created_by;
+    CreatedAt = created_at;
+    LastChangedBy = last_changed_by;
+    LastChangedAt = last_changed_at;
+    LocalLastChangedAt = local_last_changed_at;
+
+  }
+}

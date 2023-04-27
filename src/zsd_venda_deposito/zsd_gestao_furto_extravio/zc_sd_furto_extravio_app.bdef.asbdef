@@ -1,0 +1,5 @@
+projection;
+
+define behavior for ZC_SD_FURTO_EXTRAVIO_APP //alias <alias_name>
+{
+}

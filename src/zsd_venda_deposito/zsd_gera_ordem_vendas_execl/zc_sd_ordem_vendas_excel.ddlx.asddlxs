@@ -1,0 +1,83 @@
+@Metadata.layer: #CORE
+@UI: {
+  headerInfo: {
+    typeName: 'Registro de Ordens de Vendas Geradas',
+    typeNamePlural: 'Registro de Ordens de Vendas Geradas',
+    title: {
+      type: #STANDARD,
+      label: 'Ordem de Vendas',
+      value: 'SalesDocument'
+    }
+    }}
+
+@UI.presentationVariant: [{ sortOrder: [{ by: 'SalesDocument', direction: #DESC }] }]
+annotate view ZC_SD_ORDEM_VENDAS_EXCEL with
+{
+  @UI.facet: [ { id:         'SalesOrder',
+                 purpose:       #STANDARD,
+                 type:          #IDENTIFICATION_REFERENCE,
+                 label:         'Ordem de Venda',
+                 position:      10 }]
+
+  @UI: { lineItem: [{ position: 20 }],
+         identification: [{ position: 20 }] }
+  @UI.selectionField: [{ position: 10 }]
+  SalesDocument;
+
+  @UI: { lineItem: [{ position: 30 }],
+         identification: [{ position: 30 }]  }
+  @UI.selectionField: [{ position: 20 }]
+  SDDocumentCategory;
+
+  @UI: {
+          lineItem: [{ position: 40 }],
+          identification: [{ position: 40 }] }
+  @UI.selectionField: [{ position: 30 }]
+  SalesDocumentType;
+
+  @UI: {
+         lineItem: [{ position: 50 }],
+         identification: [{ position: 50 }] }
+  SalesOrganization;
+  @UI: {
+   lineItem: [{ position: 60 }],
+   identification: [{ position:60 }]  }
+  DistributionChannel;
+  @UI: {
+   lineItem: [{ position: 70 }],
+   identification: [{ position: 70 }]  }
+  OrganizationDivision;
+  @UI: {
+    lineItem: [{ position: 80 }],
+    identification: [{ position: 80 }] }
+  SDDocumentReason;
+  @UI: {
+   lineItem: [{ position: 90 }],
+   identification: [{ position: 90 }]  }
+  CreatedByUser;
+  @UI: {
+        lineItem: [{ position: 100 }],
+        identification: [{ position: 100 }]  }
+  LastChangedByUser;
+
+  @UI: {
+         lineItem: [{ position: 110 }],
+         identification: [{ position: 110 }]  }
+  CreationDate;
+
+  @UI: {
+         lineItem: [{ position: 120 }],
+         identification: [{ position: 120 }]  }
+  CreationTime;
+
+  @UI: {
+          lineItem: [{ position: 130 }],
+          identification: [{ position: 130 }] }
+  LastChangeDate;
+
+  @UI: {
+         lineItem: [{ position: 140 }],
+         identification: [{ position: 140 }]  }
+  LastChangeDateTime;
+
+}

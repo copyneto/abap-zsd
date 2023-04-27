@@ -1,0 +1,86 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<abapGit version="v1.0.0" serializer="LCL_OBJECT_MSAG" serializer_version="v1.0.0">
+ <asx:abap xmlns:asx="http://www.sap.com/abapxml" version="1.0">
+  <asx:values>
+   <T100A>
+    <ARBGB>ZSD_KIT_BONIFICACAO</ARBGB>
+    <MASTERLANG>P</MASTERLANG>
+    <STEXT>Messagem do desenvolvimento de Kit de Bonificação</STEXT>
+   </T100A>
+   <T100>
+    <T100>
+     <SPRSL>P</SPRSL>
+     <ARBGB>ZSD_KIT_BONIFICACAO</ARBGB>
+     <MSGNR>001</MSGNR>
+     <TEXT>Parâmetros para Tipo de Documento não configurado</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>P</SPRSL>
+     <ARBGB>ZSD_KIT_BONIFICACAO</ARBGB>
+     <MSGNR>002</MSGNR>
+     <TEXT>Centro &amp; não localizado</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>P</SPRSL>
+     <ARBGB>ZSD_KIT_BONIFICACAO</ARBGB>
+     <MSGNR>003</MSGNR>
+     <TEXT>Parâmetros para o TEXT_ID não configurado</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>P</SPRSL>
+     <ARBGB>ZSD_KIT_BONIFICACAO</ARBGB>
+     <MSGNR>004</MSGNR>
+     <TEXT>Linha já foi selecionada por outro usuário!</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>P</SPRSL>
+     <ARBGB>ZSD_KIT_BONIFICACAO</ARBGB>
+     <MSGNR>005</MSGNR>
+     <TEXT>Ordem já foi criada para esse registro!</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>P</SPRSL>
+     <ARBGB>ZSD_KIT_BONIFICACAO</ARBGB>
+     <MSGNR>006</MSGNR>
+     <TEXT>Todas as linhas foram desmarcadas!</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>P</SPRSL>
+     <ARBGB>ZSD_KIT_BONIFICACAO</ARBGB>
+     <MSGNR>007</MSGNR>
+     <TEXT>Linhas marcadas para criação da Ordem.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>P</SPRSL>
+     <ARBGB>ZSD_KIT_BONIFICACAO</ARBGB>
+     <MSGNR>008</MSGNR>
+     <TEXT>Erro na geração da Ordem</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>P</SPRSL>
+     <ARBGB>ZSD_KIT_BONIFICACAO</ARBGB>
+     <MSGNR>009</MSGNR>
+     <TEXT>Ordem &amp; criada</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>P</SPRSL>
+     <ARBGB>ZSD_KIT_BONIFICACAO</ARBGB>
+     <MSGNR>010</MSGNR>
+     <TEXT>Kit já possue ordem criada</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>P</SPRSL>
+     <ARBGB>ZSD_KIT_BONIFICACAO</ARBGB>
+     <MSGNR>011</MSGNR>
+     <TEXT>Foram selecionados registros sem ordens a serem recusadas</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>P</SPRSL>
+     <ARBGB>ZSD_KIT_BONIFICACAO</ARBGB>
+     <MSGNR>012</MSGNR>
+     <TEXT>Parâmetros para Motivo de Recusa não configurado</TEXT>
+    </T100>
+   </T100>
+  </asx:values>
+ </asx:abap>
+</abapGit>

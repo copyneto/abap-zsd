@@ -1,0 +1,90 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<abapGit version="v1.0.0" serializer="LCL_OBJECT_CLAS" serializer_version="v1.0.0">
+ <asx:abap xmlns:asx="http://www.sap.com/abapxml" version="1.0">
+  <asx:values>
+   <VSEOCLASS>
+    <CLSNAME>ZCLSD_NF_MASS_DOWNLOAD</CLSNAME>
+    <LANGU>P</LANGU>
+    <DESCRIPT>Impressão e Donwload de NFs</DESCRIPT>
+    <STATE>1</STATE>
+    <CLSCCINCL>X</CLSCCINCL>
+    <FIXPT>X</FIXPT>
+    <UNICODE>X</UNICODE>
+   </VSEOCLASS>
+   <DESCRIPTIONS_SUB>
+    <SEOSUBCOTX>
+     <CMPNAME>GERA_PDF</CMPNAME>
+     <SCONAME>IV_PRINTER</SCONAME>
+     <LANGU>P</LANGU>
+     <DESCRIPT>Spool: dispositivo de saída</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>GERA_PDF_BOLETO</CMPNAME>
+     <SCONAME>IV_DOCNUM</SCONAME>
+     <LANGU>P</LANGU>
+     <DESCRIPT>Nº documento</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>GERA_PDF_BOLETO</CMPNAME>
+     <SCONAME>IV_PRINTER</SCONAME>
+     <LANGU>P</LANGU>
+     <DESCRIPT>Spool: dispositivo de saída</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>GERA_PDF_CCE</CMPNAME>
+     <SCONAME>ET_PDF</SCONAME>
+     <LANGU>P</LANGU>
+     <DESCRIPT>Linhas texto_T</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>GERA_PDF_CCE</CMPNAME>
+     <SCONAME>EV_FILESIZE</SCONAME>
+     <LANGU>P</LANGU>
+     <DESCRIPT>Nº inteiro com sinal 4 bytes</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>GERA_PDF_CCE</CMPNAME>
+     <SCONAME>IV_DOCNUM</SCONAME>
+     <LANGU>P</LANGU>
+     <DESCRIPT>Nº documento</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>GERA_PDF_CCE</CMPNAME>
+     <SCONAME>IV_PRINTER</SCONAME>
+     <LANGU>P</LANGU>
+     <DESCRIPT>Spool: dispositivo de saída</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>GERA_PDF_MDFE</CMPNAME>
+     <SCONAME>IV_PRINTER</SCONAME>
+     <LANGU>P</LANGU>
+     <DESCRIPT>Spool: dispositivo de saída</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>GERA_PDF_NFE</CMPNAME>
+     <SCONAME>ET_PDF</SCONAME>
+     <LANGU>P</LANGU>
+     <DESCRIPT>PDF em Binário</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>GERA_PDF_NFE</CMPNAME>
+     <SCONAME>EV_FILESIZE</SCONAME>
+     <LANGU>P</LANGU>
+     <DESCRIPT>Nº inteiro com sinal 4 bytes</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>GERA_PDF_NFE</CMPNAME>
+     <SCONAME>IV_DOCNUM</SCONAME>
+     <LANGU>P</LANGU>
+     <DESCRIPT>Nº documento</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>GERA_PDF_NFE</CMPNAME>
+     <SCONAME>IV_PRINTER</SCONAME>
+     <LANGU>P</LANGU>
+     <DESCRIPT>Spool: dispositivo de saída</DESCRIPT>
+    </SEOSUBCOTX>
+   </DESCRIPTIONS_SUB>
+  </asx:values>
+ </asx:abap>
+</abapGit>

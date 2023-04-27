@@ -1,0 +1,7 @@
+unmanaged implementation in class zclsd_motivo_recusa unique;
+
+define behavior for ZC_SD_RECUSA_NIVEL_ITEM alias _Header
+{
+  //action motivoRecusa  parameter ZC_SD_MOTIVO_RECUSA;
+  action ( features : instance ) motivoRecusa parameter zc_sd_motivo_recusa;
+}

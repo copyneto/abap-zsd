@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<abapGit version="v1.0.0" serializer="LCL_OBJECT_SUSO" serializer_version="v1.0.0">
+ <asx:abap xmlns:asx="http://www.sap.com/abapxml" version="1.0">
+  <asx:values>
+   <TOBJ>
+    <OBJCT>ZSD_CGP_15</OBJCT>
+    <FIEL1>ACTVT</FIEL1>
+    <OCLSS>ZSD</OCLSS>
+   </TOBJ>
+   <TOBJT>
+    <LANGU>P</LANGU>
+    <OBJECT>ZSD_CGP_15</OBJECT>
+    <TTEXT>Cockpit Gestão de Preço - Validar - Invasão</TTEXT>
+   </TOBJT>
+   <TOBJVORFLG>
+    <OBJCT>ZSD_CGP_15</OBJCT>
+   </TOBJVORFLG>
+   <TACTZ>
+    <TACTZ>
+     <BROBJ>ZSD_CGP_15</BROBJ>
+     <ACTVT>01</ACTVT>
+    </TACTZ>
+    <TACTZ>
+     <BROBJ>ZSD_CGP_15</BROBJ>
+     <ACTVT>F1</ACTVT>
+    </TACTZ>
+   </TACTZ>
+  </asx:values>
+ </asx:abap>
+</abapGit>

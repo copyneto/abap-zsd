@@ -1,0 +1,4 @@
+@EndUserText.label: 'Service Def Cadastro regra IPI'
+define service ZUI_SD_IPI {
+  expose ZC_SD_IPI;
+}

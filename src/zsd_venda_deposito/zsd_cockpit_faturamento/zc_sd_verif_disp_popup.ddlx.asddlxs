@@ -1,0 +1,12 @@
+@Metadata.layer: #CORE
+annotate entity ZC_SD_VERIF_DISP_POPUP
+    with 
+{
+   @EndUserText.label      : 'Movito'
+     @Consumption.valueHelpDefinition: [{entity: {name: 'ZI_SD_VH_MOTIVO', element: 'Movito' }}]  
+   Motivo;   
+  @EndUserText.label      : 'Ação'
+     @Consumption.valueHelpDefinition: [{entity: {name: 'ZI_SD_VH_ACAO', element: 'Acao' }}]    
+   Acao; 
+    
+}

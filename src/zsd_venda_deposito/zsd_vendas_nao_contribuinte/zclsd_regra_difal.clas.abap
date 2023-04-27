@@ -1,0 +1,5 @@
+CLASS zclsd_regra_difal DEFINITION PUBLIC ABSTRACT FINAL FOR BEHAVIOR OF zi_sd_regra_difal.
+ENDCLASS.
+
+CLASS zclsd_regra_difal IMPLEMENTATION.
+ENDCLASS.

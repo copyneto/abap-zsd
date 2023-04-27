@@ -1,0 +1,7 @@
+unmanaged implementation in class zclsd_atualizar_vigencia unique;
+
+define behavior for zi_sd_atual_vig alias AtualVig
+
+{
+  action atualizar parameter zc_sd_popup;
+}

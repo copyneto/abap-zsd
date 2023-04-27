@@ -1,0 +1,99 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<abapGit version="v1.0.0" serializer="LCL_OBJECT_CLAS" serializer_version="v1.0.0">
+ <asx:abap xmlns:asx="http://www.sap.com/abapxml" version="1.0">
+  <asx:values>
+   <VSEOCLASS>
+    <CLSNAME>ZCLSD_TRATATIVA_DEPOSITO_VENDA</CLSNAME>
+    <LANGU>P</LANGU>
+    <DESCRIPT>Tratativa para depósito de venda</DESCRIPT>
+    <STATE>1</STATE>
+    <CLSCCINCL>X</CLSCCINCL>
+    <FIXPT>X</FIXPT>
+    <UNICODE>X</UNICODE>
+   </VSEOCLASS>
+   <DESCRIPTIONS>
+    <SEOCOMPOTX>
+     <CMPNAME>GS_VBAK</CMPNAME>
+     <LANGU>P</LANGU>
+     <DESCRIPT>Documento de vendas: dados de cabeçalho</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>GS_VBAP</CMPNAME>
+     <LANGU>P</LANGU>
+     <DESCRIPT>Documento de vendas: dados de item</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>GS_VBKD</CMPNAME>
+     <LANGU>P</LANGU>
+     <DESCRIPT>Documento de vendas: dados comerciais</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>GT_CTR_DEP</CMPNAME>
+     <LANGU>P</LANGU>
+     <DESCRIPT>Controle de determinação de depósitos</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>GV_DWERK</CMPNAME>
+     <LANGU>P</LANGU>
+     <DESCRIPT>Centro fornecedor (próprio ou externo)</DESCRIPT>
+    </SEOCOMPOTX>
+   </DESCRIPTIONS>
+   <DESCRIPTIONS_SUB>
+    <SEOSUBCOTX>
+     <CMPNAME>EXECUTE</CMPNAME>
+     <SCONAME>CS_VBAP</SCONAME>
+     <LANGU>P</LANGU>
+     <DESCRIPT>Documento de vendas: dados de item</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>EXECUTE</CMPNAME>
+     <SCONAME>IS_VBAK</SCONAME>
+     <LANGU>P</LANGU>
+     <DESCRIPT>Documento de vendas: dados de cabeçalho</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>EXECUTE</CMPNAME>
+     <SCONAME>IS_VBKD</SCONAME>
+     <LANGU>P</LANGU>
+     <DESCRIPT>Documento de vendas: dados comerciais</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>EXECUTE</CMPNAME>
+     <SCONAME>IV_DWERK</SCONAME>
+     <LANGU>P</LANGU>
+     <DESCRIPT>Centro fornecedor (próprio ou externo)</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>SET_INPUT</CMPNAME>
+     <SCONAME>IS_VBAK</SCONAME>
+     <LANGU>P</LANGU>
+     <DESCRIPT>Documento de vendas: dados de cabeçalho</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>SET_INPUT</CMPNAME>
+     <SCONAME>IS_VBAP</SCONAME>
+     <LANGU>P</LANGU>
+     <DESCRIPT>Documento de vendas: dados de item</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>SET_INPUT</CMPNAME>
+     <SCONAME>IS_VBKD</SCONAME>
+     <LANGU>P</LANGU>
+     <DESCRIPT>Documento de vendas: dados comerciais</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>SET_INPUT</CMPNAME>
+     <SCONAME>IV_DWERK</SCONAME>
+     <LANGU>P</LANGU>
+     <DESCRIPT>Centro fornecedor (próprio ou externo)</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>SET_OUTPUT</CMPNAME>
+     <SCONAME>RS_VBAP</SCONAME>
+     <LANGU>P</LANGU>
+     <DESCRIPT>Documento de vendas: dados de item</DESCRIPT>
+    </SEOSUBCOTX>
+   </DESCRIPTIONS_SUB>
+  </asx:values>
+ </asx:abap>
+</abapGit>

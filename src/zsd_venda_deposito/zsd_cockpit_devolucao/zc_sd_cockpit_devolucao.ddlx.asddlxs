@@ -1,0 +1,185 @@
+@Metadata.layer:#CORE
+@UI: { headerInfo: { typeName: 'Cockpit Devolução',
+                     typeNamePlural: 'Cockpit Devolução',
+                     title: { type: #STANDARD, value: 'Nfe' },
+                            description: { value: 'Nfe' } } }
+
+annotate view ZC_SD_COCKPIT_DEVOLUCAO with
+{
+  @UI.facet: [
+             { id:           'Lancamento',
+               purpose:         #STANDARD,
+               type:            #IDENTIFICATION_REFERENCE,
+               label:        'Pré Lançamento',
+               position:      20
+             },
+             { id:              'Cockpit',
+               isSummary:       true,
+               type:            #COLLECTION,
+               label:           'Cockpit Devoluções',
+               position:        10 },
+
+              { parentId:        'Cockpit',
+                id:              'CockpitDev',
+                type:            #FIELDGROUP_REFERENCE,
+                position:        10,
+                targetQualifier: 'CockpitDev' },
+
+                { id:             'Informacoes',
+                 purpose:         #STANDARD,
+                 type:            #LINEITEM_REFERENCE,
+                 label:           'Informações',
+                 position:        30,
+                 targetElement:   '_Informacoes'},
+
+                { id:             'NotaFiscal',
+                 purpose:         #STANDARD,
+                 type:            #LINEITEM_REFERENCE,
+                 label:           'Nota Fiscal',
+                 position:        40,
+                 targetElement:   '_NotaFiscal'},
+
+                 { id:            'Arquivo',
+                 purpose:         #STANDARD,
+                 type:            #LINEITEM_REFERENCE,
+                 label:           'Anexo',
+                 position:        50,
+                 targetElement:   '_Arquivo'},
+
+                 { id:            'Transporte',
+                 purpose:         #STANDARD,
+                 type:            #LINEITEM_REFERENCE,
+                 label:           'Transporte',
+                 position:        60,
+                 targetElement:   '_Transporte'}
+
+                ]
+
+  @UI: { lineItem:       [{ position: 10, label: 'Nf-e' }],
+         identification: [{ position: 20,  label: 'Nf-e' }],
+  //         fieldGroup:     [{ position: 10, label: 'Nf-e', qualifier: 'CockpitDev' } ],
+         selectionField: [{ position: 50 }] }
+  Nfe;
+
+
+  @UI: { lineItem:       [{ position: 20, label: 'Série' }],
+         identification: [{ position: 50,  label: 'Série' }]}
+  Serie;
+
+  @UI: { lineItem:       [{ position: 20, label: 'Cliente' }],
+         fieldGroup:     [{ position: 20, label: 'Cliente', qualifier: 'CockpitDev' } ],
+         selectionField: [{ position: 30 } ] }
+  Cliente;
+
+  @UI: { lineItem:       [{ position: 30, label: 'Tipo de Devolução' }],
+         identification: [{ position: 10, label: 'Tipo de Devolução' }],
+         selectionField: [{ position: 20 } ] }
+  TipoDevolucao;
+
+  @UI: { lineItem:       [{ position: 40, label: 'Data de Lançamento' }],
+         fieldGroup:     [{ position: 30, label: 'Data de Lançamento', qualifier: 'CockpitDev' } ],
+         selectionField: [{ position: 10 } ] }
+  DtLancamento;
+
+  @UI: { lineItem:       [{ position: 50, label: 'Local de Negócios' }],
+         fieldGroup:     [{ position: 40, label: 'Local de Negócios', qualifier: 'CockpitDev' } ],
+         selectionField: [{ position: 40 } ] }
+  LocalNegocio;
+
+  @UI: { lineItem:       [{ position: 60, label: 'Bloqueio Remessa' }],
+         fieldGroup:     [{ position: 50, label: 'Bloqueio Remessa', qualifier: 'CockpitDev' } ]}
+  BloqueioRemessa;
+
+  @Consumption.semanticObject: 'SalesOrder'
+  @UI:  { lineItem:       [{ position: 70, type: #WITH_URL, url: 'URL_va03' },
+        { type: #FOR_ACTION, dataAction: 'EliminarPreLancamento',  label: 'Eliminar Pré Lançamento'  },
+        { type: #FOR_ACTION, dataAction: 'DesbloquearRemessa',  label: 'Desbloquear Remessa'  } ],
+//        { type: #FOR_ACTION, dataAction: 'DesbloquearOv',  label: 'Desbloquear Ordem'  } ],
+          fieldGroup:     [{ position: 60, label: 'Ordem Devolução', qualifier: 'CockpitDev' } ] }
+  @EndUserText.label: 'Ordem Devolução'
+  SalesOrder;
+
+  @Consumption.semanticObject: 'OutboundDelivery'
+  @UI:  { lineItem:       [{ position: 80, type: #WITH_URL, url: 'URL_vl03n' }],
+          fieldGroup:     [{ position: 70, label: 'Remessa', qualifier: 'CockpitDev' } ] }
+  @EndUserText.label: 'Remessa'
+  OutboundDelivery;
+
+  @UI: { lineItem:        [{ position: 90, label: 'EM' }],
+         fieldGroup:      [{ position: 80, label: 'EM', qualifier: 'CockpitDev' } ] }
+  EntradaMercadoria;
+
+  @Consumption.semanticObject: 'BillingDocument'
+  @UI:  { lineItem:       [{ position: 130, label: 'Fatura', type: #WITH_URL, url: 'URL_vf03' }],
+          fieldGroup:     [{ position: 90, label: 'Fatura', qualifier: 'CockpitDev' } ] }
+  @EndUserText.label: 'Fatura'
+  BillingDocument;
+  
+  @Consumption.semanticObject: 'DocNum'
+  @UI:  { lineItem:       [{ position: 140, label: 'DocNum', type: #WITH_URL, url: 'URL_j1b3n' }],
+          fieldGroup:     [{ position: 100, label: 'DocNum', qualifier: 'CockpitDev' } ],
+          selectionField: [{ position: 140 }] }
+  @EndUserText.label: 'DocNum'
+  DocNum;
+
+  @UI: { lineItem:       [{ position: 150, label: 'Status NF-e',criticality: 'CorStatusNFe' }],
+         fieldGroup:     [{ position: 110, label: 'Status NF-e', criticality: 'CorStatusNFe', qualifier: 'CockpitDev' }],
+         selectionField: [{ position: 120 } ] }
+  StatusNFe;
+
+  @UI: { lineItem:       [{ position: 160, label: 'Total Nf-e' }],
+         fieldGroup:     [{ position: 120, label: 'Total Nf-e', qualifier: 'CockpitDev' } ] }
+  NfTotal;
+
+
+  @UI: { lineItem:       [{ position: 170, label: 'Meio de pagamento' }] }
+  FormaPagamento;
+
+  @UI: { identification: [{ position: 70,  label: 'Centro' }],
+         selectionField: [{ position: 70 } ] }
+  Centro;
+
+  @UI: {  identification: [{ position: 40, label: 'CNPJ/CPF' }]}
+  Cnpj;
+
+  @UI: { lineItem:        [ { position: 50, label: 'Chave de Acesso' } ],
+        identification:  [ { position: 80, label: 'Chave de Acesso' } ]  }
+
+  ChaveAcesso;
+  @UI.hidden: true
+  @UI: { identification:  [ { position: 70, label: 'Chave de Acesso'  } ]  }
+  Enable;
+  @UI: {  identification: [{ position: 30, label: 'Motivo' }]}
+  Motivo;
+  //@UI: {  identification: [{ position: 110, label: 'Meio de pagamento' }]}
+  //FormPagamento;
+  @UI: {  identification: [{ position: 60, label: 'Data Logística' }]}
+  DtLogistica;
+
+  @UI: {  identification: [{ position: 90, label: 'Data Administrativo' }]}
+  DtAdministrativo;
+
+  @UI: { lineItem:       [{ position: 100, label: 'Prot.Ocorrência' }],
+         selectionField: [{ position: 80 } ] }
+  ProtOcorrencia;
+
+  @UI: { lineItem:       [{ position: 110, label: 'Data da ocorrência' }],
+         selectionField: [{ position: 90 } ] }
+  DtRegistro;
+
+  @UI: { lineItem:       [{ position: 120, label: 'Hora da ocorrência' }],
+         selectionField: [{ position: 100 } ] }
+  HrRegistro;
+
+  @UI: { lineItem:       [{ position: 130, label: 'Situação Devolução', criticality: 'CorSituacao' }],
+  //         fieldGroup:     [{ position: 110, label: 'Situação Devolução', criticality: 'CorSituacao', qualifier: 'CockpitDev' } ],
+         selectionField: [{ position: 110 } ] }
+  Situacao;
+
+  @UI: {selectionField: [{ position: 130 } ] }
+  DenomiBanco;
+
+  @UI.hidden: true
+  StatusText;
+
+}

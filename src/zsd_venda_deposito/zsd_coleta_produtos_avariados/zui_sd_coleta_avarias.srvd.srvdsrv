@@ -1,0 +1,4 @@
+@EndUserText.label: 'Service Def Coleta de Produtos Avariados'
+define service Zui_sd_coleta_avarias {
+  expose zc_sd_coleta_avarias;
+}

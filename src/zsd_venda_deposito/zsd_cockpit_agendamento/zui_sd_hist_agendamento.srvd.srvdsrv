@@ -1,0 +1,4 @@
+@EndUserText.label: 'Service def. - Histórico de Agendamento'
+define service ZUI_SD_HIST_AGENDAMENTO {
+  expose ZC_SD_HIST_AGENDAMENTO;
+}

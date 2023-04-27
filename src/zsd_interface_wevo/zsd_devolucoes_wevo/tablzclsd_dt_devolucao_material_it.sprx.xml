@@ -1,0 +1,119 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<abapGit version="v1.0.0" serializer="LCL_OBJECT_SPRX" serializer_version="v1.0.0">
+ <asx:abap xmlns:asx="http://www.sap.com/abapxml" version="1.0">
+  <asx:values>
+   <PROXY_HEADER>
+    <item>
+     <OBJECT>TABL</OBJECT>
+     <OBJ_NAME>ZCLSD_DT_DEVOLUCAO_MATERIAL_IT</OBJ_NAME>
+     <OBJECT_M>TABL</OBJECT_M>
+     <OBJ_NAME_M>ZCLSD_DT_DEVOLUCAO_MATERIAL</OBJ_NAME_M>
+     <HASH_ID>113EB5C044E7A7E28F1107996DF8DC8204182934</HASH_ID>
+     <ID>&lt;type&gt; ITENS &lt;element&gt; ITENS &lt;type&gt; dtDevolucaoMaterial http://trescoracoes.com.br/vendas/devolucaomaterial http://trescoracoes.com.br/vendas/devolucaomaterial</ID>
+     <IFR_TYPE>type</IFR_TYPE>
+     <IFR_NAME>ITENS</IFR_NAME>
+     <IFR_NSPCE>http://trescoracoes.com.br/vendas/devolucaomaterial</IFR_NSPCE>
+     <IFR_GNSPCE>http://trescoracoes.com.br/vendas/devolucaomaterial</IFR_GNSPCE>
+     <GEN_VERS>0005</GEN_VERS>
+     <PREFIX>ZCLSD_</PREFIX>
+     <CATEGORY>ifmtypedef</CATEGORY>
+     <X-ML_NSPCE>http://trescoracoes.com.br/vendas/devolucaomaterial</X-ML_NSPCE>
+     <X-ML_NAME>ITENS</X-ML_NAME>
+    </item>
+   </PROXY_HEADER>
+   <PROXY_DATA>
+    <item>
+     <OBJECT>TABL</OBJECT>
+     <OBJ_NAME>ZCLSD_DT_DEVOLUCAO_MATERIAL_IT</OBJ_NAME>
+     <OBJECT1>FIEL</OBJECT1>
+     <OBJ_NAME1>ITM_NUMBER</OBJ_NAME1>
+     <OBJECT2>FIEL</OBJECT2>
+     <OBJ_NAME2>ITM_NUMBER</OBJ_NAME2>
+     <ID>&lt;element&gt; ITM_NUMBER &lt;type&gt; ITENS &lt;element&gt; ITENS &lt;type&gt; dtDevolucaoMaterial http://trescoracoes.com.br/vendas/devolucaomaterial http://trescoracoes.com.br/vendas/devolucaomaterial</ID>
+     <IFR_TYPE>element</IFR_TYPE>
+     <IFR_NAME>ITM_NUMBER</IFR_NAME>
+     <IFR_TEXT>Item do Pedido</IFR_TEXT>
+     <IFR_LANGU>EN</IFR_LANGU>
+     <IFR_TAGTYP>E</IFR_TAGTYP>
+     <IFR_MINOCC>1</IFR_MINOCC>
+     <IFR_MAXOCC>1</IFR_MAXOCC>
+     <IFR_XSDTYP>string</IFR_XSDTYP>
+     <IFR_SCALE>-2</IFR_SCALE>
+     <R3_TYPE>FIEL</R3_TYPE>
+     <R3_NAME>ITM_NUMBER</R3_NAME>
+     <R3_TEXT>Item do Pedido</R3_TEXT>
+     <R3_DATATYP>STRG</R3_DATATYP>
+     <R3_SEQNUM>000001</R3_SEQNUM>
+    </item>
+    <item>
+     <OBJECT>TABL</OBJECT>
+     <OBJ_NAME>ZCLSD_DT_DEVOLUCAO_MATERIAL_IT</OBJ_NAME>
+     <OBJECT1>FIEL</OBJECT1>
+     <OBJ_NAME1>MATERIAL</OBJ_NAME1>
+     <OBJECT2>FIEL</OBJECT2>
+     <OBJ_NAME2>MATERIAL</OBJ_NAME2>
+     <ID>&lt;element&gt; MATERIAL &lt;type&gt; ITENS &lt;element&gt; ITENS &lt;type&gt; dtDevolucaoMaterial http://trescoracoes.com.br/vendas/devolucaomaterial http://trescoracoes.com.br/vendas/devolucaomaterial</ID>
+     <IFR_TYPE>element</IFR_TYPE>
+     <IFR_NAME>MATERIAL</IFR_NAME>
+     <IFR_TEXT>Código do produto</IFR_TEXT>
+     <IFR_LANGU>EN</IFR_LANGU>
+     <IFR_TAGTYP>E</IFR_TAGTYP>
+     <IFR_MINOCC>1</IFR_MINOCC>
+     <IFR_MAXOCC>1</IFR_MAXOCC>
+     <IFR_XSDTYP>string</IFR_XSDTYP>
+     <IFR_MAXLEN>10</IFR_MAXLEN>
+     <IFR_SCALE>-2</IFR_SCALE>
+     <R3_TYPE>FIEL</R3_TYPE>
+     <R3_NAME>MATERIAL</R3_NAME>
+     <R3_TEXT>Código do produto</R3_TEXT>
+     <R3_DATATYP>CHAR</R3_DATATYP>
+     <R3_LENGTH>000010</R3_LENGTH>
+     <R3_SEQNUM>000002</R3_SEQNUM>
+    </item>
+    <item>
+     <OBJECT>TABL</OBJECT>
+     <OBJ_NAME>ZCLSD_DT_DEVOLUCAO_MATERIAL_IT</OBJ_NAME>
+     <OBJECT1>FIEL</OBJECT1>
+     <OBJ_NAME1>TARGET_QTY</OBJ_NAME1>
+     <OBJECT2>FIEL</OBJECT2>
+     <OBJ_NAME2>TARGET_QTY</OBJ_NAME2>
+     <ID>&lt;element&gt; TARGET_QTY &lt;type&gt; ITENS &lt;element&gt; ITENS &lt;type&gt; dtDevolucaoMaterial http://trescoracoes.com.br/vendas/devolucaomaterial http://trescoracoes.com.br/vendas/devolucaomaterial</ID>
+     <IFR_TYPE>element</IFR_TYPE>
+     <IFR_NAME>TARGET_QTY</IFR_NAME>
+     <IFR_TEXT>Qtde de devolução do item</IFR_TEXT>
+     <IFR_LANGU>EN</IFR_LANGU>
+     <IFR_TAGTYP>E</IFR_TAGTYP>
+     <IFR_MINOCC>1</IFR_MINOCC>
+     <IFR_MAXOCC>1</IFR_MAXOCC>
+     <IFR_XSDTYP>decimal</IFR_XSDTYP>
+     <IFR_PREC>13</IFR_PREC>
+     <IFR_SCALE>3</IFR_SCALE>
+     <R3_TYPE>FIEL</R3_TYPE>
+     <R3_NAME>TARGET_QTY</R3_NAME>
+     <R3_TEXT>Qtde de devolução do item</R3_TEXT>
+     <R3_DATATYP>DEC</R3_DATATYP>
+     <R3_LENGTH>000016</R3_LENGTH>
+     <R3_DECIMAL>000003</R3_DECIMAL>
+     <R3_SEQNUM>000003</R3_SEQNUM>
+    </item>
+    <item>
+     <OBJECT>TABL</OBJECT>
+     <OBJ_NAME>ZCLSD_DT_DEVOLUCAO_MATERIAL_IT</OBJ_NAME>
+     <OBJECT1>TABL</OBJECT1>
+     <OBJ_NAME1>ZCLSD_DT_DEVOLUCAO_MATERIAL_IT</OBJ_NAME1>
+     <OBJECT2>TABL</OBJECT2>
+     <OBJ_NAME2>ZCLSD_DT_DEVOLUCAO_MATERIAL_IT</OBJ_NAME2>
+     <ID>&lt;type&gt; ITENS &lt;element&gt; ITENS &lt;type&gt; dtDevolucaoMaterial http://trescoracoes.com.br/vendas/devolucaomaterial http://trescoracoes.com.br/vendas/devolucaomaterial</ID>
+     <IFR_TYPE>type</IFR_TYPE>
+     <IFR_NAME>ITENS</IFR_NAME>
+     <IFR_LANGU>EN</IFR_LANGU>
+     <IFR_SCALE>-2</IFR_SCALE>
+     <R3_TYPE>TABL</R3_TYPE>
+     <R3_NAME>ZCLSD_DT_DEVOLUCAO_MATERIAL_IT</R3_NAME>
+     <R3_TEXT>Proxy Structure (generated)</R3_TEXT>
+     <CATEGORY>ifmtypedef</CATEGORY>
+    </item>
+   </PROXY_DATA>
+  </asx:values>
+ </asx:abap>
+</abapGit>

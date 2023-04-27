@@ -1,0 +1,5 @@
+projection;
+
+define behavior for ZC_SD_DEVOLUCAO_ECOMMERCE //alias <alias_name>
+{
+}

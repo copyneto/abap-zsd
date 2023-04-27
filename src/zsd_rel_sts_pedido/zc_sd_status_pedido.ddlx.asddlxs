@@ -1,0 +1,196 @@
+@Metadata.layer: #CORE
+@UI.headerInfo: {
+ typeName: 'Relatório de Status do Pedido',
+ typeNamePlural: 'Relatório de Status do Pedido',
+    title: {
+      type: #STANDARD,
+      label: 'Ordem de venda',
+      value: 'Sales_Order'
+    }}
+annotate view ZC_SD_STATUS_PEDIDO with
+{
+  @UI.facet: [ { id:         'Sales_Order',
+               purpose:       #STANDARD,
+               type:          #IDENTIFICATION_REFERENCE,
+               label:         'Status Pedido',
+               position:      10 }]
+
+  @UI: { lineItem:     [{ position: 10, label: 'Cliente' }],
+       identification: [{ position: 10, label: 'Cliente' }] }
+  @UI.selectionField:  [{ position: 10 }]
+  Sold_ToParty;
+  @UI: { lineItem:     [{ position: 20, label: 'Ordem do cliente' }],
+       identification: [{ position: 20, label: 'Ordem do cliente' }] }
+  @UI.selectionField:  [{ position: 20 }]
+  Sales_Order;
+  @UI: { lineItem:     [{ position: 30, label: 'Organização de vendas' }],
+       identification: [{ position: 30, label: 'Organização de vendas' }] }
+  @UI.selectionField:  [{ position: 30 }]
+  Sales_Organization;
+  @UI: { lineItem:     [{ position: 40, label: 'Canal de distribuição' }],
+       identification: [{ position: 40, label: 'Canal de distribuição' }] }
+  @UI.selectionField:  [{ position: 40 }]
+  Dist_Channel;
+  @UI: { lineItem:     [{ position: 50, label: 'Escritório de vendas' }],
+       identification: [{ position: 50, label: 'Escritório de vendas' }] }
+  @UI.selectionField:  [{ position: 50 }]
+  Sales_Office;
+  //@UI: { lineItem:     [{ position: 60, label: 'Região de vendas' }] }
+  @UI.selectionField:  [{ position: 60 }]
+  Sales_District;
+  @UI: { lineItem:     [{ position: 60, label: 'Referência do Cliente' }],
+       identification: [{ position: 60, label: 'Referência do Cliente' }] }
+  @UI.selectionField:  [{ position: 70 }]
+  Purchase_OrderCust;
+  //@UI: { lineItem:     [{ position: 80, label: 'Tipo de nº do pedido do cliente' }]}
+  @UI.selectionField:  [{ position: 80 }]
+  Cust_PurchaseOrder;
+  @UI: { lineItem:     [{ position: 70, label: 'Motivo da ordem' }],
+       identification: [{ position: 70, label: 'Motivo da ordem' }] }
+  @UI.selectionField:  [{ position: 90 }]
+  SD_DocReason;
+  @UI: { lineItem:     [{ position: 80, label: 'Condição de expedição' }],
+       identification: [{ position: 80, label: 'Condição de expedição' }] }
+  @UI.selectionField:  [{ position: 80 }]
+  Shipping_Cond;
+  @UI: { lineItem:     [{ position: 90, label: 'Tipo de ordem do cliente' }],
+       identification: [{ position: 90, label: 'Tipo de ordem do cliente' }] }
+  @UI.selectionField:  [{ position: 100 }]
+  Sales_OrderType;
+  @UI: { lineItem:     [{ position: 100, label: 'Meio de pagto.' }],
+       identification: [{ position: 100, label: 'Meio de pagto.' }] }
+  Cust_PaymentTerms;
+  @UI: { lineItem:     [{ position: 110, label: 'Dt. Sirius' }],
+       identification: [{ position: 110, label: 'Dt. Sirius' }] }
+  Cust_PurchaseOrderDate;
+  @UI: { lineItem:     [{ position: 120, label: 'Data de criação OV' }],
+       identification: [{ position: 120, label: 'Data de criação OV' }] }
+  @UI.selectionField:  [{ position: 110 }]
+  Creation_Date;
+  //@UI: { lineItem:     [{ position: 150, label: 'Nº pedido do recebedor da mercadoria' }] }
+  @UI: { lineItem:     [{ position: 130, label: 'Número do Pedido' }],
+       identification: [{ position: 130, label: 'Número do Pedido' }] }
+  @UI.selectionField:  [{ position: 120 }]
+  Purch_ShipToParty;
+  @UI: { lineItem:     [{ position: 140, label: 'Bloqueio de remessa' }],
+       identification: [{ position: 140, label: 'Bloqueio de remessa' }] }
+  @UI.selectionField:  [{ position: 130 }]
+  Delivery_BlockReason;
+
+  @UI: { lineItem:     [{ position: 150, label: 'Status da Ordem de Venda' }],
+       identification: [{ position: 150, label: 'Status da Ordem de Venda' }] }
+  @UI.selectionField:  [{ position: 140 }]
+  StatusOV;
+
+  @UI: { lineItem:     [{ position: 160, label: 'Centro' }],
+       identification: [{ position: 160, label: 'Centro' }] }
+  @UI.selectionField:  [{ position: 150 }]
+  Plant;
+  @UI: { lineItem:     [{ position: 170, label: 'Local de expedição' }],
+       identification: [{ position: 170, label: 'Local de expedição' }] }
+  @UI.selectionField:  [{ position: 170 }]
+  Ship_Point;
+
+  @UI: { lineItem:     [{ position: 180, label: 'Motivo de Recusa' }],
+       identification: [{ position: 180, label: 'Motivo de Recusa' }] }
+  @UI.selectionField:  [{ position: 160 }]
+  Sales_DocRjcnReason;
+  @UI: { lineItem:     [{ position: 190, label: 'Desc. Motivo de Recusa' }],
+       identification: [{ position: 190, label: 'Desc. Motivo de Recusa' }] }
+  DescMotivoRecusa;
+  @UI: { lineItem:     [{ position: 200, label: 'Remessa' }],
+       identification: [{ position: 200, label: 'Remessa' }] }
+  @UI.selectionField:  [{ position: 170 }]
+  DocRemessa;
+  @UI: { lineItem:     [{ position: 210, label: 'Categ. Remessa' }],
+       identification: [{ position: 210, label: 'Categ. Remessa' }] }
+  @UI.selectionField:  [{ position: 180 }]
+  SubsequentDocumentCategory;
+  @UI: { lineItem:     [{ position: 220, label: 'Dt. Criação Ordem de Frete' }],
+       identification: [{ position: 220, label: 'Dt. Criação Ordem de Frete' }] }
+  @UI.selectionField:  [{ position: 190 }]
+  CreationDate;
+  @UI: { lineItem:     [{ position: 230, label: 'Dt. Faturamento' }],
+       identification: [{ position: 230, label: 'Dt. Faturamento' }] }
+  @UI.selectionField:  [{ position: 200 }]
+  CreationDateFatura;
+  @UI: { lineItem:     [{ position: 240, label: 'Nº Nota fiscal' }],
+       identification: [{ position: 240, label: 'Nº Nota fiscal' }] }
+  @UI.selectionField:  [{ position: 210 }]
+  BR_NFeNumber;
+  @UI: { lineItem:     [{ position: 250, label: 'Nº Doc Num ' }],
+       identification: [{ position: 250, label: 'Nº Doc Num' }] }
+  @UI.selectionField:  [{ position: 220 }]
+  BR_NotaFiscal;
+  @UI: { lineItem:     [{ position: 260, label: 'Data NFe' }],
+       identification: [{ position: 260, label: 'Data NFe' }] }
+  @UI.selectionField:  [{ position: 230 }]
+  BR_NFAuthenticationDate;
+  //  @UI: { lineItem:     [{ position: 270, label: 'Função do parceiro' }],
+  //       identification: [{ position: 270, label: 'Função do parceiro' }] }
+  //  @UI.selectionField:  [{ position: 200 }]
+  //  PartnerFunction;
+  @UI: { lineItem:     [{ position: 270, label: 'UF' }],
+       identification: [{ position: 270, label: 'UF' }] }
+  @UI.selectionField:  [{ position: 240 }]
+  Region;
+  //  @UI.selectionField:  [{ position: 250 }]
+  //  BR_CFOPCode;
+  @UI.hidden: true
+  DeliveryDocument;
+  @UI: { lineItem:     [{ position: 280, label: 'Desc. Condição de expedição' }],
+       identification: [{ position: 280, label: 'Desc. Condição de expedição' }] }
+  ShippingConditionName;
+  @UI: { lineItem:     [{ position: 290, label: 'Descrição Cliente' }],
+       identification: [{ position: 290, label: 'Descrição Cliente' }] }
+  CustomerPartnerDescription;
+  @UI: { lineItem:     [{ position: 300, label: 'Cidade' }],
+       identification: [{ position: 300, label: 'Cidade' }] }
+  CityName;
+  @UI: { lineItem:     [{ position: 310, label: 'Dt. criação Remessa' }],
+       identification: [{ position: 310, label: 'Dt. criação Remessa' }] }
+  CreationDateRemessa;
+  @UI: { lineItem:     [{ position: 320, label: 'Nº da Fatura' }],
+       identification: [{ position: 320, label: 'Nº da Fatura' }] }
+  FaturaDoc;
+  @UI: { lineItem:     [{ position: 330, label: 'Vendedor Interno' }],
+       identification: [{ position: 330, label: 'Vendedor Interno' }] }
+  VendedorInt;
+  @UI: { lineItem:     [{ position: 340, label: 'Vendedor Externo' }],
+       identification: [{ position: 340, label: 'Vendedor Externo' }] }
+  VendedorExt;
+  @UI: { lineItem:      [{ position: 350 }],
+        identification: [{ position: 350 }]}
+  @UI.selectionField:  [{ position: 250 }]
+  Matricula;
+  @UI: { lineItem:     [{ position: 360, label: 'Valor da NFe' }],
+       identification: [{ position: 360, label: 'Valor da NFe' }] }
+  BR_NFNetAmount;
+  @UI: { lineItem:     [{ position: 370, label: 'Data Docnum' }],
+       identification: [{ position: 370, label: 'Data Docnum' }] }
+  BR_NFPostingDate;
+  @UI: { lineItem:     [{ position: 380, label: 'Peso líquido' }],
+       identification: [{ position: 380, label: 'Peso líquido' }] }
+  HeaderNetWeight;
+  @UI: { lineItem:     [{ position: 390, label: 'Impressão' }],
+       identification: [{ position: 390, label: 'Impressão' }] }
+  @UI.selectionField:  [{ position: 260 }]
+  BR_NFIsPrinted;
+  @UI: { lineItem:     [{ position: 400, label: 'Ordem de Frete' }],
+       identification: [{ position: 400, label: 'Ordem de Frete' }] }
+  OrdemFrete;
+  @UI: { lineItem:     [{ position: 410, label: 'Cat. Ordem de Frete' }],
+       identification: [{ position: 410, label: 'Cat. Ordem de Frete' }] }
+  FaturaDocCat;
+  @UI: { lineItem:     [{ position: 420, label: 'CEP' }],
+       identification: [{ position: 420, label: 'CEP' }] }
+  CEP;
+  @UI: { lineItem:     [{ position: 430, label: 'Domicílio Fiscal' }],
+       identification: [{ position: 430, label: 'Domicílio Fiscal' }] }
+  DomFiscal;
+  @UI: { lineItem:     [{ position: 440, label: 'Motorista' }],
+       identification: [{ position: 440, label: 'Motorista' }] }
+  Motorista;
+
+
+}

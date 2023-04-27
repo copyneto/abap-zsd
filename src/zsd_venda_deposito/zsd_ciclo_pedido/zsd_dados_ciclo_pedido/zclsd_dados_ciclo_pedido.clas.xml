@@ -1,0 +1,175 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<abapGit version="v1.0.0" serializer="LCL_OBJECT_CLAS" serializer_version="v1.0.0">
+ <asx:abap xmlns:asx="http://www.sap.com/abapxml" version="1.0">
+  <asx:values>
+   <VSEOCLASS>
+    <CLSNAME>ZCLSD_DADOS_CICLO_PEDIDO</CLSNAME>
+    <LANGU>P</LANGU>
+    <DESCRIPT>Gravação de Dados para Ciclo do Pedido</DESCRIPT>
+    <STATE>1</STATE>
+    <CLSCCINCL>X</CLSCCINCL>
+    <FIXPT>X</FIXPT>
+    <UNICODE>X</UNICODE>
+   </VSEOCLASS>
+   <DESCRIPTIONS>
+    <SEOCOMPOTX>
+     <CMPNAME>BUSCA_PARAMETROS_OF</CMPNAME>
+     <LANGU>P</LANGU>
+     <DESCRIPT>Busca parâmetros para Ordem de Frete</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>CALCULA_DATA</CMPNAME>
+     <LANGU>P</LANGU>
+     <DESCRIPT>Cálculo de data planejada/realizada</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>CALCULO_COCKPIT_FATURAMENTO</CMPNAME>
+     <LANGU>P</LANGU>
+     <DESCRIPT>Cálculo de dados do Ciclo do Pedido no Cockpit Faturamento</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>CALCULO_FATURAMENTO</CMPNAME>
+     <LANGU>P</LANGU>
+     <DESCRIPT>Envia dados do Faturamento para cálculo</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>CALCULO_ORDEM_FRETE</CMPNAME>
+     <LANGU>P</LANGU>
+     <DESCRIPT>Cálculo de dados do Ciclo do Pedido na Ordem de Frete</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>CALCULO_ORDEM_VENDA</CMPNAME>
+     <LANGU>P</LANGU>
+     <DESCRIPT>Envia dados da Ordem de Venda para cálculo</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>TT_NIVEL_SER</CMPNAME>
+     <LANGU>P</LANGU>
+     <DESCRIPT>Níveis de serviço</DESCRIPT>
+    </SEOCOMPOTX>
+   </DESCRIPTIONS>
+   <DESCRIPTIONS_SUB>
+    <SEOSUBCOTX>
+     <CMPNAME>CALCULA_DATA</CMPNAME>
+     <SCONAME>IV_DATA_EVENTO</SCONAME>
+     <LANGU>P</LANGU>
+     <DESCRIPT>Data do sistema</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>CALCULA_DATA</CMPNAME>
+     <SCONAME>IV_EVENTO</SCONAME>
+     <LANGU>P</LANGU>
+     <DESCRIPT>Tipo de Evento</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>CALCULA_DATA</CMPNAME>
+     <SCONAME>IV_EVENTO_F</SCONAME>
+     <LANGU>P</LANGU>
+     <DESCRIPT>Evento fim</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>CALCULA_DATA</CMPNAME>
+     <SCONAME>IV_EVENTO_I</SCONAME>
+     <LANGU>P</LANGU>
+     <DESCRIPT>Evento início</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>CALCULA_DATA</CMPNAME>
+     <SCONAME>IV_ORDEM</SCONAME>
+     <LANGU>P</LANGU>
+     <DESCRIPT>Documento de vendas</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>CALCULA_DATA</CMPNAME>
+     <SCONAME>IV_REMESSA</SCONAME>
+     <LANGU>P</LANGU>
+     <DESCRIPT>Remessa</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>CALCULA_DATA</CMPNAME>
+     <SCONAME>IV_ROTA</SCONAME>
+     <LANGU>P</LANGU>
+     <DESCRIPT>Itinerário</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>CALCULO_FATURAMENTO</CMPNAME>
+     <SCONAME>IV_VBELN</SCONAME>
+     <LANGU>P</LANGU>
+     <DESCRIPT>Documento de faturamento</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>CALCULO_ORDEM_FRETE</CMPNAME>
+     <SCONAME>IV_EVENTO</SCONAME>
+     <LANGU>P</LANGU>
+     <DESCRIPT>Tipo de Evento</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>CALCULO_ORDEM_FRETE</CMPNAME>
+     <SCONAME>IV_EVENT_CODE</SCONAME>
+     <LANGU>P</LANGU>
+     <DESCRIPT>Evento que ocorre durante uma atividade de transporte</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>CALCULO_ORDEM_FRETE</CMPNAME>
+     <SCONAME>IV_KEY</SCONAME>
+     <LANGU>P</LANGU>
+     <DESCRIPT>NodeID</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>CALCULO_ORDEM_VENDA</CMPNAME>
+     <SCONAME>IV_AUART</SCONAME>
+     <LANGU>P</LANGU>
+     <DESCRIPT>Tipo de documento de vendas</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>CALCULO_ORDEM_VENDA</CMPNAME>
+     <SCONAME>IV_BSTDK</SCONAME>
+     <LANGU>P</LANGU>
+     <DESCRIPT>Data de referência do cliente</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>CALCULO_ORDEM_VENDA</CMPNAME>
+     <SCONAME>IV_CMFRE</SCONAME>
+     <LANGU>P</LANGU>
+     <DESCRIPT>Data de liberação do documento pela administração de crédito</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>CALCULO_ORDEM_VENDA</CMPNAME>
+     <SCONAME>IV_CMGST</SCONAME>
+     <LANGU>P</LANGU>
+     <DESCRIPT>Status global das verificações de crédito</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>CALCULO_ORDEM_VENDA</CMPNAME>
+     <SCONAME>IV_ERDAT</SCONAME>
+     <LANGU>P</LANGU>
+     <DESCRIPT>Data de criação do registro</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>CALCULO_ORDEM_VENDA</CMPNAME>
+     <SCONAME>IV_LIB_COM</SCONAME>
+     <LANGU>P</LANGU>
+     <DESCRIPT>Data de criação do registro</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>CALCULO_ORDEM_VENDA</CMPNAME>
+     <SCONAME>IV_LIFSK</SCONAME>
+     <LANGU>P</LANGU>
+     <DESCRIPT>Bloqueio da remessa (cabeçalho do documento)</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>CALCULO_ORDEM_VENDA</CMPNAME>
+     <SCONAME>IV_ROUTE</SCONAME>
+     <LANGU>P</LANGU>
+     <DESCRIPT>Itinerário</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>CALCULO_ORDEM_VENDA</CMPNAME>
+     <SCONAME>IV_VBELN</SCONAME>
+     <LANGU>P</LANGU>
+     <DESCRIPT>Documento de vendas</DESCRIPT>
+    </SEOSUBCOTX>
+   </DESCRIPTIONS_SUB>
+  </asx:values>
+ </asx:abap>
+</abapGit>

@@ -1,0 +1,108 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<abapGit version="v1.0.0" serializer="LCL_OBJECT_SPRX" serializer_version="v1.0.0">
+ <asx:abap xmlns:asx="http://www.sap.com/abapxml" version="1.0">
+  <asx:values>
+   <PROXY_HEADER>
+    <item>
+     <OBJECT>TABL</OBJECT>
+     <OBJ_NAME>ZCLSD_DT_STATUS_CRIACAO_ORDEM1</OBJ_NAME>
+     <OBJECT_M>TABL</OBJECT_M>
+     <OBJ_NAME_M>ZCLSD_DT_STATUS_CRIACAO_ORDEM</OBJ_NAME_M>
+     <HASH_ID>3D2E8D7DDB5D530AEDF4507F6E7D204DB8024302</HASH_ID>
+     <ID>&lt;type&gt; Cabecalho &lt;element&gt; Cabecalho &lt;type&gt; dtStatusCriacaoOrdemVenda http://trescoracoes.com.br/vendas/ordem http://trescoracoes.com.br/vendas/ordem</ID>
+     <IFR_TYPE>type</IFR_TYPE>
+     <IFR_NAME>Cabecalho</IFR_NAME>
+     <IFR_NSPCE>http://trescoracoes.com.br/vendas/ordem</IFR_NSPCE>
+     <IFR_GNSPCE>http://trescoracoes.com.br/vendas/ordem</IFR_GNSPCE>
+     <GEN_VERS>0005</GEN_VERS>
+     <PREFIX>ZCLSD_</PREFIX>
+     <CATEGORY>ifmtypedef</CATEGORY>
+     <X-ML_NSPCE>http://trescoracoes.com.br/vendas/ordem</X-ML_NSPCE>
+     <X-ML_NAME>Cabecalho</X-ML_NAME>
+    </item>
+   </PROXY_HEADER>
+   <PROXY_DATA>
+    <item>
+     <OBJECT>TABL</OBJECT>
+     <OBJ_NAME>ZCLSD_DT_STATUS_CRIACAO_ORDEM1</OBJ_NAME>
+     <OBJECT1>FIEL</OBJECT1>
+     <OBJ_NAME1>PURCH_NO_C</OBJ_NAME1>
+     <OBJECT2>FIEL</OBJECT2>
+     <OBJ_NAME2>PURCH_NO_C</OBJ_NAME2>
+     <ID>&lt;element&gt; PURCH_NO_C &lt;type&gt; Cabecalho &lt;element&gt; Cabecalho &lt;type&gt; dtStatusCriacaoOrdemVenda http://trescoracoes.com.br/vendas/ordem http://trescoracoes.com.br/vendas/ordem</ID>
+     <IFR_TYPE>element</IFR_TYPE>
+     <IFR_NAME>PURCH_NO_C</IFR_NAME>
+     <IFR_LANGU>EN</IFR_LANGU>
+     <IFR_TAGTYP>E</IFR_TAGTYP>
+     <IFR_MINOCC>1</IFR_MINOCC>
+     <IFR_MAXOCC>1</IFR_MAXOCC>
+     <IFR_XSDTYP>string</IFR_XSDTYP>
+     <IFR_SCALE>-2</IFR_SCALE>
+     <R3_TYPE>FIEL</R3_TYPE>
+     <R3_NAME>PURCH_NO_C</R3_NAME>
+     <R3_DATATYP>STRG</R3_DATATYP>
+     <R3_SEQNUM>000001</R3_SEQNUM>
+    </item>
+    <item>
+     <OBJECT>TABL</OBJECT>
+     <OBJ_NAME>ZCLSD_DT_STATUS_CRIACAO_ORDEM1</OBJ_NAME>
+     <OBJECT1>FIEL</OBJECT1>
+     <OBJ_NAME1>RETURN</OBJ_NAME1>
+     <OBJECT2>FIEL</OBJECT2>
+     <OBJ_NAME2>RETURN</OBJ_NAME2>
+     <OBJECT_R>TTYP</OBJECT_R>
+     <OBJ_NAME_R>ZCLSD_DT_STATUS_CRIACAO_OR_TAB</OBJ_NAME_R>
+     <ID>&lt;element&gt; RETURN &lt;type&gt; Cabecalho &lt;element&gt; Cabecalho &lt;type&gt; dtStatusCriacaoOrdemVenda http://trescoracoes.com.br/vendas/ordem http://trescoracoes.com.br/vendas/ordem</ID>
+     <IFR_TYPE>element</IFR_TYPE>
+     <IFR_NAME>RETURN</IFR_NAME>
+     <IFR_LANGU>EN</IFR_LANGU>
+     <IFR_TAGTYP>L</IFR_TAGTYP>
+     <IFR_MAXOCC>65535</IFR_MAXOCC>
+     <IFR_OPTNL>X</IFR_OPTNL>
+     <IFR_SCALE>-2</IFR_SCALE>
+     <R3_TYPE>FIEL</R3_TYPE>
+     <R3_NAME>RETURN</R3_NAME>
+     <R3_SEQNUM>000003</R3_SEQNUM>
+    </item>
+    <item>
+     <OBJECT>TABL</OBJECT>
+     <OBJ_NAME>ZCLSD_DT_STATUS_CRIACAO_ORDEM1</OBJ_NAME>
+     <OBJECT1>FIEL</OBJECT1>
+     <OBJ_NAME1>SALESDOCUM</OBJ_NAME1>
+     <OBJECT2>FIEL</OBJECT2>
+     <OBJ_NAME2>SALESDOCUM</OBJ_NAME2>
+     <ID>&lt;element&gt; SALESDOCUM &lt;type&gt; Cabecalho &lt;element&gt; Cabecalho &lt;type&gt; dtStatusCriacaoOrdemVenda http://trescoracoes.com.br/vendas/ordem http://trescoracoes.com.br/vendas/ordem</ID>
+     <IFR_TYPE>element</IFR_TYPE>
+     <IFR_NAME>SALESDOCUM</IFR_NAME>
+     <IFR_LANGU>EN</IFR_LANGU>
+     <IFR_TAGTYP>E</IFR_TAGTYP>
+     <IFR_MAXOCC>1</IFR_MAXOCC>
+     <IFR_OPTNL>X</IFR_OPTNL>
+     <IFR_XSDTYP>string</IFR_XSDTYP>
+     <IFR_SCALE>-2</IFR_SCALE>
+     <R3_TYPE>FIEL</R3_TYPE>
+     <R3_NAME>SALESDOCUM</R3_NAME>
+     <R3_DATATYP>STRG</R3_DATATYP>
+     <R3_SEQNUM>000002</R3_SEQNUM>
+    </item>
+    <item>
+     <OBJECT>TABL</OBJECT>
+     <OBJ_NAME>ZCLSD_DT_STATUS_CRIACAO_ORDEM1</OBJ_NAME>
+     <OBJECT1>TABL</OBJECT1>
+     <OBJ_NAME1>ZCLSD_DT_STATUS_CRIACAO_ORDEM1</OBJ_NAME1>
+     <OBJECT2>TABL</OBJECT2>
+     <OBJ_NAME2>ZCLSD_DT_STATUS_CRIACAO_ORDEM1</OBJ_NAME2>
+     <ID>&lt;type&gt; Cabecalho &lt;element&gt; Cabecalho &lt;type&gt; dtStatusCriacaoOrdemVenda http://trescoracoes.com.br/vendas/ordem http://trescoracoes.com.br/vendas/ordem</ID>
+     <IFR_TYPE>type</IFR_TYPE>
+     <IFR_NAME>Cabecalho</IFR_NAME>
+     <IFR_LANGU>EN</IFR_LANGU>
+     <IFR_SCALE>-2</IFR_SCALE>
+     <R3_TYPE>TABL</R3_TYPE>
+     <R3_NAME>ZCLSD_DT_STATUS_CRIACAO_ORDEM1</R3_NAME>
+     <R3_TEXT>Proxy Structure (generated)</R3_TEXT>
+     <CATEGORY>ifmtypedef</CATEGORY>
+    </item>
+   </PROXY_DATA>
+  </asx:values>
+ </asx:abap>
+</abapGit>

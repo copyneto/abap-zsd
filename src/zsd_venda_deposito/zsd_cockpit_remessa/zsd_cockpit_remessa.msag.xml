@@ -1,0 +1,128 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<abapGit version="v1.0.0" serializer="LCL_OBJECT_MSAG" serializer_version="v1.0.0">
+ <asx:abap xmlns:asx="http://www.sap.com/abapxml" version="1.0">
+  <asx:values>
+   <T100A>
+    <ARBGB>ZSD_COCKPIT_REMESSA</ARBGB>
+    <MASTERLANG>P</MASTERLANG>
+    <STEXT>Cockpit gerenciamento de remessas</STEXT>
+   </T100A>
+   <T100>
+    <T100>
+     <SPRSL>P</SPRSL>
+     <ARBGB>ZSD_COCKPIT_REMESSA</ARBGB>
+     <MSGNR>000</MSGNR>
+     <TEXT>&amp;1&amp;2&amp;3&amp;4</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>P</SPRSL>
+     <ARBGB>ZSD_COCKPIT_REMESSA</ARBGB>
+     <MSGNR>001</MSGNR>
+     <TEXT>Remessa &amp;1 atualizada com sucesso.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>P</SPRSL>
+     <ARBGB>ZSD_COCKPIT_REMESSA</ARBGB>
+     <MSGNR>002</MSGNR>
+     <TEXT>Param. &apos;Liberar para Roteirização&apos; não cadastrado: [&amp;1/&amp;2/&amp;3/&amp;4].</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>P</SPRSL>
+     <ARBGB>ZSD_COCKPIT_REMESSA</ARBGB>
+     <MSGNR>003</MSGNR>
+     <TEXT>Param. &apos;Enviar para Roteirização&apos; não cadastrado: [&amp;1/&amp;2/&amp;3/&amp;4].</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>P</SPRSL>
+     <ARBGB>ZSD_COCKPIT_REMESSA</ARBGB>
+     <MSGNR>004</MSGNR>
+     <TEXT>Bloqueio &apos;&amp;1&apos; não encontrado.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>P</SPRSL>
+     <ARBGB>ZSD_COCKPIT_REMESSA</ARBGB>
+     <MSGNR>005</MSGNR>
+     <TEXT>Remessa &amp;1 eliminada com sucesso.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>P</SPRSL>
+     <ARBGB>ZSD_COCKPIT_REMESSA</ARBGB>
+     <MSGNR>006</MSGNR>
+     <TEXT>Param. &apos;Enviar para Liberação&apos; não cadastrado: [&amp;1/&amp;2/&amp;3/&amp;4].</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>P</SPRSL>
+     <ARBGB>ZSD_COCKPIT_REMESSA</ARBGB>
+     <MSGNR>007</MSGNR>
+     <TEXT>Erro ao extrair parâmetro. Verificar valores: [&amp;1/&amp;2/&amp;3/&amp;4].</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>P</SPRSL>
+     <ARBGB>ZSD_COCKPIT_REMESSA</ARBGB>
+     <MSGNR>008</MSGNR>
+     <TEXT>Param. &apos;Local expedição&apos; não cadastrado: [&amp;1/&amp;2/&amp;3/&amp;4].</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>P</SPRSL>
+     <ARBGB>ZSD_COCKPIT_REMESSA</ARBGB>
+     <MSGNR>009</MSGNR>
+     <TEXT>Param. &apos;Prioridade de remessa&apos; não cadastrado: [&amp;1/&amp;2/&amp;3/&amp;4].</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>P</SPRSL>
+     <ARBGB>ZSD_COCKPIT_REMESSA</ARBGB>
+     <MSGNR>010</MSGNR>
+     <TEXT>Sem autorização para acessar esta funcionalidade.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>P</SPRSL>
+     <ARBGB>ZSD_COCKPIT_REMESSA</ARBGB>
+     <MSGNR>011</MSGNR>
+     <TEXT>Param. de ativação da lógica da EXIT não cadastrado: [&amp;1/&amp;2/&amp;3/&amp;4].</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>P</SPRSL>
+     <ARBGB>ZSD_COCKPIT_REMESSA</ARBGB>
+     <MSGNR>012</MSGNR>
+     <TEXT>Valor da remessa &amp;1 nao atinge &amp;2.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>P</SPRSL>
+     <ARBGB>ZSD_COCKPIT_REMESSA</ARBGB>
+     <MSGNR>013</MSGNR>
+     <TEXT>A remessa &amp;1 já possui fatura.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>P</SPRSL>
+     <ARBGB>ZSD_COCKPIT_REMESSA</ARBGB>
+     <MSGNR>014</MSGNR>
+     <TEXT>A remessa &amp;1 foi gravada com sucesso!</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>P</SPRSL>
+     <ARBGB>ZSD_COCKPIT_REMESSA</ARBGB>
+     <MSGNR>015</MSGNR>
+     <TEXT>A remessa &amp;1 não possui status de solicitar retorno simbólico</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>P</SPRSL>
+     <ARBGB>ZSD_COCKPIT_REMESSA</ARBGB>
+     <MSGNR>016</MSGNR>
+     <TEXT>Retorno simbólico já solicitado</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>P</SPRSL>
+     <ARBGB>ZSD_COCKPIT_REMESSA</ARBGB>
+     <MSGNR>017</MSGNR>
+     <TEXT>Atualização da remessa &amp;1 em processamento</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>P</SPRSL>
+     <ARBGB>ZSD_COCKPIT_REMESSA</ARBGB>
+     <MSGNR>018</MSGNR>
+     <TEXT>Enviar para Roteirização em processamento</TEXT>
+    </T100>
+   </T100>
+  </asx:values>
+ </asx:abap>
+</abapGit>

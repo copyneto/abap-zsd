@@ -1,0 +1,87 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<abapGit version="v1.0.0" serializer="LCL_OBJECT_FUGR" serializer_version="v1.0.0">
+ <asx:abap xmlns:asx="http://www.sap.com/abapxml" version="1.0">
+  <asx:values>
+   <AREAT>Grupo para Interface SAGA</AREAT>
+   <INCLUDES>
+    <SOBJ_NAME>LZFGSD_SAGA_ENVIO_PRE_REGISTOP</SOBJ_NAME>
+    <SOBJ_NAME>SAPLZFGSD_SAGA_ENVIO_PRE_REGIS</SOBJ_NAME>
+   </INCLUDES>
+   <FUNCTIONS>
+    <item>
+     <FUNCNAME>ZFMMM_SAGA_ENVIO_PRE_REGISTRO</FUNCNAME>
+     <REMOTE_CALL>R</REMOTE_CALL>
+     <SHORT_TEXT>FM UPDATE TASK ENVIO APOS SALVAR REMESSA</SHORT_TEXT>
+     <IMPORT>
+      <RSIMP>
+       <PARAMETER>IV_REMESSA</PARAMETER>
+       <TYP>VBELN</TYP>
+      </RSIMP>
+      <RSIMP>
+       <PARAMETER>IV_XBLNR</PARAMETER>
+       <OPTIONAL>X</OPTIONAL>
+       <TYP>XBLNR</TYP>
+      </RSIMP>
+      <RSIMP>
+       <PARAMETER>IV_INNFEHD</PARAMETER>
+       <OPTIONAL>X</OPTIONAL>
+       <TYP>/XNFE/INNFEHD</TYP>
+      </RSIMP>
+      <RSIMP>
+       <PARAMETER>IV_EBELN</PARAMETER>
+       <OPTIONAL>X</OPTIONAL>
+       <TYP>EBELN</TYP>
+      </RSIMP>
+      <RSIMP>
+       <PARAMETER>IV_ENTREGA</PARAMETER>
+       <OPTIONAL>X</OPTIONAL>
+       <TYP>/SCMTMS/BASE_BTD_TCO</TYP>
+      </RSIMP>
+     </IMPORT>
+     <DOCUMENTATION>
+      <RSFDO>
+       <PARAMETER>IV_REMESSA</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Número do documento de vendas e distribuição</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>IV_XBLNR</PARAMETER>
+       <KIND>P</KIND>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>IV_INNFEHD</PARAMETER>
+       <KIND>P</KIND>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>IV_EBELN</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Nº do documento de compras</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>IV_ENTREGA</PARAMETER>
+       <KIND>P</KIND>
+      </RSFDO>
+     </DOCUMENTATION>
+    </item>
+    <item>
+     <FUNCNAME>ZFMSD_SAGA_ENVIO_PRE_REGISTRO</FUNCNAME>
+     <REMOTE_CALL>R</REMOTE_CALL>
+     <SHORT_TEXT>FM UPDATE TASK ENVIO APOS SALVAR REMESSA</SHORT_TEXT>
+     <IMPORT>
+      <RSIMP>
+       <PARAMETER>IV_REMESSA</PARAMETER>
+       <TYP>VBELN</TYP>
+      </RSIMP>
+     </IMPORT>
+     <DOCUMENTATION>
+      <RSFDO>
+       <PARAMETER>IV_REMESSA</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Número do documento de vendas e distribuição</STEXT>
+      </RSFDO>
+     </DOCUMENTATION>
+    </item>
+   </FUNCTIONS>
+  </asx:values>
+ </asx:abap>
+</abapGit>

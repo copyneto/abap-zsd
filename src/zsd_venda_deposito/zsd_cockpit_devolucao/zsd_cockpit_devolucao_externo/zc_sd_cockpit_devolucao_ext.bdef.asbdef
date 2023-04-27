@@ -1,0 +1,7 @@
+projection;
+
+define behavior for ZC_SD_COCKPIT_DEVOLUCAO_EXT
+{
+
+  use action DesbloquearRemessa;
+}

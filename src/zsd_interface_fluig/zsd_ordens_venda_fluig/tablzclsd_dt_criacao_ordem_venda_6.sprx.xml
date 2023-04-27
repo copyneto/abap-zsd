@@ -1,0 +1,342 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<abapGit version="v1.0.0" serializer="LCL_OBJECT_SPRX" serializer_version="v1.0.0">
+ <asx:abap xmlns:asx="http://www.sap.com/abapxml" version="1.0">
+  <asx:values>
+   <PROXY_HEADER>
+    <item>
+     <OBJECT>TABL</OBJECT>
+     <OBJ_NAME>ZCLSD_DT_CRIACAO_ORDEM_VENDA_6</OBJ_NAME>
+     <OBJECT_M>TABL</OBJECT_M>
+     <OBJ_NAME_M>ZCLSD_DT_CRIACAO_ORDEM_VENDA_F</OBJ_NAME_M>
+     <HASH_ID>8A10DB46CD0FB8277298648309A035C731AA3138</HASH_ID>
+     <ID>&lt;type&gt; Cabecalho &lt;element&gt; Cabecalho &lt;type&gt; dtCriacaoOrdemVendaFluig http://trescoracoes.com.br/vendas/ordem http://trescoracoes.com.br/vendas/ordem</ID>
+     <IFR_TYPE>type</IFR_TYPE>
+     <IFR_NAME>Cabecalho</IFR_NAME>
+     <IFR_NSPCE>http://trescoracoes.com.br/vendas/ordem</IFR_NSPCE>
+     <IFR_GNSPCE>http://trescoracoes.com.br/vendas/ordem</IFR_GNSPCE>
+     <GEN_VERS>0005</GEN_VERS>
+     <PREFIX>ZCLSD_</PREFIX>
+     <CATEGORY>ifmtypedef</CATEGORY>
+     <X-ML_NSPCE>http://trescoracoes.com.br/vendas/ordem</X-ML_NSPCE>
+     <X-ML_NAME>Cabecalho</X-ML_NAME>
+    </item>
+   </PROXY_HEADER>
+   <PROXY_DATA>
+    <item>
+     <OBJECT>TABL</OBJECT>
+     <OBJ_NAME>ZCLSD_DT_CRIACAO_ORDEM_VENDA_6</OBJ_NAME>
+     <OBJECT1>FIEL</OBJECT1>
+     <OBJ_NAME1>DISTR_CHAN</OBJ_NAME1>
+     <OBJECT2>FIEL</OBJECT2>
+     <OBJ_NAME2>DISTR_CHAN</OBJ_NAME2>
+     <ID>&lt;element&gt; DISTR_CHAN &lt;type&gt; Cabecalho &lt;element&gt; Cabecalho &lt;type&gt; dtCriacaoOrdemVendaFluig http://trescoracoes.com.br/vendas/ordem http://trescoracoes.com.br/vendas/ordem</ID>
+     <IFR_TYPE>element</IFR_TYPE>
+     <IFR_NAME>DISTR_CHAN</IFR_NAME>
+     <IFR_TEXT>Canal de Distribuição</IFR_TEXT>
+     <IFR_LANGU>EN</IFR_LANGU>
+     <IFR_TAGTYP>E</IFR_TAGTYP>
+     <IFR_MINOCC>1</IFR_MINOCC>
+     <IFR_MAXOCC>1</IFR_MAXOCC>
+     <IFR_XSDTYP>string</IFR_XSDTYP>
+     <IFR_SCALE>-2</IFR_SCALE>
+     <R3_TYPE>FIEL</R3_TYPE>
+     <R3_NAME>DISTR_CHAN</R3_NAME>
+     <R3_TEXT>Canal de Distribuição</R3_TEXT>
+     <R3_DATATYP>STRG</R3_DATATYP>
+     <R3_SEQNUM>000006</R3_SEQNUM>
+    </item>
+    <item>
+     <OBJECT>TABL</OBJECT>
+     <OBJ_NAME>ZCLSD_DT_CRIACAO_ORDEM_VENDA_6</OBJ_NAME>
+     <OBJECT1>FIEL</OBJECT1>
+     <OBJ_NAME1>DLV_PRIO</OBJ_NAME1>
+     <OBJECT2>FIEL</OBJECT2>
+     <OBJ_NAME2>DLV_PRIO</OBJ_NAME2>
+     <ID>&lt;element&gt; DLV_PRIO &lt;type&gt; Cabecalho &lt;element&gt; Cabecalho &lt;type&gt; dtCriacaoOrdemVendaFluig http://trescoracoes.com.br/vendas/ordem http://trescoracoes.com.br/vendas/ordem</ID>
+     <IFR_TYPE>element</IFR_TYPE>
+     <IFR_NAME>DLV_PRIO</IFR_NAME>
+     <IFR_TEXT>Prioridade de remessa</IFR_TEXT>
+     <IFR_LANGU>EN</IFR_LANGU>
+     <IFR_TAGTYP>E</IFR_TAGTYP>
+     <IFR_MAXOCC>1</IFR_MAXOCC>
+     <IFR_OPTNL>X</IFR_OPTNL>
+     <IFR_XSDTYP>string</IFR_XSDTYP>
+     <IFR_SCALE>-2</IFR_SCALE>
+     <R3_TYPE>FIEL</R3_TYPE>
+     <R3_NAME>DLV_PRIO</R3_NAME>
+     <R3_TEXT>Prioridade de remessa</R3_TEXT>
+     <R3_DATATYP>STRG</R3_DATATYP>
+     <R3_SEQNUM>000009</R3_SEQNUM>
+    </item>
+    <item>
+     <OBJECT>TABL</OBJECT>
+     <OBJ_NAME>ZCLSD_DT_CRIACAO_ORDEM_VENDA_6</OBJ_NAME>
+     <OBJECT1>FIEL</OBJECT1>
+     <OBJ_NAME1>DOC_TYPE</OBJ_NAME1>
+     <OBJECT2>FIEL</OBJECT2>
+     <OBJ_NAME2>DOC_TYPE</OBJ_NAME2>
+     <ID>&lt;element&gt; DOC_TYPE &lt;type&gt; Cabecalho &lt;element&gt; Cabecalho &lt;type&gt; dtCriacaoOrdemVendaFluig http://trescoracoes.com.br/vendas/ordem http://trescoracoes.com.br/vendas/ordem</ID>
+     <IFR_TYPE>element</IFR_TYPE>
+     <IFR_NAME>DOC_TYPE</IFR_NAME>
+     <IFR_TEXT>Tipo de Documento</IFR_TEXT>
+     <IFR_LANGU>EN</IFR_LANGU>
+     <IFR_TAGTYP>E</IFR_TAGTYP>
+     <IFR_MINOCC>1</IFR_MINOCC>
+     <IFR_MAXOCC>1</IFR_MAXOCC>
+     <IFR_XSDTYP>string</IFR_XSDTYP>
+     <IFR_SCALE>-2</IFR_SCALE>
+     <R3_TYPE>FIEL</R3_TYPE>
+     <R3_NAME>DOC_TYPE</R3_NAME>
+     <R3_TEXT>Tipo de Documento</R3_TEXT>
+     <R3_DATATYP>STRG</R3_DATATYP>
+     <R3_SEQNUM>000004</R3_SEQNUM>
+    </item>
+    <item>
+     <OBJECT>TABL</OBJECT>
+     <OBJ_NAME>ZCLSD_DT_CRIACAO_ORDEM_VENDA_6</OBJ_NAME>
+     <OBJECT1>FIEL</OBJECT1>
+     <OBJ_NAME1>ITENS</OBJ_NAME1>
+     <OBJECT2>FIEL</OBJECT2>
+     <OBJ_NAME2>ITENS</OBJ_NAME2>
+     <OBJECT_R>TTYP</OBJECT_R>
+     <OBJ_NAME_R>ZCLSD_DT_CRIACAO_ORDEM_VE_TAB5</OBJ_NAME_R>
+     <ID>&lt;element&gt; ITENS &lt;type&gt; Cabecalho &lt;element&gt; Cabecalho &lt;type&gt; dtCriacaoOrdemVendaFluig http://trescoracoes.com.br/vendas/ordem http://trescoracoes.com.br/vendas/ordem</ID>
+     <IFR_TYPE>element</IFR_TYPE>
+     <IFR_NAME>ITENS</IFR_NAME>
+     <IFR_LANGU>EN</IFR_LANGU>
+     <IFR_TAGTYP>L</IFR_TAGTYP>
+     <IFR_MINOCC>1</IFR_MINOCC>
+     <IFR_MAXOCC>65535</IFR_MAXOCC>
+     <IFR_SCALE>-2</IFR_SCALE>
+     <R3_TYPE>FIEL</R3_TYPE>
+     <R3_NAME>ITENS</R3_NAME>
+     <R3_SEQNUM>000013</R3_SEQNUM>
+    </item>
+    <item>
+     <OBJECT>TABL</OBJECT>
+     <OBJ_NAME>ZCLSD_DT_CRIACAO_ORDEM_VENDA_6</OBJ_NAME>
+     <OBJECT1>FIEL</OBJECT1>
+     <OBJ_NAME1>ORD_REASON</OBJ_NAME1>
+     <OBJECT2>FIEL</OBJECT2>
+     <OBJ_NAME2>ORD_REASON</OBJ_NAME2>
+     <ID>&lt;element&gt; ORD_REASON &lt;type&gt; Cabecalho &lt;element&gt; Cabecalho &lt;type&gt; dtCriacaoOrdemVendaFluig http://trescoracoes.com.br/vendas/ordem http://trescoracoes.com.br/vendas/ordem</ID>
+     <IFR_TYPE>element</IFR_TYPE>
+     <IFR_NAME>ORD_REASON</IFR_NAME>
+     <IFR_TEXT>Motivo da Ordem</IFR_TEXT>
+     <IFR_LANGU>EN</IFR_LANGU>
+     <IFR_TAGTYP>E</IFR_TAGTYP>
+     <IFR_MAXOCC>1</IFR_MAXOCC>
+     <IFR_OPTNL>X</IFR_OPTNL>
+     <IFR_XSDTYP>string</IFR_XSDTYP>
+     <IFR_SCALE>-2</IFR_SCALE>
+     <R3_TYPE>FIEL</R3_TYPE>
+     <R3_NAME>ORD_REASON</R3_NAME>
+     <R3_TEXT>Motivo da Ordem</R3_TEXT>
+     <R3_DATATYP>STRG</R3_DATATYP>
+     <R3_SEQNUM>000008</R3_SEQNUM>
+    </item>
+    <item>
+     <OBJECT>TABL</OBJECT>
+     <OBJ_NAME>ZCLSD_DT_CRIACAO_ORDEM_VENDA_6</OBJ_NAME>
+     <OBJECT1>FIEL</OBJECT1>
+     <OBJ_NAME1>PARTN_NUMB2</OBJ_NAME1>
+     <OBJECT2>FIEL</OBJECT2>
+     <OBJ_NAME2>PARTN_NUMB2</OBJ_NAME2>
+     <ID>&lt;element&gt; PARTN_NUMB2 &lt;type&gt; Cabecalho &lt;element&gt; Cabecalho &lt;type&gt; dtCriacaoOrdemVendaFluig http://trescoracoes.com.br/vendas/ordem http://trescoracoes.com.br/vendas/ordem</ID>
+     <IFR_TYPE>element</IFR_TYPE>
+     <IFR_NAME>PARTN_NUMB2</IFR_NAME>
+     <IFR_TEXT>Transportadora</IFR_TEXT>
+     <IFR_LANGU>EN</IFR_LANGU>
+     <IFR_TAGTYP>E</IFR_TAGTYP>
+     <IFR_MAXOCC>1</IFR_MAXOCC>
+     <IFR_OPTNL>X</IFR_OPTNL>
+     <IFR_XSDTYP>string</IFR_XSDTYP>
+     <IFR_SCALE>-2</IFR_SCALE>
+     <R3_TYPE>FIEL</R3_TYPE>
+     <R3_NAME>PARTN_NUMB2</R3_NAME>
+     <R3_TEXT>Transportadora</R3_TEXT>
+     <R3_DATATYP>STRG</R3_DATATYP>
+     <R3_SEQNUM>000010</R3_SEQNUM>
+    </item>
+    <item>
+     <OBJECT>TABL</OBJECT>
+     <OBJ_NAME>ZCLSD_DT_CRIACAO_ORDEM_VENDA_6</OBJ_NAME>
+     <OBJECT1>FIEL</OBJECT1>
+     <OBJ_NAME1>PARTN_NUMB3</OBJ_NAME1>
+     <OBJECT2>FIEL</OBJECT2>
+     <OBJ_NAME2>PARTN_NUMB3</OBJ_NAME2>
+     <ID>&lt;element&gt; PARTN_NUMB3 &lt;type&gt; Cabecalho &lt;element&gt; Cabecalho &lt;type&gt; dtCriacaoOrdemVendaFluig http://trescoracoes.com.br/vendas/ordem http://trescoracoes.com.br/vendas/ordem</ID>
+     <IFR_TYPE>element</IFR_TYPE>
+     <IFR_NAME>PARTN_NUMB3</IFR_NAME>
+     <IFR_TEXT>Motorista</IFR_TEXT>
+     <IFR_LANGU>EN</IFR_LANGU>
+     <IFR_TAGTYP>E</IFR_TAGTYP>
+     <IFR_MAXOCC>1</IFR_MAXOCC>
+     <IFR_OPTNL>X</IFR_OPTNL>
+     <IFR_XSDTYP>string</IFR_XSDTYP>
+     <IFR_SCALE>-2</IFR_SCALE>
+     <R3_TYPE>FIEL</R3_TYPE>
+     <R3_NAME>PARTN_NUMB3</R3_NAME>
+     <R3_TEXT>Motorista</R3_TEXT>
+     <R3_DATATYP>STRG</R3_DATATYP>
+     <R3_SEQNUM>000011</R3_SEQNUM>
+    </item>
+    <item>
+     <OBJECT>TABL</OBJECT>
+     <OBJ_NAME>ZCLSD_DT_CRIACAO_ORDEM_VENDA_6</OBJ_NAME>
+     <OBJECT1>FIEL</OBJECT1>
+     <OBJ_NAME1>PURCH_NO_C</OBJ_NAME1>
+     <OBJECT2>FIEL</OBJECT2>
+     <OBJ_NAME2>PURCH_NO_C</OBJ_NAME2>
+     <ID>&lt;element&gt; PURCH_NO_C &lt;type&gt; Cabecalho &lt;element&gt; Cabecalho &lt;type&gt; dtCriacaoOrdemVendaFluig http://trescoracoes.com.br/vendas/ordem http://trescoracoes.com.br/vendas/ordem</ID>
+     <IFR_TYPE>element</IFR_TYPE>
+     <IFR_NAME>PURCH_NO_C</IFR_NAME>
+     <IFR_TEXT>Número da Solicitação</IFR_TEXT>
+     <IFR_LANGU>EN</IFR_LANGU>
+     <IFR_TAGTYP>E</IFR_TAGTYP>
+     <IFR_MINOCC>1</IFR_MINOCC>
+     <IFR_MAXOCC>1</IFR_MAXOCC>
+     <IFR_XSDTYP>string</IFR_XSDTYP>
+     <IFR_SCALE>-2</IFR_SCALE>
+     <R3_TYPE>FIEL</R3_TYPE>
+     <R3_NAME>PURCH_NO_C</R3_NAME>
+     <R3_TEXT>Número da Solicitação</R3_TEXT>
+     <R3_DATATYP>STRG</R3_DATATYP>
+     <R3_SEQNUM>000001</R3_SEQNUM>
+    </item>
+    <item>
+     <OBJECT>TABL</OBJECT>
+     <OBJ_NAME>ZCLSD_DT_CRIACAO_ORDEM_VENDA_6</OBJ_NAME>
+     <OBJECT1>FIEL</OBJECT1>
+     <OBJ_NAME1>PURCH_NO_S</OBJ_NAME1>
+     <OBJECT2>FIEL</OBJECT2>
+     <OBJ_NAME2>PURCH_NO_S</OBJ_NAME2>
+     <ID>&lt;element&gt; PURCH_NO_S &lt;type&gt; Cabecalho &lt;element&gt; Cabecalho &lt;type&gt; dtCriacaoOrdemVendaFluig http://trescoracoes.com.br/vendas/ordem http://trescoracoes.com.br/vendas/ordem</ID>
+     <IFR_TYPE>element</IFR_TYPE>
+     <IFR_NAME>PURCH_NO_S</IFR_NAME>
+     <IFR_TEXT>Número pedido Cliente</IFR_TEXT>
+     <IFR_LANGU>EN</IFR_LANGU>
+     <IFR_TAGTYP>E</IFR_TAGTYP>
+     <IFR_MINOCC>1</IFR_MINOCC>
+     <IFR_MAXOCC>1</IFR_MAXOCC>
+     <IFR_XSDTYP>string</IFR_XSDTYP>
+     <IFR_SCALE>-2</IFR_SCALE>
+     <R3_TYPE>FIEL</R3_TYPE>
+     <R3_NAME>PURCH_NO_S</R3_NAME>
+     <R3_TEXT>Número pedido Cliente</R3_TEXT>
+     <R3_DATATYP>STRG</R3_DATATYP>
+     <R3_SEQNUM>000007</R3_SEQNUM>
+    </item>
+    <item>
+     <OBJECT>TABL</OBJECT>
+     <OBJ_NAME>ZCLSD_DT_CRIACAO_ORDEM_VENDA_6</OBJ_NAME>
+     <OBJECT1>FIEL</OBJECT1>
+     <OBJ_NAME1>PYMT_METH</OBJ_NAME1>
+     <OBJECT2>FIEL</OBJECT2>
+     <OBJ_NAME2>PYMT_METH</OBJ_NAME2>
+     <ID>&lt;element&gt; PYMT_METH &lt;type&gt; Cabecalho &lt;element&gt; Cabecalho &lt;type&gt; dtCriacaoOrdemVendaFluig http://trescoracoes.com.br/vendas/ordem http://trescoracoes.com.br/vendas/ordem</ID>
+     <IFR_TYPE>element</IFR_TYPE>
+     <IFR_NAME>PYMT_METH</IFR_NAME>
+     <IFR_TEXT>Meio de Pagamento</IFR_TEXT>
+     <IFR_LANGU>EN</IFR_LANGU>
+     <IFR_TAGTYP>E</IFR_TAGTYP>
+     <IFR_MAXOCC>1</IFR_MAXOCC>
+     <IFR_OPTNL>X</IFR_OPTNL>
+     <IFR_XSDTYP>string</IFR_XSDTYP>
+     <IFR_SCALE>-2</IFR_SCALE>
+     <R3_TYPE>FIEL</R3_TYPE>
+     <R3_NAME>PYMT_METH</R3_NAME>
+     <R3_TEXT>Meio de Pagamento</R3_TEXT>
+     <R3_DATATYP>STRG</R3_DATATYP>
+     <R3_SEQNUM>000005</R3_SEQNUM>
+    </item>
+    <item>
+     <OBJECT>TABL</OBJECT>
+     <OBJ_NAME>ZCLSD_DT_CRIACAO_ORDEM_VENDA_6</OBJ_NAME>
+     <OBJECT1>FIEL</OBJECT1>
+     <OBJ_NAME1>SALES_ORG</OBJ_NAME1>
+     <OBJECT2>FIEL</OBJECT2>
+     <OBJ_NAME2>SALES_ORG</OBJ_NAME2>
+     <ID>&lt;element&gt; SALES_ORG &lt;type&gt; Cabecalho &lt;element&gt; Cabecalho &lt;type&gt; dtCriacaoOrdemVendaFluig http://trescoracoes.com.br/vendas/ordem http://trescoracoes.com.br/vendas/ordem</ID>
+     <IFR_TYPE>element</IFR_TYPE>
+     <IFR_NAME>SALES_ORG</IFR_NAME>
+     <IFR_TEXT>Organização de Vendas</IFR_TEXT>
+     <IFR_LANGU>EN</IFR_LANGU>
+     <IFR_TAGTYP>E</IFR_TAGTYP>
+     <IFR_MINOCC>1</IFR_MINOCC>
+     <IFR_MAXOCC>1</IFR_MAXOCC>
+     <IFR_XSDTYP>string</IFR_XSDTYP>
+     <IFR_SCALE>-2</IFR_SCALE>
+     <R3_TYPE>FIEL</R3_TYPE>
+     <R3_NAME>SALES_ORG</R3_NAME>
+     <R3_TEXT>Organização de Vendas</R3_TEXT>
+     <R3_DATATYP>STRG</R3_DATATYP>
+     <R3_SEQNUM>000003</R3_SEQNUM>
+    </item>
+    <item>
+     <OBJECT>TABL</OBJECT>
+     <OBJ_NAME>ZCLSD_DT_CRIACAO_ORDEM_VENDA_6</OBJ_NAME>
+     <OBJECT1>FIEL</OBJECT1>
+     <OBJ_NAME1>SOLICITANTE</OBJ_NAME1>
+     <OBJECT2>FIEL</OBJECT2>
+     <OBJ_NAME2>SOLICITANTE</OBJ_NAME2>
+     <ID>&lt;element&gt; SOLICITANTE &lt;type&gt; Cabecalho &lt;element&gt; Cabecalho &lt;type&gt; dtCriacaoOrdemVendaFluig http://trescoracoes.com.br/vendas/ordem http://trescoracoes.com.br/vendas/ordem</ID>
+     <IFR_TYPE>element</IFR_TYPE>
+     <IFR_NAME>SOLICITANTE</IFR_NAME>
+     <IFR_TEXT>Solicitante</IFR_TEXT>
+     <IFR_LANGU>EN</IFR_LANGU>
+     <IFR_TAGTYP>E</IFR_TAGTYP>
+     <IFR_MINOCC>1</IFR_MINOCC>
+     <IFR_MAXOCC>1</IFR_MAXOCC>
+     <IFR_XSDTYP>string</IFR_XSDTYP>
+     <IFR_SCALE>-2</IFR_SCALE>
+     <R3_TYPE>FIEL</R3_TYPE>
+     <R3_NAME>SOLICITANTE</R3_NAME>
+     <R3_TEXT>Solicitante</R3_TEXT>
+     <R3_DATATYP>STRG</R3_DATATYP>
+     <R3_SEQNUM>000002</R3_SEQNUM>
+    </item>
+    <item>
+     <OBJECT>TABL</OBJECT>
+     <OBJ_NAME>ZCLSD_DT_CRIACAO_ORDEM_VENDA_6</OBJ_NAME>
+     <OBJECT1>FIEL</OBJECT1>
+     <OBJ_NAME1>ZZ1_TRAID</OBJ_NAME1>
+     <OBJECT2>FIEL</OBJECT2>
+     <OBJ_NAME2>ZZ1_TRAID</OBJ_NAME2>
+     <ID>&lt;element&gt; ZZ1_TRAID &lt;type&gt; Cabecalho &lt;element&gt; Cabecalho &lt;type&gt; dtCriacaoOrdemVendaFluig http://trescoracoes.com.br/vendas/ordem http://trescoracoes.com.br/vendas/ordem</ID>
+     <IFR_TYPE>element</IFR_TYPE>
+     <IFR_NAME>ZZ1_TRAID</IFR_NAME>
+     <IFR_TEXT>Placa</IFR_TEXT>
+     <IFR_LANGU>EN</IFR_LANGU>
+     <IFR_TAGTYP>E</IFR_TAGTYP>
+     <IFR_MAXOCC>1</IFR_MAXOCC>
+     <IFR_OPTNL>X</IFR_OPTNL>
+     <IFR_XSDTYP>string</IFR_XSDTYP>
+     <IFR_SCALE>-2</IFR_SCALE>
+     <R3_TYPE>FIEL</R3_TYPE>
+     <R3_NAME>ZZ1_TRAID</R3_NAME>
+     <R3_TEXT>Placa</R3_TEXT>
+     <R3_DATATYP>STRG</R3_DATATYP>
+     <R3_SEQNUM>000012</R3_SEQNUM>
+    </item>
+    <item>
+     <OBJECT>TABL</OBJECT>
+     <OBJ_NAME>ZCLSD_DT_CRIACAO_ORDEM_VENDA_6</OBJ_NAME>
+     <OBJECT1>TABL</OBJECT1>
+     <OBJ_NAME1>ZCLSD_DT_CRIACAO_ORDEM_VENDA_6</OBJ_NAME1>
+     <OBJECT2>TABL</OBJECT2>
+     <OBJ_NAME2>ZCLSD_DT_CRIACAO_ORDEM_VENDA_6</OBJ_NAME2>
+     <ID>&lt;type&gt; Cabecalho &lt;element&gt; Cabecalho &lt;type&gt; dtCriacaoOrdemVendaFluig http://trescoracoes.com.br/vendas/ordem http://trescoracoes.com.br/vendas/ordem</ID>
+     <IFR_TYPE>type</IFR_TYPE>
+     <IFR_NAME>Cabecalho</IFR_NAME>
+     <IFR_LANGU>EN</IFR_LANGU>
+     <IFR_SCALE>-2</IFR_SCALE>
+     <R3_TYPE>TABL</R3_TYPE>
+     <R3_NAME>ZCLSD_DT_CRIACAO_ORDEM_VENDA_6</R3_NAME>
+     <R3_TEXT>Proxy Structure (generated)</R3_TEXT>
+     <CATEGORY>ifmtypedef</CATEGORY>
+    </item>
+   </PROXY_DATA>
+  </asx:values>
+ </asx:abap>
+</abapGit>

@@ -1,0 +1,104 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<abapGit version="v1.0.0" serializer="LCL_OBJECT_SPRX" serializer_version="v1.0.0">
+ <asx:abap xmlns:asx="http://www.sap.com/abapxml" version="1.0">
+  <asx:values>
+   <PROXY_HEADER>
+    <item>
+     <OBJECT>CLAS</OBJECT>
+     <OBJ_NAME>ZCLSD_CO_SI_ENVIAR_DADOS_CONFI</OBJ_NAME>
+     <OBJECT_M>CLAS</OBJECT_M>
+     <OBJ_NAME_M>ZCLSD_CO_SI_ENVIAR_DADOS_CONFI</OBJ_NAME_M>
+     <HASH_ID>41617FBD131FA7C8A91A0C8FECCE92539F4F84B0</HASH_ID>
+     <ID>&lt;portType&gt; siEnviarDadosConfigUfOut http://trescoracoes.com.br/gnre-pe/configuf http://trescoracoes.com.br/gnre-pe/configuf</ID>
+     <IFR_GLOBAL>X</IFR_GLOBAL>
+     <IFR_TYPE>portType</IFR_TYPE>
+     <IFR_NAME>siEnviarDadosConfigUfOut</IFR_NAME>
+     <IFR_NSPCE>http://trescoracoes.com.br/gnre-pe/configuf</IFR_NSPCE>
+     <IFR_GNSPCE>http://trescoracoes.com.br/gnre-pe/configuf</IFR_GNSPCE>
+     <GEN_VERS>0006</GEN_VERS>
+     <PREFIX>ZCLSD_</PREFIX>
+     <CATEGORY>ifmmessif</CATEGORY>
+     <DIRECTION>O</DIRECTION>
+     <SYNCHRON>D</SYNCHRON>
+     <X-ML_NSPCE>http://trescoracoes.com.br/gnre-pe/configuf</X-ML_NSPCE>
+     <X-ML_NAME>siEnviarDadosConfigUfOut</X-ML_NAME>
+     <FURTHER_DATA>&lt;asx:abap xmlns:asx=&quot;http://www.sap.com/abapxml&quot; version=&quot;1.0&quot;&gt;&lt;asx:values&gt;&lt;DATA&gt;&lt;SOAP_APPL&gt;urn:sap-com:soap:application:esr:client:710&lt;/SOAP_APPL&gt;&lt;/DATA&gt;&lt;/asx:values&gt;&lt;/asx:abap&gt;</FURTHER_DATA>
+     <VERSION_ID>b72ff7d2e1e011eca7d000000085a0ca</VERSION_ID>
+    </item>
+   </PROXY_HEADER>
+   <PROXY_DATA>
+    <item>
+     <OBJECT>CLAS</OBJECT>
+     <OBJ_NAME>ZCLSD_CO_SI_ENVIAR_DADOS_CONFI</OBJ_NAME>
+     <OBJECT1>CLAS</OBJECT1>
+     <OBJ_NAME1>ZCLSD_CO_SI_ENVIAR_DADOS_CONFI</OBJ_NAME1>
+     <OBJECT2>CLAS</OBJECT2>
+     <OBJ_NAME2>ZCLSD_CO_SI_ENVIAR_DADOS_CONFI</OBJ_NAME2>
+     <ID>&lt;portType&gt; siEnviarDadosConfigUfOut http://trescoracoes.com.br/gnre-pe/configuf http://trescoracoes.com.br/gnre-pe/configuf</ID>
+     <IFR_TYPE>portType</IFR_TYPE>
+     <IFR_NAME>siEnviarDadosConfigUfOut</IFR_NAME>
+     <IFR_LANGU>EN</IFR_LANGU>
+     <IFR_SCALE>-2</IFR_SCALE>
+     <R3_TYPE>CLAS</R3_TYPE>
+     <R3_NAME>ZCLSD_CO_SI_ENVIAR_DADOS_CONFI</R3_NAME>
+     <R3_TEXT>Proxy Class (generated)</R3_TEXT>
+     <CATEGORY>ifmmessif</CATEGORY>
+     <DIRECTION>O</DIRECTION>
+     <SYNCHRON>D</SYNCHRON>
+    </item>
+    <item>
+     <OBJECT>CLAS</OBJECT>
+     <OBJ_NAME>ZCLSD_CO_SI_ENVIAR_DADOS_CONFI</OBJ_NAME>
+     <OBJECT1>METH</OBJECT1>
+     <OBJ_NAME1>SI_ENVIAR_DADOS_CONFIG_UF_OUT</OBJ_NAME1>
+     <OBJECT2>METH</OBJECT2>
+     <OBJ_NAME2>SI_ENVIAR_DADOS_CONFIG_UF_OUT</OBJ_NAME2>
+     <ID>&lt;operation&gt; siEnviarDadosConfigUfOut &lt;portType&gt; siEnviarDadosConfigUfOut http://trescoracoes.com.br/gnre-pe/configuf http://trescoracoes.com.br/gnre-pe/configuf</ID>
+     <IFR_TYPE>operation</IFR_TYPE>
+     <IFR_NAME>siEnviarDadosConfigUfOut</IFR_NAME>
+     <IFR_LANGU>EN</IFR_LANGU>
+     <IFR_SCALE>-2</IFR_SCALE>
+     <R3_TYPE>METH</R3_TYPE>
+     <R3_NAME>SI_ENVIAR_DADOS_CONFIG_UF_OUT</R3_NAME>
+     <R3_SEQNUM>000001</R3_SEQNUM>
+     <DIRECTION>O</DIRECTION>
+     <SYNCHRON>X</SYNCHRON>
+    </item>
+    <item>
+     <OBJECT>CLAS</OBJECT>
+     <OBJ_NAME>ZCLSD_CO_SI_ENVIAR_DADOS_CONFI</OBJ_NAME>
+     <OBJECT1>METH</OBJECT1>
+     <OBJ_NAME1>SI_ENVIAR_DADOS_CONFIG_UF_OUT</OBJ_NAME1>
+     <OBJECT2>PAEX</OBJECT2>
+     <OBJ_NAME2>INPUT</OBJ_NAME2>
+     <OBJECT_R>TABL</OBJECT_R>
+     <OBJ_NAME_R>ZCLSD_MT_DADOS_CONFIG_UF_RESP</OBJ_NAME_R>
+     <ID>&lt;input&gt; input &lt;operation&gt; siEnviarDadosConfigUfOut &lt;portType&gt; siEnviarDadosConfigUfOut http://trescoracoes.com.br/gnre-pe/configuf http://trescoracoes.com.br/gnre-pe/configuf</ID>
+     <IFR_TYPE>PartInput</IFR_TYPE>
+     <IFR_NAME>input</IFR_NAME>
+     <IFR_SCALE>-2</IFR_SCALE>
+     <R3_TYPE>PAEX</R3_TYPE>
+     <R3_NAME>INPUT</R3_NAME>
+     <R3_SEQNUM>000002</R3_SEQNUM>
+    </item>
+    <item>
+     <OBJECT>CLAS</OBJECT>
+     <OBJ_NAME>ZCLSD_CO_SI_ENVIAR_DADOS_CONFI</OBJ_NAME>
+     <OBJECT1>METH</OBJECT1>
+     <OBJ_NAME1>SI_ENVIAR_DADOS_CONFIG_UF_OUT</OBJ_NAME1>
+     <OBJECT2>PAIM</OBJECT2>
+     <OBJ_NAME2>OUTPUT</OBJ_NAME2>
+     <OBJECT_R>TABL</OBJECT_R>
+     <OBJ_NAME_R>ZCLSD_MT_DADOS_CONFIG_UF</OBJ_NAME_R>
+     <ID>&lt;output&gt; output &lt;operation&gt; siEnviarDadosConfigUfOut &lt;portType&gt; siEnviarDadosConfigUfOut http://trescoracoes.com.br/gnre-pe/configuf http://trescoracoes.com.br/gnre-pe/configuf</ID>
+     <IFR_TYPE>PartOutput</IFR_TYPE>
+     <IFR_NAME>output</IFR_NAME>
+     <IFR_SCALE>-2</IFR_SCALE>
+     <R3_TYPE>PAIM</R3_TYPE>
+     <R3_NAME>OUTPUT</R3_NAME>
+     <R3_SEQNUM>000001</R3_SEQNUM>
+    </item>
+   </PROXY_DATA>
+  </asx:values>
+ </asx:abap>
+</abapGit>

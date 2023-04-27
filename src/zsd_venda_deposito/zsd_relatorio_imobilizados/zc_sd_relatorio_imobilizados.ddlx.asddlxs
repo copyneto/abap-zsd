@@ -1,0 +1,250 @@
+@Metadata.layer: #CORE
+
+@UI: {
+  headerInfo: { typeName: null,
+                typeNamePlural: 'Imobilizados',
+                title: { type: #STANDARD , label: 'Ativo', value: 'Imobilizado' }  } }
+annotate view ZC_SD_RELATORIO_IMOBILIZADOS with
+{
+
+
+
+  @UI.facet: [ { id:              'Imobilizado',
+                 purpose:         #STANDARD,
+                 type:            #IDENTIFICATION_REFERENCE,
+                 label:           'Imobilizado',
+                 position:        10 }]
+
+
+  @UI: {  lineItem:     [ { position: 20, label: 'Docnum Saída', type: #WITH_URL, url: 'URL_DocnumSaida' } ],
+        identification: [ { position: 20, label: 'Docnum Saída', type: #WITH_URL, url: 'URL_DocnumSaida' } ],
+        selectionField: [ { position: 70 } ] }
+  Docnum_Saida;
+
+  @UI: {  lineItem:       [ { position: 30 } ],
+          identification: [ { position: 30 } ]}
+  Item_Saida;
+
+  @UI: {  lineItem:       [ { position: 40 } ],
+          identification: [ { position: 40 } ],
+          selectionField: [ { position: 80 } ] }
+  NFESaida;
+
+  @UI: {  lineItem:       [ { position: 50, label: 'Docnum Entrada', type: #WITH_URL, url: 'URL_DocnumEntrada'  } ],
+          identification: [ { position: 50, label: 'Docnum Entrada', type: #WITH_URL, url: 'URL_DocnumEntrada'  } ],
+          selectionField: [ { position: 60 } ] }
+  Docnum;
+
+  @UI: {  lineItem:       [ { position: 60 } ],
+          identification: [ { position: 60 } ]}
+  Item;
+
+  @UI: {  lineItem:       [ { position: 70 } ],
+          identification: [ { position: 70 } ]}
+  NFEEntrada;
+
+  @UI: {  lineItem:       [ { position: 80 } ],
+        identification: [ { position: 80 } ],
+        selectionField: [ { position: 40 } ] }
+  TipoAtivo;
+
+  @UI: {  lineItem:         [ { position: 90 } ],
+        identification:     [ { position: 90 } ],
+        selectionField: [ { position: 90 } ]  }
+  LocalNegocios;
+
+  @UI: {  lineItem:         [ { position: 100 } ],
+            identification: [ { position: 100 } ]}
+  Centro;
+
+  @UI: {  lineItem:     [ { position: 110 } ],
+        identification: [ { position: 110 } ],
+        selectionField: [ { position: 110 } ]  }
+  Imobilizado;
+
+  @UI: {  lineItem:     [ { position: 120 } ],
+        identification: [ { position: 120 } ]}
+  Plaqueta;
+
+  @UI: {  lineItem:     [ { position: 130 } ],
+        identification: [ { position: 130 } ]}
+  NCM;
+
+  @UI: {  lineItem:     [ { position: 140 } ],
+        identification: [ { position: 140 } ]}
+  Cliente;
+
+  @UI: {  lineItem:       [ { position: 150 } ],
+        identification: [ { position: 150 } ],
+        selectionField: [ { position: 120 } ] }
+  NomeCliente;
+
+  @UI: {  lineItem:       [ { position: 160 } ],
+        identification: [ { position: 160 } ]}
+  UFDestino;
+
+  @UI: {  lineItem:       [ { position: 170 } ],
+        identification: [ { position: 170 } ]}
+  Quantidade;
+
+  @UI: {  lineItem:       [ { position: 180 } ],
+        identification: [ { position: 180 } ] }
+  Unidade;
+
+  @UI: {  lineItem:       [ { position: 190 } ],
+        identification: [ { position: 190 } ],
+        selectionField: [ { position: 100 } ] }
+  Material;
+
+  @UI: {  lineItem:       [ { position: 200 } ],
+        identification: [ { position: 200 } ]}
+  DescricaoMaterial;
+
+  @UI: {  lineItem:       [ { position: 210 } ],
+        identification: [ { position: 210 } ]}
+  CFOPSaida;
+
+  @UI: {  lineItem:       [ { position: 220 } ],
+        identification: [ { position: 220 } ]}
+  DocFaturamentoTipo;
+
+  @UI: {  lineItem:       [ { position: 230 } ],
+        identification: [ { position: 230 } ]}
+  DocFaturamentoSaida;
+
+  @UI: {  lineItem:       [ { position: 240 } ],
+        identification: [ { position: 240 } ],
+        selectionField: [ { position: 10 } ] }
+  DataSaida;
+
+  @UI: {  lineItem:       [ { position: 250 } ],
+        identification: [ { position: 250 } ]}
+  ValorSaida;
+
+  @UI: {  lineItem:       [ { position: 260 } ],
+        identification: [ { position: 260 } ]}
+  MontanteBasico;
+
+  @UI: {  lineItem:       [ { position: 270 } ],
+        identification: [ { position: 270 } ]}
+  TaxaSaida;
+
+  @UI: {  lineItem:       [ { position: 280 } ],
+        identification: [ { position: 280 } ]}
+  ValorICMSSaida;
+
+  @UI: {  lineItem:       [ { position: 290 } ],
+        identification: [ { position: 290 } ]}
+  BaseCalcSaida;
+
+  @UI: {  lineItem:       [ { position: 300 } ],
+        identification: [ { position: 300 } ]}
+  OutraBaseSaida;
+
+  @UI: {  lineItem:       [ { position: 310 } ],
+        identification: [ { position: 310 } ]}
+  CFOPEntrada;
+
+  @UI: {  lineItem:       [ { position: 320 } ],
+        identification: [ { position: 320 } ]}
+  DocFaturamentoEntrada;
+
+  @UI: {  lineItem:       [ { position: 330 } ],
+        identification: [ { position: 330 } ] }
+  DataEntrada;
+
+  //  @UI: {  lineItem:       [ { position: 320 } ],
+  //        identification: [ { position: 320 } ] }
+  //  DocnumEntrada;
+
+
+  @UI: {  lineItem:       [ { position: 340 } ],
+        identification: [ { position: 340 } ]}
+  ValorEntrada;
+
+  @UI: {  lineItem:       [ { position: 350 } ],
+        identification: [ { position: 350 } ]}
+  MontanteBasicoEntrada;
+
+  @UI: {  lineItem:       [ { position: 360 } ],
+        identification: [ { position: 360 } ]}
+  TaxaEntrada;
+
+  @UI: {  lineItem:       [ { position: 370 } ],
+        identification: [ { position: 370 } ]}
+  ValorICMSEntrada;
+
+  @UI: {  lineItem:       [ { position: 380 } ],
+        identification: [ { position: 380 } ]}
+  BaseCalcEntrada;
+
+  @UI: {  lineItem:       [ { position: 390 } ],
+        identification: [ { position: 390 } ]}
+  OutraBaseEntrada;
+
+
+  @UI: {  lineItem:       [ { position: 400 } ],
+        identification: [ { position: 400 } ],
+        selectionField: [ { position: 20 } ]}
+  OrgVendas;
+
+  @UI: {  lineItem:       [ { position: 410 } ],
+        identification: [ { position: 410 } ],
+        selectionField: [ { position: 30 } ] }
+  CanalDistribuicao;
+
+  @UI: {  lineItem:       [ { position: 420 } ],
+        identification: [ { position: 420 } ],
+        selectionField: [ { position: 50 } ] }
+  SetorAtividades;
+
+  @UI: {  lineItem:       [ { position: 430 } ],
+        identification: [ { position: 430 } ],
+        selectionField: [ { position: 90 } ] }
+  DomicilioFiscal;
+
+  @UI: {  lineItem:       [ { position: 440 } ],
+      identification: [ { position: 440 } ] }
+  DiasAtrasados;
+
+  @UI: {  lineItem:       [ { position: 450 } ],
+      identification: [ { position: 450 } ] }
+  DiasPendentes;
+
+  @UI.hidden: true
+  @UI: {  lineItem:       [ { position: 999 } ] }
+  StatusCriticality;
+
+  @UI.hidden: true
+  @UI: {  lineItem:       [ { position: 999 } ] }
+  DescrDocFaturamentoTipo;
+
+  @UI: { lineItem:       [ { position: 10,
+                             label: 'Status',
+                             value: 'Status',
+                             criticality: 'StatusCriticality',
+                             criticalityRepresentation: #WITH_ICON } ],
+
+         identification: [ { position: 10,
+         label: 'Status',
+         criticality: 'StatusCriticality',
+         criticalityRepresentation: #WITH_ICON } ],
+         selectionField: [ { position: 100 } ] }
+
+  Status;
+
+@UI.hidden: true
+ChaveConacatena;
+@UI.hidden: true
+DataFinal;
+@UI.hidden: true
+SalesDocumentCurrency;
+@UI.hidden: true
+URL_DocnumEntrada;
+@UI.hidden: true
+URL_DocnumSaida;
+
+
+
+
+}

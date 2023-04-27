@@ -1,0 +1,58 @@
+projection;
+
+define behavior for ZC_SD_COCKPIT_GESTAO_PRECO alias Cockpit
+{
+  use update;
+  //use delete;
+
+  use action validar;
+  use action aprovar;
+  use action reprovar;
+  use action eliminar;
+
+  use association _Item { create; }
+  use association _Minimo { create; }
+  use association _Invasao { create; }
+  use association _Mensagem { create; }
+  use association _Observacoes { create; }
+
+}
+
+define behavior for ZC_SD_COCKPIT_GESTAO_PRECO_ITM alias Item
+{
+  use update;
+  //use delete;
+
+  use association _Cockpit;
+}
+
+define behavior for ZC_SD_COCKPIT_GESTAO_PRECO_MIN alias Minimo
+{
+  use update;
+  //use delete;
+
+  use association _Cockpit;
+}
+
+define behavior for ZC_SD_COCKPIT_GESTAO_PRECO_INV alias Invasao
+{
+  use update;
+  //use delete;
+
+  use association _Cockpit;
+}
+
+define behavior for ZC_SD_COCKPIT_GESTAO_PRECO_OBS alias Observacoes
+{
+  use update;
+  use delete;
+
+  use association _Cockpit;
+}
+define behavior for ZC_SD_COCKPIT_GESTAO_PRECO_MSG alias Mensagem
+{
+  use update;
+  //use delete;
+
+  use association _Cockpit;
+}

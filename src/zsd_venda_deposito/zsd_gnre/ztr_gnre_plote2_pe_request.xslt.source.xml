@@ -1,0 +1,204 @@
+<?sap.transform simple?>
+<tt:transform xmlns:tt="http://www.sap.com/transformation-templates" xmlns:ddic="http://www.sap.com/abapxml/types/dictionary" xmlns:def="http://www.sap.com/abapxml/types/defined">
+  <tt:root line-type="ddic:ZTLOTE_GNRE" name="ZGNRE_DADOS_MSG"/>
+  <tt:template>
+    <ZGNRE_DADOS_MSG>
+      <tt:loop ref=".ZGNRE_DADOS_MSG">
+        <ZTLOTE_GNRE>
+          <CONTROLLER>
+            <tt:loop ref="CONTROLLER">
+              <PRXCTRL>
+                <FIELD tt:value-ref="FIELD"/>
+                <VALUE tt:value-ref="VALUE"/>
+              </PRXCTRL>
+            </tt:loop>
+          </CONTROLLER>
+          <GUIAS>
+            <CONTROLLER>
+              <tt:loop ref="GUIAS.CONTROLLER">
+                <PRXCTRL>
+                  <FIELD tt:value-ref="FIELD"/>
+                  <VALUE tt:value-ref="VALUE"/>
+                </PRXCTRL>
+              </tt:loop>
+            </CONTROLLER>
+            <TDADOS_GNRE>
+              <tt:loop ref="GUIAS.TDADOS_GNRE">
+                <ZTLOTE_GNRE_TDADOS_GNRE>
+                  <CONTROLLER>
+                    <tt:loop ref="CONTROLLER">
+                      <PRXCTRL>
+                        <FIELD tt:value-ref="FIELD"/>
+                        <VALUE tt:value-ref="VALUE"/>
+                      </PRXCTRL>
+                    </tt:loop>
+                  </CONTROLLER>
+                  <UF_FAVORECIDA tt:value-ref="UF_FAVORECIDA"/>
+                  <TIPO_GNRE tt:value-ref="TIPO_GNRE"/>
+                  <CONTRIBUINTE_EMITENTE>
+                    <CONTROLLER>
+                      <tt:loop ref="CONTRIBUINTE_EMITENTE.CONTROLLER">
+                        <PRXCTRL>
+                          <FIELD tt:value-ref="FIELD"/>
+                          <VALUE tt:value-ref="VALUE"/>
+                        </PRXCTRL>
+                      </tt:loop>
+                    </CONTROLLER>
+                    <IDENTIFICACAO>
+                      <CONTROLLER>
+                        <tt:loop ref="CONTRIBUINTE_EMITENTE.IDENTIFICACAO.CONTROLLER">
+                          <PRXCTRL>
+                            <FIELD tt:value-ref="FIELD"/>
+                            <VALUE tt:value-ref="VALUE"/>
+                          </PRXCTRL>
+                        </tt:loop>
+                      </CONTROLLER>
+                      <CNPJ tt:value-ref="CONTRIBUINTE_EMITENTE.IDENTIFICACAO.CNPJ"/>
+                      <CPF tt:value-ref="CONTRIBUINTE_EMITENTE.IDENTIFICACAO.CPF"/>
+                      <IE tt:value-ref="CONTRIBUINTE_EMITENTE.IDENTIFICACAO.IE"/>
+                    </IDENTIFICACAO>
+                    <RAZAO_SOCIAL tt:value-ref="CONTRIBUINTE_EMITENTE.RAZAO_SOCIAL"/>
+                    <ENDERECO tt:value-ref="CONTRIBUINTE_EMITENTE.ENDERECO"/>
+                    <MUNICIPIO tt:value-ref="CONTRIBUINTE_EMITENTE.MUNICIPIO"/>
+                    <UF tt:value-ref="CONTRIBUINTE_EMITENTE.UF"/>
+                    <CEP tt:value-ref="CONTRIBUINTE_EMITENTE.CEP"/>
+                    <TELEFONE tt:value-ref="CONTRIBUINTE_EMITENTE.TELEFONE"/>
+                  </CONTRIBUINTE_EMITENTE>
+                  <ITENS_GNRE>
+                    <CONTROLLER>
+                      <tt:loop ref="ITENS_GNRE.CONTROLLER">
+                        <PRXCTRL>
+                          <FIELD tt:value-ref="FIELD"/>
+                          <VALUE tt:value-ref="VALUE"/>
+                        </PRXCTRL>
+                      </tt:loop>
+                    </CONTROLLER>
+                    <ITEM>
+                      <tt:loop ref="ITENS_GNRE.ITEM">
+                        <ZDADOS_GNRE_2_00_1_RETORNO_IT1>
+                          <CONTROLLER>
+                            <tt:loop ref="CONTROLLER">
+                              <PRXCTRL>
+                                <FIELD tt:value-ref="FIELD"/>
+                                <VALUE tt:value-ref="VALUE"/>
+                              </PRXCTRL>
+                            </tt:loop>
+                          </CONTROLLER>
+                          <RECEITA tt:value-ref="RECEITA"/>
+                          <DETALHAMENTO_RECEITA tt:value-ref="DETALHAMENTO_RECEITA"/>
+                          <DOCUMENTO_ORIGEM>
+                            <CONTROLLER>
+                              <tt:loop ref="DOCUMENTO_ORIGEM.CONTROLLER">
+                                <PRXCTRL>
+                                  <FIELD tt:value-ref="FIELD"/>
+                                  <VALUE tt:value-ref="VALUE"/>
+                                </PRXCTRL>
+                              </tt:loop>
+                            </CONTROLLER>
+                            <TIPO tt:value-ref="DOCUMENTO_ORIGEM.TIPO"/>
+                            <CONTENT tt:value-ref="DOCUMENTO_ORIGEM.CONTENT"/>
+                          </DOCUMENTO_ORIGEM>
+                          <PRODUTO tt:value-ref="PRODUTO"/>
+                          <REFERENCIA>
+                            <CONTROLLER>
+                              <tt:loop ref="REFERENCIA.CONTROLLER">
+                                <PRXCTRL>
+                                  <FIELD tt:value-ref="FIELD"/>
+                                  <VALUE tt:value-ref="VALUE"/>
+                                </PRXCTRL>
+                              </tt:loop>
+                            </CONTROLLER>
+                            <PERIODO tt:value-ref="REFERENCIA.PERIODO"/>
+                            <MES tt:value-ref="REFERENCIA.MES"/>
+                            <ANO tt:value-ref="REFERENCIA.ANO"/>
+                            <PARCELA tt:value-ref="REFERENCIA.PARCELA"/>
+                          </REFERENCIA>
+                          <DATA_VENCIMENTO tt:value-ref="DATA_VENCIMENTO"/>
+                          <VALOR>
+                            <tt:loop ref="VALOR">
+                              <ZDADOS_GNRE_2_00_1_RETORNO_VAL>
+                                <CONTROLLER>
+                                  <tt:loop ref="CONTROLLER">
+                                    <PRXCTRL>
+                                      <FIELD tt:value-ref="FIELD"/>
+                                      <VALUE tt:value-ref="VALUE"/>
+                                    </PRXCTRL>
+                                  </tt:loop>
+                                </CONTROLLER>
+                                <TIPO tt:value-ref="TIPO"/>
+                                <CONTENT tt:value-ref="CONTENT"/>
+                              </ZDADOS_GNRE_2_00_1_RETORNO_VAL>
+                            </tt:loop>
+                          </VALOR>
+                          <CONVENIO tt:value-ref="CONVENIO"/>
+                          <CONTRIBUINTE_DESTINATARIO>
+                            <CONTROLLER>
+                              <tt:loop ref="CONTRIBUINTE_DESTINATARIO.CONTROLLER">
+                                <PRXCTRL>
+                                  <FIELD tt:value-ref="FIELD"/>
+                                  <VALUE tt:value-ref="VALUE"/>
+                                </PRXCTRL>
+                              </tt:loop>
+                            </CONTROLLER>
+                            <IDENTIFICACAO>
+                              <CONTROLLER>
+                                <tt:loop ref="CONTRIBUINTE_DESTINATARIO.IDENTIFICACAO.CONTROLLER">
+                                  <PRXCTRL>
+                                    <FIELD tt:value-ref="FIELD"/>
+                                    <VALUE tt:value-ref="VALUE"/>
+                                  </PRXCTRL>
+                                </tt:loop>
+                              </CONTROLLER>
+                              <CNPJ tt:value-ref="CONTRIBUINTE_DESTINATARIO.IDENTIFICACAO.CNPJ"/>
+                              <CPF tt:value-ref="CONTRIBUINTE_DESTINATARIO.IDENTIFICACAO.CPF"/>
+                              <IE tt:value-ref="CONTRIBUINTE_DESTINATARIO.IDENTIFICACAO.IE"/>
+                            </IDENTIFICACAO>
+                            <RAZAO_SOCIAL tt:value-ref="CONTRIBUINTE_DESTINATARIO.RAZAO_SOCIAL"/>
+                            <MUNICIPIO tt:value-ref="CONTRIBUINTE_DESTINATARIO.MUNICIPIO"/>
+                          </CONTRIBUINTE_DESTINATARIO>
+                          <CAMPOS_EXTRAS>
+                            <CONTROLLER>
+                              <tt:loop ref="CAMPOS_EXTRAS.CONTROLLER">
+                                <PRXCTRL>
+                                  <FIELD tt:value-ref="FIELD"/>
+                                  <VALUE tt:value-ref="VALUE"/>
+                                </PRXCTRL>
+                              </tt:loop>
+                            </CONTROLLER>
+                            <CAMPO_EXTRA>
+                              <tt:loop ref="CAMPOS_EXTRAS.CAMPO_EXTRA">
+                                <ZDADOS_GNRE_2_00_1_RETORNO_CA1>
+                                  <CONTROLLER>
+                                    <tt:loop ref="CONTROLLER">
+                                      <PRXCTRL>
+                                        <FIELD tt:value-ref="FIELD"/>
+                                        <VALUE tt:value-ref="VALUE"/>
+                                      </PRXCTRL>
+                                    </tt:loop>
+                                  </CONTROLLER>
+                                  <CODIGO tt:value-ref="CODIGO"/>
+                                  <VALOR tt:value-ref="VALOR"/>
+                                </ZDADOS_GNRE_2_00_1_RETORNO_CA1>
+                              </tt:loop>
+                            </CAMPO_EXTRA>
+                          </CAMPOS_EXTRAS>
+                          <NUMERO_CONTROLE tt:value-ref="NUMERO_CONTROLE"/>
+                          <NUMERO_CONTROLE_FECP tt:value-ref="NUMERO_CONTROLE_FECP"/>
+                        </ZDADOS_GNRE_2_00_1_RETORNO_IT1>
+                      </tt:loop>
+                    </ITEM>
+                  </ITENS_GNRE>
+                  <VALOR_GNRE tt:value-ref="VALOR_GNRE"/>
+                  <DATA_PAGAMENTO tt:value-ref="DATA_PAGAMENTO"/>
+                  <IDENTIFICADOR_GUIA tt:value-ref="IDENTIFICADOR_GUIA"/>
+                  <VERSAO tt:value-ref="VERSAO"/>
+                </ZTLOTE_GNRE_TDADOS_GNRE>
+              </tt:loop>
+            </TDADOS_GNRE>
+          </GUIAS>
+          <VERSAO tt:value-ref="VERSAO"/>
+        </ZTLOTE_GNRE>
+      </tt:loop>
+    </ZGNRE_DADOS_MSG>
+  </tt:template>
+</tt:transform>

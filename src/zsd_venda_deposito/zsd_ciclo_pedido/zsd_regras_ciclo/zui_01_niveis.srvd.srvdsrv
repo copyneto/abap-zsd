@@ -1,0 +1,6 @@
+@EndUserText.label: 'Def. Serviço'
+define service ZUI_01_niveis {
+  expose ZC_SD_01_NIVEL;
+  expose zc_sd_02_hora;
+  expose ZC_SD_03_DIA;
+}

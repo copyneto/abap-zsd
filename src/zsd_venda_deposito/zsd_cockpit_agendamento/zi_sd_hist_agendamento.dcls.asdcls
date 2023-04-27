@@ -1,0 +1,11 @@
+@EndUserText.label: 'CDS de Autorização'
+@MappingRole: true
+define role ZI_SD_HIST_AGENDAMENTO {
+    grant 
+        select
+            on
+                ZI_SD_HIST_AGENDAMENTO
+                    where
+                        (Centro) = aspect pfcg_auth(ZSDWERKS, WERKS, ACTVT = '03');
+                        
+}

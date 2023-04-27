@@ -1,0 +1,54 @@
+@Metadata.layer: #CORE
+@UI: { headerInfo: { typeName: 'Local/Equipamento',
+                     typeNamePlural: 'Locais/Equipamentos',
+                     title: { type: #STANDARD, value: 'ContratoItem' } } }
+
+annotate view ZC_SD_LOC_EQUIP with
+{
+  // ------------------------------------------------------
+  // Informações de cabeçalho
+  // ------------------------------------------------------
+  @UI.facet: [ { id:            'LocEquip',
+                 purpose:       #STANDARD,
+                 type:          #IDENTIFICATION_REFERENCE,
+                 label:         'Locais/Equipamentos',
+                 position:      10 }  ]
+
+  // ------------------------------------------------------
+  // Informações de campo
+  // ------------------------------------------------------
+  @UI.hidden: true
+  Contrato;
+
+  @UI: { lineItem:        [ { position: 10, label: 'Item' } ],
+         identification:  [ { position: 10, label: 'Item' } ] }
+  ContratoItem;
+
+  @UI: { lineItem:        [ { position: 20, label: 'Produto' } ],
+         identification:  [ { position: 20, label: 'Produto' } ] }
+  Produto;
+ 
+  @UI.hidden: true
+  ProdutoTexto;
+  
+  @UI: { lineItem:        [ { position: 30, label: 'Série' } ],
+         identification:  [ { position: 30, label: 'Série' } ] }
+  Serie;
+  
+  @UI.hidden: true
+  SerieCV;
+
+  @UI: { lineItem:        [ { position: 40, label: 'Centro' } ],
+         identification:  [ { position: 40, label: 'Centro' } ] }
+  Centro;
+
+  @UI.hidden: true
+  CentroTexto;
+
+  @UI: { lineItem:        [ { position: 50, label: 'Cliente' } ],
+         identification:  [ { position: 50, label: 'Cliente' } ] }
+  Cliente;
+
+  @UI.hidden: true
+  ClienteTexto;
+}

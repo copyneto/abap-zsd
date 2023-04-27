@@ -1,0 +1,55 @@
+@Metadata.layer: #CORE
+@UI.headerInfo: {
+    typeName: 'Intermediador',
+    typeNamePlural: 'Intermediadores',
+    title: {
+        type: #STANDARD,
+        label: 'Intermediador',
+        value: 'Lifnr'
+    }
+}
+annotate view ZC_SD_MARKETPLACE
+    with 
+{
+    @UI.facet: [{ id: 'INTERMEDIADOR',
+                  purpose: #STANDARD,
+                  position: 10,
+                  label: 'Detalhes',
+                  type: #IDENTIFICATION_REFERENCE
+                  },
+                  { id: 'CREATED',
+                  purpose: #STANDARD,
+                  position: 20,
+                  label: 'Criação e Modificação',
+                  type: #FIELDGROUP_REFERENCE
+                  }]
+    @UI.lineItem: [{ position: 10 }]
+    @UI.identification: [{ position: 10 }]
+    @UI.selectionField: [{ position: 10 }]
+    @Consumption.valueHelpDefinition: [{ entity:{ name: 'ZI_CA_VH_LIFNR', element: 'LifnrCode' } }]
+    Lifnr;
+    @UI.lineItem: [{ position: 20 }]
+    @UI.identification: [{ position: 20 }]
+    Idcadinttran;
+    @UI.lineItem: [{ position: 30 }]
+    @UI.identification: [{ position: 30 }]
+    Cnpjintermed;
+    @UI.lineItem: [{ position: 40 }]
+    @UI.identification: [{ position: 40 }]
+    Indintermed;
+    @UI.lineItem: [{ position: 50 }]
+    @UI.identification: [{ position: 50 }]
+    @UI.selectionField: [{ position: 20 }]
+    @Consumption.valueHelpDefinition: [{ entity:{ name: 'ZI_SD_VH_INDPRES', element: 'Indpres' } }]
+    IndPres;
+    @UI.fieldGroup: [{ position: 10 }]
+    CreatedBy;
+    @UI.fieldGroup: [{ position: 20 }]
+    CreatedAt;
+    @UI.fieldGroup: [{ position: 30 }]
+    LastChangedBy;
+    @UI.fieldGroup: [{ position: 40 }]
+    LastChangedAt;
+    @UI.fieldGroup: [{ position: 50 }]
+    LocalLastChangedAt;
+}

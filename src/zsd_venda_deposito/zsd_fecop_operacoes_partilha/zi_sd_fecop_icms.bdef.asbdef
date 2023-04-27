@@ -1,0 +1,33 @@
+managed; // implementation in class zbp_i_sd_fecop_icms unique;
+
+define behavior for ZI_SD_FECOP_ICMS alias FecopICMS
+implementation in class zclsd_fecop_icms unique
+persistent table ztsd_fecop_icms
+lock master
+authorization master ( instance )
+etag master LocalLastChangedAt
+{
+  create;
+  delete;
+
+  field ( readonly ) SalesOrg, BusinessPlace, CreatedAt, LastChangedBy, LastChangedAt, LocalLastChangedAt;
+  field ( mandatory : create ) SalesOrgID, BusinessPlaceID;
+  validation checkSalesOrg on save { field SalesOrgID; }
+  validation checkBusinessPlace on save { field BusinessPlaceID; }
+  validation checkKeyCombination on save { field SalesOrgID, BusinessPlaceID; }
+
+  validation authorityCreate on save { create; }
+
+  mapping for ztsd_fecop_icms{
+
+      SalesOrgID         = vkorg;
+      BusinessPlaceID    = branch;
+      CreatedBy          = created_by;
+      CreatedAt          = created_at;
+      LastChangedBy      = last_changed_by;
+      LastChangedAt      = last_changed_at;
+      LocalLastChangedAt = local_last_changed_at;
+
+  }
+
+}

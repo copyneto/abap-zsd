@@ -1,0 +1,489 @@
+@Metadata.layer: #CORE
+
+@UI: {
+    headerInfo: {
+        typeName: 'Detalhes - Relatório de Exportação',
+        title: {
+            type: #STANDARD,
+            value: 'OrdemVendas'
+        }
+        //description: {
+         //   value: 'OrganizacaoVendas' }
+    },
+
+    presentationVariant: [{ sortOrder: [{ by: 'SalesOrder', direction: #DESC } ] }]
+    }
+
+annotate view ZC_SD_REL_EXPORTACAO with
+{
+
+  @UI.facet: [{
+    id: 'HeaderFacet',
+    purpose: #HEADER,
+    type: #FIELDGROUP_REFERENCE,
+    label: 'Dados de referência',
+    targetQualifier: 'Fieldgroup:HeaderItems',
+    position: 10
+  }]
+
+  @UI: {
+    lineItem: [ { position: 10,
+                  importance: #HIGH } ],
+    selectionField: [{ position: 60 }]
+  }
+  OrganizacaoVendas;
+
+  @UI: {
+    lineItem: [ { position: 20,
+                  importance: #HIGH } ]
+  }
+  Centro;
+
+  @UI:{
+    lineItem: [{ position: 30,
+                 importance: #HIGH }],
+    selectionField: [{ position: 10 }]
+  }
+  @EndUserText.label: 'Data Documento Vendas'
+  DataDocumentoVendas;
+
+  @UI: {
+    lineItem: [ { position: 40,
+                  importance: #HIGH } ],
+                  selectionField: [ { position: 50 } ],
+    fieldGroup: [ { qualifier: 'Fieldgroup:HeaderItems',
+                    position: 10 } ]
+
+  }
+  @EndUserText.label: 'Ordem de Vendas'
+  OrdemVendas;
+
+  @UI: {
+  lineItem: [ { position: 45,
+              importance: #HIGH } ]
+  }
+  @EndUserText.label: 'Data do Documento OV'
+  DataDocumento;
+
+  @UI: {
+    lineItem: [ { position: 50,
+                  importance: #HIGH } ]
+  }
+  DataFaturamento;
+
+  @UI: {
+    lineItem: [ { position: 60,
+                  importance: #HIGH } ],
+    fieldGroup: [ { qualifier: 'Fieldgroup:HeaderItems',
+                    position: 30 } ]
+  }
+  @EndUserText.label: 'Nota Fiscal'
+  NotaFiscal;
+
+  @UI: {
+    lineItem: [ { position: 70,
+                  importance: #HIGH } ],
+    fieldGroup: [ { qualifier: 'Fieldgroup:HeaderItems',
+                    position: 20 } ]
+  }
+  DocFaturamento;
+
+  @UI: {
+    lineItem: [ { position: 80,
+                  importance: #HIGH } ],
+    selectionField: [{ position: 70 }],
+    fieldGroup: [ { qualifier: 'Fieldgroup:HeaderItems',
+                    position: 40 } ]
+  }
+  CodigoCliente;
+
+
+  @UI: {
+    selectionField: [{ position: 30 }]
+  }
+  DataDesejadaRemessa;
+
+  @UI.selectionField: [{ position: 90 }]
+  @EndUserText.label: 'Moeda do Documento SD'
+  MoedaDocumento;
+
+  @UI: {
+  lineItem: [ { position: 90,
+                importance: #HIGH } ]
+  }
+  NomeCliente;
+
+  @UI: {
+  lineItem: [ { position: 100,
+                importance: #HIGH } ],
+  selectionField: [{ position: 20 }]
+  }
+  Material;
+
+  @UI: {
+    lineItem: [ { position: 110,
+                  importance: #HIGH } ]
+  }
+  DescMaterial;
+
+  @UI: {
+    lineItem: [ { position: 120,
+                  importance: #HIGH } ]
+  }
+  @EndUserText.label: 'Paladar'
+  Paladar;
+  
+  
+  @UI: {
+    lineItem: [ { position: 124,
+                  importance: #HIGH } ]
+  }
+  @EndUserText.label: 'Safra'
+  Safra;
+  
+  @UI: {
+    lineItem: [ { position: 126,
+                  importance: #HIGH } ]
+  }
+  @EndUserText.label: 'Ref. Broker'
+  RefBroker;
+
+  @UI: {
+    lineItem: [ { position: 130,
+                  importance: #HIGH } ]
+  }
+  Peneira;
+
+  @UI: {
+    lineItem: [ { position: 140,
+                  importance: #HIGH } ]
+  }
+  DescPeneira;
+
+  @UI: {
+    lineItem: [ { position: 150,
+                  importance: #HIGH } ]
+  }
+  Quantidade;
+
+  @UI: {
+    lineItem: [ { position: 160,
+                  importance: #HIGH } ]
+  }
+  UnidadeMedida;
+
+  @UI: {
+    lineItem: [ { position: 170,
+                  importance: #HIGH } ]
+  }
+  @EndUserText.label: 'Valor Total (USD)'
+  ValorLiquidoDolar;
+
+  @UI: {
+    lineItem: [ { position: 180,
+                  importance: #HIGH } ]
+  }
+  @EndUserText.label: 'Dolar Fixado'
+  DolarFixado;
+
+  @UI: {
+    lineItem: [ { position: 190,
+                  importance: #HIGH } ],
+                  selectionField: [{  position: 80 }]
+  }
+  @EndUserText.label: 'Dolar Faturamento'
+  DolarFaturamento;
+
+  @UI: {
+    lineItem: [ { position: 200,
+                  importance: #HIGH } ]
+  }
+  @EndUserText.label: 'Moeda Vlr Dolar Fixado'
+  MoedaFaturamento;
+
+  @UI: {
+    lineItem: [ { position: 210,
+                importance: #HIGH } ]
+  }
+  @EndUserText.label: 'Valor Líquido (R$)'
+  ValorLiquidoReais;
+
+  @UI: {
+    lineItem: [ { position: 212,
+                importance: #HIGH } ],
+                selectionField: [{ position: 110 }]
+  }
+  CFOP;
+
+  @UI: {
+    lineItem: [ { position: 214,
+                importance: #HIGH } ],
+                selectionField: [{ position: 110 }]
+  }
+  Pedido;
+
+  @UI: {
+    lineItem: [ { position: 216,
+                importance: #HIGH } ],
+                selectionField: [{ position: 110 }]
+  }
+  Periodo;
+
+
+  @UI: {
+    lineItem: [ { position: 218,
+                importance: #HIGH } ]
+  }
+  DataEmbarque;
+
+  @UI: {
+    lineItem: [ { position: 220,
+                importance: #HIGH } ]
+  }
+  @EndUserText.label: 'Tx Dólar no Embarque'
+  TaxaDolarEmbarque;
+
+  @UI: {
+    lineItem: [ { position: 222,
+                importance: #HIGH } ]
+  }
+  @EndUserText.label: 'Vlr no Dia do Emb. (R$)'
+  ValorDiaEmbarque;
+
+  @UI: {
+    lineItem: [ { position: 224,
+                importance: #HIGH } ]
+  }
+  @EndUserText.label: 'Dif. de Cambio (R$)'
+  DiferencaCambio;
+
+  @UI: {
+    lineItem: [ { position: 230,
+                importance: #HIGH } ]
+  }
+  @EndUserText.label: 'Status da Remessa'
+  StatusRemessa;
+
+
+  @UI: {
+    lineItem: [ { position: 240,
+                importance: #HIGH } ],
+    selectionField: [{ position: 40 }]
+  }
+  TipoOrdem;
+
+  @UI: {
+    lineItem: [ { position: 250,
+                importance: #HIGH } ]
+  }
+  @EndUserText.label: 'Código do Broker'
+  CodigoCorretor;
+
+  @UI: {
+    lineItem: [ { position: 260,
+                importance: #HIGH } ]
+  }
+  @EndUserText.label: 'Desc. Broker'
+  DescricaoCorretor;
+
+  @UI: {
+    lineItem: [ { position: 270,
+                importance: #HIGH } ]
+  }
+  @EndUserText.label: 'Vlr Comissão em USD'
+  ValorComissaoUSD;
+
+  @UI: {
+    lineItem: [ { position: 272,
+                importance: #HIGH } ]
+  }
+  @EndUserText.label: 'Tipo de Comissão'
+  TipoComissao;
+  
+  @UI: {
+    lineItem: [ { position: 273,
+                importance: #HIGH } ]
+  }
+  @EndUserText.label: 'Vlr Unit Comissão USD'
+ ValorUnitComissaoUSD;
+  
+  @UI: {
+    lineItem: [ { position: 275,
+                importance: #HIGH } ]
+  }
+  @EndUserText.label: 'Preço Unitário (USD)'
+  PrecoUnitario;
+
+  @UI: {
+  lineItem: [ { position: 280,
+               importance: #HIGH } ]
+  }
+  @EndUserText.label: 'Quality'
+  quality;
+
+  @UI: {
+  lineItem: [ { position: 290,
+               importance: #HIGH } ]
+  }
+  MesPrevistoEmbarque;
+
+//  @UI: {
+//  lineItem: [ { position: 300,
+//               importance: #HIGH } ]
+//  }
+//  @EndUserText.label: 'Preço Unitário (USD)'
+//  ValorUnitUSD;
+
+  @UI: {
+  lineItem: [ { position: 310,
+                importance: #HIGH } ]
+  }
+  Price50Kg;
+
+  @UI: {
+  lineItem: [ { position: 320,
+               importance: #HIGH } ]
+  }
+  Diff;
+
+  @UI: {
+  lineItem: [ { position: 330,
+               importance: #HIGH } ]
+  }
+  MesBolsa;
+
+  @UI: {
+  lineItem: [ { position: 340,
+               importance: #HIGH } ]
+  }
+  ValorBolsa;
+
+  @UI: {
+  lineItem: [ { position: 350,
+               importance: #HIGH } ]
+  }
+  PrecoFinalCTSLB;
+
+  @UI: {
+  lineItem: [ { position: 360,
+             importance: #HIGH } ]
+  }
+  OpcaoFixacao;
+
+  @UI: {
+  lineItem: [ { position: 370,
+              importance: #HIGH } ]
+  }
+  LotesFixados;
+
+  @UI: {
+  lineItem: [ { position: 380,
+             importance: #HIGH } ]
+  }
+  QuantidadeLoteAFixar;
+
+  @UI: {
+  lineItem: [ { position: 390,
+             importance: #HIGH } ]
+  }
+  DataFixacaoPreco;
+
+  @UI: {
+  lineItem: [ { position: 400,
+             importance: #HIGH } ]
+  }
+  AmostraRef;
+
+  @UI: {
+  lineItem: [ { position: 410,
+             importance: #HIGH } ]
+  }
+  CourrierAWB_Nr;
+
+  @UI: {
+  lineItem: [ { position: 420,
+           importance: #HIGH } ]
+  }
+  DataEnvioAmostra;
+
+  @UI: {
+  lineItem: [ { position: 430,
+           importance: #HIGH } ]
+  }
+  DataAprovacao;
+
+
+  // CAMPOS EGT
+
+  @UI: {
+  lineItem: [ { position: 440,
+           importance: #HIGH } ]
+  }
+  NumEmbarque;
+
+  @UI: {
+  lineItem: [ { position: 450,
+           importance: #HIGH } ]
+  }
+  NumeroDUE;
+
+  @UI: {
+  lineItem: [ { position: 460,
+           importance: #HIGH } ]
+  }
+  ChvAcessoDUE;
+
+  @UI: {
+  lineItem: [ { position: 470,
+     importance: #HIGH } ]
+  }
+  DataRegistro;
+
+  @UI: {
+  lineItem: [ { position: 480,
+     importance: #HIGH } ]
+  }
+  DataAverbacao;
+
+  @UI: {
+  lineItem: [ { position: 490,
+     importance: #HIGH } ]
+  }
+  PstAlfanOrig;
+  
+  @UI.hidden: true
+  DescPstAlfanOrig;
+
+  @UI: {
+  lineItem: [ { position: 500,
+     importance: #HIGH } ]
+  }
+  PstAlfanDest;
+  
+  @UI.hidden: true
+  DescPstAlfanDest;
+
+  @UI: {
+  lineItem: [ { position: 510,
+     importance: #HIGH } ]
+  }
+  PaisDestino;
+
+  @UI: {
+  lineItem: [ { position: 520,
+     importance: #HIGH } ]
+  }
+  @EndUserText.label: 'Armador'
+  ArmadorBLNum;
+  
+  @UI: {
+  lineItem: [ { position: 530,
+     importance: #HIGH } ]
+  }
+  @EndUserText.label: 'B/L N°'
+  BLN;
+
+  @UI.selectionField: [{ position: 100 }]
+  FaturaEstornada;
+
+}

@@ -1,0 +1,4 @@
+@EndUserText.label: 'Service Def  Controle dos atrasos justificados'
+define service ZUI_SD_JUSTIF_ATRASO_APP {
+  expose ZC_SD_JUSTIF_ATRASO_APP;
+}

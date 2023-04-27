@@ -1,0 +1,48 @@
+@Metadata.layer: #CORE
+@UI: {
+  headerInfo: {
+    typeName: 'Coleta de Produto Avariado',
+    typeNamePlural: 'Coleta de Produtos Avariados',
+    title: {
+      type: #STANDARD,
+      value: 'SalesOrder' }
+  }
+}
+annotate view zc_sd_coleta_avarias with
+{
+  @Consumption.semanticObject: 'SalesOrder'
+  @UI.selectionField: [{position: 10}]
+  @UI.lineItem      : [{position: 10,  type: #WITH_INTENT_BASED_NAVIGATION, semanticObjectAction: 'display'},
+                       { type: #FOR_ACTION, dataAction: 'ImprimeForm',  label: 'Imprimir Formulário'  }]
+  SalesOrder;
+  @Consumption.valueHelpDefinition: [
+  { entity:  { name:    'C_SoldToParty_VH_F1708',
+               element: 'Customer' }
+  }]
+  @UI.selectionField: [{position: 20}]
+  @UI.lineItem      : [{position: 20}]
+  SoldToParty;
+
+  @Consumption.semanticObject: 'OutboundDelivery'  
+  @UI.selectionField: [{position: 30}]
+  @UI.lineItem      : [{position: 30,  type: #WITH_INTENT_BASED_NAVIGATION, semanticObjectAction: 'displayInWebGUI'}]
+  @Consumption.valueHelpDefinition: [
+  { entity:  { name:    'I_DeliveryDocumentStdVH',
+               element: 'DeliveryDocument' }
+  }]
+  @EndUserText.label: 'Remessa'
+  OutboundDelivery;
+  @UI.selectionField: [{position: 40}]
+  @UI.lineItem      : [{position: 40}]
+  @EndUserText.label: 'Ordem de Frete'
+  tor_id;
+  @UI.selectionField: [{position: 50}]
+  @UI.lineItem      : [{position: 50}]
+  @EndUserText.label: 'Data do Documento'
+  CreationDate;
+  @UI.selectionField: [{position: 60}]
+  @UI.lineItem      : [{position: 60}]
+  @EndUserText.label: 'Data da Coleta'
+  SalesOrderDate;
+  
+}

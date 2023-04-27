@@ -1,0 +1,79 @@
+@Metadata.layer: #CORE
+
+@UI: { headerInfo: { typeName: 'NotaFiscal',
+                     title: {type: #STANDARD, value: 'DtRecebimento' },
+                     description: { value: 'DtRecebimento' },
+                     typeNamePlural: 'Nota Fiscal'
+                   }
+     }
+
+annotate view ZC_SD_COCKPIT_NOTA_FISCAL with
+
+{
+  // ------------------------------------------------------
+  // Header information
+  // ------------------------------------------------------
+
+  @UI.facet: [
+   { id:          'NotaFiscal',
+     purpose:       #STANDARD,
+     type:          #IDENTIFICATION_REFERENCE,
+     label:         'Nota Fiscal',
+     position:      10
+   } ]
+  // ------------------------------------------------------
+  // Field information
+  // ------------------------------------------------------
+
+  @UI: { lineItem:        [ { position: 10, label: 'Data Logística ' } ],
+       identification:  [ { position: 10, label: 'Data Logística ' } ] }
+  DtRecebimento;
+  @UI: { lineItem:        [ { position: 20, label: 'Motivo' } ],
+       identification:  [ { position: 20, label: 'Motivo' } ] }
+  //@UI: {textArrangement:       #TEXT_ONLY}
+  Motivo;
+  @UI: { lineItem:        [ { position: 30, label: 'Data Administrativo' } ],
+       identification:  [ { position: 30, label: 'Data Administrativo' } ]  }
+  DtAdministrativo;
+  @UI: { lineItem:        [ { position: 40, label: 'Meio de pagamento' }, { type: #FOR_ACTION, dataAction: 'confirmaDadosBancarios',  label: 'Confirmar Dados Bancários'  } ],
+       identification:  [ { position: 40, label: 'Meio de pagamento' } ]  }
+
+  FormPagamento;
+  @UI: { lineItem:        [ { position: 50, label: 'Banco', requiresContext: true } ],
+        identification:  [ { position: 50, label: 'Banco', requiresContext: true } ]  }
+  Banco;
+  @UI: { lineItem:        [ { position: 60, label: 'Denominação do banco' } ],
+        identification:  [ { position: 60, label: 'Denominação do banco' } ]  }
+  DenomiBanco;
+  @UI: { lineItem:        [ { position: 70, label: 'Agência' } ],
+        identification:  [ { position: 70, label: 'Agência' } ]  }
+  Agencia;
+  @UI: { lineItem:        [ { position: 80, label: 'Conta' } ],
+        identification:  [ { position: 80, label: 'Conta' } ]  }
+  Conta;
+  @UI: { lineItem:        [ { position: 90, label: 'Prot.Ocorrência' } ],
+        identification:  [ { position: 90, label: 'Prot.Ocorrência' } ]  }
+  ProtOcorrencia;
+  
+  @UI: { lineItem:       [{ position: 100, label: 'Data da ocorrência' } ],
+         identification: [{ position: 100, label: 'Data da ocorrência' }] }
+  DtRegistro;
+  
+  @UI: { lineItem:       [{ position: 110, label: 'Hora da ocorrência' } ],
+         identification: [{ position: 110, label: 'Hora da ocorrência' }] }
+  HrRegistro;
+
+  @UI: { lineItem:       [ { position: 45, label: 'Confirma Dados Bancários' } ],
+        identification:  [ { position: 45, label: 'Confirma Dados Bancários' } ]  }
+  FlagDadosBancarios;
+
+
+  @UI: { lineItem:        [ { position:120, label: 'Nº Nf-e' } ],
+         identification:  [ { position:120, label: 'Nº Nf-e' } ]  }
+  Nfe;
+
+ @UI: { lineItem:         [ { position:130, label: 'Chave de Acesso ' } ],
+         identification:  [ { position:130, label: 'Chave de Acesso ' } ]  }
+  ChaveAcesso;
+  
+}

@@ -1,0 +1,6 @@
+projection;
+
+define behavior for zc_sd_atual_vig alias AtualVig
+{
+  use action atualizar;
+}

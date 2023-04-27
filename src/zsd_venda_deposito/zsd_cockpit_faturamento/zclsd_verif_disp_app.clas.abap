@@ -1,0 +1,5 @@
+CLASS zclsd_verif_disp_app DEFINITION PUBLIC ABSTRACT FINAL FOR BEHAVIOR OF zi_sd_verif_disp_app.
+ENDCLASS.
+
+CLASS zclsd_verif_disp_app IMPLEMENTATION.
+ENDCLASS.

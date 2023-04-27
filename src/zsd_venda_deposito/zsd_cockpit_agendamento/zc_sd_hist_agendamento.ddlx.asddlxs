@@ -1,0 +1,79 @@
+@Metadata.layer: #CORE
+@UI.headerInfo: {
+ typeName: 'Histórico de Agendamento',
+ typeNamePlural: 'Histórico de Agendamento',
+    title: {
+      type: #STANDARD,
+      label: 'Ordem'
+//      value: 'DocNum'
+    }}
+annotate view ZC_SD_HIST_AGENDAMENTO with
+{
+  @UI.facet: [{ id: 'Ordem',
+                  position: 10,
+                  label:    'Ordem',
+                  purpose:  #STANDARD,
+                  type:     #IDENTIFICATION_REFERENCE
+                   }]
+  @UI: { lineItem:     [{ position: 10, label: 'Agendamento Válido' }],
+       identification: [{ position: 10, label: 'Agendamento Válido' }] }
+  @UI.selectionField:  [{ position: 10 }]
+  Agend_Valid;
+  @UI: { lineItem:     [{ position: 20, label: 'Ordem do Cliente' }],
+       identification: [{ position: 20, label: 'Ordem do Cliente' }] }
+  @UI.selectionField:  [{ position: 20 }]
+  SalesOrder;
+
+  @UI.hidden: true
+  Item;
+  @UI: { lineItem:     [{ position: 30, label: 'Remessa' }],
+       identification: [{ position: 30, label: 'Remessa' }] }
+  @UI.selectionField:  [{ position: 30 }]
+  Remessa;
+  @UI: { lineItem:     [{ position: 40, label: 'Nota Fiscal' }],
+       identification: [{ position: 40, label: 'Nota Fiscal' }] }
+  @UI.selectionField:  [{ position: 40 }]
+  DocNum;
+  @UI: { lineItem:       [{ position: 50 }],
+         identification: [{ position: 50 }] }
+  @UI.selectionField:    [{ position: 50 }]
+  Canal;
+  @UI: { lineItem:     [{ position: 60, label: 'Data Agendada' }],
+       identification: [{ position: 60, label: 'Data Agendada' }] }
+  @UI.selectionField:  [{ position: 60 }]
+  DataAgendada;
+  @UI: { lineItem:     [{ position: 70, label: 'Hora Agendada' }],
+       identification: [{ position: 70, label: 'Hora Agendada' }] }
+  @UI.selectionField:  [{ position: 70 }]
+  HoraAgendada;
+  @UI: { lineItem:     [{ position: 80, label: 'Motivo Agenda' }],
+       identification: [{ position: 80, label: 'Motivo Agenda' }] }
+  @UI.selectionField:  [{ position: 80 }]
+  @UI.textArrangement: #TEXT_SEPARATE
+  Motivo;
+  @UI: { lineItem: [ { position: 90 } ],
+  identification:  [ { position: 90 } ]}
+  MotivoText;
+  @UI: { lineItem:     [{ position: 100, label: 'Senha' }],
+       identification: [{ position: 100, label: 'Senha' }] }
+  @UI.selectionField:  [{ position: 90 }]
+  Senha;
+
+  @UI: { lineItem: [ { position: 110, label: 'Observações' } ],
+  identification:  [ { position: 110, label: 'Observações' } ] }
+  Observacoes;
+
+  @UI: { lineItem:     [{ position: 120, label: 'Data do Registro' }],
+       identification: [{ position: 120, label: 'Data do Registro' }] }
+  @UI.selectionField:  [{ position: 100 }]
+  DataRegistro;
+  @UI: { lineItem:     [{ position: 130, label: 'Hora do Registro' }],
+       identification: [{ position: 130, label: 'Hora do Registro' }] }
+  @UI.selectionField:  [{ position: 110 }]
+  HoraRegistro;
+  @UI: { lineItem:     [{ position: 140, label: 'Usuário' }],
+       identification: [{ position: 140, label: 'Usuário' }] }
+  @UI.selectionField:  [{ position: 120 }]
+  Usuario;
+
+}

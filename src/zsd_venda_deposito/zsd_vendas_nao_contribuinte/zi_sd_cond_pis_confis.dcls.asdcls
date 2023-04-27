@@ -1,0 +1,11 @@
+@EndUserText.label: 'Condições Pis Confis'
+@MappingRole: true
+define role ZI_SD_COND_PIS_CONFIS {
+    grant 
+        select
+            on
+                ZI_SD_COND_PIS_CONFIS
+                    where
+                        ( Bukrs ) = aspect pfcg_auth( ZSDBUKRS, BUKRS, ACTVT = '03' );
+                        
+}

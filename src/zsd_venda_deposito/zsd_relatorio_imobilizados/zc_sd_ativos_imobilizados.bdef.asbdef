@@ -1,0 +1,9 @@
+projection;
+
+define behavior for ZC_SD_ATIVOS_IMOBILIZADOS alias Ativos
+use etag
+{
+  use create;
+  use update;
+  use delete;
+}

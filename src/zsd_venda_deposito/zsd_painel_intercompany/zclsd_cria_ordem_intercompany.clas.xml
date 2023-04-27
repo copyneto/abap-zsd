@@ -1,0 +1,127 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<abapGit version="v1.0.0" serializer="LCL_OBJECT_CLAS" serializer_version="v1.0.0">
+ <asx:abap xmlns:asx="http://www.sap.com/abapxml" version="1.0">
+  <asx:values>
+   <VSEOCLASS>
+    <CLSNAME>ZCLSD_CRIA_ORDEM_INTERCOMPANY</CLSNAME>
+    <LANGU>P</LANGU>
+    <DESCRIPT>Criar ordem Intercompany</DESCRIPT>
+    <STATE>1</STATE>
+    <CLSCCINCL>X</CLSCCINCL>
+    <FIXPT>X</FIXPT>
+    <UNICODE>X</UNICODE>
+   </VSEOCLASS>
+   <DESCRIPTIONS>
+    <SEOCOMPOTX>
+     <CMPNAME>GS_INPUT</CMPNAME>
+     <LANGU>P</LANGU>
+     <DESCRIPT>Estrutura para criação de ordem intercompany</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>GS_T001W_DESTINO</CMPNAME>
+     <LANGU>P</LANGU>
+     <DESCRIPT>Centros/filiais</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>GS_T001W_ORIGEM</CMPNAME>
+     <LANGU>P</LANGU>
+     <DESCRIPT>Centros/filiais</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>GS_T001W_RECEPTOR</CMPNAME>
+     <LANGU>P</LANGU>
+     <DESCRIPT>Centros/filiais</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>GT_RETURN</CMPNAME>
+     <LANGU>P</LANGU>
+     <DESCRIPT>Tabela de retorno</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>GV_CONTINUAR</CMPNAME>
+     <LANGU>P</LANGU>
+     <DESCRIPT>Código de um caractere</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>GV_ORDER</CMPNAME>
+     <LANGU>P</LANGU>
+     <DESCRIPT>Documento de vendas</DESCRIPT>
+    </SEOCOMPOTX>
+   </DESCRIPTIONS>
+   <DESCRIPTIONS_SUB>
+    <SEOSUBCOTX>
+     <CMPNAME>EXECUTE</CMPNAME>
+     <SCONAME>IS_CONTINUAR</SCONAME>
+     <LANGU>P</LANGU>
+     <DESCRIPT>Código de um caractere</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>EXECUTE</CMPNAME>
+     <SCONAME>IS_INPUT</SCONAME>
+     <LANGU>P</LANGU>
+     <DESCRIPT>Estrutura para criação de ordem intercompany</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>EXECUTE</CMPNAME>
+     <SCONAME>RT_RETURN</SCONAME>
+     <LANGU>P</LANGU>
+     <DESCRIPT>Tabela de retorno</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>FILL_HEADER</CMPNAME>
+     <SCONAME>ES_HEADER</SCONAME>
+     <LANGU>P</LANGU>
+     <DESCRIPT>Campos de comunicação: cabeçalho doc.SD</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>FILL_HEADER</CMPNAME>
+     <SCONAME>ES_HEADERX</SCONAME>
+     <LANGU>P</LANGU>
+     <DESCRIPT>Campos de seleção cabeçalho doc.SD</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>GET_PARAMETRO</CMPNAME>
+     <SCONAME>IV_CHAVE2</SCONAME>
+     <LANGU>P</LANGU>
+     <DESCRIPT>Chave do Parâmetro</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>GET_PARAMETRO</CMPNAME>
+     <SCONAME>IV_CHAVE3</SCONAME>
+     <LANGU>P</LANGU>
+     <DESCRIPT>Chave do Parâmetro</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>GET_PARAMETRO</CMPNAME>
+     <SCONAME>RV_RETURN</SCONAME>
+     <LANGU>P</LANGU>
+     <DESCRIPT>Valor Mínimo Parâmetro</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>VALIDA_CENTRO</CMPNAME>
+     <SCONAME>IV_CENTRO1</SCONAME>
+     <LANGU>P</LANGU>
+     <DESCRIPT>Centro</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>VALIDA_CENTRO</CMPNAME>
+     <SCONAME>IV_CENTRO2</SCONAME>
+     <LANGU>P</LANGU>
+     <DESCRIPT>Centro</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>VALIDA_CENTRO</CMPNAME>
+     <SCONAME>IV_TP_OPERA</SCONAME>
+     <LANGU>P</LANGU>
+     <DESCRIPT>Tipo de nº do pedido do cliente</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>VALIDA_CENTRO</CMPNAME>
+     <SCONAME>RV_MESMA_EMPRESA</SCONAME>
+     <LANGU>P</LANGU>
+     <DESCRIPT>Elem.dados para domínio BOOLE: TRUE (=&apos;X&apos;) e FALSE (=&apos; &apos;)</DESCRIPT>
+    </SEOSUBCOTX>
+   </DESCRIPTIONS_SUB>
+  </asx:values>
+ </asx:abap>
+</abapGit>

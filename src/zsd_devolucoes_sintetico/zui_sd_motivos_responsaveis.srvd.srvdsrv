@@ -1,0 +1,4 @@
+@EndUserText.label: 'SD - Motivos X Responsáveis'
+define service ZUI_SD_MOTIVOS_RESPONSAVEIS {
+  expose ZC_SD_MOTIVOS_RESPONSAVEIS as Motivos;
+}

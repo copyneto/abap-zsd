@@ -1,0 +1,53 @@
+managed;
+
+define behavior for ZI_SD_CKPT_AGEND_PALLET alias Pallet
+implementation in class zclsd_agend_pallet unique
+persistent table ztsd_agenda001
+lock master
+etag master LocalLastChangedAt
+//persistent table <???>
+//lock master
+//authorization master ( instance )
+//etag master <field_name>
+{
+  create;
+  update;
+  delete;
+
+  field ( readonly, numbering : managed )
+  Guid;
+
+  field ( mandatory )
+  Material,
+  Lastro,
+  QtdTotal,
+  UnidadeDeMedidaPallet,
+  Altura;
+
+  field ( readonly )
+  MaterialTexto,
+  ClienteTexto,
+  CreatedBy,
+  CreatedAt,
+  LastChangedBy,
+  LastChangedAt,
+  LocalLastChangedAt;
+
+ validation validarCampos on save { create; update; }
+
+  mapping for ZTSD_AGENDA001
+  {
+    Guid = guid;
+    Material = material;
+    Lastro = lastro;
+    Altura = altura;
+    Cliente = cliente;
+    QtdTotal = qtd_total;
+    UnidadeDeMedidaPallet = unidade_de_medida_pallet;
+    CreatedBy = created_by;
+    CreatedAt = created_at;
+    LastChangedBy = last_changed_by;
+    LastChangedAt = last_changed_at;
+    LocalLastChangedAt = local_last_changed_at;
+  }
+}

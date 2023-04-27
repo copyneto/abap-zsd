@@ -1,0 +1,11 @@
+@EndUserText.label: 'CDS de Autorização'
+@MappingRole: true
+define role ZI_SD_JUSTIF_ATRASO_APP {
+    grant 
+        select
+            on
+                ZI_SD_JUSTIF_ATRASO_APP
+                    where
+                         ( Centro ) = aspect pfcg_auth( ZSDWERKS, WERKS, ACTVT = '03' );
+                        
+}

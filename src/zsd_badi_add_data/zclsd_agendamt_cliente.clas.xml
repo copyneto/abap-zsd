@@ -1,0 +1,116 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<abapGit version="v1.0.0" serializer="LCL_OBJECT_CLAS" serializer_version="v1.0.0">
+ <asx:abap xmlns:asx="http://www.sap.com/abapxml" version="1.0">
+  <asx:values>
+   <VSEOCLASS>
+    <CLSNAME>ZCLSD_AGENDAMT_CLIENTE</CLSNAME>
+    <LANGU>P</LANGU>
+    <DESCRIPT>Montagem Agendamento Cliente</DESCRIPT>
+    <STATE>1</STATE>
+    <CLSCCINCL>X</CLSCCINCL>
+    <FIXPT>X</FIXPT>
+    <UNICODE>X</UNICODE>
+   </VSEOCLASS>
+   <TPOOL>
+    <item>
+     <ID>I</ID>
+     <KEY>001</KEY>
+     <ENTRY>2°:</ENTRY>
+     <LENGTH>13</LENGTH>
+    </item>
+    <item>
+     <ID>I</ID>
+     <KEY>002</KEY>
+     <ENTRY>3°:</ENTRY>
+     <LENGTH>13</LENGTH>
+    </item>
+    <item>
+     <ID>I</ID>
+     <KEY>003</KEY>
+     <ENTRY>4°:</ENTRY>
+     <LENGTH>13</LENGTH>
+    </item>
+    <item>
+     <ID>I</ID>
+     <KEY>004</KEY>
+     <ENTRY>5°:</ENTRY>
+     <LENGTH>13</LENGTH>
+    </item>
+    <item>
+     <ID>I</ID>
+     <KEY>005</KEY>
+     <ENTRY>6°:</ENTRY>
+     <LENGTH>13</LENGTH>
+    </item>
+   </TPOOL>
+   <DESCRIPTIONS_SUB>
+    <SEOSUBCOTX>
+     <CMPNAME>GET_DIA</CMPNAME>
+     <SCONAME>IV_AB1</SCONAME>
+     <LANGU>P</LANGU>
+     <DESCRIPT>Campo da ctg.TIMS</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>GET_DIA</CMPNAME>
+     <SCONAME>IV_AB2</SCONAME>
+     <LANGU>P</LANGU>
+     <DESCRIPT>Campo da ctg.TIMS</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>GET_DIA</CMPNAME>
+     <SCONAME>IV_BI1</SCONAME>
+     <LANGU>P</LANGU>
+     <DESCRIPT>Campo da ctg.TIMS</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>GET_DIA</CMPNAME>
+     <SCONAME>IV_BI2</SCONAME>
+     <LANGU>P</LANGU>
+     <DESCRIPT>Campo da ctg.TIMS</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>MONTA_HORARIOS</CMPNAME>
+     <SCONAME>EV_NTFOUND</SCONAME>
+     <LANGU>P</LANGU>
+     <DESCRIPT>Não encontrado</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>MONTA_HORARIOS</CMPNAME>
+     <SCONAME>EV_QUARTA</SCONAME>
+     <LANGU>P</LANGU>
+     <DESCRIPT>Quarta-feira</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>MONTA_HORARIOS</CMPNAME>
+     <SCONAME>EV_QUINTA</SCONAME>
+     <LANGU>P</LANGU>
+     <DESCRIPT>Quinta-feira</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>MONTA_HORARIOS</CMPNAME>
+     <SCONAME>EV_SEGUNDA</SCONAME>
+     <LANGU>P</LANGU>
+     <DESCRIPT>Segunda-feira</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>MONTA_HORARIOS</CMPNAME>
+     <SCONAME>EV_SEXTA</SCONAME>
+     <LANGU>P</LANGU>
+     <DESCRIPT>Sexta-feira</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>MONTA_HORARIOS</CMPNAME>
+     <SCONAME>EV_TERCA</SCONAME>
+     <LANGU>P</LANGU>
+     <DESCRIPT>Terça-feira</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>MONTA_HORARIOS</CMPNAME>
+     <SCONAME>IV_KUNNR</SCONAME>
+     <LANGU>P</LANGU>
+     <DESCRIPT>Nº cliente</DESCRIPT>
+    </SEOSUBCOTX>
+   </DESCRIPTIONS_SUB>
+  </asx:values>
+ </asx:abap>
+</abapGit>

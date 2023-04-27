@@ -1,0 +1,229 @@
+@Metadata.layer: #CORE
+@UI: { headerInfo: { title: { type: #STANDARD, value: 'IdText' },
+                     typeName: 'Solicitação',
+                     typeNamePlural: 'Solicitações' },
+
+       presentationVariant: [{ sortOrder: [{ by: 'Id', direction:  #DESC }] }] }
+
+@UI.selectionVariant: [{ id: 'ZPR0', text: 'Preço', filter: 'PresentationType EQ "ZPR0"' },
+                       { id: 'ZVMC', text: 'Alerta mínimo', filter: 'PresentationType EQ "ZVMC"' },
+                       { id: 'ZALT', text: 'Invasão', filter: 'PresentationType EQ "ZALT"' } ]
+
+@UI.selectionPresentationVariant: [{ id: 'ZPR0', selectionVariantQualifier: 'ZPR0', text: 'Preço' },
+                                   { id: 'ZVMC', selectionVariantQualifier: 'ZVMC', text: 'Alerta mínimo' },
+                                   { id: 'ZALT', selectionVariantQualifier: 'ZALT', text: 'Invasão' } ]
+
+@UI.lineItem: [{criticality: 'StatusCriticality'} ]
+
+annotate view ZC_SD_COCKPIT_GESTAO_PRECO with
+{
+
+  // ------------------------------------------------------
+  // Header information
+  // ------------------------------------------------------
+  @UI.facet: [ { id:              'HeaderStatus',
+                 purpose:         #HEADER,
+                 type:            #DATAPOINT_REFERENCE,
+                 targetQualifier: 'HeaderStatus',
+                 position:        20 },
+
+               { id:              'CABECALHO',
+                 isSummary:       true,
+                 type:            #COLLECTION,
+                 label:           'Cabeçalho',
+                 position:        10 },
+
+                        { parentId:        'CABECALHO',
+                          id:              'Cabecalho',
+                          type:            #FIELDGROUP_REFERENCE,
+                          label:           'Usuários',
+                          position:        10,
+                          targetQualifier: 'Cabecalho' },
+
+                        { parentId:        'CABECALHO',
+                          id:              'Dados',
+                          type:            #FIELDGROUP_REFERENCE,
+                          label:           'Dados',
+                          position:        20,
+                          targetQualifier: 'Dados' },
+
+                        { parentId:        'CABECALHO',
+                          id:              'Processamento',
+                          type:            #FIELDGROUP_REFERENCE,
+                          label:           'Processamento',
+                          position:        30,
+                          targetQualifier: 'Processamento' },
+
+                        { parentId:        'CABECALHO',
+                          id:              'Sistema',
+                          type:            #FIELDGROUP_REFERENCE,
+                          label:           'Dados de Sistema',
+                          position:        30,
+                          targetQualifier: 'Sistema' },
+
+               { id:              'Item',
+                 purpose:         #STANDARD,
+                 type:            #LINEITEM_REFERENCE,
+                 label:           'Itens',
+                 hidden:          #(hiddenITM),
+                 position:        20,
+                 targetElement:   '_Item'},
+
+               { id:              'Minimo',
+                 purpose:         #STANDARD,
+                 type:            #LINEITEM_REFERENCE,
+                 label:           'Alerta Mínimo',
+                 hidden:          #(hiddenMIN),
+                 position:        30,
+                 targetElement:   '_Minimo'},
+
+               { id:              'Invasao',
+                 purpose:         #STANDARD,
+                 type:            #LINEITEM_REFERENCE,
+                 label:           'Invasão',
+                 hidden:          #(hiddenINV),
+                 position:        40,
+                 targetElement:   '_Invasao'},
+
+               { id:             'Observacoes',
+                 purpose:         #STANDARD,
+                 type:            #LINEITEM_REFERENCE,
+                 label:           'Observações',
+                 hidden:          #(hiddenITM),
+                 position:        50,
+                 targetElement:   '_Observacoes'},
+
+               { id:              'Mensagem',
+                 purpose:         #STANDARD,
+                 type:            #LINEITEM_REFERENCE,
+                 label:           'Mensagem',
+                 position:        60,
+                 targetElement:   '_Mensagem'}   ]
+
+  // ------------------------------------------------------
+  // Buttons information
+  // ------------------------------------------------------
+  @UI.lineItem:         [ { position: 10, type: #FOR_ACTION, dataAction: 'validar', label: 'Validar' },
+                          { position: 20, type: #FOR_ACTION, dataAction: 'aprovar', label: 'Aprovar' },
+                          { position: 30, type: #FOR_ACTION, dataAction: 'reprovar', label: 'Reprovar' },
+                          { position: 40, type: #FOR_ACTION, dataAction: 'eliminar', label: 'Eliminar' } ]
+
+  @UI.identification:   [ { position: 10, type: #FOR_ACTION, dataAction: 'validar', label: 'Validar' },
+                          { position: 20, type: #FOR_ACTION, dataAction: 'aprovar', label: 'Aprovar' },
+                          { position: 30, type: #FOR_ACTION, dataAction: 'reprovar', label: 'Reprovar' },
+                          { position: 40, type: #FOR_ACTION, dataAction: 'eliminar', label: 'Eliminar' }  ]
+
+  // ------------------------------------------------------
+  // Field information
+  // ------------------------------------------------------
+  @UI.hidden: true
+  Guid;
+
+  @UI: { lineItem:       [ { position: 10, label: 'ID'} ], //, valueQualifier: 'Title' } ],
+  //         identification: [ { label: 'Teste', valueQualifier: 'Title' } ],
+         selectionField: [ { position: 10 } ],
+         textArrangement: #TEXT_SEPARATE }
+  Id;
+
+  @UI.hidden: true
+  IdText;
+
+  @UI: { lineItem:       [ { position: 20, label: 'Status', criticality: 'StatusCriticality' } ],
+         dataPoint:        { qualifier: 'HeaderStatus', title: 'Status', criticality: 'StatusCriticality' },
+         selectionField: [ { position: 20 } ] }
+  Status;
+
+  @UI.hidden: true
+  StatusText;
+
+  @UI.hidden: true
+  StatusCriticality;
+
+  @UI.hidden: true
+  hiddenITM;
+
+  @UI.hidden: true
+  hiddenMIN;
+
+  @UI.hidden: true
+  hiddenINV;
+
+  @UI: {  lineItem:       [ { position: 30, label: 'Tipo de condição' } ],
+          fieldGroup:     [ { position: 10, label: 'Tipo de condição', qualifier: 'Dados' } ] }
+  ConditionType;
+
+  @UI.hidden: true
+  ConditionTypeText;
+
+  @UI: {  lineItem:       [ { position: 40, label: 'Usuário Solicitante' } ],
+          fieldGroup:     [ { position: 10, label: 'Usuário Solicitante', qualifier: 'Cabecalho' } ],
+          selectionField: [ { position: 30 } ] }
+  RequestUser;
+
+  @UI.hidden: true
+  RequestUserText;
+
+  //  @UI: {  lineItem:       [ { position: 50, label: 'Usuário Aprovador', criticality: 'ApproveUserCriticality', criticalityRepresentation: #WITHOUT_ICON } ],
+  //          fieldGroup:     [ { position: 20, label: 'Usuário Aprovador', qualifier: 'Cabecalho' } ],
+  //          selectionField: [ { position: 40 } ] }
+  //  ApproveUser;
+  //
+  //  @UI.hidden: true
+  //  ApproveUserText;
+  //
+  //  @UI.hidden: true
+  //  ApproveUserCriticality;
+
+  //  @UI: {  lineItem:       [ { position: 60, label: 'Centro', criticality: 'PlantCriticality', criticalityRepresentation: #WITHOUT_ICON } ],
+  //          fieldGroup:     [ { position: 20, label: 'Centro', qualifier: 'Dados' } ],
+  //          selectionField: [ { position: 50 } ] }
+  //  Plant;
+  //
+  //  @UI: {  lineItem:       [ { position: 70, label: 'Descrição Centro'}]}
+  ////          fieldGroup:     [ { position: 30, label: 'Descrição Centro', qualifier: 'Dados' } ]}
+  //  PlantText;
+  //
+  //  @UI.hidden: true
+  //  PlantCriticality;
+
+  @UI: {  lineItem:       [ { position: 80, label: 'Data do Processamento' } ],
+          fieldGroup:     [ { position: 10, label: 'Data do Processamento', qualifier: 'Processamento' } ] }
+  ProcessDate;
+
+  @UI: {  lineItem:       [ { position: 90, label: 'Hora do Processamento' } ],
+          fieldGroup:     [ { position: 20, label: 'Hora do Processamento', qualifier: 'Processamento' } ] }
+  ProcessTime;
+
+  @UI: {  lineItem:       [ { position: 100, label: 'Criado por' } ],
+          fieldGroup:     [ { position: 10, label: 'Criado por', qualifier: 'Sistema' } ],
+          selectionField: [ { position: 60 } ] }
+  CreatedBy;
+
+  @UI: {  lineItem:       [ { position: 110, label: 'Criado em' } ],
+          fieldGroup:     [ { position: 20, label: 'Criado em', qualifier: 'Sistema' } ],
+          selectionField: [ { position: 70 } ] }
+  CreatedAt;
+
+  @UI: {  lineItem:       [ { position: 120, label: 'Hora da Importação' } ],
+          fieldGroup:     [ { position: 50, label: 'Hora da Importação', qualifier: 'Sistema' } ] }
+  ImportTime;
+
+  @UI.hidden: true
+  CreatedByText;
+
+  @UI: {  fieldGroup:     [ { position: 30, label: 'Alterado por', qualifier: 'Sistema' } ] }
+  LastChangedBy;
+
+  @UI.hidden: true
+  LastChangedByText;
+
+  @UI: {  fieldGroup:     [ { position: 40, label: 'Alterado em', qualifier: 'Sistema' } ] }
+  LastChangedAt;
+
+  @UI.hidden: true
+  LocalLastChangedAt;
+
+  @UI.hidden: true
+  PresentationType;
+
+}

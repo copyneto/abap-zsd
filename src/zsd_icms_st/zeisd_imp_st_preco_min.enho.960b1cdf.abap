@@ -1,0 +1,6 @@
+"Name: \TY:CL_TAX_CALC_BR\ME:CALCULATE_SUBTRIB\SE:END\EI
+ENHANCEMENT 0 ZEISD_IMP_ST_PRECO_MIN.
+
+  include zsdi_calculate_icms_st if found.
+
+ENDENHANCEMENT.

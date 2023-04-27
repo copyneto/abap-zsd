@@ -1,0 +1,15 @@
+unmanaged;
+
+define behavior for ZI_SD_MONITOR_CAMPANHA alias Monitor
+implementation in class zclsd_monitor_campanha unique
+lock master
+{
+action ( features : instance ) CriarOv;
+action ( features : instance ) LiberacaoID;
+static action InterfaceZIONZ;
+action ( features : instance ) CriarBP;
+//action CriarOv;
+//action LiberacaoID;
+//static action InterfaceZIONZ;
+//action CriarBP;
+}

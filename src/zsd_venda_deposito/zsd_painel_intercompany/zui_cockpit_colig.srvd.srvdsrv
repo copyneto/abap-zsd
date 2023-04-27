@@ -1,0 +1,6 @@
+@EndUserText.label: 'Pedidos  coligados'
+define service ZUI_COCKPIT_COLIG {
+  expose ZC_SD_01_COCKPIT as Coligados;
+  expose ZC_SD_02_ITEM as Material;
+  expose ZC_SD_05_LOG as Log;
+}

@@ -1,0 +1,66 @@
+@Metadata.layer: #CORE
+@UI: { headerInfo: { typeName: 'Informação de Distrato',
+                     typeNamePlural: 'Informações de Distrato',
+                     title: { type: #STANDARD, label: 'Distrato', value: 'Contrato' } } }
+
+annotate view ZC_SD_INF_DISTRATO_APP with
+{
+  // ------------------------------------------------------
+  // Informações de cabeçalho
+  // ------------------------------------------------------
+  @UI.facet: [ { id:              'Distrato',
+                 purpose:         #STANDARD,
+                 type:            #IDENTIFICATION_REFERENCE,
+                 label:           'Distrato',
+                 position:        10 } ]
+
+  // ------------------------------------------------------
+  // Informações de campo
+  // ------------------------------------------------------
+  @UI: { lineItem:        [ { position: 10, label: 'Contrato' } ],
+         identification:  [ { position: 10, label: 'Contrato' } ],
+         selectionField:  [ { position: 10 } ] }
+  Contrato;
+
+  @UI: { lineItem:        [ { position: 20, label: 'Item' } ],
+         identification:  [ { position: 20, label: 'Item' } ] }
+  ContratoItem;
+
+  @UI: { lineItem:        [ { position: 30, label: 'Solicitação Distrato' } ],
+         identification:  [ { position: 30, label: 'Solicitação Distrato' } ],
+         selectionField:  [ { position: 20 } ] }
+  Solicitacao;
+
+
+  @UI: { lineItem:        [ { position: 40, label: 'Número de Série' } ],
+         identification:  [ { position: 40, label: 'Número de Série' } ] }
+  Serie;
+
+  @UI: { lineItem:        [ { position: 50, label: 'Código Equipamento' } ],
+       identification:  [ { position: 50, label: 'Código Equipamento' } ] }
+  CodigoEquip;
+
+  @UI: { lineItem:        [ { position: 60, label: 'Descrição Equipamento' } ],
+       identification:  [ { position: 60, label: 'Descrição Equipamento' } ] }
+  DescricaoEquip;
+
+  @UI.hidden: true
+  SerieCV;
+
+  @UI: { lineItem:        [ { position: 70, label: 'Ordem de Saída' } ],
+         identification:  [ { position: 70, label: 'Ordem de Saída' } ] }
+  Ordem;
+
+  @UI: { lineItem:        [ { position: 80, label: 'NF-e de Saída' } ],
+         identification:  [ { position: 80, label: 'NF-e de Saída' } ],
+         selectionField:  [ { position: 30 } ]  }
+  NFeNumber;
+
+  @UI: { lineItem:        [ { position: 90, label: 'Ordem de Frete' } ],
+         identification:  [ { position: 90, label: 'Ordem de Frete' } ] }
+  OrdemFrete;
+  @UI: { lineItem:        [ { position: 100, label: 'NF-e Retorno' } ],
+         identification:  [ { position: 100, label: 'NF-e Retorno' } ] }
+  NFRetorno;
+
+}

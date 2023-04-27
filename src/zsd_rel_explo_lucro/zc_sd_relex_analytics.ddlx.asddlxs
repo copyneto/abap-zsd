@@ -1,0 +1,121 @@
+@Metadata.layer: #CORE
+@UI.headerInfo: { typeNamePlural: 'Rel. Lucro Exp.  Analítico' }
+                  
+annotate view ZC_SD_RELEX_Analytics with
+{
+  @UI.lineItem: [{position: 10 }]
+  @UI.selectionField: [{ position: 10 }] 
+  @Consumption.filter.mandatory: true
+  CompanyCode;
+
+  @UI.lineItem: [{position: 20 }]
+  @UI.selectionField: [{ position: 20 }]
+  @Consumption.valueHelpDefinition: [{ entity : {name: 'ZI_CA_VH_WERKS', element: 'WerksCode' }} ]
+  @Consumption.filter.mandatory: true
+  //  @Consumption.filter.selectionType: #INTERVAL
+  Plant;
+
+  @UI.lineItem: [{position: 30, label: 'Data NF' }]
+  @UI.selectionField: [{ position: 80 }]
+  @Consumption.filter.selectionType: #INTERVAL
+  CreationDate;
+
+  @UI.lineItem: [{position: 40, label: 'Atividade' }]
+  AdditionalMaterialGroup3Name;
+
+  @UI.lineItem: [{position: 50 }]
+  Material;
+
+  @UI.lineItem: [{position: 55 }]
+  @EndUserText.label: 'Descrição do Material'
+  MaterialName;
+
+  @UI.lineItem: [{position: 60 }]
+  @UI.selectionField: [{ position: 40 }]
+  @EndUserText.label : 'Tipo de Avaliação'
+  ValuationType;
+
+  @UI.lineItem: [{position: 70, label: 'Lote Venda' }]
+  Batch;
+
+  @UI.lineItem: [{position: 80, label: 'N° Nota Fiscal' }]
+  @UI.selectionField: [{ position: 50 }]
+  BR_NFNumber;
+
+  @UI.lineItem: [{position: 90, label: 'Docnum' }]
+  BR_NotaFiscal;
+
+  @UI.lineItem: [{position: 100 }]
+  BR_NotaFiscalItem;
+
+  @UI.lineItem: [{position: 110 }]
+  @EndUserText.label: 'Quantidade'
+  QtyEmKg;
+  @UI.lineItem: [{position: 120, label: 'Vlr Bruto' }]
+  @EndUserText.label: 'Vlr Bruto'
+//  BR_NFTotalAmount;
+  ValorTrans;
+  @UI.lineItem: [{position: 130, label: 'Vlr Líquido' }]
+  @EndUserText.label: 'Vlr Líquido'
+  VlrTransLiq;
+  @UI.lineItem: [{position: 140 }]
+  @EndUserText.label: 'Valor COFINS'
+  VlrCONFIS;
+  @UI.lineItem: [{position: 150 }]
+  @EndUserText.label: 'Valor do ICMS'
+  VlrICMS;
+  @UI.lineItem: [{position: 160 }]
+  @EndUserText.label: 'Valor do IPI'
+  VlrIPI;
+  @UI.lineItem: [{position: 170 }]
+  @EndUserText.label: 'Valor PIS'
+  VlrPIS;
+  @UI.lineItem: [{position: 180 }]
+  @EndUserText.label: 'Valor Sub.Trib'
+  VlrSUBTRIB;
+
+  @UI.lineItem: [{position: 190 }]
+  @UI.selectionField: [{ position: 30 }]
+  BR_CFOPCode;
+
+  @UI.lineItem: [{position: 200 }]
+  BusinessPlace;
+
+  @UI.lineItem: [{position: 210, label: 'Doc.Fatura' }]
+  BR_NFSourceDocumentNumber;
+
+  @UI.lineItem: [{position: 220 }]
+  BusinessArea;
+
+  @UI: { hidden: true }
+  CompanyCodeName;
+
+  @UI: { hidden: true }
+  BR_NFDocumentType;
+
+//  @UI.selectionField: [{ position: 60 }]
+  @UI: { hidden: true }
+  FiscalMonthCurrentPeriod;
+  @UI.selectionField: [{ position: 70 }]
+  FiscalYearCurrentPeriod;
+
+  @UI: { hidden: true }
+  BR_ReferenceNFItem;
+  @UI: { hidden: true }
+  QtyDelivery;
+  @UI: { hidden: true }
+  BaseUnit;
+  @UI.lineItem: [{position: 60 }]
+  @EndUserText.label: 'Tp Doc'
+  doc_type;
+  @UI: { hidden: true }
+  SalesDocumentCurrency;
+  @UI: { hidden: true }
+  MaterialBaseUnit;
+  @UI.selectionField: [{ position: 90 }]
+  @Consumption.valueHelpDefinition: [{ entity : {name: 'ZI_SD_RELEX_VH_CODESTATUS', element: 'Code' }} ]
+  StatusNF;
+  @UI: { hidden: true }
+  StatusNFText;
+
+}

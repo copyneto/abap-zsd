@@ -1,0 +1,73 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<abapGit version="v1.0.0" serializer="LCL_OBJECT_CLAS" serializer_version="v1.0.0">
+ <asx:abap xmlns:asx="http://www.sap.com/abapxml" version="1.0">
+  <asx:values>
+   <VSEOCLASS>
+    <CLSNAME>ZCLSD_GERAR_PARTIDAS</CLSNAME>
+    <LANGU>P</LANGU>
+    <DESCRIPT>Classe para Geração de Partidas</DESCRIPT>
+    <STATE>1</STATE>
+    <CLSCCINCL>X</CLSCCINCL>
+    <FIXPT>X</FIXPT>
+    <UNICODE>X</UNICODE>
+    <RSTAT>T</RSTAT>
+    <MSG_ID>ZSD_COMODATO_LOC</MSG_ID>
+   </VSEOCLASS>
+   <DESCRIPTIONS>
+    <SEOCOMPOTX>
+     <CMPNAME>GC_PARAM</CMPNAME>
+     <LANGU>P</LANGU>
+     <DESCRIPT>Cconstantes da tabela de Parâmetros</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>GERAR</CMPNAME>
+     <LANGU>P</LANGU>
+     <DESCRIPT>Gerar partidas</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>GET_PARAM</CMPNAME>
+     <LANGU>P</LANGU>
+     <DESCRIPT>Busca parâmetros</DESCRIPT>
+    </SEOCOMPOTX>
+   </DESCRIPTIONS>
+   <DESCRIPTIONS_SUB>
+    <SEOSUBCOTX>
+     <CMPNAME>GERAR</CMPNAME>
+     <SCONAME>IV_VBELN</SCONAME>
+     <LANGU>P</LANGU>
+     <DESCRIPT>Parâmetro Fatura</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>GERAR</CMPNAME>
+     <SCONAME>RV_RESULT</SCONAME>
+     <LANGU>P</LANGU>
+     <DESCRIPT>Parâmetro Resultado</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>GET_PARAM</CMPNAME>
+     <SCONAME>EV_PARAM</SCONAME>
+     <LANGU>P</LANGU>
+     <DESCRIPT>Parâmetro param</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>GET_PARAM</CMPNAME>
+     <SCONAME>IV_KEY1</SCONAME>
+     <LANGU>P</LANGU>
+     <DESCRIPT>Parâmetro chave 1</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>GET_PARAM</CMPNAME>
+     <SCONAME>IV_KEY2</SCONAME>
+     <LANGU>P</LANGU>
+     <DESCRIPT>Parâmetro chave 2</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>GET_PARAM</CMPNAME>
+     <SCONAME>IV_KEY3</SCONAME>
+     <LANGU>P</LANGU>
+     <DESCRIPT>Parâmetro chave 3</DESCRIPT>
+    </SEOSUBCOTX>
+   </DESCRIPTIONS_SUB>
+  </asx:values>
+ </asx:abap>
+</abapGit>

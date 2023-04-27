@@ -1,0 +1,134 @@
+@Metadata.layer: #CORE
+@UI: {
+  headerInfo: {
+    typeName: 'Cadastro de Grupo Mercadorias',
+    typeNamePlural: 'Cadastro de Grupo Mercadorias',
+    title: {
+      type: #STANDARD,
+      label: 'Grupo Mercadorias',
+      value: 'GrpMercadoria'
+    }
+    }}
+
+annotate view ZC_SD_GP_MERCADOR with
+{
+  @UI.facet: [ { id:         'GrpMercadoria',
+                purpose:       #STANDARD,
+                type:          #IDENTIFICATION_REFERENCE,
+                label:         'Grupo Mercadorias',
+                position:      10 }]
+
+  @UI: { lineItem: [{ position: 20 }],
+         identification: [{ position: 20 }] }
+  @UI.selectionField: [{ position: 10 }]
+  Centro;
+
+  @UI: { lineItem: [{ position: 30 }],
+         identification: [{ position: 30 }]  }
+  @UI.selectionField: [{ position: 20 }]
+  Uf;
+
+  @UI: {
+         lineItem: [{ position: 40 }],
+         identification: [{ position: 40 }] }
+  @UI.selectionField: [{ position: 30 }]
+  GrpMercadoria;
+
+  @UI.hidden: true
+  //  @UI: {
+  //         lineItem: [{ position: 50 }],
+  //         identification: [{ position: 50 }],
+  //         identification: [{ label: 'Descrição' }] }
+  Descricao;
+
+
+  @UI: {
+         lineItem: [{ position: 60 }],
+         identification: [{ position: 60 }]  }
+  Agregado;
+
+
+  @UI: {
+         lineItem: [{ position: 70 }],
+         identification: [{ position: 70 }]  }
+  IcmsDest;
+
+
+  @UI: {
+         lineItem: [{ position: 80 }],
+         identification: [{ position: 80 }]  }
+  IcmsOrig;
+
+
+  @UI: {
+         lineItem: [{ position: 90 }],
+         identification: [{ position: 90 }] }
+  CompraInterna;
+
+
+  @UI: {
+         lineItem: [{ position: 100 }],
+         identification: [{ position: 100 }]  }
+  BaseRedOrig;
+
+  @UI: {
+         lineItem: [{ position: 110 }],
+         identification: [{ position: 110 }]  }
+  BaseRedDest;
+
+  @UI: {
+         lineItem: [{ position: 120 }],
+         identification: [{ position: 120 }]  }
+  TaxaFcp;
+
+  @UI: {
+         lineItem: [{ position: 130 }],
+         identification: [{ position: 130 }]  }
+  IcmsEfet;
+
+  @UI: {
+  lineItem: [{ position: 140 }],
+  identification: [{ position: 140 } ] }
+  BaseRedEfet;
+
+  @UI: {
+  lineItem: [{ position: 150 }],
+  identification: [{ position: 150 }] }
+  PrecoCompar;
+
+  @UI: {
+  lineItem: [{ position: 160 }],
+  identification: [{ position: 160 }] }
+  PrecoPauta;
+
+  @UI: {
+       lineItem: [{ position: 170 }],
+       identification: [{ position: 170 } ] }
+  AgregadoPauta;
+
+  @UI: {
+   lineItem: [{ position: 180 }],
+   identification: [{ position: 180 } ] }
+  NroUnids;
+
+  @UI: {
+   lineItem: [{ position: 190 }],
+   identification: [{ position: 190 } ] }
+  Um;
+
+  @UI: {
+       lineItem: [{ position: 200 }],
+       identification: [{ position: 200 } ] }
+  PercentualBcIcms;
+
+  @UI: {
+       lineItem: [{ position: 210 }],
+       identification: [{ position: 200 } ] }
+  Modalidade;
+
+  @UI: {
+     lineItem: [{ position: 220 }],
+     identification: [{ position: 260 }] }
+  CalcEfetivo;
+
+}

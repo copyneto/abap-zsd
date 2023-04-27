@@ -1,0 +1,72 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<abapGit version="v1.0.0" serializer="LCL_OBJECT_CLAS" serializer_version="v1.0.0">
+ <asx:abap xmlns:asx="http://www.sap.com/abapxml" version="1.0">
+  <asx:values>
+   <VSEOCLASS>
+    <CLSNAME>ZCLSD_AGENDAMENTO_ACTIONS</CLSNAME>
+    <LANGU>P</LANGU>
+    <DESCRIPT>Ações para o Ckpt de Agendamento</DESCRIPT>
+    <STATE>1</STATE>
+    <CLSCCINCL>X</CLSCCINCL>
+    <FIXPT>X</FIXPT>
+    <UNICODE>X</UNICODE>
+   </VSEOCLASS>
+   <DESCRIPTIONS_SUB>
+    <SEOSUBCOTX>
+     <CMPNAME>CRIARAGENDAMENTO</CMPNAME>
+     <SCONAME>IV_DATAAGENDADA</SCONAME>
+     <LANGU>P</LANGU>
+     <DESCRIPT>Data do documento</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>CRIARAGENDAMENTO</CMPNAME>
+     <SCONAME>IV_GRP</SCONAME>
+     <LANGU>P</LANGU>
+     <DESCRIPT>Grp.Cliente Agenda</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>CRIARAGENDAMENTO</CMPNAME>
+     <SCONAME>IV_HORAAGENDADA</SCONAME>
+     <LANGU>P</LANGU>
+     <DESCRIPT>Registro hora processamento - hora</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>CRIARAGENDAMENTO</CMPNAME>
+     <SCONAME>IV_MOTIVO</SCONAME>
+     <LANGU>P</LANGU>
+     <DESCRIPT>Motivo do desvio da data</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>CRIARAGENDAMENTO</CMPNAME>
+     <SCONAME>IV_NFE</SCONAME>
+     <LANGU>P</LANGU>
+     <DESCRIPT>Nº documento</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>CRIARAGENDAMENTO</CMPNAME>
+     <SCONAME>IV_ORDEM</SCONAME>
+     <LANGU>P</LANGU>
+     <DESCRIPT>Documento de vendas</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>CRIARAGENDAMENTO</CMPNAME>
+     <SCONAME>IV_REMESSA</SCONAME>
+     <LANGU>P</LANGU>
+     <DESCRIPT>Remessa</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>CRIARAGENDAMENTO</CMPNAME>
+     <SCONAME>IV_SENHA</SCONAME>
+     <LANGU>P</LANGU>
+     <DESCRIPT>Senha para agendamento</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>CRIARAGENDAMENTO</CMPNAME>
+     <SCONAME>RT_RETURN</SCONAME>
+     <LANGU>P</LANGU>
+     <DESCRIPT>Tabela de retorno</DESCRIPT>
+    </SEOSUBCOTX>
+   </DESCRIPTIONS_SUB>
+  </asx:values>
+ </asx:abap>
+</abapGit>

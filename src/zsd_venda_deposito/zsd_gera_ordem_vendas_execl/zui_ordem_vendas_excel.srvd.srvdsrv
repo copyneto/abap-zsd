@@ -1,0 +1,4 @@
+@EndUserText.label: 'Service Def p/ ordem de vendas via Excel'
+define service ZUI_ORDEM_VENDAS_EXCEL {
+  expose ZC_SD_ORDEM_VENDAS_UPLD;
+}

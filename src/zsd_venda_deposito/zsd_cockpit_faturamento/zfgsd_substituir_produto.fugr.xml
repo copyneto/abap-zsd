@@ -1,0 +1,190 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<abapGit version="v1.0.0" serializer="LCL_OBJECT_FUGR" serializer_version="v1.0.0">
+ <asx:abap xmlns:asx="http://www.sap.com/abapxml" version="1.0">
+  <asx:values>
+   <AREAT>Substituir Produto: Função Cockpit</AREAT>
+   <INCLUDES>
+    <SOBJ_NAME>LZFGSD_SUBSTITUIR_PRODUTOTOP</SOBJ_NAME>
+    <SOBJ_NAME>SAPLZFGSD_SUBSTITUIR_PRODUTO</SOBJ_NAME>
+   </INCLUDES>
+   <FUNCTIONS>
+    <item>
+     <FUNCNAME>ZFMSD_SUBSTITUIR_DESCONTO</FUNCNAME>
+     <REMOTE_CALL>R</REMOTE_CALL>
+     <SHORT_TEXT>Substituir Desconto: Função Cockpit</SHORT_TEXT>
+     <IMPORT>
+      <RSIMP>
+       <PARAMETER>IV_ORDER</PARAMETER>
+       <TYP>VBELN_VA</TYP>
+      </RSIMP>
+      <RSIMP>
+       <PARAMETER>IS_ORDERX</PARAMETER>
+       <TYP>BAPISDH1X</TYP>
+      </RSIMP>
+     </IMPORT>
+     <TABLES>
+      <RSTBL>
+       <PARAMETER>TT_RETURN</PARAMETER>
+       <DBSTRUCT>BAPIRET2</DBSTRUCT>
+      </RSTBL>
+      <RSTBL>
+       <PARAMETER>TT_ITEM</PARAMETER>
+       <DBSTRUCT>BAPISDITM</DBSTRUCT>
+      </RSTBL>
+      <RSTBL>
+       <PARAMETER>TT_ITEMX</PARAMETER>
+       <DBSTRUCT>BAPISDITMX</DBSTRUCT>
+      </RSTBL>
+      <RSTBL>
+       <PARAMETER>TT_SCHEDULE_LINES</PARAMETER>
+       <DBSTRUCT>BAPISCHDL</DBSTRUCT>
+       <OPTIONAL>X</OPTIONAL>
+      </RSTBL>
+      <RSTBL>
+       <PARAMETER>TT_SCHEDULE_LINESX</PARAMETER>
+       <DBSTRUCT>BAPISCHDLX</DBSTRUCT>
+       <OPTIONAL>X</OPTIONAL>
+      </RSTBL>
+      <RSTBL>
+       <PARAMETER>TT_CONDITIONS_IN</PARAMETER>
+       <DBSTRUCT>BAPICOND</DBSTRUCT>
+       <OPTIONAL>X</OPTIONAL>
+      </RSTBL>
+      <RSTBL>
+       <PARAMETER>TT_CONDITIONS_INX</PARAMETER>
+       <DBSTRUCT>BAPICONDX</DBSTRUCT>
+       <OPTIONAL>X</OPTIONAL>
+      </RSTBL>
+      <RSTBL>
+       <PARAMETER>TT_COSTCENTER</PARAMETER>
+       <DBSTRUCT>ZSSD_SUB_PROD_COSTCENTER</DBSTRUCT>
+       <OPTIONAL>X</OPTIONAL>
+      </RSTBL>
+     </TABLES>
+     <DOCUMENTATION>
+      <RSFDO>
+       <PARAMETER>IV_ORDER</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Documento de vendas</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>IS_ORDERX</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Barra de seleção: SD cabeçalho de ordem</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>TT_RETURN</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Parâmetro de retorno</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>TT_ITEM</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Campos de comunicação: item doc.SD</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>TT_ITEMX</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Campos de comunicação: item doc.SD</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>TT_SCHEDULE_LINES</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Campos de comunicação para atualizar uma divisão de doc.SD</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>TT_SCHEDULE_LINESX</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Barra de seleção p/a atualização de uma divisão rem.doc.SD</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>TT_CONDITIONS_IN</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Campos de comunicação para atualizar as condições na ordem</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>TT_CONDITIONS_INX</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Campos de comunicação para atualizar as condições na ordem</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>TT_COSTCENTER</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Controle para passar o Centro de custo</STEXT>
+      </RSFDO>
+     </DOCUMENTATION>
+    </item>
+    <item>
+     <FUNCNAME>ZFMSD_SUBSTITUIR_PRODUTO</FUNCNAME>
+     <REMOTE_CALL>R</REMOTE_CALL>
+     <SHORT_TEXT>Substituir Produto: Função Cockpit</SHORT_TEXT>
+     <IMPORT>
+      <RSIMP>
+       <PARAMETER>IV_ORDER</PARAMETER>
+       <TYP>VBELN_VA</TYP>
+      </RSIMP>
+      <RSIMP>
+       <PARAMETER>IS_ORDERX</PARAMETER>
+       <TYP>BAPISDH1X</TYP>
+      </RSIMP>
+     </IMPORT>
+     <TABLES>
+      <RSTBL>
+       <PARAMETER>TT_RETURN</PARAMETER>
+       <DBSTRUCT>BAPIRET2</DBSTRUCT>
+      </RSTBL>
+      <RSTBL>
+       <PARAMETER>TT_ITEM</PARAMETER>
+       <DBSTRUCT>BAPISDITM</DBSTRUCT>
+      </RSTBL>
+      <RSTBL>
+       <PARAMETER>TT_ITEMX</PARAMETER>
+       <DBSTRUCT>BAPISDITMX</DBSTRUCT>
+      </RSTBL>
+      <RSTBL>
+       <PARAMETER>TT_SCHEDULE_LINES</PARAMETER>
+       <DBSTRUCT>BAPISCHDL</DBSTRUCT>
+       <OPTIONAL>X</OPTIONAL>
+      </RSTBL>
+      <RSTBL>
+       <PARAMETER>TT_SCHEDULE_LINESX</PARAMETER>
+       <DBSTRUCT>BAPISCHDLX</DBSTRUCT>
+       <OPTIONAL>X</OPTIONAL>
+      </RSTBL>
+     </TABLES>
+     <DOCUMENTATION>
+      <RSFDO>
+       <PARAMETER>IV_ORDER</PARAMETER>
+       <KIND>P</KIND>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>IS_ORDERX</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Campos de comunicação: SD cabeçalho de ordem</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>TT_RETURN</PARAMETER>
+       <KIND>P</KIND>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>TT_ITEM</PARAMETER>
+       <KIND>P</KIND>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>TT_ITEMX</PARAMETER>
+       <KIND>P</KIND>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>TT_SCHEDULE_LINES</PARAMETER>
+       <KIND>P</KIND>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>TT_SCHEDULE_LINESX</PARAMETER>
+       <KIND>P</KIND>
+      </RSFDO>
+     </DOCUMENTATION>
+    </item>
+   </FUNCTIONS>
+  </asx:values>
+ </asx:abap>
+</abapGit>

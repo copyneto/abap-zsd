@@ -1,0 +1,501 @@
+@Metadata.layer: #CORE
+@UI.headerInfo: {
+ typeName: 'Relatório de Notas de Saídas',
+  typeNamePlural: 'Relatório de Notas de Saídas',
+    title: {
+      type: #STANDARD,
+      label: 'Nº do documento',      
+      value: 'NotaFiscal'
+    }}
+annotate view ZC_SD_REL_FISCAL_SAIDA_APP with
+{
+  @UI.facet: [{ id: 'NumDocumento',
+                  position: 10,
+                  label:    'Nº do documento',
+                  purpose:  #STANDARD,
+                  type:     #IDENTIFICATION_REFERENCE
+                   }]
+  @UI: { lineItem:     [{ position: 10, semanticObjectAction: 'display', type: #WITH_INTENT_BASED_NAVIGATION }],
+       identification: [{ position: 10, semanticObjectAction: 'display', type: #WITH_INTENT_BASED_NAVIGATION }] }
+  @Consumption.semanticObject: 'NotaFiscal'
+  @UI.selectionField:  [{ position: 10 }]
+  @Consumption.valueHelpDefinition: [ { entity: { name: 'ZI_CA_VH_DOCNUM', element: 'BR_NotaFiscal' }  } ]
+  //  NumDocumento;
+  NotaFiscal;
+  @UI: { lineItem:     [{ position: 20}],
+       identification: [{ position: 20 }] }
+  ItemNF;
+
+  @Consumption.valueHelpDefinition: [ { entity: { name: 'ZI_SD_REL_FISCAL_SAIDA_NFMANU', element: 'TipoNF' }  } ]
+  @UI.selectionField:  [{ position: 20 }]
+
+  NFIsCreatedManually;
+
+  @UI: { lineItem:     [{ position: 30, label: 'Categ. NF' }],
+       identification: [{ position: 30, label: 'Categ. NF' }] }
+  @UI.selectionField:  [{ position: 25 }]
+  @Consumption.valueHelpDefinition: [ { entity: { name: 'ZI_CA_VH_NFTYPE', element: 'BR_NFType' }  } ]
+  CategNF;
+
+  //  @UI.lineItem: [ {position: 40, label: 'N° Nota Fiscal', semanticObjectAction: 'display', type: #WITH_INTENT_BASED_NAVIGATION }]
+  //  @Consumption.semanticObject: 'NotaFiscal'
+  @UI.selectionField:  [{ position: 30 }]
+  @Consumption.valueHelpDefinition: [ { entity: { name: 'ZI_SD_REL_FISCAL_SAIDA_NF', element: 'BR_NFNumber' }  } ]
+  NumNF;
+  //  NotaFiscal;
+  @UI: { lineItem:     [{ position: 50 }],
+       identification: [{ position: 50 }] }
+  @UI.selectionField:  [{ position: 40 }]
+  @Consumption.filter: {
+    selectionType: #INTERVAL,
+    multipleSelections: false
+  }
+  DtLancamentoNF;
+  @UI: { lineItem:     [{ position: 60, label: 'Local de Negócios' }],
+       identification: [{ position: 60, label: 'Local de Negócios' }] }
+  @UI.selectionField:  [{ position: 50 }]
+  @Consumption.valueHelpDefinition: [ { entity: { name: 'ZI_CA_VH_BRANCH', element: 'BusinessPlace' }  } ]
+  LocalNegocios;
+  @UI: { lineItem:     [{ position: 70, label: 'Cliente' }],
+       identification: [{ position: 70, label: 'Cliente' }] }
+  @UI.selectionField:  [{ position: 60 }]
+  @Consumption.valueHelpDefinition: [ { entity: { name: 'I_Customer_VH', element: 'Customer' }  } ]
+  Cliente;
+  @UI: { lineItem:     [{ position: 80 }],
+       identification: [{ position: 80 }] }
+  NomeCliente;
+  @UI: { lineItem:     [{ position: 90 }],
+       identification: [{ position: 90}] }
+  UFDestino;
+  @UI: { lineItem:     [{ position: 100 }],
+       identification: [{ position: 100 }] }
+  @UI.selectionField:  [{ position: 70 }]
+  @Consumption.valueHelpDefinition: [ { entity: { name: 'ZI_CA_VH_DOMICILIO_FISCAL', element: 'Txjcd' }  } ]
+  DomicilioFiscal;
+  @UI: { lineItem:     [{ position: 110 }],
+       identification: [{ position: 110}] }
+  @UI.selectionField:  [{ position: 80 }]
+  @Consumption.valueHelpDefinition: [ { entity: { name: 'ZI_CA_VH_VKBUR', element: 'SalesOffice' }  } ]
+  EscritorioVendas;
+  @UI: { lineItem:     [{ position: 120}],
+       identification: [{ position: 120 }] }
+  @UI.selectionField:  [{ position: 90 }]
+  @Consumption.valueHelpDefinition: [ { entity: { name: 'ZI_CA_VH_GRP_MERCADORIA', element: 'GrpMercadoria' }  } ]
+  GrupoMercadorias;
+  @UI: { lineItem:     [{ position: 130 }],
+       identification: [{ position: 130 }] }
+  ValorIPI;
+  @UI: { lineItem:     [{ position: 140 }],
+       identification: [{ position: 140 }] }
+  MVA;
+  @UI: { lineItem:     [{ position: 150 }],
+       identification: [{ position: 150 }] }
+  @UI.selectionField:  [{position: 95}]
+  @Consumption.valueHelpDefinition: [ { entity: { name: 'ZI_SD_VH_ICMSTAXPAY', element: 'ICMSTaxpay' }  } ]
+  @EndUserText.label: 'Contribuinte ICMS'
+  ContribuinteICMS;
+  @UI: { lineItem:     [{ position: 160 }],
+       identification: [{ position: 160 }] }
+  @UI.selectionField:  [{ position: 100 }]
+  @Consumption.valueHelpDefinition: [ { entity: { name: 'ZI_CA_VH_MATERIAL', element: 'Material' }  } ]
+  Material;
+  @UI: { lineItem:     [{ position: 170 }],
+       identification: [{ position: 170 }] }
+  Descricao;
+  @UI: { lineItem:     [{ position: 180 }],
+       identification: [{ position: 180 }] }
+  Frete;
+  @UI: { lineItem:     [{ position: 190 }],
+       identification: [{ position: 190 }] }
+  @EndUserText.label: 'Município'
+  Municipio;
+  @UI: { lineItem:     [{ position: 200 }],
+       identification: [{ position: 200 }] }
+  QtdConfNFEmitida;
+  @UI: { lineItem:     [{ position: 210 }],
+       identification: [{ position: 210 }] }
+  BaseUnit;
+  @UI: { lineItem:     [{ position: 220 }],
+       identification: [{ position: 220 }] }
+  @EndUserText.label: 'Quantidade em KG'
+  QuantityInBaseUnitKG;
+  @UI: { lineItem:     [{ position: 230 }],
+       identification: [{ position: 230 }] }
+  BaseUnitKG;
+  @UI: { lineItem:     [{ position: 240 }],
+       identification: [{ position: 240 }] }
+  PrecoUnitNF;
+  @UI: { lineItem:     [{ position: 250 }],
+       identification: [{ position: 250 }] }
+  QtdUnVdaBasica;
+  @UI: { lineItem:     [{ position: 260 }],
+       identification: [{ position: 260 }] }
+  @Consumption.valueHelpDefinition: [ { entity: { name: 'ZI_CA_VH_CFOP', element: 'Cfop1' }  } ]
+  //@Consumption.valueHelpDefinition: [ { entity: { name: 'ZI_SD_REL_VH_CFOP', element: 'Cfop' }  } ]
+  @UI.selectionField:  [{ position: 120 }]
+  CFOP;
+  @UI: { lineItem:     [{ position: 270 }],
+       identification: [{ position: 270 }] }
+  @EndUserText.label: 'Valor Total'
+  Valor;
+  @UI: { lineItem:     [{ position: 280 }],
+       identification: [{ position: 280 }] }
+  ValorProdutos;
+  //  @UI: { lineItem:     [{ position: 290, label: 'ICMS IPI1' }],
+  //       identification: [{ position: 290, label: 'ICMS IPI1' }] }
+  @UI.hidden: true
+  NFItemTaxAmountIPI1;
+  @UI: { lineItem:     [{ position: 300 }],
+       identification: [{ position: 300 }] }
+  DescFarelo;
+  @UI: { lineItem:     [{ position: 310}],
+       identification: [{ position: 310 }] }
+  BaseICMS;
+  @UI: { lineItem:     [{ position: 320}],
+       identification: [{ position: 320 }] }
+  ValorICMS;
+  @UI: { lineItem:     [{ position: 330}],
+       identification: [{ position: 330 }] }
+  BaseST;
+  @UI: { lineItem:     [{ position: 340 }],
+       identification: [{ position: 340 }] }
+  ValorST;
+  @UI: { lineItem:     [{ position: 350 }],
+       identification: [{ position: 350 }] }
+  BaseIPI;
+  @UI: { lineItem:     [{ position: 360 }],
+       identification: [{ position: 360 }] }
+  PIS;
+  @UI: { lineItem:     [{ position: 370 }],
+       identification: [{ position: 370 }] }
+  COFINS;
+  @UI: { lineItem:     [{ position: 380 }],
+       identification: [{ position: 380 }] }
+  ICMS_ICEP;
+  @UI: { lineItem:     [{ position: 390 }],
+       identification: [{ position: 390 }] }
+  ICMS_ICAP;
+  @UI: { lineItem:     [{ position: 400 }],
+       identification: [{ position: 400 }] }
+  ICMS_ICSP;
+  @UI: { lineItem:     [{ position: 410 }],
+       identification: [{ position: 410 }] }
+  CodBenef;
+  @UI: { lineItem:     [{ position: 420 }],
+       identification: [{ position: 420 }] }
+  ICMSDeson;
+  @UI: { lineItem:     [{ position: 430}],
+       identification: [{ position: 430 }] }
+  ST_ICMS;
+  @UI: { lineItem:     [{ position: 440 }],
+       identification: [{ position: 440}] }
+  LF_ICMS;
+  @UI: { lineItem:     [{ position: 450 }],
+       identification: [{ position: 450 }] }
+  SetorIndustrial;
+  @UI: { lineItem:     [{ position: 460 }],
+       identification: [{ position: 460 }] }
+  DescTipPrinInd;
+  @UI: { lineItem:     [{ position: 470}],
+       identification: [{ position: 470}] }
+  InscEstadual;
+  @UI: { lineItem:     [{ position: 480 }],
+       identification: [{ position: 480 }] }
+  @UI.selectionField:  [{ position: 130 }]
+  @Consumption.valueHelpDefinition: [ { entity: { name: 'ZI_CA_VH_SEGMENT', element: 'Segment' }  } ]
+  Segmento;
+  @UI: { lineItem:     [{ position: 490 }],
+       identification: [{ position: 490 }] }
+  UserCriador;
+  @UI: { lineItem:     [{ position: 500}],
+       identification: [{ position: 500 }] }
+//  @UI.selectionField:  [{ position: 140 }]
+//  @Consumption.valueHelpDefinition: [ { entity: { name: 'ZI_CA_VH_NFCODSIT', element: 'NFCodSit' }  } ]
+  CodSitDoc;
+  @UI: { lineItem:     [{ position: 510, label: 'Base Dif. Alíquotas' }],
+       identification: [{ position: 510, label: 'Base Dif. Alíquotas' }] }
+  BaseDifAliquotas;
+  @UI: { lineItem:     [{ position: 520, label: 'Valor Dif. Alíquotas' }],
+       identification: [{ position: 520, label: 'Valor Dif. Alíquotas' }] }
+  ValorDifAliquotas;
+  @UI: { lineItem:     [{ position: 530, label: 'Centro' }],
+       identification: [{ position: 530, label: 'Centro' }] }
+  @UI.selectionField:  [{ position: 150 }]
+  @Consumption.valueHelpDefinition: [ { entity: { name: 'I_PlantStdVH', element: 'Plant' }  } ]
+  Area;
+  @UI: { lineItem:     [{ position: 540, label: 'IVA' }],
+       identification: [{ position: 540, label: 'IVA' }] }
+  @UI.selectionField:  [{ position: 155 }]
+  @Consumption.valueHelpDefinition: [ { entity: { name: 'ZI_CA_VH_MWSKZ', element: 'IVACode' }  } ]
+  @EndUserText.label: 'IVA'
+  IVA;
+  @UI: { lineItem:     [{ position: 550 }],
+       identification: [{ position: 550 }] }
+  LF_IPI;
+  @UI: { lineItem:     [{ position: 560 }],
+       identification: [{ position: 560 }] }
+  ST_IPI;
+  @UI: { lineItem:     [{ position: 570}],
+       identification: [{ position: 570}] }
+  LF_COF;
+  @UI: { lineItem:     [{ position: 580 }],
+       identification: [{ position: 580}] }
+  ST_COF;
+  @UI: { lineItem:     [{ position: 590}],
+       identification: [{ position: 590 }] }
+  LF_PIS;
+  @UI: { lineItem:     [{ position: 600 }],
+       identification: [{ position: 600 }] }
+  ST_PIS;
+  @UI: { lineItem:     [{ position: 610, label: 'Centro de Custos' }],
+       identification: [{ position: 610, label: 'Centro de Custos' }] }
+  CentroCustos;
+  @UI: { lineItem:     [{ position: 620, label: 'Lote' }],
+       identification: [{ position: 620, label: 'Lote' }] }
+  @UI.selectionField:  [{ position: 160 }]
+  @Consumption.valueHelpDefinition: [ { entity: { name: 'ZI_SD_VH_LOTE', element: 'Batch' }  } ]
+  Lote;
+  @UI: { lineItem:     [{ position: 630, label: 'CPF' }],
+       identification: [{ position: 630, label: 'CPF' }] }
+  CPF;
+  @UI: { lineItem:     [{ position: 640, label: 'Preço Custo Unit.' }],
+       identification: [{ position: 640, label: 'Preço Custo Unit.' }] }
+  PrecoCustoUnitario;
+  @UI: { lineItem:     [{ position: 650, label: 'Preço Custo Total' }],
+       identification: [{ position: 650, label: 'Preço Custo Total' }] }
+  PrecoCustoTotal;
+  @UI: { lineItem:     [{ position: 660, label: 'Vl. Un. Prd. Conf. NF' }],
+       identification: [{ position: 660, label: 'Vl. Un. Prd. Conf. NF' }] }
+  VlUnPrdConfNF;
+  @UI: { lineItem:     [{ position: 665, label: 'Vl. Tot. Prd. Conf. NF' }],
+       identification: [{ position: 665, label: 'Vl. Tot. Prd. Conf. NF' }] }
+  VlTotalUnPrdConfNF;  
+  @UI: { lineItem:     [{ position: 670, label: 'Conta' }],
+       identification: [{ position: 670, label: 'Conta' }] }
+  Conta;
+  @UI: { lineItem:     [{ position: 680, label: 'Desc. Conta' }],
+       identification: [{ position: 680, label: 'Desc. Conta' }] }
+  DescConta;
+  @UI: { lineItem:     [{ position: 690, label: 'NCM' }],
+       identification: [{ position: 690, label: 'NCM' }] }
+  NCM;
+  @UI: { lineItem:     [{ position: 700, label: 'Tipo de Avaliação' }],
+       identification: [{ position: 700, label: 'Tipo de Avaliação' }] }
+  @UI.selectionField:  [{ position: 170 }]
+  @Consumption.valueHelpDefinition: [ { entity: { name: 'I_InventoryValuationType', element: 'InventoryValuationType' }  } ]
+  TipoAvaliacao;
+  @UI: { lineItem:     [{ position: 710, label: 'Ordem de Venda' }],
+       identification: [{ position: 710, label: 'Ordem de Venda' }] }
+  OrdemVenda;
+  @UI: { lineItem:     [{ position: 720, label: 'Org. Vendas' }],
+       identification: [{ position: 720, label: 'Org. Vendas' }] }
+  @UI.selectionField:  [{ position: 180 }]
+  @Consumption.valueHelpDefinition: [ { entity: { name: 'ZI_CA_VH_VKORG', element: 'OrgVendas' }  } ]
+  OrgVendas;
+  @UI: { lineItem:     [{ position: 730, label: 'Canal Distrib.' }],
+       identification: [{ position: 730, label: 'Canal Distrib.' }] }
+  @UI.selectionField:  [{ position: 190 }]
+  @Consumption.valueHelpDefinition: [ { entity: { name: 'ZI_CA_VH_VTWEG', element: 'CanalDistrib' }  } ]
+  CanalDistrib;
+  @UI: { lineItem:     [{ position: 740, label: 'Empresa' }],
+       identification: [{ position: 740, label: 'Empresa' }] }
+  @UI.selectionField:  [{ position: 200 }]
+  @Consumption.valueHelpDefinition: [ { entity: { name: 'I_CompanyCodeStdVH', element: 'CompanyCode' }  } ]
+  Empresa;
+  @UI: { lineItem:     [{ position: 750, label: 'Setor de Atividade' }],
+       identification: [{ position: 750, label: 'Setor de Atividade' }] }
+  @UI.selectionField:  [{ position: 210 }]
+  @Consumption.valueHelpDefinition: [ { entity: { name: 'ZI_CA_VH_SPART', element: 'SetorAtividade' }  } ]
+  SetorAtividade;
+  @UI: { lineItem:     [{ position: 760, label: 'Motivo da Ordem' }],
+       identification: [{ position: 760, label: 'Motivo da Ordem' }] }
+  @UI.selectionField:  [{ position: 220 }]
+  @Consumption.valueHelpDefinition: [ { entity: { name: 'I_SDDocumentReason', element: 'SDDocumentReason' }  } ]
+  MotivoOrdem;
+  @UI: { lineItem:     [{ position: 770, label: 'Isentos ICMS' }],
+       identification: [{ position: 770, label: 'Isentos ICMS' }] }
+  IsentosICMS;
+  @UI: { lineItem:     [{ position: 780, label: 'Outras ICMS' }],
+       identification: [{ position: 780, label: 'Outras ICMS' }] }
+  OutrasICMS;
+  @UI: { lineItem:     [{ position: 790, label: 'Isentos IPI' }],
+       identification: [{ position: 790, label: 'Isentos IPI' }] }
+  IsentosIPI;
+  @UI: { lineItem:     [{ position: 800, label: 'Outras IPI' }],
+       identification: [{ position: 800, label: 'Outras IPI' }] }
+  OutrasIPI;
+  @UI: { lineItem:     [{ position: 810, label: 'Origem Material' }],
+       identification: [{ position: 810, label: 'Origem Material' }] }
+  OrigemMaterial;
+  @UI: { lineItem:     [{ position: 820, label: 'Tipo de Doc. de Vendas' }],
+       identification: [{ position: 820, label: 'Tipo de Doc. de Vendas' }] }
+  @UI.selectionField:  [{ position: 220 }]
+  @Consumption.valueHelpDefinition: [ { entity: { name: 'ZI_CA_VH_AUART', element: 'SalesDocumentType' }  } ]
+  @EndUserText.label: 'Tipo Doc. de Vendas'
+  TipoDocVendas;
+  @UI: { lineItem:     [{ position: 830, label: 'Num. Doc. Original NF' }],
+       identification: [{ position: 830, label: 'Num. Doc. Original NF' }] }
+  NumdocOriginalNF;
+  @UI: { lineItem:     [{ position: 840, label: 'Num. Doc. Original Item' }],
+       identification: [{ position: 840, label: 'Num. Doc. Original Item' }] }
+  NumdocOriginalItem;
+  @UI: { lineItem:     [{ position: 850, label: 'Região Emissor' }],
+       identification: [{ position: 850, label: 'Região Emissor' }] }
+  RegiaoEmissor;
+  @UI: { lineItem:     [{ position: 860, label: 'Ano NFe' }],
+       identification: [{ position: 860, label: 'Ano NFe' }] }
+  BR_NFeIssueYear;
+  @UI: { lineItem:     [{ position: 870, label: 'Mês doc. NFe' }],
+       identification: [{ position: 870, label: 'Texto' }] }
+  BR_NFeIssueMonth;
+  @UI: { lineItem:     [{ position: 880, label: 'Nº CNPJ/CPF emissor' }],
+       identification: [{ position: 880, label: 'Nº CNPJ/CPF emissor' }] }
+  BR_NFeAccessKeyCNPJOrCPF;
+  @UI: { lineItem:     [{ position: 890, label: 'Modelo da NFe' }],
+       identification: [{ position: 890, label: 'Modelo da NFe' }] }
+  BR_NFeModel;
+  @UI: { lineItem:     [{ position: 900, label: 'Série NFe' }],
+       identification: [{ position: 900, label: 'Série NFe' }] }
+  BR_NFeSeries;
+  //  @UI: { lineItem:     [{ position: 910, label: 'Número NFe' }],
+  //       identification: [{ position: 910, label: 'Número NFe' }] }
+  @UI.hidden: true
+  BR_NFeNumber;
+  @UI: { lineItem:     [{ position: 920, label: 'Num. Aleatório NFe' }],
+       identification: [{ position: 920, label: 'Num. Aleatório NFe' }] }
+  BR_NFeRandomNumber;
+  @UI: { lineItem:     [{ position: 930, label: 'Dígito de controle NFe' }],
+       identification: [{ position: 930, label: 'Dígito de controle NFe' }] }
+  BR_NFeCheckDigit;
+  @UI: { lineItem:     [{ position: 940, label: 'Data Saída NF' }],
+       identification: [{ position: 940, label: 'Data Saída NF' }] }
+  DataSaidaNF;
+  @UI: { lineItem:     [{ position: 950, label: 'Cód. SUFRAMA' }],
+       identification: [{ position: 950, label: 'Cód. SUFRAMA' }] }
+  CodSuframa;
+  @UI: { lineItem:     [{ position: 960, label: 'Tipo de Declaração de Imposto' }],
+       identification: [{ position: 960, label: 'Tipo de Declaração de Imposto' }] }
+  TipoDeclaracaoImposto;
+  @UI: { lineItem:     [{ position: 970, label: 'Base ICMS FCP' }],
+       identification: [{ position: 970, label: 'Base ICMS FCP' }] }
+  BaseICMS_FCP;
+  @UI: { lineItem:     [{ position: 980, label: 'Valor ICMS FCP' }],
+       identification: [{ position: 980, label: 'Valor ICMS FCP' }] }
+  ValorICMS_FCP;
+  @UI: { lineItem:     [{ position: 990, label: 'Base ST FCP' }],
+       identification: [{ position: 990, label: 'Base ST FCP' }] }
+  BaseST_FCP;
+  @UI: { lineItem:     [{ position: 1000, label: 'Valor ST FCP' }],
+       identification: [{ position: 1000, label: 'Valor ST FCP' }] }
+  ValorST_FCP;
+  @UI: { lineItem:     [{ position: 1010, label: 'Texto D.F. ICMS 1' }],
+       identification: [{ position: 1010, label: 'Texto D.F. ICMS 1' }] }
+  TextoDFICMS1;
+  @UI: { lineItem:     [{ position: 1020, label: 'Texto D.F. ICMS 2' }],
+       identification: [{ position: 1030, label: 'Texto D.F. ICMS 2' }] }
+  TextoDFICMS2;
+  @UI: { lineItem:     [{ position: 1040, label: 'Texto D.F. ICMS 3' }],
+       identification: [{ position: 1040, label: 'Texto D.F. ICMS 3' }] }
+  TextoDFICMS3;
+  @UI: { lineItem:     [{ position: 1050, label: 'Texto D.F. IPI' }],
+       identification: [{ position: 1050, label: 'Texto D.F. IPI' }] }
+  TextoDFIPI;
+  @UI: { lineItem:     [{ position: 1060, label: 'Base ICMS ST Reemb.' }],
+       identification: [{ position: 1060, label: 'Base ICMS ST Reemb.' }] }
+  BaseICMS_STReemb;
+  @UI: { lineItem:     [{ position: 1070, label: 'Valor ICMS ST Reembolso' }],
+       identification: [{ position: 1070, label: 'Valor ICMS ST Reembolso' }] }
+  IcmsStReembolso;
+  @UI: { lineItem:     [{ position: 1080, label: 'ST Entrada' }],
+       identification: [{ position: 1080, label: 'ST Entrada' }] }
+  StEntrada;
+  @UI: { lineItem:     [{ position: 1090, label: 'Un. Vda. Básica' }],
+       identification: [{ position: 1090, label: 'Un. Vda. Básica' }] }
+  UnVdaBasica;
+  @UI: { lineItem:     [{ position: 2000, label: 'Peso Bruto NF' }],
+       identification: [{ position: 2000, label: 'Peso Bruto NF' }] }
+  PesoBrutoNF;
+  //  @UI: { lineItem:     [{ position: 2010, label: 'Modelo NF' }],
+  //       identification: [{ position: 2010, label: 'Modelo NF' }] }
+  @UI.hidden: true
+  ModeloNF;
+  @UI: { lineItem:     [{ position: 2020, label: 'Desc. Tip. Prin. Ind.' }],
+       identification: [{ position: 2020, label: 'Desc. Tip. Prin. Ind.' }] }
+  DescSetorInd;
+  @UI: { lineItem:     [{ position: 2030, label: 'Valor ICMS sem Benef.' }],
+       identification: [{ position: 2030, label: 'Valor ICMS sem Benef.' }] }
+  ValorICMSsemBenef;
+  @UI: { lineItem:     [{ position: 2040, label: 'Gtin' }],
+       identification: [{ position: 2040, label: 'Gtin' }] }
+  Gtin;
+  @UI: { lineItem:     [{ position: 2050, label: 'Doc. Rem.' }],
+       identification: [{ position: 2050, label: 'Doc. Rem.' }] }
+  DocRem;
+  @UI: { lineItem:     [{ position: 2060, label: 'Doc. Migo' }],
+       identification: [{ position: 2060, label: 'Doc. Migo' }] }
+  DocMigo;
+  @UI: { lineItem:     [{ position: 2070, label: 'Doc. Faturamento' }],
+       identification: [{ position: 2070, label: 'Doc. Faturamento' }] }
+  DocFaturamento;
+  @UI: { lineItem:     [{ position: 2080, label: 'Cód. Imp. SD' }],
+       identification: [{ position: 2080, label: 'Cód. Imp. SD' }] }
+  @UI.selectionField:  [{ position: 225 }]
+  @EndUserText.label: 'Cód. Imposto SD'
+  CodImpSD;
+  @UI: { lineItem:     [{ position: 2090, label: 'Emissor Ordem' }],
+       identification: [{ position: 2090, label: 'Emissor Ordem' }] }
+  @UI.selectionField:  [{ position: 230 }]
+  @Consumption.valueHelpDefinition: [ { entity: { name: 'ZI_CA_VH_EMISSOR_ORDEM', element: 'Kunnr' }  } ]
+  @EndUserText.label: 'Emissor Ordem'
+  EmissorOrdem;
+  @UI: { lineItem:     [{ position: 3000, label: 'CNPJ' }],
+       identification: [{ position: 3000, label: 'CNPJ' }] }
+  CNPJ;
+  @UI: { lineItem:     [{ position: 3010, label: 'Valor Base Cal. sem Benef.' }],
+       identification: [{ position: 3010, label: 'Valor Base Cal. sem Benef.' }] }
+  ValorBaseCalsemBenef;
+  @UI: { lineItem:     [{ position: 3020, label: 'Ano Migo' }],
+       identification: [{ position: 3020, label: 'Ano Migo' }] }
+  AnoMigo;
+  @UI: { lineItem:     [{ position: 3030, label: 'Aliq. IPI' }],
+       identification: [{ position: 3030, label: 'Aliq. IPI' }] }
+  AliqIPI;
+  @UI: { lineItem:     [{ position: 3040, label: 'Valor sem frete' }],
+       identification: [{ position: 3040, label: 'Valor sem frete' }] }
+  ValorsemFrete;
+  @UI: { lineItem:     [{ position: 3050, label: 'Cod. Reg. Trib. Num.' }],
+       identification: [{ position: 3050, label: 'Cod. Reg. Trib. Num.' }] }
+  @UI.selectionField:  [{ position: 240 }]
+  @Consumption.valueHelpDefinition: [ { entity: { name: 'ZI_SD_VH_CODREGTRIB', element: 'CRT' }  } ]
+  CodRegTribNum;
+  //  @UI: { lineItem:     [{ position: 3060, label: 'Moeda do documento SD' }],
+  //       identification: [{ position: 3060, label: 'Moeda do documento SD' }] }
+  @UI.hidden: true
+  SalesDocumentCurrency;
+  @UI: { lineItem:     [{ position: 3060, label: 'Desc. Incond' }],
+     identification: [{ position: 3060, label: 'Desc. Incond' }] }
+  DescIncond;
+  @UI: { lineItem:     [{ position: 3070, label: 'ICMS Zona Franca' }],
+   identification: [{ position: 3070, label: 'ICMS Zona Franca' }] }
+  ICMS_ZN;
+  @UI: { lineItem:     [{ position: 3080, label: 'Chave de Acesso' }],
+  identification: [{ position: 3080, label: 'Chave de Acesso' }] }
+  ChaveAcesso;
+  @UI: { lineItem:     [{ position: 3090, label: 'Tipo Setor ind.' }],
+  identification: [{ position: 3090, label: 'Tipo Setor ind.' }] }
+  DescontoInd;
+  @UI: { lineItem:     [{ position: 3100, label: 'Valor ICMS ST FCP Reembolso' }],
+  identification: [{ position: 3100, label: 'Valor ICMS ST FCP Reembolso' }] }
+  IcmsStFCPReembolso;
+  @UI: { lineItem:     [{ position: 3110, label: 'Base ICMS ST FCP Reembolso' }],
+  identification: [{ position: 3110, label: 'Base ICMS ST FCP Reembolso' }] }
+  BaseICMS_STFCPReemb;
+
+  @UI.hidden: true
+  MaterialGrossWeight;
+  @UI.hidden: true
+  MaterialWeightUnit;
+  @UI: { lineItem:     [{ position: 3120, label: 'Aliq. ICMS' }],
+       identification: [{ position: 3120, label: 'Aliq. ICMS' }] }
+  AliqICMS;  
+}

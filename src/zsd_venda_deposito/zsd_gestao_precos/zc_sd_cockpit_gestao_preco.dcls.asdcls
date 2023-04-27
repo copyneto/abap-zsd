@@ -1,0 +1,10 @@
+@EndUserText.label: 'CDS de Autorização'
+@MappingRole: true
+define role ZC_SD_COCKPIT_GESTAO_PRECO {
+    grant
+        select
+            on
+                ZC_SD_COCKPIT_GESTAO_PRECO
+                    where
+                       inheriting conditions from entity ZI_SD_COCKPIT_GESTAO_PRECO;
+}

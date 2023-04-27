@@ -1,0 +1,4 @@
+@EndUserText.label: 'ZUI_SD_KIT_BON_APP'
+define service ZUI_SD_KIT_BON_APP {
+  expose ZC_SD_KIT_BON_APP as KitProcessor;
+}

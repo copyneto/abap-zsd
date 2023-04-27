@@ -1,0 +1,460 @@
+@Metadata.layer: #CORE
+@UI: {
+  headerInfo: { typeName: 'Relatório de Devolução - Analítico',
+                typeNamePlural: 'Relatório de Devoluções - Analítico',
+                title: { type: #STANDARD, label: 'Nota de Devolução', value: 'NFDev' } },
+  presentationVariant: [{ sortOrder: [{ by: 'NFDev', direction:  #ASC }] }] }
+
+annotate view ZC_SD_BR_REL_ANALIT_DEVOLUCAO with
+{
+
+  //Apenas Filtros
+  @UI:{  selectionField: [ { position: 60,
+                             exclude: true } ] }
+  DivisionDev;
+
+  @UI:{  selectionField: [ { position: 80 } ] }
+  BillingDateDev;
+
+  @UI:{  selectionField: [ { position: 20 } ] }
+  SalesOrganizationDev;
+
+  @UI:{  selectionField: [ { position: 140,
+                             exclude: true } ] }
+  @EndUserText.label: 'CNPJ'
+  PartnerCNPJDev;
+
+  @UI:{  selectionField: [ { position: 240 } ] }
+  @EndUserText.label: 'Tipo do Documento'
+  CreatedManuallyDev;
+
+  //Campos de saída
+  @UI:{  lineItem:       [ { position: 10 } ],
+         selectionField: [ { position: 10 } ] }
+  @Consumption.filter.mandatory: true
+  CompanyCodeDev;
+
+  @UI:{  lineItem:       [ { position: 20 } ]}
+  @EndUserText.label: 'Descrição Nome Empresa'
+  CompanyCodeNameDev;
+
+  @UI:{  lineItem:       [ { position: 30 } ],
+         selectionField: [ { position: 40 } ] }
+  @EndUserText.label: 'L. Negócio'
+  BusinessPlaceDev;
+
+  @UI:{  lineItem:       [ { position: 31 } ] }
+  @EndUserText.label: 'Descrição L. Negócio'
+  BusinessPlaceNameDev;
+
+  @UI:{  lineItem:       [ { position: 40 } ],
+         selectionField: [ { position: 30 } ] }
+  @Consumption.filter.mandatory: true
+  PlantDev;
+
+  @UI:{  lineItem:       [ { position: 41 } ] }
+  @EndUserText.label: 'Descrição Centro'
+  BR_PlantNameDev;
+
+  @UI:{  lineItem:       [ { position: 50 } ],
+         selectionField: [ { position: 150 } ]}
+  @EndUserText.label: 'Criado por'
+  CreatedByUserDev;
+
+  @UI:{  lineItem:       [ { position: 60 } ],
+         selectionField: [ { position: 50 } ],
+         identification: [{ position: 10 }] }
+  DistributionChannelDev;
+
+  @UI:{  lineItem:       [ { position: 70 } ] }
+  @EndUserText.label: 'Descr.Canal'
+  DistributionChannelTextDev;
+
+  @UI:{  lineItem:       [ { position: 80 } ],
+         selectionField: [ { position: 130,
+                             exclude: true } ] }
+  @EndUserText.label: 'Cliente'
+  PartnerDev;
+
+  @UI:{  lineItem:       [ { position: 90 } ] }
+  @EndUserText.label: 'Nome Cliente'
+  PartnerNameDev;
+
+  @UI:{  lineItem:       [ { position: 100 } ] }
+  @EndUserText.label: 'UF'
+  PartnerRegionDev;
+
+  @UI:{  lineItem:       [ { position: 110 } ] }
+  @EndUserText.label: 'Município'
+  PartnerCityDev;
+
+  @UI:{  lineItem:       [ { position: 120 } ],
+         selectionField: [ { position: 160 } ] }
+  @EndUserText.label: 'Tp Ov de devolução'
+  SalesOrderTypeDev;
+
+  @UI:{  lineItem:       [ { position: 130 } ] }
+  @EndUserText.label: 'Descr.Tp OV Dev'
+  DocumentTypeNameDev;
+
+  @UI:{  lineItem:       [ { position: 140 } ] }
+  @EndUserText.label: 'Ordem Vendas Dev'
+  SalesDocumentDev;
+
+  @Consumption.semanticObject: 'NotaFiscal'
+  @UI: { lineItem:       [ { position: 150,
+                             type:     #WITH_INTENT_BASED_NAVIGATION,
+                             semanticObjectAction: 'zzdisplay' }],
+         selectionField: [ { position: 100 } ] }
+  @EndUserText.label: 'Docnum Dev'
+  BR_NotaFiscal;
+
+  @UI.hidden: true
+  NFDev;
+
+  @UI:{  lineItem:       [ { position: 160,
+                             label: 'N° NFe Dev' } ],
+         selectionField: [ { position: 90 } ] }
+  @EndUserText.label: 'N° NFe Dev'
+  NFeNumberDev;
+
+  @UI:{  lineItem:       [ { position: 170,
+                             label: 'Doc Faturamento de Dev' } ] }
+  @EndUserText.label: 'Doc Faturamento de Dev'
+  ReferenceDocumentDev;
+
+  @UI:{  lineItem:       [ { position: 180 } ],
+         selectionField: [ { position: 180,
+                             exclude: true }] }
+  @EndUserText.label: 'Tipo de Doc de Faturamento'
+  BillingDocTypeDev;
+
+  @UI:{  lineItem:       [ { position: 190 } ],
+         selectionField: [ { position: 190,
+                             exclude: true }] }
+  @EndUserText.label: 'Familia do Material'
+  ProductHierarchyNodeDev;
+
+  @UI:{  lineItem:       [ { position: 191 }] }
+  @EndUserText.label: 'Texto Familia do Material'
+  ProductHierarchyTextDev;
+
+  @UI:{  lineItem:       [ { position: 200 } ],
+         selectionField: [ { position: 110,
+                             exclude: true } ] }
+  @EndUserText.label: 'Código do Material'
+  MaterialDev;
+
+  @UI:{  lineItem:       [ { position: 210 } ] }
+  @EndUserText.label: 'Descr.Material'
+  MaterialNameDev;
+
+  @UI:{  lineItem:       [ { position: 220 } ] }
+  @EndUserText.label: 'Quantidade NFe Dev'
+  QuantityDev;
+
+  @UI:{  lineItem:       [ { position: 230 } ] }
+  @EndUserText.label: 'UM NF-e Dev'
+  BaseUnitDev;
+
+  @UI:{  lineItem:       [ { position: 240 } ] }
+  @EndUserText.label: 'Qde Dev UMB'
+  QuantityUMBDev;
+
+  @UI:{  lineItem:       [ { position: 250 } ] }
+  @EndUserText.label: 'UMB Dev'
+  MaterialBaseUnitDev;
+
+  //Qde Conversão em Kg - Virtual Elements
+  @UI:{  lineItem:       [ { position: 260 } ] }
+  @EndUserText.label: 'Conversão KG DEV'
+  QuantityKgDev;
+
+  @UI:{  lineItem:       [ { position: 270 } ] }
+  @EndUserText.label: 'UM KG Dev'
+  UnidKgDev;
+
+  @UI:{  lineItem:       [ { position: 280,
+                             label: 'NCM' } ] }
+  NCMDev;
+
+  @UI:{  lineItem:       [ { position: 290 } ] }
+  @EndUserText.label: 'Data de Emissão Dev'
+  CreationDataDev;
+
+  @UI:{  lineItem:       [ { position: 300 } ],
+         selectionField: [ { position: 70 } ] }
+  @EndUserText.label: 'Data de Lançamento Dev'
+  @Consumption.filter.mandatory: true
+  NFPostingDateDev;
+
+  @UI:{  lineItem:       [ { position: 310 } ],
+         selectionField: [ { position: 120,
+                             exclude: true }] }
+  @EndUserText.label: 'CFOP Dev'
+  CFOPDev;
+
+  @UI:{  lineItem:       [ { position: 320 } ] }
+  @EndUserText.label: 'Valor NFe Dev'
+  NFeTotalDev;
+
+  @UI:{  lineItem:       [ { position: 330 } ] }
+  @EndUserText.label: 'Valor Produto Dev'
+  NetValueDev;
+
+  @UI:{  lineItem:       [ { position: 340 } ] }
+  @EndUserText.label: 'Peso Nfe Dev'
+  HeaderGrossWeightDev;
+
+  @UI:{  lineItem:       [ { position: 350 } ] }
+  @EndUserText.label: 'Categ NF  Dev'
+  NFTypeDev;
+
+  @UI:{  lineItem:       [ { position: 360 } ] }
+  @EndUserText.label: 'BC ICMS Dev'
+  ICMSItemBaseAmountDev;
+  @UI:{  lineItem:       [ { position: 370 } ] }
+  @EndUserText.label: 'ICMS Dev'
+  ICMSItemTaxAmountDev;
+  @UI:{  lineItem:       [ { position: 380 } ] }
+  @EndUserText.label: 'BC IPI Dev'
+  IPIItemBaseAmountDev;
+  @UI:{  lineItem:       [ { position: 390 } ] }
+  @EndUserText.label: 'IPI Dev'
+  IPIItemTaxAmountDev;
+  @UI:{  lineItem:       [ { position: 400 } ] }
+  @EndUserText.label: 'BC ICMS ST Dev'
+  ICSTItemBaseAmountDev;
+  @UI:{  lineItem:       [ { position: 410 } ] }
+  @EndUserText.label: 'ICMS ST Dev'
+  ICSTItemTaxAmountDev;
+  @UI:{  lineItem:       [ { position: 420 } ] }
+  @EndUserText.label: 'BC PIS Dev'
+  PISItemBaseAmountDev;
+  @UI:{  lineItem:       [ { position: 430 } ] }
+  @EndUserText.label: 'PIS Dev'
+  PISItemTaxAmountDev;
+  @UI:{  lineItem:       [ { position: 440 } ] }
+  @EndUserText.label: 'BC COFINS Dev'
+  COFIItemBaseAmountDev;
+  @UI:{  lineItem:       [ { position: 450 } ] }
+  @EndUserText.label: 'COFINS Dev'
+  COFIItemTaxAmountDev;
+
+  //--------------------------------------------------------Saída
+  @UI:{  lineItem:       [ { position: 460 } ] }
+  @EndUserText.label: 'Tp Doc Vendas Saida'
+  SalesOrderTypeInv;
+
+  @UI:{  lineItem:       [ { position: 470 } ] }
+  @EndUserText.label: 'Descr.Tp OV Saida'
+  DocumentTypeNameInv;
+
+  @UI:{  lineItem:       [ { position: 480 } ] }
+  @EndUserText.label: 'Ordem de Vendas Saída'
+  OriginReferenceDocumentInv;
+
+  @Consumption.semanticObject: 'NotaFiscal'
+  @UI: { lineItem:        [ { position: 490,
+                              semanticObjectAction: 'display?sap-ui-tech-hint=GUI',
+                              type: #WITH_URL
+                               }]}
+  @EndUserText.label: 'Docnum Saída'
+  NFInv;
+
+  @UI:{  lineItem:       [ { position: 500 } ] }
+  @EndUserText.label: 'N° NFe Saída'
+  NFeNumberInv;
+
+  @UI:{  lineItem:       [ { position: 510 } ] }
+  @EndUserText.label: 'Tp Doc Fat Saída'
+  BillingDocTypeInv;
+
+  @UI:{  lineItem:       [ { position: 520 } ] }
+  @EndUserText.label: 'Doc Fat. Saída'
+  ReferenceDocumentInv;
+
+  @UI:{  lineItem:       [ { position: 530 } ] }
+  @EndUserText.label: 'Data de Lançamento Saida'
+  NFPostingDateInv;
+
+  @UI:{  lineItem:       [ { position: 540 } ] }
+  @EndUserText.label: 'Data de Emissão Saida'
+  CreationDateInv;
+
+  @UI:{  lineItem:       [ { position: 550 } ] }
+  @EndUserText.label: 'CFOP Saida'
+  CFOPInv;
+
+  @UI:{  lineItem:       [ { position: 560 } ] }
+  @EndUserText.label: 'Qtde NFe Saida'
+  QuantityInv;
+
+  @UI:{  lineItem:       [ { position: 570 } ] }
+  @EndUserText.label: 'UM NF-e Saida'
+  BaseUnitInv;
+
+  @UI:{  lineItem:       [ { position: 580 } ] }
+  @EndUserText.label: 'Qde UMB Saída'
+  QuantityUMBInv;
+
+  @UI:{  lineItem:       [ { position: 590 } ] }
+  @EndUserText.label: 'UMB Saida'
+  MaterialBaseUnitInv;
+
+  @UI:{  lineItem:       [ { position: 600 } ] }
+  @EndUserText.label: 'Conversão KG Saída'
+  QuantityKgInv;
+
+  @UI:{  lineItem:       [ { position: 610 } ] }
+  @EndUserText.label: 'UM KG Saída '
+  UnidKgInv;
+
+  @UI:{  lineItem:       [ { position: 620 } ] }
+  @EndUserText.label: 'Valor NFe Saída'
+  NFeTotalInv;
+
+  @UI:{  lineItem:       [ { position: 630 } ] }
+  @EndUserText.label: 'Valor Produto Saída'
+  NetValueAmountInv;
+
+  @UI:{  lineItem:       [ { position: 640 } ] }
+  @EndUserText.label: 'Ctg NF Saída'
+  NFTypeInv;
+
+  @UI:{  lineItem:       [ { position: 650 } ] }
+  @EndUserText.label: 'BC ICMS Saida'
+  ICMSItemBaseAmountInv;
+
+  @UI:{  lineItem:       [ { position: 660 } ] }
+  @EndUserText.label: 'ICMS Saida'
+  ICMSItemTaxAmountInv;
+
+  @UI:{  lineItem:       [ { position: 670 } ] }
+  @EndUserText.label: 'BC IPI Saida'
+  IPIItemBaseAmountInv;
+
+  @UI:{  lineItem:       [ { position: 680 } ] }
+  @EndUserText.label: 'IPI Saida'
+  IPIItemTaxAmountInv;
+
+  @UI:{  lineItem:       [ { position: 690 } ] }
+  @EndUserText.label: 'BC ICMS ST Saida'
+  ICSTItemBaseAmountInv;
+
+  @UI:{  lineItem:       [ { position: 700 } ] }
+  @EndUserText.label: 'ICMS ST Saida'
+  ICSTItemTaxAmountInv;
+
+  @UI:{  lineItem:       [ { position: 710 } ] }
+  @EndUserText.label: 'BC PIS Saida'
+  PISItemBaseAmountInv;
+
+  @UI:{  lineItem:       [ { position: 720 } ] }
+  @EndUserText.label: 'PIS Saida'
+  PISItemTaxAmountInv;
+
+  @UI:{  lineItem:       [ { position: 730 } ] }
+  @EndUserText.label: 'BC COFINS Saida'
+  COFIItemBaseAmountInv;
+
+  @UI:{  lineItem:       [ { position: 740 } ] }
+  @EndUserText.label: 'COFINS Saida'
+  COFIItemTaxAmountInv;
+
+  @UI:{  lineItem:       [ { position: 750 } ],
+         selectionField: [ { position: 170,
+                             exclude: true }] }
+  @EndUserText.label: 'Cód.do Motivo'
+  SDDocumentReasonDev;
+
+  @UI:{  lineItem:       [ { position: 760 } ] }
+  @EndUserText.label: 'Descrição do Motivo'
+  SDDocumentReasonTextDev;
+
+  @UI:{  lineItem:       [ { position: 770 } ] }
+  @EndUserText.label: 'Área Responsável-Dev'
+  AreaRespDev;
+
+  @UI:{  lineItem:       [ { position: 780 } ] }
+  @EndUserText.label: 'Impacto Indicador'
+  ImpactoDev;
+
+  @UI:{  lineItem:       [ { position: 790 } ] }
+  @EndUserText.label: 'Com Embarque'
+  EmbarqueDev;
+
+  @UI:{  lineItem:       [ { position: 800 } ] }
+  @EndUserText.label: 'Indicador Avarias'
+  QualidadeDev;
+
+  @UI:{  lineItem:       [ { position: 810 } ],
+         selectionField: [ { position: 210,
+                             exclude: true } ] }
+  @EndUserText.label: 'Cód do Vendedor'
+  SupplierInv;
+
+  @UI:{  lineItem:       [ { position: 820 } ] }
+  @EndUserText.label: 'Nome Vendedor'
+  SupplierNameInv;
+
+  @UI:{  lineItem:       [ { position: 830 } ] }
+  @EndUserText.label: 'Matrícula do Vendedor'
+  SupplierId;
+
+  @UI:{  lineItem:       [ { position: 840,
+                             label: 'Cód Motorista' } ],
+         selectionField: [ { position: 220,
+                             exclude: true } ] }
+  @EndUserText.label: 'Cód do Motorista'
+  DriverInv;
+
+  @UI:{  lineItem:       [ { position: 850 } ] }
+  @EndUserText.label: 'Nome do Motorista'
+  DriverNameInv;
+
+  @UI:{  lineItem:       [ { position: 860 } ],
+         selectionField: [ { position: 200,
+                             exclude: true }] }
+  @EndUserText.label: 'Matrícula do Motorista'
+  DriverId;
+
+  @UI:{  lineItem:       [ { position: 870 } ] }
+  @EndUserText.label: 'Ordem de Frete'
+  OrdemFreteInv;
+
+  @UI:{  lineItem:       [ { position: 880 } ] }
+  @EndUserText.label: 'Peso Nfe Saída'
+  GrossWeightInv;
+
+  @UI:{  lineItem:       [ { position: 890 } ] }
+  @EndUserText.label: 'Itinerário'
+  RouteInv;
+
+  @UI:{  lineItem:       [ { position: 900 } ] }
+                            //label: 'Descrição do Itinerário' } ] }
+  @EndUserText.label: 'Descrição do Itinerário'
+  RouteTextInv;
+
+  @UI:{  lineItem:       [ { position: 910 } ] }
+  @EndUserText.label: 'Cod Reg Vendas'
+  SalesDistrictInv;
+
+  @UI:{  lineItem:       [ { position: 920 } ] }
+  @EndUserText.label: 'Desc. Região de Vendas'
+  SalesDistrictNameInv;
+
+  @UI:{  lineItem:       [ { position: 930 } ] }
+  @EndUserText.label: 'Esc. Vendas'
+  SalesOfficeInv;
+
+  //  @UI:{  lineItem:       [ { position: 940 } ] }
+  //  Accuracy;
+
+  @UI.hidden: true
+  SalesDocumentCurrencyDev;
+  @UI.hidden: true
+  GrossWeightUnitInv;
+
+
+}

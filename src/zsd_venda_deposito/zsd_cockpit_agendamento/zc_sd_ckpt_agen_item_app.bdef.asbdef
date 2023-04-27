@@ -1,0 +1,6 @@
+projection;
+
+define behavior for ZC_SD_CKPT_AGEN_ITEM_APP alias Agendamento_Item
+{
+//  use action CriarAgendamento;
+}

@@ -1,0 +1,4 @@
+@EndUserText.label: 'Service Def Centro Fat vs Dep.Fechado'
+define service ZUI_SD_CENTRO_FAT_DF {
+  expose ZC_SD_CENTRO_FAT_DF;
+}

@@ -1,0 +1,155 @@
+@Metadata.layer: #CORE
+annotate entity ZC_SD_BR_REL_ANALITICO_NF with
+{
+
+  @UI: {  lineItem:       [ { position: 10 } ],
+          selectionField: [ { position: 10 }] }
+  CompanyCode;
+
+  @UI: {  lineItem:       [ { position: 15 } ] }
+  CompanyCodeName;
+
+  @UI: {  lineItem:       [ { position: 20 } ],
+          selectionField: [ { position: 20 }] }
+  BusinessPlace;
+
+  @UI: {  lineItem:       [ { position: 25 } ] }
+  @EndUserText.label: 'Nome local de negócio'
+  BusinessPlaceName;
+
+  @UI: {  lineItem:       [ { position: 30 } ],
+          selectionField: [ { position: 30 }] }
+  Plant;
+
+  @UI: {  lineItem:       [ { position: 40 } ] }
+  @EndUserText.label: 'Criado Por'
+  CreatedByUser;
+
+  @UI: {  lineItem:       [ { position: 50 } ] }
+  @EndUserText.label: 'Modificado por'
+  CancellationChangedByUser;
+
+  @UI: {  lineItem:       [ { position: 60 } ] }
+  ZBR_NFPartner;
+
+  @UI: {  lineItem:       [ { position: 61 } ] }
+  @EndUserText.label: 'Nome do recebedor'
+  BR_NFReceiverNameFrmtdDesc;
+
+  @Consumption.semanticObject:'NotaFiscal'
+  @UI: {  lineItem:       [ { position: 70, semanticObjectAction: 'display?sap-ui-tech-hint=GUI', type: #WITH_URL } ],
+          selectionField: [ { position: 51 }] }
+  BR_NotaFiscal;
+
+  @UI: {  lineItem:       [ { position: 80} ],
+          selectionField: [ { position: 50 }] }
+  @EndUserText.label: 'Nro da NFe'
+  BR_NFeNumber;
+
+  @UI: {  lineItem:       [ { position: 90, exclude: true } ] }
+  BR_NotaFiscalItem;
+
+  @UI: {  lineItem:       [ { position: 100 } ],
+          selectionField: [ { position: 70 }] }
+  @EndUserText.label: 'CFOP'
+  BR_CFOPCode;
+
+  @UI: {  lineItem:       [ { position: 120 } ],
+          selectionField: [ { position: 40 }] }
+  BR_NFPostingDate;
+
+  @UI: {  lineItem:       [ { position: 130 } ] }
+  @EndUserText.label: 'Hora da criação documento'
+  CreationTime;
+
+  @UI: {  lineItem:       [ { position: 140 } ] }
+  BR_NFCancellationDate;
+
+  @UI: {  lineItem:       [ { position: 150 } ] }
+  @EndUserText.label: 'Hora do cancelamento'
+  LastChangeTime;
+
+  @UI: {  lineItem:       [ { position: 160 } ] }
+  Material;
+
+  @UI: {  lineItem:       [ { position: 170 } ] }
+  MaterialName;
+
+  @UI: {  lineItem:       [ { position: 180, label: 'Quantidade' } ] }
+  QuantityInBaseUnit;
+
+  @UI: {  lineItem:       [ { position: 190, label: 'Un. Medida' } ] }
+  BaseUnit;
+
+  @UI: {  hidden: true }
+  SalesDocumentCurrency;
+
+  @UI: {  lineItem:       [ { position: 210, label: 'Valor Total ' } ] }
+  NetValueAmount;
+
+  @UI: {  lineItem:       [ { position: 220 } ] }
+  BR_ICMSBaseAmount;
+
+  @UI: {  lineItem:       [ { position: 230, label: 'Valor ICMS' } ] }
+  BR_ICMSTaxAmount;
+
+  @UI: {  lineItem:       [ { position: 240, label: 'Base do IPI' } ] }
+  ZBR_IPIBaseAmount;
+
+  @UI: {  lineItem:       [ { position: 250, label: 'Valor IPI' } ] }
+  BR_IPITaxAmount;
+
+  @UI: {  lineItem:       [ { position: 260, label: 'Base ST' } ] }
+  BR_ICMSSTBaseAmount;
+
+  @UI: {  lineItem:       [ { position: 270, label: 'Valor ST' } ] }
+  BR_ICMSSTAmount;
+
+  @UI: {  lineItem:       [ { position: 280, label: 'ICMS ICAP' } ] }
+  BR_ICMSDestinationTaxAmount;
+
+  @UI: {  lineItem:       [ { position: 290, label: 'ICMS ICEP' } ] }
+  BR_ICMSOriginTaxAmount;
+
+  @UI: {  lineItem:       [ { position: 300, label: 'ICMS ICSP' } ] }
+  BR_FCPOnICMSTaxAmount;
+
+  @UI: {  lineItem:       [ { position: 310, exclude: true } ] }
+  DistributionChannel;
+
+  @UI: {  lineItem:       [ { position: 320, exclude: true } ] }
+  SDDocumentReason;
+
+  @UI: {  lineItem:       [ { position: 330, exclude: true } ] }
+  Division;
+
+  @UI: { selectionField: [ { position: 39 }] }
+  BR_NFIssueDate;
+
+  @UI: { selectionField: [ { position: 67 }] }
+  @EndUserText.label: 'Tipo de Emitente'
+  BR_NFPartnerType;
+
+  @UI: { selectionField: [ { position: 68 }] }
+  @Consumption: { filter: { selectionType: #SINGLE } }
+  BR_NFIsCanceled;
+
+  @UI: { selectionField: [ { position: 69 }] }
+  @EndUserText.label: 'Categoria de NF'
+  BR_NFType;
+
+  @UI: { selectionField: [ { position: 110, exclude: true }] }
+  BillingDocumentType;
+
+  @UI: { selectionField:  [ { position: 120 } ] }
+  BR_NFeDocumentStatus;
+
+  @UI: { selectionField:  [ { position: 130 } ] }
+  @EndUserText.label: 'Tipo de documento'
+  BR_NFIsCreatedManually;
+
+  @UI: { selectionField:  [ { position: 140 } ] }
+  BR_NFDirection;
+
+
+}

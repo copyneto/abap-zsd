@@ -1,0 +1,48 @@
+@Metadata.layer: #CORE
+@UI.headerInfo: {
+ typeName: 'Determinação de depósitos',
+ typeNamePlural: 'Determinação de depósitos',
+    title: {
+      type: #STANDARD,
+      label: 'Tipo de documento de vendas',
+      value: 'Auart'
+    }}
+    
+annotate view ZC_SD_CTR_DET_DEP with
+{
+
+  @UI.facet: [{ id:       'Auart',
+                position: 10,
+                label:    'Tipo de documento de vendas',
+                purpose:  #STANDARD,
+                type:     #IDENTIFICATION_REFERENCE
+                 }]
+
+  @UI: { lineItem:       [{ position: 10 }],
+         identification: [{ position: 10 }] }
+  @UI.selectionField: [{ position: 10 }]
+  Auart;
+  @UI: { lineItem:       [{ position: 20 }],
+         identification: [{ position: 20 }] }
+  @UI.selectionField: [{ position: 20 }]
+  Kunnr;
+  @UI: { lineItem:       [{ position: 30 }],
+         identification: [{ position: 30 }] }
+  @UI.selectionField: [{ position: 30 }]
+  Augru;
+  @UI: { lineItem:       [{ position: 40 }],
+         identification: [{ position: 40 }] }
+  @UI.selectionField: [{ position: 40 }]
+  Matkl;
+  @UI: { lineItem:       [{ position: 50 }],
+         identification: [{ position: 50 }] }
+  @UI.selectionField: [{ position: 50 }]
+  Bsark;
+  @UI: { lineItem:       [{ position: 60 }],
+         identification: [{ position: 60 }] }
+  @UI.selectionField: [{ position: 60 }]
+  Werks;
+  @UI: { lineItem:       [{ position: 70 }],
+         identification: [{ position: 70 }] }
+  Lgort;
+}

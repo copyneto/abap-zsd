@@ -1,0 +1,129 @@
+@Metadata.layer: #CORE
+@UI: { headerInfo: { typeName: 'Verifica Disponibilidade',
+                     typeNamePlural: 'Verifica Disponibilidade',
+                     title: { type: #STANDARD, label: 'Material', value: 'Material' } } }
+annotate view ZC_SD_VERIF_DISP_APP with
+{
+  // ------------------------------------------------------
+  // Informações de cabeçalho
+  // ------------------------------------------------------
+//  @UI.facet: [ { id:              'VerifUtil',
+//                 purpose:         #STANDARD,
+//                 type:            #IDENTIFICATION_REFERENCE,
+//                 label:           'Material',
+//                 position:        10 } ]
+
+  // ------------------------------------------------------
+  // Informações de campo
+  // ------------------------------------------------------
+  @UI: {  lineItem:       [ { position: 10, label: 'Material' },
+  //                             { type: #FOR_ACTION, dataAction: 'VerificaDisponibilidade',               label: 'Verificar disponibilidade'  },
+                             { type: #FOR_ACTION, dataAction: 'AcionaLogistica',                 label: 'Acionar logística'  } ,
+                             { type: #FOR_ACTION, dataAction: 'AtribuiMoticoAcao',               label: 'Atribuir motivo Ação'  } ],
+//          identification: [ { position: 10, label: 'Material'} ],
+          selectionField: [ { position: 10 } ] }
+  Material;
+
+  @UI: {  lineItem:       [ { position: 20 } ] }
+//          identification: [ { position: 20 } ] }
+  Descricao;
+
+
+  @UI: {  lineItem:       [ { position: 30 } ],
+//          identification: [ { position: 30 } ],
+          selectionField: [ { position: 20 } ] }
+  Plant;
+
+  @UI: {  lineItem:       [ { position: 40 } ],
+//          identification: [ { position: 40 } ],
+          selectionField: [ { position: 30 } ] }
+  Deposito;
+  //  @Consumption.filter.hidden: true
+  //  @UI.hidden: true
+  //  SalesOrder;
+
+
+  @UI: {  lineItem:       [ { position: 50 } ] }
+//          identification: [ { position: 50 } ] }
+  QtdOrdem;
+
+  @UI: {  lineItem:       [ { position: 60 } ] }
+//          identification: [ { position: 60 } ] }
+  QtdRemessa;
+
+  @UI: {  lineItem:       [ { position: 70 } ] }
+//          identification: [ { position: 70 } ] }
+  QtdEstoqueLivre;
+
+  @UI: {  lineItem:       [ { position: 80 } ] }
+//          identification: [ { position: 80 } ] }
+  Saldo;
+
+  @UI: {  lineItem:       [ { position: 90 } ]}
+//          identification: [ { position: 90 } ] }
+  QtdDepositoFechado;
+
+  @UI: {  lineItem:       [ { position: 100 } ] }
+//          identification: [ { position: 100 } ] }
+  OrderQuantityUnit;
+
+  //  @UI: {  lineItem:       [ { position: 110 } ],
+  //        identification: [ { position: 110 } ],
+  //          selectionField: [ { position: 110 } ] }
+  //  StorageLocation;
+
+  @UI: {  lineItem:       [ { position: 120, label: 'Centro Depósito Fechado' } ],
+//          identification: [ { position: 120, label: 'Centro Depósito Fechado' } ],
+          selectionField: [ { position: 40 } ] }
+  CentroDepFechado;
+
+  @UI: {  lineItem:       [ { position: 130, criticality: 'ColorAcaoLogistica' } ],
+//          identification: [ { position: 130, criticality: 'ColorAcaoLogistica' } ],
+          selectionField: [ { position: 50 } ] }
+  @Consumption.filter:{ selectionType: #SINGLE }
+  acaoLogistica;
+
+  //  @UI: {  lineItem:       [ { position: 120 } ],
+  //          identification: [ { position: 120 } ] }
+  @Consumption.filter.hidden: true
+  @UI.hidden: true
+  dataSolic;
+  @UI: {  lineItem:       [ { position: 140 } ],
+//          identification: [ { position: 140 } ],
+          selectionField: [ { position: 80 } ] }
+  @Consumption.filter:{ selectionType: #INTERVAL }
+  data_solic_logist;
+
+  @UI: {  lineItem:       [ { position: 150 } ],
+//          identification: [ { position: 150 } ],
+          selectionField: [ { position: 60 } ] }
+  motivoIndisp;
+
+  @UI: {  lineItem:       [ { position: 160 } ],
+//          identification: [ { position: 160 } ],
+          selectionField: [ { position: 70 } ] }
+  acaoNecessaria;
+
+  @UI: {  lineItem:       [ { position: 09 , criticality: 'ColorStatus' } ],
+//          identification: [ { position: 09, criticality: 'ColorStatus' } ],
+          selectionField: [ { position: 150 } ] }
+  //  @Consumption: { filter: { defaultValue: 'Indisponível'} }
+  Status;
+
+  @Consumption.filter.hidden: true
+  @UI.hidden: true
+  ColorStatus;
+
+  @Consumption.filter.hidden: true
+  @UI.hidden: true
+  ColorAcaoLogistica;
+
+  @Consumption.filter.hidden: true
+  @UI.hidden: true
+  MotivoText;
+
+  @Consumption.filter.hidden: true
+  @UI.hidden: true
+  AcaoText;
+
+}

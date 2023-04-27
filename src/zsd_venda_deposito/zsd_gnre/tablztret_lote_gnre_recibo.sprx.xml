@@ -1,0 +1,109 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<abapGit version="v1.0.0" serializer="LCL_OBJECT_SPRX" serializer_version="v1.0.0">
+ <asx:abap xmlns:asx="http://www.sap.com/abapxml" version="1.0">
+  <asx:values>
+   <PROXY_HEADER>
+    <item>
+     <OBJECT>TABL</OBJECT>
+     <OBJ_NAME>ZTRET_LOTE_GNRE_RECIBO</OBJ_NAME>
+     <OBJECT_M>TABL</OBJECT_M>
+     <OBJ_NAME_M>ZTRET_LOTE_GNRE</OBJ_NAME_M>
+     <HASH_ID>5F41AE8786B41FC47FDAD6B623B1DFC770AA5808</HASH_ID>
+     <ID>&lt;type&gt; recibo &lt;element&gt; {http://www.gnre.pe.gov.br}recibo &lt;type&gt; TRetLote_GNRE &lt;element&gt; TRetLote_GNRE http://www.gnre.pe.gov.br http://www.gnre.pe.gov.br</ID>
+     <IFR_TYPE>type</IFR_TYPE>
+     <IFR_NAME>recibo</IFR_NAME>
+     <IFR_NSPCE>http://www.gnre.pe.gov.br</IFR_NSPCE>
+     <IFR_GNSPCE>http://www.gnre.pe.gov.br</IFR_GNSPCE>
+     <GEN_VERS>0005</GEN_VERS>
+     <PREFIX>Z</PREFIX>
+     <CATEGORY>ifmtypedef</CATEGORY>
+     <GEN_APPL>WEBSERVICES</GEN_APPL>
+     <X-ML_NSPCE>http://www.gnre.pe.gov.br</X-ML_NSPCE>
+     <X-ML_NAME>recibo</X-ML_NAME>
+    </item>
+   </PROXY_HEADER>
+   <PROXY_DATA>
+    <item>
+     <OBJECT>TABL</OBJECT>
+     <OBJ_NAME>ZTRET_LOTE_GNRE_RECIBO</OBJ_NAME>
+     <OBJECT1>FIEL</OBJECT1>
+     <OBJ_NAME1>DATA_HORA_RECIBO</OBJ_NAME1>
+     <OBJECT2>FIEL</OBJECT2>
+     <OBJ_NAME2>DATA_HORA_RECIBO</OBJ_NAME2>
+     <OBJECT_R>DTEL</OBJECT_R>
+     <OBJ_NAME_R>ZTDATA_HORA</OBJ_NAME_R>
+     <ID>&lt;element&gt; {http://www.gnre.pe.gov.br}dataHoraRecibo &lt;type&gt; recibo &lt;element&gt; {http://www.gnre.pe.gov.br}recibo &lt;type&gt; TRetLote_GNRE &lt;element&gt; TRetLote_GNRE http://www.gnre.pe.gov.br http://www.gnre.pe.gov.br</ID>
+     <IFR_TYPE>element</IFR_TYPE>
+     <IFR_NAME>dataHoraRecibo</IFR_NAME>
+     <IFR_TAGTYP>E</IFR_TAGTYP>
+     <IFR_MINOCC>1</IFR_MINOCC>
+     <IFR_MAXOCC>1</IFR_MAXOCC>
+     <IFR_QUALIF>X</IFR_QUALIF>
+     <IFR_SCALE>-2</IFR_SCALE>
+     <R3_TYPE>FIEL</R3_TYPE>
+     <R3_NAME>DATA_HORA_RECIBO</R3_NAME>
+     <R3_SEQNUM>000002</R3_SEQNUM>
+    </item>
+    <item>
+     <OBJECT>TABL</OBJECT>
+     <OBJ_NAME>ZTRET_LOTE_GNRE_RECIBO</OBJ_NAME>
+     <OBJECT1>FIEL</OBJECT1>
+     <OBJ_NAME1>NUMERO</OBJ_NAME1>
+     <OBJECT2>FIEL</OBJECT2>
+     <OBJ_NAME2>NUMERO</OBJ_NAME2>
+     <ID>&lt;element&gt; {http://www.gnre.pe.gov.br}numero &lt;type&gt; recibo &lt;element&gt; {http://www.gnre.pe.gov.br}recibo &lt;type&gt; TRetLote_GNRE &lt;element&gt; TRetLote_GNRE http://www.gnre.pe.gov.br http://www.gnre.pe.gov.br</ID>
+     <IFR_TYPE>element</IFR_TYPE>
+     <IFR_NAME>numero</IFR_NAME>
+     <IFR_TAGTYP>E</IFR_TAGTYP>
+     <IFR_MINOCC>1</IFR_MINOCC>
+     <IFR_MAXOCC>1</IFR_MAXOCC>
+     <IFR_QUALIF>X</IFR_QUALIF>
+     <IFR_XSDTYP>string</IFR_XSDTYP>
+     <IFR_PATTRN>[0-9]{10}</IFR_PATTRN>
+     <IFR_SCALE>-2</IFR_SCALE>
+     <R3_TYPE>FIEL</R3_TYPE>
+     <R3_NAME>NUMERO</R3_NAME>
+     <R3_DATATYP>STRG</R3_DATATYP>
+     <R3_SEQNUM>000001</R3_SEQNUM>
+    </item>
+    <item>
+     <OBJECT>TABL</OBJECT>
+     <OBJ_NAME>ZTRET_LOTE_GNRE_RECIBO</OBJ_NAME>
+     <OBJECT1>FIEL</OBJECT1>
+     <OBJ_NAME1>TEMPO_ESTIMADO_PROC</OBJ_NAME1>
+     <OBJECT2>FIEL</OBJECT2>
+     <OBJ_NAME2>TEMPO_ESTIMADO_PROC</OBJ_NAME2>
+     <ID>&lt;element&gt; {http://www.gnre.pe.gov.br}tempoEstimadoProc &lt;type&gt; recibo &lt;element&gt; {http://www.gnre.pe.gov.br}recibo &lt;type&gt; TRetLote_GNRE &lt;element&gt; TRetLote_GNRE http://www.gnre.pe.gov.br http://www.gnre.pe.gov.br</ID>
+     <IFR_TYPE>element</IFR_TYPE>
+     <IFR_NAME>tempoEstimadoProc</IFR_NAME>
+     <IFR_TAGTYP>E</IFR_TAGTYP>
+     <IFR_MINOCC>1</IFR_MINOCC>
+     <IFR_MAXOCC>1</IFR_MAXOCC>
+     <IFR_QUALIF>X</IFR_QUALIF>
+     <IFR_XSDTYP>int</IFR_XSDTYP>
+     <IFR_SCALE>-2</IFR_SCALE>
+     <R3_TYPE>FIEL</R3_TYPE>
+     <R3_NAME>TEMPO_ESTIMADO_PROC</R3_NAME>
+     <R3_DATATYP>INT4</R3_DATATYP>
+     <R3_SEQNUM>000003</R3_SEQNUM>
+    </item>
+    <item>
+     <OBJECT>TABL</OBJECT>
+     <OBJ_NAME>ZTRET_LOTE_GNRE_RECIBO</OBJ_NAME>
+     <OBJECT1>TABL</OBJECT1>
+     <OBJ_NAME1>ZTRET_LOTE_GNRE_RECIBO</OBJ_NAME1>
+     <OBJECT2>TABL</OBJECT2>
+     <OBJ_NAME2>ZTRET_LOTE_GNRE_RECIBO</OBJ_NAME2>
+     <ID>&lt;type&gt; recibo &lt;element&gt; {http://www.gnre.pe.gov.br}recibo &lt;type&gt; TRetLote_GNRE &lt;element&gt; TRetLote_GNRE http://www.gnre.pe.gov.br http://www.gnre.pe.gov.br</ID>
+     <IFR_TYPE>type</IFR_TYPE>
+     <IFR_NAME>recibo</IFR_NAME>
+     <IFR_SCALE>-2</IFR_SCALE>
+     <R3_TYPE>TABL</R3_TYPE>
+     <R3_NAME>ZTRET_LOTE_GNRE_RECIBO</R3_NAME>
+     <R3_TEXT>Proxy Structure (generated)</R3_TEXT>
+     <CATEGORY>ifmtypedef</CATEGORY>
+    </item>
+   </PROXY_DATA>
+  </asx:values>
+ </asx:abap>
+</abapGit>

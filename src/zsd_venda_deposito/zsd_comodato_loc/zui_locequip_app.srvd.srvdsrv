@@ -1,0 +1,4 @@
+@EndUserText.label: 'Service Def Local/Equipamento'
+define service ZUI_LOCEQUIP_APP {
+  expose ZC_SD_LOCAIS_EQUIP_APP;
+}

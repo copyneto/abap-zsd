@@ -1,0 +1,10 @@
+@Metadata.layer: #CORE
+annotate entity ZC_SD_COMODATO_POPUP_CENTRO with
+{
+  @EndUserText.label: 'Centro Destino'
+  werks_dest;
+  @UI.hidden: true
+  @EndUserText.label: 'Emissor'
+  EmissorOrdem;
+
+}

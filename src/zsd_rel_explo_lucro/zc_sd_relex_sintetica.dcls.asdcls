@@ -1,0 +1,11 @@
+@EndUserText.label: 'CDS de Autorização'
+@MappingRole: true
+define role ZC_SD_RELEX_SINTETICA {
+    grant 
+        select
+            on
+                ZC_SD_RELEX_Sintetica
+                    where
+                        ( ( Plant ) = aspect pfcg_auth( ZSDWERKS, WERKS, ACTVT = '03' ) or Plant is null );
+                        
+}

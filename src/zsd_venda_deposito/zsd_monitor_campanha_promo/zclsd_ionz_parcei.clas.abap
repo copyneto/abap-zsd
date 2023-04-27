@@ -1,0 +1,5 @@
+CLASS zclsd_ionz_parcei DEFINITION PUBLIC ABSTRACT FINAL FOR BEHAVIOR OF zi_sd_ionz_parcei.
+ENDCLASS.
+
+CLASS zclsd_ionz_parcei IMPLEMENTATION.
+ENDCLASS.

@@ -1,0 +1,126 @@
+@Metadata.layer: #CORE
+
+@UI: {
+  headerInfo: { typeName: 'Registros',
+                typeNamePlural: 'Registros',
+                title: { type: #STANDARD, label: 'Atualizar', value: 'vtweg' }
+                 } }
+
+annotate entity zc_sd_atual_vig with
+{
+
+  @UI.facet: [ { id:            'Registros',
+               purpose:         #STANDARD,
+               type:            #IDENTIFICATION_REFERENCE,
+               label:           'Registros',
+               position:        10 } ]
+
+  @UI: { lineItem: [ { position: 10, label: 'Canal de Distribuição' } ],
+  identification:  [ { position: 10, label: 'Canal de Distribuição' } ],
+  selectionField:  [ { position: 10 } ] }
+  vtweg;
+
+  @UI: { lineItem: [ { position: 20, label: 'Desc. Canal de Distribuição' } ],
+  identification:  [ { position: 20, label: 'Desc. Canal de Distribuição' } ]}
+  CanalText;
+
+  @UI: { lineItem: [ { position: 30, label: 'Centro' } ],
+  identification:  [ { position: 30, label: 'Centro' } ],
+  selectionField:  [ { position: 20 } ] }
+  werks;
+
+  @UI: { lineItem: [ { position: 40, label: 'Desc. Centro' } ],
+  identification:  [ { position: 40, label: 'Desc. Centro' } ]}
+  WerksText;
+
+  @UI: { lineItem: [ { position: 50, label: 'Família' } ],
+  identification:  [ { position: 50, label: 'Família' } ],
+  selectionField:  [ { position: 30 } ] }
+  Grupo;
+
+  @UI: { lineItem: [ { position: 60, label: 'Desc. Família' } ],
+  identification:  [ { position: 60, label: 'Desc. Família' } ]}
+  GrupoText;
+
+  @UI: { lineItem: [ { position: 70, label: 'Lista de Preço' } ],
+  identification:  [ { position: 70, label: 'Lista de Preço' } ],
+  selectionField:  [ { position: 40 } ] }
+  pltyp;
+
+  @UI: { lineItem: [ { position: 80, label: 'Desc. Lista de Preço' } ],
+  identification:  [ { position: 80, label: 'Desc. Lista de Preço' } ]}
+  PriceText;
+
+  @UI: { lineItem: [ { position: 90, label: 'Material' } ],
+  identification:  [ { position: 90, label: 'Material' } ],
+  selectionField:  [ { position: 50 } ] }
+  matnr;
+
+  @UI: { lineItem: [ { position: 100, label: 'Desc. Material' } ],
+  identification:  [ { position: 100, label: 'Desc. Material' } ]}
+  MaterialText;
+
+  @UI: { lineItem: [ { position: 110, label:'Escala' } ],
+  identification:  [ { position: 110, label:'Escala'} ]}
+  kstbm;
+
+  @UI: { lineItem: [ { position: 120, label:'Sequencia Escala' } ],
+  identification:  [ { position: 120, label:'Sequencia Escala'} ]}
+  klfn1;
+
+  @UI: { lineItem: [ { position: 130, label:'UMB' } ],
+  identification:  [ { position: 130, label:'UMB'} ]}
+  meins;
+
+  @UI: { lineItem:  [ { position: 140, label: 'Válido desde' } ],
+   identification:  [ { position: 140, label: 'Válido desde' } ],
+   selectionField:  [ { position: 60 } ]                       }
+  @Consumption.filter: { multipleSelections: false }
+  datab;
+
+  @UI: { lineItem:        [ { position: 150, label: 'Válido até' },
+                            { type: #FOR_ACTION, dataAction: 'atualizar', label: 'Atualizar Vigência Preço', invocationGrouping: #CHANGE_SET }],
+         identification:  [ { position: 150, label: 'Válido até' },
+                          { type: #FOR_ACTION, dataAction: 'atualizar', label: 'Atualizar Vigência Preço', invocationGrouping: #CHANGE_SET }
+                          ],
+         selectionField:  [ { position: 70 }
+                          ]
+                          }
+  @Consumption.filter : { multipleSelections : false }
+  datbi;
+
+  @UI.hidden: true
+  knumh;
+
+  @EndUserText.label: 'Válido desde'
+  @UI.hidden: true
+  kodatab;
+
+  @EndUserText.label: 'Válido até'
+  @UI.hidden: true
+  kodatbi;
+
+
+  //  @UI: { lineItem:  [ { position: 70, label: 'Montante' } ],
+  //   identification:  [ { position: 70, label: 'Montante' } ] }
+  @UI: { lineItem:  [ { position: 160, label: 'Mínimo' } ],
+   identification:  [ { position: 160, label: 'Mínimo' } ] }
+  mxwrt;
+  @UI: { lineItem:  [ { position: 170, label: 'Preço Sugerido' } ],
+   identification:  [ { position: 170, label: 'Preço Sugerido' } ] }
+  kbetr;
+  @UI: { lineItem:  [ { position: 180, label: 'Máximo' } ],
+   identification:  [ { position: 180, label: 'Máximo' } ] }
+  gkwrt;
+
+  @UI: { lineItem:  [ { position: 190, label: 'Moeda' } ],
+   identification:  [ { position: 190, label: 'Moeda' } ] }
+  konwa;
+
+  @UI: { lineItem:  [ { position: 200, label: 'Exclusão' } ],
+   identification:  [ { position: 200, label: 'Exclusão' } ],
+   selectionField:  [ { position: 80 } ] }
+  loevm_ko;
+
+
+}

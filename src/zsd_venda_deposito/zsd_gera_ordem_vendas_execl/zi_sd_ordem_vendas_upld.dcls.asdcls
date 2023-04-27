@@ -1,0 +1,11 @@
+@EndUserText.label: 'CDS de Autorização'
+@MappingRole: true
+define role ZI_SD_ORDEM_VENDAS_UPLD {
+    grant 
+        select
+            on
+                ZI_SD_ORDEM_VENDAS_UPLD
+                    where
+                        ( SalesOrganization ) = aspect pfcg_auth( ZSDVKORG, VKORG, ACTVT = '03' );
+                        
+}

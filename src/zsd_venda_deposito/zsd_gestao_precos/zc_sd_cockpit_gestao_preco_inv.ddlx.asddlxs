@@ -1,0 +1,163 @@
+@Metadata.layer: #CORE
+@UI: { headerInfo: { title: { type: #STANDARD, value: 'LineText' },
+                     typeName: 'Invasão',
+                     typeNamePlural: 'Invasão' } }
+
+@UI.lineItem: [{criticality: 'StatusCriticality'} ]
+
+annotate view ZC_SD_COCKPIT_GESTAO_PRECO_INV with
+{
+  // ------------------------------------------------------
+  // Header information
+  // ------------------------------------------------------
+  @UI.facet: [ { id:              'HeaderStatus',
+                 purpose:         #HEADER,
+                 type:            #DATAPOINT_REFERENCE,
+                 targetQualifier: 'HeaderStatus',
+                 position:        10 },
+
+               { id:              'CABECALHO',
+                 isSummary:       true,
+                 type:            #COLLECTION,
+                 label:           'Cabeçalho',
+                 position:        10 },
+
+                        { parentId:        'CABECALHO',
+                          id:              'Cabecalho',
+                          type:            #FIELDGROUP_REFERENCE,
+                          position:        10,
+                          targetQualifier: 'Cabecalho' },
+
+               { id:              'INFO',
+                 isSummary:       true,
+                 type:            #COLLECTION,
+                 label:           'Informações',
+                 position:        20 },
+
+                        { parentId:        'INFO',
+                          id:              'Info',
+                          type:            #FIELDGROUP_REFERENCE,
+                          position:        10,
+                          targetQualifier: 'Info' },
+
+               { id:              'VALOR',
+                 isSummary:       true,
+                 type:            #COLLECTION,
+                 label:           'Valores',
+                 position:        30 },
+
+                        { parentId:        'VALOR',
+                          id:              'Valor',
+                          type:            #FIELDGROUP_REFERENCE,
+                          position:        10,
+                          targetQualifier: 'Valor' },
+
+               { id:              'VALIDADE',
+                 isSummary:       true,
+                 type:            #COLLECTION,
+                 label:           'Validade',
+                 position:        40 },
+
+                        { parentId:        'VALIDADE',
+                          id:              'Validade',
+                          type:            #FIELDGROUP_REFERENCE,
+                          position:        10,
+                          targetQualifier: 'Validade' } ]
+
+  // ------------------------------------------------------
+  // Field information
+  // ------------------------------------------------------
+  @UI.hidden: true
+  Guid;
+
+  @UI.hidden: true
+  GuidLine;
+
+  @UI: { lineItem:        [ { position: 10, label: 'Linha', criticality: 'LineCriticality', criticalityRepresentation: #WITHOUT_ICON } ],
+         textArrangement: #TEXT_SEPARATE }
+  Line;
+
+  @UI.hidden: true
+  LineText;
+
+  @UI.hidden: true
+  LineCriticality;
+
+  @UI: { lineItem:        [ { position: 20, label: 'Status', criticality: 'StatusCriticality', criticalityRepresentation: #WITHOUT_ICON } ],
+         fieldGroup:      [ { position: 20, label: 'Status', criticality: 'StatusCriticality', criticalityRepresentation: #WITHOUT_ICON } ],
+         dataPoint:         { title: 'Status', qualifier: 'HeaderStatus', criticality: 'StatusCriticality' } }
+  Status;
+
+  @UI.hidden: true
+  StatusText;
+
+  @UI.hidden: true
+  StatusCriticality;
+
+  @UI: { lineItem:        [ { position: 30, label: 'Tipo de Operação', criticality: 'OperationTypeCriticality', criticalityRepresentation: #WITHOUT_ICON } ],
+         fieldGroup:      [ { position: 10, label: 'Tipo de Operação', criticality: 'OperationTypeCriticality', criticalityRepresentation: #WITHOUT_ICON, qualifier: 'Cabecalho' } ],
+         textArrangement: #TEXT_ONLY }
+  OperationType;
+
+  @UI.hidden: true
+  OperationTypeText;
+
+  @UI.hidden: true
+  OperationTypeCriticality;
+
+
+  //@UI: { lineItem:        [ { position: 40, label: 'Lista de Preço', criticality: 'PriceListCriticality', criticalityRepresentation: #WITHOUT_ICON } ],
+  //       fieldGroup:      [ { position: 10, label: 'Lista de Preço', criticality: 'PriceListCriticality', criticalityRepresentation: #WITHOUT_ICON, qualifier: 'Info' } ] }
+  //PriceList;
+
+  //@UI.hidden: true
+  //PriceListText;
+
+  //@UI.hidden: true
+  //PriceListCriticality;
+  //
+  //  @UI: { lineItem:        [ { position: 60, label: 'Valor', criticality: 'MinValueCriticality', criticalityRepresentation: #WITHOUT_ICON } ],
+  //         fieldGroup:      [ { position: 10, label: 'Valor', criticality: 'MinValueCriticality', criticalityRepresentation: #WITHOUT_ICON, qualifier: 'Valor' } ] }
+  //  MinValue;
+  //
+  //  @UI.hidden: true
+  //  MinValueCriticality;
+
+  @UI: { lineItem:        [ { position: 70, label: 'Data desde', criticality: 'DateFromCriticality', criticalityRepresentation: #WITHOUT_ICON } ],
+         fieldGroup:      [ { position: 10, label: 'Data desde', criticality: 'DateFromCriticality', criticalityRepresentation: #WITHOUT_ICON, qualifier: 'Validade' } ] }
+  DateFrom;
+
+  @UI.hidden: true
+  DateFromCriticality;
+
+  @UI: { lineItem:        [ { position: 80, label: 'Data até', criticality: 'DateToCriticality', criticalityRepresentation: #WITHOUT_ICON } ],
+         fieldGroup:      [ { position: 20, label: 'Data até', criticality: 'DateToCriticality', criticalityRepresentation: #WITHOUT_ICON, qualifier: 'Validade'  } ] }
+  DateTo;
+
+  @UI: { lineItem:        [ { position: 90, label: 'Condição', criticality: 'ConditionRecordCriticality' } ],
+         fieldGroup:      [ { position: 20, label: 'Condição', criticality: 'ConditionRecordCriticality', qualifier: 'Cabecalho' } ] }
+  ConditionRecord;
+
+  @UI: { lineItem:        [ { position: 100, label: 'Cód Cliente' } ],
+         fieldGroup:      [ { position: 20, label: 'Cód Cliente', qualifier: 'Cabecalho' } ] }
+  Kunnr;
+
+  @UI.hidden: true
+  KunnrCriticality;
+
+  @UI: { lineItem:        [ { position: 110, label: 'Desc. Cliente' } ],
+         fieldGroup:      [ { position: 20, label: 'Desc. Cliente', qualifier: 'Cabecalho' } ] }
+  KunnrName;
+
+
+  @UI.hidden: true
+  ConditionRecordCriticality;
+
+  @UI.hidden: true
+  DateToCriticality;
+
+  @UI.hidden: true
+  LocalLastChangedAt;
+
+
+}

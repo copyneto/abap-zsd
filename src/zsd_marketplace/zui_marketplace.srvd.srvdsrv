@@ -1,0 +1,4 @@
+@EndUserText.label: 'Service Definition Marketplace'
+define service ZUI_MARKETPLACE {
+  expose ZC_SD_MARKETPLACE;
+}

@@ -1,0 +1,4 @@
+@EndUserText.label: 'Service definition Controle Ordem Genérica'
+define service ZUI_SD_ORDEM_G {
+  expose ZC_SD_ORDEM_G;
+}

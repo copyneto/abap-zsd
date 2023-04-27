@@ -1,0 +1,4 @@
+@EndUserText.label: 'Service definition ZC_SD_REL_EXPORTACAO'
+define service ZUI_SD_REL_EXPORTACAO {
+  expose ZC_SD_REL_EXPORTACAO;
+}

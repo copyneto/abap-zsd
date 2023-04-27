@@ -1,0 +1,146 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<abapGit version="v1.0.0" serializer="LCL_OBJECT_MSAG" serializer_version="v1.0.0">
+ <asx:abap xmlns:asx="http://www.sap.com/abapxml" version="1.0">
+  <asx:values>
+   <T100A>
+    <ARBGB>ZSD_CKPT_FATURAMENTO</ARBGB>
+    <MASTERLANG>P</MASTERLANG>
+    <STEXT>Cockpit Faturamento</STEXT>
+   </T100A>
+   <T100>
+    <T100>
+     <SPRSL>P</SPRSL>
+     <ARBGB>ZSD_CKPT_FATURAMENTO</ARBGB>
+     <MSGNR>000</MSGNR>
+     <TEXT>&amp; &amp; &amp; &amp;</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>P</SPRSL>
+     <ARBGB>ZSD_CKPT_FATURAMENTO</ARBGB>
+     <MSGNR>001</MSGNR>
+     <TEXT>Usuário sem autorização para ação!</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>P</SPRSL>
+     <ARBGB>ZSD_CKPT_FATURAMENTO</ARBGB>
+     <MSGNR>002</MSGNR>
+     <TEXT>Não é possível gravar a remessa: Valor mínimo do item &amp; não atingido.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>P</SPRSL>
+     <ARBGB>ZSD_CKPT_FATURAMENTO</ARBGB>
+     <MSGNR>003</MSGNR>
+     <TEXT>Liberação de Crédito e Liberação Comercial não estão concluídas.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>P</SPRSL>
+     <ARBGB>ZSD_CKPT_FATURAMENTO</ARBGB>
+     <MSGNR>004</MSGNR>
+     <TEXT>Ação Logística gravada para o Material: &amp;1, Centro: &amp;2.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>P</SPRSL>
+     <ARBGB>ZSD_CKPT_FATURAMENTO</ARBGB>
+     <MSGNR>005</MSGNR>
+     <TEXT>E-mail enviado para o Material: &amp;1, Centro: &amp;2.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>P</SPRSL>
+     <ARBGB>ZSD_CKPT_FATURAMENTO</ARBGB>
+     <MSGNR>006</MSGNR>
+     <TEXT>Ação Logística Atualizada.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>P</SPRSL>
+     <ARBGB>ZSD_CKPT_FATURAMENTO</ARBGB>
+     <MSGNR>007</MSGNR>
+     <TEXT>Preço não encontrado para o Material &amp;.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>P</SPRSL>
+     <ARBGB>ZSD_CKPT_FATURAMENTO</ARBGB>
+     <MSGNR>008</MSGNR>
+     <TEXT>Preços divergentes, ação cancelada.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>P</SPRSL>
+     <ARBGB>ZSD_CKPT_FATURAMENTO</ARBGB>
+     <MSGNR>009</MSGNR>
+     <TEXT>Não é possível acionar logística para o status disponível.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>P</SPRSL>
+     <ARBGB>ZSD_CKPT_FATURAMENTO</ARBGB>
+     <MSGNR>010</MSGNR>
+     <TEXT>Ordem &amp;1: &amp;2.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>P</SPRSL>
+     <ARBGB>ZSD_CKPT_FATURAMENTO</ARBGB>
+     <MSGNR>011</MSGNR>
+     <TEXT>Ordem &amp;1: Remessa &amp;2 gerada com sucesso.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>P</SPRSL>
+     <ARBGB>ZSD_CKPT_FATURAMENTO</ARBGB>
+     <MSGNR>012</MSGNR>
+     <TEXT>O Preço ZPRO do Material &amp;1 e &amp;2 não é igual</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>P</SPRSL>
+     <ARBGB>ZSD_CKPT_FATURAMENTO</ARBGB>
+     <MSGNR>013</MSGNR>
+     <TEXT>ao Preço ZPRO do Materia &amp;1 e &amp;2!</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>P</SPRSL>
+     <ARBGB>ZSD_CKPT_FATURAMENTO</ARBGB>
+     <MSGNR>014</MSGNR>
+     <TEXT>Impossível recusar, pedido sem liberação comercial!</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>P</SPRSL>
+     <ARBGB>ZSD_CKPT_FATURAMENTO</ARBGB>
+     <MSGNR>015</MSGNR>
+     <TEXT>Sem dados!</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>P</SPRSL>
+     <ARBGB>ZSD_CKPT_FATURAMENTO</ARBGB>
+     <MSGNR>016</MSGNR>
+     <TEXT>Ordem &amp;1 Item &amp;2 não pode ser recusado!</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>P</SPRSL>
+     <ARBGB>ZSD_CKPT_FATURAMENTO</ARBGB>
+     <MSGNR>017</MSGNR>
+     <TEXT>Bloqueio de remessa não permite eliminação!</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>P</SPRSL>
+     <ARBGB>ZSD_CKPT_FATURAMENTO</ARBGB>
+     <MSGNR>018</MSGNR>
+     <TEXT>Ordem &amp;1: Cliente &amp;2 marcado para arquivamento.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>P</SPRSL>
+     <ARBGB>ZSD_CKPT_FATURAMENTO</ARBGB>
+     <MSGNR>019</MSGNR>
+     <TEXT>Ordem &amp;1: Cliente &amp;2 bloqueado.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>P</SPRSL>
+     <ARBGB>ZSD_CKPT_FATURAMENTO</ARBGB>
+     <MSGNR>020</MSGNR>
+     <TEXT>Ordem &amp;1: Cliente &amp;2 não liberado.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>P</SPRSL>
+     <ARBGB>ZSD_CKPT_FATURAMENTO</ARBGB>
+     <MSGNR>021</MSGNR>
+     <TEXT>Ordem &amp;1: A Unidade de Preço dos Materiais &amp;2 e &amp;3 são diferentes.</TEXT>
+    </T100>
+   </T100>
+  </asx:values>
+ </asx:abap>
+</abapGit>

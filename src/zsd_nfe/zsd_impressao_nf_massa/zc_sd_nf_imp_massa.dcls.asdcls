@@ -1,0 +1,11 @@
+@EndUserText.label: 'CDS de Autorização'
+@MappingRole: true
+define role ZC_SD_NF_IMP_MASSA {
+    grant
+        select
+            on
+                ZC_SD_NF_IMP_MASSA
+                    where
+                        inheriting conditions from entity ZI_SD_NF_IMP_MASSA;
+                        
+}

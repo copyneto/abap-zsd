@@ -1,0 +1,9 @@
+managed; // implementation in class zbp_i_sd_ckpt_ciclo_pedido_app unique;
+
+define behavior for ZI_SD_CKPT_CICLO_PEDIDO_APP alias Ciclo
+persistent table vbak
+lock master
+//authorization master ( instance )
+etag master SalesOrder
+{
+}

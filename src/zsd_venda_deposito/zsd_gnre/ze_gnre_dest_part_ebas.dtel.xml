@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<abapGit version="v1.0.0" serializer="LCL_OBJECT_DTEL" serializer_version="v1.0.0">
+ <asx:abap xmlns:asx="http://www.sap.com/abapxml" version="1.0">
+  <asx:values>
+   <DD04V>
+    <ROLLNAME>ZE_GNRE_DEST_PART_EBAS</ROLLNAME>
+    <DDLANGUAGE>P</DDLANGUAGE>
+    <HEADLEN>30</HEADLEN>
+    <SCRLEN1>10</SCRLEN1>
+    <SCRLEN2>19</SCRLEN2>
+    <SCRLEN3>30</SCRLEN3>
+    <DDTEXT>Base Excluída ICMS Destino</DDTEXT>
+    <REPTEXT>Base Excluída ICMS Destino</REPTEXT>
+    <SCRTEXT_S>BCE. ICMSD</SCRTEXT_S>
+    <SCRTEXT_M>BC. Exc. ICMS Dest.</SCRTEXT_M>
+    <SCRTEXT_L>Base Excluída ICMS Destino</SCRTEXT_L>
+    <DTELMASTER>P</DTELMASTER>
+    <DATATYPE>DEC</DATATYPE>
+    <LENG>000012</LENG>
+    <DECIMALS>000006</DECIMALS>
+    <OUTPUTLEN>000014</OUTPUTLEN>
+   </DD04V>
+  </asx:values>
+ </asx:abap>
+</abapGit>

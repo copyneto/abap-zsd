@@ -1,0 +1,4 @@
+@EndUserText.label: 'Condições deduzidas base PIS COFINS'
+define service ZUI_SD_COND_PIS_CONFIS {
+  expose ZC_SD_COND_PIS_CONFIS as CondPisConfis;
+}

@@ -1,0 +1,15 @@
+@Metadata.layer: #CORE
+annotate entity ZC_SD_POPUP_AGENDAMENTO with
+{
+  @EndUserText.label      : 'Data Agendada'
+  DataAgendada;
+  @EndUserText.label      : 'Hora Agendada'
+  HoraAgendada;
+  @EndUserText.label      : 'Motivo Agenda'
+  @Consumption.valueHelpDefinition: [{entity: {name: 'ZI_SD_VH_VSTGA', element: 'Motivo' }}]
+  MotivoAgenda;
+  @EndUserText.label      : 'Senha'
+  Senha;
+  @EndUserText.label      : 'Observações'
+  Observacoes;
+}

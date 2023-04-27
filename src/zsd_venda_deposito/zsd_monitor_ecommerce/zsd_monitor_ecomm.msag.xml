@@ -1,0 +1,68 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<abapGit version="v1.0.0" serializer="LCL_OBJECT_MSAG" serializer_version="v1.0.0">
+ <asx:abap xmlns:asx="http://www.sap.com/abapxml" version="1.0">
+  <asx:values>
+   <T100A>
+    <ARBGB>ZSD_MONITOR_ECOMM</ARBGB>
+    <MASTERLANG>P</MASTERLANG>
+    <STEXT>Monitor E-Commerce</STEXT>
+   </T100A>
+   <T100>
+    <T100>
+     <SPRSL>P</SPRSL>
+     <ARBGB>ZSD_MONITOR_ECOMM</ARBGB>
+     <MSGNR>000</MSGNR>
+     <TEXT>&amp; &amp; &amp; &amp;</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>P</SPRSL>
+     <ARBGB>ZSD_MONITOR_ECOMM</ARBGB>
+     <MSGNR>001</MSGNR>
+     <TEXT>Usuário não autorizado!</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>P</SPRSL>
+     <ARBGB>ZSD_MONITOR_ECOMM</ARBGB>
+     <MSGNR>002</MSGNR>
+     <TEXT>Docnum &amp;: Nenhum registro encontrado na tabela J_1BNFE_ACTIVE.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>P</SPRSL>
+     <ARBGB>ZSD_MONITOR_ECOMM</ARBGB>
+     <MSGNR>003</MSGNR>
+     <TEXT>Docnum &amp;: Nenhum registro encontrado na tabela B120.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>P</SPRSL>
+     <ARBGB>ZSD_MONITOR_ECOMM</ARBGB>
+     <MSGNR>004</MSGNR>
+     <TEXT>Docnum &amp;: Nenhum registro encontrado na tabela NACH.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>P</SPRSL>
+     <ARBGB>ZSD_MONITOR_ECOMM</ARBGB>
+     <MSGNR>005</MSGNR>
+     <TEXT>Docnum &amp;1: Nota enviada para impressora &amp;2 com sucesso.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>P</SPRSL>
+     <ARBGB>ZSD_MONITOR_ECOMM</ARBGB>
+     <MSGNR>006</MSGNR>
+     <TEXT>Saída de Mercadoria gerada com sucesso!</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>P</SPRSL>
+     <ARBGB>ZSD_MONITOR_ECOMM</ARBGB>
+     <MSGNR>007</MSGNR>
+     <TEXT>Docnum &amp;: Não é possível realizar impressão!</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>P</SPRSL>
+     <ARBGB>ZSD_MONITOR_ECOMM</ARBGB>
+     <MSGNR>008</MSGNR>
+     <TEXT>Remessa &amp;1 sem unidade de frete criada.</TEXT>
+    </T100>
+   </T100>
+  </asx:values>
+ </asx:abap>
+</abapGit>

@@ -1,0 +1,5 @@
+projection;
+
+define behavior for ZC_SD_CKPT_CICLO_PEDIDO_APP alias Ciclo
+{
+}

@@ -1,0 +1,166 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<abapGit version="v1.0.0" serializer="LCL_OBJECT_SPRX" serializer_version="v1.0.0">
+ <asx:abap xmlns:asx="http://www.sap.com/abapxml" version="1.0">
+  <asx:values>
+   <PROXY_HEADER>
+    <item>
+     <OBJECT>TABL</OBJECT>
+     <OBJ_NAME>ZCLSD_DT_DADOS_FATURA_FLUIG</OBJ_NAME>
+     <OBJECT_M>TABL</OBJECT_M>
+     <OBJ_NAME_M>ZCLSD_DT_DADOS_FATURA_FLUIG</OBJ_NAME_M>
+     <HASH_ID>D5EEB2836C2733F9980101640DD39987138966AE</HASH_ID>
+     <ID>&lt;type&gt; dtDadosFaturaFluig http://trescoracoes.com.br/vendas/fatura http://trescoracoes.com.br/vendas/fatura</ID>
+     <IFR_GLOBAL>X</IFR_GLOBAL>
+     <IFR_TYPE>type</IFR_TYPE>
+     <IFR_NAME>dtDadosFaturaFluig</IFR_NAME>
+     <IFR_NSPCE>http://trescoracoes.com.br/vendas/fatura</IFR_NSPCE>
+     <IFR_GNSPCE>http://trescoracoes.com.br/vendas/fatura</IFR_GNSPCE>
+     <GEN_VERS>0005</GEN_VERS>
+     <PREFIX>ZCLSD_</PREFIX>
+     <CATEGORY>ifmtypedef</CATEGORY>
+     <X-ML_NSPCE>http://trescoracoes.com.br/vendas/fatura</X-ML_NSPCE>
+     <X-ML_NAME>dtDadosFaturaFluig</X-ML_NAME>
+     <VERSION_ID>fb4fc34e23d011ed8eb500000085a0ca</VERSION_ID>
+    </item>
+   </PROXY_HEADER>
+   <PROXY_DATA>
+    <item>
+     <OBJECT>TABL</OBJECT>
+     <OBJ_NAME>ZCLSD_DT_DADOS_FATURA_FLUIG</OBJ_NAME>
+     <OBJECT1>FIEL</OBJECT1>
+     <OBJ_NAME1>CODE</OBJ_NAME1>
+     <OBJECT2>FIEL</OBJECT2>
+     <OBJ_NAME2>CODE</OBJ_NAME2>
+     <ID>&lt;element&gt; CODE &lt;type&gt; dtDadosFaturaFluig http://trescoracoes.com.br/vendas/fatura http://trescoracoes.com.br/vendas/fatura</ID>
+     <IFR_TYPE>element</IFR_TYPE>
+     <IFR_NAME>CODE</IFR_NAME>
+     <IFR_TEXT>Status NFe</IFR_TEXT>
+     <IFR_LANGU>EN</IFR_LANGU>
+     <IFR_TAGTYP>E</IFR_TAGTYP>
+     <IFR_MINOCC>1</IFR_MINOCC>
+     <IFR_MAXOCC>1</IFR_MAXOCC>
+     <IFR_XSDTYP>string</IFR_XSDTYP>
+     <IFR_MAXLEN>3</IFR_MAXLEN>
+     <IFR_SCALE>-2</IFR_SCALE>
+     <R3_TYPE>FIEL</R3_TYPE>
+     <R3_NAME>CODE</R3_NAME>
+     <R3_TEXT>Status NFe</R3_TEXT>
+     <R3_DATATYP>CHAR</R3_DATATYP>
+     <R3_LENGTH>000003</R3_LENGTH>
+     <R3_SEQNUM>000004</R3_SEQNUM>
+    </item>
+    <item>
+     <OBJECT>TABL</OBJECT>
+     <OBJ_NAME>ZCLSD_DT_DADOS_FATURA_FLUIG</OBJ_NAME>
+     <OBJECT1>FIEL</OBJECT1>
+     <OBJ_NAME1>ID</OBJ_NAME1>
+     <OBJECT2>FIEL</OBJECT2>
+     <OBJ_NAME2>ID</OBJ_NAME2>
+     <ID>&lt;element&gt; id &lt;type&gt; dtDadosFaturaFluig http://trescoracoes.com.br/vendas/fatura http://trescoracoes.com.br/vendas/fatura</ID>
+     <IFR_TYPE>element</IFR_TYPE>
+     <IFR_NAME>id</IFR_NAME>
+     <IFR_LANGU>EN</IFR_LANGU>
+     <IFR_TAGTYP>E</IFR_TAGTYP>
+     <IFR_MINOCC>1</IFR_MINOCC>
+     <IFR_MAXOCC>1</IFR_MAXOCC>
+     <IFR_XSDTYP>string</IFR_XSDTYP>
+     <IFR_SCALE>-2</IFR_SCALE>
+     <R3_TYPE>FIEL</R3_TYPE>
+     <R3_NAME>ID</R3_NAME>
+     <R3_DATATYP>STRG</R3_DATATYP>
+     <R3_SEQNUM>000001</R3_SEQNUM>
+    </item>
+    <item>
+     <OBJECT>TABL</OBJECT>
+     <OBJ_NAME>ZCLSD_DT_DADOS_FATURA_FLUIG</OBJ_NAME>
+     <OBJECT1>FIEL</OBJECT1>
+     <OBJ_NAME1>NFENUM</OBJ_NAME1>
+     <OBJECT2>FIEL</OBJECT2>
+     <OBJ_NAME2>NFENUM</OBJ_NAME2>
+     <ID>&lt;element&gt; NFENUM &lt;type&gt; dtDadosFaturaFluig http://trescoracoes.com.br/vendas/fatura http://trescoracoes.com.br/vendas/fatura</ID>
+     <IFR_TYPE>element</IFR_TYPE>
+     <IFR_NAME>NFENUM</IFR_NAME>
+     <IFR_TEXT>Nr. NFe</IFR_TEXT>
+     <IFR_LANGU>EN</IFR_LANGU>
+     <IFR_TAGTYP>E</IFR_TAGTYP>
+     <IFR_MINOCC>1</IFR_MINOCC>
+     <IFR_MAXOCC>1</IFR_MAXOCC>
+     <IFR_XSDTYP>string</IFR_XSDTYP>
+     <IFR_SCALE>-2</IFR_SCALE>
+     <R3_TYPE>FIEL</R3_TYPE>
+     <R3_NAME>NFENUM</R3_NAME>
+     <R3_TEXT>Nr. NFe</R3_TEXT>
+     <R3_DATATYP>STRG</R3_DATATYP>
+     <R3_SEQNUM>000003</R3_SEQNUM>
+    </item>
+    <item>
+     <OBJECT>TABL</OBJECT>
+     <OBJ_NAME>ZCLSD_DT_DADOS_FATURA_FLUIG</OBJ_NAME>
+     <OBJECT1>FIEL</OBJECT1>
+     <OBJ_NAME1>ORDEMFRETE</OBJ_NAME1>
+     <OBJECT2>FIEL</OBJECT2>
+     <OBJ_NAME2>ORDEMFRETE</OBJ_NAME2>
+     <ID>&lt;element&gt; ORDEMFRETE &lt;type&gt; dtDadosFaturaFluig http://trescoracoes.com.br/vendas/fatura http://trescoracoes.com.br/vendas/fatura</ID>
+     <IFR_TYPE>element</IFR_TYPE>
+     <IFR_NAME>ORDEMFRETE</IFR_NAME>
+     <IFR_TEXT>Ordem de Frete</IFR_TEXT>
+     <IFR_LANGU>EN</IFR_LANGU>
+     <IFR_TAGTYP>E</IFR_TAGTYP>
+     <IFR_MAXOCC>1</IFR_MAXOCC>
+     <IFR_OPTNL>X</IFR_OPTNL>
+     <IFR_XSDTYP>string</IFR_XSDTYP>
+     <IFR_MAXLEN>10</IFR_MAXLEN>
+     <IFR_SCALE>-2</IFR_SCALE>
+     <R3_TYPE>FIEL</R3_TYPE>
+     <R3_NAME>ORDEMFRETE</R3_NAME>
+     <R3_TEXT>Ordem de Frete</R3_TEXT>
+     <R3_DATATYP>CHAR</R3_DATATYP>
+     <R3_LENGTH>000010</R3_LENGTH>
+     <R3_SEQNUM>000005</R3_SEQNUM>
+    </item>
+    <item>
+     <OBJECT>TABL</OBJECT>
+     <OBJ_NAME>ZCLSD_DT_DADOS_FATURA_FLUIG</OBJ_NAME>
+     <OBJECT1>FIEL</OBJECT1>
+     <OBJ_NAME1>SALESDOCUMENT</OBJ_NAME1>
+     <OBJECT2>FIEL</OBJECT2>
+     <OBJ_NAME2>SALESDOCUMENT</OBJ_NAME2>
+     <ID>&lt;element&gt; SALESDOCUMENT &lt;type&gt; dtDadosFaturaFluig http://trescoracoes.com.br/vendas/fatura http://trescoracoes.com.br/vendas/fatura</ID>
+     <IFR_TYPE>element</IFR_TYPE>
+     <IFR_NAME>SALESDOCUMENT</IFR_NAME>
+     <IFR_TEXT>Ordem de Venda</IFR_TEXT>
+     <IFR_LANGU>EN</IFR_LANGU>
+     <IFR_TAGTYP>E</IFR_TAGTYP>
+     <IFR_MINOCC>1</IFR_MINOCC>
+     <IFR_MAXOCC>1</IFR_MAXOCC>
+     <IFR_XSDTYP>string</IFR_XSDTYP>
+     <IFR_MAXLEN>10</IFR_MAXLEN>
+     <IFR_SCALE>-2</IFR_SCALE>
+     <R3_TYPE>FIEL</R3_TYPE>
+     <R3_NAME>SALESDOCUMENT</R3_NAME>
+     <R3_TEXT>Ordem de Venda</R3_TEXT>
+     <R3_DATATYP>CHAR</R3_DATATYP>
+     <R3_LENGTH>000010</R3_LENGTH>
+     <R3_SEQNUM>000002</R3_SEQNUM>
+    </item>
+    <item>
+     <OBJECT>TABL</OBJECT>
+     <OBJ_NAME>ZCLSD_DT_DADOS_FATURA_FLUIG</OBJ_NAME>
+     <OBJECT1>TABL</OBJECT1>
+     <OBJ_NAME1>ZCLSD_DT_DADOS_FATURA_FLUIG</OBJ_NAME1>
+     <OBJECT2>TABL</OBJECT2>
+     <OBJ_NAME2>ZCLSD_DT_DADOS_FATURA_FLUIG</OBJ_NAME2>
+     <ID>&lt;type&gt; dtDadosFaturaFluig http://trescoracoes.com.br/vendas/fatura http://trescoracoes.com.br/vendas/fatura</ID>
+     <IFR_TYPE>type</IFR_TYPE>
+     <IFR_NAME>dtDadosFaturaFluig</IFR_NAME>
+     <IFR_LANGU>EN</IFR_LANGU>
+     <IFR_SCALE>-2</IFR_SCALE>
+     <R3_TYPE>TABL</R3_TYPE>
+     <R3_NAME>ZCLSD_DT_DADOS_FATURA_FLUIG</R3_NAME>
+     <R3_TEXT>Proxy Structure (generated)</R3_TEXT>
+     <CATEGORY>ifmtypedef</CATEGORY>
+    </item>
+   </PROXY_DATA>
+  </asx:values>
+ </asx:abap>
+</abapGit>

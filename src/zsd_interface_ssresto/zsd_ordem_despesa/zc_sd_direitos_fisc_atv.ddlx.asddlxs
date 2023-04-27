@@ -1,0 +1,43 @@
+@Metadata.layer: #CORE
+@UI.headerInfo: {
+ typeName: 'Tabela de direitos fiscais',
+ typeNamePlural: 'Tabela de direitos fiscais',
+    title: {
+      type: #STANDARD,
+      label: 'Tipo documento',
+      value: 'Auart'
+    }}
+annotate view ZC_SD_DIREITOS_FISC_ATV with
+{
+  @UI.facet: [{ id:       'Auart',
+                  position: 10,
+                  label:    'Tipo documento',
+                  purpose:  #STANDARD,
+                  type:     #IDENTIFICATION_REFERENCE
+                   }]
+  @UI: { lineItem:       [{ position: 10, label: 'Emissor (região fiscal)' }],
+         identification: [{ position: 10, label: 'Emissor (região fiscal)' }] }
+  @UI.selectionField:    [{ position: 10 }]
+  Shipfrom;
+  @UI: { lineItem:   [{ position: 10, label: 'Tipo doc de vendas' }],
+     identification: [{ position: 10, label: 'Tipo doc de vendas' }] }
+  @UI.selectionField:[{ position: 10 }]
+  Auart;
+  @UI: { lineItem:   [{ position: 20, label: 'Direito fiscal: ICMS' }],
+     identification: [{ position: 20, label: 'Direito fiscal: ICMS' }] }
+  @UI.selectionField:[{ position: 20 }]
+  J1btaxlw1;
+  @UI: { lineItem:   [{ position: 30, label: 'Direito fiscal: IPI' }],
+     identification: [{ position: 30, label: 'Direito fiscal: IPI' }] }
+  @UI.selectionField:[{ position: 30 }]
+  J1btaxlw2;
+  @UI: { lineItem:   [{ position: 40, label: 'Lei tributária PIS' }],
+     identification: [{ position: 40, label: 'Lei tributária PIS' }] }
+  @UI.selectionField:[{ position: 40 }]
+  J1btaxlw5;
+  @UI: { lineItem:   [{ position: 50, label: 'Lei fiscal COFINS' }],
+     identification: [{ position: 50, label: 'Lei fiscal COFINS' }] }
+  @UI.selectionField:[{ position: 50 }]
+  J1btaxlw4;
+
+}

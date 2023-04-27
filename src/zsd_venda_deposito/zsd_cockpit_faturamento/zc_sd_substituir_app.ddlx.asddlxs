@@ -1,0 +1,88 @@
+@Metadata.layer: #CORE
+@UI: { headerInfo: { typeName: 'Substituir Produto',
+                     typeNamePlural: 'Substituir Produto',
+                     title: { type: #STANDARD, label: 'Ordem', value: 'SalesOrder' } } }
+annotate view ZC_SD_SUBSTITUIR_APP with
+{
+  // ------------------------------------------------------
+  // Informações de cabeçalho
+  // ------------------------------------------------------
+  @UI.facet: [ { id:              'SubstPrd',
+                 purpose:         #STANDARD,
+                 type:            #IDENTIFICATION_REFERENCE,
+                 label:           'Ean',
+                 position:        10 } ]
+
+  // ------------------------------------------------------
+  // Informações de campo
+  // ------------------------------------------------------
+  @UI: {  lineItem:       [ { position: 10, label: 'Ordem' },
+                             { type: #FOR_ACTION, dataAction: 'SubstituirProduto', label: 'Substituir Produto'  } ],
+          identification: [ { position: 10, label: 'Ordem'} ],
+          selectionField: [ { position: 10 } ] }
+  SalesOrder;
+  @UI: {  lineItem:       [ { position: 20, label: 'Item' }],
+          identification: [ { position: 20, label: 'Ordem'} ],
+          selectionField: [ { position: 20 } ] }
+  SalesOrderItem;
+  @UI: {  lineItem:       [ { position: 30, label:  'Produto'}],
+    identification: [ { position: 30, label:  'Produto'} ],
+    selectionField: [ { position: 30 } ] }
+  @UI.textArrangement: #TEXT_LAST
+  MaterialAtual;
+  //  @UI: {  lineItem:       [ { position: 40, label:  'Unidade de Medida'}],
+  //  identification: [ { position: 40, label:  'Unidade de Medida'} ],
+  //  selectionField: [ { position: 40 } ] }
+  //  Unit;
+  @UI: {  lineItem:       [ { position: 50, label:  'Quantidade OV'}],
+  identification: [ { position: 50, label:  'Quantidade OV'} ],
+  selectionField: [ { position: 50 } ] }
+  OrderQuantity;
+  @UI.hidden: true
+  OrderQuantityUnit;
+  @UI: {  lineItem:       [ { position: 60, label:  'Fator'}],
+  identification: [ { position: 60, label:  'Fator'} ],
+  selectionField: [ { position: 60 } ] }
+  Fator;
+  @UI: {  lineItem:       [ { position: 70, label:  'EAN'}],
+  identification: [ { position: 70, label:  'EAN'} ],
+  selectionField: [ { position: 70 } ] }
+  EAN;
+  @UI: {  lineItem:       [ { position: 80, label:  'Centro'}],
+  identification: [ { position: 80, label:  'Centro'} ],
+  selectionField: [ { position: 80 } ] }
+  @EndUserText.label: 'Centro'
+  Plant;
+  @UI: {  lineItem:       [ { position: 90, label:  'Produto Substituir'}],
+  identification: [ { position: 90, label:  'Produto Substituir'} ],
+  selectionField: [ { position: 90 } ] }
+  @UI.textArrangement: #TEXT_LAST
+  Material;
+//  @UI: {  lineItem:       [ { position: 100, label:  'Estoque em utilização livre'}],
+//  identification: [ { position: 100, label:  'Estoque em utilização livre'} ],
+//  selectionField: [ { position: 100 } ] }
+//  estoquelivre;
+//  @UI: {  lineItem:       [ { position: 110, label:  'Estoque em Remessa'}],
+//  identification: [ { position: 110, label:  'Estoque em Remessa'} ],
+//  selectionField: [ { position: 110 } ] }
+//  estoqueremessa;
+//  //  @UI: {  lineItem:       [ { position: 100, label: 'Moeda'}],
+//  //  identification: [ { position: 100, label:  'Moeda'} ],
+//  //  selectionField: [ { position: 100 } ] }
+//
+//  //  Moeda;
+//  @UI: {  lineItem:       [ { position: 120, label: 'Unidade de preço'}],
+//         identification: [ { position: 120, label:  'Unidade de preço'} ],
+//         selectionField: [ { position: 120 } ] }
+//  unitpreco;
+//  @UI: {  lineItem:       [ { position: 130, label: 'Preço'}],
+//   identification: [ { position: 130, label: 'Preço' } ],
+//   selectionField: [ { position: 130 } ] }
+//  @EndUserText.label: 'Preço'
+//  preco;
+//  @UI: {  lineItem:       [ { position: 140, label:  'UM preço'}],
+//  identification: [ { position: 140, label:  'UM preço' } ],
+//  selectionField: [ { position: 140 } ] }
+//  umpreco;
+
+}

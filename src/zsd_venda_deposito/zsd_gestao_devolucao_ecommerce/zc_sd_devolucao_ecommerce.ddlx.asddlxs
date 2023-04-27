@@ -1,0 +1,132 @@
+@Metadata.layer: #CORE
+@UI: { headerInfo: { typeName: 'Gestão Devoluções E-Commerce',
+                     typeNamePlural: 'Devoluções E-Commerce',
+                     title: { type: #STANDARD, label: 'Ordem do Cliente', value: 'OrdemCliente' } } }
+
+annotate view ZC_SD_DEVOLUCAO_ECOMMERCE with
+{
+
+  // ------------------------------------------------------
+  // Informações de cabeçalho
+  // ------------------------------------------------------
+  @UI.facet: [ { id:              'Ecommerce',
+                 purpose:         #STANDARD,
+                 type:            #IDENTIFICATION_REFERENCE,
+                 label:           'Gestão ecommerce',
+                 position:        10 } ]
+
+   // -----------------------------------------------------
+  // Informações de campo
+  // ------------------------------------------------------
+  @UI: {  lineItem:       [ { position: 10 , label: 'Ordem Venda' } ],
+        identification: [ { position: 10, label: 'Ordem Venda '} ],
+        selectionField: [ { position: 10 } ] }
+  OrdemCliente;
+
+  @UI: {  lineItem:       [ { position: 20 } , { label: 'Pedido   ' } ],
+        identification: [ { position: 20, label: 'Pedido   ' } ]  ,
+        selectionField: [ { position: 20 } ] }
+  PurchaseOrderByCustomer;
+
+  @UI: {  lineItem:       [ { position: 30 } , { label: 'Canal de distribuição    ' } ],
+         identification: [ { position: 30, label: 'Canal de distribuição    ' } ]  ,
+         selectionField: [ { position: 30 } ] }
+  DistributionChannel;
+
+  @UI: {  lineItem:       [ { position: 40, label: 'NF-e Venda ' } ],
+        identification: [ { position: 40, label: 'NF-e Venda ' } ] }
+  BR_NFeNumber;
+
+  @UI: {  lineItem:       [ { position: 50 } , { label: 'Centro ' } ],
+       identification: [ { position: 50, label: 'Centro  ' } ]  ,
+       selectionField: [ { position: 50 } ] }
+  ShippingPoint;
+  @UI.hidden: true
+  PlantName;
+
+  @UI: {  lineItem:       [ { position: 60, label: 'Etapa do processo ', criticality: 'StatusColor'} ],
+        identification: [ { position: 60, label: 'Etapa do processo', criticality: 'StatusColor' } ] }
+  @Consumption.filter.hidden: true
+  Processo;
+
+  @UI.selectionField: [{ position: 55 }]
+  @Consumption.valueHelpDefinition: [ { entity: { name: 'ZI_SD_VH_DEVOL_ECOM_STATUS', element: 'Status' }  } ]
+  @EndUserText.label: 'Etapa Processo'
+  EtapaProcesso;
+
+  @Consumption.semanticObject: 'SalesOrder'
+  @UI: {  lineItem:       [ { position: 80, label: 'Ordem devolução' , type: #WITH_URL, url: 'URL_va03' } ],  //type: #WITH_INTENT_BASED_NAVIGATION, semanticObjectAction: 'display' } ],
+       identification: [ { position: 80, label: 'Ordem devolução  ' , type: #WITH_URL, url: 'URL_va03' } ] } //type: #WITH_INTENT_BASED_NAVIGATION, semanticObjectAction: 'display' } ] }
+  SalesOrder;
+
+  @UI: {  lineItem:       [ { position: 90 } , { label: 'Ticket SAC ' } ],
+     identification: [ { position: 90, label: 'Ticket SAC ' } ]  ,
+     selectionField: [ { position: 90 } ] }
+  CorrespncExternalReference;
+
+  @Consumption.semanticObject: 'OutboundDelivery'
+  @UI: {  lineItem:       [ { position: 100, label: 'Remessa devolução ', type: #WITH_URL, url: 'URL_vl03n' } ],  //type: #WITH_INTENT_BASED_NAVIGATION, semanticObjectAction: 'displayInWebGUI' } ],
+       identification: [ { position: 100, label: 'Remessa devolução ', type: #WITH_URL, url: 'URL_vl03n' } ],  //type: #WITH_INTENT_BASED_NAVIGATION, semanticObjectAction: 'displayInWebGUI'  } ] ,
+       selectionField: [ { position: 100 } ] }
+  OutboundDelivery;
+
+  @Consumption.semanticObject: 'BillingDocument'
+  @UI: {  lineItem:       [ { position: 110, label: 'Fatura devolução', type: #WITH_URL, url: 'URL_vf03' } ], //type: #WITH_INTENT_BASED_NAVIGATION, semanticObjectAction: 'displayBillingDocument' } ],
+       identification: [ { position: 110, label: 'Fatura devolução ', type: #WITH_URL, url: 'URL_vf03' } ] } //type: #WITH_INTENT_BASED_NAVIGATION, semanticObjectAction: 'displayBillingDocument' } ] }
+  BillingDocument;
+
+  @UI: {  lineItem:       [ { position: 120, label: 'NF-e devolução   ' } ],
+       identification: [ { position: 120, label: 'NF-e devolução  ' } ] }
+  NFDevolucao;
+
+  @UI: {  lineItem:       [ { position: 130, label: 'Fatura venda   ' } ],
+       identification: [ { position: 130, label: 'Fatura venda  ' } ] }
+  FaturaVend;
+
+  @UI: {  lineItem:       [ { position: 140, label: 'Data/Hora Criação OV   ' } ],
+       identification: [ { position: 140, label: 'Data/Hora Criação OV  ' } ] }
+  DateTimeCreate;
+
+  @UI: {  lineItem:       [ { position: 150, label: 'Remessa Venda    ' } ],
+       identification: [ { position: 150, label: 'Remessa Venda  ' } ] }
+  RemVend;
+
+  @UI: {  lineItem:       [ { position: 160, label: 'Cliente ' } ],
+       identification: [ { position: 160, label: 'Cliente  ' } ] }
+  Customer;
+
+  @UI: {  lineItem:       [ { position: 170, label: 'Nome  ' } ],
+       identification: [ { position: 170, label: 'Nome ' } ] }
+  Name1;
+
+  @UI: {  lineItem:       [ { position: 180 } , { label: 'Região' } ],
+     identification: [ { position: 180, label: 'Região ' } ]  ,
+     selectionField: [ { position: 180 } ] }
+  BR_NFPartnerRegionCode;
+
+  @UI: {  lineItem:       [ { position: 190, label: 'Valor total  ' } ],
+       identification: [ { position: 190, label: 'Valor total  ' } ] }
+  BR_NFTotalAmount;
+
+  @UI: {  lineItem:       [ { position: 200, label: 'Status NF-e Devolução', criticality: 'StatusNfeDevolucaoColor' } ],
+       identification: [ { position: 200, label: 'Status NF-e ', criticality: 'StatusNfeDevolucaoColor' } ] }
+  StatusNfeDevolucao;
+
+  @UI: {  lineItem:       [ { position: 210} , { label: 'Data da devolução ' } ],
+     identification: [ { position: 210, label: 'Data da devolução  ' } ]  }
+  CreationDate;
+
+  @UI: {  lineItem:       [ { position: 220} , { label: 'Hora devolução  ' } ],
+     identification: [ { position: 220, label: 'Hora devolução  ' } ]  }
+  CreationTime;
+
+  @UI: { selectionField: [ { position: 230 } ] }
+  CreationDateCli;
+
+  @UI.hidden: true
+  StatusColor;
+
+  @UI.hidden: true
+  StatusNfeDevolucaoColor;
+
+}

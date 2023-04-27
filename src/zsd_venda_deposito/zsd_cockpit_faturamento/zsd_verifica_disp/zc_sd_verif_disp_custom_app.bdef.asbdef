@@ -1,0 +1,10 @@
+unmanaged;
+
+define behavior for ZC_SD_VERIF_DISP_CUSTOM_APP alias _VerifDisp
+implementation in class zclsd_verif_disp_custom_app unique
+lock master
+etag master Material
+{
+action ( features : instance ) AcionaLogistica;
+action ( features : instance ) AtribuiMoticoAcao parameter ZC_SD_VERIF_DISP_POPUP;
+}

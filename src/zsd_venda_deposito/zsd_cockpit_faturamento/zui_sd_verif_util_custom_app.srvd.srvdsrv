@@ -1,0 +1,4 @@
+@EndUserText.label: 'Service Def Verif Utilização'
+define service ZUI_SD_VERIF_UTIL_CUSTOM_APP {
+  expose ZC_SD_VERIF_UTIL_APP;
+}

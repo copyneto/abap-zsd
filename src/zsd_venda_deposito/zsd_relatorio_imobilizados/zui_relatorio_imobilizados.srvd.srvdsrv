@@ -1,0 +1,4 @@
+@EndUserText.label: 'Relatório de Imobilizados'
+define service ZUI_RELATORIO_IMOBILIZADOS {
+  expose ZC_SD_RELATORIO_IMOBILIZADOS;
+}

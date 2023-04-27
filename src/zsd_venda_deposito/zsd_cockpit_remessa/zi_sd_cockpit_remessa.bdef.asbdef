@@ -1,0 +1,34 @@
+unmanaged;
+
+// ------------------------------------------------------
+// Behavior: Cockpit
+// ------------------------------------------------------
+
+define behavior for ZI_SD_COCKPIT_REMESSA alias Cockpit
+implementation in class zclsd_cockpit_remessa unique
+lock master
+{
+  association _CockpitLog;
+
+  action ( features : instance ) checkParam;
+  action ( features : instance ) releaseToRouting;
+  action ( features : instance ) sendToRouting;
+  action ( features : instance ) setDeliveryBlock parameter ZI_SD_ABS_REMESSA_BLOQUEIO;
+  action ( features : instance ) rmvDeliveryBlock;
+  action ( features : instance ) deleteDelivery;
+  //  action ( features : instance ) returnSymbol;
+}
+
+// ------------------------------------------------------
+// Behavior: Cockpit Log
+// ------------------------------------------------------
+
+define behavior for ZI_SD_COCKPIT_REMESSA_LOG alias CockpitLog
+lock dependent by _Cockpit
+{
+  association _Cockpit;
+
+  field ( readonly )
+  SalesDocument,
+  OutboundDelivery;
+}

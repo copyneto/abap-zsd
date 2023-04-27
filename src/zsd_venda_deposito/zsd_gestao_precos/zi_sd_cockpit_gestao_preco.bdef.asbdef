@@ -1,0 +1,436 @@
+managed;
+//unmanaged;
+
+// ------------------------------------------------------
+// Behavior: Cockpit
+// ------------------------------------------------------
+
+define behavior for ZI_SD_COCKPIT_GESTAO_PRECO alias Cockpit
+implementation in class zclsd_cockpit_gestao_preco unique
+persistent table ztsd_preco_h
+lock master
+authorization master ( instance )
+etag master LocalLastChangedAt
+{
+  update ( features : instance );
+  //delete ( features : instance );
+  association _Item { create ( features : instance ); }
+  association _Minimo { create ( features : instance ); }
+  association _Invasao { create ( features : instance ); }
+  association _Mensagem { create ( features : instance ); }
+  association _Observacoes { create; }
+
+  field ( readonly, numbering : managed )
+  Guid;
+
+  field ( readonly )
+  Status,
+  Plant,
+  ProcessDate,
+  ProcessTime,
+  ImportTime,
+  RequestUser,
+  ConditionType,
+  LastChangedAt,
+  LastChangedBy,
+  CreatedAt,
+  CreatedBy,
+  LocalLastChangedAt;
+
+  action ( features : instance ) validar;
+  action ( features : instance ) aprovar;
+  action ( features : instance ) reprovar;
+  action ( features : instance ) eliminar;
+
+  determination determinarCriticalidade on modify
+  { field RequestUser, Plant, ProcessDate, ProcessTime; }
+    //determination determinarStatusRascunho on modify { field RequestUser, ApproveUser, Plant, ProcessDate, ProcessTime; }
+    //determination cancelRequest on save { field Guid; delete; }
+
+    mapping for ZTSD_PRECO_H
+    {
+      Guid = guid;
+      Id = id;
+      Status = status;
+      ConditionType = condition_type;
+      RequestUser = request_user;
+      //    ApproveUser = approve_user;
+      //    ApproveUserCriticality = approve_user_criticality;
+      Plant = plant;
+      PlantCriticality = plant_criticality;
+      ProcessDate = process_date;
+      ProcessTime = process_time;
+      ImportTime = import_time;
+      CreatedBy = created_by;
+      CreatedAt = created_at;
+      LastChangedBy = last_changed_by;
+      LastChangedAt = last_changed_at;
+      LocalLastChangedAt = local_last_changed_at;
+    }
+  }
+
+  // ------------------------------------------------------
+  // Behavior: Item
+  // ------------------------------------------------------
+
+  define behavior for ZI_SD_COCKPIT_GESTAO_PRECO_ITM alias Item
+  implementation in class zclsd_cockpit_gestao_preco_itm unique
+  persistent table ztsd_preco_i
+  lock dependent by _Cockpit
+  authorization dependent by _Cockpit
+  etag master LocalLastChangedAt
+  {
+    update ( features : instance );
+    //delete ( features : instance );
+
+    association _Cockpit { }
+
+    field ( readonly : update )
+    Guid;
+
+    field ( readonly, numbering : managed )
+    GuidLine;
+
+    field ( readonly )
+    Line,
+    Status,
+    OperationType,
+    ConditionRecord,
+
+    Family,
+    Brand,
+
+    Minimum,
+    MinimumCriticality,
+    MinimumPerc,
+    MinimumPercCriticality,
+
+    MinValuePerc,
+    MinValuePercCriticality,
+
+    MaxValuePerc,
+    MaxValuePercCriticality,
+
+    SugValuePerc,
+    SugValuePercCriticality,
+
+    ActiveMinValue,
+    ActiveSugValue,
+    ActiveMaxValue,
+    ActiveCurrency,
+    ActiveConditionRecord,
+
+    LastChangedAt,
+    LastChangedBy,
+    CreatedAt,
+    CreatedBy,
+    LocalLastChangedAt;
+
+    determination determinarCriticalidade on modify
+    { field
+      DistChannel,
+      PriceList,
+      Material,
+      Scale,
+      BaseUnit,
+      MinValue,
+      SugValue,
+      MaxValue,
+      Currency,
+      DateFrom,
+      DateTo; }
+
+    /*determination determinarStatusRascunho on modify { field
+     DistChannel,
+     PriceList,
+     Material,
+     Scale,
+     BaseUnit,
+     MinValue,
+     SugValue,
+     MaxValue,
+     Currency,
+     DateFrom,
+     DateTo; }*/
+
+    mapping for ZTSD_PRECO_I
+    {
+      Guid = guid;
+      GuidLine = guid_line;
+      Line = line;
+      LineCriticality = line_criticality;
+      Status = status;
+      OperationType = operation_type;
+      DistChannel = dist_channel;
+      DistChannelCriticality = dist_channel_criticality;
+      PriceList = price_list;
+      PriceListCriticality = price_list_criticality;
+      Material = material;
+      MaterialCriticality = material_criticality;
+      Scale = scale;
+      ScaleCriticality = scale_criticality;
+      BaseUnit = base_unit;
+      BaseUnitCriticality = base_unit_criticality;
+      MinValue = min_value;
+      MinValueCriticality = min_value_criticality;
+      SugValue = sug_value;
+      SugValueCriticality = sug_value_criticality;
+      MaxValue = max_value;
+      MaxValueCriticality = max_value_criticality;
+      Currency = currency;
+      CurrencyCriticality = currency_criticality;
+      ConditionRecord = condition_record;
+      DateFrom = date_from;
+      DateFromCriticality = date_from_criticality;
+      DateTo = date_to;
+      DateToCriticality = date_to_criticality;
+      Minimum = minimum;
+      MinimumCriticality = minimum_criticality;
+      MinimumPerc = minimum_perc;
+      MinimumPercCriticality = minimum_perc_criticality;
+      MinValuePerc = min_value_perc;
+      MinValuePercCriticality = min_value_perc_criticality;
+      MaxValuePerc = max_value_perc;
+      MaxValuePercCriticality = max_value_perc_criticality;
+      SugValuePerc = sug_value_perc;
+      SugValuePercCriticality = sug_value_perc_criticality;
+      ActiveMinValue = active_min_value;
+      ActiveSugValue = active_sug_value;
+      ActiveMaxValue = active_max_value;
+      ActiveCurrency = active_currency;
+      ActiveConditionRecord = active_condition_record;
+      CreatedBy = created_by;
+      CreatedAt = created_at;
+      LastChangedBy = last_changed_by;
+      LastChangedAt = last_changed_at;
+      LocalLastChangedAt = local_last_changed_at;
+    }
+  }
+  // ------------------------------------------------------
+  // Behavior: Alerta mínimo
+  // ------------------------------------------------------
+
+  define behavior for ZI_SD_COCKPIT_GESTAO_PRECO_MIN alias Minimo
+  implementation in class zclsd_cockpit_gestao_preco_min unique
+  persistent table ztsd_preco_m
+  lock dependent by _Cockpit
+  authorization dependent by _Cockpit
+  etag master LocalLastChangedAt
+  {
+    update ( features : instance );
+    //delete ( features : instance );
+
+    association _Cockpit { }
+
+    field ( readonly : update )
+    Guid;
+
+    field ( readonly, numbering : managed )
+    GuidLine;
+
+    field ( readonly )
+    Line,
+    Status,
+    OperationType,
+    ConditionRecord,
+
+    Family,
+    Brand,
+
+    LastChangedAt,
+    LastChangedBy,
+    CreatedAt,
+    CreatedBy,
+    LocalLastChangedAt;
+
+    determination determinarCriticalidade on modify
+    { field
+      Material,
+      MinValue,
+      Currency,
+      DateFrom; }
+
+    /*determination determinarStatusRascunho on modify { field
+     Material,
+     SugValue,
+     Currency,
+     DateFrom,
+     DateTo; }*/
+
+    mapping for ZTSD_PRECO_M
+    {
+      Guid = guid;
+      GuidLine = guid_line;
+      Line = line;
+      LineCriticality = line_criticality;
+      Status = status;
+      OperationType = operation_type;
+      Material = material;
+      MaterialCriticality = material_criticality;
+      MinValue = min_value;
+      MinValueCriticality = min_value_criticality;
+      Currency = currency;
+      CurrencyCriticality = currency_criticality;
+      DateFrom = date_from;
+      DateFromCriticality = date_from_criticality;
+      ConditionRecord = condition_record;
+      CreatedBy = created_by;
+      CreatedAt = created_at;
+      LastChangedBy = last_changed_by;
+      LastChangedAt = last_changed_at;
+      LocalLastChangedAt = local_last_changed_at;
+    }
+  }
+
+  // ------------------------------------------------------
+  // Behavior: Invasão
+  // ------------------------------------------------------
+
+  define behavior for ZI_SD_COCKPIT_GESTAO_PRECO_INV alias Invasao
+  implementation in class zclsd_cockpit_gestao_preco_inv unique
+  persistent table ztsd_preco_inv
+  lock dependent by _Cockpit
+  authorization dependent by _Cockpit
+  etag master LocalLastChangedAt
+  {
+    update ( features : instance );
+    //delete ( features : instance );
+
+    association _Cockpit { }
+
+    field ( readonly : update )
+    Guid;
+
+    field ( readonly, numbering : managed )
+    GuidLine;
+
+    field ( readonly )
+    Line,
+    Status,
+    OperationType,
+    ConditionRecord,
+
+    LastChangedAt,
+    LastChangedBy,
+    CreatedAt,
+    CreatedBy,
+    LocalLastChangedAt;
+
+    determination determinarCriticalidade on modify
+    { field
+      MinValue,
+      Currency,
+      DateFrom,
+      DateTo,
+      Kunnr,
+      KunnrName; }
+
+    mapping for ZTSD_PRECO_INV
+    {
+      Guid = guid;
+      GuidLine = guid_line;
+      Line = line;
+      LineCriticality = line_criticality;
+      Status = status;
+      OperationType = operation_type;
+      //PriceList = price_list;
+      //PriceListCriticality = price_list_criticality;
+      MinValue = min_value;
+      MinValueCriticality = min_value_criticality;
+      Currency = currency;
+      CurrencyCriticality = currency_criticality;
+      DateFrom = date_from;
+      DateFromCriticality = date_from_criticality;
+      DateTo = date_to;
+      DateToCriticality = date_to_criticality;
+      ConditionRecord = condition_record;
+      Kunnr = kunnr;
+      KunnrCriticality = kunnr_criticality;
+      CreatedBy = created_by;
+      CreatedAt = created_at;
+      LastChangedBy = last_changed_by;
+      LastChangedAt = last_changed_at;
+      LocalLastChangedAt = local_last_changed_at;
+    }
+  }
+
+  // ------------------------------------------------------
+  // Behavior: Observações
+  // ------------------------------------------------------
+
+  define behavior for ZI_SD_COCKPIT_GESTAO_PRECO_OBS alias Observacoes
+  persistent table ztsd_preco_obs
+  lock dependent by _Cockpit
+  authorization dependent by _Cockpit
+  etag master LocalLastChangedAt
+  {
+
+    update;
+    delete;
+
+
+    association _Cockpit { }
+
+    field ( mandatory : create ) Observacoes;
+
+    field ( readonly, numbering : managed )
+    Line;
+
+    field ( readonly : update )
+    Guid,
+    LastChangedAt,
+    LastChangedBy,
+    CreatedAt,
+    CreatedBy,
+    LocalLastChangedAt;
+
+    mapping for ZTSD_PRECO_OBS
+    {
+      Guid = guid;
+      Line = line;
+      Observacoes = obs;
+      CreatedBy = created_by;
+      CreatedAt = created_at;
+      LastChangedBy = last_changed_by;
+      LastChangedAt = last_changed_at;
+      LocalLastChangedAt = local_last_changed_at;
+    }
+  }
+
+  // ------------------------------------------------------
+  // Behavior: Mensagem
+  // ------------------------------------------------------
+  define behavior for ZI_SD_COCKPIT_GESTAO_PRECO_MSG alias Mensagem
+  persistent table ztsd_preco_msg
+  lock dependent by _Cockpit
+  authorization dependent by _Cockpit
+  etag master LocalLastChangedAt
+  {
+    update;
+    //delete ( features : instance );
+
+    association _Cockpit { }
+
+    field ( readonly : update )
+    Guid,
+    Line,
+    Message,
+    LastChangedAt,
+    LastChangedBy,
+    CreatedAt,
+    CreatedBy,
+    LocalLastChangedAt;
+
+    mapping for ZTSD_PRECO_MSG
+    {
+      Guid = guid;
+      Line = line;
+      MsgLine = msg_line;
+      Message = message;
+      CreatedBy = created_by;
+      CreatedAt = created_at;
+      LastChangedBy = last_changed_by;
+      LastChangedAt = last_changed_at;
+      LocalLastChangedAt = local_last_changed_at;
+    }
+  }

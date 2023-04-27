@@ -1,0 +1,4 @@
+@EndUserText.label: 'Serviço Distrato'
+define service ZUI_DISTRATO_APP {
+  expose ZC_SD_INF_DISTRATO_APP;
+}

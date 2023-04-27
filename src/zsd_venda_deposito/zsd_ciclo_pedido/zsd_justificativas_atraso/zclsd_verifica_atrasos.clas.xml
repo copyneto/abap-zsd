@@ -1,0 +1,258 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<abapGit version="v1.0.0" serializer="LCL_OBJECT_CLAS" serializer_version="v1.0.0">
+ <asx:abap xmlns:asx="http://www.sap.com/abapxml" version="1.0">
+  <asx:values>
+   <VSEOCLASS>
+    <CLSNAME>ZCLSD_VERIFICA_ATRASOS</CLSNAME>
+    <LANGU>P</LANGU>
+    <DESCRIPT>Verificar os atrasos por etapa</DESCRIPT>
+    <STATE>1</STATE>
+    <CLSCCINCL>X</CLSCCINCL>
+    <FIXPT>X</FIXPT>
+    <UNICODE>X</UNICODE>
+   </VSEOCLASS>
+   <TPOOL>
+    <item>
+     <ID>I</ID>
+     <KEY>001</KEY>
+     <ENTRY>Ordens com atraso á justificar</ENTRY>
+     <LENGTH>60</LENGTH>
+    </item>
+    <item>
+     <ID>I</ID>
+     <KEY>002</KEY>
+     <ENTRY>SalesOrderDate in @gr_datadoc[]</ENTRY>
+     <LENGTH>62</LENGTH>
+    </item>
+    <item>
+     <ID>I</ID>
+     <KEY>003</KEY>
+     <ENTRY>SalesOrder = @gv_ordem_venda</ENTRY>
+     <LENGTH>56</LENGTH>
+    </item>
+    <item>
+     <ID>I</ID>
+     <KEY>004</KEY>
+     <ENTRY>and SalesOrder in @gv_ordem_venda</ENTRY>
+     <LENGTH>66</LENGTH>
+    </item>
+    <item>
+     <ID>I</ID>
+     <KEY>005</KEY>
+     <ENTRY>Plant = @gv_centro</ENTRY>
+     <LENGTH>28</LENGTH>
+    </item>
+    <item>
+     <ID>I</ID>
+     <KEY>006</KEY>
+     <ENTRY>and Plant = @gv_centro</ENTRY>
+     <LENGTH>44</LENGTH>
+    </item>
+    <item>
+     <ID>I</ID>
+     <KEY>007</KEY>
+     <ENTRY>Realizada em Atraso</ENTRY>
+     <LENGTH>29</LENGTH>
+    </item>
+   </TPOOL>
+   <DESCRIPTIONS>
+    <SEOCOMPOTX>
+     <CMPNAME>GO_DOCUMENT</CMPNAME>
+     <LANGU>P</LANGU>
+     <DESCRIPT>Wrapper Class for Office Documents</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>GO_SEND_REQUEST</CMPNAME>
+     <LANGU>P</LANGU>
+     <DESCRIPT>Business Communication Service</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>GR_DATADOC</CMPNAME>
+     <LANGU>P</LANGU>
+     <DESCRIPT>Range para valores de data</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>GR_OBJ_AUTH</CMPNAME>
+     <LANGU>P</LANGU>
+     <DESCRIPT>Objeto autorização</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>GT_APROVNFE</CMPNAME>
+     <LANGU>P</LANGU>
+     <DESCRIPT>Controle dos atrasos justificados</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>GT_APRVCOMERCIAL</CMPNAME>
+     <LANGU>P</LANGU>
+     <DESCRIPT>Controle dos atrasos justificados</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>GT_APRVCREDITO</CMPNAME>
+     <LANGU>P</LANGU>
+     <DESCRIPT>Controle dos atrasos justificados</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>GT_CARREGAMENTO</CMPNAME>
+     <LANGU>P</LANGU>
+     <DESCRIPT>Controle dos atrasos justificados</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>GT_ENTREGA</CMPNAME>
+     <LANGU>P</LANGU>
+     <DESCRIPT>Controle dos atrasos justificados</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>GT_ENVIOREMESSA</CMPNAME>
+     <LANGU>P</LANGU>
+     <DESCRIPT>Controle dos atrasos justificados</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>GT_ESTOQUE</CMPNAME>
+     <LANGU>P</LANGU>
+     <DESCRIPT>Controle dos atrasos justificados</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>GT_FATURAMENTO</CMPNAME>
+     <LANGU>P</LANGU>
+     <DESCRIPT>Controle dos atrasos justificados</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>GT_GERACAOREM</CMPNAME>
+     <LANGU>P</LANGU>
+     <DESCRIPT>Controle dos atrasos justificados</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>GT_IMPRESSAONFE</CMPNAME>
+     <LANGU>P</LANGU>
+     <DESCRIPT>Controle dos atrasos justificados</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>GT_ORDEMFRETE</CMPNAME>
+     <LANGU>P</LANGU>
+     <DESCRIPT>Controle dos atrasos justificados</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>GT_PERFIL</CMPNAME>
+     <LANGU>P</LANGU>
+     <DESCRIPT>Mestre usuar.: perfil ind.</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>GT_PRESTACONTA</CMPNAME>
+     <LANGU>P</LANGU>
+     <DESCRIPT>Controle dos atrasos justificados</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>GT_RETURN</CMPNAME>
+     <LANGU>P</LANGU>
+     <DESCRIPT>Tabela de retorno</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>GT_SAIDAVEIC</CMPNAME>
+     <LANGU>P</LANGU>
+     <DESCRIPT>Controle dos atrasos justificados</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>GT_SINCRONO</CMPNAME>
+     <LANGU>P</LANGU>
+     <DESCRIPT>Controle dos atrasos justificados</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>GT_SLAEXTERNO</CMPNAME>
+     <LANGU>P</LANGU>
+     <DESCRIPT>Controle dos atrasos justificados</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>GT_SLAGERAL</CMPNAME>
+     <LANGU>P</LANGU>
+     <DESCRIPT>Controle dos atrasos justificados</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>GT_SLAINTERNO</CMPNAME>
+     <LANGU>P</LANGU>
+     <DESCRIPT>Controle dos atrasos justificados</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>GT_TEXT</CMPNAME>
+     <LANGU>P</LANGU>
+     <DESCRIPT>Objcont e objhead como categoria de tabela</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>GT_USERS</CMPNAME>
+     <LANGU>P</LANGU>
+     <DESCRIPT>Conteúdo buffer usuário p/logon RFC rápido - novo</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>GV_CENTRO</CMPNAME>
+     <LANGU>P</LANGU>
+     <DESCRIPT>Centro</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>GV_MEDICAO</CMPNAME>
+     <LANGU>P</LANGU>
+     <DESCRIPT>Medição</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>GV_ORDEM_VENDA</CMPNAME>
+     <LANGU>P</LANGU>
+     <DESCRIPT>Tabela intervalo para documento de vendas</DESCRIPT>
+    </SEOCOMPOTX>
+   </DESCRIPTIONS>
+   <DESCRIPTIONS_SUB>
+    <SEOSUBCOTX>
+     <CMPNAME>ADD_EMAIL</CMPNAME>
+     <SCONAME>IV_EMAIL</SCONAME>
+     <LANGU>P</LANGU>
+     <DESCRIPT>Endereço de e-mail</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>EXECUTE</CMPNAME>
+     <SCONAME>IR_DATADOC</SCONAME>
+     <LANGU>P</LANGU>
+     <DESCRIPT>Range para valores de data</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>EXECUTE</CMPNAME>
+     <SCONAME>IV_CENTRO</SCONAME>
+     <LANGU>P</LANGU>
+     <DESCRIPT>Centro</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>EXECUTE</CMPNAME>
+     <SCONAME>IV_MEDICAO</SCONAME>
+     <LANGU>P</LANGU>
+     <DESCRIPT>Medição</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>EXECUTE</CMPNAME>
+     <SCONAME>RT_RETURN</SCONAME>
+     <LANGU>P</LANGU>
+     <DESCRIPT>Tabela de retorno</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>SET_GLOBAL</CMPNAME>
+     <SCONAME>IR_DATADOC</SCONAME>
+     <LANGU>P</LANGU>
+     <DESCRIPT>Range para valores de data</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>SET_GLOBAL</CMPNAME>
+     <SCONAME>IV_CENTRO</SCONAME>
+     <LANGU>P</LANGU>
+     <DESCRIPT>Centro</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>SET_GLOBAL</CMPNAME>
+     <SCONAME>IV_MEDICAO</SCONAME>
+     <LANGU>P</LANGU>
+     <DESCRIPT>Medição</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>SET_GLOBAL</CMPNAME>
+     <SCONAME>IV_ORDEM_VENDA</SCONAME>
+     <LANGU>P</LANGU>
+     <DESCRIPT>Documento de vendas</DESCRIPT>
+    </SEOSUBCOTX>
+   </DESCRIPTIONS_SUB>
+  </asx:values>
+ </asx:abap>
+</abapGit>

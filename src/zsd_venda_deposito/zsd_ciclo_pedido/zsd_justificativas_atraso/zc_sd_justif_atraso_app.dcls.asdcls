@@ -1,0 +1,11 @@
+@EndUserText.label: 'CDS de Autorização'
+@MappingRole: true
+define role ZC_SD_JUSTIF_ATRASO_APP {
+    grant
+        select
+            on
+                ZC_SD_JUSTIF_ATRASO_APP
+                    where
+                        inheriting conditions from entity ZI_SD_JUSTIF_ATRASO_APP;
+                        
+}

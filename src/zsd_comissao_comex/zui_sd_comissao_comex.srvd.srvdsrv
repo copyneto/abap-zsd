@@ -1,0 +1,4 @@
+@EndUserText.label: 'Service definition app Comissao COMEX'
+define service ZUI_SD_COMISSAO_COMEX {
+  expose ZC_SD_COMISSAO_COMEX_RAP;
+}

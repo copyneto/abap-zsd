@@ -1,0 +1,125 @@
+managed implementation in class ZCLSD_I_01_COCKPIT unique;
+
+define behavior for zi_sd_01_cockpit alias Cockpit
+persistent table ztsd_intercompan
+lock master
+authorization master ( instance )
+etag master LocalLastChangedAt
+{
+  create;
+  update ( features : instance );
+  delete ( features : instance );
+  association _Material { internal create; }
+  association _Log { internal create; }
+  field ( numbering : managed ) Guid;
+  field ( mandatory : create ) Processo, TipoOperacao;
+  field ( readonly : update ) Guid, Processo, TipoOperacao;
+  field ( features : instance ) werks_origem, Werks_Destino, werks_receptor, lgort_origem, lgort_destino,
+  ZTRAID, ZTRAI1, ZTRAI2, ZTRAI3, TPFRETE, AGFRETE, motora, TPEXP, CondExp, IDSAGA, ekorg, ekgrp, abrvw, RemessaOrigem, TXTNF, TXTGERAL, fracionado;
+
+  action ( features : instance ) ContinuarPro;
+  action ( features : instance ) CriarFrete;
+  action ( features : instance ) defBloqueio parameter ZC_SD_03_BLOCK;
+  action ( features : instance ) retBloqueio;
+  action ( features : instance ) entradamercadoria;
+  action ( features : instance ) EstornarSaida;
+
+  validation validaCampos on save { field ZTRAID; }
+
+  validation valida_entrada on save { create; update; }
+
+  mapping for ztsd_intercompan
+  {
+    Guid = Guid;
+    WERKS_ORIGEM = WERKS_ORIGEM;
+    LGORT_ORIGEM = LGORT_ORIGEM;
+    WERKS_DESTINO = WERKS_DESTINO;
+    LGORT_DESTINO = LGORT_DESTINO;
+    WERKS_RECEPTOR = WERKS_RECEPTOR;
+    SALESORDER = SALESORDER;
+    BR_NOTAFISCAL = BR_NOTAFISCAL;
+    PURCHASEORDER = PURCHASEORDER;
+    Remessa = Remessa;
+    ZTRAID = ZTRAID;
+    ZTRAI1 = ZTRAI1;
+    ZTRAI2 = ZTRAI2;
+    ZTRAI3 = ZTRAI3;
+    CORRESPNCEXTERNALREFERENCE = PurchaseOrder2;
+    TipoOperacao = TIPOOPERACAO;
+    //    BR_NFEDOCUMENTSTATUS = BR_NFEDOCUMENTSTATUS;
+    TPFRETE = TPFRETE;
+    AGFRETE = AGFRETE;
+    MOTORA = MOTORA;
+    TPEXP = TPEXP;
+    CondExp = CondExp;
+    TXTNF = TXTNF;
+    TXTGERAL = TXTGERAL;
+    PROCESSO = PROCESSO;
+    FRACIONADO = FRACIONADO;
+    IDSAGA = IDSAGA;
+    EKORG = EKORG;
+    abrvw = abrvw;
+    EKGRP = EKGRP;
+    RemessaOrigem = Remessa_Origem;
+    CreatedBy = created_by;
+    CreatedAt = created_at;
+    LastChangedBy = last_changed_by;
+    LastChangedAt = last_changed_at;
+    LocalLastChangedAt = local_last_changed_at;
+  }
+
+}
+
+define behavior for ZI_SD_02_ITEM alias Material
+persistent table ztsd_interc_item
+lock dependent by _cockpit
+authorization dependent by _cockpit
+//etag master <field_name>
+{
+  update;
+  //  delete;
+  association _cockpit;
+
+  determination items on modify
+  { create; update; }
+    //  determination items on save { create; update; }
+
+    field ( readonly : update ) guid;
+    field ( readonly ) Material, MaterialName, MaterialBaseUnit, MatlWrhsStkQtyInMatlBaseUnit;
+    field ( features : instance ) QtdSol;
+
+    action ( features : instance ) CriarInter result [1] $self;
+
+    mapping for ztsd_interc_item
+    {
+      guid = guid;
+      material = Material;
+      MATERIALBASEUNIT = MATERIALBASEUNIT;
+      QTDSOL = QTDSOL;
+    }
+
+  }
+  define behavior for ZI_SD_05_LOG alias Log
+  persistent table ztsd_interco_log
+  lock dependent by _cockpit
+  authorization dependent by _cockpit
+  //etag master <field_name>
+  {
+    association _cockpit;
+    field ( readonly : update ) guid;
+    mapping for ztsd_interco_log
+    {
+      guid = guid;
+      seqnr = Seqnr;
+      msgty = Msgty;
+      msgid = Msgid;
+      msgno = Msgno;
+      msgv1 = Msgv1;
+      msgv2 = Msgv2;
+      msgv3 = Msgv3;
+      msgv4 = Msgv4;
+      message = Message;
+
+    }
+
+  }

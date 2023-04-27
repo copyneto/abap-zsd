@@ -1,0 +1,4 @@
+@EndUserText.label: 'Server Def for Monitor Sde Campanhas'
+define service ZUI_SD_SINT_PROCES {
+  expose ZC_SD_SINT_PROCES;
+}

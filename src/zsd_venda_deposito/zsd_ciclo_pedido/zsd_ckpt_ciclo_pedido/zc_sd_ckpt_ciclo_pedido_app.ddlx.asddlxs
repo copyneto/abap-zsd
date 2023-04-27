@@ -1,0 +1,407 @@
+@Metadata.layer: #CORE
+@UI: {
+  headerInfo: {
+    typeName: 'Ciclo de Pedido',
+    typeNamePlural: 'Ciclo de Pedidos',
+    title: {
+      type: #STANDARD,
+      label: 'Oredem de Venda',
+      value: 'SalesOrder'
+    }
+  } }
+annotate view ZC_SD_CKPT_CICLO_PEDIDO_APP with
+{
+  @UI.facet: [   {   id:         'DescricaoHeader',
+                     purpose:    #HEADER,
+                     type:       #DATAPOINT_REFERENCE,
+                     targetQualifier: 'DescricaoHeader',
+                     position:      10 },
+                 {   id:      'Facet',
+                     purpose: #STANDARD,
+                     type:    #COLLECTION,
+                     label:   'Dados Gerais',
+                     position: 20 },
+                 {   id:           'Geral',
+                     purpose:       #STANDARD,
+                     label:         'Dados Gerais',
+                     parentId:      'Facet',
+                     type:          #FIELDGROUP_REFERENCE,
+                     targetQualifier: 'Geral',
+                     position:      30 },
+
+                 {  id:             'Status',
+                    purpose:        #STANDARD,
+                    label:          'Status',
+                    type:           #FIELDGROUP_REFERENCE,
+                    targetQualifier: 'Status',
+                    position:       40 },
+                 {   id:      'FacetDatas',
+                     purpose: #STANDARD,
+                     type:    #COLLECTION,
+                     label:   'Datas',
+                     position: 40 },
+
+                 {  id:          'Data_Planejada',
+                    purpose:        #STANDARD,
+                    label:          'Datas Planejadas',
+                    parentId:      'FacetDatas',
+                    type:           #FIELDGROUP_REFERENCE,
+                    targetQualifier: 'Data_Planejada',
+                    position:       10 } ,
+                 {  id:          'Data_Realizada',
+                    purpose:        #STANDARD,
+                    label:          'Datas Realizadas',
+                    parentId:      'FacetDatas',
+                    type:           #FIELDGROUP_REFERENCE,
+                    targetQualifier: 'Data_Realizada',
+                    position:       20 }
+              ]
+  /* Principal - Header */
+  @UI.lineItem: [{position: 10 }]
+  @UI.selectionField: [{position: 10}]
+  @UI.identification: [{ position: 10 }]
+  @UI.dataPoint.qualifier: 'DescricaoHeader'
+  @UI.fieldGroup: [ { qualifier: 'Geral' } ]
+  @Search.defaultSearchElement: true
+  @Search.fuzzinessThreshold: 0.8
+  SalesOrder;
+
+  @UI.lineItem: [{position: 40 }]
+  @UI.selectionField: [{position: 20}]
+  @UI.identification: [{ position: 20 }]
+  @UI.fieldGroup: [ { qualifier: 'Geral' } ]
+  @Search.fuzzinessThreshold: 0.8
+  SoldToParty;
+
+  @UI.lineItem: [{position: 30 }]
+  @UI.selectionField: [{position: 30}]
+  @UI.fieldGroup: [ { qualifier: 'Geral' } ]
+  @Search.fuzzinessThreshold: 0.8
+  Route;
+  
+  @UI.lineItem: [ { position: 230 }]
+  @UI.selectionField: [{position: 40}]
+  @UI.dataPoint.qualifier: 'DescricaoHeader'
+  @UI.fieldGroup: [ { qualifier: 'Geral' } ]
+  @Search.fuzzinessThreshold: 0.8
+  Plant;
+
+  @UI.lineItem: [ { position: 240 }]    
+  @UI.selectionField: [{position: 50}]
+  @UI.dataPoint.qualifier: 'DescricaoHeader'
+  @UI.fieldGroup: [ { qualifier: 'Geral' } ]
+  @Search.fuzzinessThreshold: 0.8
+  SalesOrderType;
+
+
+  @UI.selectionField: [{position: 60}]
+  @UI.fieldGroup: [ { qualifier: 'Geral' } ]
+  SalesOrderDate;
+
+  @UI.lineItem: [{position: 50 }]
+  @UI.selectionField: [{position: 70}]
+  @UI.fieldGroup: [ { qualifier: 'Geral' } ]
+  OverallSDProcessStatus;
+
+
+  @UI.selectionField: [{position: 280}]
+  @UI.dataPoint.qualifier: 'DescricaoHeader'
+  @UI.fieldGroup: [ { qualifier: 'Geral' } ]
+  DistributionChannel;
+
+  @UI.lineItem: [ { position: 650 }]
+  @UI.selectionField: [{position: 290}]
+  @UI.fieldGroup: [ { qualifier: 'Geral' } ]
+  OrganizationDivision;
+    
+  @UI.lineItem: [ { position: 660 }]
+  @UI.selectionField: [{position: 3000}]
+  @UI.fieldGroup: [ { qualifier: 'Geral' } ]
+  SalesOffice;
+
+  @UI.lineItem: [ { position: 680 }]
+  @UI.selectionField: [{position: 310}]
+  @UI.fieldGroup: [ { qualifier: 'Geral' } ]
+  SalesOrganization;
+
+
+  @UI.selectionField: [{position: 320}]
+  @UI.fieldGroup: [ { qualifier: 'Geral' } ]
+  Remessa;
+
+
+  @UI.lineItem: [ { position: 670 }]
+  @UI.selectionField: [{position: 330}]
+  @UI.fieldGroup: [ { qualifier: 'Geral' } ]
+  SalesGroup;
+
+  @UI.lineItem: [ { position: 690 }] 
+  @UI.selectionField: [{position: 340}]
+  @UI.fieldGroup: [ { qualifier: 'Geral' } ]
+  CustomerPurchaseOrderDate;
+  
+  @UI.lineItem: [ { position: 280 }]  
+  @UI.fieldGroup: [ { qualifier: 'Geral' } ]
+  RequestedDeliveryDate;
+  
+  @UI.lineItem: [ { position: 250 }]   
+  @UI.fieldGroup: [ { qualifier: 'Geral' } ]
+  Personnel;
+  
+  @UI.lineItem: [ { position: 260 }]  
+  @UI.fieldGroup: [ { qualifier: 'Geral' } ]
+  OrdemFrete;
+  @UI.lineItem: [ { position: 270 }]  
+  @UI.fieldGroup: [ { qualifier: 'Geral' } ]
+  Fatura;
+  @UI.fieldGroup: [ { qualifier: 'Geral' } ]
+  AdditionalCustomerGroup5;
+  @UI.lineItem: [ { position: 280 }]  
+  @UI.fieldGroup: [ { qualifier: 'Geral' } ]
+  NotaFiscal;
+
+  /* Status */
+  @UI.selectionField: [{position: 80}]
+  @UI.lineItem: [ { position: 60, criticality: 'StatusSincronismoCrit' } ]
+  @UI.identification:  [ { criticality: 'StatusSincronismoCrit' } ]
+  @UI.fieldGroup: [ { position: 10, qualifier: 'Status',  criticality: 'StatusSincronismoCrit' } ]
+  StatusSincronismo;
+  @UI.selectionField: [{position: 90}]
+  @UI.lineItem: [ { position: 70 ,criticality: 'StatusAprvComercialCrit' } ]
+  @UI.identification:  [ {criticality: 'StatusAprvComercialCrit' } ]
+  @UI.fieldGroup: [ { position: 20, qualifier: 'Status', criticality: 'StatusAprvComercialCrit'  } ]
+  StatusAprvComercial;
+  @UI.selectionField: [{position: 100}]
+  @UI.lineItem: [ { position: 80 ,criticality: 'StatusAprvCreditoCrit' } ]
+  @UI.identification:  [ {criticality: 'StatusAprvCreditoCrit' } ]
+  @UI.fieldGroup: [ { position: 30, qualifier: 'Status', criticality: 'StatusAprvCreditoCrit' } ]
+  StatusAprvCredito;
+  @UI.selectionField: [{position: 110}]
+  @UI.lineItem: [ { position: 90 ,criticality: 'StatusEnvioRemessaCrit' } ]
+  @UI.identification:  [ {criticality: 'StatusEnvioRemessaCrit' } ]
+  @UI.fieldGroup: [ { position: 40, qualifier: 'Status', criticality: 'StatusEnvioRemessaCrit'} ]
+  StatusEnvioRemessa;
+  @UI.selectionField: [{position: 120}]
+  @UI.lineItem: [ { position: 100, criticality: 'StatusOrdemFreteCrit' } ]
+  @UI.identification:  [ {criticality: 'StatusOrdemFreteCrit' } ]
+  @UI.fieldGroup: [ { position: 50, qualifier: 'Status', criticality: 'StatusOrdemFreteCrit' } ]
+  StatusOrdemFrete;
+  @UI.selectionField: [{position: 130}]
+  @UI.lineItem: [ { position: 110,criticality: 'StatusFaturamentoCrit' } ]
+  @UI.identification:  [ {criticality: 'StatusFaturamentoCrit' } ]
+  @UI.fieldGroup: [ { position: 60, qualifier: 'Status', criticality: 'StatusFaturamentoCrit' } ]
+  StatusFaturamento;
+  @UI.selectionField: [{position: 140}]
+  @UI.lineItem: [ { position: 120, criticality: 'StatusSaidaCrit' } ]
+  @UI.identification:  [ {criticality: 'StatusSaidaCrit' } ]
+  @UI.fieldGroup: [ { position: 70, qualifier: 'Status', criticality: 'StatusSaidaCrit' } ]
+  StatusSaida;
+  @UI.selectionField: [{position: 150}]
+  @UI.lineItem: [ { position: 130, criticality: 'StatusEntregaCrit' } ]
+  @UI.identification:  [ {criticality: 'StatusEntregaCrit' } ]
+  @UI.fieldGroup: [ { position: 80, qualifier: 'Status', criticality: 'StatusEntregaCrit' } ]
+  StatusEntrega;
+  @UI.selectionField: [{position: 160}]
+  @UI.lineItem: [ { position: 140, criticality: 'StatusCicloInternoCrit' } ]
+  @UI.identification:  [ {criticality: 'StatusCicloInternoCrit' } ]
+  @UI.fieldGroup: [ { position: 90, qualifier: 'Status', criticality: 'StatusCicloInternoCrit' } ]
+  StatusCicloInterno;
+  @UI.selectionField: [{position: 170}]
+  @UI.lineItem: [ { position: 150, criticality: 'StatusCicloExternoCrit' } ]
+  @UI.identification:  [ {criticality: 'StatusCicloExternoCrit' } ]
+  @UI.fieldGroup: [ { position: 100, qualifier: 'Status', criticality: 'StatusCicloExternoCrit' } ]
+  StatusCicloExterno;
+  @UI.selectionField: [{position: 200}]
+  @UI.lineItem: [ { position: 160, criticality: 'StatusCicloGlobalCrit' } ]
+  @UI.identification:  [ {criticality: 'StatusCicloGlobalCrit' } ]
+  @UI.fieldGroup: [ { position: 110, qualifier: 'Status', criticality: 'StatusCicloGlobalCrit' } ]
+  StatusCicloGlobal;
+  @UI.selectionField: [{position: 210}]
+  @UI.lineItem: [ { position: 170, criticality: 'StatusGeracaoRemessaCrit' } ]
+  @UI.identification:  [ {criticality: 'StatusGeracaoRemessaCrit' } ]
+  @UI.fieldGroup: [ { position: 120, qualifier: 'Status' , criticality: 'StatusGeracaoRemessaCrit'} ]
+  StatusGeracaoRemessa;
+  @UI.selectionField: [{position: 220}]
+  @UI.lineItem: [ { position: 180, criticality: 'StatusEstoqueCrit' } ]
+  @UI.identification:  [ {criticality: 'StatusEstoqueCrit' } ]
+  @UI.fieldGroup: [ { position: 130, qualifier: 'Status', criticality: 'StatusEstoqueCrit' } ]
+  StatusEstoque;
+  @UI.selectionField: [{position: 230}]
+  @UI.lineItem: [ { position: 190, criticality: 'StatusAprovacaoNFECrit' } ]
+  @UI.identification:  [ {criticality: 'StatusAprovacaoNFECrit' } ]
+  @UI.fieldGroup: [ { position: 140, qualifier: 'Status', criticality: 'StatusAprovacaoNFECrit' } ]
+  StatusAprovacaoNFE;
+  @UI.selectionField: [{position: 240}]
+  @UI.lineItem: [ { position: 200, criticality: 'StatusImpressaoNFECrit' } ]
+  @UI.identification:  [ {criticality: 'StatusImpressaoNFECrit' } ]
+  @UI.fieldGroup: [ { position: 150, qualifier: 'Status', criticality: 'StatusImpressaoNFECrit'  } ]
+  StatusImpressaoNFE;
+  @UI.selectionField: [{position: 250}]
+  @UI.lineItem: [ { position: 210, criticality: 'StatusPrestacaoContasCrit' } ]
+  @UI.identification:  [ {criticality: 'StatusPrestacaoContasCrit' } ]
+  @UI.fieldGroup: [ { position: 160, qualifier: 'Status', criticality: 'StatusPrestacaoContasCrit' } ]
+  StatusPrestacaoContas;
+  @UI.selectionField: [{position: 260}]
+  @UI.lineItem: [ { position: 220,criticality: 'StatusCarregamentoCrit' } ]
+  @UI.identification:  [ {criticality: 'StatusCarregamentoCrit' } ]
+  @UI.fieldGroup: [ { position: 170, qualifier: 'Status', criticality: 'StatusCarregamentoCrit' } ]
+  StatusCarregamento;
+  @UI.selectionField: [{position: 270}]
+  @UI.lineItem: [ { position: 220, criticality: 'StatusVerificacaoEstoqueCrit' } ]
+  @UI.identification:  [ {criticality: 'StatusVerificacaoEstoqueCrit' } ]
+  @UI.fieldGroup: [ { position: 180, qualifier: 'Status', criticality: 'StatusVerificacaoEstoqueCrit' } ]
+  StatusVerificacaoEstoque;
+
+
+  /* Data Planejada */
+  @UI.lineItem: [ { position: 290 }]  
+  @UI.fieldGroup: [ { position: 10, qualifier: 'Data_Planejada' } ]
+  DataPlanejadaSincronismo;
+  @UI.lineItem: [ { position: 300 }]  
+  @UI.fieldGroup: [ { position: 20, qualifier: 'Data_Planejada' } ]
+  DataPlanejadaAprovComercial;
+  @UI.lineItem: [ { position: 310 }]  
+  @UI.fieldGroup: [ { position: 30, qualifier: 'Data_Planejada' } ]
+  DataPlanejadaAprovCredito;
+  @UI.lineItem: [ { position: 320 }]  
+  @UI.fieldGroup: [ { position: 40, qualifier: 'Data_Planejada' } ]
+  DataPlanejadaEnvioDeRemessa;
+  @UI.lineItem: [ { position: 330 }] 
+  @UI.fieldGroup: [ { position: 50, qualifier: 'Data_Planejada' } ]
+  DataPlanejadaOrdemFrete;
+  @UI.lineItem: [ { position: 340 }] 
+  @UI.fieldGroup: [ { position: 60, qualifier: 'Data_Planejada' } ]
+  DataPlanejadaFaturamento;
+  @UI.lineItem: [ { position: 350 }] 
+  @UI.fieldGroup: [ { position: 70, qualifier: 'Data_Planejada' } ]
+  DataPlanejadaSaida;
+  @UI.lineItem: [ { position: 360 }] 
+  @UI.fieldGroup: [ { position: 80, qualifier: 'Data_Planejada' } ]
+  DataPlanejadaEntrega;
+  @UI.lineItem: [ { position: 370 }] 
+  @UI.fieldGroup: [ { position: 90, qualifier: 'Data_Planejada' } ]
+  DataPlanejadaCicloExterno;
+  @UI.lineItem: [ { position: 380 }] 
+  @UI.fieldGroup: [ { position: 100, qualifier: 'Data_Planejada' } ]
+  DataPlanejadaCicloInterno;
+  @UI.lineItem: [ { position: 390 }] 
+  @UI.fieldGroup: [ { position: 110, qualifier: 'Data_Planejada' } ]
+  DataPlanejadaCicloTotal;
+  @UI.lineItem: [ { position: 400 }] 
+  @UI.fieldGroup: [ { position: 120, qualifier: 'Data_Planejada' } ]
+  DataPlanejadaGeracaoRemessa;
+  @UI.lineItem: [ { position: 410 }] 
+  @UI.fieldGroup: [ { position: 130, qualifier: 'Data_Planejada' } ]
+  DataPlanejadaEstoque;
+  @UI.lineItem: [ { position: 420 }] 
+  @UI.fieldGroup: [ { position: 140, qualifier: 'Data_Planejada' } ]
+  DataPlanejadaAprovacaoNFE;
+  @UI.lineItem: [ { position: 430 }] 
+  @UI.fieldGroup: [ { position: 150, qualifier: 'Data_Planejada' } ]
+  DataPlanejadaImpressaoNFE;
+  @UI.lineItem: [ { position: 440 }] 
+  @UI.fieldGroup: [ { position: 160, qualifier: 'Data_Planejada' } ]
+  DataPlanejadaPretacaoDeContas;
+  @UI.lineItem: [ { position: 450 }] 
+  @UI.fieldGroup: [ { position: 170, qualifier: 'Data_Planejada' } ]
+  DataPlanejadaCarregamento;
+  @UI.lineItem: [ { position: 460 }] 
+  @UI.fieldGroup: [ { position: 180, qualifier: 'Data_Planejada' } ]
+  DataPlanejadaVerifEstoque;
+
+  /* Data Realizada  */
+  @UI.lineItem: [ { position: 470 }] 
+  @UI.fieldGroup: [ { position: 10, qualifier: 'Data_Realizada' } ]
+  DataRealizadaSincronismo;
+  @UI.lineItem: [ { position: 480 }] 
+  @UI.fieldGroup: [ { position: 20, qualifier: 'Data_Realizada' } ]
+  DataRealizadaAprovComercial;
+  @UI.lineItem: [ { position: 490 }] 
+  @UI.fieldGroup: [ { position: 30, qualifier: 'Data_Realizada' } ]
+  DataRealizadaAprovCredito;
+  @UI.lineItem: [ { position: 500 }]
+  @UI.fieldGroup: [ { position: 40, qualifier: 'Data_Realizada' } ]
+  DataRealizadaEnvioDeRemessa;
+  @UI.lineItem: [ { position: 510 }]
+  @UI.fieldGroup: [ { position: 50, qualifier: 'Data_Realizada' } ]
+  DataRealizadaOrdemFrete;
+  @UI.lineItem: [ { position: 520 }]
+  @UI.fieldGroup: [ { position: 60, qualifier: 'Data_Realizada' } ]
+  DataRealizadaFaturamento;
+  @UI.lineItem: [ { position: 530 }]
+  @UI.fieldGroup: [ { position: 70, qualifier: 'Data_Realizada' } ]
+  DataRealizadaSaida;
+  @UI.lineItem: [ { position: 540 }]
+  @UI.fieldGroup: [ { position: 80, qualifier: 'Data_Realizada' } ]
+  DataRealizadaEntrega;
+  @UI.lineItem: [ { position: 550 }]
+  @UI.fieldGroup: [ { position: 90, qualifier: 'Data_Realizada' } ]
+  DataRealizadaCicloInterno;
+  @UI.lineItem: [ { position: 560 }]
+  @UI.fieldGroup: [ { position: 100, qualifier: 'Data_Realizada' } ]
+  DataRealizadaCicloExterno;
+  @UI.lineItem: [ { position: 570 }]
+  @UI.fieldGroup: [ { position: 110, qualifier: 'Data_Realizada' } ]
+  DataRealizadaCicloTotal;
+  @UI.lineItem: [ { position: 580 }]
+  @UI.fieldGroup: [ { position: 120, qualifier: 'Data_Realizada' } ]
+  DataRealizadaGeracaoRemessa;
+  @UI.lineItem: [ { position: 590 }]
+  @UI.fieldGroup: [ { position: 130, qualifier: 'Data_Realizada' } ]
+  DataRealizadaEstoque;
+  @UI.lineItem: [ { position: 600 }]
+  @UI.fieldGroup: [ { position: 140, qualifier: 'Data_Realizada' } ]
+  DataRealizadaAprovacaoNFE;
+  @UI.lineItem: [ { position: 610 }]
+  @UI.fieldGroup: [ { position: 150, qualifier: 'Data_Realizada' } ]
+  DataRealizadaImpressaoNFE;
+  @UI.lineItem: [ { position: 620 }]
+  @UI.fieldGroup: [ { position: 160, qualifier: 'Data_Realizada' } ]
+  DataRealizadaPretacaoDeContas;
+  @UI.lineItem: [ { position: 630 }]
+  @UI.fieldGroup: [ { position: 170, qualifier: 'Data_Realizada' } ]
+  DataRealizadaCarregamento;
+  @UI.lineItem: [ { position: 640 }]
+  @UI.fieldGroup: [ { position: 180, qualifier: 'Data_Realizada' } ]
+  DataRealizadaVerifEstoque;
+
+
+
+  /* Status Crit */
+  @UI.hidden: true
+  StatusSincronismoCrit;
+  @UI.hidden: true
+  StatusAprvComercialCrit;
+  @UI.hidden: true
+  StatusAprvCreditoCrit;
+  @UI.hidden: true
+  StatusEnvioRemessaCrit;
+  @UI.hidden: true
+  StatusOrdemFreteCrit;
+  @UI.hidden: true
+  StatusFaturamentoCrit;
+  @UI.hidden: true
+  StatusSaidaCrit;
+  @UI.hidden: true
+  StatusEntregaCrit;
+  @UI.hidden: true
+  StatusCicloInternoCrit;
+  @UI.hidden: true
+  StatusCicloExternoCrit;
+  @UI.hidden: true
+  StatusCicloGlobalCrit;
+  @UI.hidden: true
+  StatusGeracaoRemessaCrit;
+  @UI.hidden: true
+  StatusEstoqueCrit;
+  @UI.hidden: true
+  StatusAprovacaoNFECrit;
+  @UI.hidden: true
+  StatusImpressaoNFECrit;
+  @UI.hidden: true
+  StatusPrestacaoContasCrit;
+  @UI.hidden: true
+  StatusCarregamentoCrit;
+  @UI.hidden: true
+  StatusVerificacaoEstoqueCrit;
+}

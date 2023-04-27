@@ -1,0 +1,64 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<abapGit version="v1.0.0" serializer="LCL_OBJECT_SPRX" serializer_version="v1.0.0">
+ <asx:abap xmlns:asx="http://www.sap.com/abapxml" version="1.0">
+  <asx:values>
+   <PROXY_HEADER>
+    <item>
+     <OBJECT>TABL</OBJECT>
+     <OBJ_NAME>ZTLOTE_GNRE_C03_ID_CONTRIBUINT</OBJ_NAME>
+     <OBJECT_M>TABL</OBJECT_M>
+     <OBJ_NAME_M>ZTLOTE_GNRE1</OBJ_NAME_M>
+     <HASH_ID>DF3C2D8D3875856FBD3B8986E1576B97746EE43D</HASH_ID>
+     <ID>&lt;type&gt; c03_idContribuinteEmitente &lt;element&gt; {http://www.gnre.pe.gov.br}c03_idContribuinteEmitente &lt;type&gt; TDadosGNRE &lt;element&gt; {http://www.gnre.pe.gov.br}TDadosGNRE &lt;type&gt; guias &lt;element&gt; {http://www.gnre.pe.gov.br}guias &lt;type&gt; TLote_GNRE &lt;element&gt; TLote_GNRE http://www.gnre.pe.gov.br http://www.gnre.pe.gov.br</ID>
+     <IFR_TYPE>type</IFR_TYPE>
+     <IFR_NAME>c03_idContribuinteEmitente</IFR_NAME>
+     <IFR_NSPCE>http://www.gnre.pe.gov.br</IFR_NSPCE>
+     <IFR_GNSPCE>http://www.gnre.pe.gov.br</IFR_GNSPCE>
+     <GEN_VERS>0005</GEN_VERS>
+     <PREFIX>Z</PREFIX>
+     <CATEGORY>ifmtypedef</CATEGORY>
+     <GEN_APPL>WEBSERVICES</GEN_APPL>
+     <X-ML_NSPCE>http://www.gnre.pe.gov.br</X-ML_NSPCE>
+     <X-ML_NAME>c03_idContribuinteEmitente</X-ML_NAME>
+    </item>
+   </PROXY_HEADER>
+   <PROXY_DATA>
+    <item>
+     <OBJECT>TABL</OBJECT>
+     <OBJ_NAME>ZTLOTE_GNRE_C03_ID_CONTRIBUINT</OBJ_NAME>
+     <OBJECT1>FIEL</OBJECT1>
+     <OBJ_NAME1>CHOICE</OBJ_NAME1>
+     <OBJECT2>FIEL</OBJECT2>
+     <OBJ_NAME2>CHOICE</OBJ_NAME2>
+     <OBJECT_R>TABL</OBJECT_R>
+     <OBJ_NAME_R>ZTLOTE_GNRE_CHOICE1</OBJ_NAME_R>
+     <ID>&lt;element&gt; -choice &lt;type&gt; c03_idContribuinteEmitente &lt;element&gt; {http://www.gnre.pe.gov.br}c03_idContribuinteEmitente &lt;type&gt; TDadosGNRE &lt;element&gt; {http://www.gnre.pe.gov.br}TDadosGNRE &lt;type&gt; guias &lt;element&gt; {http://www.gnre.pe.gov.br}guias &lt;type&gt; TLote_GNRE &lt;element&gt; TLote_GNRE http://www.gnre.pe.gov.br http://www.gnre.pe.gov.br</ID>
+     <IFR_TYPE>element</IFR_TYPE>
+     <IFR_NAME>-choice</IFR_NAME>
+     <IFR_MINOCC>1</IFR_MINOCC>
+     <IFR_MAXOCC>1</IFR_MAXOCC>
+     <IFR_SCALE>-2</IFR_SCALE>
+     <R3_TYPE>FIEL</R3_TYPE>
+     <R3_NAME>CHOICE</R3_NAME>
+     <R3_SEQNUM>000001</R3_SEQNUM>
+    </item>
+    <item>
+     <OBJECT>TABL</OBJECT>
+     <OBJ_NAME>ZTLOTE_GNRE_C03_ID_CONTRIBUINT</OBJ_NAME>
+     <OBJECT1>TABL</OBJECT1>
+     <OBJ_NAME1>ZTLOTE_GNRE_C03_ID_CONTRIBUINT</OBJ_NAME1>
+     <OBJECT2>TABL</OBJECT2>
+     <OBJ_NAME2>ZTLOTE_GNRE_C03_ID_CONTRIBUINT</OBJ_NAME2>
+     <ID>&lt;type&gt; c03_idContribuinteEmitente &lt;element&gt; {http://www.gnre.pe.gov.br}c03_idContribuinteEmitente &lt;type&gt; TDadosGNRE &lt;element&gt; {http://www.gnre.pe.gov.br}TDadosGNRE &lt;type&gt; guias &lt;element&gt; {http://www.gnre.pe.gov.br}guias &lt;type&gt; TLote_GNRE &lt;element&gt; TLote_GNRE http://www.gnre.pe.gov.br http://www.gnre.pe.gov.br</ID>
+     <IFR_TYPE>type</IFR_TYPE>
+     <IFR_NAME>c03_idContribuinteEmitente</IFR_NAME>
+     <IFR_SCALE>-2</IFR_SCALE>
+     <R3_TYPE>TABL</R3_TYPE>
+     <R3_NAME>ZTLOTE_GNRE_C03_ID_CONTRIBUINT</R3_NAME>
+     <R3_TEXT>Proxy Structure (generated)</R3_TEXT>
+     <CATEGORY>ifmtypedef</CATEGORY>
+    </item>
+   </PROXY_DATA>
+  </asx:values>
+ </asx:abap>
+</abapGit>

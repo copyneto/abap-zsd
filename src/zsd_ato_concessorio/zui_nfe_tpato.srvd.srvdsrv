@@ -1,0 +1,4 @@
+@EndUserText.label: 'Service definition - Ato Concessório'
+define service ZUI_NFE_TPATO {
+  expose ZC_SD_NFE_TPATO;
+}

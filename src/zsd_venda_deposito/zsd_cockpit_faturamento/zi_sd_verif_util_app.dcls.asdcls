@@ -1,0 +1,12 @@
+@EndUserText.label: 'CDS de Autorização'
+@MappingRole: true
+define role ZI_SD_VERIF_UTIL_APP {
+    grant 
+        select
+            on
+                ZI_SD_VERIF_UTIL_APP
+                    where
+                        ( SalesOrganization )   = aspect pfcg_auth(ZSDVKORG,VKORG,ACTVT = '03')
+                    AND ( DistributionChannel ) = aspect pfcg_auth(ZSDVTWEG,VTWEG,ACTVT = '03');
+                        
+}

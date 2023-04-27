@@ -1,0 +1,36 @@
+managed; // implementation in class zbp_i_sd_calc_difal unique;
+
+define behavior for ZI_SD_CALC_DIFAL alias CalcDifal
+implementation in class zclsd_calc_difal unique
+persistent table ztsd_calc_difal
+lock master
+authorization master ( instance )
+etag master LocalLastChangedAt
+{
+  create;
+  update;
+  delete;
+
+  field ( mandatory : create ) Shipto; //MaterialGroup, Material;
+  field ( readonly : update ) Shipto; //MaterialGroup, Material;
+  field ( readonly ) LastChangedAt, LastChangedBy, CreatedAt, CreatedBy, LocalLastChangedAt;
+
+  validation authorityCreate on save { create; }
+
+  mapping for ztsd_calc_difal
+  {
+    Shipto                  = shipto;
+    MaterialGroup           = matkl;
+    Material                = matnr;
+    FormulaDifal            = formula_difal;
+    AliqFixa                = aliq_fixa;
+    Redbase                 = redbase;
+    CreatedBy               = created_by;
+    CreatedAt               = created_at;
+    LastChangedBy           = last_changed_by;
+    LastChangedAt           = last_changed_at;
+    LocalLastChangedAt      = local_last_changed_at;
+
+  }
+
+}

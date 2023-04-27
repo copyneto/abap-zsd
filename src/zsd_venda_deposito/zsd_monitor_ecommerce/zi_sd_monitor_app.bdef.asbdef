@@ -1,0 +1,17 @@
+unmanaged;
+
+define behavior for ZI_SD_MONITOR_APP alias Monitor
+implementation in class zclsd_monitor_app unique
+lock master
+{
+//  create;
+//  update;
+//  delete;
+
+action ( features : instance ) saidaMercadoria;
+action ( features : instance ) gerarFaturamento;
+action ( features : instance ) gerarOrdemFrete;
+action ( features : instance ) imprimirNfe;
+action ( features : instance ) desbloquearOrdem;
+
+}

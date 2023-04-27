@@ -1,0 +1,36 @@
+@Metadata.layer: #CORE
+@UI.headerInfo: {
+ typeName: 'Controle ordem Genérica',
+ typeNamePlural: 'Controle ordem Genérica',
+    title: {
+      type: #STANDARD,
+      label: 'Ordem',
+      value: 'Auart'
+    }}
+
+annotate view ZC_SD_ORDEM_G with
+{
+  @UI.facet: [{ id:       'Auart',
+                  position: 10,
+                  label:    'Ordem',
+                  purpose:  #STANDARD,
+                  type:     #IDENTIFICATION_REFERENCE
+                   }]
+  @UI: { lineItem:       [{ position: 10, label: 'Tipo doc de vendas' }],
+         identification: [{ position: 10, label: 'Tipo doc de vendas' }] }
+  @UI.selectionField:    [{ position: 10 }]
+  Auart;
+  @UI: { lineItem:       [{ position: 20, label: 'Motivo da ordem' }],
+         identification: [{ position: 20, label: 'Motivo da ordem' }] }
+  @UI.selectionField:    [{ position: 20 }]
+  Augru;
+  @UI: { lineItem:       [{ position: 30, label: 'Tipo de movimento saída' }],
+         identification: [{ position: 30, label: 'Tipo de movimento saída' }] }
+  @UI.selectionField:    [{ position: 30 }]
+  Bwart;
+  @UI: { lineItem:       [{ position: 40, label: 'Tipo de movimento entrada' }],
+         identification: [{ position: 40, label: 'Tipo de movimento entrada' }] }
+  @UI.selectionField:    [{ position: 40 }]
+  Bwart1;
+
+}

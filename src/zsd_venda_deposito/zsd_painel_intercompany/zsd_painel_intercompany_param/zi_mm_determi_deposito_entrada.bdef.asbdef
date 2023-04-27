@@ -1,0 +1,26 @@
+managed; // implementation in class zbp_i_mm_determi_deposito_entr unique;
+
+define behavior for zi_mm_determi_deposito_entrada //alias <alias_name>
+persistent table ztmm_det_dep_ent
+lock master
+authorization master ( instance )
+etag master LocalLastChangedAt
+{
+  create;
+  update;
+  delete;
+  field ( readonly ) LastChangedAt, LastChangedBy, CreatedAt, CreatedBy, LocalLastChangedAt;
+  field ( readonly : update ) Werks;
+  field ( mandatory : create ) Werks;
+  mapping for ztmm_det_dep_ent
+  {
+
+    Werks = werks;
+    Lgort = lgort;
+    CreatedBy = created_by;
+    CreatedAt = created_at;
+    LastChangedBy = last_changed_by;
+    LastChangedAt = last_changed_at;
+    LocalLastChangedAt = local_last_changed_at;
+  }
+}

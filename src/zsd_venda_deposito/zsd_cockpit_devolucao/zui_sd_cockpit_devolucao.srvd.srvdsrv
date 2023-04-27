@@ -1,0 +1,8 @@
+@EndUserText.label: 'Service Def  Cockpit Devolução'
+define service ZUI_SD_COCKPIT_DEVOLUCAO {
+  expose ZC_SD_COCKPIT_DEVOLUCAO;
+  expose ZC_SD_COCKPIT_NOTA_FISCAL;
+  expose ZC_SD_COCKPIT_DEVOLUCAO_ANEXO;
+  expose ZC_SD_COCKPIT_DEVOLUCAO_INFOS;
+  expose ZC_SD_COCKPIT_DEVOLUCAO_TRANS;
+}

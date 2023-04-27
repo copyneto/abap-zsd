@@ -1,0 +1,5 @@
+CLASS zclsd_substituir_app DEFINITION PUBLIC ABSTRACT FINAL FOR BEHAVIOR OF zi_sd_substituir_app.
+ENDCLASS.
+
+CLASS zclsd_substituir_app IMPLEMENTATION.
+ENDCLASS.

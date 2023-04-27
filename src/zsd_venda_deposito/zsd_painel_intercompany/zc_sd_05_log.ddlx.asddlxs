@@ -1,0 +1,53 @@
+@Metadata.layer: #CORE
+@UI: {
+  headerInfo: {
+    typeName: 'Log erro criação de Pedido',
+    typeNamePlural: 'Logs',
+    title: { type: #STANDARD } }
+//    presentationVariant: [
+//      { text: 'Default',
+//        sortOrder:      [{ by: 'Selected', direction: #DESC },
+//                         { by: 'Material', direction: #ASC }]
+////        visualizations: [{ type: #AS_LINEITEM, qualifier: 'Default' }],
+////        qualifier: 'DefaultPresentationVariant'
+//}]
+}
+annotate view ZC_SD_05_LOG with
+{
+
+  @UI.facet: [ { label: 'Log Erro Pedido',
+                 purpose: #STANDARD,
+                 position: 10,
+                 type: #IDENTIFICATION_REFERENCE,
+                 id: 'IdLog'  } ]
+
+  @UI: { lineItem:        [ { position: 10 } ],
+         identification:  [ { position: 10 } ] }
+  Seqnr;
+  @UI: { lineItem:      [ { position: 20 } ],
+       identification:  [ { position: 20 } ] }
+  Msgty;
+  @UI: { lineItem:      [ { position: 30 } ],
+       identification:  [ { position: 30 } ] }
+  Msgid;
+  @UI: { lineItem:      [ { position: 40 } ],
+       identification:  [ { position: 40 } ] }
+  Msgno;
+  @UI: { lineItem:      [ { position: 50 } ],
+       identification:  [ { position: 50 } ] }
+  Msgv1;
+  @UI: { lineItem:      [ { position: 60 } ],
+       identification:  [ { position: 60 } ] }
+  Msgv3;
+  @UI: { lineItem:      [ { position: 70 } ],
+       identification:  [ { position: 70 } ] }
+  Msgv4;
+  @UI: { lineItem:      [ { position: 70 } ],
+       identification:  [ { position: 70 } ] }
+  Message;
+
+  /* Associations */
+  @UI.hidden: true
+  _cockpit;
+
+}

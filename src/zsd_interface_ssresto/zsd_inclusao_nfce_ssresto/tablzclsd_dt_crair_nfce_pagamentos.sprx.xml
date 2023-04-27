@@ -1,0 +1,147 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<abapGit version="v1.0.0" serializer="LCL_OBJECT_SPRX" serializer_version="v1.0.0">
+ <asx:abap xmlns:asx="http://www.sap.com/abapxml" version="1.0">
+  <asx:values>
+   <PROXY_HEADER>
+    <item>
+     <OBJECT>TABL</OBJECT>
+     <OBJ_NAME>ZCLSD_DT_CRAIR_NFCE_PAGAMENTOS</OBJ_NAME>
+     <OBJECT_M>TABL</OBJECT_M>
+     <OBJ_NAME_M>ZCLSD_DT_CRAIR_NFCE</OBJ_NAME_M>
+     <HASH_ID>3AE55E2712ABCA5857035C30F13524FFC15CEF34</HASH_ID>
+     <ID>&lt;type&gt; Pagamentos &lt;element&gt; Pagamentos &lt;type&gt; dtCrairNFCe http://trescoracoes.com.br/fiscal/nfce http://trescoracoes.com.br/fiscal/nfce</ID>
+     <IFR_TYPE>type</IFR_TYPE>
+     <IFR_NAME>Pagamentos</IFR_NAME>
+     <IFR_NSPCE>http://trescoracoes.com.br/fiscal/nfce</IFR_NSPCE>
+     <IFR_GNSPCE>http://trescoracoes.com.br/fiscal/nfce</IFR_GNSPCE>
+     <GEN_VERS>0005</GEN_VERS>
+     <PREFIX>ZCLSD_</PREFIX>
+     <CATEGORY>ifmtypedef</CATEGORY>
+     <X-ML_NSPCE>http://trescoracoes.com.br/fiscal/nfce</X-ML_NSPCE>
+     <X-ML_NAME>Pagamentos</X-ML_NAME>
+    </item>
+   </PROXY_HEADER>
+   <PROXY_DATA>
+    <item>
+     <OBJECT>TABL</OBJECT>
+     <OBJ_NAME>ZCLSD_DT_CRAIR_NFCE_PAGAMENTOS</OBJ_NAME>
+     <OBJECT1>FIEL</OBJECT1>
+     <OBJ_NAME1>CODAUT</OBJ_NAME1>
+     <OBJECT2>FIEL</OBJECT2>
+     <OBJ_NAME2>CODAUT</OBJ_NAME2>
+     <ID>&lt;element&gt; CODAUT &lt;type&gt; Pagamentos &lt;element&gt; Pagamentos &lt;type&gt; dtCrairNFCe http://trescoracoes.com.br/fiscal/nfce http://trescoracoes.com.br/fiscal/nfce</ID>
+     <IFR_TYPE>element</IFR_TYPE>
+     <IFR_NAME>CODAUT</IFR_NAME>
+     <IFR_TEXT>Código de autenticação do cartão</IFR_TEXT>
+     <IFR_LANGU>EN</IFR_LANGU>
+     <IFR_TAGTYP>E</IFR_TAGTYP>
+     <IFR_MINOCC>1</IFR_MINOCC>
+     <IFR_MAXOCC>1</IFR_MAXOCC>
+     <IFR_XSDTYP>string</IFR_XSDTYP>
+     <IFR_MAXLEN>40</IFR_MAXLEN>
+     <IFR_SCALE>-2</IFR_SCALE>
+     <R3_TYPE>FIEL</R3_TYPE>
+     <R3_NAME>CODAUT</R3_NAME>
+     <R3_TEXT>Código de autenticação do cartão</R3_TEXT>
+     <R3_DATATYP>CHAR</R3_DATATYP>
+     <R3_LENGTH>000040</R3_LENGTH>
+     <R3_SEQNUM>000003</R3_SEQNUM>
+    </item>
+    <item>
+     <OBJECT>TABL</OBJECT>
+     <OBJ_NAME>ZCLSD_DT_CRAIR_NFCE_PAGAMENTOS</OBJ_NAME>
+     <OBJECT1>FIEL</OBJECT1>
+     <OBJ_NAME1>NETWR</OBJ_NAME1>
+     <OBJECT2>FIEL</OBJECT2>
+     <OBJ_NAME2>NETWR</OBJ_NAME2>
+     <ID>&lt;element&gt; NETWR &lt;type&gt; Pagamentos &lt;element&gt; Pagamentos &lt;type&gt; dtCrairNFCe http://trescoracoes.com.br/fiscal/nfce http://trescoracoes.com.br/fiscal/nfce</ID>
+     <IFR_TYPE>element</IFR_TYPE>
+     <IFR_NAME>NETWR</IFR_NAME>
+     <IFR_TEXT>Valor líquido do pagamento</IFR_TEXT>
+     <IFR_LANGU>EN</IFR_LANGU>
+     <IFR_TAGTYP>E</IFR_TAGTYP>
+     <IFR_MINOCC>1</IFR_MINOCC>
+     <IFR_MAXOCC>1</IFR_MAXOCC>
+     <IFR_XSDTYP>decimal</IFR_XSDTYP>
+     <IFR_PREC>13</IFR_PREC>
+     <IFR_SCALE>2</IFR_SCALE>
+     <R3_TYPE>FIEL</R3_TYPE>
+     <R3_NAME>NETWR</R3_NAME>
+     <R3_TEXT>Valor líquido do pagamento</R3_TEXT>
+     <R3_DATATYP>DEC</R3_DATATYP>
+     <R3_LENGTH>000015</R3_LENGTH>
+     <R3_DECIMAL>000002</R3_DECIMAL>
+     <R3_SEQNUM>000002</R3_SEQNUM>
+    </item>
+    <item>
+     <OBJECT>TABL</OBJECT>
+     <OBJ_NAME>ZCLSD_DT_CRAIR_NFCE_PAGAMENTOS</OBJ_NAME>
+     <OBJECT1>FIEL</OBJECT1>
+     <OBJ_NAME1>TIPOPAG</OBJ_NAME1>
+     <OBJECT2>FIEL</OBJECT2>
+     <OBJ_NAME2>TIPOPAG</OBJ_NAME2>
+     <ID>&lt;element&gt; TIPOPAG &lt;type&gt; Pagamentos &lt;element&gt; Pagamentos &lt;type&gt; dtCrairNFCe http://trescoracoes.com.br/fiscal/nfce http://trescoracoes.com.br/fiscal/nfce</ID>
+     <IFR_TYPE>element</IFR_TYPE>
+     <IFR_NAME>TIPOPAG</IFR_NAME>
+     <IFR_TEXT>Código do tipo de pagamento do SS Restô</IFR_TEXT>
+     <IFR_LANGU>EN</IFR_LANGU>
+     <IFR_TAGTYP>E</IFR_TAGTYP>
+     <IFR_MINOCC>1</IFR_MINOCC>
+     <IFR_MAXOCC>1</IFR_MAXOCC>
+     <IFR_XSDTYP>string</IFR_XSDTYP>
+     <IFR_MAXLEN>3</IFR_MAXLEN>
+     <IFR_SCALE>-2</IFR_SCALE>
+     <R3_TYPE>FIEL</R3_TYPE>
+     <R3_NAME>TIPOPAG</R3_NAME>
+     <R3_TEXT>Código do tipo de pagamento do SS Restô</R3_TEXT>
+     <R3_DATATYP>CHAR</R3_DATATYP>
+     <R3_LENGTH>000003</R3_LENGTH>
+     <R3_SEQNUM>000001</R3_SEQNUM>
+    </item>
+    <item>
+     <OBJECT>TABL</OBJECT>
+     <OBJ_NAME>ZCLSD_DT_CRAIR_NFCE_PAGAMENTOS</OBJ_NAME>
+     <OBJECT1>FIEL</OBJECT1>
+     <OBJ_NAME1>VL_TAXA</OBJ_NAME1>
+     <OBJECT2>FIEL</OBJECT2>
+     <OBJ_NAME2>VL_TAXA</OBJ_NAME2>
+     <ID>&lt;element&gt; VL_TAXA &lt;type&gt; Pagamentos &lt;element&gt; Pagamentos &lt;type&gt; dtCrairNFCe http://trescoracoes.com.br/fiscal/nfce http://trescoracoes.com.br/fiscal/nfce</ID>
+     <IFR_TYPE>element</IFR_TYPE>
+     <IFR_NAME>VL_TAXA</IFR_NAME>
+     <IFR_TEXT>Valor líquido do pagamento</IFR_TEXT>
+     <IFR_LANGU>EN</IFR_LANGU>
+     <IFR_TAGTYP>E</IFR_TAGTYP>
+     <IFR_MINOCC>1</IFR_MINOCC>
+     <IFR_MAXOCC>1</IFR_MAXOCC>
+     <IFR_XSDTYP>decimal</IFR_XSDTYP>
+     <IFR_PREC>13</IFR_PREC>
+     <IFR_SCALE>2</IFR_SCALE>
+     <R3_TYPE>FIEL</R3_TYPE>
+     <R3_NAME>VL_TAXA</R3_NAME>
+     <R3_TEXT>Valor líquido do pagamento</R3_TEXT>
+     <R3_DATATYP>DEC</R3_DATATYP>
+     <R3_LENGTH>000015</R3_LENGTH>
+     <R3_DECIMAL>000002</R3_DECIMAL>
+     <R3_SEQNUM>000004</R3_SEQNUM>
+    </item>
+    <item>
+     <OBJECT>TABL</OBJECT>
+     <OBJ_NAME>ZCLSD_DT_CRAIR_NFCE_PAGAMENTOS</OBJ_NAME>
+     <OBJECT1>TABL</OBJECT1>
+     <OBJ_NAME1>ZCLSD_DT_CRAIR_NFCE_PAGAMENTOS</OBJ_NAME1>
+     <OBJECT2>TABL</OBJECT2>
+     <OBJ_NAME2>ZCLSD_DT_CRAIR_NFCE_PAGAMENTOS</OBJ_NAME2>
+     <ID>&lt;type&gt; Pagamentos &lt;element&gt; Pagamentos &lt;type&gt; dtCrairNFCe http://trescoracoes.com.br/fiscal/nfce http://trescoracoes.com.br/fiscal/nfce</ID>
+     <IFR_TYPE>type</IFR_TYPE>
+     <IFR_NAME>Pagamentos</IFR_NAME>
+     <IFR_LANGU>EN</IFR_LANGU>
+     <IFR_SCALE>-2</IFR_SCALE>
+     <R3_TYPE>TABL</R3_TYPE>
+     <R3_NAME>ZCLSD_DT_CRAIR_NFCE_PAGAMENTOS</R3_NAME>
+     <R3_TEXT>Proxy Structure (generated)</R3_TEXT>
+     <CATEGORY>ifmtypedef</CATEGORY>
+    </item>
+   </PROXY_DATA>
+  </asx:values>
+ </asx:abap>
+</abapGit>

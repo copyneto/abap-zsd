@@ -1,0 +1,5 @@
+CLASS zclsd_comissao_comex DEFINITION PUBLIC ABSTRACT FINAL FOR BEHAVIOR OF zi_sd_comissao_comex.
+ENDCLASS.
+
+CLASS zclsd_comissao_comex IMPLEMENTATION.
+ENDCLASS.

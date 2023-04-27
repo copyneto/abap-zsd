@@ -1,0 +1,285 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<abapGit version="v1.0.0" serializer="LCL_OBJECT_SPRX" serializer_version="v1.0.0">
+ <asx:abap xmlns:asx="http://www.sap.com/abapxml" version="1.0">
+  <asx:values>
+   <PROXY_HEADER>
+    <item>
+     <OBJECT>TABL</OBJECT>
+     <OBJ_NAME>ZCLSD_DT_CRIAR_CONTRATO_CONTR2</OBJ_NAME>
+     <OBJECT_M>TABL</OBJECT_M>
+     <OBJ_NAME_M>ZCLSD_DT_CRIAR_CONTRATO</OBJ_NAME_M>
+     <HASH_ID>59A967F4D77DAB1DDFE3CD5052A20CC165F2AE62</HASH_ID>
+     <ID>&lt;type&gt; CONTRACT_HEADER_IN &lt;element&gt; CONTRACT_HEADER_IN &lt;type&gt; dtCriarContrato http://trescoracoes.com.br/vendas/contrato http://trescoracoes.com.br/vendas/contrato</ID>
+     <IFR_TYPE>type</IFR_TYPE>
+     <IFR_NAME>CONTRACT_HEADER_IN</IFR_NAME>
+     <IFR_NSPCE>http://trescoracoes.com.br/vendas/contrato</IFR_NSPCE>
+     <IFR_GNSPCE>http://trescoracoes.com.br/vendas/contrato</IFR_GNSPCE>
+     <GEN_VERS>0005</GEN_VERS>
+     <PREFIX>ZCLSD_</PREFIX>
+     <CATEGORY>ifmtypedef</CATEGORY>
+     <X-ML_NSPCE>http://trescoracoes.com.br/vendas/contrato</X-ML_NSPCE>
+     <X-ML_NAME>CONTRACT_HEADER_IN</X-ML_NAME>
+    </item>
+   </PROXY_HEADER>
+   <PROXY_DATA>
+    <item>
+     <OBJECT>TABL</OBJECT>
+     <OBJ_NAME>ZCLSD_DT_CRIAR_CONTRATO_CONTR2</OBJ_NAME>
+     <OBJECT1>FIEL</OBJECT1>
+     <OBJ_NAME1>DISTR_CHAN</OBJ_NAME1>
+     <OBJECT2>FIEL</OBJECT2>
+     <OBJ_NAME2>DISTR_CHAN</OBJ_NAME2>
+     <ID>&lt;element&gt; DISTR_CHAN &lt;type&gt; CONTRACT_HEADER_IN &lt;element&gt; CONTRACT_HEADER_IN &lt;type&gt; dtCriarContrato http://trescoracoes.com.br/vendas/contrato http://trescoracoes.com.br/vendas/contrato</ID>
+     <IFR_TYPE>element</IFR_TYPE>
+     <IFR_NAME>DISTR_CHAN</IFR_NAME>
+     <IFR_TEXT>Canal de distribuição</IFR_TEXT>
+     <IFR_LANGU>EN</IFR_LANGU>
+     <IFR_TAGTYP>E</IFR_TAGTYP>
+     <IFR_MINOCC>1</IFR_MINOCC>
+     <IFR_MAXOCC>1</IFR_MAXOCC>
+     <IFR_XSDTYP>string</IFR_XSDTYP>
+     <IFR_MAXLEN>2</IFR_MAXLEN>
+     <IFR_SCALE>-2</IFR_SCALE>
+     <R3_TYPE>FIEL</R3_TYPE>
+     <R3_NAME>DISTR_CHAN</R3_NAME>
+     <R3_TEXT>Canal de distribuição</R3_TEXT>
+     <R3_DATATYP>CHAR</R3_DATATYP>
+     <R3_LENGTH>000002</R3_LENGTH>
+     <R3_SEQNUM>000003</R3_SEQNUM>
+    </item>
+    <item>
+     <OBJECT>TABL</OBJECT>
+     <OBJ_NAME>ZCLSD_DT_CRIAR_CONTRATO_CONTR2</OBJ_NAME>
+     <OBJECT1>FIEL</OBJECT1>
+     <OBJ_NAME1>DOC_TYPE</OBJ_NAME1>
+     <OBJECT2>FIEL</OBJECT2>
+     <OBJ_NAME2>DOC_TYPE</OBJ_NAME2>
+     <ID>&lt;element&gt; DOC_TYPE &lt;type&gt; CONTRACT_HEADER_IN &lt;element&gt; CONTRACT_HEADER_IN &lt;type&gt; dtCriarContrato http://trescoracoes.com.br/vendas/contrato http://trescoracoes.com.br/vendas/contrato</ID>
+     <IFR_TYPE>element</IFR_TYPE>
+     <IFR_NAME>DOC_TYPE</IFR_NAME>
+     <IFR_TEXT>Tipo de contrato</IFR_TEXT>
+     <IFR_LANGU>EN</IFR_LANGU>
+     <IFR_TAGTYP>E</IFR_TAGTYP>
+     <IFR_MINOCC>1</IFR_MINOCC>
+     <IFR_MAXOCC>1</IFR_MAXOCC>
+     <IFR_XSDTYP>string</IFR_XSDTYP>
+     <IFR_MAXLEN>4</IFR_MAXLEN>
+     <IFR_SCALE>-2</IFR_SCALE>
+     <R3_TYPE>FIEL</R3_TYPE>
+     <R3_NAME>DOC_TYPE</R3_NAME>
+     <R3_TEXT>Tipo de contrato</R3_TEXT>
+     <R3_DATATYP>CHAR</R3_DATATYP>
+     <R3_LENGTH>000004</R3_LENGTH>
+     <R3_SEQNUM>000001</R3_SEQNUM>
+    </item>
+    <item>
+     <OBJECT>TABL</OBJECT>
+     <OBJ_NAME>ZCLSD_DT_CRIAR_CONTRATO_CONTR2</OBJ_NAME>
+     <OBJECT1>FIEL</OBJECT1>
+     <OBJ_NAME1>PMNTTRMS</OBJ_NAME1>
+     <OBJECT2>FIEL</OBJECT2>
+     <OBJ_NAME2>PMNTTRMS</OBJ_NAME2>
+     <ID>&lt;element&gt; PMNTTRMS &lt;type&gt; CONTRACT_HEADER_IN &lt;element&gt; CONTRACT_HEADER_IN &lt;type&gt; dtCriarContrato http://trescoracoes.com.br/vendas/contrato http://trescoracoes.com.br/vendas/contrato</ID>
+     <IFR_TYPE>element</IFR_TYPE>
+     <IFR_NAME>PMNTTRMS</IFR_NAME>
+     <IFR_LANGU>EN</IFR_LANGU>
+     <IFR_TAGTYP>E</IFR_TAGTYP>
+     <IFR_MAXOCC>1</IFR_MAXOCC>
+     <IFR_OPTNL>X</IFR_OPTNL>
+     <IFR_XSDTYP>string</IFR_XSDTYP>
+     <IFR_MAXLEN>4</IFR_MAXLEN>
+     <IFR_SCALE>-2</IFR_SCALE>
+     <R3_TYPE>FIEL</R3_TYPE>
+     <R3_NAME>PMNTTRMS</R3_NAME>
+     <R3_DATATYP>CHAR</R3_DATATYP>
+     <R3_LENGTH>000004</R3_LENGTH>
+     <R3_SEQNUM>000009</R3_SEQNUM>
+    </item>
+    <item>
+     <OBJECT>TABL</OBJECT>
+     <OBJ_NAME>ZCLSD_DT_CRIAR_CONTRATO_CONTR2</OBJ_NAME>
+     <OBJECT1>FIEL</OBJECT1>
+     <OBJ_NAME1>PO_METHOD</OBJ_NAME1>
+     <OBJECT2>FIEL</OBJECT2>
+     <OBJ_NAME2>PO_METHOD</OBJ_NAME2>
+     <ID>&lt;element&gt; PO_METHOD &lt;type&gt; CONTRACT_HEADER_IN &lt;element&gt; CONTRACT_HEADER_IN &lt;type&gt; dtCriarContrato http://trescoracoes.com.br/vendas/contrato http://trescoracoes.com.br/vendas/contrato</ID>
+     <IFR_TYPE>element</IFR_TYPE>
+     <IFR_NAME>PO_METHOD</IFR_NAME>
+     <IFR_TEXT>Origem do pedido</IFR_TEXT>
+     <IFR_LANGU>EN</IFR_LANGU>
+     <IFR_TAGTYP>E</IFR_TAGTYP>
+     <IFR_MAXOCC>1</IFR_MAXOCC>
+     <IFR_OPTNL>X</IFR_OPTNL>
+     <IFR_XSDTYP>string</IFR_XSDTYP>
+     <IFR_MAXLEN>4</IFR_MAXLEN>
+     <IFR_SCALE>-2</IFR_SCALE>
+     <R3_TYPE>FIEL</R3_TYPE>
+     <R3_NAME>PO_METHOD</R3_NAME>
+     <R3_TEXT>Origem do pedido</R3_TEXT>
+     <R3_DATATYP>CHAR</R3_DATATYP>
+     <R3_LENGTH>000004</R3_LENGTH>
+     <R3_SEQNUM>000006</R3_SEQNUM>
+    </item>
+    <item>
+     <OBJECT>TABL</OBJECT>
+     <OBJ_NAME>ZCLSD_DT_CRIAR_CONTRATO_CONTR2</OBJ_NAME>
+     <OBJECT1>FIEL</OBJECT1>
+     <OBJ_NAME1>PURCH_NO_C</OBJ_NAME1>
+     <OBJECT2>FIEL</OBJECT2>
+     <OBJ_NAME2>PURCH_NO_C</OBJ_NAME2>
+     <ID>&lt;element&gt; PURCH_NO_C &lt;type&gt; CONTRACT_HEADER_IN &lt;element&gt; CONTRACT_HEADER_IN &lt;type&gt; dtCriarContrato http://trescoracoes.com.br/vendas/contrato http://trescoracoes.com.br/vendas/contrato</ID>
+     <IFR_TYPE>element</IFR_TYPE>
+     <IFR_NAME>PURCH_NO_C</IFR_NAME>
+     <IFR_TEXT>Ref. Cliente</IFR_TEXT>
+     <IFR_LANGU>EN</IFR_LANGU>
+     <IFR_TAGTYP>E</IFR_TAGTYP>
+     <IFR_MAXOCC>1</IFR_MAXOCC>
+     <IFR_OPTNL>X</IFR_OPTNL>
+     <IFR_XSDTYP>string</IFR_XSDTYP>
+     <IFR_MAXLEN>35</IFR_MAXLEN>
+     <IFR_SCALE>-2</IFR_SCALE>
+     <R3_TYPE>FIEL</R3_TYPE>
+     <R3_NAME>PURCH_NO_C</R3_NAME>
+     <R3_TEXT>Ref. Cliente</R3_TEXT>
+     <R3_DATATYP>CHAR</R3_DATATYP>
+     <R3_LENGTH>000035</R3_LENGTH>
+     <R3_SEQNUM>000005</R3_SEQNUM>
+    </item>
+    <item>
+     <OBJECT>TABL</OBJECT>
+     <OBJ_NAME>ZCLSD_DT_CRIAR_CONTRATO_CONTR2</OBJ_NAME>
+     <OBJECT1>FIEL</OBJECT1>
+     <OBJ_NAME1>PYMT_METH</OBJ_NAME1>
+     <OBJECT2>FIEL</OBJECT2>
+     <OBJ_NAME2>PYMT_METH</OBJ_NAME2>
+     <ID>&lt;element&gt; PYMT_METH &lt;type&gt; CONTRACT_HEADER_IN &lt;element&gt; CONTRACT_HEADER_IN &lt;type&gt; dtCriarContrato http://trescoracoes.com.br/vendas/contrato http://trescoracoes.com.br/vendas/contrato</ID>
+     <IFR_TYPE>element</IFR_TYPE>
+     <IFR_NAME>PYMT_METH</IFR_NAME>
+     <IFR_LANGU>EN</IFR_LANGU>
+     <IFR_TAGTYP>E</IFR_TAGTYP>
+     <IFR_MAXOCC>1</IFR_MAXOCC>
+     <IFR_OPTNL>X</IFR_OPTNL>
+     <IFR_XSDTYP>string</IFR_XSDTYP>
+     <IFR_MAXLEN>1</IFR_MAXLEN>
+     <IFR_SCALE>-2</IFR_SCALE>
+     <R3_TYPE>FIEL</R3_TYPE>
+     <R3_NAME>PYMT_METH</R3_NAME>
+     <R3_DATATYP>CHAR</R3_DATATYP>
+     <R3_LENGTH>000001</R3_LENGTH>
+     <R3_SEQNUM>000010</R3_SEQNUM>
+    </item>
+    <item>
+     <OBJECT>TABL</OBJECT>
+     <OBJ_NAME>ZCLSD_DT_CRIAR_CONTRATO_CONTR2</OBJ_NAME>
+     <OBJECT1>FIEL</OBJECT1>
+     <OBJ_NAME1>QT_VALID_F</OBJ_NAME1>
+     <OBJECT2>FIEL</OBJECT2>
+     <OBJ_NAME2>QT_VALID_F</OBJ_NAME2>
+     <ID>&lt;element&gt; QT_VALID_F &lt;type&gt; CONTRACT_HEADER_IN &lt;element&gt; CONTRACT_HEADER_IN &lt;type&gt; dtCriarContrato http://trescoracoes.com.br/vendas/contrato http://trescoracoes.com.br/vendas/contrato</ID>
+     <IFR_TYPE>element</IFR_TYPE>
+     <IFR_NAME>QT_VALID_F</IFR_NAME>
+     <IFR_TEXT>Data de início</IFR_TEXT>
+     <IFR_LANGU>EN</IFR_LANGU>
+     <IFR_TAGTYP>E</IFR_TAGTYP>
+     <IFR_MINOCC>1</IFR_MINOCC>
+     <IFR_MAXOCC>1</IFR_MAXOCC>
+     <IFR_XSDTYP>date</IFR_XSDTYP>
+     <IFR_SCALE>-2</IFR_SCALE>
+     <R3_TYPE>FIEL</R3_TYPE>
+     <R3_NAME>QT_VALID_F</R3_NAME>
+     <R3_TEXT>Data de início</R3_TEXT>
+     <R3_DTREF>XSDDATE_D</R3_DTREF>
+     <R3_SEQNUM>000007</R3_SEQNUM>
+    </item>
+    <item>
+     <OBJECT>TABL</OBJECT>
+     <OBJ_NAME>ZCLSD_DT_CRIAR_CONTRATO_CONTR2</OBJ_NAME>
+     <OBJECT1>FIEL</OBJECT1>
+     <OBJ_NAME1>REF_1</OBJ_NAME1>
+     <OBJECT2>FIEL</OBJECT2>
+     <OBJ_NAME2>REF_1</OBJ_NAME2>
+     <ID>&lt;element&gt; REF_1 &lt;type&gt; CONTRACT_HEADER_IN &lt;element&gt; CONTRACT_HEADER_IN &lt;type&gt; dtCriarContrato http://trescoracoes.com.br/vendas/contrato http://trescoracoes.com.br/vendas/contrato</ID>
+     <IFR_TYPE>element</IFR_TYPE>
+     <IFR_NAME>REF_1</IFR_NAME>
+     <IFR_TEXT>Referencia</IFR_TEXT>
+     <IFR_LANGU>EN</IFR_LANGU>
+     <IFR_TAGTYP>E</IFR_TAGTYP>
+     <IFR_MAXOCC>1</IFR_MAXOCC>
+     <IFR_OPTNL>X</IFR_OPTNL>
+     <IFR_XSDTYP>string</IFR_XSDTYP>
+     <IFR_MAXLEN>10</IFR_MAXLEN>
+     <IFR_SCALE>-2</IFR_SCALE>
+     <R3_TYPE>FIEL</R3_TYPE>
+     <R3_NAME>REF_1</R3_NAME>
+     <R3_TEXT>Referencia</R3_TEXT>
+     <R3_DATATYP>CHAR</R3_DATATYP>
+     <R3_LENGTH>000010</R3_LENGTH>
+     <R3_SEQNUM>000004</R3_SEQNUM>
+    </item>
+    <item>
+     <OBJECT>TABL</OBJECT>
+     <OBJ_NAME>ZCLSD_DT_CRIAR_CONTRATO_CONTR2</OBJ_NAME>
+     <OBJECT1>FIEL</OBJECT1>
+     <OBJ_NAME1>SALES_ORG</OBJ_NAME1>
+     <OBJECT2>FIEL</OBJECT2>
+     <OBJ_NAME2>SALES_ORG</OBJ_NAME2>
+     <ID>&lt;element&gt; SALES_ORG &lt;type&gt; CONTRACT_HEADER_IN &lt;element&gt; CONTRACT_HEADER_IN &lt;type&gt; dtCriarContrato http://trescoracoes.com.br/vendas/contrato http://trescoracoes.com.br/vendas/contrato</ID>
+     <IFR_TYPE>element</IFR_TYPE>
+     <IFR_NAME>SALES_ORG</IFR_NAME>
+     <IFR_TEXT>Organização de venda</IFR_TEXT>
+     <IFR_LANGU>EN</IFR_LANGU>
+     <IFR_TAGTYP>E</IFR_TAGTYP>
+     <IFR_MINOCC>1</IFR_MINOCC>
+     <IFR_MAXOCC>1</IFR_MAXOCC>
+     <IFR_XSDTYP>string</IFR_XSDTYP>
+     <IFR_MAXLEN>4</IFR_MAXLEN>
+     <IFR_SCALE>-2</IFR_SCALE>
+     <R3_TYPE>FIEL</R3_TYPE>
+     <R3_NAME>SALES_ORG</R3_NAME>
+     <R3_TEXT>Organização de venda</R3_TEXT>
+     <R3_DATATYP>CHAR</R3_DATATYP>
+     <R3_LENGTH>000004</R3_LENGTH>
+     <R3_SEQNUM>000002</R3_SEQNUM>
+    </item>
+    <item>
+     <OBJECT>TABL</OBJECT>
+     <OBJ_NAME>ZCLSD_DT_CRIAR_CONTRATO_CONTR2</OBJ_NAME>
+     <OBJECT1>FIEL</OBJECT1>
+     <OBJ_NAME1>SHIP_COND</OBJ_NAME1>
+     <OBJECT2>FIEL</OBJECT2>
+     <OBJ_NAME2>SHIP_COND</OBJ_NAME2>
+     <ID>&lt;element&gt; SHIP_COND &lt;type&gt; CONTRACT_HEADER_IN &lt;element&gt; CONTRACT_HEADER_IN &lt;type&gt; dtCriarContrato http://trescoracoes.com.br/vendas/contrato http://trescoracoes.com.br/vendas/contrato</ID>
+     <IFR_TYPE>element</IFR_TYPE>
+     <IFR_NAME>SHIP_COND</IFR_NAME>
+     <IFR_LANGU>EN</IFR_LANGU>
+     <IFR_TAGTYP>E</IFR_TAGTYP>
+     <IFR_MAXOCC>1</IFR_MAXOCC>
+     <IFR_OPTNL>X</IFR_OPTNL>
+     <IFR_XSDTYP>string</IFR_XSDTYP>
+     <IFR_SCALE>-2</IFR_SCALE>
+     <R3_TYPE>FIEL</R3_TYPE>
+     <R3_NAME>SHIP_COND</R3_NAME>
+     <R3_DATATYP>STRG</R3_DATATYP>
+     <R3_SEQNUM>000008</R3_SEQNUM>
+    </item>
+    <item>
+     <OBJECT>TABL</OBJECT>
+     <OBJ_NAME>ZCLSD_DT_CRIAR_CONTRATO_CONTR2</OBJ_NAME>
+     <OBJECT1>TABL</OBJECT1>
+     <OBJ_NAME1>ZCLSD_DT_CRIAR_CONTRATO_CONTR2</OBJ_NAME1>
+     <OBJECT2>TABL</OBJECT2>
+     <OBJ_NAME2>ZCLSD_DT_CRIAR_CONTRATO_CONTR2</OBJ_NAME2>
+     <ID>&lt;type&gt; CONTRACT_HEADER_IN &lt;element&gt; CONTRACT_HEADER_IN &lt;type&gt; dtCriarContrato http://trescoracoes.com.br/vendas/contrato http://trescoracoes.com.br/vendas/contrato</ID>
+     <IFR_TYPE>type</IFR_TYPE>
+     <IFR_NAME>CONTRACT_HEADER_IN</IFR_NAME>
+     <IFR_LANGU>EN</IFR_LANGU>
+     <IFR_SCALE>-2</IFR_SCALE>
+     <R3_TYPE>TABL</R3_TYPE>
+     <R3_NAME>ZCLSD_DT_CRIAR_CONTRATO_CONTR2</R3_NAME>
+     <R3_TEXT>Proxy Structure (generated)</R3_TEXT>
+     <CATEGORY>ifmtypedef</CATEGORY>
+    </item>
+   </PROXY_DATA>
+  </asx:values>
+ </asx:abap>
+</abapGit>

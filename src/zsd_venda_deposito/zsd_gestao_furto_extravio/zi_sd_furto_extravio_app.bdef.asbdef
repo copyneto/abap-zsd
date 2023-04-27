@@ -1,0 +1,11 @@
+unmanaged;
+
+define behavior for ZI_SD_FURTO_EXTRAVIO_APP //alias <alias_name>
+//late numbering
+//lock master
+//etag master <field_name>
+{
+//  create;
+//  update;
+//  delete;
+}

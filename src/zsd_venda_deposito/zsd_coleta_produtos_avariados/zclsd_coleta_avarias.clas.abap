@@ -1,0 +1,5 @@
+CLASS zclsd_coleta_avarias DEFINITION PUBLIC ABSTRACT FINAL FOR BEHAVIOR OF zc_sd_coleta_avarias.
+ENDCLASS.
+
+CLASS zclsd_coleta_avarias IMPLEMENTATION.
+ENDCLASS.

@@ -1,0 +1,4 @@
+@EndUserText.label: 'Service Def - Relatório de Status do Pedido'
+define service ZUI_SD_STATUS_PEDIDO {
+  expose ZC_SD_STATUS_PEDIDO;
+}

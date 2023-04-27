@@ -1,0 +1,5 @@
+CLASS zclsd_motivo_recusa DEFINITION PUBLIC ABSTRACT FINAL FOR BEHAVIOR OF zc_sd_recusa_nivel_item.
+ENDCLASS.
+
+CLASS zclsd_motivo_recusa IMPLEMENTATION.
+ENDCLASS.

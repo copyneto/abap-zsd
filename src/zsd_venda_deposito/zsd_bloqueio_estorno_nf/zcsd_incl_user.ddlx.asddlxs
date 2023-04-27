@@ -1,0 +1,25 @@
+@Metadata.layer: #CORE
+@UI.headerInfo: {
+ typeName: 'incl. usuário autorizado a estornar NF-e',
+ typeNamePlural: 'incl. usuário autorizado a estornar NF-e',
+    title: {
+      type: #STANDARD,
+      label: 'Usuário',
+      value: 'Usuario'
+    }}
+annotate view ZcSD_INCL_USER
+    with 
+{
+  @UI.facet: [{ id:       'Usuario',
+                position: 10,
+                label:    'Usuário',
+                purpose:  #STANDARD,
+                type:     #IDENTIFICATION_REFERENCE
+                 }]
+
+  @UI: { lineItem:       [{ position: 10 }],
+         identification: [{ position: 10 }] }
+  @UI.selectionField: [{ position: 10 }]
+  Usuario;
+    
+}

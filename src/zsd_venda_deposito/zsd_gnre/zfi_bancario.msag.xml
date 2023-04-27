@@ -1,0 +1,86 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<abapGit version="v1.0.0" serializer="LCL_OBJECT_MSAG" serializer_version="v1.0.0">
+ <asx:abap xmlns:asx="http://www.sap.com/abapxml" version="1.0">
+  <asx:values>
+   <T100A>
+    <ARBGB>ZFI_BANCARIO</ARBGB>
+    <MASTERLANG>P</MASTERLANG>
+    <STEXT>ZFI_BANCARIO - Classe de mensagens</STEXT>
+   </T100A>
+   <T100>
+    <T100>
+     <SPRSL>P</SPRSL>
+     <ARBGB>ZFI_BANCARIO</ARBGB>
+     <MSGNR>000</MSGNR>
+     <TEXT>&amp; &amp; &amp; &amp;</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>P</SPRSL>
+     <ARBGB>ZFI_BANCARIO</ARBGB>
+     <MSGNR>001</MSGNR>
+     <TEXT>Nenhum diretório para importação configurado na transação ZFIR_BANCARIO</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>P</SPRSL>
+     <ARBGB>ZFI_BANCARIO</ARBGB>
+     <MSGNR>002</MSGNR>
+     <TEXT>Erro ao salvar log de execução</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>P</SPRSL>
+     <ARBGB>ZFI_BANCARIO</ARBGB>
+     <MSGNR>003</MSGNR>
+     <TEXT>Diretório &amp; &amp; vazio</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>P</SPRSL>
+     <ARBGB>ZFI_BANCARIO</ARBGB>
+     <MSGNR>004</MSGNR>
+     <TEXT>Erro ao tentar ler o diretório &amp; &amp;</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>P</SPRSL>
+     <ARBGB>ZFI_BANCARIO</ARBGB>
+     <MSGNR>005</MSGNR>
+     <TEXT>Layout de importação de extrato não determinado</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>P</SPRSL>
+     <ARBGB>ZFI_BANCARIO</ARBGB>
+     <MSGNR>006</MSGNR>
+     <TEXT>Erro ao iniciar o JOB de processamento do arquivo &amp;</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>P</SPRSL>
+     <ARBGB>ZFI_BANCARIO</ARBGB>
+     <MSGNR>007</MSGNR>
+     <TEXT>Arquivo &amp; importado com sucesso na FF.5</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>P</SPRSL>
+     <ARBGB>ZFI_BANCARIO</ARBGB>
+     <MSGNR>008</MSGNR>
+     <TEXT>Erro ao importar arquivo &amp; na FF.5</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>P</SPRSL>
+     <ARBGB>ZFI_BANCARIO</ARBGB>
+     <MSGNR>009</MSGNR>
+     <TEXT>Arquivo &amp; já importado anteriormente (&amp;) na FF.5</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>P</SPRSL>
+     <ARBGB>ZFI_BANCARIO</ARBGB>
+     <MSGNR>010</MSGNR>
+     <TEXT>Nome do arquivo inválido: &amp;</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>P</SPRSL>
+     <ARBGB>ZFI_BANCARIO</ARBGB>
+     <MSGNR>011</MSGNR>
+     <TEXT>Tipo de arquivo não suportado pelo SAP, apenas (EXT, COB ou PGF).</TEXT>
+    </T100>
+   </T100>
+  </asx:values>
+ </asx:abap>
+</abapGit>

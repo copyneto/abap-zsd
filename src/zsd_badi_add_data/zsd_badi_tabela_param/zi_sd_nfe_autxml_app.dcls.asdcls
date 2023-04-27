@@ -1,0 +1,11 @@
+@EndUserText.label: 'Autorização para obter XML'
+@MappingRole: true
+define role ZI_SD_NFE_AUTXML_APP {
+    grant
+        select
+            on
+                ZI_SD_NFE_AUTXML
+                    where
+                        (  ) = aspect pfcg_auth( ZSDMTABLE, ACTVT = '03', TABLE = 'ZTSD_NFE_AUTXML' );
+                        
+}

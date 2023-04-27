@@ -1,0 +1,4 @@
+@EndUserText.label: 'Service Def Cadastro Usuários Liberação'
+define service ZUI_SD_USUARIO_LIB {
+  expose ZC_SD_USUARIO_LIB;
+}

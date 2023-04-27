@@ -1,0 +1,98 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<abapGit version="v1.0.0" serializer="LCL_OBJECT_MSAG" serializer_version="v1.0.0">
+ <asx:abap xmlns:asx="http://www.sap.com/abapxml" version="1.0">
+  <asx:values>
+   <T100A>
+    <ARBGB>ZSD_CARGA_CONTRATOS</ARBGB>
+    <MASTERLANG>P</MASTERLANG>
+    <STEXT>Carga de Contratos</STEXT>
+   </T100A>
+   <T100>
+    <T100>
+     <SPRSL>P</SPRSL>
+     <ARBGB>ZSD_CARGA_CONTRATOS</ARBGB>
+     <MSGNR>000</MSGNR>
+     <TEXT>&amp;1&amp;2&amp;3&amp;4</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>P</SPRSL>
+     <ARBGB>ZSD_CARGA_CONTRATOS</ARBGB>
+     <MSGNR>001</MSGNR>
+     <TEXT>Operação cancelada.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>P</SPRSL>
+     <ARBGB>ZSD_CARGA_CONTRATOS</ARBGB>
+     <MSGNR>002</MSGNR>
+     <TEXT>Nenhum registro encontrado para os parâmetros informados.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>P</SPRSL>
+     <ARBGB>ZSD_CARGA_CONTRATOS</ARBGB>
+     <MSGNR>003</MSGNR>
+     <TEXT>Recuperando detalhes da empresa &amp;1 Transação &amp;2...</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>P</SPRSL>
+     <ARBGB>ZSD_CARGA_CONTRATOS</ARBGB>
+     <MSGNR>004</MSGNR>
+     <TEXT>Favor informar diretório do arquivo.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>P</SPRSL>
+     <ARBGB>ZSD_CARGA_CONTRATOS</ARBGB>
+     <MSGNR>005</MSGNR>
+     <TEXT>Arquivo deve ser .csv/.txt</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>P</SPRSL>
+     <ARBGB>ZSD_CARGA_CONTRATOS</ARBGB>
+     <MSGNR>006</MSGNR>
+     <TEXT>Erro ao processar arquivo.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>P</SPRSL>
+     <ARBGB>ZSD_CARGA_CONTRATOS</ARBGB>
+     <MSGNR>007</MSGNR>
+     <TEXT>Não foram encontrados dados no arquivo.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>P</SPRSL>
+     <ARBGB>ZSD_CARGA_CONTRATOS</ARBGB>
+     <MSGNR>008</MSGNR>
+     <TEXT>Erro ao copiar arquivo para pasta de destino.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>P</SPRSL>
+     <ARBGB>ZSD_CARGA_CONTRATOS</ARBGB>
+     <MSGNR>009</MSGNR>
+     <TEXT>Não foi possível abrir o file &amp;1</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>P</SPRSL>
+     <ARBGB>ZSD_CARGA_CONTRATOS</ARBGB>
+     <MSGNR>010</MSGNR>
+     <TEXT>Não foi possível executar a BAPI</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>P</SPRSL>
+     <ARBGB>ZSD_CARGA_CONTRATOS</ARBGB>
+     <MSGNR>011</MSGNR>
+     <TEXT>Atualizando contrato &amp;1/&amp;2.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>P</SPRSL>
+     <ARBGB>ZSD_CARGA_CONTRATOS</ARBGB>
+     <MSGNR>012</MSGNR>
+     <TEXT>Contrato atualizado.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>P</SPRSL>
+     <ARBGB>ZSD_CARGA_CONTRATOS</ARBGB>
+     <MSGNR>013</MSGNR>
+     <TEXT>Atualizando número de série do contrato... [&amp;1/&amp;2]</TEXT>
+    </T100>
+   </T100>
+  </asx:values>
+ </asx:abap>
+</abapGit>

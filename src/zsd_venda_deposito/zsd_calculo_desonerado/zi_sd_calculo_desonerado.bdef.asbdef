@@ -1,0 +1,53 @@
+managed;
+
+define behavior for ZI_SD_CALCULO_DESONERADO alias CALCULO_DESONERADO
+implementation in class zclsd_calculo_desonerado_bh unique
+persistent table ztsd_cbenef
+lock master
+authorization master ( instance )
+etag master LocalLastChangedAt
+{
+  create;
+  update;
+  delete;
+
+  field ( readonly ) LastChangedAt, LastChangedBy, CreatedAt, CreatedBy, LocalLastChangedAt;
+  //  field ( mandatory : create ) ShipFrom, ShipTo, Direcao, DocumentType, OrderReason, MaterialNumber, MaterialGroup, MovementType, CfopExternal, TaxSituation;
+  field ( mandatory : create ) Id; //ShipFrom;
+  field ( readonly : update ) Id, ShipFrom, ShipTo, DocumentType, OrderReason, MaterialNumber, MaterialGroup, MovementType, CfopExternal, TaxSituation;
+
+  //  determination setConverteCfop on save  { field CfopExternal; }
+  //  determination setConverteTaxSit on save  { field TaxSituation; }
+  validation valideCampos on save
+  { field Id, ShipFrom, ShipTo, DocumentType, OrderReason,MaterialNumber, MaterialGroup,
+          MovementType, CfopExternal, TaxSituation; }
+
+  validation authorityCreate on save { create; }
+
+  mapping for ztsd_cbenef
+  {
+
+    Id = id;
+    ShipFrom = shipfrom;
+    ShipTo = shipto;
+    //    Direcao                     = direcao;
+    DocumentType = auart;
+    OrderReason = augru;
+    MaterialNumber = matnr;
+    MaterialGroup = matkl;
+    MovementType = bwart;
+    CfopExternal = cfop;
+    TaxSituation = taxsit;
+    BenefitCode = cbenef;
+    ICMSExemption = motdesicms;
+    TypeCalc = tipo_calc;
+    //    StatisticalExemptionICMS    = ststcl_vicmsdeson;
+    CreatedBy = created_by;
+    CreatedAt = created_at;
+    LastChangedBy = last_changed_by;
+    LastChangedAt = last_changed_at;
+    LocalLastChangedAt = local_last_changed_at;
+
+  }
+
+}

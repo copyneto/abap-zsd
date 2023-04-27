@@ -1,0 +1,63 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<abapGit version="v1.0.0" serializer="LCL_OBJECT_FUGR" serializer_version="v1.0.0">
+ <asx:abap xmlns:asx="http://www.sap.com/abapxml" version="1.0">
+  <asx:values>
+   <AREAT>Movimento MM Locação e Comodato</AREAT>
+   <INCLUDES>
+    <SOBJ_NAME>LZFGSD_CMDLOC_MOVIMT_MMTOP</SOBJ_NAME>
+    <SOBJ_NAME>SAPLZFGSD_CMDLOC_MOVIMT_MM</SOBJ_NAME>
+   </INCLUDES>
+   <FUNCTIONS>
+    <item>
+     <FUNCNAME>ZFMSD_CMDLOC_MOVIMT_MM</FUNCNAME>
+     <REMOTE_CALL>R</REMOTE_CALL>
+     <SHORT_TEXT>Movimentação MM Comodato/Locação</SHORT_TEXT>
+     <IMPORT>
+      <RSIMP>
+       <PARAMETER>IS_VBAK</PARAMETER>
+       <OPTIONAL>X</OPTIONAL>
+       <TYP>TDS_XVBAK</TYP>
+      </RSIMP>
+      <RSIMP>
+       <PARAMETER>IT_VBAP</PARAMETER>
+       <OPTIONAL>X</OPTIONAL>
+       <TYP>TT_VBAPVB</TYP>
+      </RSIMP>
+     </IMPORT>
+     <EXPORT>
+      <RSEXP>
+       <PARAMETER>EV_MATDOC</PARAMETER>
+       <TYP>BAPI2017_GM_HEAD_RET-MAT_DOC</TYP>
+      </RSEXP>
+      <RSEXP>
+       <PARAMETER>EV_DOCYEAR</PARAMETER>
+       <TYP>BAPI2017_GM_HEAD_RET-DOC_YEAR</TYP>
+      </RSEXP>
+     </EXPORT>
+     <DOCUMENTATION>
+      <RSFDO>
+       <PARAMETER>IS_VBAK</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Document Structure for XVBAK</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>IT_VBAP</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Table Type for VBAP Structure within ATP Sales Grid</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>EV_MATDOC</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Número do documento do material</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>EV_DOCYEAR</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Ano do documento do material</STEXT>
+      </RSFDO>
+     </DOCUMENTATION>
+    </item>
+   </FUNCTIONS>
+  </asx:values>
+ </asx:abap>
+</abapGit>

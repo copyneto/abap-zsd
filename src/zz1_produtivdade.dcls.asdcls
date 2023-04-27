@@ -1,0 +1,12 @@
+//DO NOT MODIFY! Basis CDS Entity: I_ManufacturingOrder
+@EndUserText.label: 'Description for Role: ZZ1_PRODUTIVDADE'
+@MappingRole: 'true'
+role ZZ1_PRODUTIVDADE {
+    grant SELECT on ZZ1_PRODUTIVDADE
+      where
+        inheriting conditions from entity I_ManufacturingOrder default true
+         replacing {
+          root with _CKE_toBase
+        }
+    ;
+}

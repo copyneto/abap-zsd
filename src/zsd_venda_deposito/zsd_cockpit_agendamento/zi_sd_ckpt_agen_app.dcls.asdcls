@@ -1,0 +1,11 @@
+@EndUserText.label: 'CDS de Autorização'
+@MappingRole: true
+define role ZI_SD_CKPT_AGEN_APP {
+    grant 
+        select
+            on
+                ZI_SD_CKPT_AGEND_UNION_APP
+                    where
+                        ( Plant ) = aspect pfcg_auth( ZSDWERKS, WERKS, ACTVT = '03' );
+                        
+}

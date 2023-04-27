@@ -1,0 +1,77 @@
+unmanaged;
+
+define behavior for ZI_SD_COCKPIT_APP alias Cockpit
+implementation in class zclsd_cockpit_app unique
+lock master
+{
+
+  action ( features : instance ) entradaMercadorias parameter ZC_SD_COMODATO_POPUP_CENTRO;
+  action ( features : instance ) DevolRemessa;
+//  action ( features : instance ) message result [1] $self;
+  action ( features : instance ) message;
+
+}
+
+
+//define behavior for ZI_SD_CR_CP alias AnaliseCRCP
+////implementation in class zclsd_cr_cp unique
+//lock dependent by _Cockpit
+//{
+//
+//  //    create;
+//  //    update;
+//  //    delete;
+//
+//  association _Cockpit;
+//
+//  field ( readonly ) Contrato;
+//
+//}
+
+
+//define behavior for ZI_SD_DET_JOBS alias DetalheJob
+////implementation in class zclsd_det_jobs unique
+//lock dependent by _Cockpit
+//{
+//
+//  //    create;
+//  //    update;
+//  //    delete;
+//
+//  association _Cockpit;
+//
+//  field ( readonly ) Contrato;
+//
+//}
+
+
+//define behavior for ZI_SD_INF_DISTRATO alias Distrato
+////implementation in class zclsd_inf_distrato unique
+//lock dependent by _Cockpit
+//{
+//
+//  //    create;
+//  //    update;
+//  //    delete;
+//
+//  association _Cockpit;
+//
+//  field ( readonly ) Contrato;
+//
+//}
+
+
+//define behavior for ZI_SD_LOC_EQUIP alias LocEquip
+////implementation in class zclsd_loc_equip unique
+//lock dependent by _Cockpit
+//{
+//
+//  //    create;
+//  //    update;
+//  //    delete;
+//
+//  association _Cockpit;
+//
+//  field ( readonly ) Contrato;
+//
+//}

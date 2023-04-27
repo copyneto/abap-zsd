@@ -1,0 +1,4 @@
+@EndUserText.label: 'Service definition para ZC_SD_REL_MATERIAL_TERC'
+define service ZUI_SD_REL_MATERIAL_TERC {
+  expose ZC_SD_REL_MATERIAL_TERC as AppRelDocumentoMaterial;
+}

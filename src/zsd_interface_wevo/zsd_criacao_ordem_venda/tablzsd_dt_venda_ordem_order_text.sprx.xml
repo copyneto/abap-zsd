@@ -1,0 +1,108 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<abapGit version="v1.0.0" serializer="LCL_OBJECT_SPRX" serializer_version="v1.0.0">
+ <asx:abap xmlns:asx="http://www.sap.com/abapxml" version="1.0">
+  <asx:values>
+   <PROXY_HEADER>
+    <item>
+     <OBJECT>TABL</OBJECT>
+     <OBJ_NAME>ZSD_DT_VENDA_ORDEM_ORDER_TEXT</OBJ_NAME>
+     <OBJECT_M>TABL</OBJECT_M>
+     <OBJ_NAME_M>ZSD_DT_VENDA_ORDEM</OBJ_NAME_M>
+     <HASH_ID>CB4AC314B6B3E3654E0A23EFFAF7D445C763F4FE</HASH_ID>
+     <ID>&lt;type&gt; ORDER_TEXT &lt;element&gt; ORDER_TEXT &lt;type&gt; dtVendaOrdem http://trescoracoes.com.br/criacao/ordemvenda http://trescoracoes.com.br/criacao/ordemvenda</ID>
+     <IFR_TYPE>type</IFR_TYPE>
+     <IFR_NAME>ORDER_TEXT</IFR_NAME>
+     <IFR_NSPCE>http://trescoracoes.com.br/criacao/ordemvenda</IFR_NSPCE>
+     <IFR_GNSPCE>http://trescoracoes.com.br/criacao/ordemvenda</IFR_GNSPCE>
+     <GEN_VERS>0005</GEN_VERS>
+     <PREFIX>ZSD_</PREFIX>
+     <CATEGORY>ifmtypedef</CATEGORY>
+     <X-ML_NSPCE>http://trescoracoes.com.br/criacao/ordemvenda</X-ML_NSPCE>
+     <X-ML_NAME>ORDER_TEXT</X-ML_NAME>
+    </item>
+   </PROXY_HEADER>
+   <PROXY_DATA>
+    <item>
+     <OBJECT>TABL</OBJECT>
+     <OBJ_NAME>ZSD_DT_VENDA_ORDEM_ORDER_TEXT</OBJ_NAME>
+     <OBJECT1>FIEL</OBJECT1>
+     <OBJ_NAME1>LANGU</OBJ_NAME1>
+     <OBJECT2>FIEL</OBJECT2>
+     <OBJ_NAME2>LANGU</OBJ_NAME2>
+     <ID>&lt;element&gt; LANGU &lt;type&gt; ORDER_TEXT &lt;element&gt; ORDER_TEXT &lt;type&gt; dtVendaOrdem http://trescoracoes.com.br/criacao/ordemvenda http://trescoracoes.com.br/criacao/ordemvenda</ID>
+     <IFR_TYPE>element</IFR_TYPE>
+     <IFR_NAME>LANGU</IFR_NAME>
+     <IFR_LANGU>EN</IFR_LANGU>
+     <IFR_TAGTYP>E</IFR_TAGTYP>
+     <IFR_MAXOCC>1</IFR_MAXOCC>
+     <IFR_OPTNL>X</IFR_OPTNL>
+     <IFR_XSDTYP>string</IFR_XSDTYP>
+     <IFR_SCALE>-2</IFR_SCALE>
+     <R3_TYPE>FIEL</R3_TYPE>
+     <R3_NAME>LANGU</R3_NAME>
+     <R3_DATATYP>STRG</R3_DATATYP>
+     <R3_SEQNUM>000002</R3_SEQNUM>
+    </item>
+    <item>
+     <OBJECT>TABL</OBJECT>
+     <OBJ_NAME>ZSD_DT_VENDA_ORDEM_ORDER_TEXT</OBJ_NAME>
+     <OBJECT1>FIEL</OBJECT1>
+     <OBJ_NAME1>TEXT_ID</OBJ_NAME1>
+     <OBJECT2>FIEL</OBJECT2>
+     <OBJ_NAME2>TEXT_ID</OBJ_NAME2>
+     <ID>&lt;element&gt; TEXT_ID &lt;type&gt; ORDER_TEXT &lt;element&gt; ORDER_TEXT &lt;type&gt; dtVendaOrdem http://trescoracoes.com.br/criacao/ordemvenda http://trescoracoes.com.br/criacao/ordemvenda</ID>
+     <IFR_TYPE>element</IFR_TYPE>
+     <IFR_NAME>TEXT_ID</IFR_NAME>
+     <IFR_LANGU>EN</IFR_LANGU>
+     <IFR_TAGTYP>E</IFR_TAGTYP>
+     <IFR_MAXOCC>1</IFR_MAXOCC>
+     <IFR_OPTNL>X</IFR_OPTNL>
+     <IFR_XSDTYP>string</IFR_XSDTYP>
+     <IFR_SCALE>-2</IFR_SCALE>
+     <R3_TYPE>FIEL</R3_TYPE>
+     <R3_NAME>TEXT_ID</R3_NAME>
+     <R3_DATATYP>STRG</R3_DATATYP>
+     <R3_SEQNUM>000001</R3_SEQNUM>
+    </item>
+    <item>
+     <OBJECT>TABL</OBJECT>
+     <OBJ_NAME>ZSD_DT_VENDA_ORDEM_ORDER_TEXT</OBJ_NAME>
+     <OBJECT1>FIEL</OBJECT1>
+     <OBJ_NAME1>TEXT_LINE</OBJ_NAME1>
+     <OBJECT2>FIEL</OBJECT2>
+     <OBJ_NAME2>TEXT_LINE</OBJ_NAME2>
+     <ID>&lt;element&gt; TEXT_LINE &lt;type&gt; ORDER_TEXT &lt;element&gt; ORDER_TEXT &lt;type&gt; dtVendaOrdem http://trescoracoes.com.br/criacao/ordemvenda http://trescoracoes.com.br/criacao/ordemvenda</ID>
+     <IFR_TYPE>element</IFR_TYPE>
+     <IFR_NAME>TEXT_LINE</IFR_NAME>
+     <IFR_LANGU>EN</IFR_LANGU>
+     <IFR_TAGTYP>E</IFR_TAGTYP>
+     <IFR_MAXOCC>1</IFR_MAXOCC>
+     <IFR_OPTNL>X</IFR_OPTNL>
+     <IFR_XSDTYP>string</IFR_XSDTYP>
+     <IFR_SCALE>-2</IFR_SCALE>
+     <R3_TYPE>FIEL</R3_TYPE>
+     <R3_NAME>TEXT_LINE</R3_NAME>
+     <R3_DATATYP>STRG</R3_DATATYP>
+     <R3_SEQNUM>000003</R3_SEQNUM>
+    </item>
+    <item>
+     <OBJECT>TABL</OBJECT>
+     <OBJ_NAME>ZSD_DT_VENDA_ORDEM_ORDER_TEXT</OBJ_NAME>
+     <OBJECT1>TABL</OBJECT1>
+     <OBJ_NAME1>ZSD_DT_VENDA_ORDEM_ORDER_TEXT</OBJ_NAME1>
+     <OBJECT2>TABL</OBJECT2>
+     <OBJ_NAME2>ZSD_DT_VENDA_ORDEM_ORDER_TEXT</OBJ_NAME2>
+     <ID>&lt;type&gt; ORDER_TEXT &lt;element&gt; ORDER_TEXT &lt;type&gt; dtVendaOrdem http://trescoracoes.com.br/criacao/ordemvenda http://trescoracoes.com.br/criacao/ordemvenda</ID>
+     <IFR_TYPE>type</IFR_TYPE>
+     <IFR_NAME>ORDER_TEXT</IFR_NAME>
+     <IFR_LANGU>EN</IFR_LANGU>
+     <IFR_SCALE>-2</IFR_SCALE>
+     <R3_TYPE>TABL</R3_TYPE>
+     <R3_NAME>ZSD_DT_VENDA_ORDEM_ORDER_TEXT</R3_NAME>
+     <R3_TEXT>Proxy Structure (generated)</R3_TEXT>
+     <CATEGORY>ifmtypedef</CATEGORY>
+    </item>
+   </PROXY_DATA>
+  </asx:values>
+ </asx:abap>
+</abapGit>

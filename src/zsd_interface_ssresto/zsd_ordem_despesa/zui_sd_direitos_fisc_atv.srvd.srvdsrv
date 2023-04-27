@@ -1,0 +1,4 @@
+@EndUserText.label: 'Service def Direitos fiscais p/ Ordens Operações Especiais'
+define service ZUI_SD_DIREITOS_FISC_ATV {
+  expose ZC_SD_DIREITOS_FISC_ATV;
+}

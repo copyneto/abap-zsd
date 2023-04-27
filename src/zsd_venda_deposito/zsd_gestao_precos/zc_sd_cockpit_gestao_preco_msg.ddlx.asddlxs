@@ -1,0 +1,50 @@
+@Metadata.layer: #CORE
+@UI: { headerInfo: { title: { type: #STANDARD, value: 'Line' },
+                     typeName: 'Mensagem',
+                     typeNamePlural: 'Mensagens de Erro' } }
+
+@UI.lineItem: [{criticality: 'LineCriticality'} ]
+@UI.presentationVariant: [{ sortOrder: [{ by: 'Line', direction: #ASC }] }]
+annotate view ZC_SD_COCKPIT_GESTAO_PRECO_MSG with
+{
+
+  // ------------------------------------------------------
+  // Header information
+  // ------------------------------------------------------
+  @UI.facet: [ { id:            'Mensagem',
+                 purpose:       #STANDARD,
+                 type:          #DATAPOINT_REFERENCE,
+                 label:         'Mensagem',
+                 position:      10 }  ]
+
+  // ------------------------------------------------------
+  // Field information
+  // ------------------------------------------------------
+
+  @UI.hidden: true
+  Guid;
+
+  @UI: { lineItem:        [ { position: 10, label: 'Linha', criticality: 'LineCriticality', criticalityRepresentation: #WITHOUT_ICON } ],
+         identification:  [ { position: 10, label: 'Linha', criticality: 'LineCriticality', criticalityRepresentation: #WITHOUT_ICON } ]  }
+  Line;
+  @UI.hidden: true
+  MsgLine;
+
+  @UI: { lineItem:        [ { position: 20, label: 'Mensagem', criticality: 'LineCriticality', criticalityRepresentation: #WITHOUT_ICON } ],
+         identification:  [ { position: 20, label: 'Mensagem', criticality: 'LineCriticality', criticalityRepresentation: #WITHOUT_ICON } ]}
+  Message;
+  
+  @UI.hidden: true
+  LineCriticality;
+  @UI.hidden: true
+  CreatedBy;
+  @UI.hidden: true
+  CreatedAt;
+  @UI.hidden: true
+  LastChangedBy;
+  @UI.hidden: true
+  LastChangedAt;
+  @UI.hidden: true
+  LocalLastChangedAt;
+
+}

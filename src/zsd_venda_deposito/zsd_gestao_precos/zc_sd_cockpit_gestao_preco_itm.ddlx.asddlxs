@@ -1,0 +1,301 @@
+@Metadata.layer: #CORE
+@UI: { headerInfo: { title: { type: #STANDARD, value: 'LineText' },
+                     typeName: 'Preço',
+                     typeNamePlural: 'Preços' } }
+
+@UI.lineItem: [{criticality: 'StatusCriticality'} ]
+
+annotate view ZC_SD_COCKPIT_GESTAO_PRECO_ITM with
+{
+  // ------------------------------------------------------
+  // Header information
+  // ------------------------------------------------------
+  @UI.facet: [ { id:              'HeaderStatus',
+                 purpose:         #HEADER,
+                 type:            #DATAPOINT_REFERENCE,
+                 targetQualifier: 'HeaderStatus',
+                 position:        10 },
+
+               { id:              'CABECALHO',
+                 isSummary:       true,
+                 type:            #COLLECTION,
+                 label:           'Cabeçalho',
+                 position:        10 },
+
+                        { parentId:        'CABECALHO',
+                          id:              'Cabecalho',
+                          type:            #FIELDGROUP_REFERENCE,
+                          position:        10,
+                          targetQualifier: 'Cabecalho' },
+
+               { id:              'INFO',
+                 isSummary:       true,
+                 type:            #COLLECTION,
+                 label:           'Informações',
+                 position:        20 },
+
+                        { parentId:        'INFO',
+                          id:              'Info',
+                          type:            #FIELDGROUP_REFERENCE,
+                          position:        10,
+                          targetQualifier: 'Info' },
+
+               { id:              'VALOR',
+                 isSummary:       true,
+                 type:            #COLLECTION,
+                 label:           'Valores',
+                 position:        30 },
+
+                        { parentId:        'VALOR',
+                          id:              'Escala',
+                          type:            #FIELDGROUP_REFERENCE,
+                          label:           'Escala',
+                          position:        10,
+                          targetQualifier: 'Escala' },
+
+                        { parentId:        'VALOR',
+                          id:              'Minimo',
+                          type:            #FIELDGROUP_REFERENCE,
+                          label:           'Mínimo',
+                          position:        20,
+                          targetQualifier: 'Minimo' },
+
+                        { parentId:        'VALOR',
+                          id:              'Sugerido',
+                          type:            #FIELDGROUP_REFERENCE,
+                          label:           'Sugerido',
+                          position:        30,
+                          targetQualifier: 'Sugerido' },
+
+                        { parentId:        'VALOR',
+                          id:              'Maximo',
+                          type:            #FIELDGROUP_REFERENCE,
+                          label:           'Máximo',
+                          position:        40,
+                          targetQualifier: 'Maximo' },
+
+               { id:              'VALIDADE',
+                 isSummary:       true,
+                 type:            #COLLECTION,
+                 label:           'Validade',
+                 position:        40 },
+
+
+                        { parentId:        'VALIDADE',
+                          id:              'Validade',
+                          type:            #FIELDGROUP_REFERENCE,
+                          position:        10,
+                          targetQualifier: 'Validade' } ]
+
+  // ------------------------------------------------------
+  // Field information
+  // ------------------------------------------------------
+  @UI.hidden: true
+  Guid;
+
+  @UI.hidden: true
+  GuidLine;
+
+  @UI: { lineItem:        [ { position: 10, label: 'Linha', criticality: 'LineCriticality', criticalityRepresentation: #WITHOUT_ICON } ],
+         textArrangement: #TEXT_SEPARATE }
+  Line;
+
+  @UI.hidden: true
+  LineText;
+
+  @UI.hidden: true
+  LineCriticality;
+
+  @UI: { lineItem:        [ { position: 20, label: 'Status', criticality: 'StatusCriticality', criticalityRepresentation: #WITHOUT_ICON } ],
+         fieldGroup:      [ { position: 20, label: 'Status', criticality: 'StatusCriticality', criticalityRepresentation: #WITHOUT_ICON } ],
+         dataPoint:         { title: 'Status', qualifier: 'HeaderStatus', criticality: 'StatusCriticality' } }
+  Status;
+
+  @UI.hidden: true
+  StatusText;
+
+  @UI.hidden: true
+  StatusCriticality;
+
+  @UI: { lineItem:        [ { position: 30, label: 'Tipo de Operação', criticality: 'OperationTypeCriticality', criticalityRepresentation: #WITHOUT_ICON } ],
+         fieldGroup:      [ { position: 10, label: 'Tipo de Operação', criticality: 'OperationTypeCriticality', criticalityRepresentation: #WITHOUT_ICON, qualifier: 'Cabecalho' } ],
+         textArrangement: #TEXT_ONLY }
+  OperationType;
+
+  @UI.hidden: true
+  OperationTypeText;
+
+  @UI.hidden: true
+  OperationTypeCriticality;
+
+  @UI: {  lineItem:       [ { position: 40, label: 'Centro', criticality: 'PlantCriticality', criticalityRepresentation: #WITHOUT_ICON } ],
+          fieldGroup:     [ { position: 10, label: 'Centro', criticality: 'PlantCriticality', qualifier: 'Info' } ],
+          selectionField: [ { position: 10 } ] }
+  Plant;
+
+  @UI: {  lineItem:       [ { position: 50, label: 'Descrição Centro'}]}
+  //          fieldGroup:     [ { position: 30, label: 'Descrição Centro', qualifier: 'Dados' } ]}
+  PlantText;
+
+  @UI.hidden: true
+  PlantCriticality;
+
+
+  @UI: { lineItem:        [ { position: 60, label: 'Canal de Distribuição', criticality: 'DistChannelCriticality', criticalityRepresentation: #WITHOUT_ICON } ],
+         fieldGroup:      [ { position: 20, label: 'Canal de Distribuição', criticality: 'DistChannelCriticality', criticalityRepresentation: #WITHOUT_ICON, qualifier: 'Info' } ] }
+  DistChannel;
+
+  @UI: { lineItem:        [ { position: 70, label: 'Desc. Canal de Distribuição' } ]}
+  //         fieldGroup:      [ { position: 20, label: 'Desc. Canal de Distribuição', qualifier: 'Info'  } ] }
+  DistChannelText;
+
+  @UI.hidden: true
+  DistChannelCriticality;
+
+  @UI: { lineItem:        [ { position: 80, label: 'Lista de Preço', criticality: 'PriceListCriticality', criticalityRepresentation: #WITHOUT_ICON } ],
+         fieldGroup:      [ { position: 70, label: 'Lista de Preço', criticality: 'PriceListCriticality', criticalityRepresentation: #WITHOUT_ICON, qualifier: 'Info' } ] }
+  PriceList;
+
+  @UI: { lineItem:        [ { position: 90, label: 'Desc. Lista de Preço' } ] }
+  //         fieldGroup:      [ { position: 80, label: 'Desc. Lista de Preço', qualifier: 'Info'  } ] }
+  PriceListText;
+
+  @UI.hidden: true
+  PriceListCriticality;
+
+  @UI: { lineItem:        [ { position: 100, label: 'Família' } ],
+         fieldGroup:      [ { position: 40, label: 'Família', qualifier: 'Info' } ] }
+  Family;
+
+  @UI.hidden: true
+  FamilyText;
+
+  @UI: { lineItem:        [ { position: 110, label: 'Marca' } ],
+         fieldGroup:      [ { position: 50, label: 'Marca', qualifier: 'Info' } ] }
+  Brand;
+
+  @UI.hidden: true
+  BrandText;
+
+  @UI: { lineItem:        [ { position: 120, label: 'Material', criticality: 'MaterialCriticality', criticalityRepresentation: #WITHOUT_ICON } ],
+         fieldGroup:      [ { position: 30, label: 'Material', criticality: 'MaterialCriticality', criticalityRepresentation: #WITHOUT_ICON, qualifier: 'Info' } ] }
+  Material;
+
+  @UI: { lineItem:        [ { position: 130, label: 'Descrição Material' } ]}
+  //       fieldGroup:      [ { position: 40, label: 'Descrição Material', qualifier: 'Info'  } ] }
+  MaterialText;
+
+  @UI.hidden: true
+  MaterialCriticality;
+
+  @UI: { lineItem:        [ { position: 140, label: 'Escala', criticality: 'ScaleCriticality', criticalityRepresentation: #WITHOUT_ICON } ],
+         fieldGroup:      [ { position: 10, label: 'Escala', criticality: 'ScaleCriticality', criticalityRepresentation: #WITHOUT_ICON, qualifier: 'Escala' } ] }
+  Scale;
+
+  @UI.hidden: true
+  ScaleCriticality;
+
+  @UI: { lineItem:        [ { position: 150, label: 'UMB', criticality: 'ScaleCriticality', criticalityRepresentation: #WITHOUT_ICON } ],
+         fieldGroup:      [ { position: 10, label: 'UMB', criticality: 'ScaleCriticality', criticalityRepresentation: #WITHOUT_ICON, qualifier: 'UMB' } ] }
+  BaseUnit;
+
+  @UI: { lineItem:        [ { position: 160, label: 'Valor Mínimo', criticality: 'MinValueCriticality', criticalityRepresentation: #WITHOUT_ICON } ],
+         fieldGroup:      [ { position: 10, label: 'Valor Mínimo', criticality: 'MinValueCriticality', criticalityRepresentation: #WITHOUT_ICON, qualifier: 'Minimo' } ] }
+  MinValue;
+
+  @UI.hidden: true
+  MinValueCriticality;
+
+  @UI: { lineItem:        [ { position: 170, label: 'Valor Mínimo S4' } ],
+         fieldGroup:      [ { position: 20, label: 'Valor Mínimo S4', qualifier: 'Minimo' } ] }
+  ActiveMinValue;
+
+  @UI: { lineItem:        [ { position: 180, label: 'Valor Mínimo (%)', criticality: 'MinValuePercCriticality', criticalityRepresentation: #WITHOUT_ICON } ],
+     fieldGroup:      [ { position: 30, label: 'Valor Mínimo (%)', criticality: 'MinValuePercCriticality', criticalityRepresentation: #WITHOUT_ICON, qualifier: 'Minimo' } ]}
+  MinValuePerc;
+
+  @UI.hidden: true
+  MinValuePercCriticality;
+
+
+  @UI: { lineItem:        [ { position: 190, label: 'Valor Sugerido', criticality: 'SugValueCriticality', criticalityRepresentation: #WITHOUT_ICON } ],
+         fieldGroup:      [ { position: 10, label: 'Valor Sugerido', criticality: 'SugValueCriticality', criticalityRepresentation: #WITHOUT_ICON, qualifier: 'Sugerido' } ] }
+  SugValue;
+
+  @UI.hidden: true
+  SugValueCriticality;
+
+  @UI: { lineItem:        [ { position: 200, label: 'Valor Sugerido S4' } ],
+         fieldGroup:      [ { position: 20, label: 'Valor Sugerido S4', qualifier: 'Sugerido' } ] }
+  ActiveSugValue;
+
+  @UI: { lineItem:        [ { position: 210, label: 'Valor Sugerido (%)', criticality: 'SugValuePercCriticality', criticalityRepresentation: #WITHOUT_ICON } ],
+       fieldGroup:      [ { position: 30, label: 'Valor Sugerido (%)', criticality: 'SugValuePercCriticality', criticalityRepresentation: #WITHOUT_ICON, qualifier: 'Sugerido' } ]}
+  SugValuePerc;
+
+  @UI.hidden: true
+  SugValuePercCriticality;
+
+  @UI: { lineItem:        [ { position: 220, label: 'Valor Máximo', criticality: 'MaxValueCriticality', criticalityRepresentation: #WITHOUT_ICON } ],
+         fieldGroup:      [ { position: 10, label: 'Valor Máximo', criticality: 'MaxValueCriticality', criticalityRepresentation: #WITHOUT_ICON, qualifier: 'Maximo' } ] }
+  MaxValue;
+
+  @UI.hidden: true
+  MaxValueCriticality;
+
+  @UI: { lineItem:        [ { position: 230, label: 'Valor Máximo S4' } ],
+         fieldGroup:      [ { position: 20, label: 'Valor Máximo S4', qualifier: 'Maximo' } ] }
+  ActiveMaxValue;
+
+  @UI: { lineItem:        [ { position: 240, label: 'Valor Máximo (%)', criticality: 'MaxValuePercCriticality', criticalityRepresentation: #WITHOUT_ICON } ],
+     fieldGroup:      [ { position: 30, label: 'Valor Máximo (%)', criticality: 'MaxValuePercCriticality', criticalityRepresentation: #WITHOUT_ICON, qualifier: 'Maximo' } ]}
+  MaxValuePerc;
+
+  @UI.hidden: true
+  MaxValuePercCriticality;
+
+
+  @UI: { lineItem:        [ { position: 250, label: 'Preço Mínimo Cia', criticality: 'MinimumCriticality', criticalityRepresentation: #WITHOUT_ICON } ],
+         fieldGroup:      [ { position: 30, label: 'Preço Mínimo Cia', criticality: 'MinimumCriticality', criticalityRepresentation: #WITHOUT_ICON, qualifier: 'Minimo' } ] }
+  Minimum;
+
+  @UI: { lineItem:        [ { position: 260, label: 'Moeda', criticality: 'MinimumCriticality', criticalityRepresentation: #WITHOUT_ICON } ],
+         fieldGroup:      [ { position: 30, label: 'Moeda', criticality: 'MinimumCriticality', criticalityRepresentation: #WITHOUT_ICON, qualifier: 'Minimo' } ] }
+  Currency;
+
+  @UI.hidden: true
+  MinimumCriticality;
+
+  @UI: { lineItem:        [ { position: 270, label: 'Preço Mínimo Cia (%)', criticality: 'MinimumPercCriticality', criticalityRepresentation: #WITHOUT_ICON } ],
+         fieldGroup:      [ { position: 40, label: 'Preço Mínimo Cia (%)', criticality: 'MinimumPercCriticality', criticalityRepresentation: #WITHOUT_ICON, qualifier: 'Minimo' } ]}
+  //         dataPoint:         { targetValue: 100, visualization: #PROGRESS, criticality: 'MinimumPercCriticality' } }
+  MinimumPerc;
+
+  @UI.hidden: true
+  MinimumPercCriticality;
+
+  @UI: { lineItem:        [ { position: 280, label: 'Data desde', criticality: 'DateFromCriticality', criticalityRepresentation: #WITHOUT_ICON } ],
+         fieldGroup:      [ { position: 10, label: 'Data desde', criticality: 'DateFromCriticality', criticalityRepresentation: #WITHOUT_ICON, qualifier: 'Validade' } ] }
+  DateFrom;
+
+  @UI.hidden: true
+  DateFromCriticality;
+
+  @UI: { lineItem:        [ { position: 290, label: 'Data até', criticality: 'DateToCriticality', criticalityRepresentation: #WITHOUT_ICON } ],
+         fieldGroup:      [ { position: 20, label: 'Data até', criticality: 'DateToCriticality', criticalityRepresentation: #WITHOUT_ICON, qualifier: 'Validade' } ] }
+  DateTo;
+
+  @UI.hidden: true
+  DateToCriticality;
+
+  @UI.hidden: true
+  LocalLastChangedAt;
+
+  @UI: { lineItem:        [ { position: 300, label: 'Condição', criticality: 'ConditionRecordCriticality' } ],
+         fieldGroup:      [ { position: 20,  label: 'Condição', criticality: 'ConditionRecordCriticality', qualifier: 'Cabecalho' } ] }
+  ConditionRecord;
+
+  @UI.hidden: true
+  ConditionRecordCriticality;
+
+}

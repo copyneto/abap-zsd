@@ -1,0 +1,33 @@
+managed implementation in class zclsd_IPI unique;
+
+define behavior for ZI_SD_IPI
+persistent table ztsd_ipi
+lock master
+authorization master ( instance )
+etag master LocalLastChangedAt
+{
+  create;
+  update;
+  delete;
+
+  field ( mandatory : create ) Werks;//, Txjcd, Brsch, Matkl;
+  field ( readonly : update ) Werks, Txjcd, Brsch, Matkl;
+  field ( readonly ) CreatedAt, CreatedBy, LastChangedAt, LastChangedBy, LocalLastChangedAt;
+
+  validation authorityCreate on save { create; }
+
+  mapping for ztsd_ipi
+  {
+
+    Werks = werks;
+    Txjcd = txjcd;
+    Brsch = brsch;
+    Matkl = matkl;
+    Taxlaw = taxlaw;
+    CreatedBy = created_by;
+    CreatedAt = created_at;
+    LastChangedBy = last_changed_by;
+    LastChangedAt = last_changed_at;
+    LocalLastChangedAt = local_last_changed_at;
+  }
+}

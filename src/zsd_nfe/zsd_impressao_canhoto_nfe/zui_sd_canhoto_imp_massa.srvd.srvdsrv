@@ -1,0 +1,5 @@
+@EndUserText.label: 'Service definition p/ ZC_SD_CANHOTO_IMP_MASSA'
+define service ZUI_SD_CANHOTO_IMP_MASSA {
+  expose ZC_SD_CANHOTO_IMP_MASSA as CanhotoNfe;
+  expose ZI_CA_VH_PADEST;
+}

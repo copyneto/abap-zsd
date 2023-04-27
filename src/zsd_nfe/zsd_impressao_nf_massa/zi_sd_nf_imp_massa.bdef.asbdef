@@ -1,0 +1,7 @@
+unmanaged implementation in class zclsd_i_sd_nf_imp_massa unique;
+
+define behavior for ZI_SD_NF_IMP_MASSA alias NFs
+lock master
+{
+  action ( features : instance ) imprimir parameter ZC_SD_NF_IMP_MASSA_PRINTER;
+}

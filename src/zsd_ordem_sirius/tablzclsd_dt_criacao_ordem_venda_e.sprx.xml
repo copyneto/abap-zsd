@@ -1,0 +1,68 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<abapGit version="v1.0.0" serializer="LCL_OBJECT_SPRX" serializer_version="v1.0.0">
+ <asx:abap xmlns:asx="http://www.sap.com/abapxml" version="1.0">
+  <asx:values>
+   <PROXY_HEADER>
+    <item>
+     <OBJECT>TABL</OBJECT>
+     <OBJ_NAME>ZCLSD_DT_CRIACAO_ORDEM_VENDA_E</OBJ_NAME>
+     <OBJECT_M>TABL</OBJECT_M>
+     <OBJ_NAME_M>ZCLSD_DT_CRIACAO_ORDEM_VENDA</OBJ_NAME_M>
+     <HASH_ID>B8C41C1EEE2D6C64E8EF80B1B0618FCD21A29445</HASH_ID>
+     <ID>&lt;type&gt; EXTENSIONIN &lt;element&gt; EXTENSIONIN &lt;type&gt; dtCriacaoOrdemVenda http://trescoracoes.com.br/vendas/ordem http://trescoracoes.com.br/vendas/ordem</ID>
+     <IFR_TYPE>type</IFR_TYPE>
+     <IFR_NAME>EXTENSIONIN</IFR_NAME>
+     <IFR_NSPCE>http://trescoracoes.com.br/vendas/ordem</IFR_NSPCE>
+     <IFR_GNSPCE>http://trescoracoes.com.br/vendas/ordem</IFR_GNSPCE>
+     <GEN_VERS>0005</GEN_VERS>
+     <PREFIX>ZCLSD_</PREFIX>
+     <CATEGORY>ifmtypedef</CATEGORY>
+     <X-ML_NSPCE>http://trescoracoes.com.br/vendas/ordem</X-ML_NSPCE>
+     <X-ML_NAME>EXTENSIONIN</X-ML_NAME>
+    </item>
+   </PROXY_HEADER>
+   <PROXY_DATA>
+    <item>
+     <OBJECT>TABL</OBJECT>
+     <OBJ_NAME>ZCLSD_DT_CRIACAO_ORDEM_VENDA_E</OBJ_NAME>
+     <OBJECT1>FIEL</OBJECT1>
+     <OBJ_NAME1>STRUCTURE</OBJ_NAME1>
+     <OBJECT2>FIEL</OBJECT2>
+     <OBJ_NAME2>STRUCTURE</OBJ_NAME2>
+     <ID>&lt;element&gt; STRUCTURE &lt;type&gt; EXTENSIONIN &lt;element&gt; EXTENSIONIN &lt;type&gt; dtCriacaoOrdemVenda http://trescoracoes.com.br/vendas/ordem http://trescoracoes.com.br/vendas/ordem</ID>
+     <IFR_TYPE>element</IFR_TYPE>
+     <IFR_NAME>STRUCTURE</IFR_NAME>
+     <IFR_LANGU>EN</IFR_LANGU>
+     <IFR_TAGTYP>E</IFR_TAGTYP>
+     <IFR_MAXOCC>1</IFR_MAXOCC>
+     <IFR_OPTNL>X</IFR_OPTNL>
+     <IFR_XSDTYP>string</IFR_XSDTYP>
+     <IFR_MAXLEN>30</IFR_MAXLEN>
+     <IFR_SCALE>-2</IFR_SCALE>
+     <R3_TYPE>FIEL</R3_TYPE>
+     <R3_NAME>STRUCTURE</R3_NAME>
+     <R3_DATATYP>CHAR</R3_DATATYP>
+     <R3_LENGTH>000030</R3_LENGTH>
+     <R3_SEQNUM>000001</R3_SEQNUM>
+    </item>
+    <item>
+     <OBJECT>TABL</OBJECT>
+     <OBJ_NAME>ZCLSD_DT_CRIACAO_ORDEM_VENDA_E</OBJ_NAME>
+     <OBJECT1>TABL</OBJECT1>
+     <OBJ_NAME1>ZCLSD_DT_CRIACAO_ORDEM_VENDA_E</OBJ_NAME1>
+     <OBJECT2>TABL</OBJECT2>
+     <OBJ_NAME2>ZCLSD_DT_CRIACAO_ORDEM_VENDA_E</OBJ_NAME2>
+     <ID>&lt;type&gt; EXTENSIONIN &lt;element&gt; EXTENSIONIN &lt;type&gt; dtCriacaoOrdemVenda http://trescoracoes.com.br/vendas/ordem http://trescoracoes.com.br/vendas/ordem</ID>
+     <IFR_TYPE>type</IFR_TYPE>
+     <IFR_NAME>EXTENSIONIN</IFR_NAME>
+     <IFR_LANGU>EN</IFR_LANGU>
+     <IFR_SCALE>-2</IFR_SCALE>
+     <R3_TYPE>TABL</R3_TYPE>
+     <R3_NAME>ZCLSD_DT_CRIACAO_ORDEM_VENDA_E</R3_NAME>
+     <R3_TEXT>Proxy Structure (generated)</R3_TEXT>
+     <CATEGORY>ifmtypedef</CATEGORY>
+    </item>
+   </PROXY_DATA>
+  </asx:values>
+ </asx:abap>
+</abapGit>

@@ -1,0 +1,64 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<abapGit version="v1.0.0" serializer="LCL_OBJECT_CLAS" serializer_version="v1.0.0">
+ <asx:abap xmlns:asx="http://www.sap.com/abapxml" version="1.0">
+  <asx:values>
+   <VSEOCLASS>
+    <CLSNAME>ZCLSD_ENTRADA_MERCADORIA</CLSNAME>
+    <LANGU>P</LANGU>
+    <DESCRIPT>Entrada de mercadorias</DESCRIPT>
+    <STATE>1</STATE>
+    <CLSCCINCL>X</CLSCCINCL>
+    <FIXPT>X</FIXPT>
+    <UNICODE>X</UNICODE>
+   </VSEOCLASS>
+   <DESCRIPTIONS>
+    <SEOCOMPOTX>
+     <CMPNAME>GC_MENSAGEM_ERRO</CMPNAME>
+     <LANGU>P</LANGU>
+     <DESCRIPT>Mensagens de retorno</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>GC_PARAM</CMPNAME>
+     <LANGU>P</LANGU>
+     <DESCRIPT>Constantes da tabela de Parâmetros</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>GET_PARAM</CMPNAME>
+     <LANGU>P</LANGU>
+     <DESCRIPT>Busca parâmetros</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>GT_RETURN</CMPNAME>
+     <LANGU>P</LANGU>
+     <DESCRIPT>Tabela de retorno de mensagens</DESCRIPT>
+    </SEOCOMPOTX>
+   </DESCRIPTIONS>
+   <DESCRIPTIONS_SUB>
+    <SEOSUBCOTX>
+     <CMPNAME>GET_PARAM</CMPNAME>
+     <SCONAME>EV_PARAM</SCONAME>
+     <LANGU>P</LANGU>
+     <DESCRIPT>Parâmetro tipo</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>GET_PARAM</CMPNAME>
+     <SCONAME>IV_KEY1</SCONAME>
+     <LANGU>P</LANGU>
+     <DESCRIPT>Parâmetro chave 1</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>GET_PARAM</CMPNAME>
+     <SCONAME>IV_KEY2</SCONAME>
+     <LANGU>P</LANGU>
+     <DESCRIPT>Parâmetro chave 2</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>GET_PARAM</CMPNAME>
+     <SCONAME>IV_KEY3</SCONAME>
+     <LANGU>P</LANGU>
+     <DESCRIPT>Parâmetro chave 3</DESCRIPT>
+    </SEOSUBCOTX>
+   </DESCRIPTIONS_SUB>
+  </asx:values>
+ </asx:abap>
+</abapGit>

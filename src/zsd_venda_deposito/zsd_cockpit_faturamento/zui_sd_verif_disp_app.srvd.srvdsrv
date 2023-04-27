@@ -1,0 +1,6 @@
+@EndUserText.label: 'Service Def  Verifica Disponibilidade'
+define service ZUI_SD_VERIF_DISP_APP {
+  expose ZC_SD_VERIF_DISP_APP;
+  expose ZI_SD_VH_MOTIVO;
+  expose ZI_SD_VH_ACAO;
+}

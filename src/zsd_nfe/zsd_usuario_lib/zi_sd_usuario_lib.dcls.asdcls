@@ -1,0 +1,10 @@
+@EndUserText.label: 'CDS de Autorização'
+@MappingRole: true
+define role ZI_SD_USUARIO_LIB {
+    grant 
+        select
+            on
+                ZI_SD_USUARIO_LIB
+                    where
+                        ( ) = aspect pfcg_auth( ZSDMTABLE, ACTVT = '03', TABLE = 'ZTSD_USUARIO_LIB' );
+}

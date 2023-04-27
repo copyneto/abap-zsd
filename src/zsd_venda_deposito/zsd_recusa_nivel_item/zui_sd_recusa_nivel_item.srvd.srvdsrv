@@ -1,0 +1,12 @@
+@EndUserText.label: 'Service Definition - Recusa Nível Item'
+define service ZUI_SD_RECUSA_NIVEL_ITEM {
+  expose ZC_SD_RECUSA_NIVEL_ITEM;
+  expose I_SDDocumentReason;
+  expose I_Customer;
+  expose I_OverallSDProcessStatus;
+  expose I_SalesDistrict;
+  expose I_SalesOrderType;
+  expose I_SalesDocumentRjcnReason;
+  expose ZC_SD_TABELA_PARAM;
+  expose ZI_CA_VH_ABGRU;
+}

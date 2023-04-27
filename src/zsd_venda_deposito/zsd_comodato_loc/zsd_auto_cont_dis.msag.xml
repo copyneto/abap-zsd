@@ -1,0 +1,92 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<abapGit version="v1.0.0" serializer="LCL_OBJECT_MSAG" serializer_version="v1.0.0">
+ <asx:abap xmlns:asx="http://www.sap.com/abapxml" version="1.0">
+  <asx:values>
+   <T100A>
+    <ARBGB>ZSD_AUTO_CONT_DIS</ARBGB>
+    <MASTERLANG>P</MASTERLANG>
+    <STEXT>Automação cria contrato e distrato</STEXT>
+   </T100A>
+   <T100>
+    <T100>
+     <SPRSL>P</SPRSL>
+     <ARBGB>ZSD_AUTO_CONT_DIS</ARBGB>
+     <MSGNR>001</MSGNR>
+     <TEXT>Erro no registro do Log</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>P</SPRSL>
+     <ARBGB>ZSD_AUTO_CONT_DIS</ARBGB>
+     <MSGNR>002</MSGNR>
+     <TEXT>Execução da Função BAPI_SALESDOCUMENT_COPY</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>P</SPRSL>
+     <ARBGB>ZSD_AUTO_CONT_DIS</ARBGB>
+     <MSGNR>003</MSGNR>
+     <TEXT>Função BAPI_SALESDOCUMENT_COPY executada com sucesso para tipo &amp;1.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>P</SPRSL>
+     <ARBGB>ZSD_AUTO_CONT_DIS</ARBGB>
+     <MSGNR>004</MSGNR>
+     <TEXT>Execução da Função BAPI_GOODSMVT_CREATE</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>P</SPRSL>
+     <ARBGB>ZSD_AUTO_CONT_DIS</ARBGB>
+     <MSGNR>005</MSGNR>
+     <TEXT>Função BAPI_GOODSMVT_CREATE executada com sucesso</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>P</SPRSL>
+     <ARBGB>ZSD_AUTO_CONT_DIS</ARBGB>
+     <MSGNR>006</MSGNR>
+     <TEXT>Execução da função BAPI_SALESORDER_CHANGE</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>P</SPRSL>
+     <ARBGB>ZSD_AUTO_CONT_DIS</ARBGB>
+     <MSGNR>007</MSGNR>
+     <TEXT>Função BAPI_SALESORDER_CHANGE executada com sucesso</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>P</SPRSL>
+     <ARBGB>ZSD_AUTO_CONT_DIS</ARBGB>
+     <MSGNR>008</MSGNR>
+     <TEXT>Doc &amp;1 não localizado na j_1bnfdoc</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>P</SPRSL>
+     <ARBGB>ZSD_AUTO_CONT_DIS</ARBGB>
+     <MSGNR>009</MSGNR>
+     <TEXT>Doc &amp;1 não localizado na vbap</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>P</SPRSL>
+     <ARBGB>ZSD_AUTO_CONT_DIS</ARBGB>
+     <MSGNR>010</MSGNR>
+     <TEXT>Documento &amp;1 do tipo &amp;2 criado com sucesso.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>P</SPRSL>
+     <ARBGB>ZSD_AUTO_CONT_DIS</ARBGB>
+     <MSGNR>011</MSGNR>
+     <TEXT>Iniciando cópia da ordem de venda &amp;1.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>P</SPRSL>
+     <ARBGB>ZSD_AUTO_CONT_DIS</ARBGB>
+     <MSGNR>012</MSGNR>
+     <TEXT>Nenhum registro encontrado para os parâmetros informados.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>P</SPRSL>
+     <ARBGB>ZSD_AUTO_CONT_DIS</ARBGB>
+     <MSGNR>013</MSGNR>
+     <TEXT>Aguardando job anterior terminar</TEXT>
+    </T100>
+   </T100>
+  </asx:values>
+ </asx:abap>
+</abapGit>

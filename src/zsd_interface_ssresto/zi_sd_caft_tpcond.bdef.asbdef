@@ -1,0 +1,30 @@
+managed; // implementation in class zbp_i_sd_caft_tpcond unique;
+
+define behavior for ZI_SD_CAFT_TPCOND //alias <alias_name>
+implementation in class zclsd_caft_tpcond unique
+persistent table ztsd_caft_tpcond
+lock master
+authorization master ( instance )
+etag master LocalLastChangedAt
+{
+  create;
+  update;
+  delete;
+
+  field ( readonly ) LastChangedAt, LastChangedBy, CreatedAt, CreatedBy, LocalLastChangedAt;
+
+  validation authorityCreate on save { create; }
+
+  mapping for ztsd_caft_tpcond
+  {
+    Tipopag = tipopag;
+    Texto = texto;
+    Saknr = saknr;
+    Prefixo = prefixo;
+    CreatedBy = created_by;
+    CreatedAt = created_at;
+    LastChangedBy = last_changed_by;
+    LastChangedAt = last_changed_at;
+    LocalLastChangedAt = local_last_changed_at;
+  }
+}

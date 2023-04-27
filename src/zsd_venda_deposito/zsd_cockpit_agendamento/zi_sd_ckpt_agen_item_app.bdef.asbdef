@@ -1,0 +1,12 @@
+unmanaged;
+
+define behavior for ZI_SD_CKPT_AGEN_ITEM_APP alias Agendamento_Item
+implementation in class zclsd_ckpt_agen_item_app unique
+
+lock master
+etag master SalesOrder
+{
+
+//  action ( features : instance ) CriarAgendamento parameter ZC_SD_POPUP_AGENDAMENTO;
+
+}

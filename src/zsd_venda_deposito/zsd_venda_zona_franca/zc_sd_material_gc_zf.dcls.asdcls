@@ -1,0 +1,11 @@
+@EndUserText.label: 'CDS de Autorização'
+@MappingRole: true
+define role ZC_SD_MATERIAL_GC_ZF {
+    grant
+        select
+            on
+                ZC_SD_MATERIAL_GC_ZF
+                    where
+                        inheriting conditions from entity ZI_SD_MATERIAL_GC_ZF;
+                        
+}

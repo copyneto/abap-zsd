@@ -1,0 +1,173 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<abapGit version="v1.0.0" serializer="LCL_OBJECT_CLAS" serializer_version="v1.0.0">
+ <asx:abap xmlns:asx="http://www.sap.com/abapxml" version="1.0">
+  <asx:values>
+   <VSEOCLASS>
+    <CLSNAME>ZCLSD_CALC_DESONERADO</CLSNAME>
+    <LANGU>P</LANGU>
+    <DESCRIPT>Cálculo Desonerado para NF</DESCRIPT>
+    <STATE>1</STATE>
+    <CLSCCINCL>X</CLSCCINCL>
+    <FIXPT>X</FIXPT>
+    <UNICODE>X</UNICODE>
+   </VSEOCLASS>
+   <DESCRIPTIONS>
+    <SEOCOMPOTX>
+     <CMPNAME>GC_BR</CMPNAME>
+     <LANGU>P</LANGU>
+     <DESCRIPT>País</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>GC_CONVENCIONAL</CMPNAME>
+     <LANGU>P</LANGU>
+     <DESCRIPT>Código de um caractere</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>GC_ICMS</CMPNAME>
+     <LANGU>P</LANGU>
+     <DESCRIPT>Área def.imprecisam., evtlm.utiliz.p/níveis Support Package</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>GC_RJ</CMPNAME>
+     <LANGU>P</LANGU>
+     <DESCRIPT>Código de um caractere</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>GC_SUFRAMA</CMPNAME>
+     <LANGU>P</LANGU>
+     <DESCRIPT>Código de um caractere</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>GS_ADDRESS</CMPNAME>
+     <LANGU>P</LANGU>
+     <DESCRIPT>Administração de endereços: dados da sociedade</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>GS_HEADER</CMPNAME>
+     <LANGU>P</LANGU>
+     <DESCRIPT>Cabeçalho da nota fiscal</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>GS_VBAK</CMPNAME>
+     <LANGU>P</LANGU>
+     <DESCRIPT>Documento de vendas: dados de cabeçalho</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>GT_CBENEF</CMPNAME>
+     <LANGU>P</LANGU>
+     <DESCRIPT>Cóg Benefício e Valor ICMS Desonerado</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>GT_ITEM_OUT</CMPNAME>
+     <LANGU>P</LANGU>
+     <DESCRIPT>Additional Item Fields</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>GT_J1BTXIC1</CMPNAME>
+     <LANGU>P</LANGU>
+     <DESCRIPT>Cálculo de imposto: regulamentos gerais ICMS</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>GT_MSEG</CMPNAME>
+     <LANGU>P</LANGU>
+     <DESCRIPT>Tabela MSEG</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>GT_NFLIN</CMPNAME>
+     <LANGU>P</LANGU>
+     <DESCRIPT>Tabela dos itens da nota fiscal (J_1BNFLIN)</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>GT_NFSTX</CMPNAME>
+     <LANGU>P</LANGU>
+     <DESCRIPT>Tabela itens de imposto da nota fiscal (J_1BNFSTX)</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>GT_VBRP</CMPNAME>
+     <LANGU>P</LANGU>
+     <DESCRIPT>Tipo de tabela pra VBRP</DESCRIPT>
+    </SEOCOMPOTX>
+   </DESCRIPTIONS>
+   <DESCRIPTIONS_SUB>
+    <SEOSUBCOTX>
+     <CMPNAME>EXECUTE</CMPNAME>
+     <SCONAME>CT_ITEM</SCONAME>
+     <LANGU>P</LANGU>
+     <DESCRIPT>Additional Item Fields</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>EXECUTE</CMPNAME>
+     <SCONAME>IS_HEADER</SCONAME>
+     <LANGU>P</LANGU>
+     <DESCRIPT>Cabeçalho da nota fiscal</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>EXECUTE</CMPNAME>
+     <SCONAME>IT_MSEG</SCONAME>
+     <LANGU>P</LANGU>
+     <DESCRIPT>Tabela MSEG</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>EXECUTE</CMPNAME>
+     <SCONAME>IT_NFLIN</SCONAME>
+     <LANGU>P</LANGU>
+     <DESCRIPT>Tabela dos itens da nota fiscal (J_1BNFLIN)</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>EXECUTE</CMPNAME>
+     <SCONAME>IT_NFSTX</SCONAME>
+     <LANGU>P</LANGU>
+     <DESCRIPT>Tabela itens de imposto da nota fiscal (J_1BNFSTX)</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>EXECUTE</CMPNAME>
+     <SCONAME>IT_VBRP</SCONAME>
+     <LANGU>P</LANGU>
+     <DESCRIPT>Tipo de tabela pra VBRP</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>SET_OUTPUT</CMPNAME>
+     <SCONAME>RT_ITEM</SCONAME>
+     <LANGU>P</LANGU>
+     <DESCRIPT>Additional Item Fields</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>SET_PARAMETER_INPUT</CMPNAME>
+     <SCONAME>IS_HEADER</SCONAME>
+     <LANGU>P</LANGU>
+     <DESCRIPT>Cabeçalho da nota fiscal</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>SET_PARAMETER_INPUT</CMPNAME>
+     <SCONAME>IT_ITEM</SCONAME>
+     <LANGU>P</LANGU>
+     <DESCRIPT>Additional Item Fields</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>SET_PARAMETER_INPUT</CMPNAME>
+     <SCONAME>IT_MSEG</SCONAME>
+     <LANGU>P</LANGU>
+     <DESCRIPT>Tabela MSEG</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>SET_PARAMETER_INPUT</CMPNAME>
+     <SCONAME>IT_NFLIN</SCONAME>
+     <LANGU>P</LANGU>
+     <DESCRIPT>Tabela dos itens da nota fiscal (J_1BNFLIN)</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>SET_PARAMETER_INPUT</CMPNAME>
+     <SCONAME>IT_NFSTX</SCONAME>
+     <LANGU>P</LANGU>
+     <DESCRIPT>Tabela itens de imposto da nota fiscal (J_1BNFSTX)</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>SET_PARAMETER_INPUT</CMPNAME>
+     <SCONAME>IT_VBRP</SCONAME>
+     <LANGU>P</LANGU>
+     <DESCRIPT>Tipo de tabela pra VBRP</DESCRIPT>
+    </SEOSUBCOTX>
+   </DESCRIPTIONS_SUB>
+  </asx:values>
+ </asx:abap>
+</abapGit>

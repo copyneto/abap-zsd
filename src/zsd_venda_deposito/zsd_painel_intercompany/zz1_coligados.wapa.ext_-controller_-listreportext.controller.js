@@ -1,0 +1,2 @@
+sap.ui.define([],function(){"use strict";return sap.ui.controller("br.com.trescoracoes.coligados.ext.controller.ListReportExt",{onAfterRendering:function(e){let t=this.getView().byId("addEntry");let n=this.getOwnerComponent().getModel("i18n").getResource+
+Bundle();t.setText(n.getText("create"))}})});                                                                                                                                                                                                                  

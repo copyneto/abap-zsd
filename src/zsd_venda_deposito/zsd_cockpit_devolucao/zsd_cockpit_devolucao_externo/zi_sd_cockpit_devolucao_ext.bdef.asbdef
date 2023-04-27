@@ -1,0 +1,8 @@
+unmanaged;
+
+define behavior for ZI_SD_COCKPIT_DEVOLUCAO_EXT alias Cockpit
+implementation in class zclsd_cockpit_devolucao_ext unique
+
+{
+  action ( features : instance ) DesbloquearRemessa;
+}

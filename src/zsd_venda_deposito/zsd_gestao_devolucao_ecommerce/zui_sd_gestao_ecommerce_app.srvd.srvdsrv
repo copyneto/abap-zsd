@@ -1,0 +1,4 @@
+@EndUserText.label: 'Server Definition for Gestão Ecommerce'
+define service ZUI_SD_GESTAO_ECOMMERCE_APP {
+  expose ZC_SD_DEVOLUCAO_ECOMMERCE;
+}

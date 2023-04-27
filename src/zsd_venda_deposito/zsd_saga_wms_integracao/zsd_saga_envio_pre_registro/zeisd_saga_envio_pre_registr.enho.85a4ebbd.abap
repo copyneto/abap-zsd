@@ -1,0 +1,8 @@
+"Name: \PR:SAPMV50A\FO:USEREXIT_SAVE_DOCUMENT\SE:END\EI
+ENHANCEMENT 0 ZEISD_SAGA_ENVIO_PRE_REGISTR.
+INCLUDE zsdi_release_ov IF FOUND.
+INCLUDE zsdi_saga_envio_pre_registro IF FOUND.
+INCLUDE zsdi_pedido_intercompany IF FOUND.
+INCLUDE zsdi_valida_preco_minino IF FOUND.
+
+ENDENHANCEMENT.

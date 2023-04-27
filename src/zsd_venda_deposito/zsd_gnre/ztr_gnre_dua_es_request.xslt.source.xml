@@ -1,0 +1,24 @@
+<?sap.transform simple?>
+<tt:transform xmlns:tt="http://www.sap.com/transformation-templates" xmlns:ddic="http://www.sap.com/abapxml/types/dictionary" xmlns:def="http://www.sap.com/abapxml/types/defined" xmlns:duae="http://www.sefaz.es.gov.br/duae">
+  <tt:root name="EMISDUA" type="ddic:zssd_gnree009"/>
+  <tt:template>
+    <root>
+<!--      <duae:duaDadosMsg>-->
+        <emisDua versao="1.00" xmlns="http://www.sefaz.es.gov.br/duae">
+          <tpAmb tt:value-ref=".EMISDUA.TP_AMB"/>
+          <cnpjOrg tt:value-ref=".EMISDUA.CNPJ_ORG"/>
+          <cArea tt:value-ref=".EMISDUA.C_AREA"/>
+          <cServ tt:value-ref=".EMISDUA.C_SERV"/>
+          <cnpjPes tt:value-ref=".EMISDUA.CNPJ_PES"/>
+          <dRef tt:value-ref=".EMISDUA.D_REF"/>
+          <dVen tt:value-ref=".EMISDUA.D_VEN"/>
+          <dPag tt:value-ref=".EMISDUA.D_PAG"/>
+          <cMun tt:value-ref=".EMISDUA.C_MUN"/>
+          <xInf tt:value-ref=".EMISDUA.X_INF"/>
+          <vRec tt:value-ref=".EMISDUA.V_REC"/>
+          <xIde tt:value-ref=".EMISDUA.X_IDE"/>
+        </emisDua>
+<!--      </duae:duaDadosMsg>-->
+    </root>
+  </tt:template>
+</tt:transform>

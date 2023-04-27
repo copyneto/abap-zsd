@@ -1,0 +1,49 @@
+@Metadata.layer: #CORE
+@UI: {
+    headerInfo: {
+        typeName: 'Separação de FECOP e ICMS',
+        typeNamePlural: 'Lista de separação FECOP e ICMS',
+        title: {
+            type: #STANDARD,
+            label: 'Organização de Vendas',
+            value: 'SalesOrgID'
+        },
+        description.value: 'SalesOrg'
+    }
+}
+annotate entity ZC_SD_FECOP_ICMS with
+{
+
+  @UI.facet: [{ purpose: #STANDARD,
+                type: #IDENTIFICATION_REFERENCE,
+                label: 'Separação de FECOP e ICMS',
+                position: 10
+                }
+  ]
+
+  @UI: { lineItem: [{ position: 20 }],
+         identification: [{ position: 20 }]
+
+  }
+  @UI.selectionField: [{position: 10}]
+  SalesOrgID;
+
+  @UI: { lineItem: [{ position: 40 }],
+         identification: [{ position: 40 }]
+  }
+  @UI.selectionField: [{position: 20}]
+  BusinessPlaceID;
+
+//    @UI: { lineItem: [{ position: 30 }]
+//             identification: [{ position: 30 }]
+//    }
+//    @EndUserText.label: 'Nome Org. Vendas'
+//    SalesOrg;
+//
+//    @UI: { lineItem: [{ position: 50 }],
+//             identification: [{ position: 50 }]
+//    }
+    @EndUserText.label: 'Nome'
+    BusinessPlace;
+
+}

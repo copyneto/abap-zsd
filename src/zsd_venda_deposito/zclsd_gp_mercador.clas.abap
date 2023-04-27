@@ -1,0 +1,5 @@
+CLASS zclsd_gp_mercador DEFINITION PUBLIC ABSTRACT FINAL FOR BEHAVIOR OF zi_sd_gp_mercador.
+ENDCLASS.
+
+CLASS zclsd_gp_mercador IMPLEMENTATION.
+ENDCLASS.

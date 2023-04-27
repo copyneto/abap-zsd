@@ -1,0 +1,4 @@
+@EndUserText.label: 'Cockpit de Devolução - Ordens'
+define service ZUI_SD_COCKPIT_DEVOLUCAO_EXT {
+  expose ZC_SD_COCKPIT_DEVOLUCAO_EXT;
+}

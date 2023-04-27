@@ -1,0 +1,83 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<abapGit version="v1.0.0" serializer="LCL_OBJECT_FUGR" serializer_version="v1.0.0">
+ <asx:abap xmlns:asx="http://www.sap.com/abapxml" version="1.0">
+  <asx:values>
+   <AREAT>Grupo de Funções para download nfe massa</AREAT>
+   <INCLUDES>
+    <SOBJ_NAME>LZFGSD_NF_MASSA_DOWNLOADTOP</SOBJ_NAME>
+    <SOBJ_NAME>SAPLZFGSD_NF_MASSA_DOWNLOAD</SOBJ_NAME>
+   </INCLUDES>
+   <FUNCTIONS>
+    <item>
+     <FUNCNAME>ZFMSD_GERAR_BOLETO</FUNCNAME>
+     <REMOTE_CALL>R</REMOTE_CALL>
+     <SHORT_TEXT>GF para gerar boletos</SHORT_TEXT>
+     <IMPORT>
+      <RSIMP>
+       <PARAMETER>IS_PROCESS</PARAMETER>
+       <OPTIONAL>X</OPTIONAL>
+       <TYP>ZSFI_BOLETO_PROCESS</TYP>
+      </RSIMP>
+      <RSIMP>
+       <PARAMETER>IS_PARAM</PARAMETER>
+       <OPTIONAL>X</OPTIONAL>
+       <TYP>SSFCTRLOP</TYP>
+      </RSIMP>
+      <RSIMP>
+       <PARAMETER>IT_KEY</PARAMETER>
+       <TYP>ZCTGFI_POST_KEY</TYP>
+      </RSIMP>
+     </IMPORT>
+     <EXPORT>
+      <RSEXP>
+       <PARAMETER>EV_PDF_FILE</PARAMETER>
+       <TYP>XSTRING</TYP>
+      </RSEXP>
+     </EXPORT>
+     <TABLES>
+      <RSTBL>
+       <PARAMETER>ET_RETURN</PARAMETER>
+       <TYP>BAPIRET2_T</TYP>
+      </RSTBL>
+      <RSTBL>
+       <PARAMETER>ET_OTF</PARAMETER>
+       <OPTIONAL>X</OPTIONAL>
+       <TYP>TSFOTF</TYP>
+      </RSTBL>
+     </TABLES>
+     <DOCUMENTATION>
+      <RSFDO>
+       <PARAMETER>IS_PROCESS</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Tipo de processamento</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>IS_PARAM</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Smart Forms: estrutura de controle</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>IT_KEY</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Lista com as chave do formulário</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>EV_PDF_FILE</PARAMETER>
+       <KIND>P</KIND>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>ET_RETURN</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Tabela com cadeias</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>ET_OTF</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Smart Form: tabela OTF</STEXT>
+      </RSFDO>
+     </DOCUMENTATION>
+    </item>
+   </FUNCTIONS>
+  </asx:values>
+ </asx:abap>
+</abapGit>

@@ -1,0 +1,3 @@
+sap.ui.define(["sap/ui/core/mvc/Controller","sap/m/MessageBox","sap/m/MessageToast"],function(e){"use strict";return sap.ui.controller("br.com.trescoracoes.monitorcampanhapromocional.ext.controller.ListReportExt",{onMateriaisPromo:function(e){var a=sap.u+
+shell&&sap.ushell.Container&&sap.ushell.Container.getService("CrossApplicationNavigation").hrefForExternal({target:{semanticObject:"monitor_campanha",action:"create"}});sap.m.URLHelper.redirect(a,true)},onFuncaoBP:function(e){var a=sap.ushell&&sap.ushell+
+.Container&&sap.ushell.Container.getService("CrossApplicationNavigation").hrefForExternal({target:{semanticObject:"ionz_parceiros",action:"create"}});sap.m.URLHelper.redirect(a,true)}})});                                                                   

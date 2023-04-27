@@ -1,0 +1,55 @@
+@Metadata.layer: #CORE
+@UI: {
+  headerInfo: {
+    typeName: 'Condições Deduzidas da Base PIS COFINS',
+    typeNamePlural: 'Condições Deduzidas da Base PIS COFINS',
+    title: {
+      type: #STANDARD,
+      label: 'Empresa',
+      value: 'Bukrs'
+    }
+  }}
+annotate view ZC_SD_COND_PIS_CONFIS with
+{
+
+  @UI.facet: [ { id:            'Bukrs',
+                 purpose:       #STANDARD,
+                 type:          #IDENTIFICATION_REFERENCE,
+                 position:      10 }]
+
+  @UI: { lineItem:       [{ position: 10 }],
+         identification: [{ position: 10 }]}
+  @UI.selectionField:    [{ position: 10 }]
+  Bukrs;
+
+  @UI: { lineItem:       [{ position: 20 }],
+         identification: [{ position: 20 }]}
+  @UI.selectionField:    [{ position: 20 }]
+  DataDev;
+
+  @UI: { lineItem:       [{ position: 30 }],
+         identification: [{ position: 30 }]}
+  @UI.selectionField:    [{ position: 30 }]
+  DataFim;
+
+  @UI: { lineItem:       [{ position: 40 }],
+         identification: [{ position: 40 }]}
+  @UI.selectionField:    [{ position: 40 }]
+  IcmsAmt;
+
+  @UI: { lineItem:       [{ position: 50}],
+         identification: [{ position: 50}]}
+  @UI.selectionField:    [{ position: 50 }]
+  IcmsFcpAmt;
+
+  @UI: { lineItem:       [{ position: 60, label: 'ICMS Partilha'  }],
+         identification: [{ position: 60, label: 'ICMS Partilha' }]}
+  @UI.selectionField:    [{ position: 60 }]
+  IcmsDestPartAmt;
+
+  @UI: { lineItem:       [{ position: 70, label: 'ICMS Partilha FCP' }],
+         identification: [{ position: 70, label: 'ICMS Partilha FCP' }]}
+  @UI.selectionField:    [{ position: 70 }]
+  IcmsFcpPartilhaAmt;
+
+}

@@ -1,0 +1,37 @@
+managed;
+
+define behavior for ZI_SD_COND_PIS_CONFIS alias CondPisConfis
+implementation in class zclsd_pisconfis unique
+persistent table ztsd_pisconfis
+lock master
+authorization master ( instance )
+etag master LocalLastChangedAt
+{
+  create;
+  update;
+  delete;
+
+  field ( mandatory : create ) Bukrs, DataDev;
+  field ( readonly : update ) Bukrs, DataDev;
+  field ( readonly ) LastChangedAt, LastChangedBy, CreatedAt, CreatedBy, LocalLastChangedAt;
+
+  validation authorityCreate on save { create; }
+
+  mapping for ztsd_pisconfis
+  {
+
+    Bukrs = bukrs;
+    DataDev = data_dev;
+    DataFim = data_fim;
+    IcmsAmt = icms_amt;
+    IcmsFcpAmt = icms_fcp_amt;
+    IcmsDestPartAmt = icms_dest_part_amt;
+    IcmsFcpPartilhaAmt = icms_fcp_partilha_amt;
+    CreatedBy = created_by;
+    CreatedAt = created_at;
+    LastChangedBy = last_changed_by;
+    LastChangedAt = last_changed_at;
+    LocalLastChangedAt = local_last_changed_at;
+
+  }
+}

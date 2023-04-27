@@ -1,0 +1,32 @@
+projection;
+
+define behavior for ZC_SD_01_NIVEL alias Nivel
+use etag
+{
+  use create;
+  use update;
+  use delete;
+
+  use association _Hora { create; }
+  use association _Dia { create; }
+
+}
+
+define behavior for zc_sd_02_hora alias Hora
+use etag
+{
+  use update;
+  use delete;
+
+  use association _Nivel;
+}
+
+define behavior for ZC_SD_03_DIA alias Dia
+use etag
+{
+
+  use update;
+  use delete;
+
+  use association _Nivel;
+}

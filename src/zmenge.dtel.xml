@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<abapGit version="v1.0.0" serializer="LCL_OBJECT_DTEL" serializer_version="v1.0.0">
+ <asx:abap xmlns:asx="http://www.sap.com/abapxml" version="1.0">
+  <asx:values>
+   <DD04V>
+    <ROLLNAME>ZMENGE</ROLLNAME>
+    <DDLANGUAGE>P</DDLANGUAGE>
+    <DOMNAME>ZMENGE</DOMNAME>
+    <LOGFLAG>X</LOGFLAG>
+    <HEADLEN>19</HEADLEN>
+    <SCRLEN1>10</SCRLEN1>
+    <SCRLEN2>20</SCRLEN2>
+    <SCRLEN3>40</SCRLEN3>
+    <DDTEXT>Campo quantidade unidade tributável</DDTEXT>
+    <REPTEXT>Qtd.pedido</REPTEXT>
+    <SCRTEXT_S>Quantidade</SCRTEXT_S>
+    <SCRTEXT_M>Qtd.pedido</SCRTEXT_M>
+    <SCRTEXT_L>Qtd.do pedido</SCRTEXT_L>
+    <DTELMASTER>P</DTELMASTER>
+    <DEFFDNAME>QUANTITY</DEFFDNAME>
+    <REFKIND>D</REFKIND>
+   </DD04V>
+  </asx:values>
+ </asx:abap>
+</abapGit>

@@ -1,0 +1,4 @@
+@EndUserText.label: 'Service definition para ZC_SD_RELAT_DEVOLUCAO'
+define service ZUI_SD_RELAT_DEVOLUCAO {
+  expose ZC_SD_RELAT_DEVOLUCAO as AppDevolucao;
+}

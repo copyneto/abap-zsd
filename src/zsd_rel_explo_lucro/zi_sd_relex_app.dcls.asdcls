@@ -1,0 +1,12 @@
+@EndUserText.label: 'CDS de Autorização'
+@MappingRole: true
+define role ZI_SD_RELEX_APP {
+    grant 
+        select
+            on
+                ZI_SD_RELEX_APP
+                    where
+                        ( ( CompanyCode ) = aspect pfcg_auth( ZSDBUKRS,BUKRS , ACTVT = '03' ) or CompanyCode is null ) and
+                        ( (  Plant ) = aspect pfcg_auth( ZSDWERKS, WERKS, ACTVT = '03' ) or Plant is null );
+                       
+}

@@ -1,0 +1,4 @@
+@EndUserText.label: 'Service Def. Mat. Campanha Promocional'
+define service ZUI_SD_MAT_PROMO {
+  expose ZC_SD_MAT_PROMO;
+}

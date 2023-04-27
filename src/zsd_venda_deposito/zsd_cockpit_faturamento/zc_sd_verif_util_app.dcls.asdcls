@@ -1,0 +1,11 @@
+@EndUserText.label: 'CDS de Autorização'
+@MappingRole: true
+define role ZC_SD_VERIF_UTIL_APP {
+    grant
+        select
+            on
+                 ZC_SD_VERIF_UTIL_APP
+                    where
+                        inheriting conditions from entity ZI_SD_VERIF_UTIL_APP;
+                        
+}

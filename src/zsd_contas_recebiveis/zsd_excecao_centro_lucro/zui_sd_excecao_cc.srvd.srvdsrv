@@ -1,0 +1,4 @@
+@EndUserText.label: 'Service Definition - Exceção Centro de Custo'
+define service ZUI_SD_EXCECAO_CC {
+  expose ZC_SD_EXCECAO_CC;
+}

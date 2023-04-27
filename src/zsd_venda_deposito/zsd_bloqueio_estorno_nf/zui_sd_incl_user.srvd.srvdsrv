@@ -1,0 +1,4 @@
+@EndUserText.label: 'Service Def  Cadastro Usuário.'
+define service ZUI_SD_INCL_USER {
+  expose ZcSD_INCL_USER;
+}

@@ -1,0 +1,272 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<abapGit version="v1.0.0" serializer="LCL_OBJECT_MSAG" serializer_version="v1.0.0">
+ <asx:abap xmlns:asx="http://www.sap.com/abapxml" version="1.0">
+  <asx:values>
+   <T100A>
+    <ARBGB>ZSD_GNRE</ARBGB>
+    <MASTERLANG>P</MASTERLANG>
+    <STEXT>Classe de mensagens GNRE</STEXT>
+   </T100A>
+   <T100>
+    <T100>
+     <SPRSL>P</SPRSL>
+     <ARBGB>ZSD_GNRE</ARBGB>
+     <MSGNR>000</MSGNR>
+     <TEXT>&amp; &amp; &amp; &amp;</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>P</SPRSL>
+     <ARBGB>ZSD_GNRE</ARBGB>
+     <MSGNR>001</MSGNR>
+     <TEXT>Nenhum registro encontrado.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>P</SPRSL>
+     <ARBGB>ZSD_GNRE</ARBGB>
+     <MSGNR>002</MSGNR>
+     <TEXT>Nota fiscal &amp; já está em processamento.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>P</SPRSL>
+     <ARBGB>ZSD_GNRE</ARBGB>
+     <MSGNR>003</MSGNR>
+     <TEXT>A Nota fiscal &amp; não é válida para a geração de GNRE.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>P</SPRSL>
+     <ARBGB>ZSD_GNRE</ARBGB>
+     <MSGNR>004</MSGNR>
+     <TEXT>A Nota fiscal &amp; não está em processamento.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>P</SPRSL>
+     <ARBGB>ZSD_GNRE</ARBGB>
+     <MSGNR>005</MSGNR>
+     <TEXT>Erro ao inserir/modificar os dados da tabela &amp;.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>P</SPRSL>
+     <ARBGB>ZSD_GNRE</ARBGB>
+     <MSGNR>006</MSGNR>
+     <TEXT>Para a etapa &amp;, não é permitido o reprocessamento.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>P</SPRSL>
+     <ARBGB>ZSD_GNRE</ARBGB>
+     <MSGNR>007</MSGNR>
+     <TEXT>Nenhuma linha válida, foi selecionada.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>P</SPRSL>
+     <ARBGB>ZSD_GNRE</ARBGB>
+     <MSGNR>008</MSGNR>
+     <TEXT>Verificar logs.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>P</SPRSL>
+     <ARBGB>ZSD_GNRE</ARBGB>
+     <MSGNR>009</MSGNR>
+     <TEXT>Para a Nota fiscal &amp;, não foi encontrado o Nº interno de Guia &amp;.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>P</SPRSL>
+     <ARBGB>ZSD_GNRE</ARBGB>
+     <MSGNR>010</MSGNR>
+     <TEXT>A etapa &amp; não permite impressão.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>P</SPRSL>
+     <ARBGB>ZSD_GNRE</ARBGB>
+     <MSGNR>011</MSGNR>
+     <TEXT>Para o tipo de guia &amp; não existe um formulário criado.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>P</SPRSL>
+     <ARBGB>ZSD_GNRE</ARBGB>
+     <MSGNR>012</MSGNR>
+     <TEXT>A etapa &amp; não permite a inclusão de guia manual.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>P</SPRSL>
+     <ARBGB>ZSD_GNRE</ARBGB>
+     <MSGNR>013</MSGNR>
+     <TEXT>O preenchimento dos campos é obrigatório.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>P</SPRSL>
+     <ARBGB>ZSD_GNRE</ARBGB>
+     <MSGNR>014</MSGNR>
+     <TEXT>A linha digitável deve conter 48 dígitos.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>P</SPRSL>
+     <ARBGB>ZSD_GNRE</ARBGB>
+     <MSGNR>015</MSGNR>
+     <TEXT>A etapa &amp; não permite a inclusão de pagamento manual.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>P</SPRSL>
+     <ARBGB>ZSD_GNRE</ARBGB>
+     <MSGNR>016</MSGNR>
+     <TEXT>NFe &amp;, favor informar valores de ICMS e/ou FCP.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>P</SPRSL>
+     <ARBGB>ZSD_GNRE</ARBGB>
+     <MSGNR>017</MSGNR>
+     <TEXT>NFe &amp;, o tipo de imposto &amp;, não é válido para o grupo &amp;.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>P</SPRSL>
+     <ARBGB>ZSD_GNRE</ARBGB>
+     <MSGNR>018</MSGNR>
+     <TEXT>NFe &amp;, Oper.Insc.Substituto (NIF Regional), contatar área fiscal!</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>P</SPRSL>
+     <ARBGB>ZSD_GNRE</ARBGB>
+     <MSGNR>019</MSGNR>
+     <TEXT>NFe &amp;, não foi possivel determinar o tipo de guia.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>P</SPRSL>
+     <ARBGB>ZSD_GNRE</ARBGB>
+     <MSGNR>020</MSGNR>
+     <TEXT>NFe &amp;, não foi possivel determinar a receita para o tipo de imposto &amp;.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>P</SPRSL>
+     <ARBGB>ZSD_GNRE</ARBGB>
+     <MSGNR>021</MSGNR>
+     <TEXT>Nota fiscal &amp; não autorizada.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>P</SPRSL>
+     <ARBGB>ZSD_GNRE</ARBGB>
+     <MSGNR>022</MSGNR>
+     <TEXT>Nota fiscal &amp; bloqueada pelo usuário &amp;.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>P</SPRSL>
+     <ARBGB>ZSD_GNRE</ARBGB>
+     <MSGNR>023</MSGNR>
+     <TEXT>Guia(s) criada(s) com sucesso.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>P</SPRSL>
+     <ARBGB>ZSD_GNRE</ARBGB>
+     <MSGNR>024</MSGNR>
+     <TEXT>Parâmetros não encontrados, verificar cadastro da tabela ZGNRET015.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>P</SPRSL>
+     <ARBGB>ZSD_GNRE</ARBGB>
+     <MSGNR>025</MSGNR>
+     <TEXT>Verificar ciclo de pagamento &amp;/&amp;.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>P</SPRSL>
+     <ARBGB>ZSD_GNRE</ARBGB>
+     <MSGNR>026</MSGNR>
+     <TEXT>NFe &amp;, usuário não autorizado para imprimir.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>P</SPRSL>
+     <ARBGB>ZSD_GNRE</ARBGB>
+     <MSGNR>027</MSGNR>
+     <TEXT>A data de vencimento informada é inválida.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>P</SPRSL>
+     <ARBGB>ZSD_GNRE</ARBGB>
+     <MSGNR>028</MSGNR>
+     <TEXT>Favor informar ao menos uma das datas ou Nº documento (Spool).</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>P</SPRSL>
+     <ARBGB>ZSD_GNRE</ARBGB>
+     <MSGNR>029</MSGNR>
+     <TEXT>Erro ao obter intervalo de numeração &amp;</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>P</SPRSL>
+     <ARBGB>ZSD_GNRE</ARBGB>
+     <MSGNR>030</MSGNR>
+     <TEXT>NFe &amp; Guia &amp;, com a etapa &amp; não permite impressão.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>P</SPRSL>
+     <ARBGB>ZSD_GNRE</ARBGB>
+     <MSGNR>031</MSGNR>
+     <TEXT>Preencher somente UF Destino ou Centro.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>P</SPRSL>
+     <ARBGB>ZSD_GNRE</ARBGB>
+     <MSGNR>032</MSGNR>
+     <TEXT>A etapa &amp; não permite Inutilização de Guia.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>P</SPRSL>
+     <ARBGB>ZSD_GNRE</ARBGB>
+     <MSGNR>033</MSGNR>
+     <TEXT>Só é possível a execução em background.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>P</SPRSL>
+     <ARBGB>ZSD_GNRE</ARBGB>
+     <MSGNR>034</MSGNR>
+     <TEXT>Já existe um Job em execução.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>P</SPRSL>
+     <ARBGB>ZSD_GNRE</ARBGB>
+     <MSGNR>035</MSGNR>
+     <TEXT>Tempo máximo de espera (&amp; segundos) atingido.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>P</SPRSL>
+     <ARBGB>ZSD_GNRE</ARBGB>
+     <MSGNR>036</MSGNR>
+     <TEXT>Preencher somente Ctg.de nota fiscal ou Código CFOP.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>P</SPRSL>
+     <ARBGB>ZSD_GNRE</ARBGB>
+     <MSGNR>037</MSGNR>
+     <TEXT>-- Nota &amp; já está em processamento.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>P</SPRSL>
+     <ARBGB>ZSD_GNRE</ARBGB>
+     <MSGNR>038</MSGNR>
+     <TEXT>-- Iniciando o processamento da Nota &amp;.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>P</SPRSL>
+     <ARBGB>ZSD_GNRE</ARBGB>
+     <MSGNR>039</MSGNR>
+     <TEXT>--- Iniciando o processamento da Guia &amp;.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>P</SPRSL>
+     <ARBGB>ZSD_GNRE</ARBGB>
+     <MSGNR>040</MSGNR>
+     <TEXT>-- Nota &amp; processada, verificar logs.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>P</SPRSL>
+     <ARBGB>ZSD_GNRE</ARBGB>
+     <MSGNR>041</MSGNR>
+     <TEXT>-- Erro ao processar a Nota &amp;.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>P</SPRSL>
+     <ARBGB>ZSD_GNRE</ARBGB>
+     <MSGNR>042</MSGNR>
+     <TEXT>Erro ao executar a CALL_&amp;.</TEXT>
+    </T100>
+   </T100>
+  </asx:values>
+ </asx:abap>
+</abapGit>

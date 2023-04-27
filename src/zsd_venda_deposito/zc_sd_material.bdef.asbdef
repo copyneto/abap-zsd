@@ -1,0 +1,8 @@
+projection;
+
+define behavior for ZC_SD_MATERIAL alias Material
+use etag {
+  use create;
+  use update;
+  use delete;
+}

@@ -1,0 +1,12 @@
+@Metadata.layer: #CORE
+annotate entity ZC_SD_MOTIVO_RECUSA
+    with 
+{
+//  @Consumption.valueHelpDefinition: [
+//  { entity                :  { name:    'I_SalesDocumentRjcnReason',
+//              element     : 'SalesDocumentRjcnReason' }
+//  }]
+ // @Consumption.valueHelpDefinition: [ { entity  :  { name: 'ZI_CA_VH_ABGRU', element : 'SalesDocumentRjcnReason' } }]
+  @EndUserText.label      : 'Motivo Recusa'
+   motivoRecusa;    
+}

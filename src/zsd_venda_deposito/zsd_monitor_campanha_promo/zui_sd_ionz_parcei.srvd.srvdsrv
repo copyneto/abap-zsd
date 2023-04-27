@@ -1,0 +1,4 @@
+@EndUserText.label: 'Service Def. Lista de parceiros para Ordens da campanha'
+define service ZUI_SD_IONZ_PARCEI {
+  expose ZC_SD_IONZ_PARCEI;
+}

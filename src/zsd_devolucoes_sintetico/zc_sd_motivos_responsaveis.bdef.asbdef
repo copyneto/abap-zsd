@@ -1,0 +1,8 @@
+projection;
+
+define behavior for ZC_SD_MOTIVOS_RESPONSAVEIS alias Motivos
+{
+  use create;
+  use update;
+  use delete;
+}

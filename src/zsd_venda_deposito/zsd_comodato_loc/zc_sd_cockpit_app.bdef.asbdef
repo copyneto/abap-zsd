@@ -1,0 +1,33 @@
+projection;
+
+define behavior for ZC_SD_COCKPIT_APP //alias <alias_name>
+{
+
+  use action entradaMercadorias;
+
+  use action DevolRemessa;
+
+  use action message;
+
+  //  use association _AnaliseCRCP;
+  //  use association _DetalheJob;
+  //  use association _LocEquip;
+}
+
+//define behavior for ZC_SD_CR_CP //alias <alias_name>
+//{
+//
+//  use association _Cockpit;
+//}
+//
+//define behavior for ZC_SD_DET_JOBS //alias <alias_name>
+//{
+//
+//  use association _Cockpit;
+//}
+
+//define behavior for ZC_SD_LOC_EQUIP //alias <alias_name>
+//{
+//
+//  use association _Cockpit;
+//}

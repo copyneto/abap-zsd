@@ -1,0 +1,12 @@
+@EndUserText.label: 'CDS de Autorização'
+@MappingRole: true
+define role ZI_SD_COCKPIT_GESTAO_PRECO {
+    grant
+        select
+            on
+                ZI_SD_COCKPIT_GESTAO_PRECO
+                    where
+                        ( Plant ) = aspect pfcg_auth( ZSDWERKS, WERKS, ACTVT = '03' );
+                        
+                        
+}

@@ -1,0 +1,4 @@
+@EndUserText.label: 'Service Def  Contratos Locação de Comodato'
+define service ZUI_SD_CONTR_LOC_COM_APP {
+  expose ZC_SD_CONTR_LOC_COMODATO_APP;
+}

@@ -1,0 +1,4 @@
+@EndUserText.label: 'ServicDefinition p/ZC_SD_BR_NF_REPORT_AT'
+define service ZUI_SD_BR_NF_REPORT_AT {
+  expose ZC_SD_BR_RELATORIO_NF_AT as AppReportNf;
+}

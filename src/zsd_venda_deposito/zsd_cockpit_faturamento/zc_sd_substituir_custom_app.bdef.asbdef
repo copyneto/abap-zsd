@@ -1,0 +1,11 @@
+unmanaged implementation in class zclsd_substituir_custom_app unique;
+
+define behavior for ZC_SD_SUBSTITUIR_CUSTOM_APP alias SubstPrd
+
+//late numbering
+//lock master
+//etag master SalesOrder
+{
+
+action SubstituirProduto;
+}

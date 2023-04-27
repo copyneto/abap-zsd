@@ -1,0 +1,132 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<abapGit version="v1.0.0" serializer="LCL_OBJECT_FUGR" serializer_version="v1.0.0">
+ <asx:abap xmlns:asx="http://www.sap.com/abapxml" version="1.0">
+  <asx:values>
+   <AREAT>Envia email nota débito</AREAT>
+   <INCLUDES>
+    <SOBJ_NAME>LZFGSD_EMAIL_NOTA_DEBTOP</SOBJ_NAME>
+    <SOBJ_NAME>SAPLZFGSD_EMAIL_NOTA_DEB</SOBJ_NAME>
+   </INCLUDES>
+   <FUNCTIONS>
+    <item>
+     <FUNCNAME>ZFMSD_EMAIL_NOTA_DEB</FUNCNAME>
+     <REMOTE_CALL>R</REMOTE_CALL>
+     <SHORT_TEXT>Envia email nota débito</SHORT_TEXT>
+     <IMPORT>
+      <RSIMP>
+       <PARAMETER>IV_PDF</PARAMETER>
+       <TYP>FPCONTENT</TYP>
+      </RSIMP>
+      <RSIMP>
+       <PARAMETER>IV_KUNAG</PARAMETER>
+       <TYP>VBRK-KUNAG</TYP>
+      </RSIMP>
+      <RSIMP>
+       <PARAMETER>IV_FKART</PARAMETER>
+       <TYP>VBRK-FKART</TYP>
+      </RSIMP>
+      <RSIMP>
+       <PARAMETER>IV_NF_VEN</PARAMETER>
+       <OPTIONAL>X</OPTIONAL>
+       <TYP>LOGBR_NFNUM9</TYP>
+      </RSIMP>
+      <RSIMP>
+       <PARAMETER>IV_NUM_PED</PARAMETER>
+       <OPTIONAL>X</OPTIONAL>
+       <TYP>BSTKD</TYP>
+      </RSIMP>
+      <RSIMP>
+       <PARAMETER>IV_NF_DEB</PARAMETER>
+       <OPTIONAL>X</OPTIONAL>
+       <TYP>VBELN_VF</TYP>
+      </RSIMP>
+      <RSIMP>
+       <PARAMETER>IV_TRANSPORTER</PARAMETER>
+       <OPTIONAL>X</OPTIONAL>
+       <TYP>MD_CUSTOMER_NAME</TYP>
+      </RSIMP>
+      <RSIMP>
+       <PARAMETER>IV_BELNR</PARAMETER>
+       <OPTIONAL>X</OPTIONAL>
+       <TYP>BELNR_D</TYP>
+      </RSIMP>
+      <RSIMP>
+       <PARAMETER>IV_BUKRS</PARAMETER>
+       <OPTIONAL>X</OPTIONAL>
+       <TYP>BUKRS</TYP>
+      </RSIMP>
+      <RSIMP>
+       <PARAMETER>IV_GJAHR</PARAMETER>
+       <OPTIONAL>X</OPTIONAL>
+       <TYP>GJAHR</TYP>
+      </RSIMP>
+     </IMPORT>
+     <CHANGING>
+      <RSCHA>
+       <PARAMETER>CV_RETURN</PARAMETER>
+       <OPTIONAL>X</OPTIONAL>
+       <TYP>CHAR1</TYP>
+      </RSCHA>
+     </CHANGING>
+     <DOCUMENTATION>
+      <RSFDO>
+       <PARAMETER>IV_PDF</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Processamento de formulário: conteúdo de XFT, XFD, PDF etc.</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>IV_KUNAG</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Emissor da ordem</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>IV_FKART</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Tipo documento de faturamento</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>IV_NF_VEN</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>NF-e de Venda</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>IV_NUM_PED</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Número Pedido</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>IV_NF_DEB</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Nota Débito</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>IV_TRANSPORTER</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Nome da Transportadora</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>IV_BELNR</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Nº documento de um documento contábil</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>IV_BUKRS</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Empresa</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>IV_GJAHR</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Exercício</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>CV_RETURN</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Código de um caractere</STEXT>
+      </RSFDO>
+     </DOCUMENTATION>
+    </item>
+   </FUNCTIONS>
+  </asx:values>
+ </asx:abap>
+</abapGit>

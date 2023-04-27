@@ -1,0 +1,60 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<abapGit version="v1.0.0" serializer="LCL_OBJECT_CLAS" serializer_version="v1.0.0">
+ <asx:abap xmlns:asx="http://www.sap.com/abapxml" version="1.0">
+  <asx:values>
+   <VSEOCLASS>
+    <CLSNAME>ZCLSD_GET_TAX_VALUES</CLSNAME>
+    <LANGU>P</LANGU>
+    <DESCRIPT>Classe para obter valores dos impostos</DESCRIPT>
+    <STATE>1</STATE>
+    <CLSCCINCL>X</CLSCCINCL>
+    <FIXPT>X</FIXPT>
+    <UNICODE>X</UNICODE>
+   </VSEOCLASS>
+   <DESCRIPTIONS_SUB>
+    <SEOSUBCOTX>
+     <CMPNAME>CONSTRUCTOR</CMPNAME>
+     <SCONAME>IT_VBRP</SCONAME>
+     <LANGU>P</LANGU>
+     <DESCRIPT>Tipo de tabela pra VBRP</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>GET_LAST_IPI</CMPNAME>
+     <SCONAME>IS_ITEM</SCONAME>
+     <LANGU>P</LANGU>
+     <DESCRIPT>Partidas individuais da nota fiscal</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>GET_LAST_IPI</CMPNAME>
+     <SCONAME>RV_ULT_IPI</SCONAME>
+     <LANGU>P</LANGU>
+     <DESCRIPT>IPI</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>GET_TAXPAYERS</CMPNAME>
+     <SCONAME>IV_ITMTYP</SCONAME>
+     <LANGU>P</LANGU>
+     <DESCRIPT>Tipo item nota fiscal</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>GET_TAXPAYERS</CMPNAME>
+     <SCONAME>IV_PARID</SCONAME>
+     <LANGU>P</LANGU>
+     <DESCRIPT>Identificação do parceiro (cliente, fornecedor, loc.negócio)</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>GET_TAXPAYERS</CMPNAME>
+     <SCONAME>IV_WERKS</SCONAME>
+     <LANGU>P</LANGU>
+     <DESCRIPT>Centro</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>GET_TAX_VALUES</CMPNAME>
+     <SCONAME>IV_QUANTIDADE</SCONAME>
+     <LANGU>P</LANGU>
+     <DESCRIPT>Quantidade</DESCRIPT>
+    </SEOSUBCOTX>
+   </DESCRIPTIONS_SUB>
+  </asx:values>
+ </asx:abap>
+</abapGit>

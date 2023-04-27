@@ -1,0 +1,5 @@
+@EndUserText.label: 'Cockpit Agendamento Item'
+define service ZUI_SD_CKPT_AGEN_ITEM {
+  expose ZC_SD_CKPT_AGEN_ITEM_APP;
+  expose ZI_SD_VH_VSTGA;
+}

@@ -1,0 +1,211 @@
+@Metadata.layer: #CORE
+@UI: { headerInfo: { typeName: 'Contrato',
+                     typeNamePlural: 'Contratos',
+                     title: { type: #STANDARD, label: 'Arquivos de Produção', value: 'SalesContract' } } }
+@UI.presentationVariant: [{
+includeGrandTotal: false,
+    requestAtLeast: [ 'SalesContract',            'OrdemVenda',                'Solicitacao',           'DataCriacaoContrato',
+                      'TipoContrato',             'TipoContratoTexto',         'CentroOrigem',          'EmissorOrdem',
+                      'CentroDestino',            'OrdemVendaStatus',          'OrdemVendaCriticality', 'TipoOrdemVenda',
+                      'Remessa',                  'RemessaStatus',             'RemessaCriticality',    'OrdemFrete',
+                      'OrdemFreteStatus',         'OrdemFreteCriticality',     'DocFatura',             'DocFaturaStatus',
+                      'DocFaturaCriticality',     'StatusNfe',                 'NfeSaida',              'DocnumNfeSaida',
+                      'DocnumNfeSaidaStatus',     'DocnumNfeSaidaCriticality', 'DocnumEntrada',         'DocnumEntradaStatus',
+                      'DocnumEntradaCriticality', 'StatusCP',                  'StatusCPStatus',        'StatusCPCriticality',
+                      'EntradaMercadorias' ]
+}]
+@UI.lineItem: [{criticality: 'StatusContratoCriticality' }]
+annotate view ZC_SD_COCKPIT_APP with
+{
+  // ------------------------------------------------------
+  // Informações de cabeçalho
+  // ------------------------------------------------------
+  @UI.facet: [ { id:              'Cockpit',
+                 purpose:         #STANDARD,
+                 type:            #IDENTIFICATION_REFERENCE,
+                 label:           'Cockpit Contratos',
+                 position:        10 },
+
+               { id:              'Log',
+                 purpose:         #STANDARD,
+                 type:            #FIELDGROUP_REFERENCE,
+                 label:           'Log',
+                 position:        20,
+                 targetQualifier: 'LOG' },
+
+               { id:              'LocEquip',
+                 purpose:         #STANDARD,
+                 type:            #LINEITEM_REFERENCE,
+                 label:           'Locais/Equipamentos',
+                 position:        30,
+                 targetElement:   '_LocEquip'},
+
+               { id:              'AnaliseCRCP',
+                 purpose:         #STANDARD,
+                 type:            #LINEITEM_REFERENCE,
+                 label:           'Análise CR/CP',
+                 position:        40,
+                 targetElement:   '_AnaliseCRCP'},
+
+               { id:              'DetalheJob',
+                 purpose:         #STANDARD,
+                 type:            #LINEITEM_REFERENCE,
+                 label:           'Detalhes de JOB',
+                 position:        50,
+                 targetElement:   '_DetalheJob'}
+
+               ]
+
+  // ------------------------------------------------------
+  // Informações de campo
+  // ------------------------------------------------------
+  @UI: {  lineItem:       [ { position: 10,
+                              label: 'Contrato',
+                              type: #WITH_URL, url: 'URL_VA43' } ],
+          identification: [ { position: 10,
+                              label: 'Contrato',
+                              type: #WITH_URL, url: 'URL_VA43' } ],
+          selectionField: [ { position: 10 } ] }
+  SalesContract;
+
+  @UI: {  lineItem:       [ { position: 20, label: 'Solicitação' } ],
+          identification: [ { position: 20, label: 'Solicitação' } ],
+          selectionField: [ { position: 20 } ] }
+  Solicitacao;
+
+  @UI: {  lineItem:       [ { position: 30, label: 'Data Criação' } ],
+          identification: [ { position: 30, label: 'Data Criação' } ],
+          selectionField: [ { position: 30 } ]  }
+  DataCriacaoContrato;
+
+  @UI: {  lineItem:       [ { position: 40, label: 'Tipo do Contrato' } ],
+          identification: [ { position: 40, label: 'Tipo do Contrato' } ],
+          selectionField: [ { position: 40 } ]  }
+  TipoContrato;
+
+  @UI: {  lineItem:       [ { position: 50, label: 'Centro Origem' } ],
+          identification: [ { position: 50, label: 'Centro Origem' } ],
+          selectionField: [ { position: 50 } ]  }
+  @Consumption.filter:{ mandatory:true }
+  CentroOrigem;
+
+  @UI: {  lineItem:       [ { position: 60, label: 'Emissor da Ordem' } ],
+          identification: [ { position: 60, label: 'Emissor da Ordem' } ],
+          selectionField: [ { position: 60 } ]  }
+  EmissorOrdem;
+
+  @UI: {  lineItem:       [ { position: 70, label: 'Centro Destino' } ],
+          identification: [ { position: 70, label: 'Centro Destino' } ],
+          selectionField: [ { position: 70 } ]  }
+  CentroDestino;
+
+  @UI: {  lineItem:       [ { position: 80, label: 'Ordem de Venda', type: #WITH_URL, url: 'URL_ORVEN' } ],
+          identification: [ { position: 80, label: 'Ordem de Venda', type: #WITH_URL, url: 'URL_ORVEN' } ],
+          selectionField: [ { position: 80 } ]  }
+  OrdemVenda;
+
+  @UI: {  lineItem:       [ { position: 90, label: 'Tipo Ordem de Venda' } ],
+          identification: [ { position: 90, label: 'Tipo Ordem de Venda' } ],
+          selectionField: [ { position: 90 } ]  }
+  TipoOrdemVenda;
+
+  @UI.hidden: true
+  TpOrdemVendaText;
+
+  @UI: {  lineItem:       [ { position: 100, label: 'Remessa', type: #WITH_URL, url: 'URL_REMES'  } ],
+          identification: [ { position: 100, label: 'Remessa', type: #WITH_URL, url: 'URL_REMES'  } ] ,
+          selectionField: [ { position: 100 } ] }
+  Remessa;
+
+  @UI: {  lineItem:       [ { position: 110, label: 'Fatura', type: #WITH_URL, url: 'URL_FATURA' } ],
+          identification: [ { position: 110, label: 'Fatura', type: #WITH_URL, url: 'URL_FATURA' } ],
+          selectionField: [ { position: 110 } ]  }
+  DocFatura;
+
+  @UI: {  lineItem:       [ { position: 120, label: 'Valor da Locação' } ],
+          identification: [ { position: 120, label: 'Valor da Locação' } ],
+          selectionField: [ { position: 120 } ]  }
+  ValorLoc;
+  @UI: {  lineItem:       [ { position: 130, label: 'Qtde. Itens Atual' } ],
+          identification: [ { position: 130, label: 'Qtde. Itens Atual' } ],
+          selectionField: [ { position: 130 } ]  }
+  QtdeAtual;
+  @UI: {  lineItem:       [ { position: 140, label: 'Qtde. Itens Total' } ],
+          identification: [ { position: 140, label: 'Qtde. Itens Total' } ],
+          selectionField: [ { position: 140 } ]  }
+  QtdeTotal;
+
+  @UI: {  lineItem:       [ { position: 150, label: 'Status da NF-e Saída' } ],
+          identification: [ { position: 150, label: 'Status da NF-e Saída' } ],
+          selectionField: [ { position: 150 } ]  }
+  StatusNfe;
+
+  @UI: {  lineItem:       [ { position: 160, label: 'NF-e Saída', type: #WITH_URL, url: 'URL_NFESAID' } ],
+          identification: [ { position: 160, label: 'NF-e Saída', type: #WITH_URL, url: 'URL_NFESAID' } ],
+          selectionField: [ { position: 160 } ] }
+  NfeSaida;
+
+  @UI: {  lineItem:       [ { position: 170, label: 'Documento Saída', type: #WITH_URL, url: 'URL_SAIDA' } ],
+          identification: [ { position: 170, label: 'Documento Saída', type: #WITH_URL, url: 'URL_SAIDA' } ],
+          selectionField: [ { position: 170 } ]  }
+  DocnumNfeSaida;
+
+  @UI: {  lineItem:       [ { position: 180, label: 'Documento Entrada', type: #WITH_URL, url: 'URL_ENTRAD' } ],
+          identification: [ { position: 180, label: 'Documento Entrada', type: #WITH_URL, url: 'URL_ENTRAD' } ],
+          selectionField: [ { position: 180 } ]  }
+  DocnumEntrada;
+
+  @UI.lineItem: [ { position: 10, type: #FOR_ACTION, dataAction: 'entradaMercadorias', label: 'Entrada de Remessa'   },
+                  { position: 20, type: #FOR_ACTION, dataAction: 'DevolRemessa',       label: 'Entrada de Devolução' } ]
+  @EndUserText.label: 'Confirma Entrada de Mercadorias?'
+  EntradaMercadorias;
+
+  @UI: { lineItem: [{ position: 190, label: 'Status Ordem de Venda', criticality: 'OrdemVendaCriticality' }]}
+  OrdemVendaStatus;
+
+  @UI: { lineItem: [{ position: 200, label: 'Status Remessa', criticality: 'RemessaCriticality' }]}
+  RemessaStatus;
+
+  @UI: { lineItem: [{ position: 210, label: 'Status Ordem de Frete', criticality: 'OrdemFreteCriticality' }]}
+  OrdemFreteStatus;
+
+  @UI: { lineItem: [{ position: 220, label: 'Status Fatura', criticality: 'DocFaturaCriticality' }]}
+  DocFaturaStatus;
+
+  @UI: { lineItem: [{ position: 230, label: 'Status NF-e Saída', criticality: 'DocnumNfeSaidaCriticality' }]}
+  DocnumNfeSaidaStatus;
+
+  @UI: { lineItem: [{ position: 240, label: 'Status NF-e Entrada', criticality: 'DocnumEntradaCriticality' }]}
+  DocnumEntradaStatus;
+
+  @UI: { lineItem: [{ position: 250, label: 'Status Contas a Pagar', criticality: 'StatusCPCriticality' }]}
+  StatusCPStatus;
+
+  @UI: { lineItem: [{ position: 260, label: 'Status do Contrato', criticality: 'StatusContratoCriticality' }]}
+  Status;
+
+  @UI: { identification: [{ position: 270, label: 'Contrato' }],
+         fieldGroup:     [{ position: 10,  qualifier: 'LOG' }] }
+  ContratoLog;
+  @UI: { identification: [{ position: 280, label: 'Solicitação Fluig' }],
+         fieldGroup:     [{ position: 20,  qualifier: 'LOG' }] }
+  SolicitacaoLog;
+  @UI: { identification: [{ position: 290, label: 'Documento Saída' }],
+         fieldGroup:     [{ position: 30,  qualifier: 'LOG' }] }
+  DocnumNfeSaidaLog;
+  @UI: { identification: [{ position: 300, label: 'NF' }],
+         fieldGroup:     [{ position: 40,  qualifier: 'LOG' }] }
+  NfeSaidaLog;
+  @UI: { identification: [{ position: 310, label: 'Ordem de Frete' }],
+         fieldGroup:     [{ position: 50,  qualifier: 'LOG' }] }
+  OrdemFreteLog;
+  @UI: { lineItem:   [{ position: 320, label: 'Log de Status' },
+                      { type: #FOR_ACTION, dataAction: 'message', label: 'Log de Status'}],
+         identification:[{ position: 320, label: 'Log de Status' },
+                      { type: #FOR_ACTION, dataAction: 'message', label: 'Log de Status' }],
+         fieldGroup: [{ position: 60,  qualifier: 'LOG' }] }
+  StatusLog;
+  @UI.hidden: true
+  werks_dest;
+
+}

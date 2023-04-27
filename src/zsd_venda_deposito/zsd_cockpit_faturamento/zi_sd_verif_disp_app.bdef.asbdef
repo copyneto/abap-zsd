@@ -1,0 +1,17 @@
+unmanaged ;
+
+define behavior for ZI_SD_VERIF_DISP_APP alias VerifDisp
+implementation in class zclsd_verif_disp_app unique
+//late numbering
+lock master
+etag master Material
+{
+//  create;
+//  update;
+//  delete;
+
+//action ( features : instance ) VerificaDisponibilidade;
+action ( features : instance ) AcionaLogistica;
+action ( features : instance ) AtribuiMoticoAcao parameter ZC_SD_VERIF_DISP_POPUP;
+
+}

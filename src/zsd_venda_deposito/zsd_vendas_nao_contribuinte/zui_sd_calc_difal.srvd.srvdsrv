@@ -1,0 +1,4 @@
+@EndUserText.label: 'Service Def  Formas de Cálculo DIFAL'
+define service ZUI_SD_CALC_DIFAL {
+  expose ZC_SD_CALC_DIFAL;
+}

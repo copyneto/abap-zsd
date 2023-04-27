@@ -1,0 +1,11 @@
+@EndUserText.label: 'Autorização para obter XML'
+@MappingRole: true
+define role ZC_SD_NFE_AUTXML_APP {
+    grant
+        select
+            on
+                ZC_SD_NFE_AUTXML_APP 
+                     where
+                        inheriting conditions from entity ZI_SD_NFE_AUTXML;
+                        
+}

@@ -1,0 +1,31 @@
+managed; // implementation in class zbp_i_nfe_tpato unique;
+
+define behavior for ZI_SD_NFE_TPATO alias TpAto
+persistent table ZTSD_NFE_TPATO
+lock master
+//authorization master ( instance )
+etag master LocalLastChangedAt
+{
+  create;
+  update;
+  delete;
+
+  field ( mandatory : create ) Branch, Opint, Matkl, Matnr;
+  field ( readonly ) CreatedBy, CreatedAt, LastChangedBy, LastChangedAt, LocalLastChangedAt;
+
+  mapping for ztsd_nfe_tpato
+  {
+    Branch = branch;
+    Opint = opint;
+    Matkl = matkl;
+    Matnr = matnr;
+    Tpato = tpato;
+    Atcon = atcon;
+    Text1 = text1;
+    CreatedBy = created_by;
+    CreatedAt = created_at;
+    LastChangedBy = last_changed_by;
+    LastChangedAt = last_changed_at;
+    LocalLastChangedAt = local_last_changed_at;
+  }
+}

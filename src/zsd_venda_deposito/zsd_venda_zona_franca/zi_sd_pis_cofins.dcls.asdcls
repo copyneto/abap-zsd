@@ -1,0 +1,11 @@
+@EndUserText.label: 'CDS de Autorização'
+@MappingRole: true
+define role ZI_SD_PIS_COFINS {
+    grant
+        select
+            on
+                ZI_SD_PIS_COFINS
+                    where
+                        ( Werks ) = aspect pfcg_auth( ZSDWERKS, WERKS, ACTVT = '03' );
+                        
+}

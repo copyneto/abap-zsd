@@ -1,0 +1,20 @@
+unmanaged;
+
+define behavior for ZI_SD_INTERC_UPLOAD alias IntercompanyUpload
+implementation in class zcl_sd_interc_upload unique
+lock master
+{
+
+  action ( features : instance ) toValidateSave parameter ZI_SD_TYPE_VAL_SAVE_UPLOAD;
+
+  internal action ValidateDataProcess parameter ZI_SD_TYPE_VAL_SAVE_UPLOAD;
+
+  internal action CheckAutorization parameter ZI_SD_TYPE_VAL_SAVE_UPLOAD;
+
+  internal action SaveData parameter ZI_SD_TYPE_VAL_SAVE_UPLOAD;
+
+  action ( features : instance ) toProcess result [1] $self;
+
+  internal action CriarInter result [1] $self;
+
+}

@@ -1,0 +1,5 @@
+@EndUserText.label: 'Service definition para NF em Massa'
+define service ZUI_SD_NF_IMP_MASSA {
+  expose ZC_SD_NF_IMP_MASSA;
+  expose ZI_CA_VH_PADEST;
+}

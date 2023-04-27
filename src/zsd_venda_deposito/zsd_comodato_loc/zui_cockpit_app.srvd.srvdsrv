@@ -1,0 +1,9 @@
+@EndUserText.label: 'Serviço - Cockpit Contratos'
+define service ZUI_COCKPIT_APP {
+  expose ZC_SD_COCKPIT_APP;
+  expose ZC_SD_CR_CP;
+  expose ZC_SD_DET_JOBS;
+  expose ZC_SD_INF_DISTRATO;
+  expose ZC_SD_LOC_EQUIP;
+  expose ZI_SD_VH_CENTRO_DEST_COMOD;
+}

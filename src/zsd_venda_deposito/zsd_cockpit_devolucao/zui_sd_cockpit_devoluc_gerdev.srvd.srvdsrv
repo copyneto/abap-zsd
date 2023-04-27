@@ -1,0 +1,5 @@
+@EndUserText.label: 'Service Def Cockpit Devolução Gerar Devolução'
+define service ZUI_SD_COCKPIT_DEVOLUC_GERDEV {
+  expose ZC_SD_COCKPIT_DEVOLUCAO_GERDEV;
+  expose ZC_SD_COCKPIT_DEVOLUCAO_REFVAL;
+}

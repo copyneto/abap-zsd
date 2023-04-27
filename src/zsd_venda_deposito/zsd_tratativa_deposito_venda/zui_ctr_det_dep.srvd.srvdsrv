@@ -1,0 +1,4 @@
+@EndUserText.label: 'Service Def Determinação Depósito'
+define service ZUI_CTR_DET_DEP {
+  expose ZC_SD_CTR_DET_DEP;
+}

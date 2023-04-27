@@ -1,0 +1,179 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<abapGit version="v1.0.0" serializer="LCL_OBJECT_CLAS" serializer_version="v1.0.0">
+ <asx:abap xmlns:asx="http://www.sap.com/abapxml" version="1.0">
+  <asx:values>
+   <VSEOCLASS>
+    <CLSNAME>ZCLSD_AUTOM_CONTRATO_DISTRATO</CLSNAME>
+    <LANGU>P</LANGU>
+    <DESCRIPT>Automatização do processo de criar contrato e distrato</DESCRIPT>
+    <STATE>1</STATE>
+    <CLSCCINCL>X</CLSCCINCL>
+    <FIXPT>X</FIXPT>
+    <UNICODE>X</UNICODE>
+   </VSEOCLASS>
+   <DESCRIPTIONS>
+    <SEOCOMPOTX>
+     <CMPNAME>BUSCA_TIPO_DOCUMENTO_DESTINO</CMPNAME>
+     <LANGU>P</LANGU>
+     <DESCRIPT>Busca tipo documento destino</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>CONTRATO_POSSUI_ORDEM_VENDA</CMPNAME>
+     <LANGU>P</LANGU>
+     <DESCRIPT>Verifica se contrato possui ordem venda</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>EXECUTAR</CMPNAME>
+     <LANGU>P</LANGU>
+     <DESCRIPT>Executar contrato distrato</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>GC_PARAM</CMPNAME>
+     <LANGU>P</LANGU>
+     <DESCRIPT>Constantes da tabela de Parâmetros</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>GC_VBTYP_N</CMPNAME>
+     <LANGU>P</LANGU>
+     <DESCRIPT>Constante categoria de documento = Ordem</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>GET_PARAM</CMPNAME>
+     <LANGU>P</LANGU>
+     <DESCRIPT>Busca parâmetros</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>GET_PARAM_RANGE</CMPNAME>
+     <LANGU>P</LANGU>
+     <DESCRIPT>Busca parâmetros range</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>SERNR_UPDATE</CMPNAME>
+     <LANGU>P</LANGU>
+     <DESCRIPT>Atualizar Nro de Série</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>TT_AUART</CMPNAME>
+     <LANGU>P</LANGU>
+     <DESCRIPT>Tipo range de documento de vendas</DESCRIPT>
+    </SEOCOMPOTX>
+   </DESCRIPTIONS>
+   <DESCRIPTIONS_SUB>
+    <SEOSUBCOTX>
+     <CMPNAME>BUSCA_TIPO_DOCUMENTO_DESTINO</CMPNAME>
+     <SCONAME>IV_AUART</SCONAME>
+     <LANGU>P</LANGU>
+     <DESCRIPT>Tipo de Documento Origem</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>BUSCA_TIPO_DOCUMENTO_DESTINO</CMPNAME>
+     <SCONAME>RV_RETORNO</SCONAME>
+     <LANGU>P</LANGU>
+     <DESCRIPT>Tipo de Documento Destino</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>CALL_SHDB_SERNR</CMPNAME>
+     <SCONAME>IV_VBELN</SCONAME>
+     <LANGU>P</LANGU>
+     <DESCRIPT>Documento de vendas</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>CONTRATO_POSSUI_ORDEM_VENDA</CMPNAME>
+     <SCONAME>IV_VBELN</SCONAME>
+     <LANGU>P</LANGU>
+     <DESCRIPT>Documento de vendas</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>CONTRATO_POSSUI_ORDEM_VENDA</CMPNAME>
+     <SCONAME>RV_RETORNO</SCONAME>
+     <LANGU>P</LANGU>
+     <DESCRIPT>Retorno</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>EXECUTAR</CMPNAME>
+     <SCONAME>EV_NEW_SALESDOC</SCONAME>
+     <LANGU>P</LANGU>
+     <DESCRIPT>Documento de vendas</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>EXECUTAR</CMPNAME>
+     <SCONAME>IV_AUART</SCONAME>
+     <LANGU>P</LANGU>
+     <DESCRIPT>Tipo de documento de vendas</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>EXECUTAR</CMPNAME>
+     <SCONAME>IV_ERDAT</SCONAME>
+     <LANGU>P</LANGU>
+     <DESCRIPT>Data de criação do registro</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>EXECUTAR</CMPNAME>
+     <SCONAME>IV_VBELN</SCONAME>
+     <LANGU>P</LANGU>
+     <DESCRIPT>Documento de vendas</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>EXECUTAR</CMPNAME>
+     <SCONAME>IV_WERKS</SCONAME>
+     <LANGU>P</LANGU>
+     <DESCRIPT>Centro</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>EXECUTAR</CMPNAME>
+     <SCONAME>RV_BALLOGHNDL</SCONAME>
+     <LANGU>P</LANGU>
+     <DESCRIPT>Documento de vendas</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>GET_PARAM</CMPNAME>
+     <SCONAME>EV_PARAM</SCONAME>
+     <LANGU>P</LANGU>
+     <DESCRIPT>Parâmetro tipo</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>GET_PARAM</CMPNAME>
+     <SCONAME>IV_KEY1</SCONAME>
+     <LANGU>P</LANGU>
+     <DESCRIPT>Parâmetro chave 1</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>GET_PARAM</CMPNAME>
+     <SCONAME>IV_KEY2</SCONAME>
+     <LANGU>P</LANGU>
+     <DESCRIPT>Parâmetro chave 2</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>GET_PARAM</CMPNAME>
+     <SCONAME>IV_KEY3</SCONAME>
+     <LANGU>P</LANGU>
+     <DESCRIPT>Parâmetro chave 3</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>GET_PARAM_RANGE</CMPNAME>
+     <SCONAME>IV_KEY1</SCONAME>
+     <LANGU>P</LANGU>
+     <DESCRIPT>Parâmetro chave 1</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>GET_PARAM_RANGE</CMPNAME>
+     <SCONAME>IV_KEY2</SCONAME>
+     <LANGU>P</LANGU>
+     <DESCRIPT>Parâmetro chave 2</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>GET_PARAM_RANGE</CMPNAME>
+     <SCONAME>RT_AUART</SCONAME>
+     <LANGU>P</LANGU>
+     <DESCRIPT>Parâmetro range</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>SERNR_UPDATE</CMPNAME>
+     <SCONAME>IS_KEY</SCONAME>
+     <LANGU>P</LANGU>
+     <DESCRIPT>Update SERNR do Contrato</DESCRIPT>
+    </SEOSUBCOTX>
+   </DESCRIPTIONS_SUB>
+  </asx:values>
+ </asx:abap>
+</abapGit>

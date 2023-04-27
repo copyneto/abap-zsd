@@ -1,0 +1,10 @@
+@EndUserText.label: 'CDS de Autorização'
+@MappingRole: true
+define role ZI_SD_COCKPIT_REMESSA {
+    grant 
+        select
+            on
+                ZI_SD_COCKPIT_REMESSA
+                    where
+                        ( Plant ) = aspect pfcg_auth( ZSDWERKS, WERKS, ACTVT = '03' );
+}

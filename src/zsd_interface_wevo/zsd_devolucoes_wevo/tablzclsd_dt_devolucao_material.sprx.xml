@@ -1,0 +1,269 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<abapGit version="v1.0.0" serializer="LCL_OBJECT_SPRX" serializer_version="v1.0.0">
+ <asx:abap xmlns:asx="http://www.sap.com/abapxml" version="1.0">
+  <asx:values>
+   <PROXY_HEADER>
+    <item>
+     <OBJECT>TABL</OBJECT>
+     <OBJ_NAME>ZCLSD_DT_DEVOLUCAO_MATERIAL</OBJ_NAME>
+     <OBJECT_M>TABL</OBJECT_M>
+     <OBJ_NAME_M>ZCLSD_DT_DEVOLUCAO_MATERIAL</OBJ_NAME_M>
+     <HASH_ID>C634B794B8ABFE4BE95697F4A0A6F0EDF218C64E</HASH_ID>
+     <ID>&lt;type&gt; dtDevolucaoMaterial http://trescoracoes.com.br/vendas/devolucaomaterial http://trescoracoes.com.br/vendas/devolucaomaterial</ID>
+     <IFR_GLOBAL>X</IFR_GLOBAL>
+     <IFR_TYPE>type</IFR_TYPE>
+     <IFR_NAME>dtDevolucaoMaterial</IFR_NAME>
+     <IFR_NSPCE>http://trescoracoes.com.br/vendas/devolucaomaterial</IFR_NSPCE>
+     <IFR_GNSPCE>http://trescoracoes.com.br/vendas/devolucaomaterial</IFR_GNSPCE>
+     <GEN_VERS>0005</GEN_VERS>
+     <PREFIX>ZCLSD_</PREFIX>
+     <CATEGORY>ifmtypedef</CATEGORY>
+     <X-ML_NSPCE>http://trescoracoes.com.br/vendas/devolucaomaterial</X-ML_NSPCE>
+     <X-ML_NAME>dtDevolucaoMaterial</X-ML_NAME>
+     <VERSION_ID>2c26de98f0a411ecc3f400000085a0ca</VERSION_ID>
+    </item>
+   </PROXY_HEADER>
+   <PROXY_DATA>
+    <item>
+     <OBJECT>TABL</OBJECT>
+     <OBJ_NAME>ZCLSD_DT_DEVOLUCAO_MATERIAL</OBJ_NAME>
+     <OBJECT1>FIEL</OBJECT1>
+     <OBJ_NAME1>COND_VALUE_TOT</OBJ_NAME1>
+     <OBJECT2>FIEL</OBJECT2>
+     <OBJ_NAME2>COND_VALUE_TOT</OBJ_NAME2>
+     <ID>&lt;element&gt; COND_VALUE_TOT &lt;type&gt; dtDevolucaoMaterial http://trescoracoes.com.br/vendas/devolucaomaterial http://trescoracoes.com.br/vendas/devolucaomaterial</ID>
+     <IFR_TYPE>element</IFR_TYPE>
+     <IFR_NAME>COND_VALUE_TOT</IFR_NAME>
+     <IFR_TEXT>Valor total da nota</IFR_TEXT>
+     <IFR_LANGU>EN</IFR_LANGU>
+     <IFR_TAGTYP>E</IFR_TAGTYP>
+     <IFR_MAXOCC>1</IFR_MAXOCC>
+     <IFR_OPTNL>X</IFR_OPTNL>
+     <IFR_XSDTYP>decimal</IFR_XSDTYP>
+     <IFR_PREC>13</IFR_PREC>
+     <IFR_SCALE>2</IFR_SCALE>
+     <R3_TYPE>FIEL</R3_TYPE>
+     <R3_NAME>COND_VALUE_TOT</R3_NAME>
+     <R3_TEXT>Valor total da nota</R3_TEXT>
+     <R3_DATATYP>DEC</R3_DATATYP>
+     <R3_LENGTH>000015</R3_LENGTH>
+     <R3_DECIMAL>000002</R3_DECIMAL>
+     <R3_SEQNUM>000008</R3_SEQNUM>
+    </item>
+    <item>
+     <OBJECT>TABL</OBJECT>
+     <OBJ_NAME>ZCLSD_DT_DEVOLUCAO_MATERIAL</OBJ_NAME>
+     <OBJECT1>FIEL</OBJECT1>
+     <OBJ_NAME1>DOC_TYPE</OBJ_NAME1>
+     <OBJECT2>FIEL</OBJECT2>
+     <OBJ_NAME2>DOC_TYPE</OBJ_NAME2>
+     <ID>&lt;element&gt; DOC_TYPE &lt;type&gt; dtDevolucaoMaterial http://trescoracoes.com.br/vendas/devolucaomaterial http://trescoracoes.com.br/vendas/devolucaomaterial</ID>
+     <IFR_TYPE>element</IFR_TYPE>
+     <IFR_NAME>DOC_TYPE</IFR_NAME>
+     <IFR_TEXT>Tipo de Devolução</IFR_TEXT>
+     <IFR_LANGU>EN</IFR_LANGU>
+     <IFR_TAGTYP>E</IFR_TAGTYP>
+     <IFR_MINOCC>1</IFR_MINOCC>
+     <IFR_MAXOCC>1</IFR_MAXOCC>
+     <IFR_XSDTYP>string</IFR_XSDTYP>
+     <IFR_MAXLEN>4</IFR_MAXLEN>
+     <IFR_SCALE>-2</IFR_SCALE>
+     <R3_TYPE>FIEL</R3_TYPE>
+     <R3_NAME>DOC_TYPE</R3_NAME>
+     <R3_TEXT>Tipo de Devolução</R3_TEXT>
+     <R3_DATATYP>CHAR</R3_DATATYP>
+     <R3_LENGTH>000004</R3_LENGTH>
+     <R3_SEQNUM>000001</R3_SEQNUM>
+    </item>
+    <item>
+     <OBJECT>TABL</OBJECT>
+     <OBJ_NAME>ZCLSD_DT_DEVOLUCAO_MATERIAL</OBJ_NAME>
+     <OBJECT1>FIEL</OBJECT1>
+     <OBJ_NAME1>ITENS</OBJ_NAME1>
+     <OBJECT2>FIEL</OBJECT2>
+     <OBJ_NAME2>ITENS</OBJ_NAME2>
+     <OBJECT_R>TTYP</OBJECT_R>
+     <OBJ_NAME_R>ZCLSD_DT_DEVOLUCAO_MATERIA_TAB</OBJ_NAME_R>
+     <ID>&lt;element&gt; ITENS &lt;type&gt; dtDevolucaoMaterial http://trescoracoes.com.br/vendas/devolucaomaterial http://trescoracoes.com.br/vendas/devolucaomaterial</ID>
+     <IFR_TYPE>element</IFR_TYPE>
+     <IFR_NAME>ITENS</IFR_NAME>
+     <IFR_LANGU>EN</IFR_LANGU>
+     <IFR_TAGTYP>L</IFR_TAGTYP>
+     <IFR_MAXOCC>65535</IFR_MAXOCC>
+     <IFR_OPTNL>X</IFR_OPTNL>
+     <IFR_SCALE>-2</IFR_SCALE>
+     <R3_TYPE>FIEL</R3_TYPE>
+     <R3_NAME>ITENS</R3_NAME>
+     <R3_SEQNUM>000009</R3_SEQNUM>
+    </item>
+    <item>
+     <OBJECT>TABL</OBJECT>
+     <OBJ_NAME>ZCLSD_DT_DEVOLUCAO_MATERIAL</OBJ_NAME>
+     <OBJECT1>FIEL</OBJECT1>
+     <OBJ_NAME1>OPE_TYPE</OBJ_NAME1>
+     <OBJECT2>FIEL</OBJECT2>
+     <OBJ_NAME2>OPE_TYPE</OBJ_NAME2>
+     <ID>&lt;element&gt; OPE_TYPE &lt;type&gt; dtDevolucaoMaterial http://trescoracoes.com.br/vendas/devolucaomaterial http://trescoracoes.com.br/vendas/devolucaomaterial</ID>
+     <IFR_TYPE>element</IFR_TYPE>
+     <IFR_NAME>OPE_TYPE</IFR_NAME>
+     <IFR_TEXT>Tipo da operação</IFR_TEXT>
+     <IFR_LANGU>EN</IFR_LANGU>
+     <IFR_TAGTYP>E</IFR_TAGTYP>
+     <IFR_MINOCC>1</IFR_MINOCC>
+     <IFR_MAXOCC>1</IFR_MAXOCC>
+     <IFR_XSDTYP>string</IFR_XSDTYP>
+     <IFR_MAXLEN>5</IFR_MAXLEN>
+     <IFR_SCALE>-2</IFR_SCALE>
+     <R3_TYPE>FIEL</R3_TYPE>
+     <R3_NAME>OPE_TYPE</R3_NAME>
+     <R3_TEXT>Tipo da operação</R3_TEXT>
+     <R3_DATATYP>CHAR</R3_DATATYP>
+     <R3_LENGTH>000005</R3_LENGTH>
+     <R3_SEQNUM>000002</R3_SEQNUM>
+    </item>
+    <item>
+     <OBJECT>TABL</OBJECT>
+     <OBJ_NAME>ZCLSD_DT_DEVOLUCAO_MATERIAL</OBJ_NAME>
+     <OBJECT1>FIEL</OBJECT1>
+     <OBJ_NAME1>ORD_REASON</OBJ_NAME1>
+     <OBJECT2>FIEL</OBJECT2>
+     <OBJ_NAME2>ORD_REASON</OBJ_NAME2>
+     <ID>&lt;element&gt; ORD_REASON &lt;type&gt; dtDevolucaoMaterial http://trescoracoes.com.br/vendas/devolucaomaterial http://trescoracoes.com.br/vendas/devolucaomaterial</ID>
+     <IFR_TYPE>element</IFR_TYPE>
+     <IFR_NAME>ORD_REASON</IFR_NAME>
+     <IFR_TEXT>Motivo da Devolução</IFR_TEXT>
+     <IFR_LANGU>EN</IFR_LANGU>
+     <IFR_TAGTYP>E</IFR_TAGTYP>
+     <IFR_MAXOCC>1</IFR_MAXOCC>
+     <IFR_OPTNL>X</IFR_OPTNL>
+     <IFR_XSDTYP>string</IFR_XSDTYP>
+     <IFR_MAXLEN>3</IFR_MAXLEN>
+     <IFR_SCALE>-2</IFR_SCALE>
+     <R3_TYPE>FIEL</R3_TYPE>
+     <R3_NAME>ORD_REASON</R3_NAME>
+     <R3_TEXT>Motivo da Devolução</R3_TEXT>
+     <R3_DATATYP>CHAR</R3_DATATYP>
+     <R3_LENGTH>000003</R3_LENGTH>
+     <R3_SEQNUM>000006</R3_SEQNUM>
+    </item>
+    <item>
+     <OBJECT>TABL</OBJECT>
+     <OBJ_NAME>ZCLSD_DT_DEVOLUCAO_MATERIAL</OBJ_NAME>
+     <OBJECT1>FIEL</OBJECT1>
+     <OBJ_NAME1>PURCH_NO_C</OBJ_NAME1>
+     <OBJECT2>FIEL</OBJECT2>
+     <OBJ_NAME2>PURCH_NO_C</OBJ_NAME2>
+     <ID>&lt;element&gt; PURCH_NO_C &lt;type&gt; dtDevolucaoMaterial http://trescoracoes.com.br/vendas/devolucaomaterial http://trescoracoes.com.br/vendas/devolucaomaterial</ID>
+     <IFR_TYPE>element</IFR_TYPE>
+     <IFR_NAME>PURCH_NO_C</IFR_NAME>
+     <IFR_TEXT>Número do Pedido VTEX</IFR_TEXT>
+     <IFR_LANGU>EN</IFR_LANGU>
+     <IFR_TAGTYP>E</IFR_TAGTYP>
+     <IFR_MINOCC>1</IFR_MINOCC>
+     <IFR_MAXOCC>1</IFR_MAXOCC>
+     <IFR_XSDTYP>string</IFR_XSDTYP>
+     <IFR_MAXLEN>35</IFR_MAXLEN>
+     <IFR_SCALE>-2</IFR_SCALE>
+     <R3_TYPE>FIEL</R3_TYPE>
+     <R3_NAME>PURCH_NO_C</R3_NAME>
+     <R3_TEXT>Número do Pedido VTEX</R3_TEXT>
+     <R3_DATATYP>CHAR</R3_DATATYP>
+     <R3_LENGTH>000035</R3_LENGTH>
+     <R3_SEQNUM>000004</R3_SEQNUM>
+    </item>
+    <item>
+     <OBJECT>TABL</OBJECT>
+     <OBJ_NAME>ZCLSD_DT_DEVOLUCAO_MATERIAL</OBJ_NAME>
+     <OBJECT1>FIEL</OBJECT1>
+     <OBJ_NAME1>PYMT_METH</OBJ_NAME1>
+     <OBJECT2>FIEL</OBJECT2>
+     <OBJ_NAME2>PYMT_METH</OBJ_NAME2>
+     <ID>&lt;element&gt; PYMT_METH &lt;type&gt; dtDevolucaoMaterial http://trescoracoes.com.br/vendas/devolucaomaterial http://trescoracoes.com.br/vendas/devolucaomaterial</ID>
+     <IFR_TYPE>element</IFR_TYPE>
+     <IFR_NAME>PYMT_METH</IFR_NAME>
+     <IFR_TEXT>Forma de ressarcimento</IFR_TEXT>
+     <IFR_LANGU>EN</IFR_LANGU>
+     <IFR_TAGTYP>E</IFR_TAGTYP>
+     <IFR_MAXOCC>1</IFR_MAXOCC>
+     <IFR_OPTNL>X</IFR_OPTNL>
+     <IFR_XSDTYP>string</IFR_XSDTYP>
+     <IFR_MAXLEN>1</IFR_MAXLEN>
+     <IFR_SCALE>-2</IFR_SCALE>
+     <R3_TYPE>FIEL</R3_TYPE>
+     <R3_NAME>PYMT_METH</R3_NAME>
+     <R3_TEXT>Forma de ressarcimento</R3_TEXT>
+     <R3_DATATYP>CHAR</R3_DATATYP>
+     <R3_LENGTH>000001</R3_LENGTH>
+     <R3_SEQNUM>000005</R3_SEQNUM>
+    </item>
+    <item>
+     <OBJECT>TABL</OBJECT>
+     <OBJ_NAME>ZCLSD_DT_DEVOLUCAO_MATERIAL</OBJ_NAME>
+     <OBJECT1>FIEL</OBJECT1>
+     <OBJ_NAME1>REF_1</OBJ_NAME1>
+     <OBJECT2>FIEL</OBJECT2>
+     <OBJ_NAME2>REF_1</OBJ_NAME2>
+     <ID>&lt;element&gt; REF_1 &lt;type&gt; dtDevolucaoMaterial http://trescoracoes.com.br/vendas/devolucaomaterial http://trescoracoes.com.br/vendas/devolucaomaterial</ID>
+     <IFR_TYPE>element</IFR_TYPE>
+     <IFR_NAME>REF_1</IFR_NAME>
+     <IFR_TEXT>Ticket SAC</IFR_TEXT>
+     <IFR_LANGU>EN</IFR_LANGU>
+     <IFR_TAGTYP>E</IFR_TAGTYP>
+     <IFR_MINOCC>1</IFR_MINOCC>
+     <IFR_MAXOCC>1</IFR_MAXOCC>
+     <IFR_XSDTYP>string</IFR_XSDTYP>
+     <IFR_MAXLEN>12</IFR_MAXLEN>
+     <IFR_SCALE>-2</IFR_SCALE>
+     <R3_TYPE>FIEL</R3_TYPE>
+     <R3_NAME>REF_1</R3_NAME>
+     <R3_TEXT>Ticket SAC</R3_TEXT>
+     <R3_DATATYP>CHAR</R3_DATATYP>
+     <R3_LENGTH>000012</R3_LENGTH>
+     <R3_SEQNUM>000003</R3_SEQNUM>
+    </item>
+    <item>
+     <OBJECT>TABL</OBJECT>
+     <OBJ_NAME>ZCLSD_DT_DEVOLUCAO_MATERIAL</OBJ_NAME>
+     <OBJECT1>FIEL</OBJECT1>
+     <OBJ_NAME1>REF_DOC</OBJ_NAME1>
+     <OBJECT2>FIEL</OBJECT2>
+     <OBJ_NAME2>REF_DOC</OBJ_NAME2>
+     <ID>&lt;element&gt; REF_DOC &lt;type&gt; dtDevolucaoMaterial http://trescoracoes.com.br/vendas/devolucaomaterial http://trescoracoes.com.br/vendas/devolucaomaterial</ID>
+     <IFR_TYPE>element</IFR_TYPE>
+     <IFR_NAME>REF_DOC</IFR_NAME>
+     <IFR_TEXT>Fatura ZR03</IFR_TEXT>
+     <IFR_LANGU>EN</IFR_LANGU>
+     <IFR_TAGTYP>E</IFR_TAGTYP>
+     <IFR_MAXOCC>1</IFR_MAXOCC>
+     <IFR_OPTNL>X</IFR_OPTNL>
+     <IFR_XSDTYP>string</IFR_XSDTYP>
+     <IFR_MAXLEN>10</IFR_MAXLEN>
+     <IFR_SCALE>-2</IFR_SCALE>
+     <R3_TYPE>FIEL</R3_TYPE>
+     <R3_NAME>REF_DOC</R3_NAME>
+     <R3_TEXT>Fatura ZR03</R3_TEXT>
+     <R3_DATATYP>CHAR</R3_DATATYP>
+     <R3_LENGTH>000010</R3_LENGTH>
+     <R3_SEQNUM>000007</R3_SEQNUM>
+    </item>
+    <item>
+     <OBJECT>TABL</OBJECT>
+     <OBJ_NAME>ZCLSD_DT_DEVOLUCAO_MATERIAL</OBJ_NAME>
+     <OBJECT1>TABL</OBJECT1>
+     <OBJ_NAME1>ZCLSD_DT_DEVOLUCAO_MATERIAL</OBJ_NAME1>
+     <OBJECT2>TABL</OBJECT2>
+     <OBJ_NAME2>ZCLSD_DT_DEVOLUCAO_MATERIAL</OBJ_NAME2>
+     <ID>&lt;type&gt; dtDevolucaoMaterial http://trescoracoes.com.br/vendas/devolucaomaterial http://trescoracoes.com.br/vendas/devolucaomaterial</ID>
+     <IFR_TYPE>type</IFR_TYPE>
+     <IFR_NAME>dtDevolucaoMaterial</IFR_NAME>
+     <IFR_LANGU>EN</IFR_LANGU>
+     <IFR_SCALE>-2</IFR_SCALE>
+     <R3_TYPE>TABL</R3_TYPE>
+     <R3_NAME>ZCLSD_DT_DEVOLUCAO_MATERIAL</R3_NAME>
+     <R3_TEXT>Proxy Structure (generated)</R3_TEXT>
+     <CATEGORY>ifmtypedef</CATEGORY>
+    </item>
+   </PROXY_DATA>
+  </asx:values>
+ </asx:abap>
+</abapGit>

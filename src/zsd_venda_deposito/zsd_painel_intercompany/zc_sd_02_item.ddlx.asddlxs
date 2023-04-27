@@ -1,0 +1,50 @@
+@Metadata.layer: #CORE
+@UI: {
+  headerInfo: {
+    typeName: 'Modificar dado do material',
+    typeNamePlural: 'Materiais',
+    title: { type: #STANDARD } },
+    presentationVariant: [
+      { text: 'Default',
+        sortOrder:      [{ by: 'Selected', direction: #DESC },
+                         { by: 'Material', direction: #ASC }]
+//        visualizations: [{ type: #AS_LINEITEM, qualifier: 'Default' }],
+//        qualifier: 'DefaultPresentationVariant'
+}]
+}
+annotate view ZC_SD_02_ITEM with
+{
+
+  @UI.facet: [ { label: 'Dados do Material',
+                 purpose: #STANDARD,
+                 position: 10,
+                 type: #IDENTIFICATION_REFERENCE,
+                 id: 'Dados'  } ]
+
+  @UI: { lineItem:        [ { position: 10 },
+                            { type: #FOR_ACTION, dataAction: 'CriarInter',  label: 'Gerar Documento', invocationGrouping: #CHANGE_SET  } ],
+         identification:  [ { position: 10 } ] }
+  Material;
+  @UI: { lineItem:      [ { position: 20 } ],
+       identification:  [ { position: 20 } ] }
+  MaterialName;
+  @UI: { lineItem:      [ { position: 30 } ],
+       identification:  [ { position: 30 } ] }
+  @EndUserText.label      : 'Quantidade em estoque'
+  MatlWrhsStkQtyInMatlBaseUnit;
+  @UI: { lineItem:      [ { position: 40 } ],
+       identification:  [ { position: 40 } ] }
+  MaterialBaseUnit;
+
+  @UI: { lineItem:      [ { position: 50 } ],
+       identification:  [ { position: 50 } ] }
+  QtdSol;
+
+  @UI: { lineItem:      [ { position: 60, hidden: true } ] }
+  Selected;
+
+  /* Associations */
+  @UI.hidden: true
+  _cockpit;
+
+}

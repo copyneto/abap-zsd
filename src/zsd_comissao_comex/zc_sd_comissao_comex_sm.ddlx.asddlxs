@@ -1,0 +1,225 @@
+@Metadata.layer: #CORE
+//-- Presentation Variant for UI
+//@UI.presentationVariant: [{
+//  sortOrder: [
+//  { by: 'Docdat' },
+//  { by: 'Nfenum' }
+//  ],
+//  groupBy   : ['Nfenum'],
+//       visualizations: [{ type: #AS_LINEITEM }],
+//
+//     requestAtLeast: [ 'Docdat', 'Nfenum' ],
+//   totalBy: ['Netwrt'],
+//   includeGrandTotal: true,
+//   total: ['Netwrt']
+//}]
+annotate view ZC_SD_COMISSAO_COMEX_SM with
+{
+
+  @UI.facet: [
+  {
+      id: 'Hdr',
+      purpose: #HEADER,
+      label: 'Dados de Parâmetros',
+      position: 10,
+      type: #FIELDGROUP_REFERENCE,
+      targetQualifier: 'HdrInfo'
+  },
+  {
+      id: 'HeaderDet',
+      purpose: #STANDARD,
+      position: 10,
+      label: 'Detalhes',
+      type: #IDENTIFICATION_REFERENCE
+  }]
+
+      // Botão Provisionar
+  //@UI.lineItem: [{ type: #FOR_ACTION, dataAction: 'provisionar', label: 'Provisionar' }]
+
+  @UI: { lineItem:       [ { position: 10, importance: #HIGH } ],
+          //identification: [ { position: 10 } ],
+          selectionField: [ { position: 10 } ],
+          fieldGroup:     [ { qualifier: 'HdrInfo',
+                             position: 10 } ]
+          }
+  @EndUserText: { label: 'Filial' }
+  Werks;
+
+  @UI: { lineItem:       [ { position: 20,
+                              importance: #HIGH } ],
+          //identification: [ { position: 20 } ],
+          selectionField: [ { position: 20 } ],
+          fieldGroup:     [ { qualifier: 'HdrInfo',
+                             position: 20 } ]
+          }
+  @EndUserText: { label: 'Data do faturamento' }
+  Docdat;
+
+  @UI: { lineItem:       [ { position: 30,
+                              importance: #HIGH } ],
+          //identification: [ { position: 30 } ],
+          selectionField: [ { position: 30 } ],
+          fieldGroup:     [ { qualifier: 'HdrInfo',
+                             position: 30 } ]
+          }
+  @EndUserText: { label: 'Número da Nota Fiscal' }
+  Nfenum;
+
+  @UI: { lineItem:       [ { position: 40, importance: #HIGH } ],
+         identification: [ { position: 40 } ]
+          }
+  @EndUserText: { label: 'Item da NF' }
+  Itmnum;
+
+  @UI.hidden: true
+  Posneg;
+
+  @UI: { lineItem:        [ { position: 50 } ],
+          identification: [ { position: 50 } ]
+          }
+  Matnr;
+
+  @UI: { lineItem:        [ { position: 50 } ],
+          identification: [ { position: 50 } ]
+        }
+  @EndUserText: { label: 'Ordem de vendas' }
+  Aubel;
+
+  @UI: { lineItem:        [ { position: 60 } ],
+         identification:  [ { position: 60 } ]
+        }
+  @EndUserText: { label: 'Número da Fatura' }
+  Refkey;
+
+  @UI: { lineItem:        [ { position: 70 } ],
+         identification:  [ { position: 70 } ]
+       }
+  @EndUserText: { label: 'Código do Cliente' }
+  Parid;
+
+  @UI: { lineItem:        [ { position: 80 } ],
+         identification:  [ { position: 80 } ]
+       }
+  @EndUserText.label  : 'Nome do Cliente'
+  Name1;
+
+  @UI: { lineItem:        [ { position: 90 } ],
+         identification:  [ { position: 90 } ]
+       }
+  @EndUserText.label  : 'UF Destino'
+  Regio;
+
+  @UI: { lineItem:        [ { position: 95 } ],
+         identification:  [ { position: 95 } ]
+       }
+  @EndUserText.label  : 'Data do Embarque'
+  DataEmbarque;
+
+  @UI: { lineItem:        [ { position: 100 } ],
+         identification:  [ { position: 100 } ]
+       }
+  @EndUserText.label  : 'Quantidade'
+  Ntgew;
+
+  @UI: { lineItem:        [ { position: 110 } ],
+         identification:  [ { position: 110 } ]
+       }
+  @EndUserText.label  : 'Valor'
+  Netwrt;
+
+  @UI: { lineItem:        [ { position: 120 } ],
+         identification:  [ { position: 120 } ]
+       }
+  @EndUserText.label  : 'Data do provisionamento'
+  Zdatabl;
+
+  @UI: { lineItem:       [ { position: 130,
+                              importance: #HIGH } ],
+          //identification: [ { position: 130 } ],
+          selectionField: [ { position: 40 } ],
+          fieldGroup:     [ { qualifier: 'HdrInfo',
+                             position: 40 } ]
+          }
+  @EndUserText.label  : 'Período'
+  Zperiodo;
+
+  @EndUserText.label  : 'Código do corretor'
+  @UI: { lineItem:       [ { position: 140,
+                              importance: #HIGH } ],
+          //identification: [ { position: 140 } ],
+          selectionField: [ { position: 50 } ],
+          fieldGroup:     [ { qualifier: 'HdrInfo',
+                             position: 50 } ]
+          }
+  Zparid;
+
+  @UI: { lineItem:        [ { position: 150 } ],
+         identification:  [ { position: 150 } ] }
+  @EndUserText.label  : 'Descrição do Corretor'
+  Zname1;
+
+  @UI: { lineItem:        [ { position: 160 } ],
+         identification:  [ { position: 160 } ] }
+  @EndUserText.label  : 'Número do Pedido'
+  Xped;
+
+  @UI: { lineItem:        [ { position: 170 } ],
+         identification:  [ { position: 170 } ] }
+  @EndUserText.label  : 'Grupo de Material'
+  Kondm;
+
+  @UI: { lineItem:        [ { position: 180 } ],
+         identification:  [ { position: 180 } ] }
+  @EndUserText.label  : 'Valor da comissão em Dólar'
+  kwert;
+
+  @UI: { lineItem:        [ { position: 190 } ],
+         identification:  [ { position: 190 } ] }
+  @EndUserText.label  : 'Data da taxa de Cambio'
+  Zdataptax;
+
+  @UI: { lineItem:        [ { position: 200 } ],
+         identification:  [ { position: 200 } ] }
+  @EndUserText.label  : 'Taxa de cambio'
+  Zptax;
+
+  @UI: { lineItem:        [ { position: 210 } ],
+         identification:  [ { position: 210 } ] }
+  @EndUserText.label  : 'Valor do Ajuste'
+  Zajuste;
+
+  @UI: { lineItem:        [ { position: 220 } ],
+         identification:  [ { position: 220 } ] }
+  @EndUserText.label  : 'Valor da Comissão em Reais'
+  Zvalor;
+
+  //    @UI: { lineItem:        [ { position: 230 } ],
+  //           identification:  [ { position: 230 } ] }
+  //    @EndUserText.label  : 'PROV'
+  //Zprov;
+
+  @UI: { lineItem:       [ { position: 240, importance: #HIGH, label: 'Status do Provisionamento', criticality: 'StatusCriticality' } ],
+                             selectionField: [ { position: 60 } ],
+         dataPoint:        { title: 'Status', criticality: 'StatusCriticality' }}
+  @Consumption.valueHelpDefinition: [{ entity: { name: 'ZI_SD_VH_STATUS_AP', element: 'StatusId' } }]
+  Zstatus;
+
+  //@UI.hidden: true
+  //StatusText;
+
+
+  @UI.hidden: true
+  StatusCriticality;
+
+  @UI: { lineItem:        [ { position: 250 } ],
+         identification:  [ { position: 250 } ] }
+  @EndUserText.label  : 'Observações'
+  Zobs;
+
+  @UI: { lineItem:        [ { position: 260 } ],
+         identification:  [ { position: 260 } ] }
+  @EndUserText.label  : 'Prov.'
+  Prov;
+
+
+}

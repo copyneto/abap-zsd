@@ -1,0 +1,86 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<abapGit version="v1.0.0" serializer="LCL_OBJECT_MSAG" serializer_version="v1.0.0">
+ <asx:abap xmlns:asx="http://www.sap.com/abapxml" version="1.0">
+  <asx:values>
+   <T100A>
+    <ARBGB>ZSD</ARBGB>
+    <MASTERLANG>P</MASTERLANG>
+    <STEXT>Classe de mensagem genérica SD</STEXT>
+   </T100A>
+   <T100>
+    <T100>
+     <SPRSL>P</SPRSL>
+     <ARBGB>ZSD</ARBGB>
+     <MSGNR>000</MSGNR>
+     <TEXT>Documento já possui devolução</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>P</SPRSL>
+     <ARBGB>ZSD</ARBGB>
+     <MSGNR>001</MSGNR>
+     <TEXT>Documento já possui Estorno.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>P</SPRSL>
+     <ARBGB>ZSD</ARBGB>
+     <MSGNR>002</MSGNR>
+     <TEXT>Documento de faturamento já liquidado.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>P</SPRSL>
+     <ARBGB>ZSD</ARBGB>
+     <MSGNR>003</MSGNR>
+     <TEXT>Item &amp;1 não encontrado na fatura &amp;2</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>P</SPRSL>
+     <ARBGB>ZSD</ARBGB>
+     <MSGNR>004</MSGNR>
+     <TEXT>Item &amp;1: Qtd.ordem maior ou igual a qtd. já devolvida. Saldo &amp;2</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>P</SPRSL>
+     <ARBGB>ZSD</ARBGB>
+     <MSGNR>005</MSGNR>
+     <TEXT>Ordem de vendas bloqueada para faturamento</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>P</SPRSL>
+     <ARBGB>ZSD</ARBGB>
+     <MSGNR>006</MSGNR>
+     <TEXT>O pedido de compra não foi criado</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>P</SPRSL>
+     <ARBGB>ZSD</ARBGB>
+     <MSGNR>007</MSGNR>
+     <TEXT>Faturar OV &amp; antes de faturar a bonificação</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>P</SPRSL>
+     <ARBGB>ZSD</ARBGB>
+     <MSGNR>008</MSGNR>
+     <TEXT>Pedido criado fora do cockpit e inválido para o faturamento.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>P</SPRSL>
+     <ARBGB>ZSD</ARBGB>
+     <MSGNR>009</MSGNR>
+     <TEXT>Sem autorização para a ação selecionada</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>P</SPRSL>
+     <ARBGB>ZSD</ARBGB>
+     <MSGNR>010</MSGNR>
+     <TEXT>Item &amp;1: Qtd.ordem maior ou igual a qtd. já enviada</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>P</SPRSL>
+     <ARBGB>ZSD</ARBGB>
+     <MSGNR>011</MSGNR>
+     <TEXT>Status da ordem processado completamente.</TEXT>
+    </T100>
+   </T100>
+  </asx:values>
+ </asx:abap>
+</abapGit>

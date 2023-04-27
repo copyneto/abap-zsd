@@ -1,0 +1,340 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<abapGit version="v1.0.0" serializer="LCL_OBJECT_SPRX" serializer_version="v1.0.0">
+ <asx:abap xmlns:asx="http://www.sap.com/abapxml" version="1.0">
+  <asx:values>
+   <PROXY_HEADER>
+    <item>
+     <OBJECT>TABL</OBJECT>
+     <OBJ_NAME>ZCLSD_DT_ENVIA_ATIVO</OBJ_NAME>
+     <OBJECT_M>TABL</OBJECT_M>
+     <OBJ_NAME_M>ZCLSD_DT_ENVIA_ATIVO</OBJ_NAME_M>
+     <HASH_ID>1FE6C697393FD3ACC7E0A7958FE781477DD66BFF</HASH_ID>
+     <ID>&lt;type&gt; dtEnviaAtivo http://trescoracoes.com.br/vendas/fatura http://trescoracoes.com.br/vendas/fatura</ID>
+     <IFR_GLOBAL>X</IFR_GLOBAL>
+     <IFR_TYPE>type</IFR_TYPE>
+     <IFR_NAME>dtEnviaAtivo</IFR_NAME>
+     <IFR_NSPCE>http://trescoracoes.com.br/vendas/fatura</IFR_NSPCE>
+     <IFR_GNSPCE>http://trescoracoes.com.br/vendas/fatura</IFR_GNSPCE>
+     <GEN_VERS>0005</GEN_VERS>
+     <PREFIX>ZCLSD_</PREFIX>
+     <CATEGORY>ifmtypedef</CATEGORY>
+     <X-ML_NSPCE>http://trescoracoes.com.br/vendas/fatura</X-ML_NSPCE>
+     <X-ML_NAME>dtEnviaAtivo</X-ML_NAME>
+     <VERSION_ID>9ede5911912a11ed925400000085a0cb</VERSION_ID>
+    </item>
+   </PROXY_HEADER>
+   <PROXY_DATA>
+    <item>
+     <OBJECT>TABL</OBJECT>
+     <OBJ_NAME>ZCLSD_DT_ENVIA_ATIVO</OBJ_NAME>
+     <OBJECT1>FIEL</OBJECT1>
+     <OBJ_NAME1>B_LAGER</OBJ_NAME1>
+     <OBJECT2>FIEL</OBJECT2>
+     <OBJ_NAME2>B_LAGER</OBJ_NAME2>
+     <ID>&lt;element&gt; B_LAGER &lt;type&gt; dtEnviaAtivo http://trescoracoes.com.br/vendas/fatura http://trescoracoes.com.br/vendas/fatura</ID>
+     <IFR_TYPE>element</IFR_TYPE>
+     <IFR_NAME>B_LAGER</IFR_NAME>
+     <IFR_TEXT>Material</IFR_TEXT>
+     <IFR_LANGU>EN</IFR_LANGU>
+     <IFR_TAGTYP>E</IFR_TAGTYP>
+     <IFR_MINOCC>1</IFR_MINOCC>
+     <IFR_MAXOCC>1</IFR_MAXOCC>
+     <IFR_XSDTYP>string</IFR_XSDTYP>
+     <IFR_MAXLEN>4</IFR_MAXLEN>
+     <IFR_SCALE>-2</IFR_SCALE>
+     <R3_TYPE>FIEL</R3_TYPE>
+     <R3_NAME>B_LAGER</R3_NAME>
+     <R3_TEXT>Material</R3_TEXT>
+     <R3_DATATYP>CHAR</R3_DATATYP>
+     <R3_LENGTH>000004</R3_LENGTH>
+     <R3_SEQNUM>000008</R3_SEQNUM>
+    </item>
+    <item>
+     <OBJECT>TABL</OBJECT>
+     <OBJ_NAME>ZCLSD_DT_ENVIA_ATIVO</OBJ_NAME>
+     <OBJECT1>FIEL</OBJECT1>
+     <OBJ_NAME1>B_WERK</OBJ_NAME1>
+     <OBJECT2>FIEL</OBJECT2>
+     <OBJ_NAME2>B_WERK</OBJ_NAME2>
+     <ID>&lt;element&gt; B_WERK &lt;type&gt; dtEnviaAtivo http://trescoracoes.com.br/vendas/fatura http://trescoracoes.com.br/vendas/fatura</ID>
+     <IFR_TYPE>element</IFR_TYPE>
+     <IFR_NAME>B_WERK</IFR_NAME>
+     <IFR_TEXT>Centro</IFR_TEXT>
+     <IFR_LANGU>EN</IFR_LANGU>
+     <IFR_TAGTYP>E</IFR_TAGTYP>
+     <IFR_MINOCC>1</IFR_MINOCC>
+     <IFR_MAXOCC>1</IFR_MAXOCC>
+     <IFR_XSDTYP>string</IFR_XSDTYP>
+     <IFR_MAXLEN>4</IFR_MAXLEN>
+     <IFR_SCALE>-2</IFR_SCALE>
+     <R3_TYPE>FIEL</R3_TYPE>
+     <R3_NAME>B_WERK</R3_NAME>
+     <R3_TEXT>Centro</R3_TEXT>
+     <R3_DATATYP>CHAR</R3_DATATYP>
+     <R3_LENGTH>000004</R3_LENGTH>
+     <R3_SEQNUM>000007</R3_SEQNUM>
+    </item>
+    <item>
+     <OBJECT>TABL</OBJECT>
+     <OBJ_NAME>ZCLSD_DT_ENVIA_ATIVO</OBJ_NAME>
+     <OBJECT1>FIEL</OBJECT1>
+     <OBJ_NAME1>ELIEF</OBJ_NAME1>
+     <OBJECT2>FIEL</OBJECT2>
+     <OBJ_NAME2>ELIEF</OBJ_NAME2>
+     <ID>&lt;element&gt; ELIEF &lt;type&gt; dtEnviaAtivo http://trescoracoes.com.br/vendas/fatura http://trescoracoes.com.br/vendas/fatura</ID>
+     <IFR_TYPE>element</IFR_TYPE>
+     <IFR_NAME>ELIEF</IFR_NAME>
+     <IFR_TEXT>Nº fornecedor</IFR_TEXT>
+     <IFR_LANGU>EN</IFR_LANGU>
+     <IFR_TAGTYP>E</IFR_TAGTYP>
+     <IFR_MAXOCC>1</IFR_MAXOCC>
+     <IFR_OPTNL>X</IFR_OPTNL>
+     <IFR_XSDTYP>string</IFR_XSDTYP>
+     <IFR_MAXLEN>10</IFR_MAXLEN>
+     <IFR_SCALE>-2</IFR_SCALE>
+     <R3_TYPE>FIEL</R3_TYPE>
+     <R3_NAME>ELIEF</R3_NAME>
+     <R3_TEXT>Nº fornecedor</R3_TEXT>
+     <R3_DATATYP>CHAR</R3_DATATYP>
+     <R3_LENGTH>000010</R3_LENGTH>
+     <R3_SEQNUM>000005</R3_SEQNUM>
+    </item>
+    <item>
+     <OBJECT>TABL</OBJECT>
+     <OBJ_NAME>ZCLSD_DT_ENVIA_ATIVO</OBJ_NAME>
+     <OBJECT1>FIEL</OBJECT1>
+     <OBJ_NAME1>EQUNR</OBJ_NAME1>
+     <OBJECT2>FIEL</OBJECT2>
+     <OBJ_NAME2>EQUNR</OBJ_NAME2>
+     <ID>&lt;element&gt; EQUNR &lt;type&gt; dtEnviaAtivo http://trescoracoes.com.br/vendas/fatura http://trescoracoes.com.br/vendas/fatura</ID>
+     <IFR_TYPE>element</IFR_TYPE>
+     <IFR_NAME>EQUNR</IFR_NAME>
+     <IFR_TEXT>Nº equipamento</IFR_TEXT>
+     <IFR_LANGU>EN</IFR_LANGU>
+     <IFR_TAGTYP>E</IFR_TAGTYP>
+     <IFR_MINOCC>1</IFR_MINOCC>
+     <IFR_MAXOCC>1</IFR_MAXOCC>
+     <IFR_XSDTYP>string</IFR_XSDTYP>
+     <IFR_MAXLEN>18</IFR_MAXLEN>
+     <IFR_SCALE>-2</IFR_SCALE>
+     <R3_TYPE>FIEL</R3_TYPE>
+     <R3_NAME>EQUNR</R3_NAME>
+     <R3_TEXT>Nº equipamento</R3_TEXT>
+     <R3_DATATYP>CHAR</R3_DATATYP>
+     <R3_LENGTH>000018</R3_LENGTH>
+     <R3_SEQNUM>000004</R3_SEQNUM>
+    </item>
+    <item>
+     <OBJECT>TABL</OBJECT>
+     <OBJ_NAME>ZCLSD_DT_ENVIA_ATIVO</OBJ_NAME>
+     <OBJECT1>FIEL</OBJECT1>
+     <OBJ_NAME1>INVNR</OBJ_NAME1>
+     <OBJECT2>FIEL</OBJECT2>
+     <OBJ_NAME2>INVNR</OBJ_NAME2>
+     <ID>&lt;element&gt; INVNR &lt;type&gt; dtEnviaAtivo http://trescoracoes.com.br/vendas/fatura http://trescoracoes.com.br/vendas/fatura</ID>
+     <IFR_TYPE>element</IFR_TYPE>
+     <IFR_NAME>INVNR</IFR_NAME>
+     <IFR_TEXT>Nº inventário</IFR_TEXT>
+     <IFR_LANGU>EN</IFR_LANGU>
+     <IFR_TAGTYP>E</IFR_TAGTYP>
+     <IFR_MAXOCC>1</IFR_MAXOCC>
+     <IFR_OPTNL>X</IFR_OPTNL>
+     <IFR_XSDTYP>string</IFR_XSDTYP>
+     <IFR_MAXLEN>25</IFR_MAXLEN>
+     <IFR_SCALE>-2</IFR_SCALE>
+     <R3_TYPE>FIEL</R3_TYPE>
+     <R3_NAME>INVNR</R3_NAME>
+     <R3_TEXT>Nº inventário</R3_TEXT>
+     <R3_DATATYP>CHAR</R3_DATATYP>
+     <R3_LENGTH>000025</R3_LENGTH>
+     <R3_SEQNUM>000001</R3_SEQNUM>
+    </item>
+    <item>
+     <OBJECT>TABL</OBJECT>
+     <OBJ_NAME>ZCLSD_DT_ENVIA_ATIVO</OBJ_NAME>
+     <OBJECT1>FIEL</OBJECT1>
+     <OBJ_NAME1>LGORT</OBJ_NAME1>
+     <OBJECT2>FIEL</OBJECT2>
+     <OBJ_NAME2>LGORT</OBJ_NAME2>
+     <ID>&lt;element&gt; LGORT &lt;type&gt; dtEnviaAtivo http://trescoracoes.com.br/vendas/fatura http://trescoracoes.com.br/vendas/fatura</ID>
+     <IFR_TYPE>element</IFR_TYPE>
+     <IFR_NAME>LGORT</IFR_NAME>
+     <IFR_TEXT>Depósito</IFR_TEXT>
+     <IFR_LANGU>EN</IFR_LANGU>
+     <IFR_TAGTYP>E</IFR_TAGTYP>
+     <IFR_MAXOCC>1</IFR_MAXOCC>
+     <IFR_OPTNL>X</IFR_OPTNL>
+     <IFR_XSDTYP>string</IFR_XSDTYP>
+     <IFR_SCALE>-2</IFR_SCALE>
+     <R3_TYPE>FIEL</R3_TYPE>
+     <R3_NAME>LGORT</R3_NAME>
+     <R3_TEXT>Depósito</R3_TEXT>
+     <R3_DATATYP>STRG</R3_DATATYP>
+     <R3_SEQNUM>000009</R3_SEQNUM>
+    </item>
+    <item>
+     <OBJECT>TABL</OBJECT>
+     <OBJ_NAME>ZCLSD_DT_ENVIA_ATIVO</OBJ_NAME>
+     <OBJECT1>FIEL</OBJECT1>
+     <OBJ_NAME1>LPPNET</OBJ_NAME1>
+     <OBJECT2>FIEL</OBJECT2>
+     <OBJ_NAME2>LPPNET</OBJ_NAME2>
+     <ID>&lt;element&gt; LPPNET &lt;type&gt; dtEnviaAtivo http://trescoracoes.com.br/vendas/fatura http://trescoracoes.com.br/vendas/fatura</ID>
+     <IFR_TYPE>element</IFR_TYPE>
+     <IFR_NAME>LPPNET</IFR_NAME>
+     <IFR_TEXT>Líquido últ.PC</IFR_TEXT>
+     <IFR_LANGU>EN</IFR_LANGU>
+     <IFR_TAGTYP>E</IFR_TAGTYP>
+     <IFR_MAXOCC>1</IFR_MAXOCC>
+     <IFR_OPTNL>X</IFR_OPTNL>
+     <IFR_XSDTYP>decimal</IFR_XSDTYP>
+     <IFR_PREC>15</IFR_PREC>
+     <IFR_SCALE>2</IFR_SCALE>
+     <R3_TYPE>FIEL</R3_TYPE>
+     <R3_NAME>LPPNET</R3_NAME>
+     <R3_TEXT>Líquido últ.PC</R3_TEXT>
+     <R3_DATATYP>DEC</R3_DATATYP>
+     <R3_LENGTH>000017</R3_LENGTH>
+     <R3_DECIMAL>000002</R3_DECIMAL>
+     <R3_SEQNUM>000002</R3_SEQNUM>
+    </item>
+    <item>
+     <OBJECT>TABL</OBJECT>
+     <OBJ_NAME>ZCLSD_DT_ENVIA_ATIVO</OBJ_NAME>
+     <OBJECT1>FIEL</OBJECT1>
+     <OBJ_NAME1>MATNR</OBJ_NAME1>
+     <OBJECT2>FIEL</OBJECT2>
+     <OBJ_NAME2>MATNR</OBJ_NAME2>
+     <ID>&lt;element&gt; MATNR &lt;type&gt; dtEnviaAtivo http://trescoracoes.com.br/vendas/fatura http://trescoracoes.com.br/vendas/fatura</ID>
+     <IFR_TYPE>element</IFR_TYPE>
+     <IFR_NAME>MATNR</IFR_NAME>
+     <IFR_TEXT>Nº do material</IFR_TEXT>
+     <IFR_LANGU>EN</IFR_LANGU>
+     <IFR_TAGTYP>E</IFR_TAGTYP>
+     <IFR_MINOCC>1</IFR_MINOCC>
+     <IFR_MAXOCC>1</IFR_MAXOCC>
+     <IFR_XSDTYP>string</IFR_XSDTYP>
+     <IFR_MAXLEN>18</IFR_MAXLEN>
+     <IFR_SCALE>-2</IFR_SCALE>
+     <R3_TYPE>FIEL</R3_TYPE>
+     <R3_NAME>MATNR</R3_NAME>
+     <R3_TEXT>Nº do material</R3_TEXT>
+     <R3_DATATYP>CHAR</R3_DATATYP>
+     <R3_LENGTH>000018</R3_LENGTH>
+     <R3_SEQNUM>000006</R3_SEQNUM>
+    </item>
+    <item>
+     <OBJECT>TABL</OBJECT>
+     <OBJ_NAME>ZCLSD_DT_ENVIA_ATIVO</OBJ_NAME>
+     <OBJECT1>FIEL</OBJECT1>
+     <OBJ_NAME1>NFNUM</OBJ_NAME1>
+     <OBJECT2>FIEL</OBJECT2>
+     <OBJ_NAME2>NFNUM</OBJ_NAME2>
+     <ID>&lt;element&gt; NFNUM &lt;type&gt; dtEnviaAtivo http://trescoracoes.com.br/vendas/fatura http://trescoracoes.com.br/vendas/fatura</ID>
+     <IFR_TYPE>element</IFR_TYPE>
+     <IFR_NAME>NFNUM</IFR_NAME>
+     <IFR_TEXT>Nota Fiscal</IFR_TEXT>
+     <IFR_LANGU>EN</IFR_LANGU>
+     <IFR_TAGTYP>E</IFR_TAGTYP>
+     <IFR_MAXOCC>1</IFR_MAXOCC>
+     <IFR_OPTNL>X</IFR_OPTNL>
+     <IFR_XSDTYP>string</IFR_XSDTYP>
+     <IFR_SCALE>-2</IFR_SCALE>
+     <R3_TYPE>FIEL</R3_TYPE>
+     <R3_NAME>NFNUM</R3_NAME>
+     <R3_TEXT>Nota Fiscal</R3_TEXT>
+     <R3_DATATYP>STRG</R3_DATATYP>
+     <R3_SEQNUM>000012</R3_SEQNUM>
+    </item>
+    <item>
+     <OBJECT>TABL</OBJECT>
+     <OBJ_NAME>ZCLSD_DT_ENVIA_ATIVO</OBJ_NAME>
+     <OBJECT1>FIEL</OBJECT1>
+     <OBJ_NAME1>POSNR</OBJ_NAME1>
+     <OBJECT2>FIEL</OBJECT2>
+     <OBJ_NAME2>POSNR</OBJ_NAME2>
+     <ID>&lt;element&gt; POSNR &lt;type&gt; dtEnviaAtivo http://trescoracoes.com.br/vendas/fatura http://trescoracoes.com.br/vendas/fatura</ID>
+     <IFR_TYPE>element</IFR_TYPE>
+     <IFR_NAME>POSNR</IFR_NAME>
+     <IFR_TEXT>Item do contrato</IFR_TEXT>
+     <IFR_LANGU>EN</IFR_LANGU>
+     <IFR_TAGTYP>E</IFR_TAGTYP>
+     <IFR_MAXOCC>1</IFR_MAXOCC>
+     <IFR_OPTNL>X</IFR_OPTNL>
+     <IFR_XSDTYP>string</IFR_XSDTYP>
+     <IFR_SCALE>-2</IFR_SCALE>
+     <R3_TYPE>FIEL</R3_TYPE>
+     <R3_NAME>POSNR</R3_NAME>
+     <R3_TEXT>Item do contrato</R3_TEXT>
+     <R3_DATATYP>STRG</R3_DATATYP>
+     <R3_SEQNUM>000011</R3_SEQNUM>
+    </item>
+    <item>
+     <OBJECT>TABL</OBJECT>
+     <OBJ_NAME>ZCLSD_DT_ENVIA_ATIVO</OBJ_NAME>
+     <OBJECT1>FIEL</OBJECT1>
+     <OBJ_NAME1>SERNR</OBJ_NAME1>
+     <OBJECT2>FIEL</OBJECT2>
+     <OBJ_NAME2>SERNR</OBJ_NAME2>
+     <ID>&lt;element&gt; SERNR &lt;type&gt; dtEnviaAtivo http://trescoracoes.com.br/vendas/fatura http://trescoracoes.com.br/vendas/fatura</ID>
+     <IFR_TYPE>element</IFR_TYPE>
+     <IFR_NAME>SERNR</IFR_NAME>
+     <IFR_TEXT>Nº de série</IFR_TEXT>
+     <IFR_LANGU>EN</IFR_LANGU>
+     <IFR_TAGTYP>E</IFR_TAGTYP>
+     <IFR_MINOCC>1</IFR_MINOCC>
+     <IFR_MAXOCC>1</IFR_MAXOCC>
+     <IFR_XSDTYP>string</IFR_XSDTYP>
+     <IFR_MAXLEN>18</IFR_MAXLEN>
+     <IFR_SCALE>-2</IFR_SCALE>
+     <R3_TYPE>FIEL</R3_TYPE>
+     <R3_NAME>SERNR</R3_NAME>
+     <R3_TEXT>Nº de série</R3_TEXT>
+     <R3_DATATYP>CHAR</R3_DATATYP>
+     <R3_LENGTH>000018</R3_LENGTH>
+     <R3_SEQNUM>000003</R3_SEQNUM>
+    </item>
+    <item>
+     <OBJECT>TABL</OBJECT>
+     <OBJ_NAME>ZCLSD_DT_ENVIA_ATIVO</OBJ_NAME>
+     <OBJECT1>FIEL</OBJECT1>
+     <OBJ_NAME1>VBELN</OBJ_NAME1>
+     <OBJECT2>FIEL</OBJECT2>
+     <OBJ_NAME2>VBELN</OBJ_NAME2>
+     <ID>&lt;element&gt; VBELN &lt;type&gt; dtEnviaAtivo http://trescoracoes.com.br/vendas/fatura http://trescoracoes.com.br/vendas/fatura</ID>
+     <IFR_TYPE>element</IFR_TYPE>
+     <IFR_NAME>VBELN</IFR_NAME>
+     <IFR_TEXT>Contrato</IFR_TEXT>
+     <IFR_LANGU>EN</IFR_LANGU>
+     <IFR_TAGTYP>E</IFR_TAGTYP>
+     <IFR_MAXOCC>1</IFR_MAXOCC>
+     <IFR_OPTNL>X</IFR_OPTNL>
+     <IFR_XSDTYP>string</IFR_XSDTYP>
+     <IFR_SCALE>-2</IFR_SCALE>
+     <R3_TYPE>FIEL</R3_TYPE>
+     <R3_NAME>VBELN</R3_NAME>
+     <R3_TEXT>Contrato</R3_TEXT>
+     <R3_DATATYP>STRG</R3_DATATYP>
+     <R3_SEQNUM>000010</R3_SEQNUM>
+    </item>
+    <item>
+     <OBJECT>TABL</OBJECT>
+     <OBJ_NAME>ZCLSD_DT_ENVIA_ATIVO</OBJ_NAME>
+     <OBJECT1>TABL</OBJECT1>
+     <OBJ_NAME1>ZCLSD_DT_ENVIA_ATIVO</OBJ_NAME1>
+     <OBJECT2>TABL</OBJECT2>
+     <OBJ_NAME2>ZCLSD_DT_ENVIA_ATIVO</OBJ_NAME2>
+     <ID>&lt;type&gt; dtEnviaAtivo http://trescoracoes.com.br/vendas/fatura http://trescoracoes.com.br/vendas/fatura</ID>
+     <IFR_TYPE>type</IFR_TYPE>
+     <IFR_NAME>dtEnviaAtivo</IFR_NAME>
+     <IFR_LANGU>EN</IFR_LANGU>
+     <IFR_SCALE>-2</IFR_SCALE>
+     <R3_TYPE>TABL</R3_TYPE>
+     <R3_NAME>ZCLSD_DT_ENVIA_ATIVO</R3_NAME>
+     <R3_TEXT>Proxy Structure (generated)</R3_TEXT>
+     <CATEGORY>ifmtypedef</CATEGORY>
+    </item>
+   </PROXY_DATA>
+  </asx:values>
+ </asx:abap>
+</abapGit>

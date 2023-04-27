@@ -1,0 +1,50 @@
+@Metadata.layer: #CORE
+@UI: { headerInfo: { typeName: 'Distrato',
+                     typeNamePlural: 'Distrato',
+                     title: { type: #STANDARD, value: 'Solicitacao' } } }
+
+annotate view ZC_SD_INF_DISTRATO with
+{
+  // ------------------------------------------------------
+  // Informações de cabeçalho
+  // ------------------------------------------------------
+  @UI.facet: [ { id:            'Distrato',
+                 purpose:       #STANDARD,
+                 type:          #IDENTIFICATION_REFERENCE,
+                 label:         'Informações Distrato',
+                 position:      10 }  ]
+
+  // ------------------------------------------------------
+  // Informações de campo
+  // ------------------------------------------------------
+  @UI.hidden: true
+  Contrato;
+
+  @UI: { lineItem:        [ { position: 10, label: 'Solicitação Distrato' } ],
+         identification:  [ { position: 10, label: 'Solicitação Distrato' } ] }
+  Solicitacao;
+
+  @UI: { lineItem:        [ { position: 20, label: 'Item' } ],
+         identification:  [ { position: 20, label: 'Item' } ] }
+  ContratoItem;
+
+  @UI: { lineItem:        [ { position: 30, label: 'Número de Série' } ],
+         identification:  [ { position: 30, label: 'Número de Série' } ] }
+  Serie;
+
+  @UI.hidden: true
+  SerieCV;
+
+  @UI: { lineItem:        [ { position: 40, label: 'Ordem de Saída' } ],
+         identification:  [ { position: 40, label: 'Ordem de Saída' } ] }
+  Ordem;
+
+  @UI: { lineItem:        [ { position: 50, label: 'NF-e de Saída' } ],
+         identification:  [ { position: 50, label: 'NF-e de Saída' } ] }
+  NFeNumber;
+
+  @UI: { lineItem:        [ { position: 60, label: 'Ordem de Frete' } ],
+         identification:  [ { position: 60, label: 'Ordem de Frete' } ] }
+  OrdemFrete;
+
+}

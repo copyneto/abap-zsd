@@ -1,0 +1,8 @@
+projection;
+
+define behavior for ZC_SD_PIS_COFINS alias PisCofins
+use etag {
+  use create;
+  use update;
+  use delete;
+}

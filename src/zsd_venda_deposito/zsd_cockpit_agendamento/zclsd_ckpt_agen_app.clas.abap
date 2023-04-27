@@ -1,0 +1,5 @@
+CLASS zclsd_ckpt_agen_app DEFINITION PUBLIC ABSTRACT FINAL FOR BEHAVIOR OF zi_sd_ckpt_agen_app.
+ENDCLASS.
+
+CLASS zclsd_ckpt_agen_app IMPLEMENTATION.
+ENDCLASS.

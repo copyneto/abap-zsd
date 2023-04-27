@@ -1,0 +1,5 @@
+@EndUserText.label: 'Cockpit gerenciamento de remessas'
+define service ZUI_SD_COCKPIT_REMESSA {
+  expose ZC_SD_COCKPIT_REMESSA as Cockpit;
+  expose ZC_SD_COCKPIT_REMESSA_LOG as CockpitLog;
+}

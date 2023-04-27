@@ -1,0 +1,132 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<abapGit version="v1.0.0" serializer="LCL_OBJECT_SPRX" serializer_version="v1.0.0">
+ <asx:abap xmlns:asx="http://www.sap.com/abapxml" version="1.0">
+  <asx:values>
+   <PROXY_HEADER>
+    <item>
+     <OBJECT>TABL</OBJECT>
+     <OBJ_NAME>ZTLOTE_GNRE_C05_REFERENCIA</OBJ_NAME>
+     <OBJECT_M>TABL</OBJECT_M>
+     <OBJ_NAME_M>ZTLOTE_GNRE1</OBJ_NAME_M>
+     <HASH_ID>CA84282FD37B12A6FA85AA146AE623F1F01DBE42</HASH_ID>
+     <ID>&lt;type&gt; c05_referencia &lt;element&gt; {http://www.gnre.pe.gov.br}c05_referencia &lt;type&gt; TDadosGNRE &lt;element&gt; {http://www.gnre.pe.gov.br}TDadosGNRE &lt;type&gt; guias &lt;element&gt; {http://www.gnre.pe.gov.br}guias &lt;type&gt; TLote_GNRE &lt;element&gt; TLote_GNRE http://www.gnre.pe.gov.br http://www.gnre.pe.gov.br</ID>
+     <IFR_TYPE>type</IFR_TYPE>
+     <IFR_NAME>c05_referencia</IFR_NAME>
+     <IFR_NSPCE>http://www.gnre.pe.gov.br</IFR_NSPCE>
+     <IFR_GNSPCE>http://www.gnre.pe.gov.br</IFR_GNSPCE>
+     <GEN_VERS>0005</GEN_VERS>
+     <PREFIX>Z</PREFIX>
+     <CATEGORY>ifmtypedef</CATEGORY>
+     <GEN_APPL>WEBSERVICES</GEN_APPL>
+     <X-ML_NSPCE>http://www.gnre.pe.gov.br</X-ML_NSPCE>
+     <X-ML_NAME>c05_referencia</X-ML_NAME>
+    </item>
+   </PROXY_HEADER>
+   <PROXY_DATA>
+    <item>
+     <OBJECT>TABL</OBJECT>
+     <OBJ_NAME>ZTLOTE_GNRE_C05_REFERENCIA</OBJ_NAME>
+     <OBJECT1>FIEL</OBJECT1>
+     <OBJ_NAME1>ANO</OBJ_NAME1>
+     <OBJECT2>FIEL</OBJECT2>
+     <OBJ_NAME2>ANO</OBJ_NAME2>
+     <OBJECT_R>DTEL</OBJECT_R>
+     <OBJ_NAME_R>ZTANO1</OBJ_NAME_R>
+     <ID>&lt;element&gt; {http://www.gnre.pe.gov.br}ano &lt;type&gt; c05_referencia &lt;element&gt; {http://www.gnre.pe.gov.br}c05_referencia &lt;type&gt; TDadosGNRE &lt;element&gt; {http://www.gnre.pe.gov.br}TDadosGNRE &lt;type&gt; guias &lt;element&gt; {http://www.gnre.pe.gov.br}guias &lt;type&gt; TLote_GNRE &lt;element&gt; TLote_GNRE http://www.gnre.pe.gov.br http://www.gnre.pe.gov.br</ID>
+     <IFR_TYPE>element</IFR_TYPE>
+     <IFR_NAME>ano</IFR_NAME>
+     <IFR_TAGTYP>E</IFR_TAGTYP>
+     <IFR_MAXOCC>1</IFR_MAXOCC>
+     <IFR_OPTNL>X</IFR_OPTNL>
+     <IFR_QUALIF>X</IFR_QUALIF>
+     <IFR_SCALE>-2</IFR_SCALE>
+     <R3_TYPE>FIEL</R3_TYPE>
+     <R3_NAME>ANO</R3_NAME>
+     <R3_SEQNUM>000003</R3_SEQNUM>
+    </item>
+    <item>
+     <OBJECT>TABL</OBJECT>
+     <OBJ_NAME>ZTLOTE_GNRE_C05_REFERENCIA</OBJ_NAME>
+     <OBJECT1>FIEL</OBJECT1>
+     <OBJ_NAME1>MES</OBJ_NAME1>
+     <OBJECT2>FIEL</OBJECT2>
+     <OBJ_NAME2>MES</OBJ_NAME2>
+     <OBJECT_R>DTEL</OBJECT_R>
+     <OBJ_NAME_R>ZTMES1</OBJ_NAME_R>
+     <ID>&lt;element&gt; {http://www.gnre.pe.gov.br}mes &lt;type&gt; c05_referencia &lt;element&gt; {http://www.gnre.pe.gov.br}c05_referencia &lt;type&gt; TDadosGNRE &lt;element&gt; {http://www.gnre.pe.gov.br}TDadosGNRE &lt;type&gt; guias &lt;element&gt; {http://www.gnre.pe.gov.br}guias &lt;type&gt; TLote_GNRE &lt;element&gt; TLote_GNRE http://www.gnre.pe.gov.br http://www.gnre.pe.gov.br</ID>
+     <IFR_TYPE>element</IFR_TYPE>
+     <IFR_NAME>mes</IFR_NAME>
+     <IFR_TAGTYP>E</IFR_TAGTYP>
+     <IFR_MAXOCC>1</IFR_MAXOCC>
+     <IFR_OPTNL>X</IFR_OPTNL>
+     <IFR_QUALIF>X</IFR_QUALIF>
+     <IFR_SCALE>-2</IFR_SCALE>
+     <R3_TYPE>FIEL</R3_TYPE>
+     <R3_NAME>MES</R3_NAME>
+     <R3_SEQNUM>000002</R3_SEQNUM>
+    </item>
+    <item>
+     <OBJECT>TABL</OBJECT>
+     <OBJ_NAME>ZTLOTE_GNRE_C05_REFERENCIA</OBJ_NAME>
+     <OBJECT1>FIEL</OBJECT1>
+     <OBJ_NAME1>PARCELA</OBJ_NAME1>
+     <OBJECT2>FIEL</OBJECT2>
+     <OBJ_NAME2>PARCELA</OBJ_NAME2>
+     <ID>&lt;element&gt; {http://www.gnre.pe.gov.br}parcela &lt;type&gt; c05_referencia &lt;element&gt; {http://www.gnre.pe.gov.br}c05_referencia &lt;type&gt; TDadosGNRE &lt;element&gt; {http://www.gnre.pe.gov.br}TDadosGNRE &lt;type&gt; guias &lt;element&gt; {http://www.gnre.pe.gov.br}guias &lt;type&gt; TLote_GNRE &lt;element&gt; TLote_GNRE http://www.gnre.pe.gov.br http://www.gnre.pe.gov.br</ID>
+     <IFR_TYPE>element</IFR_TYPE>
+     <IFR_NAME>parcela</IFR_NAME>
+     <IFR_TAGTYP>E</IFR_TAGTYP>
+     <IFR_MAXOCC>1</IFR_MAXOCC>
+     <IFR_OPTNL>X</IFR_OPTNL>
+     <IFR_QUALIF>X</IFR_QUALIF>
+     <IFR_XSDTYP>string</IFR_XSDTYP>
+     <IFR_PATTRN>[1-9]{1}[0-9]{0,2}</IFR_PATTRN>
+     <IFR_SCALE>-2</IFR_SCALE>
+     <R3_TYPE>FIEL</R3_TYPE>
+     <R3_NAME>PARCELA</R3_NAME>
+     <R3_DATATYP>STRG</R3_DATATYP>
+     <R3_SEQNUM>000004</R3_SEQNUM>
+     <FURTHERDATA>&lt;asx:abap xmlns:asx=&quot;http://www.sap.com/abapxml&quot; version=&quot;1.0&quot;&gt;&lt;asx:values&gt;&lt;DATA&gt;&lt;IFR_WHITESPACE&gt;preserve&lt;/IFR_WHITESPACE&gt;&lt;/DATA&gt;&lt;/asx:values&gt;&lt;/asx:abap&gt;</FURTHERDATA>
+    </item>
+    <item>
+     <OBJECT>TABL</OBJECT>
+     <OBJ_NAME>ZTLOTE_GNRE_C05_REFERENCIA</OBJ_NAME>
+     <OBJECT1>FIEL</OBJECT1>
+     <OBJ_NAME1>PERIODO</OBJ_NAME1>
+     <OBJECT2>FIEL</OBJECT2>
+     <OBJ_NAME2>PERIODO</OBJ_NAME2>
+     <ID>&lt;element&gt; {http://www.gnre.pe.gov.br}periodo &lt;type&gt; c05_referencia &lt;element&gt; {http://www.gnre.pe.gov.br}c05_referencia &lt;type&gt; TDadosGNRE &lt;element&gt; {http://www.gnre.pe.gov.br}TDadosGNRE &lt;type&gt; guias &lt;element&gt; {http://www.gnre.pe.gov.br}guias &lt;type&gt; TLote_GNRE &lt;element&gt; TLote_GNRE http://www.gnre.pe.gov.br http://www.gnre.pe.gov.br</ID>
+     <IFR_TYPE>element</IFR_TYPE>
+     <IFR_NAME>periodo</IFR_NAME>
+     <IFR_TAGTYP>E</IFR_TAGTYP>
+     <IFR_MAXOCC>1</IFR_MAXOCC>
+     <IFR_OPTNL>X</IFR_OPTNL>
+     <IFR_QUALIF>X</IFR_QUALIF>
+     <IFR_XSDTYP>string</IFR_XSDTYP>
+     <IFR_SCALE>-2</IFR_SCALE>
+     <R3_TYPE>FIEL</R3_TYPE>
+     <R3_NAME>PERIODO</R3_NAME>
+     <R3_DATATYP>STRG</R3_DATATYP>
+     <R3_SEQNUM>000001</R3_SEQNUM>
+     <FURTHERDATA>&lt;asx:abap xmlns:asx=&quot;http://www.sap.com/abapxml&quot; version=&quot;1.0&quot;&gt;&lt;asx:values&gt;&lt;DATA&gt;&lt;IFR_T_ENUM&gt;&lt;item&gt;0&lt;/item&gt;&lt;item&gt;1&lt;/item&gt;&lt;item&gt;2&lt;/item&gt;&lt;item&gt;3&lt;/item&gt;&lt;item&gt;4&lt;/item&gt;&lt;item&gt;5&lt;/item&gt;&lt;/IFR_T_ENUM&gt;&lt;IFR_WHITESPACE&gt;preserve&lt;/IFR_WHITESPACE&gt;&lt;/DATA&gt;&lt;/asx:values&gt;&lt;/asx:abap&gt;</FURTHERDATA>
+    </item>
+    <item>
+     <OBJECT>TABL</OBJECT>
+     <OBJ_NAME>ZTLOTE_GNRE_C05_REFERENCIA</OBJ_NAME>
+     <OBJECT1>TABL</OBJECT1>
+     <OBJ_NAME1>ZTLOTE_GNRE_C05_REFERENCIA</OBJ_NAME1>
+     <OBJECT2>TABL</OBJECT2>
+     <OBJ_NAME2>ZTLOTE_GNRE_C05_REFERENCIA</OBJ_NAME2>
+     <ID>&lt;type&gt; c05_referencia &lt;element&gt; {http://www.gnre.pe.gov.br}c05_referencia &lt;type&gt; TDadosGNRE &lt;element&gt; {http://www.gnre.pe.gov.br}TDadosGNRE &lt;type&gt; guias &lt;element&gt; {http://www.gnre.pe.gov.br}guias &lt;type&gt; TLote_GNRE &lt;element&gt; TLote_GNRE http://www.gnre.pe.gov.br http://www.gnre.pe.gov.br</ID>
+     <IFR_TYPE>type</IFR_TYPE>
+     <IFR_NAME>c05_referencia</IFR_NAME>
+     <IFR_SCALE>-2</IFR_SCALE>
+     <R3_TYPE>TABL</R3_TYPE>
+     <R3_NAME>ZTLOTE_GNRE_C05_REFERENCIA</R3_NAME>
+     <R3_TEXT>Proxy Structure (generated)</R3_TEXT>
+     <CATEGORY>ifmtypedef</CATEGORY>
+    </item>
+   </PROXY_DATA>
+  </asx:values>
+ </asx:abap>
+</abapGit>

@@ -1,0 +1,34 @@
+@Metadata.layer: #CORE
+@UI: {
+  headerInfo: {
+    typeName: 'Regra DIFAL - Consumo',
+    typeNamePlural: 'Regras DIFAL - Consumo',
+    title: {
+      type: #STANDARD,
+      label: 'Tipo da Ordem',
+      value: 'TypeOrder'
+    }
+  }}
+annotate view ZC_SD_REGRA_DIFAL
+    with 
+{
+    
+@UI.facet: [ { id:         'TypeOrder',
+               purpose:       #STANDARD,
+               type:          #IDENTIFICATION_REFERENCE,
+//               label:         '',
+               position:      10 }]
+
+ @UI: { lineItem: [{ position: 20 }],
+           identification: [{ position: 20 }]}
+//           identification: [{ label: '' }] }
+  @UI.selectionField: [{ position: 10 }]
+  TypeOrder;
+  
+  @UI: { lineItem: [{ position: 30 }],
+           identification: [{ position: 30 }]}
+//           identification: [{ label: '' }] }
+  @UI.selectionField: [{ position: 20 }]
+  TaxCode;    
+    
+}

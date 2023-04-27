@@ -1,0 +1,11 @@
+@EndUserText.label: 'CDS de Autorização'
+@MappingRole: true
+define role ZI_SD_COCKPIT_DEVOLUCAO_GERDEV {
+    grant 
+        select
+            on
+                ZI_SD_COCKPIT_DEVOLUCAO_GERDEV
+                    where
+                        (Centro) = aspect pfcg_auth( ZSDWERKS, WERKS, ACTVT = '03' );
+                        
+}

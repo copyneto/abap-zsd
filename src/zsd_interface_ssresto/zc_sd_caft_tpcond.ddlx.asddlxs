@@ -1,0 +1,38 @@
+@Metadata.layer: #CORE
+
+@UI: { headerInfo: { typeName: 'Tipo de condição de pagamanto',
+                     title: {type: #STANDARD, value: 'Tipopag' },
+                     description: { value: 'Tipopag' },
+                     typeNamePlural: 'Tipo de condição de pagamanto'
+                   }
+     }
+annotate view ZC_SD_CAFT_TPCOND
+    with 
+{
+  @UI.facet: [
+   { id:          'Tipopag',
+     purpose:       #STANDARD,
+     type:          #IDENTIFICATION_REFERENCE,
+     label:         'Tipo de condição de pgmt',
+     position:      10
+   } ]
+   
+  @UI: { lineItem:   [ { position: 10, label: 'Tipo de condição de pgmt.' } ],
+    identification:  [ { position: 10, label: 'Tipo de condição de pgmt.' } ],
+    selectionField:  [ { position: 10 } ] }
+    Tipopag;
+  @UI: { lineItem:   [ { position: 20, label: 'Texto do tipo de condição de pgmt.' } ],
+    identification:  [ { position: 20, label: 'Texto do tipo de condição de pgmt.' } ],
+    selectionField:  [ { position: 20 } ] }
+    Texto;
+  @UI: { lineItem:   [ { position: 30, label: 'Nº conta do Razão' } ],
+    identification:  [ { position: 30, label: 'Nº conta do Razão' } ],
+    selectionField:  [ { position: 30 } ] }
+    Saknr;
+  @UI: { lineItem:   [ { position: 40, label: 'Prefixo texto no Nº atribuição' } ],
+    identification:  [ { position: 40, label: 'Prefixo texto no Nº atribuição' } ],
+    selectionField:  [ { position: 40 } ] }
+    Prefixo;
+    
+    
+}

@@ -1,0 +1,151 @@
+<?sap.transform simple?>
+<tt:transform xmlns:tt="http://www.sap.com/transformation-templates" xmlns:ddic="http://www.sap.com/abapxml/types/dictionary" xmlns:def="http://www.sap.com/abapxml/types/defined">
+  <tt:root name="TLOTE_GNRE" type="ddic:ZGNRE_DADOS_MSG2"/>
+  <tt:template>
+    <TLOTE_GNRE>
+      <CONTROLLER>
+        <tt:loop ref=".TLOTE_GNRE.TLOTE_GNRE.CONTROLLER">
+          <PRXCTRL>
+            <FIELD tt:value-ref="FIELD"/>
+            <VALUE tt:value-ref="VALUE"/>
+          </PRXCTRL>
+        </tt:loop>
+      </CONTROLLER>
+      <GUIAS>
+        <CONTROLLER>
+          <tt:loop ref=".TLOTE_GNRE.TLOTE_GNRE.GUIAS.CONTROLLER">
+            <PRXCTRL>
+              <FIELD tt:value-ref="FIELD"/>
+              <VALUE tt:value-ref="VALUE"/>
+            </PRXCTRL>
+          </tt:loop>
+        </CONTROLLER>
+        <TDADOS_GNRE>
+          <tt:loop ref=".TLOTE_GNRE.TLOTE_GNRE.GUIAS.TDADOS_GNRE">
+            <ZTLOTE_GNRE_TDADOS_GNRE1>
+              <CONTROLLER>
+                <tt:loop ref="CONTROLLER">
+                  <PRXCTRL>
+                    <FIELD tt:value-ref="FIELD"/>
+                    <VALUE tt:value-ref="VALUE"/>
+                  </PRXCTRL>
+                </tt:loop>
+              </CONTROLLER>
+              <C01_UF_FAVORECIDA tt:value-ref="C01_UF_FAVORECIDA"/>
+              <C02_RECEITA tt:value-ref="C02_RECEITA"/>
+              <C25_DETALHAMENTO_RECEITA tt:value-ref="C25_DETALHAMENTO_RECEITA"/>
+              <C26_PRODUTO tt:value-ref="C26_PRODUTO"/>
+              <C27_TIPO_IDENTIFICACAO_EMITENT tt:value-ref="C27_TIPO_IDENTIFICACAO_EMITENT"/>
+              <C03_ID_CONTRIBUINTE_EMITENTE>
+                <CONTROLLER>
+                  <tt:loop ref="C03_ID_CONTRIBUINTE_EMITENTE.CONTROLLER">
+                    <PRXCTRL>
+                      <FIELD tt:value-ref="FIELD"/>
+                      <VALUE tt:value-ref="VALUE"/>
+                    </PRXCTRL>
+                  </tt:loop>
+                </CONTROLLER>
+                <CHOICE>
+                  <SELECTION tt:value-ref="C03_ID_CONTRIBUINTE_EMITENTE.CHOICE.SELECTION"/>
+                  <CONTROLLER>
+                    <tt:loop ref="C03_ID_CONTRIBUINTE_EMITENTE.CHOICE.CONTROLLER">
+                      <PRXCTRL>
+                        <FIELD tt:value-ref="FIELD"/>
+                        <VALUE tt:value-ref="VALUE"/>
+                      </PRXCTRL>
+                    </tt:loop>
+                  </CONTROLLER>
+                  <CNPJ tt:value-ref="C03_ID_CONTRIBUINTE_EMITENTE.CHOICE.CNPJ"/>
+                  <CPF tt:value-ref="C03_ID_CONTRIBUINTE_EMITENTE.CHOICE.CPF"/>
+                </CHOICE>
+              </C03_ID_CONTRIBUINTE_EMITENTE>
+              <C28_TIPO_DOC_ORIGEM tt:value-ref="C28_TIPO_DOC_ORIGEM"/>
+              <C04_DOC_ORIGEM tt:value-ref="C04_DOC_ORIGEM"/>
+              <C06_VALOR_PRINCIPAL tt:value-ref="C06_VALOR_PRINCIPAL"/>
+              <C10_VALOR_TOTAL tt:value-ref="C10_VALOR_TOTAL"/>
+              <C14_DATA_VENCIMENTO tt:value-ref="C14_DATA_VENCIMENTO"/>
+              <C15_CONVENIO tt:value-ref="C15_CONVENIO"/>
+              <C16_RAZAO_SOCIAL_EMITENTE tt:value-ref="C16_RAZAO_SOCIAL_EMITENTE"/>
+              <C17_INSCRICAO_ESTADUAL_EMITENT tt:value-ref="C17_INSCRICAO_ESTADUAL_EMITENT"/>
+              <C18_ENDERECO_EMITENTE tt:value-ref="C18_ENDERECO_EMITENTE"/>
+              <C19_MUNICIPIO_EMITENTE tt:value-ref="C19_MUNICIPIO_EMITENTE"/>
+              <C20_UF_ENDERECO_EMITENTE tt:value-ref="C20_UF_ENDERECO_EMITENTE"/>
+              <C21_CEP_EMITENTE tt:value-ref="C21_CEP_EMITENTE"/>
+              <C22_TELEFONE_EMITENTE tt:value-ref="C22_TELEFONE_EMITENTE"/>
+              <C34_TIPO_IDENTIFICACAO_DESTINA tt:value-ref="C34_TIPO_IDENTIFICACAO_DESTINA"/>
+              <C35_ID_CONTRIBUINTE_DESTINATAR>
+                <CONTROLLER>
+                  <tt:loop ref="C35_ID_CONTRIBUINTE_DESTINATAR.CONTROLLER">
+                    <PRXCTRL>
+                      <FIELD tt:value-ref="FIELD"/>
+                      <VALUE tt:value-ref="VALUE"/>
+                    </PRXCTRL>
+                  </tt:loop>
+                </CONTROLLER>
+                <CHOICE>
+                  <SELECTION tt:value-ref="C35_ID_CONTRIBUINTE_DESTINATAR.CHOICE.SELECTION"/>
+                  <CONTROLLER>
+                    <tt:loop ref="C35_ID_CONTRIBUINTE_DESTINATAR.CHOICE.CONTROLLER">
+                      <PRXCTRL>
+                        <FIELD tt:value-ref="FIELD"/>
+                        <VALUE tt:value-ref="VALUE"/>
+                      </PRXCTRL>
+                    </tt:loop>
+                  </CONTROLLER>
+                  <CNPJ tt:value-ref="C35_ID_CONTRIBUINTE_DESTINATAR.CHOICE.CNPJ"/>
+                  <CPF tt:value-ref="C35_ID_CONTRIBUINTE_DESTINATAR.CHOICE.CPF"/>
+                </CHOICE>
+              </C35_ID_CONTRIBUINTE_DESTINATAR>
+              <C36_INSCRICAO_ESTADUAL_DESTINA tt:value-ref="C36_INSCRICAO_ESTADUAL_DESTINA"/>
+              <C37_RAZAO_SOCIAL_DESTINATARIO tt:value-ref="C37_RAZAO_SOCIAL_DESTINATARIO"/>
+              <C38_MUNICIPIO_DESTINATARIO tt:value-ref="C38_MUNICIPIO_DESTINATARIO"/>
+              <C33_DATA_PAGAMENTO tt:value-ref="C33_DATA_PAGAMENTO"/>
+              <C05_REFERENCIA>
+                <CONTROLLER>
+                  <tt:loop ref="C05_REFERENCIA.CONTROLLER">
+                    <PRXCTRL>
+                      <FIELD tt:value-ref="FIELD"/>
+                      <VALUE tt:value-ref="VALUE"/>
+                    </PRXCTRL>
+                  </tt:loop>
+                </CONTROLLER>
+                <PERIODO tt:value-ref="C05_REFERENCIA.PERIODO"/>
+                <MES tt:value-ref="C05_REFERENCIA.MES"/>
+                <ANO tt:value-ref="C05_REFERENCIA.ANO"/>
+                <PARCELA tt:value-ref="C05_REFERENCIA.PARCELA"/>
+              </C05_REFERENCIA>
+              <C39_CAMPOS_EXTRAS>
+                <CONTROLLER>
+                  <tt:loop ref="C39_CAMPOS_EXTRAS.CONTROLLER">
+                    <PRXCTRL>
+                      <FIELD tt:value-ref="FIELD"/>
+                      <VALUE tt:value-ref="VALUE"/>
+                    </PRXCTRL>
+                  </tt:loop>
+                </CONTROLLER>
+                <CAMPO_EXTRA>
+                  <tt:loop ref="C39_CAMPOS_EXTRAS.CAMPO_EXTRA">
+                    <ZTLOTE_GNRE_CAMPO_EXTRA>
+                      <CONTROLLER>
+                        <tt:loop ref="CONTROLLER">
+                          <PRXCTRL>
+                            <FIELD tt:value-ref="FIELD"/>
+                            <VALUE tt:value-ref="VALUE"/>
+                          </PRXCTRL>
+                        </tt:loop>
+                      </CONTROLLER>
+                      <CODIGO tt:value-ref="CODIGO"/>
+                      <TIPO tt:value-ref="TIPO"/>
+                      <VALOR tt:value-ref="VALOR"/>
+                    </ZTLOTE_GNRE_CAMPO_EXTRA>
+                  </tt:loop>
+                </CAMPO_EXTRA>
+              </C39_CAMPOS_EXTRAS>
+              <C42_IDENTIFICADOR_GUIA tt:value-ref="C42_IDENTIFICADOR_GUIA"/>
+            </ZTLOTE_GNRE_TDADOS_GNRE1>
+          </tt:loop>
+        </TDADOS_GNRE>
+      </GUIAS>
+    </TLOTE_GNRE>
+  </tt:template>
+</tt:transform>

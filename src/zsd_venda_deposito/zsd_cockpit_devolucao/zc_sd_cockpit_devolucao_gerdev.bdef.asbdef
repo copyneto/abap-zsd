@@ -1,0 +1,18 @@
+projection;
+
+define behavior for ZC_SD_COCKPIT_DEVOLUCAO_GERDEV //alias <alias_name>
+use etag
+{
+
+  use update;
+  use action  gerarOv ;
+  use action  Calcular ;
+//  use association _RefVal{create;}
+}
+
+define behavior for ZC_SD_COCKPIT_DEVOLUCAO_REFVAL alias GeracaoDev
+use etag
+{
+  use update;
+  use association _GeracaoDev;
+}

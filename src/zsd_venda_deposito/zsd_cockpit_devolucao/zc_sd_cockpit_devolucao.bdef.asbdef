@@ -1,0 +1,49 @@
+projection;
+
+define behavior for ZC_SD_COCKPIT_DEVOLUCAO alias Cockpit
+use etag
+{
+  use create;
+  use update;
+
+  use action DesbloquearOv;
+  use action DesbloquearRemessa;
+  use action EliminarPreLancamento;
+
+  use association _Arquivo;
+  use association _NotaFiscal;
+  use association _Informacoes;
+  use association _Transporte;
+
+}
+
+define behavior for ZC_SD_COCKPIT_DEVOLUCAO_ANEXO alias Arquivo
+use etag
+{
+  use delete;
+
+  use association _Cockpit;
+}
+
+define behavior for ZC_SD_COCKPIT_NOTA_FISCAL alias NotaFiscal
+use etag
+{
+
+  use update;
+  use association _Cockpit;
+
+}
+
+define behavior for ZC_SD_COCKPIT_DEVOLUCAO_INFOS alias Informacoes
+use etag
+{
+  use update;
+  use association _Cockpit;
+}
+
+define behavior for ZC_SD_COCKPIT_DEVOLUCAO_TRANS alias Transporte
+use etag
+{
+  use update;
+  use association _Cockpit;
+}

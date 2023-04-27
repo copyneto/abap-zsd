@@ -1,0 +1,11 @@
+projection;
+
+define behavior for ZC_SD_COMISSAO_COMEX_RAP alias Comissao
+use etag
+{
+
+  use create;
+  use update;
+  use delete;
+
+}

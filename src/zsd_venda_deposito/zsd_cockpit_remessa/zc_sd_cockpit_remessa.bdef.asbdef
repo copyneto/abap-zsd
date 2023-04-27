@@ -1,0 +1,19 @@
+projection;
+
+define behavior for ZC_SD_COCKPIT_REMESSA alias Cockpit
+{
+  use association _CockpitLog;
+
+  use action checkParam;
+  use action releaseToRouting;
+  use action sendToRouting;
+  use action setDeliveryBlock;
+  use action rmvDeliveryBlock;
+  use action deleteDelivery;
+//  use action returnSymbol;
+}
+
+define behavior for ZC_SD_COCKPIT_REMESSA_LOG alias CockpitLog
+{
+  use association _Cockpit;
+}

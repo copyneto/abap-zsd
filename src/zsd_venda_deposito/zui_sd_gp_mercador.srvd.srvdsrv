@@ -1,0 +1,4 @@
+@EndUserText.label: 'Service Def Grupo Mercadorias'
+define service ZUI_SD_GP_MERCADOR {
+  expose ZC_SD_GP_MERCADOR;
+}

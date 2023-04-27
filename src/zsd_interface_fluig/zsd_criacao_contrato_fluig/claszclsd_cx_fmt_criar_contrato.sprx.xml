@@ -1,0 +1,68 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<abapGit version="v1.0.0" serializer="LCL_OBJECT_SPRX" serializer_version="v1.0.0">
+ <asx:abap xmlns:asx="http://www.sap.com/abapxml" version="1.0">
+  <asx:values>
+   <PROXY_HEADER>
+    <item>
+     <OBJECT>CLAS</OBJECT>
+     <OBJ_NAME>ZCLSD_CX_FMT_CRIAR_CONTRATO</OBJ_NAME>
+     <OBJECT_M>CLAS</OBJECT_M>
+     <OBJ_NAME_M>ZCLSD_CX_FMT_CRIAR_CONTRATO</OBJ_NAME_M>
+     <HASH_ID>5EA32C6B053166CF500CA4FB2B8C10566B9FA188</HASH_ID>
+     <ID>&lt;message&gt; fmtCriarContrato http://trescoracoes.com.br/vendas/contrato http://trescoracoes.com.br/vendas/contrato</ID>
+     <IFR_GLOBAL>X</IFR_GLOBAL>
+     <IFR_TYPE>message</IFR_TYPE>
+     <IFR_NAME>fmtCriarContrato</IFR_NAME>
+     <IFR_NSPCE>http://trescoracoes.com.br/vendas/contrato</IFR_NSPCE>
+     <IFR_GNSPCE>http://trescoracoes.com.br/vendas/contrato</IFR_GNSPCE>
+     <GEN_VERS>0006</GEN_VERS>
+     <PREFIX>ZCLSD_</PREFIX>
+     <CATEGORY>ifmfaultm</CATEGORY>
+     <X-ML_NSPCE>http://trescoracoes.com.br/vendas/contrato</X-ML_NSPCE>
+     <X-ML_NAME>fmtCriarContrato</X-ML_NAME>
+     <VERSION_ID>62bc7f6985d611ec8b5300000085a0ca</VERSION_ID>
+    </item>
+   </PROXY_HEADER>
+   <PROXY_DATA>
+    <item>
+     <OBJECT>CLAS</OBJECT>
+     <OBJ_NAME>ZCLSD_CX_FMT_CRIAR_CONTRATO</OBJ_NAME>
+     <OBJECT1>ATTR</OBJECT1>
+     <OBJ_NAME1>STANDARD</OBJ_NAME1>
+     <OBJECT2>ATTR</OBJECT2>
+     <OBJ_NAME2>STANDARD</OBJ_NAME2>
+     <OBJECT_R>TABL</OBJECT_R>
+     <OBJ_NAME_R>ZCLSD_EXCHANGE_FAULT_DATA6</OBJ_NAME_R>
+     <ID>&lt;element&gt; standard &lt;message&gt; fmtCriarContrato http://trescoracoes.com.br/vendas/contrato http://trescoracoes.com.br/vendas/contrato</ID>
+     <IFR_TYPE>element</IFR_TYPE>
+     <IFR_NAME>standard</IFR_NAME>
+     <IFR_TAGTYP>E</IFR_TAGTYP>
+     <IFR_MINOCC>1</IFR_MINOCC>
+     <IFR_MAXOCC>1</IFR_MAXOCC>
+     <IFR_SCALE>-2</IFR_SCALE>
+     <R3_TYPE>ATTR</R3_TYPE>
+     <R3_NAME>STANDARD</R3_NAME>
+     <R3_SEQNUM>000001</R3_SEQNUM>
+    </item>
+    <item>
+     <OBJECT>CLAS</OBJECT>
+     <OBJ_NAME>ZCLSD_CX_FMT_CRIAR_CONTRATO</OBJ_NAME>
+     <OBJECT1>CLAS</OBJECT1>
+     <OBJ_NAME1>ZCLSD_CX_FMT_CRIAR_CONTRATO</OBJ_NAME1>
+     <OBJECT2>CLAS</OBJECT2>
+     <OBJ_NAME2>ZCLSD_CX_FMT_CRIAR_CONTRATO</OBJ_NAME2>
+     <ID>&lt;message&gt; fmtCriarContrato http://trescoracoes.com.br/vendas/contrato http://trescoracoes.com.br/vendas/contrato</ID>
+     <IFR_TYPE>message</IFR_TYPE>
+     <IFR_NAME>fmtCriarContrato</IFR_NAME>
+     <IFR_LANGU>EN</IFR_LANGU>
+     <IFR_SCALE>-2</IFR_SCALE>
+     <IFR_FAULT>X</IFR_FAULT>
+     <R3_TYPE>CLAS</R3_TYPE>
+     <R3_NAME>ZCLSD_CX_FMT_CRIAR_CONTRATO</R3_NAME>
+     <R3_TEXT>Proxy Class (generated)</R3_TEXT>
+     <CATEGORY>ifmfaultm</CATEGORY>
+    </item>
+   </PROXY_DATA>
+  </asx:values>
+ </asx:abap>
+</abapGit>

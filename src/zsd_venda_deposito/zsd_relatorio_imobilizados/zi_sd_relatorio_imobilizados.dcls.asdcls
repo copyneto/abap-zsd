@@ -1,0 +1,11 @@
+@EndUserText.label: 'CDS de Autorização'
+@MappingRole: true
+define role ZI_SD_RELATORIO_IMOBILIZADOS {
+    grant 
+        select
+            on
+                ZI_SD_RELATORIO_IMOBILIZADOS
+                    where
+                        ( Centro ) = aspect pfcg_auth( ZSDWERKS, WERKS, ACTVT = '03' );
+                        
+}

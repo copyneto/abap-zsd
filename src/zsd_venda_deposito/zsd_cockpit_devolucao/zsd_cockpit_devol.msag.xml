@@ -1,0 +1,248 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<abapGit version="v1.0.0" serializer="LCL_OBJECT_MSAG" serializer_version="v1.0.0">
+ <asx:abap xmlns:asx="http://www.sap.com/abapxml" version="1.0">
+  <asx:values>
+   <T100A>
+    <ARBGB>ZSD_COCKPIT_DEVOL</ARBGB>
+    <MASTERLANG>P</MASTERLANG>
+    <STEXT>Classe mensagens Cockpit Devolução</STEXT>
+   </T100A>
+   <T100>
+    <T100>
+     <SPRSL>P</SPRSL>
+     <ARBGB>ZSD_COCKPIT_DEVOL</ARBGB>
+     <MSGNR>000</MSGNR>
+     <TEXT>&amp; &amp; &amp; &amp;</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>P</SPRSL>
+     <ARBGB>ZSD_COCKPIT_DEVOL</ARBGB>
+     <MSGNR>001</MSGNR>
+     <TEXT>Usuário não autorizado!</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>P</SPRSL>
+     <ARBGB>ZSD_COCKPIT_DEVOL</ARBGB>
+     <MSGNR>002</MSGNR>
+     <TEXT>Nenhum arquivo encontrado no diretório &amp;1.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>P</SPRSL>
+     <ARBGB>ZSD_COCKPIT_DEVOL</ARBGB>
+     <MSGNR>003</MSGNR>
+     <TEXT>Arquivo &amp;1&amp;2 não encontrado.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>P</SPRSL>
+     <ARBGB>ZSD_COCKPIT_DEVOL</ARBGB>
+     <MSGNR>004</MSGNR>
+     <TEXT>Devolução não encontrada.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>P</SPRSL>
+     <ARBGB>ZSD_COCKPIT_DEVOL</ARBGB>
+     <MSGNR>005</MSGNR>
+     <TEXT>Falha ao salvar arquivo &amp;1.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>P</SPRSL>
+     <ARBGB>ZSD_COCKPIT_DEVOL</ARBGB>
+     <MSGNR>006</MSGNR>
+     <TEXT>Nenhum arquivo encontrado.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>P</SPRSL>
+     <ARBGB>ZSD_COCKPIT_DEVOL</ARBGB>
+     <MSGNR>007</MSGNR>
+     <TEXT>Obrigatório confirmação dos dados bancários</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>P</SPRSL>
+     <ARBGB>ZSD_COCKPIT_DEVOL</ARBGB>
+     <MSGNR>008</MSGNR>
+     <TEXT>Não é possível gerar ordem de devolução com a situação &amp;.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>P</SPRSL>
+     <ARBGB>ZSD_COCKPIT_DEVOL</ARBGB>
+     <MSGNR>009</MSGNR>
+     <TEXT>Referência de valores não encontradas para gerar OV Devolução.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>P</SPRSL>
+     <ARBGB>ZSD_COCKPIT_DEVOL</ARBGB>
+     <MSGNR>010</MSGNR>
+     <TEXT>Nota Fiscal de Entrada: &amp;1 já foi cadastrada para este cliente.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>P</SPRSL>
+     <ARBGB>ZSD_COCKPIT_DEVOL</ARBGB>
+     <MSGNR>011</MSGNR>
+     <TEXT>Nota Fiscal de Entrada: &amp;1 eliminada.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>P</SPRSL>
+     <ARBGB>ZSD_COCKPIT_DEVOL</ARBGB>
+     <MSGNR>012</MSGNR>
+     <TEXT>Obrigatório preencher o campo Série.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>P</SPRSL>
+     <ARBGB>ZSD_COCKPIT_DEVOL</ARBGB>
+     <MSGNR>013</MSGNR>
+     <TEXT>Obrigatório preencher o campo Data Logística.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>P</SPRSL>
+     <ARBGB>ZSD_COCKPIT_DEVOL</ARBGB>
+     <MSGNR>014</MSGNR>
+     <TEXT>Obrigatório preencher o campo Data Administrativo.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>P</SPRSL>
+     <ARBGB>ZSD_COCKPIT_DEVOL</ARBGB>
+     <MSGNR>015</MSGNR>
+     <TEXT>Obrigatório anexar um documento.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>P</SPRSL>
+     <ARBGB>ZSD_COCKPIT_DEVOL</ARBGB>
+     <MSGNR>016</MSGNR>
+     <TEXT>Obrigatório preencher o campo Forma de Pagamento.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>P</SPRSL>
+     <ARBGB>ZSD_COCKPIT_DEVOL</ARBGB>
+     <MSGNR>017</MSGNR>
+     <TEXT>Ação permitida apenas para aquivos PDF.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>P</SPRSL>
+     <ARBGB>ZSD_COCKPIT_DEVOL</ARBGB>
+     <MSGNR>018</MSGNR>
+     <TEXT>Status da situação não permitido para alteração manual.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>P</SPRSL>
+     <ARBGB>ZSD_COCKPIT_DEVOL</ARBGB>
+     <MSGNR>019</MSGNR>
+     <TEXT>Quantidade não permitida.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>P</SPRSL>
+     <ARBGB>ZSD_COCKPIT_DEVOL</ARBGB>
+     <MSGNR>020</MSGNR>
+     <TEXT>Obrigatório preencher o campo &quot;Aceitar Valores Cliente?&quot;.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>P</SPRSL>
+     <ARBGB>ZSD_COCKPIT_DEVOL</ARBGB>
+     <MSGNR>021</MSGNR>
+     <TEXT>Devolução &amp; gerada com sucesso</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>P</SPRSL>
+     <ARBGB>ZSD_COCKPIT_DEVOL</ARBGB>
+     <MSGNR>022</MSGNR>
+     <TEXT>Não é possível eliminar registro &amp;1 vinculado a ordem.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>P</SPRSL>
+     <ARBGB>ZSD_COCKPIT_DEVOL</ARBGB>
+     <MSGNR>023</MSGNR>
+     <TEXT>Já existe uma seleção com este documento de faturamento e item.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>P</SPRSL>
+     <ARBGB>ZSD_COCKPIT_DEVOL</ARBGB>
+     <MSGNR>024</MSGNR>
+     <TEXT>Não é possível utilizar Chave de Acesso canceladas/estornadas.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>P</SPRSL>
+     <ARBGB>ZSD_COCKPIT_DEVOL</ARBGB>
+     <MSGNR>025</MSGNR>
+     <TEXT>Referência de valores já possui OV de Devolução.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>P</SPRSL>
+     <ARBGB>ZSD_COCKPIT_DEVOL</ARBGB>
+     <MSGNR>026</MSGNR>
+     <TEXT>Documentos selecionados possuem tipos de faturamento diferentes.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>P</SPRSL>
+     <ARBGB>ZSD_COCKPIT_DEVOL</ARBGB>
+     <MSGNR>027</MSGNR>
+     <TEXT>Remessa &amp;1 desbloqueada com sucesso.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>P</SPRSL>
+     <ARBGB>ZSD_COCKPIT_DEVOL</ARBGB>
+     <MSGNR>028</MSGNR>
+     <TEXT>Data Logística deve ser &lt;= a Data Administrativo, e &gt;= a Data Emissão Nf.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>P</SPRSL>
+     <ARBGB>ZSD_COCKPIT_DEVOL</ARBGB>
+     <MSGNR>029</MSGNR>
+     <TEXT>Data Administrativo deve ser  &gt;= Data Logística.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>P</SPRSL>
+     <ARBGB>ZSD_COCKPIT_DEVOL</ARBGB>
+     <MSGNR>030</MSGNR>
+     <TEXT>Data Logística ou Data Administrativo maior que Data de Lançamento.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>P</SPRSL>
+     <ARBGB>ZSD_COCKPIT_DEVOL</ARBGB>
+     <MSGNR>031</MSGNR>
+     <TEXT>Aconteceu um erro na validação do preço para o material &amp;1.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>P</SPRSL>
+     <ARBGB>ZSD_COCKPIT_DEVOL</ARBGB>
+     <MSGNR>032</MSGNR>
+     <TEXT>Aconteceu um erro na validação do preço para o item &amp;1.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>P</SPRSL>
+     <ARBGB>ZSD_COCKPIT_DEVOL</ARBGB>
+     <MSGNR>033</MSGNR>
+     <TEXT>Item: &amp;1, Valor sugerido pelo Cliente &amp;2.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>P</SPRSL>
+     <ARBGB>ZSD_COCKPIT_DEVOL</ARBGB>
+     <MSGNR>034</MSGNR>
+     <TEXT>Item: &amp;1, possui limite inferior &amp;2 e limite superior &amp;3.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>P</SPRSL>
+     <ARBGB>ZSD_COCKPIT_DEVOL</ARBGB>
+     <MSGNR>035</MSGNR>
+     <TEXT>Item: &amp;1, quantidade pendente diferente da quantidade nf-e cliente.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>P</SPRSL>
+     <ARBGB>ZSD_COCKPIT_DEVOL</ARBGB>
+     <MSGNR>036</MSGNR>
+     <TEXT>Item: &amp;1, quantidade nf cliente maior que a quantidade da fatura.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>P</SPRSL>
+     <ARBGB>ZSD_COCKPIT_DEVOL</ARBGB>
+     <MSGNR>037</MSGNR>
+     <TEXT>Item: &amp;1, UMC nf cliente diferente da UMC fatura.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>P</SPRSL>
+     <ARBGB>ZSD_COCKPIT_DEVOL</ARBGB>
+     <MSGNR>038</MSGNR>
+     <TEXT>Documentos selecionados possuem motivos de faturamento diferentes.</TEXT>
+    </T100>
+   </T100>
+  </asx:values>
+ </asx:abap>
+</abapGit>

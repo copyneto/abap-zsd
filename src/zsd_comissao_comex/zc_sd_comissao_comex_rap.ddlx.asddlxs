@@ -1,0 +1,195 @@
+@Metadata.layer: #CORE
+
+@UI: { headerInfo: { typeName: 'Comissão Parceiro Comex',
+                     typeNamePlural: 'Comissões Parceiros Comex',
+                     title: {
+                        type: #STANDARD,
+                        label: 'Criar/Editar',
+                        value: 'Werks'
+                     } // Defines the value shown in title section
+                     //description: { value: 'Werks' }
+                   },
+                   presentationVariant: [{ sortOrder: [{ by: 'CreatedAt', direction: #DESC } ] }]
+     }
+
+annotate view ZC_SD_COMISSAO_COMEX_RAP with
+{
+  @UI.facet: [
+
+             { id:              'Facet1-ID',
+               type:            #COLLECTION,
+               label:           'Dados',
+               position:        10 },
+               // Facet for Fieldgroup 2 - nested inside Facet 1
+
+             { id:              'Fieldgroup2-ID',
+               type:            #FIELDGROUP_REFERENCE,
+               //label:           'Campos tabela Z',
+               parentId:        'Facet1-ID', // Referencia ao Facet #COLLECTION
+               targetQualifier: 'Fieldgroup1', // No targetElement defined - Default target is the entity in which the facet is defined
+               position:         20 }
+           ]
+
+
+
+  @UI: { lineItem:       [ { position: 10,
+                             importance: #HIGH } ],
+         identification: [ { position: 10 } ],
+         selectionField: [ { position: 10 } ],
+         fieldGroup:     [ { qualifier: 'Fieldgroup1',
+                            position: 10 } ]
+         }
+  Werks;
+
+  @UI: { lineItem: [{ position: 20 }],
+  selectionField: [ { position: 20 } ],
+  fieldGroup: [{ qualifier: 'Fieldgroup1',
+                            position: 20 }] }
+  Docdat;
+
+  @UI: { lineItem: [{ position: 30 }],
+  selectionField: [ { position: 30 } ],
+  fieldGroup: [{ qualifier: 'Fieldgroup1',
+                            position: 30 }] }
+  Nfenum;
+
+  @UI: { lineItem: [{ position: 40 }],
+  fieldGroup: [{ qualifier: 'Fieldgroup1',
+                            position: 40 }] }
+  Itmnum;
+  
+  @UI: { lineItem: [{ position: 45 }],          
+         fieldGroup: [{ qualifier: 'Fieldgroup1',
+                            position: 45 }] }                                      
+  Posneg;
+
+  @UI: { lineItem: [{ position: 50 }],
+  fieldGroup: [{ qualifier: 'Fieldgroup1',
+                            position: 50 }] }
+  @EndUserText: { label: 'Código do Material' }
+  Matnr;
+
+
+  @UI: {
+  selectionField: [ { position: 60 } ],
+  fieldGroup: [{ qualifier: 'Fieldgroup1',
+                            position: 60 }] }
+  @EndUserText: { label: 'Ordem de Vendas' }
+  Aubel;
+
+  @UI: {
+  fieldGroup: [{ qualifier: 'Fieldgroup1',
+                            position: 70 }] }
+  @EndUserText: { label: 'Número da Fatura' }
+  Refkey;
+
+  @UI: {
+  fieldGroup: [{ qualifier: 'Fieldgroup1',
+                            position: 80 }] }
+  @EndUserText: { label: 'Código do Cliente' }
+  Parid;
+
+  @UI: {
+  fieldGroup: [{ qualifier: 'Fieldgroup1',
+                            position: 90 }] }
+  @EndUserText: { label: 'Descrição do Cliente' }
+  Name1;
+
+  @UI: {
+  fieldGroup: [{ qualifier: 'Fieldgroup1',
+                            position: 100 }] }
+  @EndUserText: { label: 'UF Destino' }
+  Regio;
+
+  @UI: {
+  fieldGroup: [{ qualifier: 'Fieldgroup1',
+                            position: 105 }] }
+  @EndUserText: { label: 'Quantidade (kg)' }
+  Ntgew;
+
+
+  @UI: {
+  fieldGroup: [{ qualifier: 'Fieldgroup1',
+                            position: 110 }] }
+  @EndUserText: { label: 'Valor' }
+  Netwrt;
+
+  @UI: {
+  fieldGroup: [{ qualifier: 'Fieldgroup1',
+                            position: 120 }] }
+  @EndUserText: { label: 'Data do Provisionamento' }
+  Zdatabl;
+
+  @UI: {
+  fieldGroup: [{ qualifier: 'Fieldgroup1',
+                            position: 130 }] }
+  Zperiodo;
+
+  @UI: {
+  fieldGroup: [{ qualifier: 'Fieldgroup1',
+                            position: 140 }] }
+  @EndUserText: { label: 'Código do Corretor' }
+  Zparid;
+
+  @UI: {
+  fieldGroup: [{ qualifier: 'Fieldgroup1',
+                            position: 150 }] }
+  @EndUserText: { label: 'Descrição do Corretor' }
+  Zname1;
+
+  @UI: {
+  fieldGroup: [{ qualifier: 'Fieldgroup1',
+                            position: 160 }] }
+  @EndUserText: { label: 'Número do Pedido' }
+  Xped;
+
+  @UI: {
+  fieldGroup: [{ qualifier: 'Fieldgroup1',
+                            position: 170 }] }
+  @EndUserText: { label: 'Grupo de Material' }
+  Kondm;
+
+  @UI: {
+  fieldGroup: [{ qualifier: 'Fieldgroup1',
+                            position: 175 }] }
+  @EndUserText: { label: 'Valor da comissão em Dólar' }
+  kwert;
+
+  @UI: {
+  fieldGroup: [{ qualifier: 'Fieldgroup1',
+                            position: 180 }] }
+  @EndUserText: { label: 'Data da taxa de Câmbio' }
+  Zdataptax;
+
+  @UI: {
+  fieldGroup: [{ qualifier: 'Fieldgroup1',
+                            position: 190 }] }
+  @EndUserText: { label: 'Taxa de câmbio' }
+  Zptax;
+
+
+  @UI: {
+    fieldGroup: [{ qualifier: 'Fieldgroup1',
+                              position: 200 }] }
+  @EndUserText: { label: 'Valor do Ajuste' }
+  Zajuste;
+
+  @UI: {
+  fieldGroup: [{ qualifier: 'Fieldgroup1',
+                            position: 210 }] }
+  @EndUserText: { label: 'Valor da Comissão em Reais' }
+  Zvalor;
+
+
+  @UI: {
+  fieldGroup: [{ qualifier: 'Fieldgroup1',
+                            position: 220 }] }
+  @EndUserText: { label: 'Status da Apuração' }
+  Zstatus;
+
+  @UI: {
+  fieldGroup: [{ qualifier: 'Fieldgroup1',
+                            position: 230 }] }
+  @EndUserText: { label: 'Observações' }
+  Zobs;
+}

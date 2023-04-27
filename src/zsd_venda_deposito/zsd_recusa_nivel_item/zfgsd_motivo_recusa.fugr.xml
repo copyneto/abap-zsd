@@ -1,0 +1,67 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<abapGit version="v1.0.0" serializer="LCL_OBJECT_FUGR" serializer_version="v1.0.0">
+ <asx:abap xmlns:asx="http://www.sap.com/abapxml" version="1.0">
+  <asx:values>
+   <AREAT>Altera motivo de recusa</AREAT>
+   <INCLUDES>
+    <SOBJ_NAME>LZFGSD_MOTIVO_RECUSATOP</SOBJ_NAME>
+    <SOBJ_NAME>SAPLZFGSD_MOTIVO_RECUSA</SOBJ_NAME>
+   </INCLUDES>
+   <FUNCTIONS>
+    <item>
+     <FUNCNAME>ZFMSD_ALTERA_MOTIVO_RECUSA</FUNCNAME>
+     <REMOTE_CALL>R</REMOTE_CALL>
+     <SHORT_TEXT>Altera motivo recusa</SHORT_TEXT>
+     <IMPORT>
+      <RSIMP>
+       <PARAMETER>IV_SALESDOCUMENT</PARAMETER>
+       <OPTIONAL>X</OPTIONAL>
+       <TYP>VBELN_VA</TYP>
+      </RSIMP>
+      <RSIMP>
+       <PARAMETER>IS_ORDER_HEADER_INX</PARAMETER>
+       <OPTIONAL>X</OPTIONAL>
+       <TYP>BAPISDH1X</TYP>
+      </RSIMP>
+     </IMPORT>
+     <TABLES>
+      <RSTBL>
+       <PARAMETER>ET_RETURN</PARAMETER>
+       <DBSTRUCT>BAPIRET2</DBSTRUCT>
+      </RSTBL>
+      <RSTBL>
+       <PARAMETER>ET_ORDER_ITEM_IN</PARAMETER>
+       <DBSTRUCT>BAPISDITM</DBSTRUCT>
+      </RSTBL>
+      <RSTBL>
+       <PARAMETER>ET_ORDER_ITEM_INX</PARAMETER>
+       <DBSTRUCT>BAPISDITMX</DBSTRUCT>
+      </RSTBL>
+     </TABLES>
+     <DOCUMENTATION>
+      <RSFDO>
+       <PARAMETER>IV_SALESDOCUMENT</PARAMETER>
+       <KIND>P</KIND>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>IS_ORDER_HEADER_INX</PARAMETER>
+       <KIND>P</KIND>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>ET_RETURN</PARAMETER>
+       <KIND>P</KIND>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>ET_ORDER_ITEM_IN</PARAMETER>
+       <KIND>P</KIND>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>ET_ORDER_ITEM_INX</PARAMETER>
+       <KIND>P</KIND>
+      </RSFDO>
+     </DOCUMENTATION>
+    </item>
+   </FUNCTIONS>
+  </asx:values>
+ </asx:abap>
+</abapGit>

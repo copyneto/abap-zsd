@@ -1,0 +1,8 @@
+projection;
+
+define behavior for ZC_SD_GP_MERCADOR
+use etag {
+  use create;
+  use update;
+  use delete;
+}

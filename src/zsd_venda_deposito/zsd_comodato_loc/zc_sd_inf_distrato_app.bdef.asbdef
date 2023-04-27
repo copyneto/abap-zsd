@@ -1,0 +1,5 @@
+projection;
+
+define behavior for ZC_SD_INF_DISTRATO_APP alias DistratoApp
+{
+}

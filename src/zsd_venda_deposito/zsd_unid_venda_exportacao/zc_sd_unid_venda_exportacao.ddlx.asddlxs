@@ -1,0 +1,51 @@
+@Metadata.layer: #CORE
+@UI: {
+  headerInfo: {
+    typeName: 'Tabela NCM – Unidade tributável ',
+    typeNamePlural: 'Tabela NCM – Unidades tributáveis ',
+    title: {
+      type: #STANDARD,
+      label: 'ControlCode',
+      value: 'ControlCode'
+    }
+  }}
+annotate view ZC_SD_UNID_VENDA_EXPORTACAO
+    with 
+{
+@UI.facet: [ { id:         'ControlCode',
+               purpose:       #STANDARD,
+               type:          #IDENTIFICATION_REFERENCE,
+//               label:         '',
+               position:      10 }]
+ @UI: { lineItem: [{ position: 20 }],
+           identification: [{ position: 20 }]}
+//           identification: [{ label: '' }] }
+  @UI.selectionField: [{ position: 10 }]               
+ControlCode;
+
+ @UI: { lineItem: [{ position: 30 }],
+           identification: [{ position: 30 }]}
+//           identification: [{ label: '' }] }
+  @UI.selectionField: [{ position: 20 }]               
+ValidFrom;
+
+ @UI: { lineItem: [{ position: 40 }],
+           identification: [{ position: 50 }]}
+//           identification: [{ label: '' }] }
+  @UI.selectionField: [{ position: 30 }]  
+ValidTo;
+
+ @UI: { lineItem: [{ position: 50 }],
+           identification: [{ position: 50 }]}
+//           identification: [{ label: '' }] }
+Unit;
+
+ @UI: { lineItem: [{ position: 60 }],
+           identification: [{ position: 60 }]}
+//           identification: [{ label: '' }] }            
+UnitXml;
+
+
+
+
+}

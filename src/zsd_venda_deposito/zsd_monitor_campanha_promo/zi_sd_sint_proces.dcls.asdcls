@@ -1,0 +1,11 @@
+@EndUserText.label: 'CDS de Autorização'
+@MappingRole: true
+define role ZI_SD_SINT_PROCES {
+    grant 
+        select
+            on
+                ZI_SD_SINT_PROCES
+                    where
+                        ( ) = aspect pfcg_auth( ZSDMTABLE, ACTVT = '03', TABLE = 'ZTSD_SINT_PROCES' );
+                        
+}

@@ -1,0 +1,18 @@
+<?sap.transform simple?>
+<tt:transform xmlns:tt="http://www.sap.com/transformation-templates" xmlns:ddic="http://www.sap.com/abapxml/types/dictionary" xmlns:def="http://www.sap.com/abapxml/types/defined" xmlns="http://www.gnre.pe.gov.br">
+  <tt:root name="TCONS_LOTE_GNRE" type="ddic:ZGNRE_DADOS_MSG1"/>
+  <tt:template>
+    <TCONS_LOTE_GNRE>
+      <CONTROLLER>
+        <tt:loop ref=".TCONS_LOTE_GNRE.TCONS_LOTE_GNRE.CONTROLLER">
+          <PRXCTRL>
+            <FIELD tt:value-ref="FIELD"/>
+            <VALUE tt:value-ref="VALUE"/>
+          </PRXCTRL>
+        </tt:loop>
+      </CONTROLLER>
+      <AMBIENTE tt:value-ref=".TCONS_LOTE_GNRE.TCONS_LOTE_GNRE.AMBIENTE"/>
+      <NUMERO_RECIBO tt:value-ref=".TCONS_LOTE_GNRE.TCONS_LOTE_GNRE.NUMERO_RECIBO"/>
+    </TCONS_LOTE_GNRE>
+  </tt:template>
+</tt:transform>

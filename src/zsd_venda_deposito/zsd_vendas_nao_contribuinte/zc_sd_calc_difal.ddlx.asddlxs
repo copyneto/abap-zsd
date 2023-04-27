@@ -1,0 +1,55 @@
+@Metadata.layer: #CORE
+@UI: {
+  headerInfo: {
+    typeName: 'Forma de Cálculo DIFAL - Consumo',
+    typeNamePlural: 'Formas de Cálculo DIFAL - Consumo',
+    title: {
+      type: #STANDARD,
+      label: 'Recebedor',
+      value: 'Shipto'
+    }
+  }}
+annotate view ZC_SD_CALC_DIFAL with
+{
+
+  @UI.facet: [ { id:         'Shipto',
+                 purpose:       #STANDARD,
+                 type:          #IDENTIFICATION_REFERENCE,
+  //               label:         '',
+                 position:      10 }]
+
+  @UI: { lineItem: [{ position: 20 }],
+            identification: [{ position: 20 }]}
+ //           identification: [{ label: '' }] }
+  @UI.selectionField: [{ position: 10 }]
+  Shipto;
+
+  @UI: { lineItem: [{ position: 30 }],
+           identification: [{ position: 30 }]}
+  //           identification: [{ label: '' }] }
+  @UI.selectionField: [{ position: 20 }]
+  MaterialGroup;
+
+  @UI: { lineItem: [{ position: 40 }],
+           identification: [{ position: 40 }]}
+  //           identification: [{ label: '' }] }
+  @UI.selectionField: [{ position: 40 }]
+  Material;
+
+  @UI: { lineItem: [{ position: 50 }],
+         identification: [{ position: 50 }]}
+  //           identification: [{ label: '' }] }
+  @UI.selectionField: [{ position: 50 }]
+  FormulaDifal;
+
+  @UI: { lineItem: [{ position: 60 }],
+         identification: [{ position: 60 }]}
+  //           identification: [{ label: '' }] }
+  AliqFixa;
+
+  @UI: { lineItem: [{ position: 70 }],
+           identification: [{ position: 70 }]}
+  //           identification: [{ label: '' }] }
+  Redbase;
+
+}

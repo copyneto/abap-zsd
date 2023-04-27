@@ -1,0 +1,59 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<abapGit version="v1.0.0" serializer="LCL_OBJECT_FUGR" serializer_version="v1.0.0">
+ <asx:abap xmlns:asx="http://www.sap.com/abapxml" version="1.0">
+  <asx:values>
+   <AREAT>Grupo para geração de faturamento</AREAT>
+   <INCLUDES>
+    <SOBJ_NAME>LZFGSD_GERA_FATURAMENTOTOP</SOBJ_NAME>
+    <SOBJ_NAME>SAPLZFGSD_GERA_FATURAMENTO</SOBJ_NAME>
+   </INCLUDES>
+   <FUNCTIONS>
+    <item>
+     <FUNCNAME>ZFMSD_GERA_FATURAMENTO</FUNCNAME>
+     <REMOTE_CALL>R</REMOTE_CALL>
+     <SHORT_TEXT>Grupo para geração de faturamento</SHORT_TEXT>
+     <TABLES>
+      <RSTBL>
+       <PARAMETER>ET_BILLING_DATA_IN</PARAMETER>
+       <DBSTRUCT>BAPIVBRK</DBSTRUCT>
+      </RSTBL>
+      <RSTBL>
+       <PARAMETER>ET_CONDITION_DATA_IN</PARAMETER>
+       <DBSTRUCT>BAPIKOMV</DBSTRUCT>
+      </RSTBL>
+      <RSTBL>
+       <PARAMETER>ET_RETURN</PARAMETER>
+       <DBSTRUCT>BAPIRETURN1</DBSTRUCT>
+      </RSTBL>
+      <RSTBL>
+       <PARAMETER>ET_CCARD_DATA_IN</PARAMETER>
+       <DBSTRUCT>BAPICCARD_VF</DBSTRUCT>
+      </RSTBL>
+     </TABLES>
+     <DOCUMENTATION>
+      <RSFDO>
+       <PARAMETER>ET_BILLING_DATA_IN</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Campos de comunicação p/campos do cabeçalho do doc.faturam.</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>ET_CONDITION_DATA_IN</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Parâmetro de retorno</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>ET_RETURN</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Parâmetro de retorno</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>ET_CCARD_DATA_IN</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Tabela de comunicação meio de pagamento ordem/doc.faturam.</STEXT>
+      </RSFDO>
+     </DOCUMENTATION>
+    </item>
+   </FUNCTIONS>
+  </asx:values>
+ </asx:abap>
+</abapGit>

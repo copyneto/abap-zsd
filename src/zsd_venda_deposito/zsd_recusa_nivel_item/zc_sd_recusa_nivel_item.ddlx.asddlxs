@@ -1,0 +1,165 @@
+@Metadata.layer: #CORE
+@UI: { headerInfo: { typeName      : 'Motivo Recusa',
+                     typeNamePlural: 'Documentos',
+                     title         : { type: #STANDARD,
+                                       value: 'SalesOrder' }
+  }
+}
+annotate view ZC_SD_RECUSA_NIVEL_ITEM with
+{
+  @Consumption.semanticObject: 'SalesOrder'
+  @Consumption.valueHelpDefinition: [{ entity: { name: 'I_RFM_SALESDOCUMENT', element: 'SalesDocument' } }]
+  //  @UI.lineItem :  [ {position: 10 ,importance: #HIGH , type: #WITH_INTENT_BASED_NAVIGATION, semanticObjectAction: 'display' }]
+  @UI.lineItem :  [ {position: 10 ,importance: #HIGH }]
+  @UI.selectionField: [{position: 10}]
+  SalesOrder;
+  @UI.lineItem: [{position: 20, importance: #HIGH }]
+  @Consumption.filter.hidden: true
+  SalesOrderItem;
+  @Consumption.valueHelpDefinition: [{ entity: { name: 'ZI_CA_VH_MATERIAL', element: 'Material' }  }]
+  @UI.selectionField: [{position: 160}]
+  @UI.lineItem: [{position: 30 }]
+  Material;
+  @Consumption.filter.hidden: true
+  @UI.lineItem: [{position: 35 }]
+  MaterialName;
+  @Consumption.valueHelpDefinition: [{ entity: { name: 'ZI_CA_VH_WERKS', element: 'WerksCode' } }]
+  @UI.selectionField: [{position: 130}]
+  Plant;
+  @UI.lineItem: [{position: 50 }]
+  @Consumption.filter.hidden: true
+  @EndUserText.label: 'Quantidade da Ordem da Venda'
+  OrderQuantity;
+  @UI.lineItem: [{position: 60 }]
+  @Consumption.filter.hidden: true
+  @EndUserText.label: 'Unidade da Ordem de Venda'
+  OrderQuantityUnit;
+  @UI.hidden: true
+  UnMedidaText;
+  @UI.lineItem: [{position: 65 }]
+  @Consumption.filter.hidden: true  
+  NetPriceQuantityUnit;  
+  @EndUserText.label: 'Preço Líquido'
+  @UI.lineItem: [{position: 70 }]
+  NetPriceAmount;
+  @EndUserText.label: 'Moeda'
+  @UI.lineItem: [{position: 80 }]
+  @Consumption.filter.hidden: true
+  TransactionCurrency;
+  @Consumption.valueHelpDefinition: [{ association: '_SalesOrderType' }]
+  @UI.selectionField: [{position: 20}]
+  @UI.lineItem: [{position: 90 }]
+  @UI.textArrangement: #TEXT_SEPARATE
+  SalesOrderType;
+  @Consumption.valueHelpDefinition: [{ entity: { name: 'ZI_CA_VH_VKORG', element: 'OrgVendas' } }]
+  @UI.selectionField: [{position: 30}]
+  @UI.lineItem: [{position: 100 }]
+  SalesOrganization;
+  @Consumption.valueHelpDefinition: [{ entity: { name: 'ZI_CA_VH_VTWEG', element: 'CanalDistrib' } }]
+  @UI.selectionField: [{position: 40}]
+  @UI.lineItem: [{position: 110 }]
+  DistributionChannel;
+  @Consumption.valueHelpDefinition: [{ entity: { name: 'ZI_CA_VH_SPART', element: 'SetorAtividade' } }]
+  @UI.selectionField: [{position: 50}]
+  @UI.lineItem: [{position: 120 }]
+  Division;
+  //    @Consumption.valueHelpDefinition: [{ entity: { name: 'ZI_CA_VH_', element: 'SetorAtividade' } }]
+  @UI.selectionField: [{position: 60}]
+  @UI.lineItem: [{position: 130 }]
+  PurchaseOrderByShipToParty;
+  @UI.selectionField: [{position: 200}]
+  @UI.lineItem: [{position: 135 }]
+  PurchaseOrderByCustomer;
+  @Consumption.valueHelpDefinition: [{ entity: { name: 'ZI_CA_VH_GBSTK', element: 'Gbstk' } }]
+  @UI.selectionField: [{position: 70}]
+  @UI.lineItem: [{position: 140 }]
+  OverallSDProcessStatus;
+  @Consumption.valueHelpDefinition: [{ entity: { name: 'ZI_CA_VH_USER', element: 'Bname' } }]
+  @UI.selectionField: [{position: 80}]
+  @UI.lineItem: [{position: 150 }]
+  UserID;
+  @UI.selectionField: [{position: 90}]
+  @UI.lineItem: [{position: 160 }]
+  @UI.textArrangement: #TEXT_LAST
+  Customer;
+  @UI.lineItem: [{position: 165 }]
+  GrupoCliente;
+  @UI.hidden: true
+  CustomerName;
+  @UI.selectionField: [{position: 100}]
+  @UI.lineItem: [{position: 170 }]
+  @Consumption.filter.selectionType: #INTERVAL
+  SalesOrderDate;
+  @UI.selectionField: [{position: 110}]
+  @UI.lineItem: [{position: 180 }]
+  SalesDocumentRjcnReason;
+  @UI.lineItem: [{position: 185 }]
+  SalesDocumentRjcnReasonName;
+  @UI.selectionField: [{position: 120}]
+  @UI.lineItem: [{position: 190 }]
+  @Consumption.filter.selectionType: #INTERVAL
+  RequestedDeliveryDate;
+  @Consumption.valueHelpDefinition: [{ entity: { name: 'ZI_CA_VH_BZIRK', element: 'RegiaoVendas' } }]
+  @UI.selectionField: [{position: 140}]
+  @UI.lineItem: [{position: 200 }]
+  SalesDistrict;
+  @Consumption.valueHelpDefinition: [{ entity: { name: 'ZI_CA_VH_VKBUR', element: 'SalesOffice' } }]
+  @UI.selectionField: [{position: 150}]
+  @UI.lineItem: [{position: 210 }]
+  SalesOffice;
+
+  @Consumption.filter.hidden: true
+  @UI.hidden: true
+  SalesDocumentTypeName;
+
+  @Consumption.filter.hidden: true
+  @UI.hidden: true
+  StatusText;
+
+  @Consumption.filter.hidden: true
+  @UI.hidden: true
+  _SoldToParty;
+
+  @Consumption.filter.hidden: true
+  @UI.hidden: true
+  _SalesOrderType;
+
+  @Consumption.filter.hidden: true
+  @UI.hidden: true
+  _SalesDistrict;
+
+  @UI.lineItem :  [{ type: #FOR_ACTION, dataAction: 'motivoRecusa', label: 'Processar', invocationGrouping: #CHANGE_SET  }]
+  @Consumption.filter.hidden: true
+  @UI.hidden: true
+  @EndUserText.label      : 'Motivo Recusa'
+  @Consumption.valueHelpDefinition: [ { entity  :  { name: 'ZI_CA_VH_ABGRU', element : 'SalesDocumentRjcnReason' } }]
+  motivoRecusa;
+
+  @UI.lineItem: [{position: 220 }]
+  @UI.selectionField: [{position: 170}]
+  DataModificacaoRecusa;
+
+  @UI.lineItem: [{position: 230 }]
+  @UI.selectionField: [{position: 180}]
+  UserModificacaoRecusa;
+
+  @UI.lineItem: [{position: 240 }]
+  @UI.selectionField: [{position: 190}]
+  Vendedor;
+  @UI.hidden: true
+  NomeVendedor;
+
+  @UI.lineItem: [{position: 250 }]
+  PesoBruto;
+
+  @UI.lineItem: [{position: 260 }]
+  VlrDesconto;
+  
+  @Consumption.valueHelpDefinition: [{ entity: { name: 'ZI_CA_VH_VKBUR', element: 'SalesOffice' } }]
+  @UI.lineItem: [{position: 270 }]
+  PesoLiquido;
+  
+  @UI.lineItem: [{position: 280 }]
+  SDProcessStatus;
+
+}

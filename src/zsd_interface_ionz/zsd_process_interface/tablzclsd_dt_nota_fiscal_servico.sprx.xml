@@ -1,0 +1,634 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<abapGit version="v1.0.0" serializer="LCL_OBJECT_SPRX" serializer_version="v1.0.0">
+ <asx:abap xmlns:asx="http://www.sap.com/abapxml" version="1.0">
+  <asx:values>
+   <PROXY_HEADER>
+    <item>
+     <OBJECT>TABL</OBJECT>
+     <OBJ_NAME>ZCLSD_DT_NOTA_FISCAL_SERVICO</OBJ_NAME>
+     <OBJECT_M>TABL</OBJECT_M>
+     <OBJ_NAME_M>ZCLSD_DT_NOTA_FISCAL_SERVICO</OBJ_NAME_M>
+     <HASH_ID>114909802C89E2BCC2611CF7F68A544C51D4A9C1</HASH_ID>
+     <ID>&lt;type&gt; dtNotaFiscalServico http://trescoracoes.com.br/fiscal/nota http://trescoracoes.com.br/fiscal/nota</ID>
+     <IFR_GLOBAL>X</IFR_GLOBAL>
+     <IFR_TYPE>type</IFR_TYPE>
+     <IFR_NAME>dtNotaFiscalServico</IFR_NAME>
+     <IFR_NSPCE>http://trescoracoes.com.br/fiscal/nota</IFR_NSPCE>
+     <IFR_GNSPCE>http://trescoracoes.com.br/fiscal/nota</IFR_GNSPCE>
+     <GEN_VERS>0005</GEN_VERS>
+     <PREFIX>ZCLSD_</PREFIX>
+     <CATEGORY>ifmtypedef</CATEGORY>
+     <X-ML_NSPCE>http://trescoracoes.com.br/fiscal/nota</X-ML_NSPCE>
+     <X-ML_NAME>dtNotaFiscalServico</X-ML_NAME>
+     <VERSION_ID>06c06abd549311edba7d00000085a0cd</VERSION_ID>
+    </item>
+   </PROXY_HEADER>
+   <PROXY_DATA>
+    <item>
+     <OBJECT>TABL</OBJECT>
+     <OBJ_NAME>ZCLSD_DT_NOTA_FISCAL_SERVICO</OBJ_NAME>
+     <OBJECT1>FIEL</OBJECT1>
+     <OBJ_NAME1>BRGEW</OBJ_NAME1>
+     <OBJECT2>FIEL</OBJECT2>
+     <OBJ_NAME2>BRGEW</OBJ_NAME2>
+     <ID>&lt;element&gt; BRGEW &lt;type&gt; dtNotaFiscalServico http://trescoracoes.com.br/fiscal/nota http://trescoracoes.com.br/fiscal/nota</ID>
+     <IFR_TYPE>element</IFR_TYPE>
+     <IFR_NAME>BRGEW</IFR_NAME>
+     <IFR_TEXT>Peso Bruto (somatório)</IFR_TEXT>
+     <IFR_LANGU>EN</IFR_LANGU>
+     <IFR_TAGTYP>E</IFR_TAGTYP>
+     <IFR_MAXOCC>1</IFR_MAXOCC>
+     <IFR_OPTNL>X</IFR_OPTNL>
+     <IFR_XSDTYP>decimal</IFR_XSDTYP>
+     <IFR_PREC>12</IFR_PREC>
+     <IFR_SCALE>3</IFR_SCALE>
+     <R3_TYPE>FIEL</R3_TYPE>
+     <R3_NAME>BRGEW</R3_NAME>
+     <R3_TEXT>Peso Bruto (somatório)</R3_TEXT>
+     <R3_DATATYP>DEC</R3_DATATYP>
+     <R3_LENGTH>000015</R3_LENGTH>
+     <R3_DECIMAL>000003</R3_DECIMAL>
+     <R3_SEQNUM>000014</R3_SEQNUM>
+    </item>
+    <item>
+     <OBJECT>TABL</OBJECT>
+     <OBJ_NAME>ZCLSD_DT_NOTA_FISCAL_SERVICO</OBJ_NAME>
+     <OBJECT1>FIEL</OBJECT1>
+     <OBJ_NAME1>DOCDAT</OBJ_NAME1>
+     <OBJECT2>FIEL</OBJECT2>
+     <OBJ_NAME2>DOCDAT</OBJ_NAME2>
+     <ID>&lt;element&gt; DOCDAT &lt;type&gt; dtNotaFiscalServico http://trescoracoes.com.br/fiscal/nota http://trescoracoes.com.br/fiscal/nota</ID>
+     <IFR_TYPE>element</IFR_TYPE>
+     <IFR_NAME>DOCDAT</IFR_NAME>
+     <IFR_TEXT>Data de emissão da NFS</IFR_TEXT>
+     <IFR_LANGU>EN</IFR_LANGU>
+     <IFR_TAGTYP>E</IFR_TAGTYP>
+     <IFR_MAXOCC>1</IFR_MAXOCC>
+     <IFR_OPTNL>X</IFR_OPTNL>
+     <IFR_XSDTYP>date</IFR_XSDTYP>
+     <IFR_SCALE>-2</IFR_SCALE>
+     <R3_TYPE>FIEL</R3_TYPE>
+     <R3_NAME>DOCDAT</R3_NAME>
+     <R3_TEXT>Data de emissão da NFS</R3_TEXT>
+     <R3_DTREF>XSDDATE_D</R3_DTREF>
+     <R3_SEQNUM>000005</R3_SEQNUM>
+    </item>
+    <item>
+     <OBJECT>TABL</OBJECT>
+     <OBJ_NAME>ZCLSD_DT_NOTA_FISCAL_SERVICO</OBJ_NAME>
+     <OBJECT1>FIEL</OBJECT1>
+     <OBJ_NAME1>DSCHAVEACESSO</OBJ_NAME1>
+     <OBJECT2>FIEL</OBJECT2>
+     <OBJ_NAME2>DSCHAVEACESSO</OBJ_NAME2>
+     <ID>&lt;element&gt; DSCHAVEACESSO &lt;type&gt; dtNotaFiscalServico http://trescoracoes.com.br/fiscal/nota http://trescoracoes.com.br/fiscal/nota</ID>
+     <IFR_TYPE>element</IFR_TYPE>
+     <IFR_NAME>DSCHAVEACESSO</IFR_NAME>
+     <IFR_LANGU>EN</IFR_LANGU>
+     <IFR_TAGTYP>E</IFR_TAGTYP>
+     <IFR_MAXOCC>1</IFR_MAXOCC>
+     <IFR_OPTNL>X</IFR_OPTNL>
+     <IFR_XSDTYP>string</IFR_XSDTYP>
+     <IFR_SCALE>-2</IFR_SCALE>
+     <R3_TYPE>FIEL</R3_TYPE>
+     <R3_NAME>DSCHAVEACESSO</R3_NAME>
+     <R3_DATATYP>STRG</R3_DATATYP>
+     <R3_SEQNUM>000001</R3_SEQNUM>
+    </item>
+    <item>
+     <OBJECT>TABL</OBJECT>
+     <OBJ_NAME>ZCLSD_DT_NOTA_FISCAL_SERVICO</OBJ_NAME>
+     <OBJECT1>FIEL</OBJECT1>
+     <OBJ_NAME1>NETWR</OBJ_NAME1>
+     <OBJECT2>FIEL</OBJECT2>
+     <OBJ_NAME2>NETWR</OBJ_NAME2>
+     <ID>&lt;element&gt; NETWR &lt;type&gt; dtNotaFiscalServico http://trescoracoes.com.br/fiscal/nota http://trescoracoes.com.br/fiscal/nota</ID>
+     <IFR_TYPE>element</IFR_TYPE>
+     <IFR_NAME>NETWR</IFR_NAME>
+     <IFR_TEXT>Valor Mercadoria (somatório)</IFR_TEXT>
+     <IFR_LANGU>EN</IFR_LANGU>
+     <IFR_TAGTYP>E</IFR_TAGTYP>
+     <IFR_MAXOCC>1</IFR_MAXOCC>
+     <IFR_OPTNL>X</IFR_OPTNL>
+     <IFR_XSDTYP>decimal</IFR_XSDTYP>
+     <IFR_PREC>13</IFR_PREC>
+     <IFR_SCALE>2</IFR_SCALE>
+     <R3_TYPE>FIEL</R3_TYPE>
+     <R3_NAME>NETWR</R3_NAME>
+     <R3_TEXT>Valor Mercadoria (somatório)</R3_TEXT>
+     <R3_DATATYP>DEC</R3_DATATYP>
+     <R3_LENGTH>000015</R3_LENGTH>
+     <R3_DECIMAL>000002</R3_DECIMAL>
+     <R3_SEQNUM>000013</R3_SEQNUM>
+    </item>
+    <item>
+     <OBJECT>TABL</OBJECT>
+     <OBJ_NAME>ZCLSD_DT_NOTA_FISCAL_SERVICO</OBJ_NAME>
+     <OBJECT1>FIEL</OBJECT1>
+     <OBJ_NAME1>TPEVENTO</OBJ_NAME1>
+     <OBJECT2>FIEL</OBJECT2>
+     <OBJ_NAME2>TPEVENTO</OBJ_NAME2>
+     <ID>&lt;element&gt; TPEVENTO &lt;type&gt; dtNotaFiscalServico http://trescoracoes.com.br/fiscal/nota http://trescoracoes.com.br/fiscal/nota</ID>
+     <IFR_TYPE>element</IFR_TYPE>
+     <IFR_NAME>TPEVENTO</IFR_NAME>
+     <IFR_TEXT>Tipo Evento</IFR_TEXT>
+     <IFR_LANGU>EN</IFR_LANGU>
+     <IFR_TAGTYP>E</IFR_TAGTYP>
+     <IFR_MAXOCC>1</IFR_MAXOCC>
+     <IFR_OPTNL>X</IFR_OPTNL>
+     <IFR_XSDTYP>string</IFR_XSDTYP>
+     <IFR_SCALE>-2</IFR_SCALE>
+     <R3_TYPE>FIEL</R3_TYPE>
+     <R3_NAME>TPEVENTO</R3_NAME>
+     <R3_TEXT>Tipo Evento</R3_TEXT>
+     <R3_DATATYP>STRG</R3_DATATYP>
+     <R3_SEQNUM>000019</R3_SEQNUM>
+    </item>
+    <item>
+     <OBJECT>TABL</OBJECT>
+     <OBJ_NAME>ZCLSD_DT_NOTA_FISCAL_SERVICO</OBJ_NAME>
+     <OBJECT1>FIEL</OBJECT1>
+     <OBJ_NAME1>ZGKO_ACCKEY</OBJ_NAME1>
+     <OBJECT2>FIEL</OBJECT2>
+     <OBJ_NAME2>ZGKO_ACCKEY</OBJ_NAME2>
+     <OBJECT_R>TTYP</OBJECT_R>
+     <OBJ_NAME_R>ZCLSD_DT_NOTA_FISCAL_SERVI_TAB</OBJ_NAME_R>
+     <ID>&lt;element&gt; ZGKO_ACCKEY &lt;type&gt; dtNotaFiscalServico http://trescoracoes.com.br/fiscal/nota http://trescoracoes.com.br/fiscal/nota</ID>
+     <IFR_TYPE>element</IFR_TYPE>
+     <IFR_NAME>ZGKO_ACCKEY</IFR_NAME>
+     <IFR_TEXT>Chaves de Acesso Referência</IFR_TEXT>
+     <IFR_LANGU>EN</IFR_LANGU>
+     <IFR_TAGTYP>L</IFR_TAGTYP>
+     <IFR_MAXOCC>65535</IFR_MAXOCC>
+     <IFR_OPTNL>X</IFR_OPTNL>
+     <IFR_SCALE>-2</IFR_SCALE>
+     <R3_TYPE>FIEL</R3_TYPE>
+     <R3_NAME>ZGKO_ACCKEY</R3_NAME>
+     <R3_TEXT>Chaves de Acesso Referência</R3_TEXT>
+     <R3_SEQNUM>000024</R3_SEQNUM>
+    </item>
+    <item>
+     <OBJECT>TABL</OBJECT>
+     <OBJ_NAME>ZCLSD_DT_NOTA_FISCAL_SERVICO</OBJ_NAME>
+     <OBJECT1>FIEL</OBJECT1>
+     <OBJ_NAME1>ZGKO_DEST</OBJ_NAME1>
+     <OBJECT2>FIEL</OBJECT2>
+     <OBJ_NAME2>ZGKO_DEST</OBJ_NAME2>
+     <OBJECT_R>TABL</OBJECT_R>
+     <OBJ_NAME_R>ZCLSD_DT_NOTA_FISCAL_SERVICO_3</OBJ_NAME_R>
+     <ID>&lt;element&gt; ZGKO_DEST &lt;type&gt; dtNotaFiscalServico http://trescoracoes.com.br/fiscal/nota http://trescoracoes.com.br/fiscal/nota</ID>
+     <IFR_TYPE>element</IFR_TYPE>
+     <IFR_NAME>ZGKO_DEST</IFR_NAME>
+     <IFR_TEXT>Dados Destinatário</IFR_TEXT>
+     <IFR_LANGU>EN</IFR_LANGU>
+     <IFR_TAGTYP>E</IFR_TAGTYP>
+     <IFR_MAXOCC>1</IFR_MAXOCC>
+     <IFR_OPTNL>X</IFR_OPTNL>
+     <IFR_SCALE>-2</IFR_SCALE>
+     <R3_TYPE>FIEL</R3_TYPE>
+     <R3_NAME>ZGKO_DEST</R3_NAME>
+     <R3_TEXT>Dados Destinatário</R3_TEXT>
+     <R3_SEQNUM>000023</R3_SEQNUM>
+    </item>
+    <item>
+     <OBJECT>TABL</OBJECT>
+     <OBJ_NAME>ZCLSD_DT_NOTA_FISCAL_SERVICO</OBJ_NAME>
+     <OBJECT1>FIEL</OBJECT1>
+     <OBJ_NAME1>ZGKO_DTREC</OBJ_NAME1>
+     <OBJECT2>FIEL</OBJECT2>
+     <OBJ_NAME2>ZGKO_DTREC</OBJ_NAME2>
+     <ID>&lt;element&gt; ZGKO_DTREC &lt;type&gt; dtNotaFiscalServico http://trescoracoes.com.br/fiscal/nota http://trescoracoes.com.br/fiscal/nota</ID>
+     <IFR_TYPE>element</IFR_TYPE>
+     <IFR_NAME>ZGKO_DTREC</IFR_NAME>
+     <IFR_TEXT>Data de recebimento</IFR_TEXT>
+     <IFR_LANGU>EN</IFR_LANGU>
+     <IFR_TAGTYP>E</IFR_TAGTYP>
+     <IFR_MAXOCC>1</IFR_MAXOCC>
+     <IFR_OPTNL>X</IFR_OPTNL>
+     <IFR_XSDTYP>date</IFR_XSDTYP>
+     <IFR_SCALE>-2</IFR_SCALE>
+     <R3_TYPE>FIEL</R3_TYPE>
+     <R3_NAME>ZGKO_DTREC</R3_NAME>
+     <R3_TEXT>Data de recebimento</R3_TEXT>
+     <R3_DTREF>XSDDATE_D</R3_DTREF>
+     <R3_SEQNUM>000006</R3_SEQNUM>
+    </item>
+    <item>
+     <OBJECT>TABL</OBJECT>
+     <OBJ_NAME>ZCLSD_DT_NOTA_FISCAL_SERVICO</OBJ_NAME>
+     <OBJECT1>FIEL</OBJECT1>
+     <OBJ_NAME1>ZGKO_EMIT</OBJ_NAME1>
+     <OBJECT2>FIEL</OBJECT2>
+     <OBJ_NAME2>ZGKO_EMIT</OBJ_NAME2>
+     <OBJECT_R>TABL</OBJECT_R>
+     <OBJ_NAME_R>ZCLSD_DT_NOTA_FISCAL_SERVICO_2</OBJ_NAME_R>
+     <ID>&lt;element&gt; ZGKO_EMIT &lt;type&gt; dtNotaFiscalServico http://trescoracoes.com.br/fiscal/nota http://trescoracoes.com.br/fiscal/nota</ID>
+     <IFR_TYPE>element</IFR_TYPE>
+     <IFR_NAME>ZGKO_EMIT</IFR_NAME>
+     <IFR_TEXT>Dados Transportadora</IFR_TEXT>
+     <IFR_LANGU>EN</IFR_LANGU>
+     <IFR_TAGTYP>E</IFR_TAGTYP>
+     <IFR_MAXOCC>1</IFR_MAXOCC>
+     <IFR_OPTNL>X</IFR_OPTNL>
+     <IFR_SCALE>-2</IFR_SCALE>
+     <R3_TYPE>FIEL</R3_TYPE>
+     <R3_NAME>ZGKO_EMIT</R3_NAME>
+     <R3_TEXT>Dados Transportadora</R3_TEXT>
+     <R3_SEQNUM>000020</R3_SEQNUM>
+    </item>
+    <item>
+     <OBJECT>TABL</OBJECT>
+     <OBJ_NAME>ZCLSD_DT_NOTA_FISCAL_SERVICO</OBJ_NAME>
+     <OBJECT1>FIEL</OBJECT1>
+     <OBJ_NAME1>ZGKO_HRREC</OBJ_NAME1>
+     <OBJECT2>FIEL</OBJECT2>
+     <OBJ_NAME2>ZGKO_HRREC</OBJ_NAME2>
+     <ID>&lt;element&gt; ZGKO_HRREC &lt;type&gt; dtNotaFiscalServico http://trescoracoes.com.br/fiscal/nota http://trescoracoes.com.br/fiscal/nota</ID>
+     <IFR_TYPE>element</IFR_TYPE>
+     <IFR_NAME>ZGKO_HRREC</IFR_NAME>
+     <IFR_TEXT>Hora de recebimento</IFR_TEXT>
+     <IFR_LANGU>EN</IFR_LANGU>
+     <IFR_TAGTYP>E</IFR_TAGTYP>
+     <IFR_MAXOCC>1</IFR_MAXOCC>
+     <IFR_OPTNL>X</IFR_OPTNL>
+     <IFR_XSDTYP>time</IFR_XSDTYP>
+     <IFR_SCALE>-2</IFR_SCALE>
+     <R3_TYPE>FIEL</R3_TYPE>
+     <R3_NAME>ZGKO_HRREC</R3_NAME>
+     <R3_TEXT>Hora de recebimento</R3_TEXT>
+     <R3_DTREF>XSDTIME_T</R3_DTREF>
+     <R3_SEQNUM>000007</R3_SEQNUM>
+    </item>
+    <item>
+     <OBJECT>TABL</OBJECT>
+     <OBJ_NAME>ZCLSD_DT_NOTA_FISCAL_SERVICO</OBJ_NAME>
+     <OBJECT1>FIEL</OBJECT1>
+     <OBJ_NAME1>ZGKO_IDNC</OBJ_NAME1>
+     <OBJECT2>FIEL</OBJECT2>
+     <OBJ_NAME2>ZGKO_IDNC</OBJ_NAME2>
+     <ID>&lt;element&gt; ZGKO_IDNC &lt;type&gt; dtNotaFiscalServico http://trescoracoes.com.br/fiscal/nota http://trescoracoes.com.br/fiscal/nota</ID>
+     <IFR_TYPE>element</IFR_TYPE>
+     <IFR_NAME>ZGKO_IDNC</IFR_NAME>
+     <IFR_TEXT>Identificador interno GKO</IFR_TEXT>
+     <IFR_LANGU>EN</IFR_LANGU>
+     <IFR_TAGTYP>E</IFR_TAGTYP>
+     <IFR_MAXOCC>1</IFR_MAXOCC>
+     <IFR_OPTNL>X</IFR_OPTNL>
+     <IFR_XSDTYP>string</IFR_XSDTYP>
+     <IFR_MAXLEN>15</IFR_MAXLEN>
+     <IFR_PATTRN>\d+</IFR_PATTRN>
+     <IFR_SCALE>-2</IFR_SCALE>
+     <R3_TYPE>FIEL</R3_TYPE>
+     <R3_NAME>ZGKO_IDNC</R3_NAME>
+     <R3_TEXT>Identificador interno GKO</R3_TEXT>
+     <R3_DATATYP>NUMC</R3_DATATYP>
+     <R3_LENGTH>000015</R3_LENGTH>
+     <R3_SEQNUM>000004</R3_SEQNUM>
+    </item>
+    <item>
+     <OBJECT>TABL</OBJECT>
+     <OBJ_NAME>ZCLSD_DT_NOTA_FISCAL_SERVICO</OBJ_NAME>
+     <OBJECT1>FIEL</OBJECT1>
+     <OBJ_NAME1>ZGKO_LOCAL</OBJ_NAME1>
+     <OBJECT2>FIEL</OBJECT2>
+     <OBJ_NAME2>ZGKO_LOCAL</OBJ_NAME2>
+     <ID>&lt;element&gt; ZGKO_LOCAL &lt;type&gt; dtNotaFiscalServico http://trescoracoes.com.br/fiscal/nota http://trescoracoes.com.br/fiscal/nota</ID>
+     <IFR_TYPE>element</IFR_TYPE>
+     <IFR_NAME>ZGKO_LOCAL</IFR_NAME>
+     <IFR_TEXT>Local da prestação do serviço (Municipio)</IFR_TEXT>
+     <IFR_LANGU>EN</IFR_LANGU>
+     <IFR_TAGTYP>E</IFR_TAGTYP>
+     <IFR_MAXOCC>1</IFR_MAXOCC>
+     <IFR_OPTNL>X</IFR_OPTNL>
+     <IFR_XSDTYP>string</IFR_XSDTYP>
+     <IFR_MAXLEN>40</IFR_MAXLEN>
+     <IFR_SCALE>-2</IFR_SCALE>
+     <R3_TYPE>FIEL</R3_TYPE>
+     <R3_NAME>ZGKO_LOCAL</R3_NAME>
+     <R3_TEXT>Local da prestação do serviço (Municipio)</R3_TEXT>
+     <R3_DATATYP>CHAR</R3_DATATYP>
+     <R3_LENGTH>000040</R3_LENGTH>
+     <R3_SEQNUM>000008</R3_SEQNUM>
+    </item>
+    <item>
+     <OBJECT>TABL</OBJECT>
+     <OBJ_NAME>ZCLSD_DT_NOTA_FISCAL_SERVICO</OBJ_NAME>
+     <OBJECT1>FIEL</OBJECT1>
+     <OBJ_NAME1>ZGKO_NFS</OBJ_NAME1>
+     <OBJECT2>FIEL</OBJECT2>
+     <OBJ_NAME2>ZGKO_NFS</OBJ_NAME2>
+     <ID>&lt;element&gt; ZGKO_NFS &lt;type&gt; dtNotaFiscalServico http://trescoracoes.com.br/fiscal/nota http://trescoracoes.com.br/fiscal/nota</ID>
+     <IFR_TYPE>element</IFR_TYPE>
+     <IFR_NAME>ZGKO_NFS</IFR_NAME>
+     <IFR_TEXT>Nº NFS (Nota Fiscal de Serviço)</IFR_TEXT>
+     <IFR_LANGU>EN</IFR_LANGU>
+     <IFR_TAGTYP>E</IFR_TAGTYP>
+     <IFR_MAXOCC>1</IFR_MAXOCC>
+     <IFR_OPTNL>X</IFR_OPTNL>
+     <IFR_XSDTYP>string</IFR_XSDTYP>
+     <IFR_MAXLEN>12</IFR_MAXLEN>
+     <IFR_SCALE>-2</IFR_SCALE>
+     <R3_TYPE>FIEL</R3_TYPE>
+     <R3_NAME>ZGKO_NFS</R3_NAME>
+     <R3_TEXT>Nº NFS (Nota Fiscal de Serviço)</R3_TEXT>
+     <R3_DATATYP>CHAR</R3_DATATYP>
+     <R3_LENGTH>000012</R3_LENGTH>
+     <R3_SEQNUM>000002</R3_SEQNUM>
+    </item>
+    <item>
+     <OBJECT>TABL</OBJECT>
+     <OBJ_NAME>ZCLSD_DT_NOTA_FISCAL_SERVICO</OBJ_NAME>
+     <OBJECT1>FIEL</OBJECT1>
+     <OBJ_NAME1>ZGKO_PISS</OBJ_NAME1>
+     <OBJECT2>FIEL</OBJECT2>
+     <OBJ_NAME2>ZGKO_PISS</OBJ_NAME2>
+     <ID>&lt;element&gt; ZGKO_PISS &lt;type&gt; dtNotaFiscalServico http://trescoracoes.com.br/fiscal/nota http://trescoracoes.com.br/fiscal/nota</ID>
+     <IFR_TYPE>element</IFR_TYPE>
+     <IFR_NAME>ZGKO_PISS</IFR_NAME>
+     <IFR_TEXT>Aliq. ISS</IFR_TEXT>
+     <IFR_LANGU>EN</IFR_LANGU>
+     <IFR_TAGTYP>E</IFR_TAGTYP>
+     <IFR_MAXOCC>1</IFR_MAXOCC>
+     <IFR_OPTNL>X</IFR_OPTNL>
+     <IFR_XSDTYP>decimal</IFR_XSDTYP>
+     <IFR_PREC>3</IFR_PREC>
+     <IFR_SCALE>2</IFR_SCALE>
+     <R3_TYPE>FIEL</R3_TYPE>
+     <R3_NAME>ZGKO_PISS</R3_NAME>
+     <R3_TEXT>Aliq. ISS</R3_TEXT>
+     <R3_DATATYP>DEC</R3_DATATYP>
+     <R3_LENGTH>000005</R3_LENGTH>
+     <R3_DECIMAL>000002</R3_DECIMAL>
+     <R3_SEQNUM>000011</R3_SEQNUM>
+    </item>
+    <item>
+     <OBJECT>TABL</OBJECT>
+     <OBJ_NAME>ZCLSD_DT_NOTA_FISCAL_SERVICO</OBJ_NAME>
+     <OBJECT1>FIEL</OBJECT1>
+     <OBJ_NAME1>ZGKO_REM</OBJ_NAME1>
+     <OBJECT2>FIEL</OBJECT2>
+     <OBJ_NAME2>ZGKO_REM</OBJ_NAME2>
+     <OBJECT_R>TABL</OBJECT_R>
+     <OBJ_NAME_R>ZCLSD_DT_NOTA_FISCAL_SERVICO_1</OBJ_NAME_R>
+     <ID>&lt;element&gt; ZGKO_REM &lt;type&gt; dtNotaFiscalServico http://trescoracoes.com.br/fiscal/nota http://trescoracoes.com.br/fiscal/nota</ID>
+     <IFR_TYPE>element</IFR_TYPE>
+     <IFR_NAME>ZGKO_REM</IFR_NAME>
+     <IFR_TEXT>Dados Remetente</IFR_TEXT>
+     <IFR_LANGU>EN</IFR_LANGU>
+     <IFR_TAGTYP>E</IFR_TAGTYP>
+     <IFR_MAXOCC>1</IFR_MAXOCC>
+     <IFR_OPTNL>X</IFR_OPTNL>
+     <IFR_SCALE>-2</IFR_SCALE>
+     <R3_TYPE>FIEL</R3_TYPE>
+     <R3_NAME>ZGKO_REM</R3_NAME>
+     <R3_TEXT>Dados Remetente</R3_TEXT>
+     <R3_SEQNUM>000022</R3_SEQNUM>
+    </item>
+    <item>
+     <OBJECT>TABL</OBJECT>
+     <OBJ_NAME>ZCLSD_DT_NOTA_FISCAL_SERVICO</OBJ_NAME>
+     <OBJECT1>FIEL</OBJECT1>
+     <OBJ_NAME1>ZGKO_RET_ISS</OBJ_NAME1>
+     <OBJECT2>FIEL</OBJECT2>
+     <OBJ_NAME2>ZGKO_RET_ISS</OBJ_NAME2>
+     <ID>&lt;element&gt; ZGKO_RET_ISS &lt;type&gt; dtNotaFiscalServico http://trescoracoes.com.br/fiscal/nota http://trescoracoes.com.br/fiscal/nota</ID>
+     <IFR_TYPE>element</IFR_TYPE>
+     <IFR_NAME>ZGKO_RET_ISS</IFR_NAME>
+     <IFR_TEXT>Retenção de ISS NFS</IFR_TEXT>
+     <IFR_LANGU>EN</IFR_LANGU>
+     <IFR_TAGTYP>E</IFR_TAGTYP>
+     <IFR_MAXOCC>1</IFR_MAXOCC>
+     <IFR_OPTNL>X</IFR_OPTNL>
+     <IFR_XSDTYP>string</IFR_XSDTYP>
+     <IFR_MAXLEN>1</IFR_MAXLEN>
+     <IFR_SCALE>-2</IFR_SCALE>
+     <R3_TYPE>FIEL</R3_TYPE>
+     <R3_NAME>ZGKO_RET_ISS</R3_NAME>
+     <R3_TEXT>Retenção de ISS NFS</R3_TEXT>
+     <R3_DATATYP>CHAR</R3_DATATYP>
+     <R3_LENGTH>000001</R3_LENGTH>
+     <R3_SEQNUM>000015</R3_SEQNUM>
+    </item>
+    <item>
+     <OBJECT>TABL</OBJECT>
+     <OBJ_NAME>ZCLSD_DT_NOTA_FISCAL_SERVICO</OBJ_NAME>
+     <OBJECT1>FIEL</OBJECT1>
+     <OBJ_NAME1>ZGKO_SERIE</OBJ_NAME1>
+     <OBJECT2>FIEL</OBJECT2>
+     <OBJ_NAME2>ZGKO_SERIE</OBJ_NAME2>
+     <ID>&lt;element&gt; ZGKO_SERIE &lt;type&gt; dtNotaFiscalServico http://trescoracoes.com.br/fiscal/nota http://trescoracoes.com.br/fiscal/nota</ID>
+     <IFR_TYPE>element</IFR_TYPE>
+     <IFR_NAME>ZGKO_SERIE</IFR_NAME>
+     <IFR_TEXT>Série da nota</IFR_TEXT>
+     <IFR_LANGU>EN</IFR_LANGU>
+     <IFR_TAGTYP>E</IFR_TAGTYP>
+     <IFR_MAXOCC>1</IFR_MAXOCC>
+     <IFR_OPTNL>X</IFR_OPTNL>
+     <IFR_XSDTYP>string</IFR_XSDTYP>
+     <IFR_SCALE>-2</IFR_SCALE>
+     <R3_TYPE>FIEL</R3_TYPE>
+     <R3_NAME>ZGKO_SERIE</R3_NAME>
+     <R3_TEXT>Série da nota</R3_TEXT>
+     <R3_DATATYP>STRG</R3_DATATYP>
+     <R3_SEQNUM>000003</R3_SEQNUM>
+    </item>
+    <item>
+     <OBJECT>TABL</OBJECT>
+     <OBJ_NAME>ZCLSD_DT_NOTA_FISCAL_SERVICO</OBJ_NAME>
+     <OBJECT1>FIEL</OBJECT1>
+     <OBJ_NAME1>ZGKO_TOM</OBJ_NAME1>
+     <OBJECT2>FIEL</OBJECT2>
+     <OBJ_NAME2>ZGKO_TOM</OBJ_NAME2>
+     <OBJECT_R>TABL</OBJECT_R>
+     <OBJ_NAME_R>ZCLSD_DT_NOTA_FISCAL_SERVICO_Z</OBJ_NAME_R>
+     <ID>&lt;element&gt; ZGKO_TOM &lt;type&gt; dtNotaFiscalServico http://trescoracoes.com.br/fiscal/nota http://trescoracoes.com.br/fiscal/nota</ID>
+     <IFR_TYPE>element</IFR_TYPE>
+     <IFR_NAME>ZGKO_TOM</IFR_NAME>
+     <IFR_TEXT>Dados Tomador</IFR_TEXT>
+     <IFR_LANGU>EN</IFR_LANGU>
+     <IFR_TAGTYP>E</IFR_TAGTYP>
+     <IFR_MAXOCC>1</IFR_MAXOCC>
+     <IFR_OPTNL>X</IFR_OPTNL>
+     <IFR_SCALE>-2</IFR_SCALE>
+     <R3_TYPE>FIEL</R3_TYPE>
+     <R3_NAME>ZGKO_TOM</R3_NAME>
+     <R3_TEXT>Dados Tomador</R3_TEXT>
+     <R3_SEQNUM>000021</R3_SEQNUM>
+    </item>
+    <item>
+     <OBJECT>TABL</OBJECT>
+     <OBJ_NAME>ZCLSD_DT_NOTA_FISCAL_SERVICO</OBJ_NAME>
+     <OBJECT1>FIEL</OBJECT1>
+     <OBJ_NAME1>ZGKO_VBCISS</OBJ_NAME1>
+     <OBJECT2>FIEL</OBJECT2>
+     <OBJ_NAME2>ZGKO_VBCISS</OBJ_NAME2>
+     <ID>&lt;element&gt; ZGKO_VBCISS &lt;type&gt; dtNotaFiscalServico http://trescoracoes.com.br/fiscal/nota http://trescoracoes.com.br/fiscal/nota</ID>
+     <IFR_TYPE>element</IFR_TYPE>
+     <IFR_NAME>ZGKO_VBCISS</IFR_NAME>
+     <IFR_TEXT>Base Cálculo ISS</IFR_TEXT>
+     <IFR_LANGU>EN</IFR_LANGU>
+     <IFR_TAGTYP>E</IFR_TAGTYP>
+     <IFR_MAXOCC>1</IFR_MAXOCC>
+     <IFR_OPTNL>X</IFR_OPTNL>
+     <IFR_XSDTYP>decimal</IFR_XSDTYP>
+     <IFR_PREC>13</IFR_PREC>
+     <IFR_SCALE>2</IFR_SCALE>
+     <R3_TYPE>FIEL</R3_TYPE>
+     <R3_NAME>ZGKO_VBCISS</R3_NAME>
+     <R3_TEXT>Base Cálculo ISS</R3_TEXT>
+     <R3_DATATYP>DEC</R3_DATATYP>
+     <R3_LENGTH>000015</R3_LENGTH>
+     <R3_DECIMAL>000002</R3_DECIMAL>
+     <R3_SEQNUM>000010</R3_SEQNUM>
+    </item>
+    <item>
+     <OBJECT>TABL</OBJECT>
+     <OBJ_NAME>ZCLSD_DT_NOTA_FISCAL_SERVICO</OBJ_NAME>
+     <OBJECT1>FIEL</OBJECT1>
+     <OBJ_NAME1>ZGKO_VFRETEPAG</OBJ_NAME1>
+     <OBJECT2>FIEL</OBJECT2>
+     <OBJ_NAME2>ZGKO_VFRETEPAG</OBJ_NAME2>
+     <ID>&lt;element&gt; ZGKO_VFRETEPAG &lt;type&gt; dtNotaFiscalServico http://trescoracoes.com.br/fiscal/nota http://trescoracoes.com.br/fiscal/nota</ID>
+     <IFR_TYPE>element</IFR_TYPE>
+     <IFR_NAME>ZGKO_VFRETEPAG</IFR_NAME>
+     <IFR_TEXT>Valor do Frete a Pagar</IFR_TEXT>
+     <IFR_LANGU>EN</IFR_LANGU>
+     <IFR_TAGTYP>E</IFR_TAGTYP>
+     <IFR_MAXOCC>1</IFR_MAXOCC>
+     <IFR_OPTNL>X</IFR_OPTNL>
+     <IFR_XSDTYP>decimal</IFR_XSDTYP>
+     <IFR_PREC>13</IFR_PREC>
+     <IFR_SCALE>2</IFR_SCALE>
+     <R3_TYPE>FIEL</R3_TYPE>
+     <R3_NAME>ZGKO_VFRETEPAG</R3_NAME>
+     <R3_TEXT>Valor do Frete a Pagar</R3_TEXT>
+     <R3_DATATYP>DEC</R3_DATATYP>
+     <R3_LENGTH>000015</R3_LENGTH>
+     <R3_DECIMAL>000002</R3_DECIMAL>
+     <R3_SEQNUM>000016</R3_SEQNUM>
+    </item>
+    <item>
+     <OBJECT>TABL</OBJECT>
+     <OBJ_NAME>ZCLSD_DT_NOTA_FISCAL_SERVICO</OBJ_NAME>
+     <OBJECT1>FIEL</OBJECT1>
+     <OBJ_NAME1>ZGKO_VFRETETOTAL</OBJ_NAME1>
+     <OBJECT2>FIEL</OBJECT2>
+     <OBJ_NAME2>ZGKO_VFRETETOTAL</OBJ_NAME2>
+     <ID>&lt;element&gt; ZGKO_VFRETETOTAL &lt;type&gt; dtNotaFiscalServico http://trescoracoes.com.br/fiscal/nota http://trescoracoes.com.br/fiscal/nota</ID>
+     <IFR_TYPE>element</IFR_TYPE>
+     <IFR_NAME>ZGKO_VFRETETOTAL</IFR_NAME>
+     <IFR_TEXT>Valor do Frete Total</IFR_TEXT>
+     <IFR_LANGU>EN</IFR_LANGU>
+     <IFR_TAGTYP>E</IFR_TAGTYP>
+     <IFR_MAXOCC>1</IFR_MAXOCC>
+     <IFR_OPTNL>X</IFR_OPTNL>
+     <IFR_XSDTYP>decimal</IFR_XSDTYP>
+     <IFR_PREC>13</IFR_PREC>
+     <IFR_SCALE>2</IFR_SCALE>
+     <R3_TYPE>FIEL</R3_TYPE>
+     <R3_NAME>ZGKO_VFRETETOTAL</R3_NAME>
+     <R3_TEXT>Valor do Frete Total</R3_TEXT>
+     <R3_DATATYP>DEC</R3_DATATYP>
+     <R3_LENGTH>000015</R3_LENGTH>
+     <R3_DECIMAL>000002</R3_DECIMAL>
+     <R3_SEQNUM>000009</R3_SEQNUM>
+    </item>
+    <item>
+     <OBJECT>TABL</OBJECT>
+     <OBJ_NAME>ZCLSD_DT_NOTA_FISCAL_SERVICO</OBJ_NAME>
+     <OBJECT1>FIEL</OBJECT1>
+     <OBJ_NAME1>ZGKO_VISS</OBJ_NAME1>
+     <OBJECT2>FIEL</OBJECT2>
+     <OBJ_NAME2>ZGKO_VISS</OBJ_NAME2>
+     <ID>&lt;element&gt; ZGKO_VISS &lt;type&gt; dtNotaFiscalServico http://trescoracoes.com.br/fiscal/nota http://trescoracoes.com.br/fiscal/nota</ID>
+     <IFR_TYPE>element</IFR_TYPE>
+     <IFR_NAME>ZGKO_VISS</IFR_NAME>
+     <IFR_TEXT>Valor ISS</IFR_TEXT>
+     <IFR_LANGU>EN</IFR_LANGU>
+     <IFR_TAGTYP>E</IFR_TAGTYP>
+     <IFR_MAXOCC>1</IFR_MAXOCC>
+     <IFR_OPTNL>X</IFR_OPTNL>
+     <IFR_XSDTYP>decimal</IFR_XSDTYP>
+     <IFR_PREC>13</IFR_PREC>
+     <IFR_SCALE>2</IFR_SCALE>
+     <R3_TYPE>FIEL</R3_TYPE>
+     <R3_NAME>ZGKO_VISS</R3_NAME>
+     <R3_TEXT>Valor ISS</R3_TEXT>
+     <R3_DATATYP>DEC</R3_DATATYP>
+     <R3_LENGTH>000015</R3_LENGTH>
+     <R3_DECIMAL>000002</R3_DECIMAL>
+     <R3_SEQNUM>000012</R3_SEQNUM>
+    </item>
+    <item>
+     <OBJECT>TABL</OBJECT>
+     <OBJ_NAME>ZCLSD_DT_NOTA_FISCAL_SERVICO</OBJ_NAME>
+     <OBJECT1>FIEL</OBJECT1>
+     <OBJ_NAME1>ZGKO_VREC</OBJ_NAME1>
+     <OBJECT2>FIEL</OBJECT2>
+     <OBJ_NAME2>ZGKO_VREC</OBJ_NAME2>
+     <ID>&lt;element&gt; ZGKO_VREC &lt;type&gt; dtNotaFiscalServico http://trescoracoes.com.br/fiscal/nota http://trescoracoes.com.br/fiscal/nota</ID>
+     <IFR_TYPE>element</IFR_TYPE>
+     <IFR_NAME>ZGKO_VREC</IFR_NAME>
+     <IFR_TEXT>Valor a receber</IFR_TEXT>
+     <IFR_LANGU>EN</IFR_LANGU>
+     <IFR_TAGTYP>E</IFR_TAGTYP>
+     <IFR_MAXOCC>1</IFR_MAXOCC>
+     <IFR_OPTNL>X</IFR_OPTNL>
+     <IFR_XSDTYP>decimal</IFR_XSDTYP>
+     <IFR_PREC>13</IFR_PREC>
+     <IFR_SCALE>2</IFR_SCALE>
+     <R3_TYPE>FIEL</R3_TYPE>
+     <R3_NAME>ZGKO_VREC</R3_NAME>
+     <R3_TEXT>Valor a receber</R3_TEXT>
+     <R3_DATATYP>DEC</R3_DATATYP>
+     <R3_LENGTH>000015</R3_LENGTH>
+     <R3_DECIMAL>000002</R3_DECIMAL>
+     <R3_SEQNUM>000018</R3_SEQNUM>
+    </item>
+    <item>
+     <OBJECT>TABL</OBJECT>
+     <OBJ_NAME>ZCLSD_DT_NOTA_FISCAL_SERVICO</OBJ_NAME>
+     <OBJECT1>FIEL</OBJECT1>
+     <OBJ_NAME1>ZGKO_VTPREST</OBJ_NAME1>
+     <OBJECT2>FIEL</OBJECT2>
+     <OBJ_NAME2>ZGKO_VTPREST</OBJ_NAME2>
+     <ID>&lt;element&gt; ZGKO_VTPREST &lt;type&gt; dtNotaFiscalServico http://trescoracoes.com.br/fiscal/nota http://trescoracoes.com.br/fiscal/nota</ID>
+     <IFR_TYPE>element</IFR_TYPE>
+     <IFR_NAME>ZGKO_VTPREST</IFR_NAME>
+     <IFR_TEXT>Valor total do serviço</IFR_TEXT>
+     <IFR_LANGU>EN</IFR_LANGU>
+     <IFR_TAGTYP>E</IFR_TAGTYP>
+     <IFR_MAXOCC>1</IFR_MAXOCC>
+     <IFR_OPTNL>X</IFR_OPTNL>
+     <IFR_XSDTYP>decimal</IFR_XSDTYP>
+     <IFR_PREC>13</IFR_PREC>
+     <IFR_SCALE>2</IFR_SCALE>
+     <R3_TYPE>FIEL</R3_TYPE>
+     <R3_NAME>ZGKO_VTPREST</R3_NAME>
+     <R3_TEXT>Valor total do serviço</R3_TEXT>
+     <R3_DATATYP>DEC</R3_DATATYP>
+     <R3_LENGTH>000015</R3_LENGTH>
+     <R3_DECIMAL>000002</R3_DECIMAL>
+     <R3_SEQNUM>000017</R3_SEQNUM>
+    </item>
+    <item>
+     <OBJECT>TABL</OBJECT>
+     <OBJ_NAME>ZCLSD_DT_NOTA_FISCAL_SERVICO</OBJ_NAME>
+     <OBJECT1>TABL</OBJECT1>
+     <OBJ_NAME1>ZCLSD_DT_NOTA_FISCAL_SERVICO</OBJ_NAME1>
+     <OBJECT2>TABL</OBJECT2>
+     <OBJ_NAME2>ZCLSD_DT_NOTA_FISCAL_SERVICO</OBJ_NAME2>
+     <ID>&lt;type&gt; dtNotaFiscalServico http://trescoracoes.com.br/fiscal/nota http://trescoracoes.com.br/fiscal/nota</ID>
+     <IFR_TYPE>type</IFR_TYPE>
+     <IFR_NAME>dtNotaFiscalServico</IFR_NAME>
+     <IFR_TEXT>Integração GKO - Nota Fiscal de Serviço (NFS)</IFR_TEXT>
+     <IFR_LANGU>EN</IFR_LANGU>
+     <IFR_SCALE>-2</IFR_SCALE>
+     <R3_TYPE>TABL</R3_TYPE>
+     <R3_NAME>ZCLSD_DT_NOTA_FISCAL_SERVICO</R3_NAME>
+     <R3_TEXT>Integração GKO - Nota Fiscal de Serviço (NFS)</R3_TEXT>
+     <CATEGORY>ifmtypedef</CATEGORY>
+    </item>
+   </PROXY_DATA>
+  </asx:values>
+ </asx:abap>
+</abapGit>

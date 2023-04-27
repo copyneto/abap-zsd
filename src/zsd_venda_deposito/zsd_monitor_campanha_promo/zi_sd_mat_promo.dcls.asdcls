@@ -1,0 +1,12 @@
+@EndUserText.label: 'CDS de Autorização'
+@MappingRole: true
+define role ZI_SD_MAT_PROMO {
+    grant
+        select
+            on
+                ZI_SD_MAT_PROMO
+                    where
+                        ( Zcentro ) = aspect pfcg_auth( ZSDWERKS, WERKS, ACTVT = '03' );
+                        
+                        
+}

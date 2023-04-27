@@ -1,0 +1,5 @@
+CLASS zclsd_pisconfis DEFINITION PUBLIC ABSTRACT FINAL FOR BEHAVIOR OF zi_sd_cond_pis_confis.
+ENDCLASS.
+
+CLASS zclsd_pisconfis IMPLEMENTATION.
+ENDCLASS.

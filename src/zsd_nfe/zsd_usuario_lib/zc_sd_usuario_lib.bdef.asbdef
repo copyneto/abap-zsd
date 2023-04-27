@@ -1,0 +1,9 @@
+projection;
+
+define behavior for ZC_SD_USUARIO_LIB alias UsuarioLib
+use etag
+{
+  use create;
+  use update;
+  use delete;
+}

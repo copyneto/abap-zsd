@@ -1,0 +1,4 @@
+@EndUserText.label: 'Service Def  unidade de venda exterior'
+define service ZUI_SD_UNID_VENDA_EXPORTACAO {
+  expose ZC_SD_UNID_VENDA_EXPORTACAO;
+}

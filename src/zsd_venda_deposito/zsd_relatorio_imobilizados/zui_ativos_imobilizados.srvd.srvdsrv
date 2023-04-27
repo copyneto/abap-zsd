@@ -1,0 +1,4 @@
+@EndUserText.label: 'Ativos Imobilizados'
+define service ZUI_ATIVOS_IMOBILIZADOS {
+  expose ZC_SD_ATIVOS_IMOBILIZADOS as APP_Ativos;
+}

@@ -1,0 +1,3 @@
+FUNCTION-POOL ZFGSD_COCKPIT_REMESSA.        "MESSAGE-ID ..
+
+* INCLUDE LZFGSD_COCKPIT_REMESSAD...         " Local class definition

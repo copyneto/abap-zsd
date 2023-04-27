@@ -1,0 +1,235 @@
+@Metadata.layer: #CORE
+
+@UI: { headerInfo: { typeName: 'Relatório de Nota Fiscal Sintético',
+                     typeNamePlural: 'Relatório de Notas Fiscais Sintético'
+                   }
+     }
+
+annotate entity ZC_SD_BR_RELATORIO_NF_AT with
+{
+
+  // ------------------------------------------------------
+  // FACETS
+  // ------------------------------------------------------
+
+  @UI.facet: [
+     { id: 'HeaderNotaFiscal' ,
+         purpose: #HEADER,
+         label: 'Nota Fiscal' ,
+         type: #FIELDGROUP_REFERENCE,
+         targetQualifier: 'HeaderNotaFiscal'} ,
+     { id:'DETAIL' ,
+           type: #COLLECTION ,
+           label: 'Síntese' ,
+            position: 10 } ,
+  //         { type: #IDENTIFICATION_REFERENCE ,
+  //           label : 'Detalhes da Nota Fiscal',
+  //           parentId: 'idGeneralInformation',
+  //           id: 'idIdentification' ,
+  //           position: 10 },
+         { type: #FIELDGROUP_REFERENCE ,
+           label : 'Informações Gerais',
+           targetQualifier: 'InfoGeral' ,
+           parentId: 'DETAIL' ,
+           id : 'idGroupInfoGeral' ,
+           position: 20 },
+         { type: #FIELDGROUP_REFERENCE ,
+           label : 'Documento de Referência',
+           targetQualifier: 'ReferenceDoc' ,
+           parentId: 'DETAIL' ,
+           id : 'idGroupReference' ,
+           position: 30 },
+         { type: #FIELDGROUP_REFERENCE ,
+           label : 'Totais',
+           targetQualifier: 'Totais' ,
+           parentId: 'DETAIL' ,
+           id : 'idGroupTotais' ,
+           position: 40 },
+     { id:'IMPOSTOS' ,
+           type: #COLLECTION ,
+           label: 'Impostos' ,
+            position: 20 } ,
+         { type: #FIELDGROUP_REFERENCE ,
+           label : 'Impostos',
+           targetQualifier: 'Imposto' ,
+           parentId: 'IMPOSTOS' ,
+           id : 'idGroupImposto' ,
+           position: 10 }
+            ]
+
+  // -----------------------------------------------------
+  // Informações de campo
+  // ------------------------------------------------------
+  @Consumption.semanticObject:'NotaFiscal'
+  @UI: { lineItem:        [ { position: 01, semanticObjectAction: 'display?sap-ui-tech-hint=GUI', type: #WITH_URL } ],
+         selectionField:  [ { position: 80 } ],
+         fieldGroup:      [ { position: 20, qualifier: 'HeaderNotaFiscal' } ] }
+  BR_NotaFiscal;
+
+  @UI: {  lineItem:       [ { position: 10 } ],
+          selectionField: [ { position: 10 }] }
+  CompanyCode;
+
+  @UI: {  lineItem:       [ { position: 15 } ] }
+  CompanyCodeName;
+
+  @UI: { lineItem:        [ { position: 16 } ],
+         fieldGroup:      [ { position: 10, qualifier: 'InfoGeral' } ],
+         selectionField:  [ { position: 20 }] }
+  BusinessPlace;
+
+  @UI: { lineItem:        [ { position: 17 } ],
+         fieldGroup:      [ { position: 15, qualifier: 'InfoGeral' } ] }
+  BusinessPlaceText;
+
+  @UI: { lineItem:        [ { position: 21 } ],
+         fieldGroup:      [ { position: 20, qualifier: 'InfoGeral' } ],
+         selectionField:  [ { position: 21 }] }
+  Plant;
+
+  @UI: { lineItem:        [ { position: 22  } ],
+  //selectionField:  [ { position: 21 }],
+         fieldGroup:      [ { position: 30, qualifier: 'InfoGeral' } ] }
+  DistributionChannel;
+
+  @UI: { //lineItem:        [ { position: 23, label: 'Setor' } ],
+         fieldGroup:      [ { position: 40, qualifier: 'InfoGeral' } ],
+         selectionField:  [ { position: 23 }] }
+  Division;
+
+  @UI: { //lineItem:        [ { position: 24 } ],
+         fieldGroup:      [ { position: 10, qualifier: 'ReferenceDoc' } ],
+         selectionField:  [ { position: 24 } ] }
+  BillingDocumentType;
+
+  @UI: { //lineItem:        [ { position: 25 } ],
+         fieldGroup:      [ { position: 20, qualifier: 'ReferenceDoc' } ],
+         selectionField:  [ { position: 25 } ] }
+  SDDocumentReason;
+
+  @UI: { //lineItem:        [ { position: 26 } ],
+         fieldGroup:      [ { position: 01, qualifier: 'ReferenceDoc' } ] }
+  SalesOrderType;
+
+  @UI: { lineItem:        [ { position: 30 } ],
+         fieldGroup:      [ { position: 49, qualifier: 'InfoGeral' } ] }
+  ZBR_NFPartner;
+
+  @UI: { lineItem:        [ { position: 31 } ],
+         fieldGroup:      [ { position: 50, qualifier: 'InfoGeral' } ] }
+  @EndUserText.label: 'Nome do recebedor'
+  BR_NFReceiverNameFrmtdDesc;
+
+  @UI: { lineItem:        [ { position: 40 } ],
+         fieldGroup:      [ { position: 51, qualifier: 'InfoGeral' } ] }
+  @EndUserText.label: 'Criado por'
+  CreatedByUser;
+
+  @UI: { lineItem:        [ { position: 41 } ],
+         selectionField:  [ { position: 50 }],
+         fieldGroup:      [ { position: 70, qualifier: 'InfoGeral' } ] }
+  BR_NFPostingDate;
+
+  @UI: { lineItem:        [ { position: 50 } ],
+         fieldGroup:      [ { position: 60, qualifier: 'InfoGeral' } ] }
+  @EndUserText.label: 'Hora da criação do documento'
+  CreationTime;
+
+  @UI: { lineItem:        [ { position: 51, label: 'Modificado por' } ],
+         fieldGroup:      [ { position: 50, qualifier: 'ReferenceDoc', label: 'Modificado por' } ] }
+  LastChangedByUser;
+
+  @UI: { lineItem:        [ { position: 52 } ],
+         fieldGroup:      [ { position: 30, qualifier: 'ReferenceDoc' } ],
+         selectionField:  [ { position: 26 }] }
+  BR_NFCancellationDate;
+
+  @UI: { lineItem:        [ { position: 53, label: 'Hora do Cancelamento' } ],
+         fieldGroup:      [ { position: 40, label: 'Hora do Cancelamento', qualifier: 'ReferenceDoc' } ] }
+  CancellationLastChangeTime;
+
+  @UI: { lineItem:        [ { position: 60} ],
+         fieldGroup:      [ { position: 10, qualifier: 'HeaderNotaFiscal' } ],
+         selectionField:  [ { position: 70 }] }
+  @EndUserText.label: 'Nro da NFe'
+  BR_NFeNumber;
+
+  @UI: { fieldGroup:      [ { position: 22, qualifier: 'InfoGeral' } ],
+         selectionField:  [ { position: 41 }] }
+  @EndUserText.label: 'Categoria de NF'
+  BR_NFType;
+
+  @UI: { lineItem:        [ { position: 70, label: 'Peso bruto' } ],
+         fieldGroup:      [ { position: 10, qualifier: 'Totais' } ] }
+  HeaderGrossWeight;
+
+  @UI: { lineItem:        [ { position: 90 } ],
+         fieldGroup:      [ { position: 20, qualifier: 'Totais' } ] }
+  HeaderWeightUnit;
+
+  @UI: { lineItem:        [ { position: 100, label: 'Total da NF'} ],
+         fieldGroup:      [ { position: 30, qualifier: 'Totais' } ] }
+  BR_NFTotalAmount;
+
+  @UI: { lineItem:        [ { position: 110 } ],
+         fieldGroup:      [ { position: 10, qualifier: 'Imposto' } ] }
+  BR_ICMSBaseTotalAmount;
+
+  @UI: { lineItem:        [ { position: 120 } ],
+         fieldGroup:      [ { position: 20, qualifier: 'Imposto' } ] }
+  BR_ICMSTaxTotalAmount;
+
+  @UI: { lineItem:        [ { position: 130 } ],
+         fieldGroup:      [ { position: 30, qualifier: 'Imposto' } ] }
+  BR_IPITaxTotalAmount;
+
+  @UI: { lineItem:        [ { position: 140 } ],
+         fieldGroup:      [ { position: 40, qualifier: 'Imposto' } ] }
+  BR_ICMSSTBaseTotalAmount;
+
+  @UI: { lineItem:        [ { position: 150 } ],
+         fieldGroup:      [ { position: 50, qualifier: 'Imposto' } ] }
+  BR_ICMSSTTaxTotalAmount;
+
+  @UI: { lineItem:        [ { position: 160 } ],
+         fieldGroup:      [ { position: 60, qualifier: 'Imposto' } ] }
+  BR_ICMSDestinationTaxAmount;
+
+  @UI: { lineItem:        [ { position: 170 } ],
+         fieldGroup:      [ { position: 70, qualifier: 'Imposto' } ] }
+  BR_ICMSOriginTaxAmount;
+
+  @UI: { lineItem:        [ { position: 180 } ],
+         fieldGroup:      [ { position: 80, qualifier: 'Imposto' } ] }
+  BR_FCPOnICMSTaxAmount;
+
+  @UI: { selectionField:  [ { position: 60 } ],
+         fieldGroup:      [ { position: 80, qualifier: 'InfoGeral' } ] }
+  BR_NFIssueDate;
+
+  @UI: { lineItem:        [ { position: 190 } ],
+         fieldGroup:      [ { position: 90, qualifier: 'InfoGeral' } ],
+         selectionField:  [ { position: 90 } ] } //,  exclude: true } ] }
+  @EndUserText.label: 'Tipo do Emitente'
+  BR_NFPartnerType;
+
+  @UI.hidden: true
+  BR_NFPartnerTypeDesc;
+
+  @UI: {  //selectionField: [ { position: 100 } ],
+          fieldGroup:     [ { position: 31, qualifier: 'ReferenceDoc' } ] }
+  @Consumption          : { filter: { selectionType: #SINGLE } }
+  BR_NFIsCanceled;
+
+  @UI: { selectionField:  [ { position: 100 } ] }
+  BR_NFeDocumentStatus;
+
+  @UI: { selectionField:  [ { position: 110 } ] }
+  @EndUserText.label: 'Tipo de documento'
+  BR_NFIsCreatedManually;
+
+  @UI: { selectionField:  [ { position: 120 } ] }
+  BR_NFDirection;
+
+
+}

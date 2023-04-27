@@ -1,0 +1,66 @@
+@Metadata.layer: #CORE
+@UI: { headerInfo: { typeName: 'Gerar Devolução',
+                     typeNamePlural: 'Gerar Devolução',
+                     title: { type: #STANDARD, value: 'NumNFe' },
+                            description: { value: 'NumNFe' } } }
+annotate view ZC_SD_COCKPIT_DEVOLUCAO_GERDEV with
+{
+  @UI.facet: [
+           { id:           'NumNFe',
+             purpose:      #STANDARD,
+             type:         #IDENTIFICATION_REFERENCE,
+             label:        'Gerar Devolução',
+             position:      10
+           },
+           { id:             'RefVal',
+             purpose:         #STANDARD,
+             type:            #LINEITEM_REFERENCE,
+             label:           'Referenciar e Validar',
+             position:        20,
+             targetElement:   '_RefVal'}
+           ]
+
+
+      // ------------------------------------------------------
+  // Buttons information
+  // ------------------------------------------------------
+
+  @UI.identification:   [ { position: 10, type: #FOR_ACTION, dataAction: 'gerarOv', label: 'Gerar Ordem' },
+                          { position: 20, type: #FOR_ACTION, dataAction: 'Calcular', label: 'Calcular' }]
+
+
+  @UI: { lineItem:     [{ position: 10, label: 'Número NF-e' }],
+        fieldGroup:    [{ position: 10, label: 'Número NF-e' } ],
+        selectionField:[{ position: 10 }] }
+  NumNFe;
+  @UI: { lineItem:     [{ position: 20, label: 'Tipo devolução' }],
+       identification: [{ position: 20 }],
+       selectionField: [{ position: 20 }] }
+  TipoDevolucao;
+  @UI: { lineItem:     [{ position: 30, label: 'Data Lançamento' }],
+       identification: [{ position: 30, label: 'Data Lançamento'  } ],
+       selectionField: [{ position: 30 }] }
+  DataLancamento;
+
+  @UI: { lineItem:     [{ position: 40, label: 'Valor Total' }],
+       identification: [{ position: 40 } ],
+       selectionField: [{ position: 40 }] }
+  ValorTotalNFe;
+  @UI: { lineItem:     [{ position: 50, label: 'Cliente' }],
+       identification: [{ position: 50 } ],
+       selectionField: [{ position: 50 }] }
+  Cliente;
+  @UI: { lineItem:     [{ position: 60, label: 'Situação', criticality: 'CorSituacao'}],
+       identification: [{ position: 60, label: 'Situação', criticality: 'CorSituacao'  } ],
+       selectionField: [{ position: 60 }] }
+  Situacao;
+
+  @UI.hidden: true
+  StatusText;
+
+  @UI: { lineItem:     [{ position: 70, label: 'Motivo' }],
+       identification: [{ position: 70 } ],
+       selectionField: [{ position: 70 }] }
+  Motivo;
+
+}

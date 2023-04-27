@@ -1,0 +1,4 @@
+@EndUserText.label: 'Service Def. Cockpit Ciclo de Pedidos'
+define service ZUI_SD_CKPT_CICLO_PEDIDO {
+  expose ZC_SD_CKPT_CICLO_PEDIDO_APP as CokPitCicloPedidos;
+}

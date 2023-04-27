@@ -1,0 +1,16 @@
+unmanaged;
+
+define behavior for ZI_SD_VERIF_UTIL_APP alias VerifUtil
+implementation in class zclsd_verif_util_app unique
+//late numbering
+lock master
+etag master SalesOrder
+{
+  //  create;
+  //  update;
+  //  delete;
+
+//  action ( features : instance ) SubstituirProduto parameter ZC_SD_VERIF_UTIL_PRODUTO;
+  action ( features : instance ) EliminarProduto;
+
+}

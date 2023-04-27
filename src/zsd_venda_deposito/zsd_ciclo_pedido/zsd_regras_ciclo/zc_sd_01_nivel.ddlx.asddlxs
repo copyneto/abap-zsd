@@ -1,0 +1,103 @@
+@Metadata.layer: #CORE
+@UI.headerInfo: {  typeNamePlural: 'Níveis de serviço', typeName: 'Dados Níveis de Serviço',
+    title: {  type: #STANDARD, value: 'Ziti' } }
+
+
+annotate view ZC_SD_01_NIVEL with
+{
+  @UI.facet: [ { id: 'Dados',
+                 purpose: #STANDARD,
+                 type: #IDENTIFICATION_REFERENCE,
+                 label: 'Informações Gerais',
+                 position: 10 },
+
+               { id: 'Hora',
+                 purpose: #STANDARD,
+                 type: #LINEITEM_REFERENCE,
+                 label: 'Hora de corte',
+                 position: 20,
+                 targetElement: '_Hora' },
+
+               { id: 'Dia',
+                 purpose: #STANDARD,
+                 type: #LINEITEM_REFERENCE,
+                 label: 'Dias de Faturamento',
+                 position: 30,
+                 targetElement: '_Dia' } ]
+
+
+  @UI: { lineItem:        [ { position: 10 } ],
+         identification:  [ { position: 10 } ],
+         selectionField:  [ { position: 10 } ] }
+  Ziti;
+
+  @UI: { lineItem:        [ { position: 20 } ],
+         identification:  [ { position: 20 } ],
+         selectionField:  [ { position: 20 } ] }
+  @Search.defaultSearchElement: true
+  @Search.fuzzinessThreshold: 0.8
+  @EndUserText.label: 'Medição'
+  Zmed;
+  @UI: { lineItem:        [ { position: 25 } ],
+         identification:  [ { position: 25 } ] }
+  @EndUserText.label: 'Descrição Medição'
+  DescMedicao;
+
+  @UI: { lineItem:        [ { position: 30 } ],
+         identification:  [ { position: 30 } ],
+         selectionField:  [ { position: 30 } ] }
+  @Search.defaultSearchElement: true
+  @Search.fuzzinessThreshold: 0.8
+  @EndUserText.label: 'Evento início'
+  ZevenI;
+
+  @UI: { lineItem:        [ { position: 35 } ],
+         identification:  [ { position: 35 } ] }
+  @EndUserText.label: 'Descrição Evento Início'
+  DescIniEve;
+
+  @UI: { lineItem:        [ { position: 40 } ],
+         identification:  [ { position: 40 } ],
+         selectionField:  [ { position: 40 } ] }
+  @Search.defaultSearchElement: true
+  @Search.fuzzinessThreshold: 0.8
+  @EndUserText.label: 'Evento fim'
+  ZevenF;
+
+  @UI: { lineItem:        [ { position: 45 } ],
+         identification:  [ { position: 45 } ] }
+  @EndUserText.label: 'Descrição Evento Fim'
+  DescFimEve;
+
+  @UI: { lineItem:        [ { position: 50 } ],
+         identification:  [ { position: 50 } ] }
+  @EndUserText.label: 'Prazo em horas (HHMM)'
+  Zprah;
+  
+  @UI.facet: [{hidden: true}]
+  ZprahConv;
+
+  @UI: { lineItem:        [ { position: 60 } ],
+         identification:  [ { position: 60 } ] }
+  Zprad;
+
+  @UI: { lineItem:        [ { position: 70 } ],
+         identification:  [ { position: 70 } ] }
+  Zcale;
+
+  @UI.hidden: true
+  CreatedBy;
+
+  @UI.hidden: true
+  CreatedAt;
+
+  @UI.hidden: true
+  LastChangedBy;
+
+  @UI.hidden: true
+  LastChangedAt;
+
+  @UI.hidden: true
+  LocalLastChangedAt;
+
+}

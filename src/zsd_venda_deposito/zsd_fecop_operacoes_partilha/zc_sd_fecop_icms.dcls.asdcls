@@ -1,0 +1,11 @@
+@EndUserText.label: 'CDS de Autorização'
+@MappingRole: true
+define role ZC_SD_FECOP_ICMS {
+    grant
+        select
+            on
+                ZC_SD_FECOP_ICMS
+                    where
+                        inheriting conditions from entity ZI_SD_FECOP_ICMS;
+                        
+}

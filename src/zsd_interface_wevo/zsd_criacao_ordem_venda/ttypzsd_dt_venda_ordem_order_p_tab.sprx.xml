@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<abapGit version="v1.0.0" serializer="LCL_OBJECT_SPRX" serializer_version="v1.0.0">
+ <asx:abap xmlns:asx="http://www.sap.com/abapxml" version="1.0">
+  <asx:values>
+   <PROXY_HEADER>
+    <item>
+     <OBJECT>TTYP</OBJECT>
+     <OBJ_NAME>ZSD_DT_VENDA_ORDEM_ORDER_P_TAB</OBJ_NAME>
+     <OBJECT_M>TABL</OBJECT_M>
+     <OBJ_NAME_M>ZSD_DT_VENDA_ORDEM</OBJ_NAME_M>
+     <HASH_ID>70F26F745150BAC55F7260CB1DF4C110851C36C0</HASH_ID>
+     <ID>TableOf&lt;type&gt; ORDER_PARTNERS &lt;element&gt; ORDER_PARTNERS &lt;type&gt; dtVendaOrdem http://trescoracoes.com.br/criacao/ordemvenda http://trescoracoes.com.br/criacao/ordemvenda</ID>
+     <IFR_TYPE>TableOftype</IFR_TYPE>
+     <IFR_NAME>ORDER_PARTNERS</IFR_NAME>
+     <IFR_NSPCE>http://trescoracoes.com.br/criacao/ordemvenda</IFR_NSPCE>
+     <IFR_GNSPCE>http://trescoracoes.com.br/criacao/ordemvenda</IFR_GNSPCE>
+     <GEN_VERS>0005</GEN_VERS>
+     <PREFIX>ZSD_</PREFIX>
+     <CATEGORY>ifmtypedef</CATEGORY>
+    </item>
+   </PROXY_HEADER>
+   <PROXY_DATA>
+    <item>
+     <OBJECT>TTYP</OBJECT>
+     <OBJ_NAME>ZSD_DT_VENDA_ORDEM_ORDER_P_TAB</OBJ_NAME>
+     <OBJECT1>TTYP</OBJECT1>
+     <OBJ_NAME1>ZSD_DT_VENDA_ORDEM_ORDER_P_TAB</OBJ_NAME1>
+     <OBJECT2>TTYP</OBJECT2>
+     <OBJ_NAME2>ZSD_DT_VENDA_ORDEM_ORDER_P_TAB</OBJ_NAME2>
+     <OBJECT_R>TABL</OBJECT_R>
+     <OBJ_NAME_R>ZSD_DT_VENDA_ORDEM_ORDER_PARTN</OBJ_NAME_R>
+     <ID>TableOf&lt;type&gt; ORDER_PARTNERS &lt;element&gt; ORDER_PARTNERS &lt;type&gt; dtVendaOrdem http://trescoracoes.com.br/criacao/ordemvenda http://trescoracoes.com.br/criacao/ordemvenda</ID>
+     <IFR_TYPE>TableOftype</IFR_TYPE>
+     <IFR_NAME>ORDER_PARTNERS</IFR_NAME>
+     <IFR_LANGU>EN</IFR_LANGU>
+     <IFR_SCALE>-2</IFR_SCALE>
+     <R3_TYPE>TTYP</R3_TYPE>
+     <R3_NAME>ZSD_DT_VENDA_ORDEM_ORDER_P_TAB</R3_NAME>
+     <R3_TEXT>Proxy Table Type (generated)</R3_TEXT>
+     <CATEGORY>ifmtypedef</CATEGORY>
+    </item>
+   </PROXY_DATA>
+  </asx:values>
+ </asx:abap>
+</abapGit>

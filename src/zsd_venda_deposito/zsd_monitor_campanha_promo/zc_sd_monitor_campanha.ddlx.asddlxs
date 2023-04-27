@@ -1,0 +1,114 @@
+@Metadata.layer:#CORE
+@UI: { headerInfo: { typeName: 'Monitor Campanha',
+                     typeNamePlural: 'Monitor Campanha',
+//                     title: { type: #STANDARD, label: 'Status', value: 'Status' } } }
+                     title: { value: 'Promocao' } } }
+
+
+annotate view ZC_SD_MONITOR_CAMPANHA with
+{
+  @UI.facet: [
+                  { id:          'Monitor',
+                    purpose:       #STANDARD,
+                    //type:          #IDENTIFICATION_REFERENCE,
+                    type:    #COLLECTION,
+                    label:         'Monitor de Campanhas Promocionais',
+                    position:      10
+                  },
+                               { id:              'geral',
+               purpose:         #STANDARD,
+               parentId:        'Monitor',
+               type:            #FIELDGROUP_REFERENCE,
+               label:           'Dados Gerais',
+               targetQualifier: 'geral',
+               position:         20 } ]
+
+
+  @UI: { lineItem:       [{ position: 10, label: 'Status' , criticality: 'StatusColor'}],
+         identification: [{ position: 10, label: 'Status', criticality: 'StatusColor'}],
+         selectionField:  [ { position: 50 } ] }
+  @UI.fieldGroup: [{ position: 10, qualifier: 'geral' }]
+  Status;
+  @UI.hidden: true
+  StatusColor;
+
+  @UI: { lineItem:        [ { position: 20 } ],
+         identification:  [ { position: 20 } ] }
+  @UI.fieldGroup: [{ position: 20, qualifier: 'geral' }]
+  Promocao;
+
+  @UI: { lineItem:        [ { position: 30 },
+                            { type: #FOR_ACTION, dataAction: 'CriarOv',  label: 'Criar OV'  },
+                            { type: #FOR_ACTION, dataAction: 'LiberacaoID',  label: 'Liberar ID'  },
+                            { type: #FOR_ACTION, dataAction: 'CriarBP',  label: 'Criar/Alterar BP'  },
+                            { type: #FOR_ACTION, dataAction: 'InterfaceZIONZ',  label: 'Reprocessar Carga'  }],
+         identification:  [ { position: 30 } ],
+         selectionField:  [ { position: 10 } ] }
+  @UI.fieldGroup: [{ position: 30, qualifier: 'geral' }]
+  Id;
+
+  @UI: { lineItem:        [ { position: 40 } ],
+         identification:  [ { position: 40 } ],
+         selectionField:  [ { position: 20 } ] }
+  @UI.fieldGroup: [{ position: 40, qualifier: 'geral' }]
+  Bp;
+
+  @UI: { lineItem:       [{ position: 50, criticality: 'StatusBpColor' }],
+        identification: [{ position: 50, label: 'Status Bp', criticality: 'StatusBpColor' }] }
+  @UI.fieldGroup: [{ position: 50, qualifier: 'geral' }]
+  StatusBp;
+
+  @UI: { lineItem:        [ { position: 60 , label: 'Documento de Vendas' } ],
+         identification:  [ { position: 60 , label: 'Documento de Vendas' } ]}
+  @UI.fieldGroup: [{ position: 60, qualifier: 'geral' }]
+  DocOv;
+
+  @UI: { lineItem:        [ { position: 70, label: 'Status OV', criticality:'StatusOvColor' } ],
+         identification:  [ { position: 70, label: 'Status OV', criticality:'StatusOvColor'} ]}
+  @UI.fieldGroup: [{ position: 70, qualifier: 'geral' }]
+  StatusOv;
+
+  @UI: { lineItem:        [ { position: 80 } ],
+         identification:  [ { position: 80 } ],
+         selectionField:  [ { position: 40 } ] }
+  @UI.fieldGroup: [{ position: 80, qualifier: 'geral' }]
+  LocalCompra;
+
+  @UI: { lineItem:        [ { position: 90 } ],
+         identification:  [ { position: 90 } ]}
+  @UI.fieldGroup: [{ position: 90, qualifier: 'geral' }]
+  Cidade;
+
+  @UI: { lineItem:        [ { position: 100 } ],
+         identification:  [ { position: 100 } ]}
+  @UI.fieldGroup: [{ position: 100, qualifier: 'geral' }]
+  Estado;
+
+  @UI: { lineItem:        [ { position: 110, label: 'Data Criação' } ],
+         identification:  [ { position: 110, label: 'Data Criação' } ],
+         selectionField:  [ { position: 30 } ] }
+  @UI.fieldGroup: [{ position: 110, qualifier: 'geral' }]
+  DtRegistro;
+
+  @UI: { lineItem:        [ { position: 120 } ],
+         identification:  [ { position: 120 } ]}
+  @UI.fieldGroup: [{ position: 120, qualifier: 'geral' }]
+  NotaFiscal;
+
+  @UI: { lineItem:        [ { position: 130 } ],
+         identification:  [ { position: 130 } ]}
+  @UI.fieldGroup: [{ position: 130, qualifier: 'geral' }]
+  Codigo;
+
+  @UI: { lineItem:        [ { position: 140, label: 'Faturamento' } ],
+         identification:  [ { position: 140, label: 'Faturamento' } ]}
+  @UI.fieldGroup: [{ position: 140, qualifier: 'geral' }]
+  DocFat;
+  @Consumption.filter.hidden: true
+  @UI.hidden: true
+  StatusOvColor;
+  @Consumption.filter.hidden: true
+  @UI.hidden: true
+  StatusBpColor;
+
+}

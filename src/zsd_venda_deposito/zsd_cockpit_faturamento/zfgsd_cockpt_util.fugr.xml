@@ -1,0 +1,67 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<abapGit version="v1.0.0" serializer="LCL_OBJECT_FUGR" serializer_version="v1.0.0">
+ <asx:abap xmlns:asx="http://www.sap.com/abapxml" version="1.0">
+  <asx:values>
+   <AREAT>FUNÇÃO PARA APP UTILIZAÇÃO</AREAT>
+   <INCLUDES>
+    <SOBJ_NAME>LZFGSD_COCKPT_UTILTOP</SOBJ_NAME>
+    <SOBJ_NAME>SAPLZFGSD_COCKPT_UTIL</SOBJ_NAME>
+   </INCLUDES>
+   <FUNCTIONS>
+    <item>
+     <FUNCNAME>ZFMSD_COCKPIT_UTIL_BAPI</FUNCNAME>
+     <REMOTE_CALL>R</REMOTE_CALL>
+     <SHORT_TEXT>FM PARA EXECUTAR BAPI</SHORT_TEXT>
+     <IMPORT>
+      <RSIMP>
+       <PARAMETER>IV_ORDER</PARAMETER>
+       <TYP>VBELN_VA</TYP>
+      </RSIMP>
+      <RSIMP>
+       <PARAMETER>IS_ORDERX</PARAMETER>
+       <TYP>BAPISDH1X</TYP>
+      </RSIMP>
+     </IMPORT>
+     <TABLES>
+      <RSTBL>
+       <PARAMETER>TT_ITEM</PARAMETER>
+       <DBSTRUCT>BAPISDITM</DBSTRUCT>
+      </RSTBL>
+      <RSTBL>
+       <PARAMETER>TT_ITEMX</PARAMETER>
+       <DBSTRUCT>BAPISDITMX</DBSTRUCT>
+      </RSTBL>
+      <RSTBL>
+       <PARAMETER>TT_RETURN</PARAMETER>
+       <DBSTRUCT>BAPIRET2</DBSTRUCT>
+      </RSTBL>
+     </TABLES>
+     <DOCUMENTATION>
+      <RSFDO>
+       <PARAMETER>IV_ORDER</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Documento de vendas</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>IS_ORDERX</PARAMETER>
+       <KIND>P</KIND>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>TT_ITEM</PARAMETER>
+       <KIND>P</KIND>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>TT_ITEMX</PARAMETER>
+       <KIND>P</KIND>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>TT_RETURN</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Parâmetro de retorno</STEXT>
+      </RSFDO>
+     </DOCUMENTATION>
+    </item>
+   </FUNCTIONS>
+  </asx:values>
+ </asx:abap>
+</abapGit>

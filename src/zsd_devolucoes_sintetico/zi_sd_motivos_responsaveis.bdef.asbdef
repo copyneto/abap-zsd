@@ -1,0 +1,18 @@
+managed implementation in class zclsd_motivos_responsaveis unique;
+
+define behavior for ZI_SD_MOTIVOS_RESPONSAVEIS //alias <alias_name>
+persistent table ztsd_motivo_resp
+lock master
+//etag master <field_name>
+{
+
+
+// mandatory fields that are required to create
+  field ( mandatory: create ) Augru;
+
+  field ( readonly : update) Augru;
+
+  create;
+  update;
+  delete;
+}

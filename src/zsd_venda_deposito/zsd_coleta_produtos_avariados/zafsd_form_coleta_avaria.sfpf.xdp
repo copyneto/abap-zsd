@@ -1,0 +1,1395 @@
+<?xml version="1.0" encoding="utf-8"?>
+<?xfa generator="AdobeLiveCycleDesigner_V11.0.9.20201112.2.940716_SAP" APIVersion="3.6.20316.0"?><xdp:xdp xmlns:xdp="http://ns.adobe.com/xdp/" timeStamp="2022-01-29T05:37:35Z" uuid="5355076f-21e2-42b4-9272-048762894336">
+<template xmlns:xliff="urn:oasis:names:tc:xliff:document:1.1" xmlns="http://www.xfa.org/schema/xfa-template/3.3/">
+   <?formServer defaultPDFRenderFormat acrobat10.0dynamic?>
+   <subform layout="tb" locale="pt_BR" name="data" restoreState="auto">
+      <pageSet>
+         <pageArea id="Page1" name="Página1">
+            <draw h="34.925mm" name="Retângulo2" w="203.2mm" x="6.35mm" y="238.125mm">
+               <value>
+                  <rectangle>
+                     <edge/>
+                     <corner radius="0.071mm"/>
+                  </rectangle>
+               </value>
+            </draw>
+            <contentArea h="10.5in" id="contentArea_ID" w="8in" x="0.25in" y="0.25in"/>
+            <medium long="11in" short="8.5in" stock="letter"/>
+            <draw h="63.5mm" name="Retângulo1" w="203.2mm" x="6.35mm" y="6.35mm">
+               <value>
+                  <rectangle>
+                     <edge/>
+                     <corner radius="0.071mm"/>
+                  </rectangle>
+               </value>
+            </draw>
+            <field h="9mm" name="ORDEM_VENDAS" w="107.95mm" x="101.6mm" y="6.35mm">
+               <ui>
+                  <textEdit>
+                     <border presence="hidden"/>
+                     <margin/>
+                  </textEdit>
+               </ui>
+               <font size="14pt" typeface="Arial" weight="bold"/>
+               <margin bottomInset="1mm" leftInset="1mm" rightInset="1mm" topInset="1mm"/>
+               <para vAlign="middle"/>
+               <caption reserve="81.859mm">
+                  <para vAlign="middle"/>
+                  <value>
+                     <text xliff:rid="F9E95D10-7F07-42FA-9B95-4A5EBD41E07F">Ordem de coleta de avaria número</text>
+                  </value>
+               </caption>
+               <value>
+                  <text maxChars="10"/>
+               </value>
+               <bind match="dataRef" ref="$.IS_DADOS.ORDEM_VENDAS"/>
+               <desc>
+                  <text name="Anotação do schema">Número do documento de vendas e distribuição</text>
+               </desc>
+            </field>
+            <draw h="63.5mm" name="Linha1" w="0in" x="101.6mm" y="6.35mm">
+               <value>
+                  <line slope="/"/>
+               </value>
+            </draw>
+            <field h="9mm" name="ORDEM_FRETE" w="107.95mm" x="101.6mm" y="15.35mm">
+               <ui>
+                  <textEdit>
+                     <border presence="hidden"/>
+                     <margin/>
+                  </textEdit>
+               </ui>
+               <font size="14pt" typeface="Arial" weight="bold"/>
+               <margin bottomInset="1mm" leftInset="1mm" rightInset="1mm" topInset="1mm"/>
+               <para vAlign="middle"/>
+               <caption reserve="57.0703mm">
+                  <para vAlign="middle"/>
+                  <value>
+                     <text xliff:rid="1965BF91-38D0-499D-8A99-3AD8904723F6">Ordem de frete número</text>
+                  </value>
+               </caption>
+               <value>
+                  <text maxChars="20"/>
+               </value>
+               <bind match="dataRef" ref="$.IS_DADOS.ORDEM_FRETE"/>
+               <desc>
+                  <text name="Anotação do schema">Documento</text>
+               </desc>
+            </field>
+            <field h="9mm" name="QUANTIDADE_TOTAL" w="107.95mm" x="101.6mm" y="24.35mm">
+               <ui>
+                  <numericEdit>
+                     <border presence="hidden"/>
+                     <margin/>
+                  </numericEdit>
+               </ui>
+               <font size="14pt" typeface="Arial" weight="bold"/>
+               <margin bottomInset="1mm" leftInset="1mm" rightInset="1mm" topInset="1mm"/>
+               <para vAlign="middle"/>
+               <value>
+                  <decimal fracDigits="3" leadDigits="12"/>
+               </value>
+               <caption reserve="57.4535mm">
+                  <font baselineShift="0pt" size="14pt" typeface="Arial" weight="bold"/>
+                  <para marginLeft="0pt" marginRight="0pt" spaceAbove="0pt" spaceBelow="0pt" textIndent="0pt" vAlign="middle"/>
+                  <value>
+                     <text xliff:rid="7EB0EA10-E991-49EE-BDDA-DCB040A551BD">Quantidade de volumes </text>
+                  </value>
+               </caption>
+               <bind match="dataRef" ref="$.IS_DADOS.QUANTIDADE_TOTAL"/>
+               <desc>
+                  <text name="Anotação do schema">Quantidade da ordem acumulada em unidade de venda</text>
+               </desc>
+               <validate nullTest="error"/>
+            </field>
+            <field h="6.35mm" name="ENDERECO" w="63.5mm" x="38.1mm" y="15.875mm">
+               <ui>
+                  <textEdit>
+                     <border presence="hidden"/>
+                     <margin/>
+                  </textEdit>
+               </ui>
+               <font size="12pt" typeface="Arial"/>
+               <margin bottomInset="1mm" leftInset="1mm" rightInset="1mm" topInset="1mm"/>
+               <para vAlign="middle"/>
+               <value>
+                  <text maxChars="30"/>
+               </value>
+               <bind match="dataRef" ref="$.IS_DADOS.ENDERECO"/>
+               <desc>
+                  <text name="Anotação do schema">Rua e nº</text>
+               </desc>
+            </field>
+            <field h="6.35mm" name="RAZAO_SOCIAL" w="63.5mm" x="38.1mm" y="9.525mm">
+               <ui>
+                  <textEdit>
+                     <border presence="hidden"/>
+                     <margin/>
+                  </textEdit>
+               </ui>
+               <font size="12pt" typeface="Arial" weight="bold"/>
+               <margin bottomInset="1mm" leftInset="1mm" rightInset="1mm" topInset="1mm"/>
+               <para vAlign="middle"/>
+               <value>
+                  <text maxChars="35"/>
+               </value>
+               <bind match="dataRef" ref="$.IS_DADOS.RAZAO_SOCIAL"/>
+               <desc>
+                  <text name="Anotação do schema">Nome 1</text>
+               </desc>
+            </field>
+            <field h="6.35mm" name="BAIRRO" w="63.5mm" x="38.1mm" y="22.225mm">
+               <ui>
+                  <textEdit>
+                     <border presence="hidden"/>
+                     <margin/>
+                  </textEdit>
+               </ui>
+               <font size="12pt" typeface="Arial"/>
+               <margin bottomInset="1mm" leftInset="1mm" rightInset="1mm" topInset="1mm"/>
+               <para vAlign="middle"/>
+               <value>
+                  <text maxChars="25"/>
+               </value>
+               <bind match="dataRef" ref="$.IS_DADOS.BAIRRO"/>
+               <desc>
+                  <text name="Anotação do schema">Cidade</text>
+               </desc>
+            </field>
+            <field access="readOnly" h="9mm" id="floatingField000041" name="CIDADE" presence="hidden" w="68.056mm" x="0mm" y="0mm">
+               <ui>
+                  <textEdit>
+                     <border presence="hidden"/>
+                     <margin/>
+                  </textEdit>
+               </ui>
+               <font typeface="Arial"/>
+               <margin bottomInset="1mm" leftInset="1mm" rightInset="1mm" topInset="1mm"/>
+               <para vAlign="middle"/>
+               <value>
+                  <text maxChars="25"/>
+               </value>
+               <bind match="dataRef" ref="$.IS_DADOS.CIDADE"/>
+               <caption>
+                  <value>
+                     <text xliff:rid="DFDA3BC8-7A50-4B02-8DB2-7E93C92A3E2D">Local</text>
+                  </value>
+               </caption>
+               <desc>
+                  <text name="Anotação do schema">Local</text>
+               </desc>
+            </field>
+            <field access="readOnly" h="9mm" id="floatingField018467" name="REGIAO" presence="hidden" w="68.056mm" x="0mm" y="0mm">
+               <ui>
+                  <textEdit>
+                     <border>
+                        <edge stroke="lowered"/>
+                     </border>
+                     <margin/>
+                  </textEdit>
+               </ui>
+               <font typeface="Arial"/>
+               <margin bottomInset="1mm" leftInset="1mm" rightInset="1mm" topInset="1mm"/>
+               <para vAlign="middle"/>
+               <value>
+                  <text maxChars="3"/>
+               </value>
+               <bind match="dataRef" ref="$.IS_DADOS.REGIAO"/>
+               <caption>
+                  <value>
+                     <text xliff:rid="C550B20B-54B8-4FC3-9E17-2A6C9CBEEE29">Rg</text>
+                  </value>
+               </caption>
+               <desc>
+                  <text name="Anotação do schema">Região (estado federal, estado federado, província, condado)</text>
+               </desc>
+            </field>
+            <draw h="6.35mm" name="Texto1" w="63.5mm" x="38.1mm" y="28.575mm">
+               <ui>
+                  <textEdit/>
+               </ui>
+               <value>
+                  <exData contentType="text/html" xliff:rid="488A718F-980D-4125-8740-9BF9590CB797">
+                     <body xmlns="http://www.w3.org/1999/xhtml" xmlns:xfa="http://www.xfa.org/schema/xfa-data/1.0/"><p style="text-decoration:none;letter-spacing:0in"><span xfa:embed="#floatingField000041" xfa:embedMode="raw" xfa:embedType="uri"/> /<span style="xfa-spacerun:yes"> </span><span xfa:embed="#floatingField018467" xfa:embedMode="raw" xfa:embedType="uri"/></p></body>
+                  </exData>
+               </value>
+               <font baselineShift="0pt" size="12pt" typeface="Arial"/>
+               <margin bottomInset="0.5mm" leftInset="0.5mm" rightInset="0.5mm" topInset="0.5mm"/>
+               <para marginLeft="0pt" marginRight="0pt" spaceAbove="0pt" spaceBelow="0pt" textIndent="0pt"/>
+            </draw>
+            <field h="6.35mm" name="CEP" w="63.5mm" x="38.1mm" y="34.925mm">
+               <ui>
+                  <textEdit>
+                     <border presence="hidden"/>
+                     <margin/>
+                  </textEdit>
+               </ui>
+               <font size="12pt" typeface="Arial"/>
+               <margin bottomInset="1mm" leftInset="1mm" rightInset="1mm" topInset="1mm"/>
+               <para vAlign="middle"/>
+               <value>
+                  <text maxChars="10"/>
+               </value>
+               <bind match="dataRef" ref="$.IS_DADOS.CEP"/>
+               <desc>
+                  <text name="Anotação do schema">Código postal</text>
+               </desc>
+            </field>
+            <field h="6.35mm" name="TELEFONE" w="63.5mm" x="38.1mm" y="41.275mm">
+               <ui>
+                  <textEdit>
+                     <border presence="hidden"/>
+                     <margin/>
+                  </textEdit>
+               </ui>
+               <font size="12pt" typeface="Arial"/>
+               <margin bottomInset="1mm" leftInset="1mm" rightInset="1mm" topInset="1mm"/>
+               <para vAlign="middle"/>
+               <caption reserve="10.41mm">
+                  <para vAlign="middle"/>
+                  <value>
+                     <text xliff:rid="F882764C-BE9B-4D52-9628-C0A8D64C96D9">Tel.:</text>
+                  </value>
+               </caption>
+               <value>
+                  <text maxChars="16"/>
+               </value>
+               <bind match="dataRef" ref="$.IS_DADOS.TELEFONE"/>
+               <desc>
+                  <text name="Anotação do schema">1º Nº telefone</text>
+               </desc>
+            </field>
+            <field h="12.7mm" name="INS_EST" w="95.25mm" x="6.35mm" y="57.15mm">
+               <ui>
+                  <textEdit>
+                     <border presence="hidden"/>
+                     <margin/>
+                  </textEdit>
+               </ui>
+               <font size="12pt" typeface="Arial"/>
+               <margin bottomInset="1mm" leftInset="1mm" rightInset="1mm" topInset="1mm"/>
+               <para vAlign="middle"/>
+               <caption placement="top" reserve="0.185306in">
+                  <para vAlign="middle"/>
+                  <value>
+                     <text xliff:rid="CA360683-244E-498A-AF4E-1AC045C6D518">INSCRIÇÃO ESTADUAL</text>
+                  </value>
+               </caption>
+               <value>
+                  <text maxChars="18"/>
+               </value>
+               <bind match="dataRef" ref="$.IS_DADOS.INS_EST"/>
+               <desc>
+                  <text name="Anotação do schema">Nº identificação fiscal regional</text>
+               </desc>
+               <border>
+                  <edge/>
+                  <edge presence="hidden"/>
+                  <edge presence="hidden"/>
+                  <edge presence="hidden"/>
+                  <corner/>
+               </border>
+            </field>
+            <field h="12.825mm" name="CNPJ" w="107.95mm" x="101.6mm" y="57.15mm">
+               <ui>
+                  <textEdit>
+                     <border presence="hidden"/>
+                     <margin/>
+                  </textEdit>
+               </ui>
+               <font size="12pt" typeface="Arial"/>
+               <margin bottomInset="1mm" leftInset="1mm" rightInset="1mm" topInset="1mm"/>
+               <para vAlign="middle"/>
+               <caption placement="top" reserve="4.59mm">
+                  <para vAlign="middle"/>
+                  <value>
+                     <text xliff:rid="A988ED38-9B7E-4CB1-9F4B-AF3419428A44">CNPJ</text>
+                  </value>
+               </caption>
+               <value>
+                  <text maxChars="18"/>
+               </value>
+               <bind match="dataRef" ref="$.IS_DADOS.CNPJ"/>
+               <desc>
+                  <text name="Anotação do schema">Nº ID fiscal 1</text>
+               </desc>
+               <border>
+                  <edge/>
+                  <edge presence="hidden"/>
+                  <edge presence="hidden"/>
+                  <edge presence="hidden"/>
+                  <corner/>
+               </border>
+               <format>
+                  <picture>text{99.999.999/9999-99}</picture>
+               </format>
+            </field>
+            <draw h="0.254694in" name="Texto2" w="2.837444in" x="6.35mm" y="73.025mm">
+               <ui>
+                  <textEdit/>
+               </ui>
+               <value>
+                  <text xliff:rid="F6D6DDB5-EEE4-4867-8763-AC66BD63B0C2">DESTINATÁRIO / REMETENTE</text>
+               </value>
+               <font size="14pt" typeface="Arial"/>
+               <margin bottomInset="0.5mm" leftInset="0.5mm" rightInset="0.5mm" topInset="0.5mm"/>
+               <para vAlign="middle"/>
+               <?renderCache.bounds 201462 15504 0 0 1417 1417 0 0?>
+               <?renderCache.textRun 25 DESTINATÁRIO / REMETENTE 0 1417 13975 0 0 0 "Arial" 0 0 14000 ISO-8859-1?></draw>
+            <field h="11.43mm" name="RAZAO_DEST" w="123.825mm" x="6.35mm" y="79.494mm">
+               <ui>
+                  <textEdit>
+                     <border presence="hidden"/>
+                     <margin/>
+                  </textEdit>
+               </ui>
+               <font typeface="Arial"/>
+               <margin bottomInset="1mm" leftInset="1mm" rightInset="1mm" topInset="1mm"/>
+               <para vAlign="middle"/>
+               <caption placement="top" reserve="4.06mm">
+                  <para vAlign="middle"/>
+                  <value>
+                     <text xliff:rid="41446A47-F535-4DD7-BB10-294B7542B186">NOME/RAZÃO SOCIAL</text>
+                  </value>
+               </caption>
+               <value>
+                  <text maxChars="30"/>
+               </value>
+               <bind match="dataRef" ref="$.IS_DADOS.RAZAO_DEST"/>
+               <desc>
+                  <text name="Anotação do schema">Nome</text>
+               </desc>
+               <border>
+                  <edge/>
+                  <corner thickness="0.175mm"/>
+               </border>
+            </field>
+            <field h="11.43mm" name="CNPJ_DEST" w="44.45mm" x="130.175mm" y="79.494mm">
+               <ui>
+                  <textEdit>
+                     <border presence="hidden"/>
+                     <margin/>
+                  </textEdit>
+               </ui>
+               <font typeface="Arial"/>
+               <margin bottomInset="1mm" leftInset="1mm" rightInset="1mm" topInset="1mm"/>
+               <para vAlign="middle"/>
+               <caption placement="top" reserve="4.06mm">
+                  <para vAlign="middle"/>
+                  <value>
+                     <text xliff:rid="E7862382-CB83-4A93-9B3E-C0799F3A9B1E">CNPJ</text>
+                  </value>
+               </caption>
+               <value>
+                  <text maxChars="18"/>
+               </value>
+               <bind match="dataRef" ref="$.IS_DADOS.CNPJ_DEST"/>
+               <desc>
+                  <text name="Anotação do schema">Nº ID fiscal 1</text>
+               </desc>
+               <border>
+                  <edge/>
+                  <corner thickness="0.175mm"/>
+               </border>
+               <format>
+                  <picture>text{99.999.999/9999-99}</picture>
+               </format>
+            </field>
+            <field h="11.43mm" name="DATA_EMISSAO" w="34.925mm" x="174.625mm" y="79.494mm">
+               <ui>
+                  <dateTimeEdit>
+                     <border presence="hidden"/>
+                     <margin/>
+                  </dateTimeEdit>
+               </ui>
+               <font typeface="Arial"/>
+               <margin bottomInset="1mm" leftInset="1mm" rightInset="1mm" topInset="1mm"/>
+               <para vAlign="middle"/>
+               <value>
+                  <date/>
+               </value>
+               <caption placement="top" reserve="4.06mm">
+                  <para vAlign="middle"/>
+                  <value>
+                     <text xliff:rid="5E242970-A248-4919-9095-457A150E418A">DATA DA EMISSÃO</text>
+                  </value>
+               </caption>
+               <bind match="dataRef" ref="$.IS_DADOS.DATA_EMISSAO">
+                  <picture>date{YYYY-MM-DD}</picture>
+               </bind>
+               <desc>
+                  <text name="Anotação do schema">Data de criação do registro</text>
+               </desc>
+               <validate nullTest="error"/>
+               <format>
+                  <picture>date{DD.MM.YYYY}</picture>
+               </format>
+               <border>
+                  <edge/>
+                  <corner thickness="0.175mm"/>
+               </border>
+            </field>
+            <field h="10.676mm" name="ENDERECO_DEST" w="101.6mm" x="6.35mm" y="90.924mm">
+               <ui>
+                  <textEdit>
+                     <border presence="hidden"/>
+                     <margin/>
+                  </textEdit>
+               </ui>
+               <font typeface="Arial"/>
+               <margin bottomInset="1mm" leftInset="1mm" rightInset="1mm" topInset="1mm"/>
+               <para vAlign="middle"/>
+               <caption placement="top" reserve="4.06mm">
+                  <para vAlign="middle"/>
+                  <value>
+                     <text xliff:rid="DB82FFE8-0F11-49F8-B10F-4D59D66B8CFF">ENDEREÇO</text>
+                  </value>
+               </caption>
+               <value>
+                  <text maxChars="30"/>
+               </value>
+               <bind match="dataRef" ref="$.IS_DADOS.ENDERECO_DEST"/>
+               <desc>
+                  <text name="Anotação do schema">Rua e nº</text>
+               </desc>
+               <border>
+                  <edge/>
+                  <corner thickness="0.175mm"/>
+               </border>
+            </field>
+            <field h="10.676mm" name="BAIRRO_DEST" w="44.157mm" x="107.95mm" y="90.924mm">
+               <ui>
+                  <textEdit>
+                     <border presence="hidden"/>
+                     <margin/>
+                  </textEdit>
+               </ui>
+               <font typeface="Arial"/>
+               <margin bottomInset="1mm" leftInset="1mm" rightInset="1mm" topInset="1mm"/>
+               <para vAlign="middle"/>
+               <caption placement="top" reserve="4.096mm">
+                  <para vAlign="middle"/>
+                  <value>
+                     <text xliff:rid="BC02EE9A-9A07-439B-B097-3A84576B4424">BAIRRO/DISTRITO</text>
+                  </value>
+               </caption>
+               <value>
+                  <text maxChars="25"/>
+               </value>
+               <bind match="dataRef" ref="$.IS_DADOS.BAIRRO_DEST"/>
+               <desc>
+                  <text name="Anotação do schema">Cidade</text>
+               </desc>
+               <border>
+                  <edge/>
+                  <corner thickness="0.175mm"/>
+               </border>
+            </field>
+            <field h="10.676mm" name="CEP_DEST" w="22.518mm" x="152.107mm" y="90.924mm">
+               <ui>
+                  <textEdit>
+                     <border presence="hidden"/>
+                     <margin/>
+                  </textEdit>
+               </ui>
+               <font typeface="Arial"/>
+               <margin bottomInset="1mm" leftInset="1mm" rightInset="1mm" topInset="1mm"/>
+               <para vAlign="middle"/>
+               <caption placement="top" reserve="3.952mm">
+                  <para vAlign="middle"/>
+                  <value>
+                     <text xliff:rid="E664E9CF-9ACD-41E7-B839-2661BB2E5E4A">CEP</text>
+                  </value>
+               </caption>
+               <value>
+                  <text maxChars="10"/>
+               </value>
+               <bind match="dataRef" ref="$.IS_DADOS.CEP_DEST"/>
+               <desc>
+                  <text name="Anotação do schema">Código postal</text>
+               </desc>
+               <border>
+                  <edge/>
+                  <corner thickness="0.175mm"/>
+               </border>
+            </field>
+            <field h="21.351mm" name="DATA_COLETA" w="34.925mm" x="174.625mm" y="90.924mm">
+               <ui>
+                  <dateTimeEdit>
+                     <border presence="hidden"/>
+                     <margin/>
+                  </dateTimeEdit>
+               </ui>
+               <font typeface="Arial"/>
+               <margin bottomInset="1mm" leftInset="1mm" rightInset="1mm" topInset="1mm"/>
+               <value>
+                  <date/>
+               </value>
+               <caption placement="top" reserve="3.952mm">
+                  <value>
+                     <text xliff:rid="80D03487-B711-4598-833A-30EF2938844F">DATA DE COLETA</text>
+                  </value>
+               </caption>
+               <bind match="dataRef" ref="$.IS_DADOS.DATA_COLETA">
+                  <picture>date{YYYY-MM-DD}</picture>
+               </bind>
+               <desc>
+                  <text name="Anotação do schema">Data do documento (data de entrada/saída)</text>
+               </desc>
+               <validate nullTest="error"/>
+               <border>
+                  <edge/>
+                  <corner thickness="0.175mm"/>
+               </border>
+               <format>
+                  <picture>date{DD.MM.YYYY}</picture>
+               </format>
+            </field>
+            <field h="10.676mm" name="MUNICIPIO_DEST" w="76.2mm" x="6.35mm" y="101.6mm">
+               <ui>
+                  <textEdit>
+                     <border presence="hidden"/>
+                     <margin/>
+                  </textEdit>
+               </ui>
+               <font typeface="Arial"/>
+               <margin bottomInset="1mm" leftInset="1mm" rightInset="1mm" topInset="1mm"/>
+               <para vAlign="middle"/>
+               <caption placement="top" reserve="3.952mm">
+                  <para vAlign="middle"/>
+                  <value>
+                     <text xliff:rid="738C28EB-4182-49FE-951B-EFF13088DEA6">MUNICÍPIO</text>
+                  </value>
+               </caption>
+               <value>
+                  <text maxChars="25"/>
+               </value>
+               <bind match="dataRef" ref="$.IS_DADOS.MUNICIPIO_DEST"/>
+               <desc>
+                  <text name="Anotação do schema">Local</text>
+               </desc>
+               <border>
+                  <edge/>
+                  <corner thickness="0.175mm"/>
+               </border>
+            </field>
+            <field h="10.676mm" name="TELF_DEST" w="28.575mm" x="82.55mm" y="101.6mm">
+               <ui>
+                  <textEdit>
+                     <border presence="hidden"/>
+                     <margin/>
+                  </textEdit>
+               </ui>
+               <font typeface="Arial"/>
+               <margin bottomInset="1mm" leftInset="1mm" rightInset="1mm" topInset="1mm"/>
+               <para vAlign="middle"/>
+               <caption placement="top" reserve="3.952mm">
+                  <para vAlign="middle"/>
+                  <value>
+                     <text xliff:rid="31D8B7CA-9F73-4E25-AA53-97E100F7FC2C">TELEFONE</text>
+                  </value>
+               </caption>
+               <value>
+                  <text maxChars="16"/>
+               </value>
+               <bind match="dataRef" ref="$.IS_DADOS.TELF_DEST"/>
+               <desc>
+                  <text name="Anotação do schema">1º Nº telefone</text>
+               </desc>
+               <border>
+                  <edge/>
+                  <corner thickness="0.175mm"/>
+               </border>
+            </field>
+            <field h="10.676mm" name="REGIAO_DEST" w="22.225mm" x="111.125mm" y="101.6mm">
+               <ui>
+                  <textEdit>
+                     <border presence="hidden"/>
+                     <margin/>
+                  </textEdit>
+               </ui>
+               <font typeface="Arial"/>
+               <margin bottomInset="1mm" leftInset="1mm" rightInset="1mm" topInset="1mm"/>
+               <para vAlign="middle"/>
+               <caption placement="top" reserve="3.952mm">
+                  <para vAlign="middle"/>
+                  <value>
+                     <text xliff:rid="AE72581E-D5BF-4454-A491-0D113A032172">UF</text>
+                  </value>
+               </caption>
+               <value>
+                  <text maxChars="3"/>
+               </value>
+               <bind match="dataRef" ref="$.IS_DADOS.REGIAO_DEST"/>
+               <desc>
+                  <text name="Anotação do schema">Região (estado federal, estado federado, província, condado)</text>
+               </desc>
+               <border>
+                  <edge/>
+                  <corner thickness="0.175mm"/>
+               </border>
+            </field>
+            <field h="10.676mm" name="INSC_EST_DEST" w="41.275mm" x="133.35mm" y="101.6mm">
+               <ui>
+                  <textEdit>
+                     <border presence="hidden"/>
+                     <margin/>
+                  </textEdit>
+               </ui>
+               <font typeface="Arial"/>
+               <margin bottomInset="1mm" leftInset="1mm" rightInset="1mm" topInset="1mm"/>
+               <para vAlign="middle"/>
+               <caption placement="top" reserve="3.952mm">
+                  <para vAlign="middle"/>
+                  <value>
+                     <text xliff:rid="57F7A400-E6B8-40F2-BA24-13C497A21861">INSCRIÇÃO ESTADUAL</text>
+                  </value>
+               </caption>
+               <value>
+                  <text maxChars="18"/>
+               </value>
+               <bind match="dataRef" ref="$.IS_DADOS.INSC_EST_DEST"/>
+               <desc>
+                  <text name="Anotação do schema">Nº identificação fiscal 3</text>
+               </desc>
+               <border>
+                  <edge/>
+                  <corner thickness="0.175mm"/>
+               </border>
+            </field>
+            <draw h="6.35mm" name="Texto2" w="98.425mm" x="6.35mm" y="114.3mm">
+               <ui>
+                  <textEdit/>
+               </ui>
+               <value>
+                  <text xliff:rid="961B47C9-EDF9-4CA9-A995-929DB9B560A1">DADOS DOS PRODUTOS/SERVIÇOS</text>
+               </value>
+               <font size="14pt" typeface="Arial"/>
+               <margin bottomInset="0.5mm" leftInset="0.5mm" rightInset="0.5mm" topInset="0.5mm"/>
+               <?renderCache.bounds 276166 15166 0 0 1417 1417 0 0?>
+               <?renderCache.textRun 28 DADOS DOS PRODUTOS/SERVIÇOS 0 1417 12471 0 0 0 "Arial" 0 0 14000 ISO-8859-1?></draw>
+            <draw h="6.35mm" name="Texto2" w="98.425mm" x="6.35mm" y="231.775mm">
+               <ui>
+                  <textEdit/>
+               </ui>
+               <value>
+                  <text xliff:rid="F60B3E35-85CC-43F8-8435-F39D39076387">DADOS ADICIONAIS</text>
+               </value>
+               <font size="14pt" typeface="Arial"/>
+               <margin bottomInset="0.5mm" leftInset="0.5mm" rightInset="0.5mm" topInset="0.5mm"/>
+               <?renderCache.bounds 276166 15166 0 0 1417 1417 0 0?>
+               <?renderCache.textRun 16 DADOS ADICIONAIS 0 1417 12471 0 0 0 "Arial" 0 0 14000 ISO-8859-1?></draw>
+            <draw h="6.35mm" name="Texto2" w="103.904mm" x="6.35mm" y="238.125mm">
+               <ui>
+                  <textEdit/>
+               </ui>
+               <value>
+                  <text xliff:rid="354069FD-A848-41B4-89C5-69F294696C2D">PRODUTOS IMPROPRIOS PARA CONSUMO</text>
+               </value>
+               <font baselineShift="0pt" size="13pt" typeface="Arial"/>
+               <margin bottomInset="0.5mm" leftInset="0.5mm" rightInset="0.007mm" topInset="0.007mm"/>
+               <para marginLeft="0pt" marginRight="0pt" spaceAbove="0pt" spaceBelow="0pt" textIndent="0pt" vAlign="bottom"/>
+               <?renderCache.bounds 293094 16563 0 0 1417 20 0 0?>
+               <?renderCache.textRun 32 PRODUTOS IMPROPRIOS PARA CONSUMO 0 1417 13847 0 0 0 "Arial" 0 0 13000 ISO-8859-1?></draw>
+            <field h="6mm" name="Caixaverificação1" w="40.6654mm" x="6.35mm" y="244.475mm">
+               <ui>
+                  <checkButton>
+                     <border>
+                        <edge/>
+                        <fill/>
+                     </border>
+                  </checkButton>
+               </ui>
+               <font typeface="Arial"/>
+               <margin leftInset="1mm" rightInset="1mm"/>
+               <para vAlign="middle"/>
+               <value>
+                  <integer>0</integer>
+               </value>
+               <caption placement="right" reserve="27.69mm">
+                  <para vAlign="middle"/>
+                  <value>
+                     <text xliff:rid="3B4821FA-16AC-49ED-A1BE-47275C75AE6A">COLETADO</text>
+                  </value>
+               </caption>
+               <items>
+                  <integer>1</integer>
+                  <integer>0</integer>
+                  <integer>2</integer>
+               </items>
+               <bind match="none"/>
+            </field>
+            <field h="6mm" name="Caixaverificação1" w="47.625mm" x="76.2mm" y="244.475mm">
+               <ui>
+                  <checkButton>
+                     <border>
+                        <edge/>
+                        <fill/>
+                     </border>
+                  </checkButton>
+               </ui>
+               <font typeface="Arial"/>
+               <margin leftInset="1mm" rightInset="1mm"/>
+               <para vAlign="middle"/>
+               <value>
+                  <integer>0</integer>
+               </value>
+               <caption placement="right" reserve="34.65mm">
+                  <para vAlign="middle"/>
+                  <value>
+                     <text xliff:rid="ED4D8136-B337-4B37-A832-48BB7B30EC46">NÃO COLETADO</text>
+                  </value>
+               </caption>
+               <items>
+                  <integer>1</integer>
+                  <integer>0</integer>
+                  <integer>2</integer>
+               </items>
+               <bind match="none"/>
+            </field>
+            <draw h="6.35mm" name="Texto2" w="103.904mm" x="6.35mm" y="254mm">
+               <ui>
+                  <textEdit/>
+               </ui>
+               <value>
+                  <text xliff:rid="01FA23A3-0B40-4086-B66F-300B088F65D7">MOTIVO DA NÃO COLETA</text>
+               </value>
+               <font baselineShift="0pt" size="13pt" typeface="Arial"/>
+               <margin bottomInset="0.5mm" leftInset="0.5mm" rightInset="0.5mm" topInset="0.5mm"/>
+               <para marginLeft="0pt" marginRight="0pt" spaceAbove="0pt" spaceBelow="0pt" textIndent="0pt"/>
+               <?renderCache.bounds 291697 15166 0 0 1417 1417 0 0?>
+               <?renderCache.textRun 21 MOTIVO DA NÃO COLETA 0 1417 12740 0 0 0 "Arial" 0 0 13000 ISO-8859-1?></draw>
+            <field h="6mm" name="Caixaverificação1" w="98.425mm" x="6.35mm" y="260.35mm">
+               <ui>
+                  <checkButton>
+                     <border>
+                        <edge/>
+                        <fill/>
+                     </border>
+                  </checkButton>
+               </ui>
+               <font typeface="Arial"/>
+               <margin leftInset="1mm" rightInset="1mm"/>
+               <para vAlign="middle"/>
+               <value>
+                  <integer>0</integer>
+               </value>
+               <caption placement="right" reserve="85.45mm">
+                  <para vAlign="middle"/>
+                  <value>
+                     <text xliff:rid="62755AD9-2633-48A5-8FCC-AACDAF1D1756">INCONSISTÊNCIA NAS INFORMAÇÕES</text>
+                  </value>
+               </caption>
+               <items>
+                  <integer>1</integer>
+                  <integer>0</integer>
+                  <integer>2</integer>
+               </items>
+               <bind match="none"/>
+            </field>
+            <field h="6mm" name="Caixaverificação1" w="98.425mm" x="6.35mm" y="266.35mm">
+               <ui>
+                  <checkButton>
+                     <border>
+                        <edge/>
+                        <fill/>
+                     </border>
+                  </checkButton>
+               </ui>
+               <font typeface="Arial"/>
+               <margin leftInset="1mm" rightInset="1mm"/>
+               <para vAlign="middle"/>
+               <value>
+                  <integer>0</integer>
+               </value>
+               <caption placement="right" reserve="85.45mm">
+                  <para vAlign="middle"/>
+                  <value>
+                     <text xliff:rid="FEA05B81-523A-4745-885B-6BDB00D69B11">AUSÊNCIA DOS VOLUMES</text>
+                  </value>
+               </caption>
+               <items>
+                  <integer>1</integer>
+                  <integer>0</integer>
+                  <integer>2</integer>
+               </items>
+               <bind match="none"/>
+            </field>
+            <subform columnWidths="20.99mm 71.08mm 20.99mm 9mm 15.52mm 65.62mm" layout="table" name="Tabela1" x="6.35mm" y="120.65mm">
+               <border>
+                  <edge/>
+               </border>
+               <subform layout="row" name="Linha1">
+                  <assist role="TR"/>
+                  <draw h="4.94mm" name="Célula1">
+                     <border>
+                        <edge/>
+                        <corner thickness="0.1778mm"/>
+                     </border>
+                     <ui>
+                        <textEdit/>
+                     </ui>
+                     <value>
+                        <text xliff:rid="FF09E1E2-7902-4845-AEAB-0A217A2B7DEB">CÓD.</text>
+                     </value>
+                     <font size="9pt" typeface="Arial"/>
+                     <margin bottomInset="0.5mm" leftInset="0.5mm" rightInset="0.5mm" topInset="0.5mm"/>
+                     <para hAlign="center" vAlign="middle"/>
+                  </draw>
+                  <draw h="4.94mm" name="Célula2">
+                     <border>
+                        <edge/>
+                        <corner thickness="0.1778mm"/>
+                     </border>
+                     <ui>
+                        <textEdit/>
+                     </ui>
+                     <value>
+                        <text xliff:rid="6492CB2E-CF6F-476E-89D2-C5005AE6300D">DESCRIÇÃO DO PRODUTO/SERVIÇO</text>
+                     </value>
+                     <font size="9pt" typeface="Arial"/>
+                     <margin bottomInset="0.5mm" leftInset="0.5mm" rightInset="0.5mm" topInset="0.5mm"/>
+                     <para hAlign="center" vAlign="middle"/>
+                  </draw>
+                  <draw h="4.94mm" name="Célula3">
+                     <border>
+                        <edge/>
+                        <corner thickness="0.1778mm"/>
+                     </border>
+                     <ui>
+                        <textEdit/>
+                     </ui>
+                     <value>
+                        <text xliff:rid="6441ACB4-DA28-4412-8693-D14C293E7DB0">NCM</text>
+                     </value>
+                     <font size="9pt" typeface="Arial"/>
+                     <margin bottomInset="0.5mm" leftInset="0.5mm" rightInset="0.5mm" topInset="0.5mm"/>
+                     <para hAlign="center" vAlign="middle"/>
+                  </draw>
+                  <draw h="4.94mm" name="Célula4">
+                     <border>
+                        <edge/>
+                        <corner thickness="0.1778mm"/>
+                     </border>
+                     <ui>
+                        <textEdit/>
+                     </ui>
+                     <value>
+                        <text xliff:rid="D83767F9-2D99-4FB0-9B61-55222C537FE5">UN</text>
+                     </value>
+                     <font size="9pt" typeface="Arial"/>
+                     <margin bottomInset="0.5mm" leftInset="0.5mm" rightInset="0.5mm" topInset="0.5mm"/>
+                     <para hAlign="center" vAlign="middle"/>
+                  </draw>
+                  <draw h="4.94mm" name="Célula5">
+                     <border>
+                        <edge/>
+                        <corner thickness="0.1778mm"/>
+                     </border>
+                     <ui>
+                        <textEdit/>
+                     </ui>
+                     <value>
+                        <text xliff:rid="0733E4E0-AF47-495C-ADCD-A64887930490">QTDE</text>
+                     </value>
+                     <font size="9pt" typeface="Arial"/>
+                     <margin bottomInset="0.5mm" leftInset="0.5mm" rightInset="0.5mm" topInset="0.5mm"/>
+                     <para hAlign="center" vAlign="middle"/>
+                  </draw>
+                  <draw h="4.94mm" name="Célula6">
+                     <border>
+                        <edge/>
+                        <corner thickness="0.1778mm"/>
+                     </border>
+                     <ui>
+                        <textEdit/>
+                     </ui>
+                     <value>
+                        <text xliff:rid="0605AECE-5323-45D3-92E7-014DBB1687FF">NF. REFERÊNCIA</text>
+                     </value>
+                     <font size="9pt" typeface="Arial"/>
+                     <margin bottomInset="0.5mm" leftInset="0.5mm" rightInset="0.5mm" topInset="0.5mm"/>
+                     <para hAlign="center" vAlign="middle"/>
+                  </draw>
+                  <border>
+                     <edge presence="hidden"/>
+                  </border>
+                  <bind match="none"/>
+                  <?templateDesigner expand 1?></subform>
+               <subform layout="row" name="Linha2">
+                  <assist role="TR"/>
+                  <draw h="102.83mm" name="Célula1">
+                     <border>
+                        <edge/>
+                        <corner thickness="0.1778mm"/>
+                     </border>
+                     <ui>
+                        <textEdit/>
+                     </ui>
+                     <font typeface="Arial"/>
+                     <margin bottomInset="0.5mm" leftInset="0.5mm" rightInset="0.5mm" topInset="0.5mm"/>
+                     <para hAlign="center" vAlign="middle"/>
+                  </draw>
+                  <draw h="102.83mm" name="Célula2">
+                     <border>
+                        <edge/>
+                        <corner thickness="0.1778mm"/>
+                     </border>
+                     <ui>
+                        <textEdit/>
+                     </ui>
+                     <font typeface="Arial"/>
+                     <margin bottomInset="0.5mm" leftInset="0.5mm" rightInset="0.5mm" topInset="0.5mm"/>
+                     <para hAlign="center" vAlign="middle"/>
+                  </draw>
+                  <draw h="102.83mm" name="Célula3">
+                     <border>
+                        <edge/>
+                        <corner thickness="0.1778mm"/>
+                     </border>
+                     <ui>
+                        <textEdit/>
+                     </ui>
+                     <font typeface="Arial"/>
+                     <margin bottomInset="0.5mm" leftInset="0.5mm" rightInset="0.5mm" topInset="0.5mm"/>
+                     <para hAlign="center" vAlign="middle"/>
+                  </draw>
+                  <draw h="102.83mm" name="Célula4">
+                     <border>
+                        <edge/>
+                        <corner thickness="0.1778mm"/>
+                     </border>
+                     <ui>
+                        <textEdit/>
+                     </ui>
+                     <font typeface="Arial"/>
+                     <margin bottomInset="0.5mm" leftInset="0.5mm" rightInset="0.5mm" topInset="0.5mm"/>
+                     <para hAlign="center" vAlign="middle"/>
+                  </draw>
+                  <draw h="102.83mm" name="Célula5">
+                     <border>
+                        <edge/>
+                        <corner thickness="0.1778mm"/>
+                     </border>
+                     <ui>
+                        <textEdit/>
+                     </ui>
+                     <font typeface="Arial"/>
+                     <margin bottomInset="0.5mm" leftInset="0.5mm" rightInset="0.5mm" topInset="0.5mm"/>
+                     <para hAlign="center" vAlign="middle"/>
+                  </draw>
+                  <draw>
+                     <font typeface="Arial"/>
+                     <value>
+                        <exData contentType="text/html" xliff:rid="819859B9-961E-4F05-8F4B-7AF26783C6E5">
+                           <body xmlns="http://www.w3.org/1999/xhtml" xmlns:xfa="http://www.xfa.org/schema/xfa-data/1.0/"><p style="font-family:Arial;letter-spacing:0in">OBRIGATÓRIO A INDICAÇÃO DA NOTA FISCAL DE REFERÊNCIA</p><p style="font-family:Arial;letter-spacing:0in">A NOTA FISCAL DE DEVOLUÇÃO DEVE SEGUIR O MESMO PADRÃO DE TRIBUTAÇÃO DA NOTA FISCAL DE REFERÊNCIA</p><p style="font-family:Arial;letter-spacing:0in">ENVIAR O ARQUIVO XML DA NF-E DE DEVOLUÇÃO PARA O EMAIL nfe@3coracoes.com.br</p></body>
+                        </exData>
+                     </value>
+                     <ui>
+                        <textEdit/>
+                     </ui>
+                     <margin bottomInset="0.5mm" leftInset="0.5mm" rightInset="0.5mm" topInset="0.5mm"/>
+                  </draw>
+                  <border>
+                     <edge presence="hidden"/>
+                  </border>
+                  <bind match="none"/>
+                  <?templateDesigner expand 1?></subform>
+               <bind match="none"/>
+               <?templateDesigner rowpattern first:1, next:1, firstcolor:f0f0f0, nextcolor:ffffff, apply:0?>
+               <?templateDesigner expand 1?></subform>
+            <field h="25.4mm" name="GRAPHIC" w="30.48mm" x="7.62mm" y="9.525mm">
+               <ui>
+                  <imageEdit/>
+               </ui>
+               <bind match="dataRef" ref="$.GRAPHIC"/>
+               <desc>
+                  <exData name="Anotação do schema">Nó de gráfico GRAPHIC
+URL-FIELD = GV_LOGO</exData>
+               </desc>
+            </field>
+            <?templateDesigner expand 0?></pageArea>
+         <?templateDesigner expand 1?></pageSet>
+      <subform h="222.315mm" name="pagina_projeto" w="137.621mm">
+         <subform h="102.815mm" name="form1" w="137.621mm" y="119.435mm">
+            <bind match="none"/>
+            <keep intact="none"/>
+            <subform layout="tb" name="form2" w="137.646mm">
+               <bind match="none"/>
+               <subform columnWidths="21.032mm 70.779mm 21.032mm 9.388mm 15.39mm" id="ITENS_ID" layout="table" name="ITENS">
+                  <subform layout="row" name="DATA">
+                     <field h="5.449mm" name="CODIGO" w="68.056mm">
+                        <ui>
+                           <textEdit>
+                              <margin/>
+                           </textEdit>
+                        </ui>
+                        <font size="8pt" typeface="Arial"/>
+                        <margin bottomInset="1mm" leftInset="1mm" rightInset="1mm" topInset="1mm"/>
+                        <para vAlign="middle"/>
+                        <value>
+                           <text maxChars="40"/>
+                        </value>
+                        <bind match="dataRef" ref="$.CODIGO"/>
+                        <desc>
+                           <text name="Anotação do schema">Nº do material</text>
+                        </desc>
+                        <border>
+                           <edge presence="hidden"/>
+                           <corner presence="hidden"/>
+                        </border>
+                     </field>
+                     <field h="5.449mm" name="DESCRICAO" w="68.056mm" x="2.679375in">
+                        <ui>
+                           <textEdit>
+                              <margin/>
+                           </textEdit>
+                        </ui>
+                        <font size="8pt" typeface="Arial"/>
+                        <margin bottomInset="1mm" leftInset="1mm" rightInset="1mm" topInset="1mm"/>
+                        <para vAlign="middle"/>
+                        <value>
+                           <text maxChars="40"/>
+                        </value>
+                        <bind match="dataRef" ref="$.DESCRICAO"/>
+                        <desc>
+                           <text name="Anotação do schema">Texto breve do item da ordem do cliente</text>
+                        </desc>
+                        <border>
+                           <edge presence="hidden"/>
+                           <corner presence="hidden"/>
+                        </border>
+                     </field>
+                     <field h="5.449mm" name="NCM" w="68.056mm" y="0.354333in">
+                        <ui>
+                           <textEdit>
+                              <margin/>
+                           </textEdit>
+                        </ui>
+                        <font size="8pt" typeface="Arial"/>
+                        <margin bottomInset="1mm" leftInset="1mm" rightInset="1mm" topInset="1mm"/>
+                        <para vAlign="middle"/>
+                        <value>
+                           <text maxChars="16"/>
+                        </value>
+                        <bind match="dataRef" ref="$.NCM"/>
+                        <desc>
+                           <text name="Anotação do schema">Código de controle p/imposto seletivo em comércio exterior</text>
+                        </desc>
+                        <border>
+                           <edge presence="hidden"/>
+                           <corner presence="hidden"/>
+                        </border>
+                     </field>
+                     <field h="5.449mm" name="UNIDADE" w="68.056mm" x="2.679375in" y="0.354333in">
+                        <ui>
+                           <textEdit>
+                              <margin/>
+                           </textEdit>
+                        </ui>
+                        <font size="8pt" typeface="Arial"/>
+                        <margin bottomInset="1mm" leftInset="1mm" rightInset="1mm" topInset="1mm"/>
+                        <para vAlign="middle"/>
+                        <value>
+                           <text maxChars="3"/>
+                        </value>
+                        <bind match="dataRef" ref="$.UNIDADE"/>
+                        <desc>
+                           <text name="Anotação do schema">Unidade de venda</text>
+                        </desc>
+                        <border>
+                           <edge presence="hidden"/>
+                           <corner presence="hidden"/>
+                        </border>
+                     </field>
+                     <field h="5.449mm" name="QUANTIDADE" w="62mm" x="5.35875in" y="0.354333in">
+                        <ui>
+                           <numericEdit>
+                              <margin/>
+                           </numericEdit>
+                        </ui>
+                        <font size="8pt" typeface="Arial"/>
+                        <margin bottomInset="1mm" leftInset="1mm" rightInset="1mm" topInset="1mm"/>
+                        <para hAlign="right" vAlign="middle"/>
+                        <value>
+                           <decimal fracDigits="3" leadDigits="12"/>
+                        </value>
+                        <bind match="dataRef" ref="$.QUANTIDADE"/>
+                        <desc>
+                           <text name="Anotação do schema">Quantidade da ordem acumulada em unidade de venda</text>
+                        </desc>
+                        <validate nullTest="error"/>
+                        <border>
+                           <edge presence="hidden"/>
+                           <corner presence="hidden"/>
+                        </border>
+                        <format>
+                           <picture>zero{}|num{zzzz9.888}</picture>
+                        </format>
+                     </field>
+                     <assist role="TR"/>
+                     <occur max="-1"/>
+                     <bind match="dataRef" ref="$.DATA[*]"/>
+                     <keep intact="none"/>
+                     <?templateDesigner expand 1?></subform>
+                  <bind match="dataRef" ref="$record.IS_DADOS.ITENS"/>
+                  <desc>
+                     <text name="Anotação do schema">Tipo tabela Coleta Avaria Item</text>
+                  </desc>
+                  <breakAfter/>
+                  <breakBefore/>
+                  <?templateDesigner expand 1?>
+                  <overflow target="Página1.#contentArea"/>
+               </subform>
+               <?templateDesigner expand 1?></subform>
+            <?templateDesigner expand 1?></subform>
+         <breakBefore/>
+         <breakAfter/>
+         <?templateDesigner expand 1?>
+         <overflow leader="som(#subform[0].#subform[1].ITENS)" trailer="som(#subform[0].#subform[1].ITENS)"/>
+         <keep intact="none"/>
+      </subform>
+      <proto/>
+      <desc>
+         <text name="version">11.0.9.20210210.2.941087.null</text>
+      </desc>
+      <?templateDesigner expand 1?>
+      <?renderCache.subset "Arial" 0 0 ISO-8859-1 4 200 57 00030010001100120016001D0023002400250026002700280029002A002C002D002F0030003100320033003400350036003700380039003B003D00440045004600480049004A004F00500051005200550056005E0060006400AD00AE00C700C800CB00CF -./3:@ABCDEFGIJLMNOPQRSTUVXZabcefglmnors{}ÇÃÕÊÁÍÓ?>
+      <?renderCache.subset "Arial" 1 0 ISO-8859-1 4 76 20 00030032003400440046004700480049004C004F00500051005200550056005700580059007E OQacdefilmnorstuvú?></subform>
+   <?templateDesigner DefaultPreviewDynamic 1?>
+   <?templateDesigner DefaultRunAt client?>
+   <?templateDesigner Grid show:1, snap:1, units:0, color:ff8080, origin:(0,0), interval:(125000,125000)?>
+   <?templateDesigner WidowOrphanControl 0?>
+   <?templateDesigner DefaultCaptionFontSettings face:Arial;size:10;weight:normal;style:normal?>
+   <?templateDesigner DefaultValueFontSettings face:Arial;size:10;weight:normal;style:normal?>
+   <?templateDesigner DefaultLanguage JavaScript?>
+   <?acrobat JavaScript strictScoping?>
+   <?templateDesigner SaveTaggedPDF 1?>
+   <?templateDesigner SavePDFWithEmbeddedFonts 1?>
+   <?templateDesigner FormTargetVersion 33?>
+   <?templateDesigner Rulers horizontal:1, vertical:1, guidelines:1, crosshairs:0?>
+   <?templateDesigner Zoom 93?></template>
+<config xmlns="http://www.xfa.org/schema/xci/3.0/">
+   <agent name="designer">
+      <!--  [0..n]  -->
+      <destination>pdf</destination>
+      <pdf>
+         <!--  [0..n]  -->
+         <fontInfo/>
+      </pdf>
+      <common>
+         <template>
+            <base>https://FIORI-DEV.3CORACOES.COM.BR:443/sap/bc/fp/form/layout/</base>
+         </template>
+      </common>
+   </agent>
+   <present>
+      <!--  [0..n]  -->
+      <pdf>
+         <!--  [0..n]  -->
+         <version>1.7</version>
+         <adobeExtensionLevel>8</adobeExtensionLevel>
+      </pdf>
+      <common>
+         <data>
+            <xsl>
+               <uri/>
+            </xsl>
+            <outputXSL>
+               <uri/>
+            </outputXSL>
+         </data>
+      </common>
+      <xdp>
+         <packets>*</packets>
+      </xdp>
+   </present>
+</config>
+<connectionSet xmlns="http://www.xfa.org/schema/xfa-connection-set/2.8/">
+   <xsdConnection dataDescription="data" name="ZAFSD_FORM_COLETA_AVARIA">
+      <uri/>
+      <rootElement>data</rootElement>
+   </xsdConnection>
+</connectionSet>
+<xfa:datasets xmlns:xfa="http://www.xfa.org/schema/xfa-data/1.0/">
+   <xfa:data xfa:dataNode="dataGroup"/>
+   <dd:dataDescription xmlns:dd="http://ns.adobe.com/data-description/" dd:name="data">
+      <data>
+         <IS_DADOS>
+            <ORDEM_VENDAS/>
+            <ORDEM_FRETE/>
+            <RAZAO_SOCIAL/>
+            <ENDERECO/>
+            <BAIRRO/>
+            <CIDADE/>
+            <REGIAO/>
+            <CEP/>
+            <TELEFONE/>
+            <CNPJ/>
+            <INS_EST/>
+            <RAZAO_DEST/>
+            <CNPJ_DEST/>
+            <DATA_EMISSAO/>
+            <DATA_COLETA/>
+            <ENDERECO_DEST/>
+            <BAIRRO_DEST/>
+            <CEP_DEST/>
+            <MUNICIPIO_DEST/>
+            <TELF_DEST/>
+            <REGIAO_DEST/>
+            <INSC_EST_DEST/>
+            <CODIGO_CLI/>
+            <QUANTIDADE_TOTAL/>
+            <UNIDADE_TOTAL/>
+            <ITEM dd:minOccur="0">
+               <DATA dd:maxOccur="-1">
+                  <CODIGO/>
+                  <DESCRICAO/>
+                  <NCM/>
+                  <CST/>
+                  <UNIDADE/>
+                  <QUANTIDADE/>
+                  <VALOR_UNI/>
+                  <VALOR_TOT/>
+                  <MOEDA/>
+               </DATA>
+            </ITEM>
+            <ITENS dd:minOccur="0">
+               <DATA dd:maxOccur="-1">
+                  <CODIGO/>
+                  <DESCRICAO/>
+                  <NCM/>
+                  <UNIDADE/>
+                  <QUANTIDADE/>
+               </DATA>
+            </ITENS>
+         </IS_DADOS>
+         <SFPSY>
+            <DATE/>
+            <TIME/>
+            <USERNAME/>
+            <SUBRC/>
+         </SFPSY>
+         <GRAPHIC/>
+      </data>
+   </dd:dataDescription>
+</xfa:datasets>
+<localeSet xmlns="http://www.xfa.org/schema/xfa-locale-set/2.7/">
+   <locale desc="Portuguese (Brazil)" name="pt_BR">
+      <calendarSymbols name="gregorian">
+         <monthNames>
+            <month>janeiro</month>
+            <month>fevereiro</month>
+            <month>março</month>
+            <month>abril</month>
+            <month>maio</month>
+            <month>junho</month>
+            <month>julho</month>
+            <month>agosto</month>
+            <month>setembro</month>
+            <month>outubro</month>
+            <month>novembro</month>
+            <month>dezembro</month>
+         </monthNames>
+         <monthNames abbr="1">
+            <month>jan</month>
+            <month>fev</month>
+            <month>mar</month>
+            <month>abr</month>
+            <month>mai</month>
+            <month>jun</month>
+            <month>jul</month>
+            <month>ago</month>
+            <month>set</month>
+            <month>out</month>
+            <month>nov</month>
+            <month>dez</month>
+         </monthNames>
+         <dayNames>
+            <day>domingo</day>
+            <day>segunda-feira</day>
+            <day>terça-feira</day>
+            <day>quarta-feira</day>
+            <day>quinta-feira</day>
+            <day>sexta-feira</day>
+            <day>sábado</day>
+         </dayNames>
+         <dayNames abbr="1">
+            <day>dom</day>
+            <day>seg</day>
+            <day>ter</day>
+            <day>qua</day>
+            <day>qui</day>
+            <day>sex</day>
+            <day>sáb</day>
+         </dayNames>
+         <meridiemNames>
+            <meridiem>AM</meridiem>
+            <meridiem>PM</meridiem>
+         </meridiemNames>
+         <eraNames>
+            <era>BC</era>
+            <era>AD</era>
+         </eraNames>
+      </calendarSymbols>
+      <datePatterns>
+         <datePattern name="full">EEEE, D' de 'MMMM' de 'YYYY</datePattern>
+         <datePattern name="long">D' de 'MMMM' de 'YYYY</datePattern>
+         <datePattern name="med">DD/MM/YYYY</datePattern>
+         <datePattern name="short">DD/MM/YY</datePattern>
+      </datePatterns>
+      <timePatterns>
+         <timePattern name="full">HH'h'MM'min'SS's' Z</timePattern>
+         <timePattern name="long">H'h'M'min'S's' Z</timePattern>
+         <timePattern name="med">HH:MM:SS</timePattern>
+         <timePattern name="short">HH:MM</timePattern>
+      </timePatterns>
+      <dateTimeSymbols>GyMdkHmsSEDFwWahKzZ</dateTimeSymbols>
+      <numberPatterns>
+         <numberPattern name="numeric">z,zz9.zzz</numberPattern>
+         <numberPattern name="currency">$ z,zz9.zz</numberPattern>
+         <numberPattern name="percent">z,zz9%</numberPattern>
+      </numberPatterns>
+      <numberSymbols>
+         <numberSymbol name="decimal">,</numberSymbol>
+         <numberSymbol name="grouping">.</numberSymbol>
+         <numberSymbol name="percent">%</numberSymbol>
+         <numberSymbol name="minus">-</numberSymbol>
+         <numberSymbol name="zero">0</numberSymbol>
+      </numberSymbols>
+      <currencySymbols>
+         <currencySymbol name="symbol">R$</currencySymbol>
+         <currencySymbol name="isoname">BRL</currencySymbol>
+         <currencySymbol name="decimal">,</currencySymbol>
+      </currencySymbols>
+      <typefaces>
+         <typeface name="Myriad Pro"/>
+         <typeface name="Minion Pro"/>
+         <typeface name="Courier Std"/>
+         <typeface name="Adobe Pi Std"/>
+         <typeface name="Adobe Hebrew"/>
+         <typeface name="Adobe Arabic"/>
+         <typeface name="Adobe Thai"/>
+         <typeface name="Kozuka Gothic Pro-VI M"/>
+         <typeface name="Kozuka Mincho Pro-VI R"/>
+         <typeface name="Adobe Ming Std L"/>
+         <typeface name="Adobe Song Std L"/>
+         <typeface name="Adobe Myungjo Std M"/>
+         <typeface name="Adobe Devanagari"/>
+      </typefaces>
+   </locale>
+</localeSet>
+<x:xmpmeta xmlns:x="adobe:ns:meta/" x:xmptk="Adobe XMP Core 5.6-c015 81.161580, 2017/12/01-01:38:21        ">
+   <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+      <rdf:Description xmlns:xmp="http://ns.adobe.com/xap/1.0/" xmlns:pdf="http://ns.adobe.com/pdf/1.3/" xmlns:xmpMM="http://ns.adobe.com/xap/1.0/mm/" xmlns:desc="http://ns.adobe.com/xfa/promoted-desc/" rdf:about="">
+         <xmp:MetadataDate>2022-01-29T05:37:35Z</xmp:MetadataDate>
+         <xmp:CreatorTool>Adobe LiveCycle Designer 11.0</xmp:CreatorTool>
+         <pdf:Producer>Adobe LiveCycle Designer 11.0</pdf:Producer>
+         <xmpMM:DocumentID>uuid:5355076f-21e2-42b4-9272-048762894336</xmpMM:DocumentID>
+         <desc:version rdf:parseType="Resource">
+            <rdf:value>11.0.9.20210210.2.941087.null</rdf:value>
+            <desc:ref>/template/subform[1]</desc:ref>
+         </desc:version>
+      </rdf:Description>
+   </rdf:RDF>
+</x:xmpmeta></xdp:xdp>

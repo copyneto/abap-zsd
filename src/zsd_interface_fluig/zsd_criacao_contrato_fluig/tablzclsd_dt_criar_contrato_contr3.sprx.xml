@@ -1,0 +1,171 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<abapGit version="v1.0.0" serializer="LCL_OBJECT_SPRX" serializer_version="v1.0.0">
+ <asx:abap xmlns:asx="http://www.sap.com/abapxml" version="1.0">
+  <asx:values>
+   <PROXY_HEADER>
+    <item>
+     <OBJECT>TABL</OBJECT>
+     <OBJ_NAME>ZCLSD_DT_CRIAR_CONTRATO_CONTR3</OBJ_NAME>
+     <OBJECT_M>TABL</OBJECT_M>
+     <OBJ_NAME_M>ZCLSD_DT_CRIAR_CONTRATO</OBJ_NAME_M>
+     <HASH_ID>9D37B42163846F256E2ABDEF61E2998CEE132F0C</HASH_ID>
+     <ID>&lt;type&gt; CONTRACT_CONDITIONS_IN &lt;element&gt; CONTRACT_CONDITIONS_IN &lt;type&gt; dtCriarContrato http://trescoracoes.com.br/vendas/contrato http://trescoracoes.com.br/vendas/contrato</ID>
+     <IFR_TYPE>type</IFR_TYPE>
+     <IFR_NAME>CONTRACT_CONDITIONS_IN</IFR_NAME>
+     <IFR_NSPCE>http://trescoracoes.com.br/vendas/contrato</IFR_NSPCE>
+     <IFR_GNSPCE>http://trescoracoes.com.br/vendas/contrato</IFR_GNSPCE>
+     <GEN_VERS>0005</GEN_VERS>
+     <PREFIX>ZCLSD_</PREFIX>
+     <CATEGORY>ifmtypedef</CATEGORY>
+     <X-ML_NSPCE>http://trescoracoes.com.br/vendas/contrato</X-ML_NSPCE>
+     <X-ML_NAME>CONTRACT_CONDITIONS_IN</X-ML_NAME>
+    </item>
+   </PROXY_HEADER>
+   <PROXY_DATA>
+    <item>
+     <OBJECT>TABL</OBJECT>
+     <OBJ_NAME>ZCLSD_DT_CRIAR_CONTRATO_CONTR3</OBJ_NAME>
+     <OBJECT1>FIEL</OBJECT1>
+     <OBJ_NAME1>COND_TYPE</OBJ_NAME1>
+     <OBJECT2>FIEL</OBJECT2>
+     <OBJ_NAME2>COND_TYPE</OBJ_NAME2>
+     <ID>&lt;element&gt; COND_TYPE &lt;type&gt; CONTRACT_CONDITIONS_IN &lt;element&gt; CONTRACT_CONDITIONS_IN &lt;type&gt; dtCriarContrato http://trescoracoes.com.br/vendas/contrato http://trescoracoes.com.br/vendas/contrato</ID>
+     <IFR_TYPE>element</IFR_TYPE>
+     <IFR_NAME>COND_TYPE</IFR_NAME>
+     <IFR_TEXT>Tipo de condição</IFR_TEXT>
+     <IFR_LANGU>EN</IFR_LANGU>
+     <IFR_TAGTYP>E</IFR_TAGTYP>
+     <IFR_MAXOCC>1</IFR_MAXOCC>
+     <IFR_OPTNL>X</IFR_OPTNL>
+     <IFR_XSDTYP>string</IFR_XSDTYP>
+     <IFR_MAXLEN>4</IFR_MAXLEN>
+     <IFR_SCALE>-2</IFR_SCALE>
+     <R3_TYPE>FIEL</R3_TYPE>
+     <R3_NAME>COND_TYPE</R3_NAME>
+     <R3_TEXT>Tipo de condição</R3_TEXT>
+     <R3_DATATYP>CHAR</R3_DATATYP>
+     <R3_LENGTH>000004</R3_LENGTH>
+     <R3_SEQNUM>000002</R3_SEQNUM>
+    </item>
+    <item>
+     <OBJECT>TABL</OBJECT>
+     <OBJ_NAME>ZCLSD_DT_CRIAR_CONTRATO_CONTR3</OBJ_NAME>
+     <OBJECT1>FIEL</OBJECT1>
+     <OBJ_NAME1>COND_VALUE_ALUGUEL</OBJ_NAME1>
+     <OBJECT2>FIEL</OBJECT2>
+     <OBJ_NAME2>COND_VALUE_ALUGUEL</OBJ_NAME2>
+     <ID>&lt;element&gt; COND_VALUE_ALUGUEL &lt;type&gt; CONTRACT_CONDITIONS_IN &lt;element&gt; CONTRACT_CONDITIONS_IN &lt;type&gt; dtCriarContrato http://trescoracoes.com.br/vendas/contrato http://trescoracoes.com.br/vendas/contrato</ID>
+     <IFR_TYPE>element</IFR_TYPE>
+     <IFR_NAME>COND_VALUE_ALUGUEL</IFR_NAME>
+     <IFR_TEXT>Valor da condição Aluguel</IFR_TEXT>
+     <IFR_LANGU>EN</IFR_LANGU>
+     <IFR_TAGTYP>E</IFR_TAGTYP>
+     <IFR_MAXOCC>1</IFR_MAXOCC>
+     <IFR_OPTNL>X</IFR_OPTNL>
+     <IFR_XSDTYP>decimal</IFR_XSDTYP>
+     <IFR_PREC>15</IFR_PREC>
+     <IFR_SCALE>2</IFR_SCALE>
+     <R3_TYPE>FIEL</R3_TYPE>
+     <R3_NAME>COND_VALUE_ALUGUEL</R3_NAME>
+     <R3_TEXT>Valor da condição Aluguel</R3_TEXT>
+     <R3_DATATYP>DEC</R3_DATATYP>
+     <R3_LENGTH>000017</R3_LENGTH>
+     <R3_DECIMAL>000002</R3_DECIMAL>
+     <R3_SEQNUM>000004</R3_SEQNUM>
+    </item>
+    <item>
+     <OBJECT>TABL</OBJECT>
+     <OBJ_NAME>ZCLSD_DT_CRIAR_CONTRATO_CONTR3</OBJ_NAME>
+     <OBJECT1>FIEL</OBJECT1>
+     <OBJ_NAME1>COND_VALUE_LOCACAO</OBJ_NAME1>
+     <OBJECT2>FIEL</OBJECT2>
+     <OBJ_NAME2>COND_VALUE_LOCACAO</OBJ_NAME2>
+     <ID>&lt;element&gt; COND_VALUE_LOCACAO &lt;type&gt; CONTRACT_CONDITIONS_IN &lt;element&gt; CONTRACT_CONDITIONS_IN &lt;type&gt; dtCriarContrato http://trescoracoes.com.br/vendas/contrato http://trescoracoes.com.br/vendas/contrato</ID>
+     <IFR_TYPE>element</IFR_TYPE>
+     <IFR_NAME>COND_VALUE_LOCACAO</IFR_NAME>
+     <IFR_TEXT>Valor da condição Locação</IFR_TEXT>
+     <IFR_LANGU>EN</IFR_LANGU>
+     <IFR_TAGTYP>E</IFR_TAGTYP>
+     <IFR_MAXOCC>1</IFR_MAXOCC>
+     <IFR_OPTNL>X</IFR_OPTNL>
+     <IFR_XSDTYP>decimal</IFR_XSDTYP>
+     <IFR_PREC>15</IFR_PREC>
+     <IFR_SCALE>2</IFR_SCALE>
+     <R3_TYPE>FIEL</R3_TYPE>
+     <R3_NAME>COND_VALUE_LOCACAO</R3_NAME>
+     <R3_TEXT>Valor da condição Locação</R3_TEXT>
+     <R3_DATATYP>DEC</R3_DATATYP>
+     <R3_LENGTH>000017</R3_LENGTH>
+     <R3_DECIMAL>000002</R3_DECIMAL>
+     <R3_SEQNUM>000003</R3_SEQNUM>
+    </item>
+    <item>
+     <OBJECT>TABL</OBJECT>
+     <OBJ_NAME>ZCLSD_DT_CRIAR_CONTRATO_CONTR3</OBJ_NAME>
+     <OBJECT1>FIEL</OBJECT1>
+     <OBJ_NAME1>COND_VALUE_UNITARIO</OBJ_NAME1>
+     <OBJECT2>FIEL</OBJECT2>
+     <OBJ_NAME2>COND_VALUE_UNITARIO</OBJ_NAME2>
+     <ID>&lt;element&gt; COND_VALUE_UNITARIO &lt;type&gt; CONTRACT_CONDITIONS_IN &lt;element&gt; CONTRACT_CONDITIONS_IN &lt;type&gt; dtCriarContrato http://trescoracoes.com.br/vendas/contrato http://trescoracoes.com.br/vendas/contrato</ID>
+     <IFR_TYPE>element</IFR_TYPE>
+     <IFR_NAME>COND_VALUE_UNITARIO</IFR_NAME>
+     <IFR_TEXT>Valor da condição Unitário</IFR_TEXT>
+     <IFR_LANGU>EN</IFR_LANGU>
+     <IFR_TAGTYP>E</IFR_TAGTYP>
+     <IFR_MAXOCC>1</IFR_MAXOCC>
+     <IFR_OPTNL>X</IFR_OPTNL>
+     <IFR_XSDTYP>decimal</IFR_XSDTYP>
+     <IFR_PREC>15</IFR_PREC>
+     <IFR_SCALE>2</IFR_SCALE>
+     <R3_TYPE>FIEL</R3_TYPE>
+     <R3_NAME>COND_VALUE_UNITARIO</R3_NAME>
+     <R3_TEXT>Valor da condição Unitário</R3_TEXT>
+     <R3_DATATYP>DEC</R3_DATATYP>
+     <R3_LENGTH>000017</R3_LENGTH>
+     <R3_DECIMAL>000002</R3_DECIMAL>
+     <R3_SEQNUM>000005</R3_SEQNUM>
+    </item>
+    <item>
+     <OBJECT>TABL</OBJECT>
+     <OBJ_NAME>ZCLSD_DT_CRIAR_CONTRATO_CONTR3</OBJ_NAME>
+     <OBJECT1>FIEL</OBJECT1>
+     <OBJ_NAME1>ITM_NUMBER</OBJ_NAME1>
+     <OBJECT2>FIEL</OBJECT2>
+     <OBJ_NAME2>ITM_NUMBER</OBJ_NAME2>
+     <ID>&lt;element&gt; ITM_NUMBER &lt;type&gt; CONTRACT_CONDITIONS_IN &lt;element&gt; CONTRACT_CONDITIONS_IN &lt;type&gt; dtCriarContrato http://trescoracoes.com.br/vendas/contrato http://trescoracoes.com.br/vendas/contrato</ID>
+     <IFR_TYPE>element</IFR_TYPE>
+     <IFR_NAME>ITM_NUMBER</IFR_NAME>
+     <IFR_TEXT>Número do ítem</IFR_TEXT>
+     <IFR_LANGU>EN</IFR_LANGU>
+     <IFR_TAGTYP>E</IFR_TAGTYP>
+     <IFR_MAXOCC>1</IFR_MAXOCC>
+     <IFR_OPTNL>X</IFR_OPTNL>
+     <IFR_XSDTYP>string</IFR_XSDTYP>
+     <IFR_SCALE>-2</IFR_SCALE>
+     <R3_TYPE>FIEL</R3_TYPE>
+     <R3_NAME>ITM_NUMBER</R3_NAME>
+     <R3_TEXT>Número do ítem</R3_TEXT>
+     <R3_DATATYP>STRG</R3_DATATYP>
+     <R3_SEQNUM>000001</R3_SEQNUM>
+    </item>
+    <item>
+     <OBJECT>TABL</OBJECT>
+     <OBJ_NAME>ZCLSD_DT_CRIAR_CONTRATO_CONTR3</OBJ_NAME>
+     <OBJECT1>TABL</OBJECT1>
+     <OBJ_NAME1>ZCLSD_DT_CRIAR_CONTRATO_CONTR3</OBJ_NAME1>
+     <OBJECT2>TABL</OBJECT2>
+     <OBJ_NAME2>ZCLSD_DT_CRIAR_CONTRATO_CONTR3</OBJ_NAME2>
+     <ID>&lt;type&gt; CONTRACT_CONDITIONS_IN &lt;element&gt; CONTRACT_CONDITIONS_IN &lt;type&gt; dtCriarContrato http://trescoracoes.com.br/vendas/contrato http://trescoracoes.com.br/vendas/contrato</ID>
+     <IFR_TYPE>type</IFR_TYPE>
+     <IFR_NAME>CONTRACT_CONDITIONS_IN</IFR_NAME>
+     <IFR_LANGU>EN</IFR_LANGU>
+     <IFR_SCALE>-2</IFR_SCALE>
+     <R3_TYPE>TABL</R3_TYPE>
+     <R3_NAME>ZCLSD_DT_CRIAR_CONTRATO_CONTR3</R3_NAME>
+     <R3_TEXT>Proxy Structure (generated)</R3_TEXT>
+     <CATEGORY>ifmtypedef</CATEGORY>
+    </item>
+   </PROXY_DATA>
+  </asx:values>
+ </asx:abap>
+</abapGit>

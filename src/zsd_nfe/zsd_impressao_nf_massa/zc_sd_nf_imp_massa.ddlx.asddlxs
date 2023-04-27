@@ -1,0 +1,81 @@
+@Metadata.layer: #CORE
+
+@UI: { headerInfo: { typeName: 'Nota Fiscal',
+//                     title: { value: 'Id' },
+//                     description: { value: 'Id' },
+                     typeNamePlural: 'Notas Fiscais'
+                   }
+     }
+@UI.presentationVariant: [{ sortOrder: [ { by: 'StopOrder', direction: #ASC } ] } ]
+annotate view ZC_SD_NF_IMP_MASSA with
+{
+
+  @UI.facet: [ { id:         'Nfenum',
+               purpose:       #STANDARD,
+               type:          #IDENTIFICATION_REFERENCE,
+               label:         'Nota Fiscal',
+               position:      10 }]
+
+  @UI: { lineItem:        [ { position: 10, label: 'Local de Negócio' },
+                            { type: #FOR_ACTION, dataAction: 'imprimir', label: 'Imprimir' } ],
+         identification:  [ { position: 10, label: 'Local de Negócio' },
+                            { type: #FOR_ACTION, dataAction: 'imprimir', label: 'Imprimir' } ] }
+  Branch;
+
+  @UI: { lineItem:        [ { position: 20, label: 'Centro' } ],
+         identification:  [ { position: 20, label: 'Centro' } ]}
+  Werks;
+
+  @UI: { lineItem:        [ { position: 30, label: 'Nr. Ordem de Frete' } ],
+         identification:  [ { position: 30, label: 'Nr. Ordem de Frete' } ]}
+  TorId;
+  
+  @UI.hidden: true
+  StopOrder;
+  @UI: { lineItem:        [ { position: 40, label: 'Cliente' } ],
+         identification:  [ { position: 40, label: 'Cliente' } ] }
+  Parid;
+
+  @UI: { lineItem:        [ { position: 50, label: 'Nome do Cliente' } ],
+         identification:  [ { position: 50, label: 'Nome do Cliente' } ] }
+  Name1;
+
+  @UI: { lineItem:        [ { position: 60, label: 'Data' } ],
+         identification:  [ { position: 60, label: 'Data' } ] }
+  Credat;
+
+  @UI: { lineItem:        [ { position: 70, label: 'Cidade' } ],
+         identification:  [ { position: 70, label: 'Cidade' } ] }
+  Ort01;
+
+  @UI: { lineItem:        [ { position: 80, label: 'Nr. Documento' } ],
+         identification:  [ { position: 80, label: 'Nr. Documento' } ] }
+  Docnum;
+
+  @UI: { lineItem:        [ { position: 90, label: 'NFe' } ],
+         identification:  [ { position: 90, label: 'NFe' } ] }
+  Nfenum;
+
+  @UI: { lineItem:        [ { position: 100, label: 'Status' } ],
+         identification:  [ { position: 100, label: 'Status' } ] }
+  Code;
+
+  @UI: { lineItem:        [ { position: 110, label: 'Tipo Doc' } ],
+         identification:  [ { position: 110, label: 'Tipo Doc' } ] }
+  Model;
+  @UI: { lineItem:        [ { position: 120, label: 'Contabilizado', criticality: 'Criticality_c', criticalityRepresentation: #WITH_ICON } ],
+         identification:  [ { position: 120, label: 'Contabilizado', criticality: 'Criticality_c' } ] }
+  Contabilizado;
+  @UI: { lineItem:        [ { position: 130, label: 'Impressão', criticality: 'Criticality', criticalityRepresentation: #WITH_ICON } ],
+         identification:  [ { position: 130, label: 'Impressão', criticality: 'Criticality' } ] }
+  Printd;
+
+  @UI: { lineItem:        [ { position: 150, label: 'Carta de Correção' } ],
+         identification:  [ { position: 150, label: 'Carta de Correção' } ] }
+  CCe;
+  
+  @UI.hidden: true
+  @EndUserText.label: 'Impressora'
+  Printer;
+
+}
