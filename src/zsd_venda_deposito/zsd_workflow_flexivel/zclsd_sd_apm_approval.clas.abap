@@ -68,8 +68,10 @@ CLASS ZCLSD_SD_APM_APPROVAL IMPLEMENTATION.
         IF salesdocument-distributionchannel  = ls_vbak-vtweg
        AND salesdocument-salesdocumenttype    = ls_vbak-auart
        AND salesdocument-organizationdivision = ls_vbak-spart
-       AND salesdocument-salesdocument IS INITIAL
-       AND ls_xvbak-lifsk IS INITIAL.
+       AND salesdocument-salesdocument IS INITIAL.
+* LSCHEPP - 8000006769 - Workflow liberação PO exportação SIRIUS - 27.04.2023 Início
+***       AND ls_xvbak-lifsk IS INITIAL.
+* LSCHEPP - 8000006769 - Workflow liberação PO exportação SIRIUS - 27.04.2023 Fim
 *       AND ( ls_xvbuk-cmgst = 'A' OR
 *             ls_xvbuk-cmgst = 'D' ).
           salesdocapprovalreason = lc_reason.

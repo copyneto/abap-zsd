@@ -1,0 +1,4 @@
+@EndUserText.label: 'Serviço Rel de prestação de contas Ord.F'
+define service ZUI_SD_REL_PREST_CONTAS_OF {
+  expose ZC_SD_PREST_CONTAS_OF as PrestacaoContasOrdemFrete;
+}

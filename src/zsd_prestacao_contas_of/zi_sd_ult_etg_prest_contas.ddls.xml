@@ -3,10 +3,10 @@
  <asx:abap xmlns:asx="http://www.sap.com/abapxml" version="1.0">
   <asx:values>
    <DDLS>
-    <DDLNAME>ZI_SD_DATA_STS_FN_OF</DDLNAME>
+    <DDLNAME>ZI_SD_ULT_ETG_PREST_CONTAS</DDLNAME>
     <DDLANGUAGE>P</DDLANGUAGE>
-    <DDTEXT>Data do ultimo status Ordem de Frete</DDTEXT>
-    <SOURCE_TYPE>V</SOURCE_TYPE>
+    <DDTEXT>Último evento de entrega - Prestação de contas</DDTEXT>
+    <SOURCE_TYPE>W</SOURCE_TYPE>
    </DDLS>
   </asx:values>
  </asx:abap>

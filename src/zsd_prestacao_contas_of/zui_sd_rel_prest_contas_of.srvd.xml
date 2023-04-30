@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<abapGit version="v1.0.0" serializer="LCL_OBJECT_SRVD" serializer_version="v1.0.0">
+ <asx:abap xmlns:asx="http://www.sap.com/abapxml" version="1.0">
+  <asx:values>
+   <SRVD>
+    <NAME>ZUI_SD_REL_PREST_CONTAS_OF</NAME>
+    <TYPE>SRVD/SRV</TYPE>
+    <DESCRIPTION>Serviço Relatório de prestação de contas ordem de frete</DESCRIPTION>
+    <LANGUAGE>PT</LANGUAGE>
+    <MASTER_LANGUAGE>PT</MASTER_LANGUAGE>
+    <SOURCE_URI>./zui_sd_rel_prest_contas_of/source/main</SOURCE_URI>
+    <SOURCE_TYPE>ABAP_SOURCE</SOURCE_TYPE>
+    <SOURCE_ORIGIN_DESCRIPTION>ABAP Development Tools</SOURCE_ORIGIN_DESCRIPTION>
+    <SRVD_SOURCE_TYPE>S</SRVD_SOURCE_TYPE>
+    <SRVD_SOURCE_TYPE_DESC>Service Definition</SRVD_SOURCE_TYPE_DESC>
+   </SRVD>
+  </asx:values>
+ </asx:abap>
+</abapGit>

@@ -27,36 +27,43 @@
 *
 *  IF ls_pis_confins IS NOT INITIAL.
 
-    DATA(lt_xkomv) = xkomv[].
-    SORT lt_xkomv BY kschl.
-    READ TABLE lt_xkomv[] ASSIGNING FIELD-SYMBOL(<fs_xkomv>) WITH KEY kschl = lc_icol
-                                                                      kposn = vbap-posnr BINARY SEARCH.
+  DATA(lt_xkomv) = xkomv[].
+* LSCHEPP - 8000006853 - Erro no CST do PIS - 28.04.2023 Início
+*    SORT lt_xkomv BY kschl.
+  SORT lt_xkomv BY kschl kposn.
+* LSCHEPP - 8000006853 - Erro no CST do PIS - 28.04.2023 Fim
+  READ TABLE lt_xkomv[] ASSIGNING FIELD-SYMBOL(<fs_xkomv>) WITH KEY kschl = lc_icol
+                                                                    kposn = vbap-posnr BINARY SEARCH.
+  IF sy-subrc = 0.
+
+    SELECT SINGLE knuma_bo
+      FROM konp
+      INTO lv_cofins
+      WHERE knumh = <fs_xkomv>-knumh.
+
     IF sy-subrc = 0.
-
-      SELECT SINGLE knuma_bo
-        FROM konp
-        INTO lv_cofins
-        WHERE knumh = <fs_xkomv>-knumh.
-
-      IF sy-subrc = 0.
-        vbap-j_1btaxlw4  = lv_cofins.
-      ENDIF.
-
+      vbap-j_1btaxlw4  = lv_cofins.
     ENDIF.
 
-    READ TABLE lt_xkomv ASSIGNING <fs_xkomv> WITH KEY kschl = lc_bpil
-                                                      kposn = vbap-posnr BINARY SEARCH.
+  ENDIF.
+
+* LSCHEPP - 8000006853 - Erro no CST do PIS - 28.04.2023 Início
+  SORT lt_xkomv BY kschl kposn.
+* LSCHEPP - 8000006853 - Erro no CST do PIS - 28.04.2023 Fim
+
+  READ TABLE lt_xkomv ASSIGNING <fs_xkomv> WITH KEY kschl = lc_bpil
+                                                    kposn = vbap-posnr BINARY SEARCH.
+  IF sy-subrc = 0.
+
+    SELECT SINGLE knuma_bo
+      FROM konp
+      INTO lv_pis
+      WHERE knumh = <fs_xkomv>-knumh.
+
     IF sy-subrc = 0.
-
-      SELECT SINGLE knuma_bo
-        FROM konp
-        INTO lv_pis
-        WHERE knumh = <fs_xkomv>-knumh.
-
-      IF sy-subrc = 0.
-        vbap-j_1btaxlw5  = lv_pis.
-      ENDIF.
-
+      vbap-j_1btaxlw5  = lv_pis.
     ENDIF.
+
+  ENDIF.
 
 *  ENDIF.

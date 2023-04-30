@@ -30,4 +30,5 @@ define view entity ZI_SD_VH_PLACAS
 where
     Equipment.eqtyp = 'C'
 or Equipment.eqtyp = 'J'
+or Equipment.eqtyp = 'T'
 or Equipment.eqtyp = 'K'
