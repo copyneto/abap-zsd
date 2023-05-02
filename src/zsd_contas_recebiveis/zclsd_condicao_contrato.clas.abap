@@ -230,30 +230,32 @@ CLASS ZCLSD_CONDICAO_CONTRATO IMPLEMENTATION.
 
     ENDIF.
 
-    ASSIGN ('(SAPMV45A)VBAP-POSNR') TO <fs_posnr>.
-    IF <fs_posnr> IS ASSIGNED AND
-       <fs_posnr> IS INITIAL.
-      RETURN.
-    ENDIF.
-
-    ASSIGN ('(SAPMV45A)T180-TRTYP') TO <fs_trtyp>.
-    IF <fs_trtyp> IS ASSIGNED AND
-       <fs_trtyp> NE 'H'.
-      IF iv_preisfindungsart NE 'B' AND
-         iv_preisfindungsart NE 'C' AND
-         iv_preisfindungsart NE 'E' AND
-         iv_preisfindungsart NE 'G'.
+    IF sy-tcode NE 'VKM1'.
+      ASSIGN ('(SAPMV45A)VBAP-POSNR') TO <fs_posnr>.
+      IF <fs_posnr> IS ASSIGNED AND
+         <fs_posnr> IS INITIAL.
         RETURN.
       ENDIF.
 
-      ASSIGN ('(SAPMV45A)VBAP-ABGRU') TO <fs_abgru>.
-      IF <fs_abgru> IS ASSIGNED AND
-         NOT <fs_abgru> IS INITIAL.
-        RETURN.
-      ENDIF.
-    ELSE.
-      IF iv_preisfindungsart EQ 'E'.
-        RETURN.
+      ASSIGN ('(SAPMV45A)T180-TRTYP') TO <fs_trtyp>.
+      IF <fs_trtyp> IS ASSIGNED AND
+         <fs_trtyp> NE 'H'.
+        IF iv_preisfindungsart NE 'B' AND
+           iv_preisfindungsart NE 'C' AND
+           iv_preisfindungsart NE 'E' AND
+           iv_preisfindungsart NE 'G'.
+          RETURN.
+        ENDIF.
+
+        ASSIGN ('(SAPMV45A)VBAP-ABGRU') TO <fs_abgru>.
+        IF <fs_abgru> IS ASSIGNED AND
+           NOT <fs_abgru> IS INITIAL.
+          RETURN.
+        ENDIF.
+      ELSE.
+        IF iv_preisfindungsart EQ 'E'.
+          RETURN.
+        ENDIF.
       ENDIF.
     ENDIF.
 

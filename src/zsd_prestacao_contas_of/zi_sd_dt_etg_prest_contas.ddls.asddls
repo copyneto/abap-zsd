@@ -1,5 +1,3 @@
-@AbapCatalog.sqlViewName: 'ZI_SD_DTETG'
-@AbapCatalog.viewEnhancementCategory: [#NONE]
 @AccessControl.authorizationCheck: #CHECK
 @EndUserText.label: 'Busca de última data de entrg por evt UF'
 @Metadata.ignorePropagatedAnnotations: true
@@ -8,7 +6,7 @@
     sizeCategory: #S,
     dataClass: #MIXED
 }
-define view ZI_SD_DT_ETG_PREST_CONTAS
+define view entity ZI_SD_DT_ETG_PREST_CONTAS
   as select from I_TranspOrdExecution as Ev
   
   //*Recupera último evento*//

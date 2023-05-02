@@ -15,7 +15,7 @@ define root view entity ZI_SD_PREST_CONTAS_OF
 
   association [0..1] to ZI_SD_DT_EVT_PREST_CONTAS as _LastEventUF              on  $projection.FreightUnitUUID = _LastEventUF.TransportationOrderUUID
 
-  association [0..1] to ZI_SD_DT_EVT_PREST_CONTAS as _LastDeliveryUF           on  $projection.FreightUnitUUID = _LastDeliveryUF.TransportationOrderUUID
+  association [0..1] to ZI_SD_DT_ETG_PREST_CONTAS as _LastDeliveryUF           on  $projection.FreightUnitUUID = _LastDeliveryUF.TransportationOrderUUID
 
 {
 
@@ -110,8 +110,6 @@ define root view entity ZI_SD_PREST_CONTAS_OF
       _FluxoTransportationOrder.ShippingConditionName,          //Condição de expedição(Nome)
 
       _FluxoTransportationOrder.CustomerGroup,                  //Região de vendas
-      _FluxoTransportationOrder.CustomerGroupName //Região de vendas(Nome)
-
-      //      _Status
+      _FluxoTransportationOrder.CustomerGroupName               //Região de vendas(Nome)
 
 }

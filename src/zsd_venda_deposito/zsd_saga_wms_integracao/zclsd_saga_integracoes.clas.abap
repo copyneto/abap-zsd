@@ -1,22 +1,26 @@
-CLASS zclsd_saga_integracoes DEFINITION
-  PUBLIC
-  ABSTRACT
-  CREATE PUBLIC .
+class ZCLSD_SAGA_INTEGRACOES definition
+  public
+  abstract
+  create public .
 
-  PUBLIC SECTION.
+public section.
 
-    INTERFACES zifsd_saga_integracoes.
+  interfaces ZIFSD_SAGA_INTEGRACOES .
 
-    CLASS-METHODS factory
-      IMPORTING iv_kind        TYPE char1 OPTIONAL
-      RETURNING VALUE(rr_saga) TYPE REF TO zifsd_saga_integracoes.
+  data GS_BADI_NFE type ABAP_BOOL .
+  data GS_NFENUM type J_1BNFDOC-NFENUM .
 
-    METHODS: set_data IMPORTING iv_likp TYPE likp.
-
-    DATA: gs_badi_nfe TYPE abap_bool,
-          gs_nfenum type j_1bnfdoc-nfenum.
-
-
+  class-methods FACTORY
+    importing
+      !IV_KIND type CHAR1 optional
+    returning
+      value(RR_SAGA) type ref to ZIFSD_SAGA_INTEGRACOES .
+  methods SET_DATA
+    importing
+      !IV_LIKP type LIKP .
+  methods CHECK_SENT
+    returning
+      value(RV_RETURN) type ABAP_BOOL .
   PROTECTED SECTION.
 
     TYPES:
@@ -50,7 +54,10 @@ CLASS ZCLSD_SAGA_INTEGRACOES IMPLEMENTATION.
 
   METHOD zifsd_saga_integracoes~execute.
     TRY.
-        IF NOT gs_proxy-mt_cancelar_atualizar_remessa-pedidosdocliente-vbeln IS INITIAL.
+        IF NOT gs_proxy-mt_cancelar_atualizar_remessa-pedidosdocliente-vbeln IS INITIAL AND
+* LSCHEPP - 8000006844 - Erro Saga - EnviarCancelarAtualizarRemes - 02.05.2023 Início
+           NOT gs_proxy-mt_cancelar_atualizar_remessa-ztipoped IS INITIAL.
+* LSCHEPP - 8000006844 - Erro Saga - EnviarCancelarAtualizarRemes - 02.05.2023 Fim
           NEW zclsd_co_si_enviar_cancelar_at( )->si_enviar_cancelar_atualizar_r( output = gs_proxy  ).
         ENDIF.
       CATCH cx_ai_system_fault.
@@ -77,6 +84,19 @@ CLASS ZCLSD_SAGA_INTEGRACOES IMPLEMENTATION.
   METHOD set_data.
 
     gs_likp = CORRESPONDING #( iv_likp ).
+
+  ENDMETHOD.
+
+
+  METHOD check_sent.
+
+    SELECT COUNT( * )
+      FROM ztsd_rem_saga
+      WHERE remessa      EQ @gs_likp-vbeln
+        AND enviado_saga EQ @abap_true.
+    IF sy-subrc EQ 0.
+      rv_return = abap_true.
+    ENDIF.
 
   ENDMETHOD.
 ENDCLASS.
