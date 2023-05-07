@@ -6,7 +6,6 @@
     <METADATA>
      <NAME>ZUI_O2_RECUSA_NIVEL_ITEM</NAME>
      <TYPE>SRVB/SVB</TYPE>
-     <DESCRIPTION>Serv. Binding - Recusa Nível Item</DESCRIPTION>
      <LINKS>
       <item>
        <HREF>/sap/bc/adt/businessservices/odatav2/ZUI_O2_RECUSA_NIVEL_ITEM</HREF>

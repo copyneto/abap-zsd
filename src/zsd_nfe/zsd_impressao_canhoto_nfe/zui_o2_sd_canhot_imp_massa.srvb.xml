@@ -6,7 +6,6 @@
     <METADATA>
      <NAME>ZUI_O2_SD_CANHOT_IMP_MASSA</NAME>
      <TYPE>SRVB/SVB</TYPE>
-     <DESCRIPTION>Service Bind para ZUI_O2_SD_CANHOT_IMP_MASSA</DESCRIPTION>
      <LINKS>
       <item>
        <HREF>/sap/bc/adt/businessservices/odatav2/ZUI_O2_SD_CANHOT_IMP_MASSA</HREF>

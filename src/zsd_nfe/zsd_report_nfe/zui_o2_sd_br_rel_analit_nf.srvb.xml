@@ -6,7 +6,6 @@
     <METADATA>
      <NAME>ZUI_O2_SD_BR_REL_ANALIT_NF</NAME>
      <TYPE>SRVB/SVB</TYPE>
-     <DESCRIPTION>Service binding para ZUI_SD_BR_REL_ANALITICO_NF</DESCRIPTION>
      <LINKS>
       <item>
        <HREF>/sap/bc/adt/businessservices/odatav2/ZUI_O2_SD_BR_REL_ANALIT_NF</HREF>

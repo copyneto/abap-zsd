@@ -11,7 +11,6 @@
     <item>
      <FUNCNAME>ZFMSD_COCKPIT_DEVOL_BLQ_REM</FUNCNAME>
      <REMOTE_CALL>R</REMOTE_CALL>
-     <SHORT_TEXT>Cockpit gerenciamento de remessas: Bloqueio</SHORT_TEXT>
      <IMPORT>
       <RSIMP>
        <PARAMETER>IV_VBELN</PARAMETER>
@@ -28,19 +27,16 @@
       <RSFDO>
        <PARAMETER>IV_VBELN</PARAMETER>
        <KIND>P</KIND>
-       <STEXT>Remessa</STEXT>
       </RSFDO>
       <RSFDO>
        <PARAMETER>ET_RETURN</PARAMETER>
        <KIND>P</KIND>
-       <STEXT>Tabela de retorno</STEXT>
       </RSFDO>
      </DOCUMENTATION>
     </item>
     <item>
      <FUNCNAME>ZFMSD_GERA_OV_DEVOLUCAO</FUNCNAME>
      <REMOTE_CALL>R</REMOTE_CALL>
-     <SHORT_TEXT>Gera OV Devolução</SHORT_TEXT>
      <IMPORT>
       <RSIMP>
        <PARAMETER>IS_RETURN_HEADER_IN</PARAMETER>
@@ -96,52 +92,42 @@
       <RSFDO>
        <PARAMETER>IS_RETURN_HEADER_IN</PARAMETER>
        <KIND>P</KIND>
-       <STEXT>Campos de comunicação: cabeçalho doc.SD</STEXT>
       </RSFDO>
       <RSFDO>
        <PARAMETER>IS_RETURN_HEADER_INX</PARAMETER>
        <KIND>P</KIND>
-       <STEXT>Campos de seleção cabeçalho doc.SD</STEXT>
       </RSFDO>
       <RSFDO>
        <PARAMETER>EV_SALESDOCUMENT</PARAMETER>
        <KIND>P</KIND>
-       <STEXT>Documento de vendas</STEXT>
       </RSFDO>
       <RSFDO>
        <PARAMETER>ET_RETURN</PARAMETER>
        <KIND>P</KIND>
-       <STEXT>Parâmetro de retorno</STEXT>
       </RSFDO>
       <RSFDO>
        <PARAMETER>IT_ITEMS_IN</PARAMETER>
        <KIND>P</KIND>
-       <STEXT>Campos de comunicação: item doc.SD</STEXT>
       </RSFDO>
       <RSFDO>
        <PARAMETER>IT_ITEMS_INX</PARAMETER>
        <KIND>P</KIND>
-       <STEXT>Campos de comunicação: item doc.SD</STEXT>
       </RSFDO>
       <RSFDO>
        <PARAMETER>IT_PARTNERS</PARAMETER>
        <KIND>P</KIND>
-       <STEXT>Campos de comunicação: parceiro doc.SD: WWW</STEXT>
       </RSFDO>
       <RSFDO>
        <PARAMETER>IT_SCHEDULES_IN</PARAMETER>
        <KIND>P</KIND>
-       <STEXT>Campos de comunicação para atualizar uma divisão de doc.SD</STEXT>
       </RSFDO>
       <RSFDO>
        <PARAMETER>IT_SCHEDULES_INX</PARAMETER>
        <KIND>P</KIND>
-       <STEXT>Barra de seleção p/a atualização de uma divisão rem.doc.SD</STEXT>
       </RSFDO>
       <RSFDO>
        <PARAMETER>IT_CONDITIONS_IN</PARAMETER>
        <KIND>P</KIND>
-       <STEXT>Campos de comunicação para atualizar as condições na ordem</STEXT>
       </RSFDO>
       <RSFDO>
        <PARAMETER>IT_LPP</PARAMETER>

@@ -6,7 +6,6 @@
     <METADATA>
      <NAME>ZUI_O2_SINT_PROCES</NAME>
      <TYPE>SRVB/SVB</TYPE>
-     <DESCRIPTION>Serv Binding Monitor Sde Campanhas</DESCRIPTION>
      <LINKS>
       <item>
        <HREF>/sap/bc/adt/businessservices/odatav2/ZUI_O2_SINT_PROCES</HREF>

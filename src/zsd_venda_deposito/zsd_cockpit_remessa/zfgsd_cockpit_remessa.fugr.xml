@@ -11,7 +11,6 @@
     <item>
      <FUNCNAME>ZFMSD_COCKPIT_REMESSA_BLQ_REM</FUNCNAME>
      <REMOTE_CALL>R</REMOTE_CALL>
-     <SHORT_TEXT>Cockpit gerenciamento de remessas: Bloqueio</SHORT_TEXT>
      <IMPORT>
       <RSIMP>
        <PARAMETER>IV_VBELN</PARAMETER>
@@ -42,12 +41,10 @@
       <RSFDO>
        <PARAMETER>IV_VBELN</PARAMETER>
        <KIND>P</KIND>
-       <STEXT>Remessa</STEXT>
       </RSFDO>
       <RSFDO>
        <PARAMETER>IV_LIFSK</PARAMETER>
        <KIND>P</KIND>
-       <STEXT>Bloqueio da remessa (cabeçalho do documento)</STEXT>
       </RSFDO>
       <RSFDO>
        <PARAMETER>IV_DELETE</PARAMETER>
@@ -56,18 +53,15 @@
       <RSFDO>
        <PARAMETER>IV_BACKGROUND</PARAMETER>
        <KIND>P</KIND>
-       <STEXT>Flag geral</STEXT>
       </RSFDO>
       <RSFDO>
        <PARAMETER>ET_RETURN</PARAMETER>
        <KIND>P</KIND>
-       <STEXT>Tabela de retorno</STEXT>
       </RSFDO>
      </DOCUMENTATION>
     </item>
     <item>
      <FUNCNAME>ZFMSD_COCKPIT_REMESSA_CTRL_WMS</FUNCNAME>
-     <SHORT_TEXT>Cockpit gerenciamento de remessas - Controle WMS</SHORT_TEXT>
      <IMPORT>
       <RSIMP>
        <PARAMETER>IV_VSTEL</PARAMETER>
@@ -91,24 +85,20 @@
       <RSFDO>
        <PARAMETER>IV_VSTEL</PARAMETER>
        <KIND>P</KIND>
-       <STEXT>Local de expedição/ponto de recebimento</STEXT>
       </RSFDO>
       <RSFDO>
        <PARAMETER>IV_LPRIO</PARAMETER>
        <KIND>P</KIND>
-       <STEXT>Prioridade de remessa</STEXT>
       </RSFDO>
       <RSFDO>
        <PARAMETER>CV_KOMKZ</PARAMETER>
        <KIND>P</KIND>
-       <STEXT>Código para controle de picking dos itens</STEXT>
       </RSFDO>
      </DOCUMENTATION>
     </item>
     <item>
      <FUNCNAME>ZFMSD_COCKPIT_REMESSA_ROADNET</FUNCNAME>
      <REMOTE_CALL>R</REMOTE_CALL>
-     <SHORT_TEXT>Cockpit de remessa - chamada Roadnet</SHORT_TEXT>
      <IMPORT>
       <RSIMP>
        <PARAMETER>IT_VBELN</PARAMETER>
@@ -126,19 +116,16 @@
       <RSFDO>
        <PARAMETER>IT_VBELN</PARAMETER>
        <KIND>P</KIND>
-       <STEXT>Tabela de números de remessa</STEXT>
       </RSFDO>
       <RSFDO>
        <PARAMETER>ET_RETURN</PARAMETER>
        <KIND>P</KIND>
-       <STEXT>Tabela de retorno</STEXT>
       </RSFDO>
      </DOCUMENTATION>
     </item>
     <item>
      <FUNCNAME>ZFMSD_RETORNO_SIMBOLICO</FUNCNAME>
      <REMOTE_CALL>R</REMOTE_CALL>
-     <SHORT_TEXT>Função desbloqueia remessa</SHORT_TEXT>
      <IMPORT>
       <RSIMP>
        <PARAMETER>IV_REMESSA</PARAMETER>
@@ -156,12 +143,10 @@
       <RSFDO>
        <PARAMETER>IV_REMESSA</PARAMETER>
        <KIND>P</KIND>
-       <STEXT>Bloqueio da remessa (cabeçalho do documento)</STEXT>
       </RSFDO>
       <RSFDO>
        <PARAMETER>ET_RETURN</PARAMETER>
        <KIND>P</KIND>
-       <STEXT>Tabela de retorno</STEXT>
       </RSFDO>
      </DOCUMENTATION>
     </item>

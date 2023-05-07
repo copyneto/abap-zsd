@@ -6,7 +6,6 @@
     <METADATA>
      <NAME>ZUI_O2_COCKPIT_DEVOL_EXT</NAME>
      <TYPE>SRVB/SVB</TYPE>
-     <DESCRIPTION>Service Binding ZUI_O2_COCKPIT_DEVOL_EXT</DESCRIPTION>
      <LINKS>
       <item>
        <HREF>/sap/bc/adt/businessservices/odatav2/ZUI_O2_COCKPIT_DEVOL_EXT</HREF>

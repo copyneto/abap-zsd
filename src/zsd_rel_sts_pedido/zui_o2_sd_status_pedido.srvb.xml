@@ -6,7 +6,6 @@
     <METADATA>
      <NAME>ZUI_O2_SD_STATUS_PEDIDO</NAME>
      <TYPE>SRVB/SVB</TYPE>
-     <DESCRIPTION>Service binding Relat. de Status do Pedido</DESCRIPTION>
      <LINKS>
       <item>
        <HREF>/sap/bc/adt/businessservices/odatav2/ZUI_O2_SD_STATUS_PEDIDO</HREF>

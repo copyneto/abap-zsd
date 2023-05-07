@@ -6,7 +6,6 @@
     <METADATA>
      <NAME>ZUI_O2_UNID_VENDA_EXPO</NAME>
      <TYPE>SRVB/SVB</TYPE>
-     <DESCRIPTION>Service Bind unidade de venda para o exterior</DESCRIPTION>
      <LINKS>
       <item>
        <HREF>/sap/bc/adt/businessservices/odatav2/ZUI_O2_UNID_VENDA_EXPO</HREF>

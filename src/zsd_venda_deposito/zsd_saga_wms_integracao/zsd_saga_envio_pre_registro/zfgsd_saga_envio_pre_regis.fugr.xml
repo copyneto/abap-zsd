@@ -11,7 +11,6 @@
     <item>
      <FUNCNAME>ZFMMM_SAGA_ENVIO_PRE_REGISTRO</FUNCNAME>
      <REMOTE_CALL>R</REMOTE_CALL>
-     <SHORT_TEXT>FM UPDATE TASK ENVIO APOS SALVAR REMESSA</SHORT_TEXT>
      <IMPORT>
       <RSIMP>
        <PARAMETER>IV_REMESSA</PARAMETER>
@@ -42,7 +41,6 @@
       <RSFDO>
        <PARAMETER>IV_REMESSA</PARAMETER>
        <KIND>P</KIND>
-       <STEXT>Número do documento de vendas e distribuição</STEXT>
       </RSFDO>
       <RSFDO>
        <PARAMETER>IV_XBLNR</PARAMETER>
@@ -55,7 +53,6 @@
       <RSFDO>
        <PARAMETER>IV_EBELN</PARAMETER>
        <KIND>P</KIND>
-       <STEXT>Nº do documento de compras</STEXT>
       </RSFDO>
       <RSFDO>
        <PARAMETER>IV_ENTREGA</PARAMETER>
@@ -77,7 +74,6 @@
       <RSFDO>
        <PARAMETER>IV_REMESSA</PARAMETER>
        <KIND>P</KIND>
-       <STEXT>Número do documento de vendas e distribuição</STEXT>
       </RSFDO>
      </DOCUMENTATION>
     </item>

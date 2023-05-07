@@ -3,7 +3,6 @@
  <sf:SMARTFORM xmlns:sf="urn:sap-com:SmartForms:2000:internal-structure" xmlns="urn:sap-com:sdixml-ifr:2000">
   <HEADER>
    <FORMNAME>ZSFSD_DUA_ES</FORMNAME>
-   <CAPTION>Formulário novo</CAPTION>
    <MASTERLANG>P</MASTERLANG>
    <LANGVECTOR>*</LANGVECTOR>
    <DEVCLASS></DEVCLASS>
@@ -411,7 +410,6 @@
            <NAME>
             <INAME>PAGINA1</INAME>
            </NAME>
-           <CAPTION>Página nova</CAPTION>
            <NEXTPAGE>
             <INAME>PAGINA1</INAME>
            </NEXTPAGE>
@@ -432,7 +430,6 @@
              <NAME>
               <INAME>%GRAPHIC1</INAME>
              </NAME>
-             <CAPTION>Tela de fundo</CAPTION>
              <GTYPE>B</GTYPE>
              <GKEYBDS>
               <BTYPE>BMON</BTYPE>
@@ -471,7 +468,6 @@
               <NAME>
                <INAME>INSTRUCOES</INAME>
               </NAME>
-              <CAPTION>Nova janela 1</CAPTION>
               <WTYPE>T</WTYPE>
               <T_CAPTION>
                <item>
@@ -494,31 +490,7 @@
                      <NAME>
                       <INAME>INST</INAME>
                      </NAME>
-                     <CAPTION>Texto</CAPTION>
                      <APPMODE>P</APPMODE>
-                     <TEXT>
-                      <item>
-                       <TDFORMAT>*</TDFORMAT>
-                       <TDLINE>&lt;CQ&gt; Intruções&lt;/&gt;  &lt;CM&gt;*** Pagar até: &amp;IS_ZGNRE_CAMPOS-FAEDT&amp; ***&lt;/&gt;</TDLINE>
-                      </item>
-                      <item>
-                       <TDFORMAT>*</TDFORMAT>
-                       <TDLINE>&lt;CM&gt;· Pagável no Banestes, Banco do Brasil, Bradesco, Bancoob/Sicoob,</TDLINE>
-                      </item>
-                      <item>
-                       <TDLINE>Caixa Econômica Federal/Lotérica, Itaú-Unibanco e Santander,</TDLINE>
-                      </item>
-                      <item>
-                       <TDLINE>exclusivamente nos canais de recebimento por eles disponibilizados,</TDLINE>
-                      </item>
-                      <item>
-                       <TDLINE>conforme previsto no art. 29 da Portaria n° 13-R, de 15/08/2017.&lt;/&gt;</TDLINE>
-                      </item>
-                      <item>
-                       <TDFORMAT>*</TDFORMAT>
-                       <TDLINE>&lt;CM&gt;· Após o Vencimento, deverá ser emitido novo DUA&lt;/&gt;</TDLINE>
-                      </item>
-                     </TEXT>
                      <STYLE_NAME>Z_ESTILO_GNRE2</STYLE_NAME>
                      <TEXT_AREA>
                       <ENABLED>F</ENABLED>
@@ -684,7 +656,6 @@
               <NAME>
                <INAME>INFO_COMPL</INAME>
               </NAME>
-              <CAPTION>Nova janela 2</CAPTION>
               <WTYPE>T</WTYPE>
               <T_CAPTION>
                <item>
@@ -707,22 +678,7 @@
                      <NAME>
                       <INAME>INFO_COMPL</INAME>
                      </NAME>
-                     <CAPTION>Texto</CAPTION>
                      <APPMODE>P</APPMODE>
-                     <TEXT>
-                      <item>
-                       <TDFORMAT>*</TDFORMAT>
-                       <TDLINE>&lt;CQ&gt;Informações complementares&lt;/&gt;</TDLINE>
-                      </item>
-                      <item>
-                       <TDFORMAT>*</TDFORMAT>
-                       <TDLINE>&lt;CM&gt;· Guia referente NF-e &amp;IS_ZGNRE_CAMPOS-DOC_NFENUM&amp;&lt;/&gt;</TDLINE>
-                      </item>
-                      <item>
-                       <TDFORMAT>*</TDFORMAT>
-                       <TDLINE>&lt;CM&gt;· Pagar até: &amp;IS_ZGNRE_CAMPOS-FAEDT&amp;&lt;/&gt;</TDLINE>
-                      </item>
-                     </TEXT>
                      <STYLE_NAME>Z_ESTILO_GNRE2</STYLE_NAME>
                      <TEXT_AREA>
                       <ENABLED>F</ENABLED>
@@ -864,7 +820,6 @@
               <NAME>
                <INAME>LOGO1</INAME>
               </NAME>
-              <CAPTION>Gráfico</CAPTION>
               <WTYPE>G</WTYPE>
               <T_CAPTION>
                <item>
@@ -883,7 +838,6 @@
                   <NAME>
                    <INAME>LOGO1</INAME>
                   </NAME>
-                  <CAPTION>Gráfico novo 2</CAPTION>
                   <GTYPE>B</GTYPE>
                   <GKEYBDS>
                    <OBJECT>GRAPHICS</OBJECT>
@@ -1006,7 +960,6 @@
               <NAME>
                <INAME>LOGO2</INAME>
               </NAME>
-              <CAPTION>Gráfico</CAPTION>
               <WTYPE>G</WTYPE>
               <T_CAPTION>
                <item>
@@ -1025,7 +978,6 @@
                   <NAME>
                    <INAME>LOGO2</INAME>
                   </NAME>
-                  <CAPTION>Gráfico novo 2</CAPTION>
                   <GTYPE>B</GTYPE>
                   <GKEYBDS>
                    <OBJECT>GRAPHICS</OBJECT>
@@ -1169,7 +1121,6 @@
                      <NAME>
                       <INAME>HEADER</INAME>
                      </NAME>
-                     <CAPTION>Header</CAPTION>
                      <SECTTYPE>S</SECTTYPE>
                      <OTABTYPE>S</OTABTYPE>
                      <U_FHEIGHT>CM</U_FHEIGHT>
@@ -1364,14 +1315,7 @@
                         <NAME>
                          <INAME>TITULO</INAME>
                         </NAME>
-                        <CAPTION>Texto(1:1)</CAPTION>
                         <APPMODE>P</APPMODE>
-                        <TEXT>
-                         <item>
-                          <TDFORMAT>CA</TDFORMAT>
-                          <TDLINE>&lt;GD&gt;Estado do Espírito Santo - Secretaria de Estado da Fazenda&lt;/&gt;</TDLINE>
-                         </item>
-                        </TEXT>
                         <STYLE_NAME>Z_ESTILO_GNRE2</STYLE_NAME>
                         <TEXT_AREA>
                          <ENABLED>F</ENABLED>
@@ -1485,14 +1429,7 @@
                         <NAME>
                          <INAME>DUA</INAME>
                         </NAME>
-                        <CAPTION>Texto(2:1)</CAPTION>
                         <APPMODE>P</APPMODE>
-                        <TEXT>
-                         <item>
-                          <TDFORMAT>CA</TDFORMAT>
-                          <TDLINE>&lt;GD&gt;Documento Único de Arrecadação&lt;/&gt;</TDLINE>
-                         </item>
-                        </TEXT>
                         <STYLE_NAME>Z_ESTILO_GNRE2</STYLE_NAME>
                         <TEXT_AREA>
                          <ENABLED>F</ENABLED>
@@ -1606,14 +1543,7 @@
                         <NAME>
                          <INAME>N_DUA</INAME>
                         </NAME>
-                        <CAPTION>Texto(2:2)</CAPTION>
                         <APPMODE>P</APPMODE>
-                        <TEXT>
-                         <item>
-                          <TDFORMAT>CA</TDFORMAT>
-                          <TDLINE>&lt;GD&gt;DUA Nº &amp;IS_ZGNRE_CAMPOS-HR_CONTROLE&amp;&lt;/&gt;</TDLINE>
-                         </item>
-                        </TEXT>
                         <STYLE_NAME>Z_ESTILO_GNRE2</STYLE_NAME>
                         <TEXT_AREA>
                          <ENABLED>F</ENABLED>
@@ -1835,7 +1765,6 @@
                      <NAME>
                       <INAME>HEADER2</INAME>
                      </NAME>
-                     <CAPTION>Header</CAPTION>
                      <SECTTYPE>S</SECTTYPE>
                      <OTABTYPE>S</OTABTYPE>
                      <U_FHEIGHT>CM</U_FHEIGHT>
@@ -2030,14 +1959,7 @@
                         <NAME>
                          <INAME>TITULO_</INAME>
                         </NAME>
-                        <CAPTION>Texto(1:1)</CAPTION>
                         <APPMODE>P</APPMODE>
-                        <TEXT>
-                         <item>
-                          <TDFORMAT>CA</TDFORMAT>
-                          <TDLINE>&lt;GD&gt;Estado do Espírito Santo - Secretaria de Estado da Fazenda&lt;/&gt;</TDLINE>
-                         </item>
-                        </TEXT>
                         <STYLE_NAME>Z_ESTILO_GNRE2</STYLE_NAME>
                         <TEXT_AREA>
                          <ENABLED>F</ENABLED>
@@ -2151,14 +2073,7 @@
                         <NAME>
                          <INAME>DUA_</INAME>
                         </NAME>
-                        <CAPTION>Texto(2:1)</CAPTION>
                         <APPMODE>P</APPMODE>
-                        <TEXT>
-                         <item>
-                          <TDFORMAT>CA</TDFORMAT>
-                          <TDLINE>&lt;GD&gt;Documento Único de Arrecadação&lt;/&gt;</TDLINE>
-                         </item>
-                        </TEXT>
                         <STYLE_NAME>Z_ESTILO_GNRE2</STYLE_NAME>
                         <TEXT_AREA>
                          <ENABLED>F</ENABLED>
@@ -2272,14 +2187,7 @@
                         <NAME>
                          <INAME>N_DUA_</INAME>
                         </NAME>
-                        <CAPTION>Texto(2:2)</CAPTION>
                         <APPMODE>P</APPMODE>
-                        <TEXT>
-                         <item>
-                          <TDFORMAT>CA</TDFORMAT>
-                          <TDLINE>&lt;GD&gt;DUA Nº &amp;IS_ZGNRE_CAMPOS-HR_CONTROLE&amp;&lt;/&gt;</TDLINE>
-                         </item>
-                        </TEXT>
                         <STYLE_NAME>Z_ESTILO_GNRE2</STYLE_NAME>
                         <TEXT_AREA>
                          <ENABLED>F</ENABLED>
@@ -2480,7 +2388,6 @@
               <NAME>
                <INAME>MAIN</INAME>
               </NAME>
-              <CAPTION>Janela principal</CAPTION>
               <WTYPE>M</WTYPE>
               <T_CAPTION>
                <item>
@@ -2503,7 +2410,6 @@
                      <NAME>
                       <INAME>CORPO1</INAME>
                      </NAME>
-                     <CAPTION>Corpo</CAPTION>
                      <SECTTYPE>S</SECTTYPE>
                      <OTABTYPE>S</OTABTYPE>
                      <U_FHEIGHT>CM</U_FHEIGHT>
@@ -4113,7 +4019,6 @@
                         <NAME>
                          <INAME>LINHA_DIGITAVEL</INAME>
                         </NAME>
-                        <CAPTION>Texto(1:1)</CAPTION>
                         <NOLANGUAGE>X</NOLANGUAGE>
                         <APPMODE>P</APPMODE>
                         <TEXT>
@@ -4150,18 +4055,7 @@
                         <NAME>
                          <INAME>ORGAO</INAME>
                         </NAME>
-                        <CAPTION>Texto(2:1)</CAPTION>
                         <APPMODE>P</APPMODE>
-                        <TEXT>
-                         <item>
-                          <TDFORMAT>*</TDFORMAT>
-                          <TDLINE>&lt;CQ&gt;Órgão&lt;/&gt;</TDLINE>
-                         </item>
-                         <item>
-                          <TDFORMAT>*</TDFORMAT>
-                          <TDLINE>&lt;CM&gt;Secretaria de Estado da Fazenda&lt;/&gt;</TDLINE>
-                         </item>
-                        </TEXT>
                         <STYLE_NAME>Z_ESTILO_GNRE2</STYLE_NAME>
                         <TEXT_AREA>
                          <ENABLED>F</ENABLED>
@@ -4284,18 +4178,7 @@
                         <NAME>
                          <INAME>VENCIMENTO</INAME>
                         </NAME>
-                        <CAPTION>Texto(2:2)</CAPTION>
                         <APPMODE>P</APPMODE>
-                        <TEXT>
-                         <item>
-                          <TDFORMAT>*</TDFORMAT>
-                          <TDLINE>&lt;CM&gt;Vencimento&lt;/&gt;</TDLINE>
-                         </item>
-                         <item>
-                          <TDFORMAT>PD</TDFORMAT>
-                          <TDLINE>&lt;CM&gt;&amp;IS_ZGNRE_CAMPOS-FAEDT&amp;&lt;/&gt;</TDLINE>
-                         </item>
-                        </TEXT>
                         <STYLE_NAME>Z_ESTILO_GNRE2</STYLE_NAME>
                         <TEXT_AREA>
                          <ENABLED>F</ENABLED>
@@ -4418,18 +4301,7 @@
                         <NAME>
                          <INAME>AREA</INAME>
                         </NAME>
-                        <CAPTION>Texto(3:1)</CAPTION>
                         <APPMODE>P</APPMODE>
-                        <TEXT>
-                         <item>
-                          <TDFORMAT>*</TDFORMAT>
-                          <TDLINE>&lt;CQ&gt;Área&lt;/&gt;</TDLINE>
-                         </item>
-                         <item>
-                          <TDFORMAT>*</TDFORMAT>
-                          <TDLINE>&lt;CM&gt;Receita de I.C.M.S&lt;/&gt;</TDLINE>
-                         </item>
-                        </TEXT>
                         <STYLE_NAME>Z_ESTILO_GNRE2</STYLE_NAME>
                         <TEXT_AREA>
                          <ENABLED>F</ENABLED>
@@ -4552,18 +4424,7 @@
                         <NAME>
                          <INAME>VALOR_RECEITA</INAME>
                         </NAME>
-                        <CAPTION>Texto(3:2)</CAPTION>
                         <APPMODE>P</APPMODE>
-                        <TEXT>
-                         <item>
-                          <TDFORMAT>*</TDFORMAT>
-                          <TDLINE>&lt;CQ&gt;Valor da Receita&lt;/&gt;</TDLINE>
-                         </item>
-                         <item>
-                          <TDFORMAT>PD</TDFORMAT>
-                          <TDLINE>&lt;CM&gt;&amp;IS_ZGNRE_CAMPOS-HR_VALOR&amp;&lt;/&gt;</TDLINE>
-                         </item>
-                        </TEXT>
                         <STYLE_NAME>Z_ESTILO_GNRE2</STYLE_NAME>
                         <TEXT_AREA>
                          <ENABLED>F</ENABLED>
@@ -4686,18 +4547,7 @@
                         <NAME>
                          <INAME>SERVICO</INAME>
                         </NAME>
-                        <CAPTION>Texto(4:1)</CAPTION>
                         <APPMODE>P</APPMODE>
-                        <TEXT>
-                         <item>
-                          <TDFORMAT>*</TDFORMAT>
-                          <TDLINE>&lt;CQ&gt;Serviço&lt;/&gt;</TDLINE>
-                         </item>
-                         <item>
-                          <TDFORMAT>*</TDFORMAT>
-                          <TDLINE>&lt;CM&gt;&amp;GV_DESC_RECEITA&amp;&lt;/&gt;</TDLINE>
-                         </item>
-                        </TEXT>
                         <STYLE_NAME>Z_ESTILO_GNRE2</STYLE_NAME>
                         <TEXT_AREA>
                          <ENABLED>F</ENABLED>
@@ -4820,18 +4670,7 @@
                         <NAME>
                          <INAME>MULTA</INAME>
                         </NAME>
-                        <CAPTION>Texto(4:2)</CAPTION>
                         <APPMODE>P</APPMODE>
-                        <TEXT>
-                         <item>
-                          <TDFORMAT>*</TDFORMAT>
-                          <TDLINE>&lt;CQ&gt;Multa&lt;/&gt;</TDLINE>
-                         </item>
-                         <item>
-                          <TDFORMAT>PD</TDFORMAT>
-                          <TDLINE>&lt;CM&gt;**********&lt;/&gt;</TDLINE>
-                         </item>
-                        </TEXT>
                         <STYLE_NAME>Z_ESTILO_GNRE</STYLE_NAME>
                         <TEXT_AREA>
                          <ENABLED>F</ENABLED>
@@ -4954,18 +4793,7 @@
                         <NAME>
                          <INAME>RECEITA</INAME>
                         </NAME>
-                        <CAPTION>Texto(5:1)</CAPTION>
                         <APPMODE>P</APPMODE>
-                        <TEXT>
-                         <item>
-                          <TDFORMAT>PC</TDFORMAT>
-                          <TDLINE>&lt;CQ&gt;Receita&lt;/&gt;</TDLINE>
-                         </item>
-                         <item>
-                          <TDFORMAT>PC</TDFORMAT>
-                          <TDLINE>&lt;CM&gt;&amp;IS_ZGNRE_CAMPOS-IT_RECEITA&amp;&lt;/&gt;</TDLINE>
-                         </item>
-                        </TEXT>
                         <STYLE_NAME>Z_ESTILO_GNRE2</STYLE_NAME>
                         <TEXT_AREA>
                          <ENABLED>F</ENABLED>
@@ -5088,18 +4916,7 @@
                         <NAME>
                          <INAME>MUNICIPIO</INAME>
                         </NAME>
-                        <CAPTION>Texto(5:2)</CAPTION>
                         <APPMODE>P</APPMODE>
-                        <TEXT>
-                         <item>
-                          <TDFORMAT>PC</TDFORMAT>
-                          <TDLINE>&lt;CQ&gt;Município&lt;/&gt;</TDLINE>
-                         </item>
-                         <item>
-                          <TDFORMAT>PC</TDFORMAT>
-                          <TDLINE>&lt;CQ&gt;&amp;GV_MUNICIPIO&amp;&lt;/&gt;</TDLINE>
-                         </item>
-                        </TEXT>
                         <STYLE_NAME>Z_ESTILO_GNRE2</STYLE_NAME>
                         <TEXT_AREA>
                          <ENABLED>F</ENABLED>
@@ -5222,18 +5039,7 @@
                         <NAME>
                          <INAME>NUM_DOC_DEB</INAME>
                         </NAME>
-                        <CAPTION>Texto(5:3)</CAPTION>
                         <APPMODE>P</APPMODE>
-                        <TEXT>
-                         <item>
-                          <TDFORMAT>PC</TDFORMAT>
-                          <TDLINE>&lt;CQ&gt; Nº Documento Débito&lt;/&gt;</TDLINE>
-                         </item>
-                         <item>
-                          <TDFORMAT>PC</TDFORMAT>
-                          <TDLINE>&lt;CM&gt;**********&lt;/&gt;</TDLINE>
-                         </item>
-                        </TEXT>
                         <STYLE_NAME>Z_ESTILO_GNRE2</STYLE_NAME>
                         <TEXT_AREA>
                          <ENABLED>F</ENABLED>
@@ -5356,18 +5162,7 @@
                         <NAME>
                          <INAME>JUROS</INAME>
                         </NAME>
-                        <CAPTION>Texto(5:4)</CAPTION>
                         <APPMODE>P</APPMODE>
-                        <TEXT>
-                         <item>
-                          <TDFORMAT>*</TDFORMAT>
-                          <TDLINE>&lt;CQ&gt;Juros&lt;/&gt;</TDLINE>
-                         </item>
-                         <item>
-                          <TDFORMAT>PD</TDFORMAT>
-                          <TDLINE>&lt;CM&gt;**********&lt;/&gt;</TDLINE>
-                         </item>
-                        </TEXT>
                         <STYLE_NAME>Z_ESTILO_GNRE2</STYLE_NAME>
                         <TEXT_AREA>
                          <ENABLED>F</ENABLED>
@@ -5490,18 +5285,7 @@
                         <NAME>
                          <INAME>DATA_EMISSAO</INAME>
                         </NAME>
-                        <CAPTION>Texto(6:1)</CAPTION>
                         <APPMODE>P</APPMODE>
-                        <TEXT>
-                         <item>
-                          <TDFORMAT>PC</TDFORMAT>
-                          <TDLINE>&lt;CQ&gt;Data de Emissão&lt;/&gt;</TDLINE>
-                         </item>
-                         <item>
-                          <TDFORMAT>PC</TDFORMAT>
-                          <TDLINE>&lt;CM&gt;&amp;GV_AUTH_DATE&amp;&lt;/&gt;</TDLINE>
-                         </item>
-                        </TEXT>
                         <STYLE_NAME>Z_ESTILO_GNRE2</STYLE_NAME>
                         <TEXT_AREA>
                          <ENABLED>F</ENABLED>
@@ -5624,18 +5408,7 @@
                         <NAME>
                          <INAME>HORA_EMISSAO</INAME>
                         </NAME>
-                        <CAPTION>Texto(6:2)</CAPTION>
                         <APPMODE>P</APPMODE>
-                        <TEXT>
-                         <item>
-                          <TDFORMAT>PC</TDFORMAT>
-                          <TDLINE>&lt;CQ&gt;Hora de Emissão&lt;/&gt;</TDLINE>
-                         </item>
-                         <item>
-                          <TDFORMAT>PC</TDFORMAT>
-                          <TDLINE>&lt;CM&gt;&amp;GV_AUTH_TIME&amp;&lt;/&gt;</TDLINE>
-                         </item>
-                        </TEXT>
                         <STYLE_NAME>Z_ESTILO_GNRE2</STYLE_NAME>
                         <TEXT_AREA>
                          <ENABLED>F</ENABLED>
@@ -5758,18 +5531,7 @@
                         <NAME>
                          <INAME>DATA_REFERENCIA</INAME>
                         </NAME>
-                        <CAPTION>Texto(6:3)</CAPTION>
                         <APPMODE>P</APPMODE>
-                        <TEXT>
-                         <item>
-                          <TDFORMAT>PC</TDFORMAT>
-                          <TDLINE>&lt;CQ&gt;Data de Referência&lt;/&gt;</TDLINE>
-                         </item>
-                         <item>
-                          <TDFORMAT>PC</TDFORMAT>
-                          <TDLINE>&lt;CM&gt;&amp;GV_DATA_REFERENCIA&amp;&lt;/&gt;</TDLINE>
-                         </item>
-                        </TEXT>
                         <STYLE_NAME>Z_ESTILO_GNRE2</STYLE_NAME>
                         <TEXT_AREA>
                          <ENABLED>F</ENABLED>
@@ -5892,18 +5654,7 @@
                         <NAME>
                          <INAME>ATUALIZACAO</INAME>
                         </NAME>
-                        <CAPTION>Texto(6:4)</CAPTION>
                         <APPMODE>P</APPMODE>
-                        <TEXT>
-                         <item>
-                          <TDFORMAT>*</TDFORMAT>
-                          <TDLINE>&lt;CQ&gt;Atualização&lt;/&gt;</TDLINE>
-                         </item>
-                         <item>
-                          <TDFORMAT>PD</TDFORMAT>
-                          <TDLINE>&lt;CM&gt;**********&lt;/&gt;</TDLINE>
-                         </item>
-                        </TEXT>
                         <STYLE_NAME>Z_ESTILO_GNRE2</STYLE_NAME>
                         <TEXT_AREA>
                          <ENABLED>F</ENABLED>
@@ -6026,7 +5777,6 @@
                         <NAME>
                          <INAME>INSTRUCOES</INAME>
                         </NAME>
-                        <CAPTION>Texto(7:1)</CAPTION>
                         <NOLANGUAGE>X</NOLANGUAGE>
                         <APPMODE>P</APPMODE>
                         <TEXT>
@@ -6140,18 +5890,7 @@
                         <NAME>
                          <INAME>CREDITO</INAME>
                         </NAME>
-                        <CAPTION>Texto(7:2)</CAPTION>
                         <APPMODE>P</APPMODE>
-                        <TEXT>
-                         <item>
-                          <TDFORMAT>*</TDFORMAT>
-                          <TDLINE>&lt;CQ&gt;Crédito&lt;/&gt;</TDLINE>
-                         </item>
-                         <item>
-                          <TDFORMAT>PD</TDFORMAT>
-                          <TDLINE>&lt;CM&gt;**********&lt;/&gt;</TDLINE>
-                         </item>
-                        </TEXT>
                         <STYLE_NAME>Z_ESTILO_GNRE2</STYLE_NAME>
                         <TEXT_AREA>
                          <ENABLED>F</ENABLED>
@@ -6274,7 +6013,6 @@
                         <NAME>
                          <INAME>INSTRUCOES2</INAME>
                         </NAME>
-                        <CAPTION>Texto(8:1)</CAPTION>
                         <NOLANGUAGE>X</NOLANGUAGE>
                         <APPMODE>P</APPMODE>
                         <TEXT>
@@ -6388,18 +6126,7 @@
                         <NAME>
                          <INAME>TOTAL</INAME>
                         </NAME>
-                        <CAPTION>Texto(8:2)</CAPTION>
                         <APPMODE>P</APPMODE>
-                        <TEXT>
-                         <item>
-                          <TDFORMAT>*</TDFORMAT>
-                          <TDLINE>&lt;CQ&gt;Total&lt;/&gt;</TDLINE>
-                         </item>
-                         <item>
-                          <TDFORMAT>PD</TDFORMAT>
-                          <TDLINE>&lt;CM&gt;&amp;IS_ZGNRE_CAMPOS-HR_VALOR&amp;&lt;/&gt;</TDLINE>
-                         </item>
-                        </TEXT>
                         <STYLE_NAME>Z_ESTILO_GNRE2</STYLE_NAME>
                         <TEXT_AREA>
                          <ENABLED>F</ENABLED>
@@ -6522,7 +6249,6 @@
                         <NAME>
                          <INAME>INSTRUCOES3</INAME>
                         </NAME>
-                        <CAPTION>Texto(9:1)</CAPTION>
                         <NOLANGUAGE>X</NOLANGUAGE>
                         <APPMODE>P</APPMODE>
                         <TEXT>
@@ -6635,18 +6361,7 @@
                         <NAME>
                          <INAME>CONTIBUINTE</INAME>
                         </NAME>
-                        <CAPTION>Texto(10:1)</CAPTION>
                         <APPMODE>P</APPMODE>
-                        <TEXT>
-                         <item>
-                          <TDFORMAT>*</TDFORMAT>
-                          <TDLINE>&lt;CQ&gt;Contribuinte:&lt;/&gt;</TDLINE>
-                         </item>
-                         <item>
-                          <TDFORMAT>*</TDFORMAT>
-                          <TDLINE>&lt;CM&gt;CNPJ - &amp;GV_EMIT_CGC&amp; - &amp;IS_ZGNRE_CAMPOS-EMIT_NAME1&amp;&lt;/&gt;</TDLINE>
-                         </item>
-                        </TEXT>
                         <STYLE_NAME>Z_ESTILO_GNRE2</STYLE_NAME>
                         <TEXT_AREA>
                          <ENABLED>F</ENABLED>
@@ -6769,14 +6484,7 @@
                         <NAME>
                          <INAME>AUTENTICACAO</INAME>
                         </NAME>
-                        <CAPTION>Texto(11:1)</CAPTION>
                         <APPMODE>P</APPMODE>
-                        <TEXT>
-                         <item>
-                          <TDFORMAT>PD</TDFORMAT>
-                          <TDLINE>&lt;CS&gt;Autenticação mecânica&lt;/&gt;</TDLINE>
-                         </item>
-                        </TEXT>
                         <STYLE_NAME>Z_ESTILO_GNRE2</STYLE_NAME>
                         <TEXT_AREA>
                          <ENABLED>F</ENABLED>
@@ -6890,7 +6598,6 @@
                         <NAME>
                          <INAME>CB</INAME>
                         </NAME>
-                        <CAPTION>Texto(13:1)</CAPTION>
                         <NOLANGUAGE>X</NOLANGUAGE>
                         <APPMODE>P</APPMODE>
                         <TEXT>
@@ -7001,7 +6708,6 @@
                         <NAME>
                          <INAME>SEPARADOR</INAME>
                         </NAME>
-                        <CAPTION>Texto(15:1)</CAPTION>
                         <NOLANGUAGE>X</NOLANGUAGE>
                         <APPMODE>P</APPMODE>
                         <TEXT>
@@ -7125,7 +6831,6 @@
                      <NAME>
                       <INAME>CORPO2</INAME>
                      </NAME>
-                     <CAPTION>Corpo</CAPTION>
                      <SECTTYPE>S</SECTTYPE>
                      <OTABTYPE>S</OTABTYPE>
                      <U_FHEIGHT>CM</U_FHEIGHT>
@@ -9763,7 +9468,6 @@
                         <NAME>
                          <INAME>LINHA_DIGITAVEL_</INAME>
                         </NAME>
-                        <CAPTION>Texto(1:1)</CAPTION>
                         <NOLANGUAGE>X</NOLANGUAGE>
                         <APPMODE>P</APPMODE>
                         <TEXT>
@@ -9874,18 +9578,7 @@
                         <NAME>
                          <INAME>ORGAO_</INAME>
                         </NAME>
-                        <CAPTION>Texto(2:1)</CAPTION>
                         <APPMODE>P</APPMODE>
-                        <TEXT>
-                         <item>
-                          <TDFORMAT>*</TDFORMAT>
-                          <TDLINE>&lt;CQ&gt;Órgão&lt;/&gt;</TDLINE>
-                         </item>
-                         <item>
-                          <TDFORMAT>*</TDFORMAT>
-                          <TDLINE>&lt;CM&gt;Secretaria de Estado da Fazenda&lt;/&gt;</TDLINE>
-                         </item>
-                        </TEXT>
                         <STYLE_NAME>Z_ESTILO_GNRE2</STYLE_NAME>
                         <TEXT_AREA>
                          <ENABLED>F</ENABLED>
@@ -10008,18 +9701,7 @@
                         <NAME>
                          <INAME>VENCIMENTO_</INAME>
                         </NAME>
-                        <CAPTION>Texto(2:2)</CAPTION>
                         <APPMODE>P</APPMODE>
-                        <TEXT>
-                         <item>
-                          <TDFORMAT>*</TDFORMAT>
-                          <TDLINE>&lt;CM&gt;Vencimento&lt;/&gt;</TDLINE>
-                         </item>
-                         <item>
-                          <TDFORMAT>PD</TDFORMAT>
-                          <TDLINE>&lt;CM&gt;&amp;IS_ZGNRE_CAMPOS-FAEDT&amp;&lt;/&gt;</TDLINE>
-                         </item>
-                        </TEXT>
                         <STYLE_NAME>Z_ESTILO_GNRE2</STYLE_NAME>
                         <TEXT_AREA>
                          <ENABLED>F</ENABLED>
@@ -10142,18 +9824,7 @@
                         <NAME>
                          <INAME>AREA_</INAME>
                         </NAME>
-                        <CAPTION>Texto(3:1)</CAPTION>
                         <APPMODE>P</APPMODE>
-                        <TEXT>
-                         <item>
-                          <TDFORMAT>*</TDFORMAT>
-                          <TDLINE>&lt;CQ&gt;Área&lt;/&gt;</TDLINE>
-                         </item>
-                         <item>
-                          <TDFORMAT>*</TDFORMAT>
-                          <TDLINE>&lt;CM&gt;Receita de I.C.M.S&lt;/&gt;</TDLINE>
-                         </item>
-                        </TEXT>
                         <STYLE_NAME>Z_ESTILO_GNRE2</STYLE_NAME>
                         <TEXT_AREA>
                          <ENABLED>F</ENABLED>
@@ -10276,18 +9947,7 @@
                         <NAME>
                          <INAME>VALOR_RECEITA_</INAME>
                         </NAME>
-                        <CAPTION>Texto(3:2)</CAPTION>
                         <APPMODE>P</APPMODE>
-                        <TEXT>
-                         <item>
-                          <TDFORMAT>*</TDFORMAT>
-                          <TDLINE>&lt;CQ&gt;Valor da Receita&lt;/&gt;</TDLINE>
-                         </item>
-                         <item>
-                          <TDFORMAT>PD</TDFORMAT>
-                          <TDLINE>&lt;CM&gt;&lt;(&gt;&amp;&lt;)&gt;IS_ZGNRE_CAMPOS-HR_VALOR&lt;(&gt;&amp;&lt;)&gt;&lt;/&gt;</TDLINE>
-                         </item>
-                        </TEXT>
                         <STYLE_NAME>Z_ESTILO_GNRE2</STYLE_NAME>
                         <TEXT_AREA>
                          <ENABLED>F</ENABLED>
@@ -10410,18 +10070,7 @@
                         <NAME>
                          <INAME>SERVICO_</INAME>
                         </NAME>
-                        <CAPTION>Texto(4:1)</CAPTION>
                         <APPMODE>P</APPMODE>
-                        <TEXT>
-                         <item>
-                          <TDFORMAT>*</TDFORMAT>
-                          <TDLINE>&lt;CQ&gt;Serviço&lt;/&gt;</TDLINE>
-                         </item>
-                         <item>
-                          <TDFORMAT>*</TDFORMAT>
-                          <TDLINE>&lt;CM&gt;&amp;GV_DESC_RECEITA&amp;&lt;/&gt;</TDLINE>
-                         </item>
-                        </TEXT>
                         <STYLE_NAME>Z_ESTILO_GNRE2</STYLE_NAME>
                         <TEXT_AREA>
                          <ENABLED>F</ENABLED>
@@ -10544,18 +10193,7 @@
                         <NAME>
                          <INAME>MULTA_</INAME>
                         </NAME>
-                        <CAPTION>Texto(4:2)</CAPTION>
                         <APPMODE>P</APPMODE>
-                        <TEXT>
-                         <item>
-                          <TDFORMAT>*</TDFORMAT>
-                          <TDLINE>&lt;CQ&gt;Multa&lt;/&gt;</TDLINE>
-                         </item>
-                         <item>
-                          <TDFORMAT>PD</TDFORMAT>
-                          <TDLINE>&lt;CM&gt;**********&lt;/&gt;</TDLINE>
-                         </item>
-                        </TEXT>
                         <STYLE_NAME>Z_ESTILO_GNRE2</STYLE_NAME>
                         <TEXT_AREA>
                          <ENABLED>F</ENABLED>
@@ -10678,18 +10316,7 @@
                         <NAME>
                          <INAME>RECEITA_</INAME>
                         </NAME>
-                        <CAPTION>Texto(5:1)</CAPTION>
                         <APPMODE>P</APPMODE>
-                        <TEXT>
-                         <item>
-                          <TDFORMAT>PC</TDFORMAT>
-                          <TDLINE>&lt;CQ&gt;Receita&lt;/&gt;</TDLINE>
-                         </item>
-                         <item>
-                          <TDFORMAT>PC</TDFORMAT>
-                          <TDLINE>&lt;CM&gt;&amp;IS_ZGNRE_CAMPOS-IT_RECEITA&amp;&lt;/&gt;</TDLINE>
-                         </item>
-                        </TEXT>
                         <STYLE_NAME>Z_ESTILO_GNRE2</STYLE_NAME>
                         <TEXT_AREA>
                          <ENABLED>F</ENABLED>
@@ -10812,18 +10439,7 @@
                         <NAME>
                          <INAME>MUNICIPIO_</INAME>
                         </NAME>
-                        <CAPTION>Texto(5:2)</CAPTION>
                         <APPMODE>P</APPMODE>
-                        <TEXT>
-                         <item>
-                          <TDFORMAT>PC</TDFORMAT>
-                          <TDLINE>&lt;CQ&gt;Município&lt;/&gt;</TDLINE>
-                         </item>
-                         <item>
-                          <TDFORMAT>PC</TDFORMAT>
-                          <TDLINE>&lt;CM&gt;&amp;GV_MUNICIPIO&amp;&lt;/&gt;</TDLINE>
-                         </item>
-                        </TEXT>
                         <STYLE_NAME>Z_ESTILO_GNRE2</STYLE_NAME>
                         <TEXT_AREA>
                          <ENABLED>F</ENABLED>
@@ -10946,18 +10562,7 @@
                         <NAME>
                          <INAME>NUM_DOC_DEB_</INAME>
                         </NAME>
-                        <CAPTION>Texto(5:3)</CAPTION>
                         <APPMODE>P</APPMODE>
-                        <TEXT>
-                         <item>
-                          <TDFORMAT>PC</TDFORMAT>
-                          <TDLINE>&lt;CQ&gt; Nº Documento Débito&lt;/&gt;</TDLINE>
-                         </item>
-                         <item>
-                          <TDFORMAT>PC</TDFORMAT>
-                          <TDLINE>&lt;CM&gt;**********&lt;/&gt;</TDLINE>
-                         </item>
-                        </TEXT>
                         <STYLE_NAME>Z_ESTILO_GNRE2</STYLE_NAME>
                         <TEXT_AREA>
                          <ENABLED>F</ENABLED>
@@ -11080,18 +10685,7 @@
                         <NAME>
                          <INAME>JUROS_</INAME>
                         </NAME>
-                        <CAPTION>Texto(5:4)</CAPTION>
                         <APPMODE>P</APPMODE>
-                        <TEXT>
-                         <item>
-                          <TDFORMAT>*</TDFORMAT>
-                          <TDLINE>&lt;CQ&gt;Juros&lt;/&gt;</TDLINE>
-                         </item>
-                         <item>
-                          <TDFORMAT>PD</TDFORMAT>
-                          <TDLINE>&lt;CM&gt;**********&lt;/&gt;</TDLINE>
-                         </item>
-                        </TEXT>
                         <STYLE_NAME>Z_ESTILO_GNRE2</STYLE_NAME>
                         <TEXT_AREA>
                          <ENABLED>F</ENABLED>
@@ -11214,18 +10808,7 @@
                         <NAME>
                          <INAME>DATA_EMISSAO_</INAME>
                         </NAME>
-                        <CAPTION>Texto(6:1)</CAPTION>
                         <APPMODE>P</APPMODE>
-                        <TEXT>
-                         <item>
-                          <TDFORMAT>PC</TDFORMAT>
-                          <TDLINE>&lt;CQ&gt;Data de Emissão&lt;/&gt;</TDLINE>
-                         </item>
-                         <item>
-                          <TDFORMAT>PC</TDFORMAT>
-                          <TDLINE>&lt;CM&gt;&amp;GV_AUTH_DATE&amp;&lt;/&gt;</TDLINE>
-                         </item>
-                        </TEXT>
                         <STYLE_NAME>Z_ESTILO_GNRE2</STYLE_NAME>
                         <TEXT_AREA>
                          <ENABLED>F</ENABLED>
@@ -11348,18 +10931,7 @@
                         <NAME>
                          <INAME>HORA_EMISSAO_</INAME>
                         </NAME>
-                        <CAPTION>Texto(6:2)</CAPTION>
                         <APPMODE>P</APPMODE>
-                        <TEXT>
-                         <item>
-                          <TDFORMAT>PC</TDFORMAT>
-                          <TDLINE>&lt;CQ&gt;Hora de Emissão&lt;/&gt;</TDLINE>
-                         </item>
-                         <item>
-                          <TDFORMAT>PC</TDFORMAT>
-                          <TDLINE>&lt;CM&gt;&amp;GV_AUTH_TIME&amp;&lt;/&gt;</TDLINE>
-                         </item>
-                        </TEXT>
                         <STYLE_NAME>Z_ESTILO_GNRE2</STYLE_NAME>
                         <TEXT_AREA>
                          <ENABLED>F</ENABLED>
@@ -11482,18 +11054,7 @@
                         <NAME>
                          <INAME>DATA_REFERENCIA_</INAME>
                         </NAME>
-                        <CAPTION>Texto(6:3)</CAPTION>
                         <APPMODE>P</APPMODE>
-                        <TEXT>
-                         <item>
-                          <TDFORMAT>PC</TDFORMAT>
-                          <TDLINE>&lt;CQ&gt;Data de Referência&lt;/&gt;</TDLINE>
-                         </item>
-                         <item>
-                          <TDFORMAT>PC</TDFORMAT>
-                          <TDLINE>&lt;CM&gt;&amp;GV_DATA_REFERENCIA&amp;&lt;/&gt;</TDLINE>
-                         </item>
-                        </TEXT>
                         <STYLE_NAME>Z_ESTILO_GNRE2</STYLE_NAME>
                         <TEXT_AREA>
                          <ENABLED>F</ENABLED>
@@ -11616,18 +11177,7 @@
                         <NAME>
                          <INAME>ATUALIZACAO_</INAME>
                         </NAME>
-                        <CAPTION>Texto(6:4)</CAPTION>
                         <APPMODE>P</APPMODE>
-                        <TEXT>
-                         <item>
-                          <TDFORMAT>*</TDFORMAT>
-                          <TDLINE>&lt;CQ&gt;Atualiazção&lt;/&gt;</TDLINE>
-                         </item>
-                         <item>
-                          <TDFORMAT>PD</TDFORMAT>
-                          <TDLINE>&lt;CM&gt;**********&lt;/&gt;</TDLINE>
-                         </item>
-                        </TEXT>
                         <STYLE_NAME>Z_ESTILO_GNRE2</STYLE_NAME>
                         <TEXT_AREA>
                          <ENABLED>F</ENABLED>
@@ -11750,7 +11300,6 @@
                         <NAME>
                          <INAME>INSTRUCOES_</INAME>
                         </NAME>
-                        <CAPTION>Texto(7:1)</CAPTION>
                         <NOLANGUAGE>X</NOLANGUAGE>
                         <APPMODE>P</APPMODE>
                         <TEXT>
@@ -11863,18 +11412,7 @@
                         <NAME>
                          <INAME>CREDITO_</INAME>
                         </NAME>
-                        <CAPTION>Texto(7:2)</CAPTION>
                         <APPMODE>P</APPMODE>
-                        <TEXT>
-                         <item>
-                          <TDFORMAT>*</TDFORMAT>
-                          <TDLINE>&lt;CQ&gt;Crédito&lt;/&gt;</TDLINE>
-                         </item>
-                         <item>
-                          <TDFORMAT>PD</TDFORMAT>
-                          <TDLINE>&lt;CM&gt;**********&lt;/&gt;</TDLINE>
-                         </item>
-                        </TEXT>
                         <STYLE_NAME>Z_ESTILO_GNRE2</STYLE_NAME>
                         <TEXT_AREA>
                          <ENABLED>F</ENABLED>
@@ -11997,7 +11535,6 @@
                         <NAME>
                          <INAME>INTRUCOES2_</INAME>
                         </NAME>
-                        <CAPTION>Texto(8:1)</CAPTION>
                         <NOLANGUAGE>X</NOLANGUAGE>
                         <APPMODE>P</APPMODE>
                         <TEXT>
@@ -12107,18 +11644,7 @@
                         <NAME>
                          <INAME>TOTAL_</INAME>
                         </NAME>
-                        <CAPTION>Texto(8:2)</CAPTION>
                         <APPMODE>P</APPMODE>
-                        <TEXT>
-                         <item>
-                          <TDFORMAT>*</TDFORMAT>
-                          <TDLINE>&lt;CQ&gt;Total&lt;/&gt;</TDLINE>
-                         </item>
-                         <item>
-                          <TDFORMAT>PD</TDFORMAT>
-                          <TDLINE>&lt;CM&gt;&amp;&lt;/&gt;&lt;C1&gt; &lt;/&gt;&lt;CM&gt;IS_ZGNRE_CAMPOS-HR_VALOR&amp;&lt;/&gt;</TDLINE>
-                         </item>
-                        </TEXT>
                         <STYLE_NAME>Z_ESTILO_GNRE2</STYLE_NAME>
                         <TEXT_AREA>
                          <ENABLED>F</ENABLED>
@@ -12241,7 +11767,6 @@
                         <NAME>
                          <INAME>INTRUCOES3_</INAME>
                         </NAME>
-                        <CAPTION>Texto(9:1)</CAPTION>
                         <NOLANGUAGE>X</NOLANGUAGE>
                         <APPMODE>P</APPMODE>
                         <TEXT>
@@ -12351,18 +11876,7 @@
                         <NAME>
                          <INAME>CONTRIBUINTE_</INAME>
                         </NAME>
-                        <CAPTION>Texto(10:1)</CAPTION>
                         <APPMODE>P</APPMODE>
-                        <TEXT>
-                         <item>
-                          <TDFORMAT>*</TDFORMAT>
-                          <TDLINE>&lt;CQ&gt;Contribuinte:&lt;/&gt;</TDLINE>
-                         </item>
-                         <item>
-                          <TDFORMAT>*</TDFORMAT>
-                          <TDLINE>&lt;CM&gt;CNPJ - &amp;GV_EMIT_CGC&amp; - &amp;IS_ZGNRE_CAMPOS-EMIT_NAME1&amp;&lt;/&gt;</TDLINE>
-                         </item>
-                        </TEXT>
                         <STYLE_NAME>Z_ESTILO_GNRE2</STYLE_NAME>
                         <TEXT_AREA>
                          <ENABLED>F</ENABLED>
@@ -12485,7 +11999,6 @@
                         <NAME>
                          <INAME>AUTENTICACAO_</INAME>
                         </NAME>
-                        <CAPTION>Texto(11:1)</CAPTION>
                         <NOLANGUAGE>X</NOLANGUAGE>
                         <APPMODE>P</APPMODE>
                         <TEXT>
@@ -12595,7 +12108,6 @@
                         <NAME>
                          <INAME>CB_</INAME>
                         </NAME>
-                        <CAPTION>Texto(13:1)</CAPTION>
                         <NOLANGUAGE>X</NOLANGUAGE>
                         <APPMODE>P</APPMODE>
                         <TEXT>
@@ -12705,14 +12217,7 @@
                         <NAME>
                          <INAME>COMPROVANTE_</INAME>
                         </NAME>
-                        <CAPTION>Texto(16:1)</CAPTION>
                         <APPMODE>P</APPMODE>
-                        <TEXT>
-                         <item>
-                          <TDFORMAT>PC</TDFORMAT>
-                          <TDLINE>&lt;CS&gt;COMPROVANTE DE PAGAMENTO&lt;/&gt;</TDLINE>
-                         </item>
-                        </TEXT>
                         <STYLE_NAME>Z_ESTILO_GNRE2</STYLE_NAME>
                         <TEXT_AREA>
                          <ENABLED>F</ENABLED>
@@ -12826,14 +12331,7 @@
                         <NAME>
                          <INAME>CLIENTE_</INAME>
                         </NAME>
-                        <CAPTION>Texto(17:1)</CAPTION>
                         <APPMODE>P</APPMODE>
-                        <TEXT>
-                         <item>
-                          <TDFORMAT>*</TDFORMAT>
-                          <TDLINE>&lt;CS&gt;CLIENTE: &amp;IS_ZGNRE_CAMPOS-EMIT_NAME1&amp;&lt;/&gt;</TDLINE>
-                         </item>
-                        </TEXT>
                         <STYLE_NAME>Z_ESTILO_GNRE2</STYLE_NAME>
                         <TEXT_AREA>
                          <ENABLED>F</ENABLED>
@@ -12947,14 +12445,7 @@
                         <NAME>
                          <INAME>AGENCIA_</INAME>
                         </NAME>
-                        <CAPTION>Texto(18:1)</CAPTION>
                         <APPMODE>P</APPMODE>
-                        <TEXT>
-                         <item>
-                          <TDFORMAT>*</TDFORMAT>
-                          <TDLINE>&lt;CS&gt;AGÊNCIA: &amp;GV_AGENCIA&amp;&lt;/&gt;</TDLINE>
-                         </item>
-                        </TEXT>
                         <STYLE_NAME>Z_ESTILO_GNRE2</STYLE_NAME>
                         <TEXT_AREA>
                          <ENABLED>F</ENABLED>
@@ -13068,14 +12559,7 @@
                         <NAME>
                          <INAME>CONTA_</INAME>
                         </NAME>
-                        <CAPTION>Texto(18:2)</CAPTION>
                         <APPMODE>P</APPMODE>
-                        <TEXT>
-                         <item>
-                          <TDFORMAT>*</TDFORMAT>
-                          <TDLINE>&lt;CS&gt;CONTA: &amp;GV_CONTA&amp;&lt;/&gt;</TDLINE>
-                         </item>
-                        </TEXT>
                         <STYLE_NAME>Z_ESTILO_GNRE2</STYLE_NAME>
                         <TEXT_AREA>
                          <ENABLED>F</ENABLED>
@@ -13189,14 +12673,7 @@
                         <NAME>
                          <INAME>CODIGO_DE_BARRAS_</INAME>
                         </NAME>
-                        <CAPTION>Texto(19:1)</CAPTION>
                         <APPMODE>P</APPMODE>
-                        <TEXT>
-                         <item>
-                          <TDFORMAT>*</TDFORMAT>
-                          <TDLINE>&lt;CS&gt;Código de Barras&lt;/&gt;</TDLINE>
-                         </item>
-                        </TEXT>
                         <STYLE_NAME>Z_ESTILO_GNRE2</STYLE_NAME>
                         <TEXT_AREA>
                          <ENABLED>F</ENABLED>
@@ -13310,7 +12787,6 @@
                         <NAME>
                          <INAME>N_CODBAR_</INAME>
                         </NAME>
-                        <CAPTION>Texto(19:2)</CAPTION>
                         <NOLANGUAGE>X</NOLANGUAGE>
                         <APPMODE>P</APPMODE>
                         <TEXT>
@@ -13425,14 +12901,7 @@
                         <NAME>
                          <INAME>TX_DATA_PAG_</INAME>
                         </NAME>
-                        <CAPTION>Texto(20:1)</CAPTION>
                         <APPMODE>P</APPMODE>
-                        <TEXT>
-                         <item>
-                          <TDFORMAT>*</TDFORMAT>
-                          <TDLINE>&lt;CS&gt;Data do Pagamento&lt;/&gt;</TDLINE>
-                         </item>
-                        </TEXT>
                         <STYLE_NAME>Z_ESTILO_GNRE2</STYLE_NAME>
                         <TEXT_AREA>
                          <ENABLED>F</ENABLED>
@@ -13546,7 +13015,6 @@
                         <NAME>
                          <INAME>DATA_PAG_</INAME>
                         </NAME>
-                        <CAPTION>Texto(20:2)</CAPTION>
                         <NOLANGUAGE>X</NOLANGUAGE>
                         <APPMODE>P</APPMODE>
                         <TEXT>
@@ -13657,14 +13125,7 @@
                         <NAME>
                          <INAME>TX_VALOR_TOTAL_</INAME>
                         </NAME>
-                        <CAPTION>Texto(21:1)</CAPTION>
                         <APPMODE>P</APPMODE>
-                        <TEXT>
-                         <item>
-                          <TDFORMAT>*</TDFORMAT>
-                          <TDLINE>&lt;CS&gt;Valor Total&lt;/&gt;</TDLINE>
-                         </item>
-                        </TEXT>
                         <STYLE_NAME>Z_ESTILO_GNRE2</STYLE_NAME>
                         <TEXT_AREA>
                          <ENABLED>F</ENABLED>
@@ -13778,7 +13239,6 @@
                         <NAME>
                          <INAME>VALOR_TOTAL</INAME>
                         </NAME>
-                        <CAPTION>Texto(21:2)</CAPTION>
                         <NOLANGUAGE>X</NOLANGUAGE>
                         <APPMODE>P</APPMODE>
                         <TEXT>
@@ -13889,14 +13349,7 @@
                         <NAME>
                          <INAME>DOCUMENTO_</INAME>
                         </NAME>
-                        <CAPTION>Texto(22:1)</CAPTION>
                         <APPMODE>P</APPMODE>
-                        <TEXT>
-                         <item>
-                          <TDFORMAT>*</TDFORMAT>
-                          <TDLINE>&lt;CS&gt;DOCUMENTO:&lt;/&gt;</TDLINE>
-                         </item>
-                        </TEXT>
                         <STYLE_NAME>Z_ESTILO_GNRE2</STYLE_NAME>
                         <TEXT_AREA>
                          <ENABLED>F</ENABLED>
@@ -14010,14 +13463,7 @@
                         <NAME>
                          <INAME>TX_AUTENTICACAO_</INAME>
                         </NAME>
-                        <CAPTION>Texto(23:1)</CAPTION>
                         <APPMODE>P</APPMODE>
-                        <TEXT>
-                         <item>
-                          <TDFORMAT>*</TDFORMAT>
-                          <TDLINE>&lt;CS&gt;AUTENTICAÇÃO:&lt;/&gt;</TDLINE>
-                         </item>
-                        </TEXT>
                         <STYLE_NAME>Z_ESTILO_GNRE2</STYLE_NAME>
                         <TEXT_AREA>
                          <ENABLED>F</ENABLED>
@@ -14131,7 +13577,6 @@
                         <NAME>
                          <INAME>N_AUTENTICACAO</INAME>
                         </NAME>
-                        <CAPTION>Texto(23:2)</CAPTION>
                         <NOLANGUAGE>X</NOLANGUAGE>
                         <APPMODE>P</APPMODE>
                         <TEXT>
@@ -14247,7 +13692,6 @@
               <NAME>
                <INAME>%OUTATTRIB1</INAME>
               </NAME>
-              <CAPTION>Nova opção de saída</CAPTION>
               <U_WFRAME>PT</U_WFRAME>
               <U_WBOXV>CM</U_WBOXV>
               <U_WBOXH>CM</U_WBOXH>

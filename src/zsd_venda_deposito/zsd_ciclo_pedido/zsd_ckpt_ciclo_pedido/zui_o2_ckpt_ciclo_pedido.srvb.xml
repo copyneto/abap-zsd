@@ -6,7 +6,6 @@
     <METADATA>
      <NAME>ZUI_O2_CKPT_CICLO_PEDIDO</NAME>
      <TYPE>SRVB/SVB</TYPE>
-     <DESCRIPTION>Service Bind CockPit do Ciclo do Pedido</DESCRIPTION>
      <LINKS>
       <item>
        <HREF>/sap/bc/adt/businessservices/odatav2/ZUI_O2_CKPT_CICLO_PEDIDO</HREF>

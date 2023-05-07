@@ -11,7 +11,6 @@
     <item>
      <FUNCNAME>ZFMSD_READ_TEXT</FUNCNAME>
      <REMOTE_CALL>R</REMOTE_CALL>
-     <SHORT_TEXT>Read Text</SHORT_TEXT>
      <IMPORT>
       <RSIMP>
        <PARAMETER>IV_ID</PARAMETER>
@@ -63,62 +62,50 @@
       <RSFDO>
        <PARAMETER>IV_ID</PARAMETER>
        <KIND>P</KIND>
-       <STEXT>Text ID of text to be read</STEXT>
       </RSFDO>
       <RSFDO>
        <PARAMETER>IV_LANGUAGE</PARAMETER>
        <KIND>P</KIND>
-       <STEXT>Language of text to be read</STEXT>
       </RSFDO>
       <RSFDO>
        <PARAMETER>IV_NAME</PARAMETER>
        <KIND>P</KIND>
-       <STEXT>Name of text to be read</STEXT>
       </RSFDO>
       <RSFDO>
        <PARAMETER>IV_OBJECT</PARAMETER>
        <KIND>P</KIND>
-       <STEXT>Object of text to be read</STEXT>
       </RSFDO>
       <RSFDO>
        <PARAMETER>T_LINES</PARAMETER>
        <KIND>P</KIND>
-       <STEXT>Lines of text read</STEXT>
       </RSFDO>
       <RSFDO>
        <PARAMETER>ID</PARAMETER>
        <KIND>X</KIND>
-       <STEXT>Text ID invalid</STEXT>
       </RSFDO>
       <RSFDO>
        <PARAMETER>LANGUAGE</PARAMETER>
        <KIND>X</KIND>
-       <STEXT>Invalid language</STEXT>
       </RSFDO>
       <RSFDO>
        <PARAMETER>NAME</PARAMETER>
        <KIND>X</KIND>
-       <STEXT>Invalid text name</STEXT>
       </RSFDO>
       <RSFDO>
        <PARAMETER>NOT_FOUND</PARAMETER>
        <KIND>X</KIND>
-       <STEXT>Text not found</STEXT>
       </RSFDO>
       <RSFDO>
        <PARAMETER>OBJECT</PARAMETER>
        <KIND>X</KIND>
-       <STEXT>Invalid text object</STEXT>
       </RSFDO>
       <RSFDO>
        <PARAMETER>REFERENCE_CHECK</PARAMETER>
        <KIND>X</KIND>
-       <STEXT>Reference chain interrupted</STEXT>
       </RSFDO>
       <RSFDO>
        <PARAMETER>WRONG_ACCESS_TO_ARCHIVE</PARAMETER>
        <KIND>X</KIND>
-       <STEXT>Archive handle invalid for access</STEXT>
       </RSFDO>
      </DOCUMENTATION>
     </item>

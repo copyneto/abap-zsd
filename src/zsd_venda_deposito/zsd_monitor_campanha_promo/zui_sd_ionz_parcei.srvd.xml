@@ -5,8 +5,7 @@
    <SRVD>
     <NAME>ZUI_SD_IONZ_PARCEI</NAME>
     <TYPE>SRVD/SRV</TYPE>
-    <DESCRIPTION>Service Def. Lista de parceiros para Ordens da campanha</DESCRIPTION>
-    <LANGUAGE>PT</LANGUAGE>
+    <LANGUAGE>EN</LANGUAGE>
     <MASTER_LANGUAGE>PT</MASTER_LANGUAGE>
     <SOURCE_URI>./zui_sd_ionz_parcei/source/main</SOURCE_URI>
     <SOURCE_TYPE>ABAP_SOURCE</SOURCE_TYPE>

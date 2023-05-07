@@ -6,7 +6,6 @@
     <METADATA>
      <NAME>ZUI_O2_MATERIAL_GC_ZF</NAME>
      <TYPE>SRVB/SVB</TYPE>
-     <DESCRIPTION>Service Binding ZUI_SD_MATERIAL_GC_ZF</DESCRIPTION>
      <LINKS>
       <item>
        <HREF>/sap/bc/adt/businessservices/odatav2/ZUI_O2_MATERIAL_GC_ZF</HREF>

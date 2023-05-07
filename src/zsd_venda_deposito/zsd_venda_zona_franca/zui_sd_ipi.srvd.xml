@@ -5,8 +5,7 @@
    <SRVD>
     <NAME>ZUI_SD_IPI</NAME>
     <TYPE>SRVD/SRV</TYPE>
-    <DESCRIPTION>Service Def Cadastro de regra para incidência de IPI</DESCRIPTION>
-    <LANGUAGE>PT</LANGUAGE>
+    <LANGUAGE>EN</LANGUAGE>
     <MASTER_LANGUAGE>PT</MASTER_LANGUAGE>
     <SOURCE_URI>./zui_sd_ipi/source/main</SOURCE_URI>
     <SOURCE_TYPE>ABAP_SOURCE</SOURCE_TYPE>

@@ -11,7 +11,6 @@
     <item>
      <FUNCNAME>ZFMSD_CKPT_FAT_GERAR_REMESSA</FUNCNAME>
      <REMOTE_CALL>R</REMOTE_CALL>
-     <SHORT_TEXT>Cockpit Faturamento: Gerar Remessa</SHORT_TEXT>
      <IMPORT>
       <RSIMP>
        <PARAMETER>IV_SALES_ORDER</PARAMETER>
@@ -54,7 +53,6 @@
     <item>
      <FUNCNAME>ZFMSD_CKPT_FAT_MOD_REMESSA</FUNCNAME>
      <REMOTE_CALL>R</REMOTE_CALL>
-     <SHORT_TEXT>Cockpit Faturamento: Gerar Remessa</SHORT_TEXT>
      <IMPORT>
       <RSIMP>
        <PARAMETER>IS_HEADER_DATA</PARAMETER>
@@ -89,17 +87,14 @@
       <RSFDO>
        <PARAMETER>IS_HEADER_DATA</PARAMETER>
        <KIND>P</KIND>
-       <STEXT>Modificação entrega dados de picking nível de cabeçalho</STEXT>
       </RSFDO>
       <RSFDO>
        <PARAMETER>IS_HEADER_CONTROL</PARAMETER>
        <KIND>P</KIND>
-       <STEXT>Dados de controle entrega nível de cabeçalho</STEXT>
       </RSFDO>
       <RSFDO>
        <PARAMETER>IV_DELIVERY_NO</PARAMETER>
        <KIND>P</KIND>
-       <STEXT>Remessa</STEXT>
       </RSFDO>
       <RSFDO>
        <PARAMETER>EV_DELIVERY_NO</PARAMETER>
@@ -112,7 +107,6 @@
       <RSFDO>
        <PARAMETER>TT_RETURN</PARAMETER>
        <KIND>P</KIND>
-       <STEXT>Parâmetro de retorno</STEXT>
       </RSFDO>
      </DOCUMENTATION>
     </item>

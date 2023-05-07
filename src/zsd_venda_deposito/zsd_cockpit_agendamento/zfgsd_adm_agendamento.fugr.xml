@@ -11,7 +11,6 @@
     <item>
      <FUNCNAME>ZFMSD_ADM_AGENDAMENTO</FUNCNAME>
      <REMOTE_CALL>R</REMOTE_CALL>
-     <SHORT_TEXT>Chama proxy  agendamento</SHORT_TEXT>
      <IMPORT>
       <RSIMP>
        <PARAMETER>IV_LIKP</PARAMETER>
@@ -22,7 +21,6 @@
       <RSFDO>
        <PARAMETER>IV_LIKP</PARAMETER>
        <KIND>P</KIND>
-       <STEXT>Nº documento</STEXT>
       </RSFDO>
      </DOCUMENTATION>
     </item>

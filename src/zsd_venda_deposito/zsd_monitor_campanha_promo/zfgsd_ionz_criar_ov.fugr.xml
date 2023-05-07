@@ -11,12 +11,10 @@
     <item>
      <FUNCNAME>ZFMSD_INTERFACE_IONZ</FUNCNAME>
      <REMOTE_CALL>R</REMOTE_CALL>
-     <SHORT_TEXT>Chama Interface com a IONZ</SHORT_TEXT>
     </item>
     <item>
      <FUNCNAME>ZFMSD_IONZ_CRIAR_OV</FUNCNAME>
      <REMOTE_CALL>R</REMOTE_CALL>
-     <SHORT_TEXT>Cria OV IONZ</SHORT_TEXT>
      <IMPORT>
       <RSIMP>
        <PARAMETER>IV_ID</PARAMETER>
@@ -33,12 +31,10 @@
       <RSFDO>
        <PARAMETER>IV_ID</PARAMETER>
        <KIND>P</KIND>
-       <STEXT>ID de cadastro</STEXT>
       </RSFDO>
       <RSFDO>
        <PARAMETER>ET_RETURN</PARAMETER>
        <KIND>P</KIND>
-       <STEXT>Parâmetro de retorno</STEXT>
       </RSFDO>
      </DOCUMENTATION>
     </item>

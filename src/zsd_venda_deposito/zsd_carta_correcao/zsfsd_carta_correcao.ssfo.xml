@@ -3,7 +3,6 @@
  <sf:SMARTFORM xmlns:sf="urn:sap-com:SmartForms:2000:internal-structure" xmlns="urn:sap-com:sdixml-ifr:2000">
   <HEADER>
    <FORMNAME>ZSFSD_CARTA_CORRECAO</FORMNAME>
-   <CAPTION>DANFE - Portrait</CAPTION>
    <MASTERLANG>P</MASTERLANG>
    <LANGVECTOR>*</LANGVECTOR>
    <DEVCLASS></DEVCLASS>
@@ -548,7 +547,6 @@
            <NAME>
             <INAME>FIRST_PAGE</INAME>
            </NAME>
-           <CAPTION>First Page</CAPTION>
            <NEXTPAGE>
             <INAME>FIRST_PAGE</INAME>
            </NEXTPAGE>
@@ -569,7 +567,6 @@
              <NAME>
               <INAME>%GRAPHIC3</INAME>
              </NAME>
-             <CAPTION>Tela de fundo</CAPTION>
              <GTYPE>B</GTYPE>
              <GKEYBDS>
               <BTYPE>BMON</BTYPE>
@@ -608,7 +605,6 @@
               <NAME>
                <INAME>MARCA_DAGUA</INAME>
               </NAME>
-              <CAPTION>Marca D&apos;água</CAPTION>
               <WTYPE>T</WTYPE>
               <T_CAPTION>
                <item>
@@ -631,7 +627,6 @@
                      <NAME>
                       <INAME>MARCA_DAGUA</INAME>
                      </NAME>
-                     <CAPTION>Imagem para marca d&apos;água</CAPTION>
                      <RESOLUTION>0100</RESOLUTION>
                      <GTYPE>B</GTYPE>
                      <GKEYBDS>
@@ -668,7 +663,6 @@
                      <NAME>
                       <INAME>%CONDITION2</INAME>
                      </NAME>
-                     <CAPTION>Nova alternativa 2</CAPTION>
                      <COND>
                       <item>
                        <COP>NE</COP>
@@ -783,7 +777,6 @@
               <NAME>
                <INAME>WIN_BOXDANFE</INAME>
               </NAME>
-              <CAPTION>Quadro Contorno Danfe</CAPTION>
               <WTYPE>T</WTYPE>
               <T_CAPTION>
                <item>
@@ -806,7 +799,6 @@
                      <NAME>
                       <INAME>BOXDANFE</INAME>
                      </NAME>
-                     <CAPTION>Quadro Contorno Danfe</CAPTION>
                      <SECTTYPE>C</SECTTYPE>
                      <TABHTYPE>I</TABHTYPE>
                      <OTABTYPE>D</OTABTYPE>
@@ -902,7 +894,6 @@
                         <NAME>
                          <INAME>%EVENT50</INAME>
                         </NAME>
-                        <CAPTION>Área de cabeçalho</CAPTION>
                         <EVTYPE>H</EVTYPE>
                         <T_CAPTION>
                          <item>
@@ -926,7 +917,6 @@
                         <NAME>
                          <INAME>%EVENT51</INAME>
                         </NAME>
-                        <CAPTION>Área principal</CAPTION>
                         <EVTYPE>B</EVTYPE>
                         <T_CAPTION>
                          <item>
@@ -950,7 +940,6 @@
                         <NAME>
                          <INAME>%EVENT52</INAME>
                         </NAME>
-                        <CAPTION>Nota de rodapé</CAPTION>
                         <EVTYPE>F</EVTYPE>
                         <T_CAPTION>
                          <item>
@@ -1065,7 +1054,6 @@
               <NAME>
                <INAME>WIN_BARCODE_CONTINGENCIA</INAME>
               </NAME>
-              <CAPTION>Cód. de Barras Contingencia</CAPTION>
               <WTYPE>T</WTYPE>
               <T_CAPTION>
                <item>
@@ -1088,7 +1076,6 @@
                      <NAME>
                       <INAME>BARCODE2</INAME>
                      </NAME>
-                     <CAPTION>Cód. de Barras Contingencia</CAPTION>
                      <SECTTYPE>C</SECTTYPE>
                      <TABHTYPE>I</TABHTYPE>
                      <OTABTYPE>D</OTABTYPE>
@@ -1185,7 +1172,6 @@
                         <NAME>
                          <INAME>%EVENT47</INAME>
                         </NAME>
-                        <CAPTION>Área de cabeçalho</CAPTION>
                         <EVTYPE>H</EVTYPE>
                         <T_CAPTION>
                          <item>
@@ -1209,7 +1195,6 @@
                         <NAME>
                          <INAME>%EVENT48</INAME>
                         </NAME>
-                        <CAPTION>Área principal</CAPTION>
                         <EVTYPE>B</EVTYPE>
                         <T_CAPTION>
                          <item>
@@ -1231,7 +1216,6 @@
                            <NAME>
                             <INAME>TEXTO</INAME>
                            </NAME>
-                           <CAPTION>Nova linha 2</CAPTION>
                            <SECTTYPE>R</SECTTYPE>
                            <U_FHEIGHT>CM</U_FHEIGHT>
                            <PATTERN>
@@ -1337,7 +1321,6 @@
                               <NAME>
                                <INAME>C_TEXTO</INAME>
                               </NAME>
-                              <CAPTION>Coluna nova 2</CAPTION>
                               <SECTTYPE>E</SECTTYPE>
                               <U_FHEIGHT>CM</U_FHEIGHT>
                               <PATTERN>
@@ -1442,22 +1425,7 @@
                                  <NAME>
                                   <INAME>%TEXT18</INAME>
                                  </NAME>
-                                 <CAPTION>Texto novo 18</CAPTION>
                                  <APPMODE>P</APPMODE>
-                                 <TEXT>
-                                  <item>
-                                   <TDFORMAT>PC</TDFORMAT>
-                                   <TDLINE>&lt;CC&gt;&lt;CP&gt;Consulta de autenticidade no portal nacional da NF-e&lt;/&gt;&lt;/&gt;</TDLINE>
-                                  </item>
-                                  <item>
-                                   <TDFORMAT>PC</TDFORMAT>
-                                   <TDLINE>&lt;CC&gt;&lt;CP&gt;www.nfe.fazenda.gov.br/portal ou no site da Sefaz Autorizada&lt;/&gt;</TDLINE>
-                                  </item>
-                                  <item>
-                                   <TDFORMAT>=</TDFORMAT>
-                                   <TDLINE>&lt;/&gt;</TDLINE>
-                                  </item>
-                                 </TEXT>
                                  <STYLE_NAME>ZSTSD_CARTA_CORRECAO</STYLE_NAME>
                                  <TEXT_AREA>
                                   <ENABLED>F</ENABLED>
@@ -1524,7 +1492,6 @@
                         <NAME>
                          <INAME>%EVENT49</INAME>
                         </NAME>
-                        <CAPTION>Nota de rodapé</CAPTION>
                         <EVTYPE>F</EVTYPE>
                         <T_CAPTION>
                          <item>
@@ -1639,7 +1606,6 @@
               <NAME>
                <INAME>WIN_BARCODE</INAME>
               </NAME>
-              <CAPTION>Cód. de Barras</CAPTION>
               <WTYPE>T</WTYPE>
               <T_CAPTION>
                <item>
@@ -1662,7 +1628,6 @@
                      <NAME>
                       <INAME>LOAD_ACCESS_KEY</INAME>
                      </NAME>
-                     <CAPTION>Novas linhasPrograma 2</CAPTION>
                      <PLIST>
                       <item>
                        <OPD>NOTA_FISCAL-NFE</OPD>
@@ -1732,7 +1697,6 @@
                      <NAME>
                       <INAME>TXT_BARCODE</INAME>
                      </NAME>
-                     <CAPTION>Texto novo 18</CAPTION>
                      <NOLANGUAGE>X</NOLANGUAGE>
                      <APPMODE>P</APPMODE>
                      <TEXT>
@@ -1870,7 +1834,6 @@
               <NAME>
                <INAME>WIN_ACCESSKEY</INAME>
               </NAME>
-              <CAPTION>Chave de Acesso</CAPTION>
               <WTYPE>T</WTYPE>
               <T_CAPTION>
                <item>
@@ -1893,7 +1856,6 @@
                      <NAME>
                       <INAME>ACCESSKEY</INAME>
                      </NAME>
-                     <CAPTION>Nova tabela 2</CAPTION>
                      <SECTTYPE>C</SECTTYPE>
                      <TABHTYPE>I</TABHTYPE>
                      <OTABTYPE>D</OTABTYPE>
@@ -1989,7 +1951,6 @@
                         <NAME>
                          <INAME>%EVENT44</INAME>
                         </NAME>
-                        <CAPTION>Área de cabeçalho</CAPTION>
                         <EVTYPE>H</EVTYPE>
                         <T_CAPTION>
                          <item>
@@ -2013,7 +1974,6 @@
                         <NAME>
                          <INAME>%EVENT45</INAME>
                         </NAME>
-                        <CAPTION>Área principal</CAPTION>
                         <EVTYPE>B</EVTYPE>
                         <T_CAPTION>
                          <item>
@@ -2035,7 +1995,6 @@
                            <NAME>
                             <INAME>CHAVE_ACESSO</INAME>
                            </NAME>
-                           <CAPTION>Nova linha 2</CAPTION>
                            <SECTTYPE>R</SECTTYPE>
                            <U_FHEIGHT>CM</U_FHEIGHT>
                            <PATTERN>
@@ -2141,7 +2100,6 @@
                               <NAME>
                                <INAME>CHAVEACESSO</INAME>
                               </NAME>
-                              <CAPTION>Coluna nova 2</CAPTION>
                               <SECTTYPE>E</SECTTYPE>
                               <U_FHEIGHT>CM</U_FHEIGHT>
                               <PATTERN>
@@ -2246,30 +2204,7 @@
                                  <NAME>
                                   <INAME>C_ACESSO</INAME>
                                  </NAME>
-                                 <CAPTION>Texto novo 18</CAPTION>
                                  <APPMODE>P</APPMODE>
-                                 <TEXT>
-                                  <item>
-                                   <TDFORMAT>*</TDFORMAT>
-                                   <TDLINE>&lt;CC&gt;CHAVE DE ACESSO&lt;/&gt;</TDLINE>
-                                  </item>
-                                  <item>
-                                   <TDFORMAT>PC</TDFORMAT>
-                                   <TDLINE>&lt;CP&gt;&amp;NOTA_FISCAL-NFE-REGIO&amp;&lt;/&gt;&lt;CP&gt;.&amp;NOTA_FISCAL-NFE-NFYEAR&amp;.</TDLINE>
-                                  </item>
-                                  <item>
-                                   <TDFORMAT>=</TDFORMAT>
-                                   <TDLINE>&amp;NOTA_FISCAL-NFE-NFMONTH&amp;.&amp;NOTA_FISCAL-NFE-STCD1&amp;.</TDLINE>
-                                  </item>
-                                  <item>
-                                   <TDFORMAT>=</TDFORMAT>
-                                   <TDLINE>&amp;NOTA_FISCAL-NFE-MODEL&amp;.&amp;NOTA_FISCAL-NFE-SERIE&amp;.&amp;NOTA_FISCAL-NFE-NFNUM9&amp;</TDLINE>
-                                  </item>
-                                  <item>
-                                   <TDFORMAT>=</TDFORMAT>
-                                   <TDLINE>.&amp;NOTA_FISCAL-NFE-DOCNUM9&amp;-&amp;NOTA_FISCAL-NFE-CDV&amp;&lt;/&gt;</TDLINE>
-                                  </item>
-                                 </TEXT>
                                  <STYLE_NAME>Z_NFSTDANFE_SAP_NEW</STYLE_NAME>
                                  <TEXT_AREA>
                                   <ENABLED>F</ENABLED>
@@ -2354,7 +2289,6 @@
                         <NAME>
                          <INAME>%EVENT46</INAME>
                         </NAME>
-                        <CAPTION>Nota de rodapé</CAPTION>
                         <EVTYPE>F</EVTYPE>
                         <T_CAPTION>
                          <item>
@@ -2470,7 +2404,6 @@
               <NAME>
                <INAME>TABLE_INVOICE</INAME>
               </NAME>
-              <CAPTION>Linha 2</CAPTION>
               <WTYPE>T</WTYPE>
               <T_CAPTION>
                <item>
@@ -2493,7 +2426,6 @@
                      <NAME>
                       <INAME>%TABLE1</INAME>
                      </NAME>
-                     <CAPTION>Nova tabela 1</CAPTION>
                      <SECTTYPE>C</SECTTYPE>
                      <TABHTYPE>I</TABHTYPE>
                      <OTABTYPE>D</OTABTYPE>
@@ -2957,7 +2889,6 @@
                         <NAME>
                          <INAME>%EVENT36</INAME>
                         </NAME>
-                        <CAPTION>Área de cabeçalho</CAPTION>
                         <EVTYPE>H</EVTYPE>
                         <T_CAPTION>
                          <item>
@@ -2981,7 +2912,6 @@
                         <NAME>
                          <INAME>%EVENT37</INAME>
                         </NAME>
-                        <CAPTION>Área principal</CAPTION>
                         <EVTYPE>B</EVTYPE>
                         <T_CAPTION>
                          <item>
@@ -3003,7 +2933,6 @@
                            <NAME>
                             <INAME>%ROW1</INAME>
                            </NAME>
-                           <CAPTION>Nova linha 1</CAPTION>
                            <SECTTYPE>R</SECTTYPE>
                            <U_FHEIGHT>CM</U_FHEIGHT>
                            <PATTERN>
@@ -3212,7 +3141,6 @@
                                  <NAME>
                                   <INAME>%TEXT9</INAME>
                                  </NAME>
-                                 <CAPTION>Texto novo 9</CAPTION>
                                  <NOLANGUAGE>X</NOLANGUAGE>
                                  <APPMODE>P</APPMODE>
                                  <TEXT>
@@ -3355,7 +3283,6 @@
                                  <NAME>
                                   <INAME>%TEXT10</INAME>
                                  </NAME>
-                                 <CAPTION>Texto novo 10</CAPTION>
                                  <NOLANGUAGE>X</NOLANGUAGE>
                                  <APPMODE>P</APPMODE>
                                  <TEXT>
@@ -3498,7 +3425,6 @@
                                  <NAME>
                                   <INAME>%TEXT11</INAME>
                                  </NAME>
-                                 <CAPTION>Texto novo 11</CAPTION>
                                  <NOLANGUAGE>X</NOLANGUAGE>
                                  <APPMODE>P</APPMODE>
                                  <TEXT>
@@ -3641,7 +3567,6 @@
                                  <NAME>
                                   <INAME>%TEXT12</INAME>
                                  </NAME>
-                                 <CAPTION>Texto novo 12</CAPTION>
                                  <NOLANGUAGE>X</NOLANGUAGE>
                                  <APPMODE>P</APPMODE>
                                  <TEXT>
@@ -3784,7 +3709,6 @@
                                  <NAME>
                                   <INAME>%TEXT13</INAME>
                                  </NAME>
-                                 <CAPTION>Texto novo 13</CAPTION>
                                  <NOLANGUAGE>X</NOLANGUAGE>
                                  <APPMODE>P</APPMODE>
                                  <TEXT>
@@ -3927,7 +3851,6 @@
                                  <NAME>
                                   <INAME>%TEXT14</INAME>
                                  </NAME>
-                                 <CAPTION>Texto novo 14</CAPTION>
                                  <NOLANGUAGE>X</NOLANGUAGE>
                                  <APPMODE>P</APPMODE>
                                  <TEXT>
@@ -4070,7 +3993,6 @@
                                  <NAME>
                                   <INAME>%TEXT15</INAME>
                                  </NAME>
-                                 <CAPTION>Texto novo 15</CAPTION>
                                  <NOLANGUAGE>X</NOLANGUAGE>
                                  <APPMODE>P</APPMODE>
                                  <TEXT>
@@ -4213,7 +4135,6 @@
                                  <NAME>
                                   <INAME>%TEXT16</INAME>
                                  </NAME>
-                                 <CAPTION>Texto novo 16</CAPTION>
                                  <NOLANGUAGE>X</NOLANGUAGE>
                                  <APPMODE>P</APPMODE>
                                  <TEXT>
@@ -4356,7 +4277,6 @@
                                  <NAME>
                                   <INAME>%TEXT17</INAME>
                                  </NAME>
-                                 <CAPTION>Texto novo 17</CAPTION>
                                  <NOLANGUAGE>X</NOLANGUAGE>
                                  <APPMODE>P</APPMODE>
                                  <TEXT>
@@ -4402,7 +4322,6 @@
                         <NAME>
                          <INAME>%EVENT38</INAME>
                         </NAME>
-                        <CAPTION>Nota de rodapé</CAPTION>
                         <EVTYPE>F</EVTYPE>
                         <T_CAPTION>
                          <item>
@@ -4535,12 +4454,6 @@
                       <INAME>TXT_FATURA</INAME>
                      </NAME>
                      <APPMODE>P</APPMODE>
-                     <TEXT>
-                      <item>
-                       <TDFORMAT>*</TDFORMAT>
-                       <TDLINE>&lt;C1&gt;&lt;CM&gt;&lt;CS&gt;FATURA&lt;/&gt;&lt;/&gt;&lt;/&gt;</TDLINE>
-                      </item>
-                     </TEXT>
                      <STYLE_NAME>ZSTSD_CARTA_CORRECAO</STYLE_NAME>
                      <TEXT_AREA>
                       <ENABLED>F</ENABLED>
@@ -4663,7 +4576,6 @@
               <NAME>
                <INAME>WIN_LOGOTIPO</INAME>
               </NAME>
-              <CAPTION>Logotipo</CAPTION>
               <WTYPE>T</WTYPE>
               <T_CAPTION>
                <item>
@@ -4686,7 +4598,6 @@
                      <NAME>
                       <INAME>LOGO_TCOR</INAME>
                      </NAME>
-                     <CAPTION>3corações</CAPTION>
                      <RESOLUTION>0600</RESOLUTION>
                      <GTYPE>B</GTYPE>
                      <GKEYBDS>
@@ -6401,7 +6312,6 @@
               <NAME>
                <INAME>HEADER</INAME>
               </NAME>
-              <CAPTION>Header</CAPTION>
               <WTYPE>T</WTYPE>
               <T_CAPTION>
                <item>
@@ -6424,7 +6334,6 @@
                      <NAME>
                       <INAME>TABLE_RECEIVED</INAME>
                      </NAME>
-                     <CAPTION>Received from...</CAPTION>
                      <SECTTYPE>C</SECTTYPE>
                      <TABHTYPE>I</TABHTYPE>
                      <OTABTYPE>D</OTABTYPE>
@@ -6780,7 +6689,6 @@
                         <NAME>
                          <INAME>%EVENT1</INAME>
                         </NAME>
-                        <CAPTION>Área de cabeçalho</CAPTION>
                         <EVTYPE>H</EVTYPE>
                         <T_CAPTION>
                          <item>
@@ -6804,7 +6712,6 @@
                         <NAME>
                          <INAME>%EVENT2</INAME>
                         </NAME>
-                        <CAPTION>Área principal</CAPTION>
                         <EVTYPE>B</EVTYPE>
                         <T_CAPTION>
                          <item>
@@ -6826,7 +6733,6 @@
                            <NAME>
                             <INAME>INFSD</INAME>
                            </NAME>
-                           <CAPTION>Informações de SD</CAPTION>
                            <SECTTYPE>R</SECTTYPE>
                            <U_FHEIGHT>CM</U_FHEIGHT>
                            <PATTERN>
@@ -6932,7 +6838,6 @@
                               <NAME>
                                <INAME>%CELL1</INAME>
                               </NAME>
-                              <CAPTION>Coluna nova 1</CAPTION>
                               <SECTTYPE>E</SECTTYPE>
                               <U_FHEIGHT>CM</U_FHEIGHT>
                               <PATTERN>
@@ -7037,7 +6942,6 @@
                                  <NAME>
                                   <INAME>%TEXT8</INAME>
                                  </NAME>
-                                 <CAPTION>Texto novo 8</CAPTION>
                                  <NOLANGUAGE>X</NOLANGUAGE>
                                  <APPMODE>P</APPMODE>
                                  <TEXT>
@@ -7080,7 +6984,6 @@
                            <NAME>
                             <INAME>RECEIVED</INAME>
                            </NAME>
-                           <CAPTION>Received from...</CAPTION>
                            <SECTTYPE>R</SECTTYPE>
                            <U_FHEIGHT>CM</U_FHEIGHT>
                            <PATTERN>
@@ -7186,7 +7089,6 @@
                               <NAME>
                                <INAME>C_RECEIVED</INAME>
                               </NAME>
-                              <CAPTION>Received from...</CAPTION>
                               <SECTTYPE>E</SECTTYPE>
                               <U_FHEIGHT>CM</U_FHEIGHT>
                               <PATTERN>
@@ -7291,17 +7193,7 @@
                                  <NAME>
                                   <INAME>RECEIVED</INAME>
                                  </NAME>
-                                 <CAPTION>Received from...</CAPTION>
                                  <APPMODE>P</APPMODE>
-                                 <TEXT>
-                                  <item>
-                                   <TDFORMAT>CA</TDFORMAT>
-                                   <TDLINE>&lt;C1&gt;RECEBEMOS DE &amp;NOTA_FISCAL-ISSUER-NAME1&amp; OS PRODUTOS CONSTANTES DA</TDLINE>
-                                  </item>
-                                  <item>
-                                   <TDLINE>NOTA FISCAL AO LADO&lt;/&gt;</TDLINE>
-                                  </item>
-                                 </TEXT>
                                  <STYLE_NAME>Z_NFSTDANFE_SAP</STYLE_NAME>
                                  <TEXT_AREA>
                                   <ENABLED>F</ENABLED>
@@ -7352,7 +7244,6 @@
                               <NAME>
                                <INAME>C_NFE</INAME>
                               </NAME>
-                              <CAPTION>NFe</CAPTION>
                               <SECTTYPE>E</SECTTYPE>
                               <U_FHEIGHT>CM</U_FHEIGHT>
                               <PATTERN>
@@ -7457,14 +7348,7 @@
                                  <NAME>
                                   <INAME>NFE</INAME>
                                  </NAME>
-                                 <CAPTION>NFe</CAPTION>
                                  <APPMODE>P</APPMODE>
-                                 <TEXT>
-                                  <item>
-                                   <TDFORMAT>CB</TDFORMAT>
-                                   <TDLINE>&lt;CS&gt;&lt;CM&gt;NF-e&lt;/&gt;&lt;/&gt;</TDLINE>
-                                  </item>
-                                 </TEXT>
                                  <STYLE_NAME>Z_NFSTDANFE_SAP_NEW</STYLE_NAME>
                                  <TEXT_AREA>
                                   <ENABLED>F</ENABLED>
@@ -7510,7 +7394,6 @@
                            <NAME>
                             <INAME>DTRECEI</INAME>
                            </NAME>
-                           <CAPTION>Date of receipt</CAPTION>
                            <SECTTYPE>R</SECTTYPE>
                            <U_FHEIGHT>CM</U_FHEIGHT>
                            <PATTERN>
@@ -7616,7 +7499,6 @@
                               <NAME>
                                <INAME>C_DTRECEI</INAME>
                               </NAME>
-                              <CAPTION>Date of receipt</CAPTION>
                               <SECTTYPE>E</SECTTYPE>
                               <U_FHEIGHT>CM</U_FHEIGHT>
                               <PATTERN>
@@ -7721,18 +7603,7 @@
                                  <NAME>
                                   <INAME>D_RECEIVED</INAME>
                                  </NAME>
-                                 <CAPTION>Date of receipt</CAPTION>
                                  <APPMODE>P</APPMODE>
-                                 <TEXT>
-                                  <item>
-                                   <TDFORMAT>*</TDFORMAT>
-                                   <TDLINE>&lt;C1&gt;DATA DE RECEBIMENTO&lt;/&gt;</TDLINE>
-                                  </item>
-                                  <item>
-                                   <TDFORMAT>CA</TDFORMAT>
-                                   <TDLINE>&lt;C1&gt; &lt;/&gt;</TDLINE>
-                                  </item>
-                                 </TEXT>
                                  <STYLE_NAME>Z_NFSTDANFE_SAP</STYLE_NAME>
                                  <TEXT_AREA>
                                   <ENABLED>F</ENABLED>
@@ -7784,7 +7655,6 @@
                               <NAME>
                                <INAME>C_SIGNATURE</INAME>
                               </NAME>
-                              <CAPTION>Signature</CAPTION>
                               <SECTTYPE>E</SECTTYPE>
                               <U_FHEIGHT>CM</U_FHEIGHT>
                               <PATTERN>
@@ -7889,14 +7759,7 @@
                                  <NAME>
                                   <INAME>D_SIGNATURE</INAME>
                                  </NAME>
-                                 <CAPTION>Signature</CAPTION>
                                  <APPMODE>P</APPMODE>
-                                 <TEXT>
-                                  <item>
-                                   <TDFORMAT>*</TDFORMAT>
-                                   <TDLINE>&lt;C1&gt;IDENTIFICAÇÃO E ASSINATURA DO RECEBEDOR&lt;/&gt;</TDLINE>
-                                  </item>
-                                 </TEXT>
                                  <STYLE_NAME>Z_NFSTDANFE_SAP_NEW</STYLE_NAME>
                                  <TEXT_AREA>
                                   <ENABLED>F</ENABLED>
@@ -7939,7 +7802,6 @@
                               <NAME>
                                <INAME>C_NFE1</INAME>
                               </NAME>
-                              <CAPTION>NFe</CAPTION>
                               <SECTTYPE>E</SECTTYPE>
                               <U_FHEIGHT>CM</U_FHEIGHT>
                               <PATTERN>
@@ -8044,18 +7906,7 @@
                                  <NAME>
                                   <INAME>D_NFE1</INAME>
                                  </NAME>
-                                 <CAPTION>NFe</CAPTION>
                                  <APPMODE>P</APPMODE>
-                                 <TEXT>
-                                  <item>
-                                   <TDFORMAT>PC</TDFORMAT>
-                                   <TDLINE>&lt;CN&gt;No. &amp;NOTA_FISCAL-NOTA_FISCAL-NFENUM&amp;&lt;/&gt;</TDLINE>
-                                  </item>
-                                  <item>
-                                   <TDFORMAT>PC</TDFORMAT>
-                                   <TDLINE>&lt;CN&gt;Série &amp;NOTA_FISCAL-NOTA_FISCAL-SERIES&amp;&lt;/&gt;</TDLINE>
-                                  </item>
-                                 </TEXT>
                                  <STYLE_NAME>Z_NFSTDANFE_SAP_NEW</STYLE_NAME>
                                  <TEXT_AREA>
                                   <ENABLED>F</ENABLED>
@@ -8113,7 +7964,6 @@
                         <NAME>
                          <INAME>%EVENT3</INAME>
                         </NAME>
-                        <CAPTION>Nota de rodapé</CAPTION>
                         <EVTYPE>F</EVTYPE>
                         <T_CAPTION>
                          <item>
@@ -8140,7 +7990,6 @@
                      <NAME>
                       <INAME>T_TAB</INAME>
                      </NAME>
-                     <CAPTION>Tab</CAPTION>
                      <NOLANGUAGE>X</NOLANGUAGE>
                      <APPMODE>P</APPMODE>
                      <TEXT>
@@ -8186,7 +8035,6 @@
                      <NAME>
                       <INAME>TABLE_HEADER</INAME>
                      </NAME>
-                     <CAPTION>Header of the DANFE</CAPTION>
                      <SECTTYPE>C</SECTTYPE>
                      <TABHTYPE>I</TABHTYPE>
                      <OTABTYPE>D</OTABTYPE>
@@ -8693,7 +8541,6 @@
                         <NAME>
                          <INAME>%EVENT4</INAME>
                         </NAME>
-                        <CAPTION>Área de cabeçalho</CAPTION>
                         <EVTYPE>H</EVTYPE>
                         <T_CAPTION>
                          <item>
@@ -8717,7 +8564,6 @@
                         <NAME>
                          <INAME>%EVENT5</INAME>
                         </NAME>
-                        <CAPTION>Área principal</CAPTION>
                         <EVTYPE>B</EVTYPE>
                         <T_CAPTION>
                          <item>
@@ -8739,7 +8585,6 @@
                            <NAME>
                             <INAME>LOGO</INAME>
                            </NAME>
-                           <CAPTION>Line Logo</CAPTION>
                            <SECTTYPE>R</SECTTYPE>
                            <U_FHEIGHT>CM</U_FHEIGHT>
                            <PATTERN>
@@ -8845,7 +8690,6 @@
                               <NAME>
                                <INAME>C_LOGO</INAME>
                               </NAME>
-                              <CAPTION>Logo and Information Company</CAPTION>
                               <SECTTYPE>E</SECTTYPE>
                               <U_FHEIGHT>CM</U_FHEIGHT>
                               <PATTERN>
@@ -8952,7 +8796,6 @@
                               <NAME>
                                <INAME>C_ADDRESS_LOGO</INAME>
                               </NAME>
-                              <CAPTION>Address Logo</CAPTION>
                               <SECTTYPE>E</SECTTYPE>
                               <U_FHEIGHT>CM</U_FHEIGHT>
                               <PATTERN>
@@ -9057,44 +8900,7 @@
                                  <NAME>
                                   <INAME>ADDRESS_ISSUER</INAME>
                                  </NAME>
-                                 <CAPTION>Address of Issuer</CAPTION>
                                  <APPMODE>P</APPMODE>
-                                 <TEXT>
-                                  <item>
-                                   <TDFORMAT>*</TDFORMAT>
-                                  </item>
-                                  <item>
-                                   <TDFORMAT>/</TDFORMAT>
-                                  </item>
-                                  <item>
-                                   <TDFORMAT>/</TDFORMAT>
-                                   <TDLINE>&lt;CS&gt;&amp;NOTA_FISCAL-ISSUER-NAME1(34)&amp;&lt;/&gt;</TDLINE>
-                                  </item>
-                                  <item>
-                                   <TDFORMAT>*</TDFORMAT>
-                                   <TDLINE>&lt;C1&gt;&amp;NOTA_FISCAL-ISSUER-STRAS&amp;&lt;/&gt;</TDLINE>
-                                  </item>
-                                  <item>
-                                   <TDFORMAT>*</TDFORMAT>
-                                   <TDLINE>&lt;C1&gt;&amp;NOTA_FISCAL-ISSUER-ORT02&amp;&lt;/&gt;</TDLINE>
-                                  </item>
-                                  <item>
-                                   <TDFORMAT>*</TDFORMAT>
-                                   <TDLINE>&lt;C1&gt;&amp;NOTA_FISCAL-ISSUER-ORT01&amp;&lt;/&gt;&lt;C1&gt; / &amp;NOTA_FISCAL-ISSUER-REGIO&amp;&lt;/&gt;</TDLINE>
-                                  </item>
-                                  <item>
-                                   <TDFORMAT>*</TDFORMAT>
-                                   <TDLINE>&lt;C1&gt;&amp;NOTA_FISCAL-ISSUER-PSTLZ&amp;&lt;/&gt;</TDLINE>
-                                  </item>
-                                  <item>
-                                   <TDFORMAT>*</TDFORMAT>
-                                   <TDLINE>&lt;C1&gt;Tel.: &amp;NOTA_FISCAL-ISSUER-TELF1&amp; / Fax: &amp;NOTA_FISCAL-ISSUER-TELFX&amp;</TDLINE>
-                                  </item>
-                                  <item>
-                                   <TDFORMAT>=</TDFORMAT>
-                                   <TDLINE>&lt;/&gt;</TDLINE>
-                                  </item>
-                                 </TEXT>
                                  <STYLE_NAME>Z_NFSTDANFE_SAP_NEW</STYLE_NAME>
                                  <TEXT_AREA>
                                   <ENABLED>F</ENABLED>
@@ -9207,7 +9013,6 @@
                               <NAME>
                                <INAME>C_DANFE</INAME>
                               </NAME>
-                              <CAPTION>DANFE</CAPTION>
                               <SECTTYPE>E</SECTTYPE>
                               <U_FHEIGHT>CM</U_FHEIGHT>
                               <PATTERN>
@@ -9312,55 +9117,7 @@
                                  <NAME>
                                   <INAME>DANFE</INAME>
                                  </NAME>
-                                 <CAPTION>DANFE</CAPTION>
                                  <APPMODE>P</APPMODE>
-                                 <TEXT>
-                                  <item>
-                                   <TDFORMAT>PC</TDFORMAT>
-                                   <TDLINE>&lt;GD&gt;&lt;EP&gt; &lt;/&gt;&lt;/&gt;</TDLINE>
-                                  </item>
-                                  <item>
-                                   <TDFORMAT>PC</TDFORMAT>
-                                   <TDLINE>&lt;GD&gt; CC-E&lt;/&gt;</TDLINE>
-                                  </item>
-                                  <item>
-                                   <TDFORMAT>PC</TDFORMAT>
-                                   <TDLINE>&lt;CP&gt;Documento Auxiliar de&lt;/&gt;</TDLINE>
-                                  </item>
-                                  <item>
-                                   <TDFORMAT>PC</TDFORMAT>
-                                   <TDLINE>&lt;CP&gt;Carta de Correção Eletrônica&lt;/&gt;</TDLINE>
-                                  </item>
-                                  <item>
-                                   <TDFORMAT>*</TDFORMAT>
-                                  </item>
-                                  <item>
-                                   <TDFORMAT>*</TDFORMAT>
-                                   <TDLINE>&lt;CC&gt; 0 - Entrada&lt;/&gt;</TDLINE>
-                                  </item>
-                                  <item>
-                                   <TDFORMAT>*</TDFORMAT>
-                                   <TDLINE>&lt;CC&gt; 1 - Saída&lt;/&gt;</TDLINE>
-                                  </item>
-                                  <item>
-                                   <TDFORMAT>*</TDFORMAT>
-                                  </item>
-                                  <item>
-                                   <TDFORMAT>*</TDFORMAT>
-                                   <TDLINE>&lt;CC&gt;Nº &amp;NOTA_FISCAL-NOTA_FISCAL-NFENUM&amp;&lt;/&gt;</TDLINE>
-                                  </item>
-                                  <item>
-                                   <TDFORMAT>*</TDFORMAT>
-                                   <TDLINE>&lt;CC&gt;SÉRIE &amp;NOTA_FISCAL-NOTA_FISCAL-SERIES&amp;&lt;/&gt;</TDLINE>
-                                  </item>
-                                  <item>
-                                   <TDFORMAT>*</TDFORMAT>
-                                   <TDLINE>&lt;CC&gt;Folha &amp;SFSY-PAGE&amp; / &amp;SFSY-FORMPAGES&amp;&lt;/&gt;</TDLINE>
-                                  </item>
-                                  <item>
-                                   <TDFORMAT>*</TDFORMAT>
-                                  </item>
-                                 </TEXT>
                                  <STYLE_NAME>Z_NFSTDANFE_SAP_CCE</STYLE_NAME>
                                  <TEXT_AREA>
                                   <ENABLED>F</ENABLED>
@@ -9499,7 +9256,6 @@
                               <NAME>
                                <INAME>C_BARCODE</INAME>
                               </NAME>
-                              <CAPTION>Barcode</CAPTION>
                               <SECTTYPE>E</SECTTYPE>
                               <U_FHEIGHT>CM</U_FHEIGHT>
                               <PATTERN>
@@ -9609,7 +9365,6 @@
                            <NAME>
                             <INAME>NATURE</INAME>
                            </NAME>
-                           <CAPTION>Nature of Operaçao</CAPTION>
                            <SECTTYPE>R</SECTTYPE>
                            <U_FHEIGHT>CM</U_FHEIGHT>
                            <PATTERN>
@@ -9715,7 +9470,6 @@
                               <NAME>
                                <INAME>C_NATURE</INAME>
                               </NAME>
-                              <CAPTION>Nature of Operaçao</CAPTION>
                               <SECTTYPE>E</SECTTYPE>
                               <U_FHEIGHT>CM</U_FHEIGHT>
                               <PATTERN>
@@ -9820,18 +9574,7 @@
                                  <NAME>
                                   <INAME>NATURE</INAME>
                                  </NAME>
-                                 <CAPTION>Nature of Operaçao</CAPTION>
                                  <APPMODE>P</APPMODE>
-                                 <TEXT>
-                                  <item>
-                                   <TDFORMAT>*</TDFORMAT>
-                                   <TDLINE>&lt;CC&gt;NATUREZA DA OPERAÇÃO&lt;/&gt;</TDLINE>
-                                  </item>
-                                  <item>
-                                   <TDFORMAT>*</TDFORMAT>
-                                   <TDLINE>&lt;CC&gt;&lt;C1&gt;&amp;NOTA_FISCAL-NOTA_FISCAL-NATOP&amp;&lt;/&gt;&lt;/&gt;</TDLINE>
-                                  </item>
-                                 </TEXT>
                                  <STYLE_NAME>ZSTSD_CARTA_CORRECAO</STYLE_NAME>
                                  <TEXT_AREA>
                                   <ENABLED>F</ENABLED>
@@ -9883,7 +9626,6 @@
                               <NAME>
                                <INAME>C_PROTOCOL</INAME>
                               </NAME>
-                              <CAPTION>Protocol Authorization</CAPTION>
                               <SECTTYPE>E</SECTTYPE>
                               <U_FHEIGHT>CM</U_FHEIGHT>
                               <PATTERN>
@@ -9988,7 +9730,6 @@
                                  <NAME>
                                   <INAME>DATAHORA_AUTENTICACAO_V200</INAME>
                                  </NAME>
-                                 <CAPTION>Dt/Hr autentic. dep. versao</CAPTION>
                                  <COND>
                                   <item>
                                    <COP>EQ</COP>
@@ -10024,7 +9765,6 @@
                                     <NAME>
                                      <INAME>%EVENT43</INAME>
                                     </NAME>
-                                    <CAPTION>TRUE</CAPTION>
                                     <EVTYPE>+</EVTYPE>
                                     <T_CAPTION>
                                      <item>
@@ -10046,21 +9786,7 @@
                                        <NAME>
                                         <INAME>ACCESS_KEY_1</INAME>
                                        </NAME>
-                                       <CAPTION>Access Key</CAPTION>
                                        <APPMODE>P</APPMODE>
-                                       <TEXT>
-                                        <item>
-                                         <TDFORMAT>*</TDFORMAT>
-                                         <TDLINE>&lt;CC&gt;PROTOCOLO DE AUTORIZAÇÃO&lt;/&gt;</TDLINE>
-                                        </item>
-                                        <item>
-                                         <TDFORMAT>*</TDFORMAT>
-                                         <TDLINE>&lt;CP&gt;&amp;NOTA_FISCAL-NFE-AUTHCOD&amp;&lt;/&gt;&lt;CP&gt;   &amp;NOTA_FISCAL-NFE-ACTION_DATE&amp;</TDLINE>
-                                        </item>
-                                        <item>
-                                         <TDLINE>&amp;NOTA_FISCAL-NFE-ACTION_TIME&amp;&lt;/&gt;</TDLINE>
-                                        </item>
-                                       </TEXT>
                                        <STYLE_NAME>Z_NFSTDANFE_SAP_NEW</STYLE_NAME>
                                        <TEXT_AREA>
                                         <ENABLED>F</ENABLED>
@@ -10120,7 +9846,6 @@
                                     <NAME>
                                      <INAME>%EVENT53</INAME>
                                     </NAME>
-                                    <CAPTION>FALSE</CAPTION>
                                     <EVTYPE>-</EVTYPE>
                                     <T_CAPTION>
                                      <item>
@@ -10142,21 +9867,7 @@
                                        <NAME>
                                         <INAME>ACCESS_KEY_200</INAME>
                                        </NAME>
-                                       <CAPTION>Access Key</CAPTION>
                                        <APPMODE>P</APPMODE>
-                                       <TEXT>
-                                        <item>
-                                         <TDFORMAT>*</TDFORMAT>
-                                         <TDLINE>&lt;CC&gt;PROTOCOLO DE AUTORIZAÇÃO&lt;/&gt;</TDLINE>
-                                        </item>
-                                        <item>
-                                         <TDFORMAT>*</TDFORMAT>
-                                         <TDLINE>&lt;CP&gt;&amp;NOTA_FISCAL-NFE-AUTHCOD&amp;&lt;/&gt;&lt;CP&gt;   &amp;NOTA_FISCAL-NFE-AUTHDATE&amp;</TDLINE>
-                                        </item>
-                                        <item>
-                                         <TDLINE>&amp;NOTA_FISCAL-NFE-AUTHTIME&amp;&lt;/&gt;</TDLINE>
-                                        </item>
-                                       </TEXT>
                                        <STYLE_NAME>Z_NFSTDANFE_SAP_NEW</STYLE_NAME>
                                        <TEXT_AREA>
                                         <ENABLED>F</ENABLED>
@@ -10225,7 +9936,6 @@
                            <NAME>
                             <INAME>ACCESS_KEY</INAME>
                            </NAME>
-                           <CAPTION>Access Key</CAPTION>
                            <SECTTYPE>R</SECTTYPE>
                            <U_FHEIGHT>CM</U_FHEIGHT>
                            <PATTERN>
@@ -10331,7 +10041,6 @@
                               <NAME>
                                <INAME>C_INSCEST</INAME>
                               </NAME>
-                              <CAPTION>State Registration</CAPTION>
                               <SECTTYPE>E</SECTTYPE>
                               <U_FHEIGHT>CM</U_FHEIGHT>
                               <PATTERN>
@@ -10436,18 +10145,7 @@
                                  <NAME>
                                   <INAME>INSCEST</INAME>
                                  </NAME>
-                                 <CAPTION>State Registration</CAPTION>
                                  <APPMODE>P</APPMODE>
-                                 <TEXT>
-                                  <item>
-                                   <TDFORMAT>*</TDFORMAT>
-                                   <TDLINE>&lt;CC&gt;INSCRIÇÃO ESTADUAL&lt;/&gt;</TDLINE>
-                                  </item>
-                                  <item>
-                                   <TDFORMAT>*</TDFORMAT>
-                                   <TDLINE>&lt;C1&gt;&amp;NOTA_FISCAL-ISSUER-STAINS&amp;&lt;/&gt;</TDLINE>
-                                  </item>
-                                 </TEXT>
                                  <STYLE_NAME>Z_NFSTDANFE_SAP_CCE</STYLE_NAME>
                                  <TEXT_AREA>
                                   <ENABLED>F</ENABLED>
@@ -10499,7 +10197,6 @@
                               <NAME>
                                <INAME>C_INSCEST_ST</INAME>
                               </NAME>
-                              <CAPTION>State Registration of ST</CAPTION>
                               <SECTTYPE>E</SECTTYPE>
                               <U_FHEIGHT>CM</U_FHEIGHT>
                               <PATTERN>
@@ -10604,18 +10301,7 @@
                                  <NAME>
                                   <INAME>INCEST_ST</INAME>
                                  </NAME>
-                                 <CAPTION>State Registration of ST</CAPTION>
                                  <APPMODE>P</APPMODE>
-                                 <TEXT>
-                                  <item>
-                                   <TDFORMAT>*</TDFORMAT>
-                                   <TDLINE>&lt;CC&gt;INSC. EST. SUBST. TRIB.&lt;/&gt;</TDLINE>
-                                  </item>
-                                  <item>
-                                   <TDFORMAT>*</TDFORMAT>
-                                   <TDLINE>&lt;C1&gt;&amp;NOTA_FISCAL-ISSUER-STATE_INSC&amp;&lt;/&gt;</TDLINE>
-                                  </item>
-                                 </TEXT>
                                  <STYLE_NAME>Z_NFSTDANFE_SAP_CCE</STYLE_NAME>
                                  <TEXT_AREA>
                                   <ENABLED>F</ENABLED>
@@ -10667,7 +10353,6 @@
                               <NAME>
                                <INAME>C_CNPJ</INAME>
                               </NAME>
-                              <CAPTION>CNPJ</CAPTION>
                               <SECTTYPE>E</SECTTYPE>
                               <U_FHEIGHT>CM</U_FHEIGHT>
                               <PATTERN>
@@ -10772,18 +10457,7 @@
                                  <NAME>
                                   <INAME>CNPJ</INAME>
                                  </NAME>
-                                 <CAPTION>CNPJ</CAPTION>
                                  <APPMODE>P</APPMODE>
-                                 <TEXT>
-                                  <item>
-                                   <TDFORMAT>*</TDFORMAT>
-                                   <TDLINE>&lt;CC&gt;CNPJ&lt;/&gt;</TDLINE>
-                                  </item>
-                                  <item>
-                                   <TDFORMAT>*</TDFORMAT>
-                                   <TDLINE>&lt;C1&gt;&amp;NOTA_FISCAL-ISSUER-CGC(18)&amp;&lt;/&gt;</TDLINE>
-                                  </item>
-                                 </TEXT>
                                  <STYLE_NAME>Z_NFSTDANFE_SAP_NEW</STYLE_NAME>
                                  <TEXT_AREA>
                                   <ENABLED>F</ENABLED>
@@ -10841,7 +10515,6 @@
                         <NAME>
                          <INAME>%EVENT6</INAME>
                         </NAME>
-                        <CAPTION>Nota de rodapé</CAPTION>
                         <EVTYPE>F</EVTYPE>
                         <T_CAPTION>
                          <item>
@@ -10868,14 +10541,7 @@
                      <NAME>
                       <INAME>DESTINATION</INAME>
                      </NAME>
-                     <CAPTION>Destination</CAPTION>
                      <APPMODE>P</APPMODE>
-                     <TEXT>
-                      <item>
-                       <TDFORMAT>TC</TDFORMAT>
-                       <TDLINE>&lt;CS&gt;DESTINATÁRIO/REMETENTE&lt;/&gt;</TDLINE>
-                      </item>
-                     </TEXT>
                      <STYLE_NAME>ZSTSD_CARTA_CORRECAO</STYLE_NAME>
                      <TEXT_AREA>
                       <ENABLED>F</ENABLED>
@@ -10915,7 +10581,6 @@
                      <NAME>
                       <INAME>TABLE_DESTINATION</INAME>
                      </NAME>
-                     <CAPTION>Destination</CAPTION>
                      <SECTTYPE>C</SECTTYPE>
                      <TABHTYPE>I</TABHTYPE>
                      <OTABTYPE>D</OTABTYPE>
@@ -11580,7 +11245,6 @@
                         <NAME>
                          <INAME>%EVENT11</INAME>
                         </NAME>
-                        <CAPTION>Área de cabeçalho</CAPTION>
                         <EVTYPE>H</EVTYPE>
                         <T_CAPTION>
                          <item>
@@ -11604,7 +11268,6 @@
                         <NAME>
                          <INAME>%EVENT12</INAME>
                         </NAME>
-                        <CAPTION>Área principal</CAPTION>
                         <EVTYPE>B</EVTYPE>
                         <T_CAPTION>
                          <item>
@@ -11626,7 +11289,6 @@
                            <NAME>
                             <INAME>COMPANY</INAME>
                            </NAME>
-                           <CAPTION>Line Company Name</CAPTION>
                            <SECTTYPE>R</SECTTYPE>
                            <U_FHEIGHT>CM</U_FHEIGHT>
                            <PATTERN>
@@ -11732,7 +11394,6 @@
                               <NAME>
                                <INAME>C_NCOMPANY</INAME>
                               </NAME>
-                              <CAPTION>Company Name</CAPTION>
                               <SECTTYPE>E</SECTTYPE>
                               <U_FHEIGHT>CM</U_FHEIGHT>
                               <PATTERN>
@@ -11837,21 +11498,7 @@
                                  <NAME>
                                   <INAME>COMPANY_NAME</INAME>
                                  </NAME>
-                                 <CAPTION>Company Name</CAPTION>
                                  <APPMODE>P</APPMODE>
-                                 <TEXT>
-                                  <item>
-                                   <TDFORMAT>*</TDFORMAT>
-                                   <TDLINE>&lt;CC&gt;NOME/RAZÃO SOCIAL&lt;/&gt;</TDLINE>
-                                  </item>
-                                  <item>
-                                   <TDFORMAT>*</TDFORMAT>
-                                   <TDLINE>&lt;C1&gt;&amp;NOTA_FISCAL-DESTINATION-NAME1&amp;&lt;/&gt;&lt;C1&gt;</TDLINE>
-                                  </item>
-                                  <item>
-                                   <TDLINE>&amp;NOTA_FISCAL-DESTINATION-NAME2&amp;&lt;/&gt;</TDLINE>
-                                  </item>
-                                 </TEXT>
                                  <STYLE_NAME>Z_NFSTDANFE_SAP_CCE</STYLE_NAME>
                                  <TEXT_AREA>
                                   <ENABLED>F</ENABLED>
@@ -11911,7 +11558,6 @@
                               <NAME>
                                <INAME>C_CNPJ_DESTIN</INAME>
                               </NAME>
-                              <CAPTION>CNPJ Destination</CAPTION>
                               <SECTTYPE>E</SECTTYPE>
                               <U_FHEIGHT>CM</U_FHEIGHT>
                               <PATTERN>
@@ -12016,7 +11662,6 @@
                                  <NAME>
                                   <INAME>CNPJ_DESTINATION</INAME>
                                  </NAME>
-                                 <CAPTION>CNPJ / CPF</CAPTION>
                                  <PLIST>
                                   <item>
                                    <OPD>NOTA_FISCAL-DESTINATION</OPD>
@@ -12099,18 +11744,7 @@
                                  <NAME>
                                   <INAME>CNPJ_DESTIN</INAME>
                                  </NAME>
-                                 <CAPTION>CNPJ Destination</CAPTION>
                                  <APPMODE>P</APPMODE>
-                                 <TEXT>
-                                  <item>
-                                   <TDFORMAT>*</TDFORMAT>
-                                   <TDLINE>&lt;CC&gt;CNPJ&lt;/&gt;</TDLINE>
-                                  </item>
-                                  <item>
-                                   <TDFORMAT>*</TDFORMAT>
-                                   <TDLINE>&lt;C1&gt;&amp;V_CPF_CNPJ&amp;&lt;/&gt;</TDLINE>
-                                  </item>
-                                 </TEXT>
                                  <STYLE_NAME>Z_NFSTDANFE_SAP</STYLE_NAME>
                                  <TEXT_AREA>
                                   <ENABLED>F</ENABLED>
@@ -12162,7 +11796,6 @@
                               <NAME>
                                <INAME>CC_DTISSUE</INAME>
                               </NAME>
-                              <CAPTION>Date of Issue</CAPTION>
                               <SECTTYPE>E</SECTTYPE>
                               <U_FHEIGHT>CM</U_FHEIGHT>
                               <PATTERN>
@@ -12267,18 +11900,7 @@
                                  <NAME>
                                   <INAME>DTISSUE</INAME>
                                  </NAME>
-                                 <CAPTION>Date of Issue</CAPTION>
                                  <APPMODE>P</APPMODE>
-                                 <TEXT>
-                                  <item>
-                                   <TDFORMAT>*</TDFORMAT>
-                                   <TDLINE>&lt;CC&gt;DATA DA EMISSÃO&lt;/&gt;</TDLINE>
-                                  </item>
-                                  <item>
-                                   <TDFORMAT>*</TDFORMAT>
-                                   <TDLINE>&lt;C1&gt;&amp;NOTA_FISCAL-NOTA_FISCAL-DOCDAT&amp;&lt;/&gt;</TDLINE>
-                                  </item>
-                                 </TEXT>
                                  <STYLE_NAME>Z_NFSTDANFE_SAP</STYLE_NAME>
                                  <TEXT_AREA>
                                   <ENABLED>F</ENABLED>
@@ -12333,7 +11955,6 @@
                            <NAME>
                             <INAME>ADDRESS</INAME>
                            </NAME>
-                           <CAPTION>Address</CAPTION>
                            <SECTTYPE>R</SECTTYPE>
                            <U_FHEIGHT>CM</U_FHEIGHT>
                            <PATTERN>
@@ -12439,7 +12060,6 @@
                               <NAME>
                                <INAME>C_ADDRESS</INAME>
                               </NAME>
-                              <CAPTION>Address</CAPTION>
                               <SECTTYPE>E</SECTTYPE>
                               <U_FHEIGHT>CM</U_FHEIGHT>
                               <PATTERN>
@@ -12544,21 +12164,7 @@
                                  <NAME>
                                   <INAME>ADDRESS</INAME>
                                  </NAME>
-                                 <CAPTION>Address</CAPTION>
                                  <APPMODE>P</APPMODE>
-                                 <TEXT>
-                                  <item>
-                                   <TDFORMAT>*</TDFORMAT>
-                                   <TDLINE>&lt;CC&gt;ENDEREÇO&lt;/&gt;</TDLINE>
-                                  </item>
-                                  <item>
-                                   <TDFORMAT>*</TDFORMAT>
-                                   <TDLINE>&lt;C1&gt;&amp;NOTA_FISCAL-DESTINATION-STREET&amp;&lt;/&gt;&lt;C1&gt;</TDLINE>
-                                  </item>
-                                  <item>
-                                   <TDLINE>&amp;NOTA_FISCAL-DESTINATION-HOUSE_NUM1&amp;&lt;/&gt;</TDLINE>
-                                  </item>
-                                 </TEXT>
                                  <STYLE_NAME>Z_NFSTDANFE_SAP_CCE</STYLE_NAME>
                                  <TEXT_AREA>
                                   <ENABLED>F</ENABLED>
@@ -12618,7 +12224,6 @@
                               <NAME>
                                <INAME>C_NEIGHBORHOOD</INAME>
                               </NAME>
-                              <CAPTION>Neighborhood</CAPTION>
                               <SECTTYPE>E</SECTTYPE>
                               <U_FHEIGHT>CM</U_FHEIGHT>
                               <PATTERN>
@@ -12723,18 +12328,7 @@
                                  <NAME>
                                   <INAME>NEIGHBORHOOD</INAME>
                                  </NAME>
-                                 <CAPTION>Neighborhood</CAPTION>
                                  <APPMODE>P</APPMODE>
-                                 <TEXT>
-                                  <item>
-                                   <TDFORMAT>*</TDFORMAT>
-                                   <TDLINE>&lt;CC&gt;BAIRRO/DISTRITO&lt;/&gt;</TDLINE>
-                                  </item>
-                                  <item>
-                                   <TDFORMAT>*</TDFORMAT>
-                                   <TDLINE>&lt;C1&gt;&amp;NOTA_FISCAL-DESTINATION-ORT02&amp;&lt;/&gt;</TDLINE>
-                                  </item>
-                                 </TEXT>
                                  <STYLE_NAME>Z_NFSTDANFE_SAP_CCE</STYLE_NAME>
                                  <TEXT_AREA>
                                   <ENABLED>F</ENABLED>
@@ -12786,7 +12380,6 @@
                               <NAME>
                                <INAME>C_ZIPCODE</INAME>
                               </NAME>
-                              <CAPTION>Zipcode</CAPTION>
                               <SECTTYPE>E</SECTTYPE>
                               <U_FHEIGHT>CM</U_FHEIGHT>
                               <PATTERN>
@@ -12891,18 +12484,7 @@
                                  <NAME>
                                   <INAME>ZIPCODE</INAME>
                                  </NAME>
-                                 <CAPTION>Zipcode</CAPTION>
                                  <APPMODE>P</APPMODE>
-                                 <TEXT>
-                                  <item>
-                                   <TDFORMAT>*</TDFORMAT>
-                                   <TDLINE>&lt;CC&gt;CEP&lt;/&gt;</TDLINE>
-                                  </item>
-                                  <item>
-                                   <TDFORMAT>*</TDFORMAT>
-                                   <TDLINE>&lt;C1&gt;&amp;NOTA_FISCAL-DESTINATION-PSTLZ&amp;&lt;/&gt;</TDLINE>
-                                  </item>
-                                 </TEXT>
                                  <STYLE_NAME>Z_NFSTDANFE_SAP</STYLE_NAME>
                                  <TEXT_AREA>
                                   <ENABLED>F</ENABLED>
@@ -12954,7 +12536,6 @@
                               <NAME>
                                <INAME>C_DTEXIT</INAME>
                               </NAME>
-                              <CAPTION>Date exit / ent</CAPTION>
                               <SECTTYPE>E</SECTTYPE>
                               <U_FHEIGHT>CM</U_FHEIGHT>
                               <PATTERN>
@@ -13059,18 +12640,7 @@
                                  <NAME>
                                   <INAME>DTEXIT</INAME>
                                  </NAME>
-                                 <CAPTION>Date exit / ent</CAPTION>
                                  <APPMODE>P</APPMODE>
-                                 <TEXT>
-                                  <item>
-                                   <TDFORMAT>*</TDFORMAT>
-                                   <TDLINE>&lt;CC&gt;DATA SAÍDA/ENTRADA&lt;/&gt;</TDLINE>
-                                  </item>
-                                  <item>
-                                   <TDFORMAT>*</TDFORMAT>
-                                   <TDLINE>&lt;C1&gt;&amp;NOTA_FISCAL-NOTA_FISCAL-DSAIENT&amp;&lt;/&gt;</TDLINE>
-                                  </item>
-                                 </TEXT>
                                  <STYLE_NAME>Z_NFSTDANFE_SAP_CCE</STYLE_NAME>
                                  <TEXT_AREA>
                                   <ENABLED>F</ENABLED>
@@ -13125,7 +12695,6 @@
                            <NAME>
                             <INAME>MUNICIPALITY</INAME>
                            </NAME>
-                           <CAPTION>Municipality</CAPTION>
                            <SECTTYPE>R</SECTTYPE>
                            <U_FHEIGHT>CM</U_FHEIGHT>
                            <PATTERN>
@@ -13231,7 +12800,6 @@
                               <NAME>
                                <INAME>C_MUNICIPALITY</INAME>
                               </NAME>
-                              <CAPTION>Municipality</CAPTION>
                               <SECTTYPE>E</SECTTYPE>
                               <U_FHEIGHT>CM</U_FHEIGHT>
                               <PATTERN>
@@ -13336,18 +12904,7 @@
                                  <NAME>
                                   <INAME>MUNICIPALITY</INAME>
                                  </NAME>
-                                 <CAPTION>Municipality</CAPTION>
                                  <APPMODE>P</APPMODE>
-                                 <TEXT>
-                                  <item>
-                                   <TDFORMAT>*</TDFORMAT>
-                                   <TDLINE>&lt;CC&gt;MUNICÍPIO&lt;/&gt;</TDLINE>
-                                  </item>
-                                  <item>
-                                   <TDFORMAT>*</TDFORMAT>
-                                   <TDLINE>&lt;C1&gt;&amp;NOTA_FISCAL-DESTINATION-ORT01&amp;&lt;/&gt;</TDLINE>
-                                  </item>
-                                 </TEXT>
                                  <STYLE_NAME>Z_NFSTDANFE_SAP_CCE</STYLE_NAME>
                                  <TEXT_AREA>
                                   <ENABLED>F</ENABLED>
@@ -13399,7 +12956,6 @@
                               <NAME>
                                <INAME>C_FONEFAX_DESTINATION</INAME>
                               </NAME>
-                              <CAPTION>Fone/FAX</CAPTION>
                               <SECTTYPE>E</SECTTYPE>
                               <U_FHEIGHT>CM</U_FHEIGHT>
                               <PATTERN>
@@ -13504,18 +13060,7 @@
                                  <NAME>
                                   <INAME>FONEFAX_DESTINATION</INAME>
                                  </NAME>
-                                 <CAPTION>Fone/FAX</CAPTION>
                                  <APPMODE>P</APPMODE>
-                                 <TEXT>
-                                  <item>
-                                   <TDFORMAT>*</TDFORMAT>
-                                   <TDLINE>&lt;CC&gt;TELEFONE/FAX&lt;/&gt;</TDLINE>
-                                  </item>
-                                  <item>
-                                   <TDFORMAT>*</TDFORMAT>
-                                   <TDLINE>&lt;C1&gt;&amp;NOTA_FISCAL-DESTINATION-TELF1&amp;&lt;/&gt;</TDLINE>
-                                  </item>
-                                 </TEXT>
                                  <STYLE_NAME>Z_NFSTDANFE_SAP_CCE</STYLE_NAME>
                                  <TEXT_AREA>
                                   <ENABLED>F</ENABLED>
@@ -13567,7 +13112,6 @@
                               <NAME>
                                <INAME>C_STATE</INAME>
                               </NAME>
-                              <CAPTION>State</CAPTION>
                               <SECTTYPE>E</SECTTYPE>
                               <U_FHEIGHT>CM</U_FHEIGHT>
                               <PATTERN>
@@ -13672,18 +13216,7 @@
                                  <NAME>
                                   <INAME>STATE</INAME>
                                  </NAME>
-                                 <CAPTION>State</CAPTION>
                                  <APPMODE>P</APPMODE>
-                                 <TEXT>
-                                  <item>
-                                   <TDFORMAT>*</TDFORMAT>
-                                   <TDLINE>&lt;CC&gt;UF&lt;/&gt;</TDLINE>
-                                  </item>
-                                  <item>
-                                   <TDFORMAT>*</TDFORMAT>
-                                   <TDLINE>&lt;C1&gt;&amp;NOTA_FISCAL-DESTINATION-REGIO&amp;&lt;/&gt;</TDLINE>
-                                  </item>
-                                 </TEXT>
                                  <STYLE_NAME>Z_NFSTDANFE_SAP_CCE</STYLE_NAME>
                                  <TEXT_AREA>
                                   <ENABLED>F</ENABLED>
@@ -13735,7 +13268,6 @@
                               <NAME>
                                <INAME>C_INSC_EST_DESTIN</INAME>
                               </NAME>
-                              <CAPTION>State Registration</CAPTION>
                               <SECTTYPE>E</SECTTYPE>
                               <U_FHEIGHT>CM</U_FHEIGHT>
                               <PATTERN>
@@ -13840,18 +13372,7 @@
                                  <NAME>
                                   <INAME>INSC_EST_DESTINATION</INAME>
                                  </NAME>
-                                 <CAPTION>State Registration</CAPTION>
                                  <APPMODE>P</APPMODE>
-                                 <TEXT>
-                                  <item>
-                                   <TDFORMAT>*</TDFORMAT>
-                                   <TDLINE>&lt;CC&gt;INSCRIÇÃO ESTADUAL&lt;/&gt;</TDLINE>
-                                  </item>
-                                  <item>
-                                   <TDFORMAT>*</TDFORMAT>
-                                   <TDLINE>&lt;C1&gt;&amp;NOTA_FISCAL-DESTINATION-STAINS&amp;&lt;/&gt;</TDLINE>
-                                  </item>
-                                 </TEXT>
                                  <STYLE_NAME>Z_NFSTDANFE_SAP_CCE</STYLE_NAME>
                                  <TEXT_AREA>
                                   <ENABLED>F</ENABLED>
@@ -13903,7 +13424,6 @@
                               <NAME>
                                <INAME>C_TMEXIT</INAME>
                               </NAME>
-                              <CAPTION>Exit Time</CAPTION>
                               <SECTTYPE>E</SECTTYPE>
                               <U_FHEIGHT>CM</U_FHEIGHT>
                               <PATTERN>
@@ -14008,7 +13528,6 @@
                                  <NAME>
                                   <INAME>%CODE1</INAME>
                                  </NAME>
-                                 <CAPTION>Novas linhasPrograma 1</CAPTION>
                                  <PLIST>
                                   <item>
                                    <OPD>NOTA_FISCAL-NOTA_FISCAL-HSAIENT</OPD>
@@ -14069,18 +13588,7 @@
                                  <NAME>
                                   <INAME>TMEXIT</INAME>
                                  </NAME>
-                                 <CAPTION>Exit Time</CAPTION>
                                  <APPMODE>P</APPMODE>
-                                 <TEXT>
-                                  <item>
-                                   <TDFORMAT>*</TDFORMAT>
-                                   <TDLINE>&lt;CC&gt;HORA DE SAÍDA&lt;/&gt;</TDLINE>
-                                  </item>
-                                  <item>
-                                   <TDFORMAT>*</TDFORMAT>
-                                   <TDLINE>&lt;C1&gt;&amp;V_HORA_SAIDA&amp;&lt;/&gt;</TDLINE>
-                                  </item>
-                                 </TEXT>
                                  <STYLE_NAME>ZSTSD_CARTA_CORRECAO</STYLE_NAME>
                                  <TEXT_AREA>
                                   <ENABLED>F</ENABLED>
@@ -14138,7 +13646,6 @@
                         <NAME>
                          <INAME>%EVENT13</INAME>
                         </NAME>
-                        <CAPTION>Nota de rodapé</CAPTION>
                         <EVTYPE>F</EVTYPE>
                         <T_CAPTION>
                          <item>
@@ -14249,7 +13756,6 @@
               <NAME>
                <INAME>WIN_ENTR_EXIT</INAME>
               </NAME>
-              <CAPTION>Entr/Exit</CAPTION>
               <WTYPE>T</WTYPE>
               <T_CAPTION>
                <item>
@@ -14272,7 +13778,6 @@
                      <NAME>
                       <INAME>CODE_DANFE</INAME>
                      </NAME>
-                     <CAPTION>DANFE Ent/Exit</CAPTION>
                      <PLIST>
                       <item>
                        <OPD>NOTA_FISCAL-NOTA_FISCAL</OPD>
@@ -14338,7 +13843,6 @@
                      <NAME>
                       <INAME>ENTR_EXIT</INAME>
                      </NAME>
-                     <CAPTION>Entr/Exit</CAPTION>
                      <NOLANGUAGE>X</NOLANGUAGE>
                      <APPMODE>P</APPMODE>
                      <TEXT>
@@ -14464,7 +13968,6 @@
               <NAME>
                <INAME>HEADER_TAB6</INAME>
               </NAME>
-              <CAPTION>títulos - fatura</CAPTION>
               <WTYPE>T</WTYPE>
               <T_CAPTION>
                <item>
@@ -14487,7 +13990,6 @@
                      <NAME>
                       <INAME>TABLE_INVOICE_TIT</INAME>
                      </NAME>
-                     <CAPTION>Invoice</CAPTION>
                      <SECTTYPE>C</SECTTYPE>
                      <TABHTYPE>I</TABHTYPE>
                      <OTABTYPE>D</OTABTYPE>
@@ -14953,7 +14455,6 @@
                         <NAME>
                          <INAME>%EVENT7</INAME>
                         </NAME>
-                        <CAPTION>Área de cabeçalho</CAPTION>
                         <EVTYPE>H</EVTYPE>
                         <T_CAPTION>
                          <item>
@@ -14977,7 +14478,6 @@
                         <NAME>
                          <INAME>%EVENT8</INAME>
                         </NAME>
-                        <CAPTION>Área principal</CAPTION>
                         <EVTYPE>B</EVTYPE>
                         <T_CAPTION>
                          <item>
@@ -14999,7 +14499,6 @@
                            <NAME>
                             <INAME>DATA_INVOICE</INAME>
                            </NAME>
-                           <CAPTION>Data Invoices</CAPTION>
                            <SECTTYPE>R</SECTTYPE>
                            <U_FHEIGHT>CM</U_FHEIGHT>
                            <PATTERN>
@@ -15208,7 +14707,6 @@
                                  <NAME>
                                   <INAME>VERIF_PAGE</INAME>
                                  </NAME>
-                                 <CAPTION>Verifica se é úmtima página</CAPTION>
                                  <PLIST>
                                   <item>
                                    <OPD>NOTA_FISCAL</OPD>
@@ -15436,16 +14934,6 @@
                                   <INAME>T_NUMERO01</INAME>
                                  </NAME>
                                  <APPMODE>P</APPMODE>
-                                 <TEXT>
-                                  <item>
-                                   <TDFORMAT>*</TDFORMAT>
-                                   <TDLINE>&lt;CC&gt;NÚMERO&lt;/&gt;</TDLINE>
-                                  </item>
-                                  <item>
-                                   <TDFORMAT>/</TDFORMAT>
-                                   <TDLINE>&lt;C1&gt;&amp;NOTA_FISCAL-INV_NUM1&amp;&lt;/&gt;</TDLINE>
-                                  </item>
-                                 </TEXT>
                                  <STYLE_NAME>ZSTSD_CARTA_CORRECAO</STYLE_NAME>
                                  <TEXT_AREA>
                                   <ENABLED>F</ENABLED>
@@ -15600,16 +15088,6 @@
                                   <INAME>T_VENCIMENTO01</INAME>
                                  </NAME>
                                  <APPMODE>P</APPMODE>
-                                 <TEXT>
-                                  <item>
-                                   <TDFORMAT>*</TDFORMAT>
-                                   <TDLINE>&lt;CC&gt;VENCIMENTO&lt;/&gt;</TDLINE>
-                                  </item>
-                                  <item>
-                                   <TDFORMAT>*</TDFORMAT>
-                                   <TDLINE>&lt;C1&gt;&amp;v_date1_fat&amp;&lt;/&gt;</TDLINE>
-                                  </item>
-                                 </TEXT>
                                  <STYLE_NAME>ZSTSD_CARTA_CORRECAO</STYLE_NAME>
                                  <TEXT_AREA>
                                   <ENABLED>F</ENABLED>
@@ -15764,16 +15242,6 @@
                                   <INAME>T_VALOR01</INAME>
                                  </NAME>
                                  <APPMODE>P</APPMODE>
-                                 <TEXT>
-                                  <item>
-                                   <TDFORMAT>*</TDFORMAT>
-                                   <TDLINE>&lt;CC&gt;VALOR&lt;/&gt;</TDLINE>
-                                  </item>
-                                  <item>
-                                   <TDFORMAT>*</TDFORMAT>
-                                   <TDLINE>&lt;C1&gt;&amp;NOTA_FISCAL-INV_VAL1&amp;&lt;/&gt;</TDLINE>
-                                  </item>
-                                 </TEXT>
                                  <STYLE_NAME>Z_NFSTDANFE_SAP</STYLE_NAME>
                                  <TEXT_AREA>
                                   <ENABLED>F</ENABLED>
@@ -15928,16 +15396,6 @@
                                   <INAME>T_NUMERO02</INAME>
                                  </NAME>
                                  <APPMODE>P</APPMODE>
-                                 <TEXT>
-                                  <item>
-                                   <TDFORMAT>*</TDFORMAT>
-                                   <TDLINE>&lt;CC&gt;NÚMERO&lt;/&gt;</TDLINE>
-                                  </item>
-                                  <item>
-                                   <TDFORMAT>*</TDFORMAT>
-                                   <TDLINE>&lt;C1&gt;&amp;NOTA_FISCAL-INV_NUM2&amp;&lt;/&gt;</TDLINE>
-                                  </item>
-                                 </TEXT>
                                  <STYLE_NAME>Z_NFSTDANFE_SAP</STYLE_NAME>
                                  <TEXT_AREA>
                                   <ENABLED>F</ENABLED>
@@ -16092,16 +15550,6 @@
                                   <INAME>%TEXT1</INAME>
                                  </NAME>
                                  <APPMODE>P</APPMODE>
-                                 <TEXT>
-                                  <item>
-                                   <TDFORMAT>*</TDFORMAT>
-                                   <TDLINE>&lt;CC&gt; VENCIMENTO&lt;/&gt;</TDLINE>
-                                  </item>
-                                  <item>
-                                   <TDFORMAT>*</TDFORMAT>
-                                   <TDLINE>&lt;C1&gt;&amp;v_date2_fat&amp;&lt;/&gt;</TDLINE>
-                                  </item>
-                                 </TEXT>
                                  <STYLE_NAME>ZSTSD_CARTA_CORRECAO</STYLE_NAME>
                                  <TEXT_AREA>
                                   <ENABLED>F</ENABLED>
@@ -16256,16 +15704,6 @@
                                   <INAME>%TEXT2</INAME>
                                  </NAME>
                                  <APPMODE>P</APPMODE>
-                                 <TEXT>
-                                  <item>
-                                   <TDFORMAT>*</TDFORMAT>
-                                   <TDLINE>&lt;CC&gt; VALOR&lt;/&gt;</TDLINE>
-                                  </item>
-                                  <item>
-                                   <TDFORMAT>*</TDFORMAT>
-                                   <TDLINE>&lt;C1&gt;&amp;NOTA_FISCAL-INV_VAL2&amp;&lt;/&gt;</TDLINE>
-                                  </item>
-                                 </TEXT>
                                  <STYLE_NAME>ZSTSD_CARTA_CORRECAO</STYLE_NAME>
                                  <TEXT_AREA>
                                   <ENABLED>F</ENABLED>
@@ -16420,16 +15858,6 @@
                                   <INAME>%TEXT3</INAME>
                                  </NAME>
                                  <APPMODE>P</APPMODE>
-                                 <TEXT>
-                                  <item>
-                                   <TDFORMAT>*</TDFORMAT>
-                                   <TDLINE>&lt;CC&gt; NÚMERO&lt;/&gt;</TDLINE>
-                                  </item>
-                                  <item>
-                                   <TDFORMAT>*</TDFORMAT>
-                                   <TDLINE>&lt;C1&gt;&amp;NOTA_FISCAL-INV_NUM3&amp;&lt;/&gt;</TDLINE>
-                                  </item>
-                                 </TEXT>
                                  <STYLE_NAME>Z_NFSTDANFE_SAP</STYLE_NAME>
                                  <TEXT_AREA>
                                   <ENABLED>F</ENABLED>
@@ -16584,16 +16012,6 @@
                                   <INAME>%TEXT4</INAME>
                                  </NAME>
                                  <APPMODE>P</APPMODE>
-                                 <TEXT>
-                                  <item>
-                                   <TDFORMAT>*</TDFORMAT>
-                                   <TDLINE>&lt;CC&gt;  VENCIMENTO&lt;/&gt;</TDLINE>
-                                  </item>
-                                  <item>
-                                   <TDFORMAT>*</TDFORMAT>
-                                   <TDLINE>&lt;C1&gt;&amp;v_date3_fat&amp;&lt;/&gt;</TDLINE>
-                                  </item>
-                                 </TEXT>
                                  <STYLE_NAME>ZSTSD_CARTA_CORRECAO</STYLE_NAME>
                                  <TEXT_AREA>
                                   <ENABLED>F</ENABLED>
@@ -16748,16 +16166,6 @@
                                   <INAME>%TEXT5</INAME>
                                  </NAME>
                                  <APPMODE>P</APPMODE>
-                                 <TEXT>
-                                  <item>
-                                   <TDFORMAT>*</TDFORMAT>
-                                   <TDLINE>&lt;CC&gt;  VALOR&lt;/&gt;</TDLINE>
-                                  </item>
-                                  <item>
-                                   <TDFORMAT>*</TDFORMAT>
-                                   <TDLINE>&lt;C1&gt;&amp;NOTA_FISCAL-INV_VAL3&amp;&lt;/&gt;</TDLINE>
-                                  </item>
-                                 </TEXT>
                                  <STYLE_NAME>ZSTSD_CARTA_CORRECAO</STYLE_NAME>
                                  <TEXT_AREA>
                                   <ENABLED>F</ENABLED>
@@ -16814,7 +16222,6 @@
                         <NAME>
                          <INAME>%EVENT9</INAME>
                         </NAME>
-                        <CAPTION>Nota de rodapé</CAPTION>
                         <EVTYPE>F</EVTYPE>
                         <T_CAPTION>
                          <item>
@@ -16925,7 +16332,6 @@
               <NAME>
                <INAME>HEADER_TAB6_B</INAME>
               </NAME>
-              <CAPTION>títulos - fatura - valext</CAPTION>
               <WTYPE>T</WTYPE>
               <T_CAPTION>
                <item>
@@ -16948,18 +16354,7 @@
                      <NAME>
                       <INAME>%TEXT6</INAME>
                      </NAME>
-                     <CAPTION>Texto novo 6</CAPTION>
                      <APPMODE>P</APPMODE>
-                     <TEXT>
-                      <item>
-                       <TDFORMAT>*</TDFORMAT>
-                       <TDLINE>&lt;CC&gt;VALOR POR EXTENSO&lt;/&gt;</TDLINE>
-                      </item>
-                      <item>
-                       <TDFORMAT>/</TDFORMAT>
-                       <TDLINE>&lt;C1&gt;&amp;NOTA_FISCAL-INV_VEXT&amp;&lt;/&gt;</TDLINE>
-                      </item>
-                     </TEXT>
                      <STYLE_NAME>ZSTSD_CARTA_CORRECAO</STYLE_NAME>
                      <TEXT_AREA>
                       <ENABLED>F</ENABLED>
@@ -17092,7 +16487,6 @@
               <NAME>
                <INAME>ITEM</INAME>
               </NAME>
-              <CAPTION>Item</CAPTION>
               <WTYPE>M</WTYPE>
               <T_CAPTION>
                <item>
@@ -17115,7 +16509,6 @@
                      <NAME>
                       <INAME>%TABLE2</INAME>
                      </NAME>
-                     <CAPTION>Nova tabela 2</CAPTION>
                      <SECTTYPE>C</SECTTYPE>
                      <DATATYPE>L</DATATYPE>
                      <TABNAME>J_1BNFE_CCE</TABNAME>
@@ -17214,7 +16607,6 @@
                         <NAME>
                          <INAME>%EVENT17</INAME>
                         </NAME>
-                        <CAPTION>Área de cabeçalho</CAPTION>
                         <EVTYPE>H</EVTYPE>
                         <T_CAPTION>
                          <item>
@@ -17238,7 +16630,6 @@
                         <NAME>
                          <INAME>%EVENT18</INAME>
                         </NAME>
-                        <CAPTION>Área principal</CAPTION>
                         <EVTYPE>B</EVTYPE>
                         <T_CAPTION>
                          <item>
@@ -17260,7 +16651,6 @@
                            <NAME>
                             <INAME>%ROW2</INAME>
                            </NAME>
-                           <CAPTION>Nova linha 2</CAPTION>
                            <SECTTYPE>R</SECTTYPE>
                            <U_FHEIGHT>CM</U_FHEIGHT>
                            <PATTERN>
@@ -17366,7 +16756,6 @@
                               <NAME>
                                <INAME>%CELL2</INAME>
                               </NAME>
-                              <CAPTION>Coluna nova 2</CAPTION>
                               <SECTTYPE>E</SECTTYPE>
                               <U_FHEIGHT>CM</U_FHEIGHT>
                               <PATTERN>
@@ -17471,7 +16860,6 @@
                                  <NAME>
                                   <INAME>%TEXT7</INAME>
                                  </NAME>
-                                 <CAPTION>Texto novo 7</CAPTION>
                                  <NOLANGUAGE>X</NOLANGUAGE>
                                  <APPMODE>P</APPMODE>
                                  <TEXT>
@@ -17520,7 +16908,6 @@
                         <NAME>
                          <INAME>%EVENT19</INAME>
                         </NAME>
-                        <CAPTION>Nota de rodapé</CAPTION>
                         <EVTYPE>F</EVTYPE>
                         <T_CAPTION>
                          <item>
@@ -17549,7 +16936,6 @@
               <NAME>
                <INAME>%OUTATTRIB1</INAME>
               </NAME>
-              <CAPTION>Nova opção de saída</CAPTION>
               <U_WFRAME>PT</U_WFRAME>
               <U_WBOXV>CM</U_WBOXV>
               <U_WBOXH>CM</U_WBOXH>
@@ -17638,7 +17024,6 @@
               <NAME>
                <INAME>WIN_FOOTER</INAME>
               </NAME>
-              <CAPTION>Cat. Imposto / Carrier</CAPTION>
               <WTYPE>T</WTYPE>
               <T_CAPTION>
                <item>
@@ -17661,14 +17046,7 @@
                      <NAME>
                       <INAME>TAX</INAME>
                      </NAME>
-                     <CAPTION>Calculation of Tax</CAPTION>
                      <APPMODE>P</APPMODE>
-                     <TEXT>
-                      <item>
-                       <TDFORMAT>TC</TDFORMAT>
-                       <TDLINE>&lt;CS&gt;CATEGORIA DO IMPOSTO&lt;/&gt;</TDLINE>
-                      </item>
-                     </TEXT>
                      <STYLE_NAME>ZSTSD_CARTA_CORRECAO</STYLE_NAME>
                      <TEXT_AREA>
                       <ENABLED>F</ENABLED>
@@ -17708,7 +17086,6 @@
                      <NAME>
                       <INAME>TABLE_TAX</INAME>
                      </NAME>
-                     <CAPTION>Tax</CAPTION>
                      <SECTTYPE>C</SECTTYPE>
                      <TABHTYPE>I</TABHTYPE>
                      <OTABTYPE>D</OTABTYPE>
@@ -18318,7 +17695,6 @@
                         <NAME>
                          <INAME>%EVENT20</INAME>
                         </NAME>
-                        <CAPTION>Área de cabeçalho</CAPTION>
                         <EVTYPE>H</EVTYPE>
                         <T_CAPTION>
                          <item>
@@ -18342,7 +17718,6 @@
                         <NAME>
                          <INAME>%EVENT21</INAME>
                         </NAME>
-                        <CAPTION>Área principal</CAPTION>
                         <EVTYPE>B</EVTYPE>
                         <T_CAPTION>
                          <item>
@@ -18364,7 +17739,6 @@
                            <NAME>
                             <INAME>TAX_1</INAME>
                            </NAME>
-                           <CAPTION>Tax</CAPTION>
                            <SECTTYPE>R</SECTTYPE>
                            <U_FHEIGHT>CM</U_FHEIGHT>
                            <PATTERN>
@@ -18470,7 +17844,6 @@
                               <NAME>
                                <INAME>C_BCICMS</INAME>
                               </NAME>
-                              <CAPTION>Base Calc ICMS</CAPTION>
                               <SECTTYPE>E</SECTTYPE>
                               <U_FHEIGHT>CM</U_FHEIGHT>
                               <PATTERN>
@@ -18575,7 +17948,6 @@
                                  <NAME>
                                   <INAME>CALC_IMPOSTO_ASTERISCOS</INAME>
                                  </NAME>
-                                 <CAPTION>Verifica se é úmtima página</CAPTION>
                                  <PLIST>
                                   <item>
                                    <OPD>V_ICMSBASE</OPD>
@@ -18728,18 +18100,7 @@
                                  <NAME>
                                   <INAME>D_BCICMS2</INAME>
                                  </NAME>
-                                 <CAPTION>Base Calc ICMS</CAPTION>
                                  <APPMODE>P</APPMODE>
-                                 <TEXT>
-                                  <item>
-                                   <TDFORMAT>*</TDFORMAT>
-                                   <TDLINE>&lt;CC&gt;BASE CÁLCULO ICMS&lt;/&gt;</TDLINE>
-                                  </item>
-                                  <item>
-                                   <TDFORMAT>PD</TDFORMAT>
-                                   <TDLINE>&lt;C1&gt;&amp;V_ICMSBASE&amp;&lt;/&gt;</TDLINE>
-                                  </item>
-                                 </TEXT>
                                  <STYLE_NAME>Z_NFSTDANFE_SAP</STYLE_NAME>
                                  <TEXT_AREA>
                                   <ENABLED>F</ENABLED>
@@ -18791,7 +18152,6 @@
                               <NAME>
                                <INAME>C_VICMS2</INAME>
                               </NAME>
-                              <CAPTION>Value ICMS</CAPTION>
                               <SECTTYPE>E</SECTTYPE>
                               <U_FHEIGHT>CM</U_FHEIGHT>
                               <PATTERN>
@@ -18896,18 +18256,7 @@
                                  <NAME>
                                   <INAME>D_VICMS2</INAME>
                                  </NAME>
-                                 <CAPTION>Value ICMS</CAPTION>
                                  <APPMODE>P</APPMODE>
-                                 <TEXT>
-                                  <item>
-                                   <TDFORMAT>*</TDFORMAT>
-                                   <TDLINE>&lt;CC&gt;VALOR DO ICMS&lt;/&gt;</TDLINE>
-                                  </item>
-                                  <item>
-                                   <TDFORMAT>PD</TDFORMAT>
-                                   <TDLINE>&lt;C1&gt;&amp;V_ICMSVAL&amp;&lt;/&gt;</TDLINE>
-                                  </item>
-                                 </TEXT>
                                  <STYLE_NAME>Z_NFSTDANFE_SAP</STYLE_NAME>
                                  <TEXT_AREA>
                                   <ENABLED>F</ENABLED>
@@ -18959,7 +18308,6 @@
                               <NAME>
                                <INAME>C_BCICMSST</INAME>
                               </NAME>
-                              <CAPTION>Base Calc ICMS ST</CAPTION>
                               <SECTTYPE>E</SECTTYPE>
                               <U_FHEIGHT>CM</U_FHEIGHT>
                               <PATTERN>
@@ -19064,18 +18412,7 @@
                                  <NAME>
                                   <INAME>D_BCICMSST</INAME>
                                  </NAME>
-                                 <CAPTION>Base Calc ICMS ST</CAPTION>
                                  <APPMODE>P</APPMODE>
-                                 <TEXT>
-                                  <item>
-                                   <TDFORMAT>*</TDFORMAT>
-                                   <TDLINE>&lt;CC&gt;BASE CÁLCULO ICMS ST&lt;/&gt;</TDLINE>
-                                  </item>
-                                  <item>
-                                   <TDFORMAT>PD</TDFORMAT>
-                                   <TDLINE>&lt;C1&gt;&amp;V_ICSTBASE&amp;&lt;/&gt;</TDLINE>
-                                  </item>
-                                 </TEXT>
                                  <STYLE_NAME>Z_NFSTDANFE_SAP</STYLE_NAME>
                                  <TEXT_AREA>
                                   <ENABLED>F</ENABLED>
@@ -19127,7 +18464,6 @@
                               <NAME>
                                <INAME>C_VICMSST</INAME>
                               </NAME>
-                              <CAPTION>Value ICMS ST</CAPTION>
                               <SECTTYPE>E</SECTTYPE>
                               <U_FHEIGHT>CM</U_FHEIGHT>
                               <PATTERN>
@@ -19232,18 +18568,7 @@
                                  <NAME>
                                   <INAME>D_VICMSST</INAME>
                                  </NAME>
-                                 <CAPTION>Value ICMS ST</CAPTION>
                                  <APPMODE>P</APPMODE>
-                                 <TEXT>
-                                  <item>
-                                   <TDFORMAT>*</TDFORMAT>
-                                   <TDLINE>&lt;CC&gt;VALOR DO ICMS ST&lt;/&gt;</TDLINE>
-                                  </item>
-                                  <item>
-                                   <TDFORMAT>PD</TDFORMAT>
-                                   <TDLINE>&lt;C1&gt;&amp;V_ICSTVAL&amp;&lt;/&gt;</TDLINE>
-                                  </item>
-                                 </TEXT>
                                  <STYLE_NAME>Z_NFSTDANFE_SAP</STYLE_NAME>
                                  <TEXT_AREA>
                                   <ENABLED>F</ENABLED>
@@ -19295,7 +18620,6 @@
                               <NAME>
                                <INAME>C_VPROD</INAME>
                               </NAME>
-                              <CAPTION>Value Total of Products</CAPTION>
                               <SECTTYPE>E</SECTTYPE>
                               <U_FHEIGHT>CM</U_FHEIGHT>
                               <PATTERN>
@@ -19400,18 +18724,7 @@
                                  <NAME>
                                   <INAME>D_VPROD</INAME>
                                  </NAME>
-                                 <CAPTION>Value of Products</CAPTION>
                                  <APPMODE>P</APPMODE>
-                                 <TEXT>
-                                  <item>
-                                   <TDFORMAT>*</TDFORMAT>
-                                   <TDLINE>&lt;CC&gt;VALOR TOTAL PRODUTOS&lt;/&gt;</TDLINE>
-                                  </item>
-                                  <item>
-                                   <TDFORMAT>PD</TDFORMAT>
-                                   <TDLINE>&lt;C1&gt;&amp;V_NFNETT&amp;&lt;/&gt;</TDLINE>
-                                  </item>
-                                 </TEXT>
                                  <STYLE_NAME>ZSTSD_CARTA_CORRECAO</STYLE_NAME>
                                  <TEXT_AREA>
                                   <ENABLED>F</ENABLED>
@@ -19466,7 +18779,6 @@
                            <NAME>
                             <INAME>TAX_2</INAME>
                            </NAME>
-                           <CAPTION>Tax</CAPTION>
                            <SECTTYPE>R</SECTTYPE>
                            <U_FHEIGHT>CM</U_FHEIGHT>
                            <PATTERN>
@@ -19572,7 +18884,6 @@
                               <NAME>
                                <INAME>C_VFREIGHT</INAME>
                               </NAME>
-                              <CAPTION>Value of Freight</CAPTION>
                               <SECTTYPE>E</SECTTYPE>
                               <U_FHEIGHT>CM</U_FHEIGHT>
                               <PATTERN>
@@ -19677,18 +18988,7 @@
                                  <NAME>
                                   <INAME>D_VFREIGHT</INAME>
                                  </NAME>
-                                 <CAPTION>Value of Freight</CAPTION>
                                  <APPMODE>P</APPMODE>
-                                 <TEXT>
-                                  <item>
-                                   <TDFORMAT>*</TDFORMAT>
-                                   <TDLINE>&lt;CC&gt;VALOR DO FRETE&lt;/&gt;</TDLINE>
-                                  </item>
-                                  <item>
-                                   <TDFORMAT>PD</TDFORMAT>
-                                   <TDLINE>&lt;C1&gt;&amp;V_NFFRE&amp;&lt;/&gt;</TDLINE>
-                                  </item>
-                                 </TEXT>
                                  <STYLE_NAME>ZSTSD_CARTA_CORRECAO</STYLE_NAME>
                                  <TEXT_AREA>
                                   <ENABLED>F</ENABLED>
@@ -19740,7 +19040,6 @@
                               <NAME>
                                <INAME>C_VINSURANCE</INAME>
                               </NAME>
-                              <CAPTION>Value of Insurance</CAPTION>
                               <SECTTYPE>E</SECTTYPE>
                               <U_FHEIGHT>CM</U_FHEIGHT>
                               <PATTERN>
@@ -19845,18 +19144,7 @@
                                  <NAME>
                                   <INAME>D_VINSURANCE</INAME>
                                  </NAME>
-                                 <CAPTION>Value of Insurance</CAPTION>
                                  <APPMODE>P</APPMODE>
-                                 <TEXT>
-                                  <item>
-                                   <TDFORMAT>*</TDFORMAT>
-                                   <TDLINE>&lt;CC&gt;VALOR DO SEGURO&lt;/&gt;</TDLINE>
-                                  </item>
-                                  <item>
-                                   <TDFORMAT>PD</TDFORMAT>
-                                   <TDLINE>&lt;C1&gt;&amp;V_NFINS&amp;&lt;/&gt;</TDLINE>
-                                  </item>
-                                 </TEXT>
                                  <STYLE_NAME>ZSTSD_CARTA_CORRECAO</STYLE_NAME>
                                  <TEXT_AREA>
                                   <ENABLED>F</ENABLED>
@@ -19908,7 +19196,6 @@
                               <NAME>
                                <INAME>C_VDISCOUNT</INAME>
                               </NAME>
-                              <CAPTION>Value of discount</CAPTION>
                               <SECTTYPE>E</SECTTYPE>
                               <U_FHEIGHT>CM</U_FHEIGHT>
                               <PATTERN>
@@ -20013,18 +19300,7 @@
                                  <NAME>
                                   <INAME>D_VDISCOUNT</INAME>
                                  </NAME>
-                                 <CAPTION>Value of discount</CAPTION>
                                  <APPMODE>P</APPMODE>
-                                 <TEXT>
-                                  <item>
-                                   <TDFORMAT>*</TDFORMAT>
-                                   <TDLINE>&lt;CC&gt;DESCONTO&lt;/&gt;</TDLINE>
-                                  </item>
-                                  <item>
-                                   <TDFORMAT>PD</TDFORMAT>
-                                   <TDLINE>&lt;C1&gt;&amp;V_NFDIS&amp;&lt;/&gt;</TDLINE>
-                                  </item>
-                                 </TEXT>
                                  <STYLE_NAME>ZSTSD_CARTA_CORRECAO</STYLE_NAME>
                                  <TEXT_AREA>
                                   <ENABLED>F</ENABLED>
@@ -20076,7 +19352,6 @@
                               <NAME>
                                <INAME>C_VOTHERS</INAME>
                               </NAME>
-                              <CAPTION>Value of Other Expenses</CAPTION>
                               <SECTTYPE>E</SECTTYPE>
                               <U_FHEIGHT>CM</U_FHEIGHT>
                               <PATTERN>
@@ -20181,18 +19456,7 @@
                                  <NAME>
                                   <INAME>D_VOTHERS</INAME>
                                  </NAME>
-                                 <CAPTION>Value of Other Expenses</CAPTION>
                                  <APPMODE>P</APPMODE>
-                                 <TEXT>
-                                  <item>
-                                   <TDFORMAT>*</TDFORMAT>
-                                   <TDLINE>&lt;CC&gt;OUTRAS DESPESAS&lt;/&gt;</TDLINE>
-                                  </item>
-                                  <item>
-                                   <TDFORMAT>PD</TDFORMAT>
-                                   <TDLINE>&lt;C1&gt;&amp;V_NFOTH&amp;&lt;/&gt;</TDLINE>
-                                  </item>
-                                 </TEXT>
                                  <STYLE_NAME>ZSTSD_CARTA_CORRECAO</STYLE_NAME>
                                  <TEXT_AREA>
                                   <ENABLED>F</ENABLED>
@@ -20244,7 +19508,6 @@
                               <NAME>
                                <INAME>C_VIPI2</INAME>
                               </NAME>
-                              <CAPTION>Value IPI</CAPTION>
                               <SECTTYPE>E</SECTTYPE>
                               <U_FHEIGHT>CM</U_FHEIGHT>
                               <PATTERN>
@@ -20349,18 +19612,7 @@
                                  <NAME>
                                   <INAME>D_VIPI2</INAME>
                                  </NAME>
-                                 <CAPTION>Value IPI</CAPTION>
                                  <APPMODE>P</APPMODE>
-                                 <TEXT>
-                                  <item>
-                                   <TDFORMAT>*</TDFORMAT>
-                                   <TDLINE>&lt;CC&gt;VALOR DO IPI&lt;/&gt;</TDLINE>
-                                  </item>
-                                  <item>
-                                   <TDFORMAT>PD</TDFORMAT>
-                                   <TDLINE>&lt;C1&gt;&amp;V_IPIVAL&amp;&lt;/&gt;</TDLINE>
-                                  </item>
-                                 </TEXT>
                                  <STYLE_NAME>Z_NFSTDANFE_SAP</STYLE_NAME>
                                  <TEXT_AREA>
                                   <ENABLED>F</ENABLED>
@@ -20412,7 +19664,6 @@
                               <NAME>
                                <INAME>C_VTOTALNF</INAME>
                               </NAME>
-                              <CAPTION>Value Total of NF</CAPTION>
                               <SECTTYPE>E</SECTTYPE>
                               <U_FHEIGHT>CM</U_FHEIGHT>
                               <PATTERN>
@@ -20517,18 +19768,7 @@
                                  <NAME>
                                   <INAME>D_VTOTALNF</INAME>
                                  </NAME>
-                                 <CAPTION>Value Total of NF</CAPTION>
                                  <APPMODE>P</APPMODE>
-                                 <TEXT>
-                                  <item>
-                                   <TDFORMAT>*</TDFORMAT>
-                                   <TDLINE>&lt;CC&gt;VALOR TOTAL DA NF&lt;/&gt;</TDLINE>
-                                  </item>
-                                  <item>
-                                   <TDFORMAT>PD</TDFORMAT>
-                                   <TDLINE>&lt;C1&gt;&amp;V_NFTOT&amp;&lt;/&gt;</TDLINE>
-                                  </item>
-                                 </TEXT>
                                  <STYLE_NAME>Z_NFSTDANFE_SAP</STYLE_NAME>
                                  <TEXT_AREA>
                                   <ENABLED>F</ENABLED>
@@ -20586,7 +19826,6 @@
                         <NAME>
                          <INAME>%EVENT22</INAME>
                         </NAME>
-                        <CAPTION>Nota de rodapé</CAPTION>
                         <EVTYPE>F</EVTYPE>
                         <T_CAPTION>
                          <item>
@@ -20613,14 +19852,7 @@
                      <NAME>
                       <INAME>CARRIER</INAME>
                      </NAME>
-                     <CAPTION>Carrier/ Vol. Transport</CAPTION>
                      <APPMODE>P</APPMODE>
-                     <TEXT>
-                      <item>
-                       <TDFORMAT>TC</TDFORMAT>
-                       <TDLINE>&lt;CS&gt;TRANSPORTADOR/VOLUMES TRANSPORTADOS&lt;/&gt;</TDLINE>
-                      </item>
-                     </TEXT>
                      <STYLE_NAME>ZSTSD_CARTA_CORRECAO</STYLE_NAME>
                      <TEXT_AREA>
                       <ENABLED>F</ENABLED>
@@ -20660,7 +19892,6 @@
                      <NAME>
                       <INAME>TABLE_CARRIER</INAME>
                      </NAME>
-                     <CAPTION>Carrier</CAPTION>
                      <SECTTYPE>C</SECTTYPE>
                      <TABHTYPE>I</TABHTYPE>
                      <OTABTYPE>D</OTABTYPE>
@@ -21527,7 +20758,6 @@
                         <NAME>
                          <INAME>%EVENT26</INAME>
                         </NAME>
-                        <CAPTION>Área de cabeçalho</CAPTION>
                         <EVTYPE>H</EVTYPE>
                         <T_CAPTION>
                          <item>
@@ -21551,7 +20781,6 @@
                         <NAME>
                          <INAME>%EVENT27</INAME>
                         </NAME>
-                        <CAPTION>Área principal</CAPTION>
                         <EVTYPE>B</EVTYPE>
                         <T_CAPTION>
                          <item>
@@ -21573,7 +20802,6 @@
                            <NAME>
                             <INAME>COMPANY_CARRIER</INAME>
                            </NAME>
-                           <CAPTION>Line Company Name</CAPTION>
                            <SECTTYPE>R</SECTTYPE>
                            <U_FHEIGHT>CM</U_FHEIGHT>
                            <PATTERN>
@@ -21679,7 +20907,6 @@
                               <NAME>
                                <INAME>C_COMPANY_C</INAME>
                               </NAME>
-                              <CAPTION>Company Name</CAPTION>
                               <SECTTYPE>E</SECTTYPE>
                               <U_FHEIGHT>CM</U_FHEIGHT>
                               <PATTERN>
@@ -21784,18 +21011,7 @@
                                  <NAME>
                                   <INAME>COMPANY_NAME_C</INAME>
                                  </NAME>
-                                 <CAPTION>Company Name Carrier</CAPTION>
                                  <APPMODE>P</APPMODE>
-                                 <TEXT>
-                                  <item>
-                                   <TDFORMAT>*</TDFORMAT>
-                                   <TDLINE>&lt;CC&gt;RAZÃO SOCIAL&lt;/&gt;</TDLINE>
-                                  </item>
-                                  <item>
-                                   <TDFORMAT>*</TDFORMAT>
-                                   <TDLINE>&lt;C1&gt;&amp;NOTA_FISCAL-CARRIER-NAME1&amp;&lt;/&gt;</TDLINE>
-                                  </item>
-                                 </TEXT>
                                  <STYLE_NAME>Z_NFSTDANFE_SAP</STYLE_NAME>
                                  <TEXT_AREA>
                                   <ENABLED>F</ENABLED>
@@ -21847,7 +21063,6 @@
                               <NAME>
                                <INAME>C_FREIGHT_ACCOUNT_C</INAME>
                               </NAME>
-                              <CAPTION>Freight by Account</CAPTION>
                               <SECTTYPE>E</SECTTYPE>
                               <U_FHEIGHT>CM</U_FHEIGHT>
                               <PATTERN>
@@ -21952,7 +21167,6 @@
                                  <NAME>
                                   <INAME>FRETE</INAME>
                                  </NAME>
-                                 <CAPTION>Novas linhasPrograma 2</CAPTION>
                                  <PLIST>
                                   <item>
                                    <OPD>NOTA_FISCAL-NOTA_FISCAL-MODFRETE</OPD>
@@ -22024,18 +21238,7 @@
                                  <NAME>
                                   <INAME>FREIGHT_ACCOUNT_C</INAME>
                                  </NAME>
-                                 <CAPTION>Freight by Account</CAPTION>
                                  <APPMODE>P</APPMODE>
-                                 <TEXT>
-                                  <item>
-                                   <TDFORMAT>*</TDFORMAT>
-                                   <TDLINE>&lt;CC&gt;FRETE POR CONTA&lt;/&gt;</TDLINE>
-                                  </item>
-                                  <item>
-                                   <TDFORMAT>PP</TDFORMAT>
-                                   <TDLINE>&lt;DT&gt;&amp;gv_frete&amp;&lt;/&gt;</TDLINE>
-                                  </item>
-                                 </TEXT>
                                  <STYLE_NAME>ZSTSD_CARTA_CORRECAO</STYLE_NAME>
                                  <TEXT_AREA>
                                   <ENABLED>F</ENABLED>
@@ -22087,7 +21290,6 @@
                               <NAME>
                                <INAME>C_CODE_ANTT</INAME>
                               </NAME>
-                              <CAPTION>Code ANTT</CAPTION>
                               <SECTTYPE>E</SECTTYPE>
                               <U_FHEIGHT>CM</U_FHEIGHT>
                               <PATTERN>
@@ -22192,17 +21394,7 @@
                                  <NAME>
                                   <INAME>CODE_ANTT</INAME>
                                  </NAME>
-                                 <CAPTION>Code ANTT</CAPTION>
                                  <APPMODE>P</APPMODE>
-                                 <TEXT>
-                                  <item>
-                                   <TDFORMAT>PE</TDFORMAT>
-                                   <TDLINE>&lt;CC&gt;CÓDIGO ANTT&lt;/&gt;</TDLINE>
-                                  </item>
-                                  <item>
-                                   <TDFORMAT>*</TDFORMAT>
-                                  </item>
-                                 </TEXT>
                                  <STYLE_NAME>ZSTSD_CARTA_CORRECAO</STYLE_NAME>
                                  <TEXT_AREA>
                                   <ENABLED>F</ENABLED>
@@ -22253,7 +21445,6 @@
                               <NAME>
                                <INAME>C_PLATE_C</INAME>
                               </NAME>
-                              <CAPTION>Plate</CAPTION>
                               <SECTTYPE>E</SECTTYPE>
                               <U_FHEIGHT>CM</U_FHEIGHT>
                               <PATTERN>
@@ -22358,18 +21549,7 @@
                                  <NAME>
                                   <INAME>PLATE_C</INAME>
                                  </NAME>
-                                 <CAPTION>Plate</CAPTION>
                                  <APPMODE>P</APPMODE>
-                                 <TEXT>
-                                  <item>
-                                   <TDFORMAT>*</TDFORMAT>
-                                   <TDLINE>&lt;CC&gt;PLACA&lt;/&gt;</TDLINE>
-                                  </item>
-                                  <item>
-                                   <TDFORMAT>*</TDFORMAT>
-                                   <TDLINE>&lt;C1&gt;&amp;NOTA_FISCAL-NOTA_FISCAL-TRAID&amp; &lt;/&gt;</TDLINE>
-                                  </item>
-                                 </TEXT>
                                  <STYLE_NAME>ZSTSD_CARTA_CORRECAO</STYLE_NAME>
                                  <TEXT_AREA>
                                   <ENABLED>F</ENABLED>
@@ -22421,7 +21601,6 @@
                               <NAME>
                                <INAME>C_STATE_VEHICLE</INAME>
                               </NAME>
-                              <CAPTION>State of vehicle</CAPTION>
                               <SECTTYPE>E</SECTTYPE>
                               <U_FHEIGHT>CM</U_FHEIGHT>
                               <PATTERN>
@@ -22526,18 +21705,7 @@
                                  <NAME>
                                   <INAME>STATE_VEHICLE</INAME>
                                  </NAME>
-                                 <CAPTION>State of vehicle</CAPTION>
                                  <APPMODE>P</APPMODE>
-                                 <TEXT>
-                                  <item>
-                                   <TDFORMAT>*</TDFORMAT>
-                                   <TDLINE>&lt;CC&gt;UF&lt;/&gt;</TDLINE>
-                                  </item>
-                                  <item>
-                                   <TDFORMAT>*</TDFORMAT>
-                                   <TDLINE>&lt;C1&gt;&amp;NOTA_FISCAL-OTHERS-UF_PLATE&amp;&lt;/&gt;</TDLINE>
-                                  </item>
-                                 </TEXT>
                                  <STYLE_NAME>ZSTSD_CARTA_CORRECAO</STYLE_NAME>
                                  <TEXT_AREA>
                                   <ENABLED>F</ENABLED>
@@ -22589,7 +21757,6 @@
                               <NAME>
                                <INAME>C_CNPJ_C</INAME>
                               </NAME>
-                              <CAPTION>CNPJ Carrier</CAPTION>
                               <SECTTYPE>E</SECTTYPE>
                               <U_FHEIGHT>CM</U_FHEIGHT>
                               <PATTERN>
@@ -22694,7 +21861,6 @@
                                  <NAME>
                                   <INAME>CNPJ_CARRIER</INAME>
                                  </NAME>
-                                 <CAPTION>CNPJ Carrier</CAPTION>
                                  <PLIST>
                                   <item>
                                    <OPD>NOTA_FISCAL-CARRIER</OPD>
@@ -22777,22 +21943,7 @@
                                  <NAME>
                                   <INAME>CNPJ_CARRIER</INAME>
                                  </NAME>
-                                 <CAPTION>CNPJ Carrier</CAPTION>
                                  <APPMODE>P</APPMODE>
-                                 <TEXT>
-                                  <item>
-                                   <TDFORMAT>*</TDFORMAT>
-                                   <TDLINE>&lt;CC&gt;CNPJ&lt;/&gt;</TDLINE>
-                                  </item>
-                                  <item>
-                                   <TDFORMAT>/*</TDFORMAT>
-                                   <TDLINE>&lt;C1&gt;&amp;V_CPF_CNPJ&amp;&lt;/&gt;</TDLINE>
-                                  </item>
-                                  <item>
-                                   <TDFORMAT>*</TDFORMAT>
-                                   <TDLINE>&lt;C1&gt;&amp;NOTA_FISCAL-CARRIER-CGC(18)&amp;&lt;/&gt;</TDLINE>
-                                  </item>
-                                 </TEXT>
                                  <STYLE_NAME>Z_NFSTDANFE_SAP</STYLE_NAME>
                                  <TEXT_AREA>
                                   <ENABLED>F</ENABLED>
@@ -22856,7 +22007,6 @@
                            <NAME>
                             <INAME>ADDRESS_CARRIER</INAME>
                            </NAME>
-                           <CAPTION>Address Line Carrier</CAPTION>
                            <SECTTYPE>R</SECTTYPE>
                            <U_FHEIGHT>CM</U_FHEIGHT>
                            <PATTERN>
@@ -22962,7 +22112,6 @@
                               <NAME>
                                <INAME>C_ADDRESS_C</INAME>
                               </NAME>
-                              <CAPTION>Address  Carrier</CAPTION>
                               <SECTTYPE>E</SECTTYPE>
                               <U_FHEIGHT>CM</U_FHEIGHT>
                               <PATTERN>
@@ -23067,18 +22216,7 @@
                                  <NAME>
                                   <INAME>ADDRESS_CARRIER</INAME>
                                  </NAME>
-                                 <CAPTION>Address  Carrier</CAPTION>
                                  <APPMODE>P</APPMODE>
-                                 <TEXT>
-                                  <item>
-                                   <TDFORMAT>*</TDFORMAT>
-                                   <TDLINE>&lt;CC&gt;ENDEREÇO&lt;/&gt;</TDLINE>
-                                  </item>
-                                  <item>
-                                   <TDFORMAT>*</TDFORMAT>
-                                   <TDLINE>&lt;C1&gt;&amp;NOTA_FISCAL-CARRIER-STRAS&amp;&lt;/&gt;</TDLINE>
-                                  </item>
-                                 </TEXT>
                                  <STYLE_NAME>Z_NFSTDANFE_SAP</STYLE_NAME>
                                  <TEXT_AREA>
                                   <ENABLED>F</ENABLED>
@@ -23130,7 +22268,6 @@
                               <NAME>
                                <INAME>C_COUNTY_C</INAME>
                               </NAME>
-                              <CAPTION>County Carrier</CAPTION>
                               <SECTTYPE>E</SECTTYPE>
                               <U_FHEIGHT>CM</U_FHEIGHT>
                               <PATTERN>
@@ -23235,18 +22372,7 @@
                                  <NAME>
                                   <INAME>COUNTY_CARRIER</INAME>
                                  </NAME>
-                                 <CAPTION>County Carrier</CAPTION>
                                  <APPMODE>P</APPMODE>
-                                 <TEXT>
-                                  <item>
-                                   <TDFORMAT>*</TDFORMAT>
-                                   <TDLINE>&lt;CC&gt;MUNICÍPIO&lt;/&gt;</TDLINE>
-                                  </item>
-                                  <item>
-                                   <TDFORMAT>*</TDFORMAT>
-                                   <TDLINE>&lt;C1&gt;&amp;NOTA_FISCAL-CARRIER-ORT01&amp;&lt;/&gt;</TDLINE>
-                                  </item>
-                                 </TEXT>
                                  <STYLE_NAME>Z_NFSTDANFE_SAP</STYLE_NAME>
                                  <TEXT_AREA>
                                   <ENABLED>F</ENABLED>
@@ -23298,7 +22424,6 @@
                               <NAME>
                                <INAME>C_STATE_C</INAME>
                               </NAME>
-                              <CAPTION>State Carrier</CAPTION>
                               <SECTTYPE>E</SECTTYPE>
                               <U_FHEIGHT>CM</U_FHEIGHT>
                               <PATTERN>
@@ -23403,18 +22528,7 @@
                                  <NAME>
                                   <INAME>STATE_CARRIER</INAME>
                                  </NAME>
-                                 <CAPTION>State Carrier</CAPTION>
                                  <APPMODE>P</APPMODE>
-                                 <TEXT>
-                                  <item>
-                                   <TDFORMAT>*</TDFORMAT>
-                                   <TDLINE>&lt;CC&gt;UF&lt;/&gt;</TDLINE>
-                                  </item>
-                                  <item>
-                                   <TDFORMAT>*</TDFORMAT>
-                                   <TDLINE>&lt;C1&gt;&amp;NOTA_FISCAL-CARRIER-REGIO&amp;&lt;/&gt;</TDLINE>
-                                  </item>
-                                 </TEXT>
                                  <STYLE_NAME>Z_NFSTDANFE_SAP</STYLE_NAME>
                                  <TEXT_AREA>
                                   <ENABLED>F</ENABLED>
@@ -23466,7 +22580,6 @@
                               <NAME>
                                <INAME>C_INSC_ST_C</INAME>
                               </NAME>
-                              <CAPTION>Registration State C</CAPTION>
                               <SECTTYPE>E</SECTTYPE>
                               <U_FHEIGHT>CM</U_FHEIGHT>
                               <PATTERN>
@@ -23571,18 +22684,7 @@
                                  <NAME>
                                   <INAME>INSC_ST_CARRIER</INAME>
                                  </NAME>
-                                 <CAPTION>Registration State C</CAPTION>
                                  <APPMODE>P</APPMODE>
-                                 <TEXT>
-                                  <item>
-                                   <TDFORMAT>*</TDFORMAT>
-                                   <TDLINE>&lt;CC&gt;INSCRIÇÃO ESTADUAL&lt;/&gt;</TDLINE>
-                                  </item>
-                                  <item>
-                                   <TDFORMAT>*</TDFORMAT>
-                                   <TDLINE>&lt;C1&gt;&amp;NOTA_FISCAL-CARRIER-STAINS&amp;&lt;/&gt;</TDLINE>
-                                  </item>
-                                 </TEXT>
                                  <STYLE_NAME>Z_NFSTDANFE_SAP</STYLE_NAME>
                                  <TEXT_AREA>
                                   <ENABLED>F</ENABLED>
@@ -23637,7 +22739,6 @@
                            <NAME>
                             <INAME>FREIGHT_ACCOUNT_C</INAME>
                            </NAME>
-                           <CAPTION>Freight Line by Account</CAPTION>
                            <SECTTYPE>R</SECTTYPE>
                            <U_FHEIGHT>CM</U_FHEIGHT>
                            <PATTERN>
@@ -23743,7 +22844,6 @@
                               <NAME>
                                <INAME>C_QUANTITY</INAME>
                               </NAME>
-                              <CAPTION>Quantity</CAPTION>
                               <SECTTYPE>E</SECTTYPE>
                               <U_FHEIGHT>CM</U_FHEIGHT>
                               <PATTERN>
@@ -23848,18 +22948,7 @@
                                  <NAME>
                                   <INAME>QUANTITY_CARRIER</INAME>
                                  </NAME>
-                                 <CAPTION>Quantity</CAPTION>
                                  <APPMODE>P</APPMODE>
-                                 <TEXT>
-                                  <item>
-                                   <TDFORMAT>*</TDFORMAT>
-                                   <TDLINE>&lt;CC&gt;QUANTIDADE&lt;/&gt;</TDLINE>
-                                  </item>
-                                  <item>
-                                   <TDFORMAT>*</TDFORMAT>
-                                   <TDLINE>&lt;C1&gt;&amp;NOTA_FISCAL-NOTA_FISCAL-ANZPK&amp;&lt;/&gt;</TDLINE>
-                                  </item>
-                                 </TEXT>
                                  <STYLE_NAME>ZSTSD_CARTA_CORRECAO</STYLE_NAME>
                                  <TEXT_AREA>
                                   <ENABLED>F</ENABLED>
@@ -23911,7 +23000,6 @@
                               <NAME>
                                <INAME>C_SPECIES</INAME>
                               </NAME>
-                              <CAPTION>Species</CAPTION>
                               <SECTTYPE>E</SECTTYPE>
                               <U_FHEIGHT>CM</U_FHEIGHT>
                               <PATTERN>
@@ -24016,18 +23104,7 @@
                                  <NAME>
                                   <INAME>SPECIES_CARRIER</INAME>
                                  </NAME>
-                                 <CAPTION>Species</CAPTION>
                                  <APPMODE>P</APPMODE>
-                                 <TEXT>
-                                  <item>
-                                   <TDFORMAT>*</TDFORMAT>
-                                   <TDLINE>&lt;CC&gt;ESPÉCIE&lt;/&gt;</TDLINE>
-                                  </item>
-                                  <item>
-                                   <TDFORMAT>*</TDFORMAT>
-                                   <TDLINE>&lt;C1&gt;&amp;NOTA_FISCAL-NOTA_FISCAL-SHPUNT&amp;&lt;/&gt;</TDLINE>
-                                  </item>
-                                 </TEXT>
                                  <STYLE_NAME>ZSTSD_CARTA_CORRECAO</STYLE_NAME>
                                  <TEXT_AREA>
                                   <ENABLED>F</ENABLED>
@@ -24079,7 +23156,6 @@
                               <NAME>
                                <INAME>C_BRAND</INAME>
                               </NAME>
-                              <CAPTION>Brand</CAPTION>
                               <SECTTYPE>E</SECTTYPE>
                               <U_FHEIGHT>CM</U_FHEIGHT>
                               <PATTERN>
@@ -24184,18 +23260,7 @@
                                  <NAME>
                                   <INAME>BRAND_CARRIER</INAME>
                                  </NAME>
-                                 <CAPTION>Brand</CAPTION>
                                  <APPMODE>P</APPMODE>
-                                 <TEXT>
-                                  <item>
-                                   <TDFORMAT>*</TDFORMAT>
-                                   <TDLINE>&lt;CC&gt;MARCA&lt;/&gt;</TDLINE>
-                                  </item>
-                                  <item>
-                                   <TDFORMAT>*</TDFORMAT>
-                                   <TDLINE>&lt;C1&gt;&amp;NOTA_FISCAL-OTHERS-BRAND_VOL&amp;&lt;/&gt;</TDLINE>
-                                  </item>
-                                 </TEXT>
                                  <STYLE_NAME>ZSTSD_CARTA_CORRECAO</STYLE_NAME>
                                  <TEXT_AREA>
                                   <ENABLED>F</ENABLED>
@@ -24247,7 +23312,6 @@
                               <NAME>
                                <INAME>C_NUMBERING</INAME>
                               </NAME>
-                              <CAPTION>Numbering</CAPTION>
                               <SECTTYPE>E</SECTTYPE>
                               <U_FHEIGHT>CM</U_FHEIGHT>
                               <PATTERN>
@@ -24352,18 +23416,7 @@
                                  <NAME>
                                   <INAME>NUMBERING_CARRIER</INAME>
                                  </NAME>
-                                 <CAPTION>Numbering</CAPTION>
                                  <APPMODE>P</APPMODE>
-                                 <TEXT>
-                                  <item>
-                                   <TDFORMAT>*</TDFORMAT>
-                                   <TDLINE>&lt;CC&gt;NUMERAÇÃO&lt;/&gt;</TDLINE>
-                                  </item>
-                                  <item>
-                                   <TDFORMAT>*</TDFORMAT>
-                                   <TDLINE>&lt;C1&gt;&amp;NOTA_FISCAL-NOTA_FISCAL-SHPUNT&amp;&lt;/&gt;</TDLINE>
-                                  </item>
-                                 </TEXT>
                                  <STYLE_NAME>ZSTSD_CARTA_CORRECAO</STYLE_NAME>
                                  <TEXT_AREA>
                                   <ENABLED>F</ENABLED>
@@ -24415,7 +23468,6 @@
                               <NAME>
                                <INAME>C_GWR</INAME>
                               </NAME>
-                              <CAPTION>GWR</CAPTION>
                               <SECTTYPE>E</SECTTYPE>
                               <U_FHEIGHT>CM</U_FHEIGHT>
                               <PATTERN>
@@ -24520,18 +23572,7 @@
                                  <NAME>
                                   <INAME>GWR_CARRIER</INAME>
                                  </NAME>
-                                 <CAPTION>GWR</CAPTION>
                                  <APPMODE>P</APPMODE>
-                                 <TEXT>
-                                  <item>
-                                   <TDFORMAT>*</TDFORMAT>
-                                   <TDLINE>&lt;CC&gt;PESO BRUTO&lt;/&gt;</TDLINE>
-                                  </item>
-                                  <item>
-                                   <TDFORMAT>PD</TDFORMAT>
-                                   <TDLINE>&lt;C1&gt;&amp;NOTA_FISCAL-NOTA_FISCAL-BRGEW&amp; &amp;NOTA_FISCAL-NOTA_FISCAL-GEWEI&amp;&lt;/&gt;</TDLINE>
-                                  </item>
-                                 </TEXT>
                                  <STYLE_NAME>ZSTSD_CARTA_CORRECAO</STYLE_NAME>
                                  <TEXT_AREA>
                                   <ENABLED>F</ENABLED>
@@ -24583,7 +23624,6 @@
                               <NAME>
                                <INAME>C_NET_WEIGHT</INAME>
                               </NAME>
-                              <CAPTION>Net Weight</CAPTION>
                               <SECTTYPE>E</SECTTYPE>
                               <U_FHEIGHT>CM</U_FHEIGHT>
                               <PATTERN>
@@ -24688,18 +23728,7 @@
                                  <NAME>
                                   <INAME>NET_WEIGHT_CARRIER</INAME>
                                  </NAME>
-                                 <CAPTION>Net Weight</CAPTION>
                                  <APPMODE>P</APPMODE>
-                                 <TEXT>
-                                  <item>
-                                   <TDFORMAT>*</TDFORMAT>
-                                   <TDLINE>&lt;CC&gt;PESO LÍQUIDO&lt;/&gt;</TDLINE>
-                                  </item>
-                                  <item>
-                                   <TDFORMAT>PD</TDFORMAT>
-                                   <TDLINE>&lt;C1&gt;&amp;NOTA_FISCAL-NOTA_FISCAL-NTGEW&amp; &amp;NOTA_FISCAL-NOTA_FISCAL-GEWEI&amp;&lt;/&gt;</TDLINE>
-                                  </item>
-                                 </TEXT>
                                  <STYLE_NAME>ZSTSD_CARTA_CORRECAO</STYLE_NAME>
                                  <TEXT_AREA>
                                   <ENABLED>F</ENABLED>
@@ -24757,7 +23786,6 @@
                         <NAME>
                          <INAME>%EVENT28</INAME>
                         </NAME>
-                        <CAPTION>Nota de rodapé</CAPTION>
                         <EVTYPE>F</EVTYPE>
                         <T_CAPTION>
                          <item>
@@ -24784,14 +23812,7 @@
                      <NAME>
                       <INAME>PRODUCTS</INAME>
                      </NAME>
-                     <CAPTION>Products / Services</CAPTION>
                      <APPMODE>P</APPMODE>
-                     <TEXT>
-                      <item>
-                       <TDFORMAT>TC</TDFORMAT>
-                       <TDLINE>&lt;CS&gt;INFORMAÇÕES  CARTA DE CORREÇÃO ELETRÔNICA&lt;/&gt;</TDLINE>
-                      </item>
-                     </TEXT>
                      <STYLE_NAME>ZSTSD_CARTA_CORRECAO</STYLE_NAME>
                      <TEXT_AREA>
                       <ENABLED>F</ENABLED>
@@ -24915,7 +23936,6 @@
               <NAME>
                <INAME>WIN_ISSUER_DEST</INAME>
               </NAME>
-              <CAPTION>Issuer / Destination</CAPTION>
               <WTYPE>T</WTYPE>
               <T_CAPTION>
                <item>
@@ -24938,7 +23958,6 @@
                      <NAME>
                       <INAME>ISSUER_DEST</INAME>
                      </NAME>
-                     <CAPTION>Issuer / Destination</CAPTION>
                      <NOLANGUAGE>X</NOLANGUAGE>
                      <APPMODE>P</APPMODE>
                      <TEXT>

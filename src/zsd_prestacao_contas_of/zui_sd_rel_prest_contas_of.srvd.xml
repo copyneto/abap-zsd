@@ -5,8 +5,7 @@
    <SRVD>
     <NAME>ZUI_SD_REL_PREST_CONTAS_OF</NAME>
     <TYPE>SRVD/SRV</TYPE>
-    <DESCRIPTION>Serviço Relatório de prestação de contas ordem de frete</DESCRIPTION>
-    <LANGUAGE>PT</LANGUAGE>
+    <LANGUAGE>EN</LANGUAGE>
     <MASTER_LANGUAGE>PT</MASTER_LANGUAGE>
     <SOURCE_URI>./zui_sd_rel_prest_contas_of/source/main</SOURCE_URI>
     <SOURCE_TYPE>ABAP_SOURCE</SOURCE_TYPE>

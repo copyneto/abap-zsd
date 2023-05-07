@@ -11,11 +11,9 @@
     <item>
      <FUNCNAME>ZFMSD_EMAIL_COMMIT</FUNCNAME>
      <REMOTE_CALL>R</REMOTE_CALL>
-     <SHORT_TEXT>App Impressão em Massa - Commit Work</SHORT_TEXT>
     </item>
     <item>
      <FUNCNAME>ZFMSD_GET_B2B_DATA</FUNCNAME>
-     <SHORT_TEXT>NFE - Funções B2B outbound</SHORT_TEXT>
      <IMPORT>
       <RSIMP>
        <PARAMETER>IV_ACCESS_KEY</PARAMETER>
@@ -60,17 +58,14 @@
       <RSFDO>
        <PARAMETER>IV_ACCESS_KEY</PARAMETER>
        <KIND>P</KIND>
-       <STEXT>Chave de acesso de 44 dígitos</STEXT>
       </RSFDO>
       <RSFDO>
        <PARAMETER>IV_SCENARIO</PARAMETER>
        <KIND>P</KIND>
-       <STEXT>Campo de caracteres do comprimento 10</STEXT>
       </RSFDO>
       <RSFDO>
        <PARAMETER>IV_GET_DANFE</PARAMETER>
        <KIND>P</KIND>
-       <STEXT>Flag geral</STEXT>
       </RSFDO>
       <RSFDO>
        <PARAMETER>EV_DANFE</PARAMETER>
@@ -83,7 +78,6 @@
       <RSFDO>
        <PARAMETER>ET_DANFE</PARAMETER>
        <KIND>P</KIND>
-       <STEXT>Lista de SAPscript</STEXT>
       </RSFDO>
       <RSFDO>
        <PARAMETER>ET_COMM</PARAMETER>
@@ -93,7 +87,6 @@
     </item>
     <item>
      <FUNCNAME>ZFMSD_GET_DANFE_PDF</FUNCNAME>
-     <SHORT_TEXT>NFE - Danfe PDF</SHORT_TEXT>
      <IMPORT>
       <RSIMP>
        <PARAMETER>IV_DOCNUM</PARAMETER>
@@ -156,12 +149,10 @@
       <RSFDO>
        <PARAMETER>IV_PRINTER</PARAMETER>
        <KIND>P</KIND>
-       <STEXT>Spool: dispositivo de saída</STEXT>
       </RSFDO>
       <RSFDO>
        <PARAMETER>ET_FILE</PARAMETER>
        <KIND>P</KIND>
-       <STEXT>Linhas texto_T</STEXT>
       </RSFDO>
       <RSFDO>
        <PARAMETER>EV_FILESIZE</PARAMETER>
@@ -174,7 +165,6 @@
       <RSFDO>
        <PARAMETER>ET_OTF</PARAMETER>
        <KIND>P</KIND>
-       <STEXT>Smart Form: tabela OTF</STEXT>
       </RSFDO>
       <RSFDO>
        <PARAMETER>DOCUMENT_NOT_FOUND</PARAMETER>
@@ -200,7 +190,6 @@
     </item>
     <item>
      <FUNCNAME>ZFMSD_NFE_B2B_OUT</FUNCNAME>
-     <SHORT_TEXT>NFE: Badi B2B outbound</SHORT_TEXT>
      <IMPORT>
       <RSIMP>
        <PARAMETER>IS_NFEHD</PARAMETER>
@@ -238,33 +227,27 @@
       <RSFDO>
        <PARAMETER>IS_NFEHD</PARAMETER>
        <KIND>P</KIND>
-       <STEXT>NF-e Header Data</STEXT>
       </RSFDO>
       <RSFDO>
        <PARAMETER>IS_OUTNFEHD</PARAMETER>
        <KIND>P</KIND>
-       <STEXT>NF-e Outbound: Header Data</STEXT>
       </RSFDO>
       <RSFDO>
        <PARAMETER>IS_OUTCTEHD</PARAMETER>
        <KIND>P</KIND>
-       <STEXT>CT-e Outbound: Header Data</STEXT>
       </RSFDO>
       <RSFDO>
        <PARAMETER>IV_SCENARIO</PARAMETER>
        <KIND>P</KIND>
-       <STEXT>Cenário B2B</STEXT>
       </RSFDO>
       <RSFDO>
        <PARAMETER>EV_COMMPARAM</PARAMETER>
        <KIND>P</KIND>
-       <STEXT>Parâmetro de comunicação (B2B)</STEXT>
       </RSFDO>
      </DOCUMENTATION>
     </item>
     <item>
      <FUNCNAME>ZFMSD_NFE_B2B_READ_CUSTOMIZING</FUNCNAME>
-     <SHORT_TEXT>Leitura de B2B Customizing</SHORT_TEXT>
      <IMPORT>
       <RSIMP>
        <PARAMETER>IV_CNPJ</PARAMETER>
@@ -283,12 +266,10 @@
       <RSFDO>
        <PARAMETER>IV_CNPJ</PARAMETER>
        <KIND>P</KIND>
-       <STEXT>CNPJ próprio</STEXT>
       </RSFDO>
       <RSFDO>
        <PARAMETER>ES_B2BCUST</PARAMETER>
        <KIND>P</KIND>
-       <STEXT>NFE: Customizaçao do B2B Outbound</STEXT>
       </RSFDO>
      </DOCUMENTATION>
     </item>

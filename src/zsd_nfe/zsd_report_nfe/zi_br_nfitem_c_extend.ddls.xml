@@ -4,9 +4,7 @@
   <asx:values>
    <DDLS>
     <DDLNAME>ZI_BR_NFITEM_C_EXTEND</DDLNAME>
-    <DDLANGUAGE>P</DDLANGUAGE>
     <PARENTNAME>I_BR_NFITEM_C</PARENTNAME>
-    <DDTEXT>Extend para I_BR_NFITEM_C</DDTEXT>
     <SOURCE_TYPE>E</SOURCE_TYPE>
    </DDLS>
   </asx:values>

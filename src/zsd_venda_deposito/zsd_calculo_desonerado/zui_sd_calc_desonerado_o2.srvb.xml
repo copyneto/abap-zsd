@@ -6,7 +6,6 @@
     <METADATA>
      <NAME>ZUI_SD_CALC_DESONERADO_O2</NAME>
      <TYPE>SRVB/SVB</TYPE>
-     <DESCRIPTION>Service Bind Cód Benef. e ICMS Desonerado</DESCRIPTION>
      <LINKS>
       <item>
        <HREF>/sap/bc/adt/businessservices/odatav2/ZUI_SD_CALC_DESONERADO_O2</HREF>

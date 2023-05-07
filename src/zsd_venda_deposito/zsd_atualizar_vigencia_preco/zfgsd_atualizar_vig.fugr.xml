@@ -11,7 +11,6 @@
     <item>
      <FUNCNAME>ZFMSD_ATUALIZAR_VIG</FUNCNAME>
      <REMOTE_CALL>R</REMOTE_CALL>
-     <SHORT_TEXT>Função APP Atualizar Vigência Preço</SHORT_TEXT>
      <IMPORT>
       <RSIMP>
        <PARAMETER>IV_DATA_IN</PARAMETER>
@@ -46,7 +45,6 @@
       <RSFDO>
        <PARAMETER>IS_RECORD</PARAMETER>
        <KIND>P</KIND>
-       <STEXT>App Atualizar Vigência Preço</STEXT>
       </RSFDO>
       <RSFDO>
        <PARAMETER>ET_RETURN</PARAMETER>

@@ -6,7 +6,6 @@
     <METADATA>
      <NAME>ZUI_O2_SD_COMISSAO_SM</NAME>
      <TYPE>SRVB/SVB</TYPE>
-     <DESCRIPTION>Service binding para ZUI_SD_COMISSAO_SM</DESCRIPTION>
      <LINKS>
       <item>
        <HREF>/sap/bc/adt/businessservices/odatav2/ZUI_O2_SD_COMISSAO_SM</HREF>

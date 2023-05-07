@@ -6,7 +6,6 @@
     <METADATA>
      <NAME>ZUI_O2_REGRA_DIFAL</NAME>
      <TYPE>SRVB/SVB</TYPE>
-     <DESCRIPTION>Regra DIFAL - Consumo</DESCRIPTION>
      <LINKS>
       <item>
        <HREF>/sap/bc/adt/businessservices/odatav2/ZUI_O2_REGRA_DIFAL</HREF>
