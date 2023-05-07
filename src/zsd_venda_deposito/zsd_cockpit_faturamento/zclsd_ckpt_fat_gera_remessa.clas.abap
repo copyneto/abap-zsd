@@ -1,38 +1,39 @@
-CLASS zclsd_ckpt_fat_gera_remessa DEFINITION
-  PUBLIC
-  FINAL
-  CREATE PUBLIC .
+class ZCLSD_CKPT_FAT_GERA_REMESSA definition
+  public
+  final
+  create public .
 
-  PUBLIC SECTION.
+public section.
+
     "! Funcionalidade Gerar Remessa
     "! @parameter iv_ordem_venda | Ordem do cliente
     "! @parameter rt_return      | Mensagens de erro
-    METHODS main
-      IMPORTING
-        !iv_ordem_venda  TYPE zi_sd_ckpt_fat_app-salesorder
-        !iv_cliente      TYPE zi_sd_ckpt_fat_app-customer
-      RETURNING
-        VALUE(rt_return) TYPE bapiret2_tab .
-
+  methods MAIN
+    importing
+      !IV_ORDEM_VENDA type ZI_SD_CKPT_FAT_APP-SALESORDER
+      !IV_CLIENTE type ZI_SD_CKPT_FAT_APP-CUSTOMER
+    returning
+      value(RT_RETURN) type BAPIRET2_TAB .
     "! Método para criar Remessa
     "! @parameter iv_sales_order    | Ordem do cliente
     "! @parameter iv_block_delivery | Indica se remessa nasce bloqueada ou não
     "! @parameter ev_delivery_no    | Número da remessa gerada
     "! @parameter et_return         | Tabela de mensagens
-    METHODS call_bapi_create
-      IMPORTING
-        iv_sales_order    TYPE vbak-vbeln
-        iv_block_delivery TYPE abap_boolean
-      EXPORTING
-        ev_delivery_no    TYPE likp-vbeln
-        et_return         TYPE bapiret2_t.
-
+  methods CALL_BAPI_CREATE
+    importing
+      !IV_SALES_ORDER type VBAK-VBELN
+      !IV_BLOCK_DELIVERY type ABAP_BOOLEAN
+    exporting
+      !EV_DELIVERY_NO type LIKP-VBELN
+      !ET_RETURN type BAPIRET2_T .
     "! Método executado após chamada da função background
     "! @parameter p_task | Parametro obrigatório do método
-    METHODS task_finish
-      IMPORTING
-        !p_task TYPE clike .
-
+  methods TASK_FINISH
+    importing
+      !P_TASK type CLIKE .
+  methods TASK_FINISH_MOD
+    importing
+      !P_TASK type CLIKE .
   PROTECTED SECTION.
   PRIVATE SECTION.
     "! Retorno Mensagem Bapi
@@ -75,7 +76,7 @@ ENDCLASS.
 
 
 
-CLASS zclsd_ckpt_fat_gera_remessa IMPLEMENTATION.
+CLASS ZCLSD_CKPT_FAT_GERA_REMESSA IMPLEMENTATION.
 
 
   METHOD main.
@@ -97,6 +98,7 @@ CLASS zclsd_ckpt_fat_gera_remessa IMPLEMENTATION.
     ENDIF.
 
   ENDMETHOD.
+
 
   METHOD verifica_cliente.
 
@@ -130,8 +132,6 @@ CLASS zclsd_ckpt_fat_gera_remessa IMPLEMENTATION.
     ENDIF.
 
   ENDMETHOD.
-
-
 
 
   METHOD call_bapi_create.
@@ -189,17 +189,26 @@ CLASS zclsd_ckpt_fat_gera_remessa IMPLEMENTATION.
             ls_header_control = VALUE #( deliv_numb    = |{ <fs_return>-message_v1(10) ALPHA = IN  }| "ev_delivery_no
                                          dlv_block_flg = abap_true ).
 
-            CALL FUNCTION 'BAPI_OUTB_DELIVERY_CHANGE'
+            CALL FUNCTION 'ZFMSD_CKPT_FAT_MOD_REMESSA'
+              STARTING NEW TASK 'BACKGROUND_MOD' CALLING task_finish_mod ON END OF TASK
               EXPORTING
-                header_data    = ls_header_data
-                header_control = ls_header_control
-                delivery       = ev_delivery_no
+                is_header_data    = ls_header_data
+                is_header_control = ls_header_control
+                iv_delivery_no    = ev_delivery_no
               TABLES
-                return         = lt_return.
+                tt_return         = lt_return.
 
-            CALL FUNCTION 'BAPI_TRANSACTION_COMMIT'
-              EXPORTING
-                wait = abap_true.
+*            CALL FUNCTION 'BAPI_OUTB_DELIVERY_CHANGE'
+*              EXPORTING
+*                header_data    = ls_header_data
+*                header_control = ls_header_control
+*                delivery       = ev_delivery_no
+*              TABLES
+*                return         = lt_return.
+*
+*            CALL FUNCTION 'BAPI_TRANSACTION_COMMIT'
+*              EXPORTING
+*                wait = abap_true.
 
             APPEND LINES OF lt_return TO lt_return_aux.
 
@@ -279,6 +288,15 @@ CLASS zclsd_ckpt_fat_gera_remessa IMPLEMENTATION.
 
     ENDTRY.
 
+
+  ENDMETHOD.
+
+
+  METHOD task_finish_mod.
+
+ RECEIVE RESULTS FROM FUNCTION 'ZFMSD_CKPT_FAT_MOD_REMESSA'
+ IMPORTING
+  tt_return      = me->gt_return.
 
   ENDMETHOD.
 ENDCLASS.

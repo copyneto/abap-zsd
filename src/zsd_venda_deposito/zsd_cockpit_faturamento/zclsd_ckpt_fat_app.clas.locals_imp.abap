@@ -93,7 +93,8 @@ CLASS lcl_cockpitfaturamento IMPLEMENTATION.
         v2       = ls_message-message_v2
         v3       = ls_message-message_v3
         v4       = ls_message-message_v4
-        severity = CONV #( 'I' )
+        severity = CONV #( ls_message-type )
+*        severity = CONV #( 'I' )
     ) ) ).
   ENDMETHOD.
 

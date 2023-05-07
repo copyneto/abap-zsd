@@ -519,6 +519,11 @@ CLASS ZCLSD_GET_TAX_CALCULATIONS IMPLEMENTATION.
         gs_calculos-vbcefet = gs_calculos-vbcstret.
       ELSE.
         gs_calculos-vbcefet = gs_valor_prod.
+* LSCHEPP - 8000007013 - CORE 5 - Cálculo CST 60 - 05.05.2023 Início
+        IF NOT gs_base_red_dest IS INITIAL.
+          gs_calculos-vbcefet = gs_calculos-vbcefet * gs_base_red_dest / 100.
+        ENDIF.
+* LSCHEPP - 8000007013 - CORE 5 - Cálculo CST 60 - 05.05.2023 Fim
       ENDIF.
     ENDIF.
 
@@ -543,7 +548,10 @@ CLASS ZCLSD_GET_TAX_CALCULATIONS IMPLEMENTATION.
     IF gs_baseredefet IS NOT INITIAL.
       gs_calculos-predbcefet = 100 - gs_baseredefet.
     ELSEIF gs_base_red_dest IS NOT INITIAL AND gs_base_red_dest NE '100.00'.
-      gs_calculos-predbcefet = gs_base_red_dest.
+* LSCHEPP - 8000007013 - CORE 5 - Cálculo CST 60 - 05.05.2023 Início
+*      gs_calculos-predbcefet = gs_base_red_dest.
+      gs_calculos-predbcefet = 100 - gs_base_red_dest.
+* LSCHEPP - 8000007013 - CORE 5 - Cálculo CST 60 - 05.05.2023 Fim
     ENDIF.
 
   ENDMETHOD.

@@ -203,6 +203,7 @@ CLASS ZCLSD_CONDICAO_CONTRATO IMPLEMENTATION.
 
     FIELD-SYMBOLS: <fs_abgru>      TYPE abgru_va,
                    <fs_trtyp>      TYPE trtyp,
+                   <fs_tabix>      TYPE sytabix,
                    <fs_posnr>      TYPE posnr_va,
                    <fs_ex_vbapkom> TYPE vbapkom_t.
 
@@ -230,7 +231,15 @@ CLASS ZCLSD_CONDICAO_CONTRATO IMPLEMENTATION.
 
     ENDIF.
 
-    IF sy-tcode NE 'VKM1'.
+    IF sy-cprog EQ 'SAPMSSY1'.
+      ASSIGN ('(SAPLERP_SLS_CREDBLOCKDOC)TABIX') TO <fs_tabix>.
+      IF <fs_tabix> IS ASSIGNED.
+        DATA(lv_ukm_case) = abap_true.
+      ENDIF.
+    ENDIF.
+
+    IF sy-tcode NE 'VKM1' AND
+       lv_ukm_case IS INITIAL.
       ASSIGN ('(SAPMV45A)VBAP-POSNR') TO <fs_posnr>.
       IF <fs_posnr> IS ASSIGNED AND
          <fs_posnr> IS INITIAL.
@@ -258,6 +267,8 @@ CLASS ZCLSD_CONDICAO_CONTRATO IMPLEMENTATION.
         ENDIF.
       ENDIF.
     ENDIF.
+
+    CLEAR lv_ukm_case.
 
     DATA(ls_cliente) = get_cliente( EXPORTING iv_kunnr = is_komk-kunnr ).
 

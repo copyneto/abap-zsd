@@ -127,7 +127,10 @@ CLASS ZCLSD_CRIACAO_CONTRATOS IMPLEMENTATION.
                     purchaseorderbycustomer
         FROM i_salesdocument
         INTO @ls_salesdocument
-       WHERE purchaseorderbycustomer EQ @gs_input-mt_criar_contrato-contract_header_in-purch_no_c.
+       WHERE purchaseorderbycustomer EQ @gs_input-mt_criar_contrato-contract_header_in-purch_no_c
+* LSCHEPP - 8000006883 - Interface criação Contratos - 03.05.2023 Início
+         AND sddocumentcategory EQ 'G'.
+* LSCHEPP - 8000006883 - Interface criação Contratos - 03.05.2023 Fim
 
       IF sy-subrc EQ 0.
 

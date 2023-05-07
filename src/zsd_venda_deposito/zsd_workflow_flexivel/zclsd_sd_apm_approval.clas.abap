@@ -75,14 +75,16 @@ CLASS ZCLSD_SD_APM_APPROVAL IMPLEMENTATION.
 *       AND ( ls_xvbuk-cmgst = 'A' OR
 *             ls_xvbuk-cmgst = 'D' ).
           salesdocapprovalreason = lc_reason.
-* LSCHEPP - 8000006769 - Workflow liberação PO exportação SIRIUS - 02.05.2023 Início
+* LSCHEPP - 8000006769 - Workflow liberação PO exportação SIRIUS - 03.05.2023 Início
         ELSEIF salesdocument-distributionchannel  = ls_vbak-vtweg
            AND salesdocument-salesdocumenttype    = ls_vbak-auart
            AND salesdocument-organizationdivision = ls_vbak-spart
-           AND salesdocument-salesdocument IS NOT INITIAL
-           AND ls_xvbak-gbstk EQ 'B'.
-          salesdocapprovalreason = lc_reason.
-* LSCHEPP - 8000006769 - Workflow liberação PO exportação SIRIUS - 02.05.2023 Fim
+           AND salesdocument-salesdocument IS NOT INITIAL.
+          SELECT SINGLE apm_approval_reason
+            FROM vbak
+            INTO @salesdocapprovalreason
+            WHERE vbeln EQ @salesdocument-salesdocument.
+* LSCHEPP - 8000006769 - Workflow liberação PO exportação SIRIUS - 03.05.2023 Fim
         ENDIF.
 
       CATCH zcxca_tabela_parametros INTO DATA(lo_catch).

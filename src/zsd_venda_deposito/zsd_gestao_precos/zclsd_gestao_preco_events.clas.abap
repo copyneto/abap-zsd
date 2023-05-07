@@ -2950,7 +2950,8 @@ CLASS ZCLSD_GESTAO_PRECO_EVENTS IMPLEMENTATION.
         " Valida mínimo (campo calculado)
         " ---------------------------------------------------------------------
         TRY.
-            DATA(ls_a626) = it_a626[ werks = ls_item-plant "is_header-plant
+            DATA(ls_a626) = it_a626[ vtweg = ls_item-dist_channel
+                                     werks = ls_item-plant "is_header-plant
                                      matnr = ls_item-material ].
 
           CATCH cx_root.
@@ -3008,7 +3009,7 @@ CLASS ZCLSD_GESTAO_PRECO_EVENTS IMPLEMENTATION.
         " ---------------------------------------------------------------------
         " Valida se Valor mínimo é menor que Mínimo(ZVMC)
         " ---------------------------------------------------------------------
-        READ TABLE it_a626 INTO ls_a626 WITH TABLE KEY vtweg = ls_item-dist_channel
+        READ TABLE it_a626 INTO ls_a626 WITH TABLE KEY  vtweg = ls_item-dist_channel
                                                         werks = ls_item-plant
                                                         matnr = ls_item-material.
         IF sy-subrc NE 0.
@@ -5280,6 +5281,10 @@ CLASS ZCLSD_GESTAO_PRECO_EVENTS IMPLEMENTATION.
            END OF ty_material_base.
 
     DATA lv_meinh TYPE marm-meinh.
+    DATA: lv_min_value TYPE p DECIMALS 6,
+          lv_sug_value TYPE p DECIMALS 6,
+          lv_max_value TYPE p DECIMALS 6.
+
     DATA: lt_material_base TYPE TABLE OF ty_material_base.
 
     CHECK cs_header-status NE gc_status-aprovado.
@@ -5488,17 +5493,22 @@ CLASS ZCLSD_GESTAO_PRECO_EVENTS IMPLEMENTATION.
 
               READ TABLE lt_marm_base INTO DATA(ls_marm_base) WITH KEY matnr = ls_base-material
                                                                        meinh = ls_base-umb BINARY SEARCH.
-              "Se a UMB do S4 for deferente da UMB Base do material, converte o valor para a unidade base
-              IF sy-subrc EQ 0.
-                ls_item->active_min_value        = ls_item->active_min_value / ls_marm_base-umrez.
-                ls_item->active_sug_value        = ls_item->active_sug_value / ls_marm_base-umrez.
-                ls_item->active_max_value        = ls_item->active_max_value / ls_marm_base-umrez.
 
+              IF sy-subrc EQ 0.
                 "Se a UMB do arquivo for deferente da UMB Base do material, converte o valor para a unidade do arquivo
                 IF ls_mara-meins <> ls_marm-meinh.
-                  ls_item->active_min_value        = ls_item->active_min_value * ls_marm-umrez.
-                  ls_item->active_sug_value        = ls_item->active_sug_value * ls_marm-umrez.
-                  ls_item->active_max_value        = ls_item->active_max_value * ls_marm-umrez.
+                  lv_min_value                     = ls_item->active_min_value / ls_marm_base-umrez.
+                  lv_sug_value                     = ls_item->active_sug_value / ls_marm_base-umrez.
+                  lv_max_value                     = ls_item->active_max_value / ls_marm_base-umrez.
+
+                  ls_item->active_min_value        = lv_min_value * ls_marm-umrez.
+                  ls_item->active_sug_value        = lv_sug_value * ls_marm-umrez.
+                  ls_item->active_max_value        = lv_max_value * ls_marm-umrez.
+                ELSE.
+                  "Se a UMB do S4 for deferente da UMB Base do material, converte o valor para a unidade base
+                  ls_item->active_min_value        = ls_item->active_min_value / ls_marm_base-umrez.
+                  ls_item->active_sug_value        = ls_item->active_sug_value / ls_marm_base-umrez.
+                  ls_item->active_max_value        = ls_item->active_max_value / ls_marm_base-umrez.
                 ENDIF.
 
               ENDIF.

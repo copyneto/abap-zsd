@@ -22,6 +22,9 @@ FUNCTION zfmsd_get_b2b_data.
       parid      TYPE j_1bnfnad-parid,
       adrnr      TYPE adrnr,
       ad_smtpadr TYPE ad_smtpadr,
+* LSCHEPP - 8000006997 - CONFIG ENVIO XML NFE TRANSPORTADOR - 05.05.2023 Início
+      ad_remark2 TYPE ad_remark2,
+* LSCHEPP - 8000006997 - CONFIG ENVIO XML NFE TRANSPORTADOR - 05.05.2023 Fim
     END   OF ty_partner.
 
   DATA:
@@ -63,7 +66,10 @@ FUNCTION zfmsd_get_b2b_data.
     gc_parvw_buyer    TYPE parvw VALUE 'AG',
     gc_parvw_carrier  TYPE parvw VALUE 'SP',
     gc_parvw_operator TYPE parvw VALUE 'ZW',
-    gc_parvw_vendor   TYPE parvw VALUE 'LF'.
+    gc_parvw_vendor   TYPE parvw VALUE 'LF',
+* LSCHEPP - 8000006997 - CONFIG ENVIO XML NFE TRANSPORTADOR - 05.05.2023 Início
+    gc_mailnfe        TYPE ad_remark2 VALUE 'MAILNFE'.
+* LSCHEPP - 8000006997 - CONFIG ENVIO XML NFE TRANSPORTADOR - 05.05.2023 Fim
 
   FIELD-SYMBOLS: <fs_mail> TYPE ad_smtpadr.
 
@@ -115,23 +121,40 @@ FUNCTION zfmsd_get_b2b_data.
                                                 ( low = gc_parvw_carrier   )
                                                 ( low = gc_parvw_vendor    ) ).
 
-  SELECT
-    parvw
-    parid
-    adrnr
-    c~smtp_addr
+* LSCHEPP - 8000006997 - CONFIG ENVIO XML NFE TRANSPORTADOR - 05.05.2023 Início
+*  SELECT
+*    parvw
+*    parid
+*    adrnr
+*    c~smtp_addr
+*    FROM j_1bnfnad AS a
+*    INNER JOIN lfa1 AS b
+*    ON a~parid = b~lifnr
+*    INNER JOIN adr6 AS c
+*    ON b~adrnr = c~addrnumber
+*    INTO TABLE lt_partner
+*   WHERE docnum = lv_docnum
+*     AND parvw  IN lt_parvw.
+
+  SELECT a~parvw, a~parid, b~adrnr, c~emailaddress, c~addresscommunicationremarktext
     FROM j_1bnfnad AS a
-    INNER JOIN lfa1 AS b
-    ON a~parid = b~lifnr
-    INNER JOIN adr6 AS c
-    ON b~adrnr = c~addrnumber
-    INTO TABLE lt_partner
-   WHERE docnum = lv_docnum
-     AND parvw  IN lt_parvw.
+    INNER JOIN lfa1 AS b ON a~parid = b~lifnr
+    INNER JOIN c_bpemailaddress AS c ON b~adrnr = c~addressid
+   WHERE a~docnum EQ @lv_docnum
+     AND a~parvw  IN @lt_parvw
+     INTO TABLE @lt_partner.
+* LSCHEPP - 8000006997 - CONFIG ENVIO XML NFE TRANSPORTADOR - 05.05.2023 Fim
 
   IF sy-subrc EQ 0.
 
     LOOP AT lt_partner ASSIGNING FIELD-SYMBOL(<fs_email>).
+
+* LSCHEPP - 8000006997 - CONFIG ENVIO XML NFE TRANSPORTADOR - 05.05.2023 Início
+      IF <fs_email>-parvw EQ gc_parvw_carrier AND
+         <fs_email>-ad_remark2 NE gc_mailnfe.
+        CONTINUE.
+      ENDIF.
+* LSCHEPP - 8000006997 - CONFIG ENVIO XML NFE TRANSPORTADOR - 05.05.2023 Fim
 
       ls_comm-type = 'MAIL'.
       ls_comm-address = <fs_email>-ad_smtpadr.

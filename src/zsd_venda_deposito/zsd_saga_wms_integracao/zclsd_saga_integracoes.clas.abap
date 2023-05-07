@@ -90,12 +90,19 @@ CLASS ZCLSD_SAGA_INTEGRACOES IMPLEMENTATION.
 
   METHOD check_sent.
 
-    SELECT COUNT( * )
+    SELECT *
       FROM ztsd_rem_saga
-      WHERE remessa      EQ @gs_likp-vbeln
-        AND enviado_saga EQ @abap_true.
+      INTO TABLE @DATA(lt_ztsd_rem_saga)
+      WHERE remessa EQ @gs_likp-vbeln.
     IF sy-subrc EQ 0.
-      rv_return = abap_true.
+      IF line_exists( lt_ztsd_rem_saga[ enviado_saga = abap_true ] ).
+        rv_return = abap_true.
+      ELSE.
+        DELETE ztsd_rem_saga FROM TABLE lt_ztsd_rem_saga.
+        IF sy-subrc EQ 0.
+          CALL FUNCTION 'DB_COMMIT'.
+        ENDIF.
+      ENDIF.
     ENDIF.
 
   ENDMETHOD.

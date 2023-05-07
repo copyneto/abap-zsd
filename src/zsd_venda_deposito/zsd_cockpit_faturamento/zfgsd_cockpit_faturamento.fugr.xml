@@ -51,6 +51,71 @@
       </RSFDO>
      </DOCUMENTATION>
     </item>
+    <item>
+     <FUNCNAME>ZFMSD_CKPT_FAT_MOD_REMESSA</FUNCNAME>
+     <REMOTE_CALL>R</REMOTE_CALL>
+     <SHORT_TEXT>Cockpit Faturamento: Gerar Remessa</SHORT_TEXT>
+     <IMPORT>
+      <RSIMP>
+       <PARAMETER>IS_HEADER_DATA</PARAMETER>
+       <TYP>BAPIOBDLVHDRCHG</TYP>
+      </RSIMP>
+      <RSIMP>
+       <PARAMETER>IS_HEADER_CONTROL</PARAMETER>
+       <TYP>BAPIOBDLVHDRCTRLCHG</TYP>
+      </RSIMP>
+      <RSIMP>
+       <PARAMETER>IV_DELIVERY_NO</PARAMETER>
+       <TYP>LIKP-VBELN</TYP>
+      </RSIMP>
+     </IMPORT>
+     <EXPORT>
+      <RSEXP>
+       <PARAMETER>EV_DELIVERY_NO</PARAMETER>
+       <TYP>LIKP-VBELN</TYP>
+      </RSEXP>
+      <RSEXP>
+       <PARAMETER>ET_RETURN</PARAMETER>
+       <TYP>BAPIRET2_T</TYP>
+      </RSEXP>
+     </EXPORT>
+     <TABLES>
+      <RSTBL>
+       <PARAMETER>TT_RETURN</PARAMETER>
+       <DBSTRUCT>BAPIRET2</DBSTRUCT>
+      </RSTBL>
+     </TABLES>
+     <DOCUMENTATION>
+      <RSFDO>
+       <PARAMETER>IS_HEADER_DATA</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Modificação entrega dados de picking nível de cabeçalho</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>IS_HEADER_CONTROL</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Dados de controle entrega nível de cabeçalho</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>IV_DELIVERY_NO</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Remessa</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>EV_DELIVERY_NO</PARAMETER>
+       <KIND>P</KIND>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>ET_RETURN</PARAMETER>
+       <KIND>P</KIND>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>TT_RETURN</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Parâmetro de retorno</STEXT>
+      </RSFDO>
+     </DOCUMENTATION>
+    </item>
    </FUNCTIONS>
   </asx:values>
  </asx:abap>

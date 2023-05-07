@@ -190,6 +190,8 @@ CLASS ZCLSD_SAGA_DEVOLV_PICKING IMPLEMENTATION.
 
     DATA lv_vbeln TYPE lips-vbeln.
 
+    DATA lt_doc_type TYPE tms_t_auart_range.
+
     CLEAR: gt_vbpok[],
            gs_badi_nfe,
            gs_likp,
@@ -210,7 +212,32 @@ CLASS ZCLSD_SAGA_DEVOLV_PICKING IMPLEMENTATION.
     IF sy-subrc <> 0.
       gs_vbkok-traid    = |{ is_proxy-traid } / { is_proxy-ztraid }|.
     ENDIF.
-    gs_vbkok-anzpk    = is_proxy-anzpk.
+
+* LSCHEPP - 8000006985 - CORE 1 - Quantidade DANFE - 05.05.2023 Início
+*    gs_vbkok-anzpk    = is_proxy-anzpk.
+    TRY.
+        NEW zclca_tabela_parametros( )->m_get_range(
+          EXPORTING
+            iv_modulo = 'SD'
+            iv_chave1 = 'SAGA'
+            iv_chave2 = 'VOLUME'
+          IMPORTING
+            et_range  = lt_doc_type
+        ).
+      CATCH zcxca_tabela_parametros.
+    ENDTRY.
+
+    SELECT SINGLE lfart
+      FROM likp
+      INTO @DATA(lv_lfart)
+      WHERE vbeln EQ @lv_vbeln.
+    IF sy-subrc EQ 0.
+      IF lv_lfart IN lt_doc_type.
+        gs_vbkok-anzpk = is_proxy-anzpk.
+      ENDIF.
+    ENDIF.
+* LSCHEPP - 8000006985 - CORE 1 - Quantidade DANFE - 05.05.2023 Fim
+
     gs_vbkok-kzapk    = abap_true.
 
     gt_vbpok = VALUE #( BASE gt_vbpok FOR ls_proxy

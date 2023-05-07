@@ -6,12 +6,15 @@ CLASS zclsd_cancelamentos_vendas DEFINITION
   PUBLIC SECTION.
 
     METHODS:
+      "! Constructor
       constructor
         IMPORTING
           is_input TYPE zclsd_mt_venda_cancelamento.
 
   PROTECTED SECTION.
   PRIVATE SECTION.
+    CONSTANTS gc_object     TYPE bal_s_log-object    VALUE 'ZSD_INTERFACE_WEVO' .
+    CONSTANTS gc_subobject  TYPE bal_s_log-subobject VALUE 'CANCELAMENTO'.
 
     TYPES: tt_item  TYPE TABLE OF bapisditm,
            tt_itemx TYPE TABLE OF bapisditmx.
@@ -22,12 +25,12 @@ CLASS zclsd_cancelamentos_vendas DEFINITION
           gt_itemx        TYPE tt_itemx,
           gv_check_commit TYPE c.
 
-    DATA: gs_input     TYPE zclsd_mt_venda_cancelamento.
+    DATA: gs_input  TYPE zclsd_mt_venda_cancelamento,
+          gt_return TYPE bapiret2_t.
 
     METHODS:
-      process_data
-        RAISING
-          zcxsd_erro_interface,
+      "! Process interface
+      process_data,
 
       "! Execute bapi 'BAPI_SALESORDER_CHANGE'
       bapi_change
@@ -36,29 +39,30 @@ CLASS zclsd_cancelamentos_vendas DEFINITION
           is_header        TYPE bapisdh1 OPTIONAL
           is_headerx       TYPE bapisdh1x OPTIONAL
           it_item          TYPE tt_item OPTIONAL
-          it_itemx         TYPE tt_itemx OPTIONAL
-        RAISING
-          zcxsd_erro_interface,
+          it_itemx         TYPE tt_itemx OPTIONAL,
 
       "! Raising erro
       erro
         IMPORTING
-          is_erro TYPE scx_t100key
-        RAISING
-          zcxsd_erro_interface,
+          is_erro TYPE scx_t100key,
 
+      "!Save error logs
+      save_error_logs,
+
+      "! Commit changes
       bapi_commit.
 
 ENDCLASS.
 
 
 
-CLASS ZCLSD_CANCELAMENTOS_VENDAS IMPLEMENTATION.
+CLASS zclsd_cancelamentos_vendas IMPLEMENTATION.
 
 
   METHOD constructor.
     MOVE-CORRESPONDING is_input TO gs_input.
     me->process_data( ).
+    me->save_error_logs( ).
   ENDMETHOD.
 
 
@@ -148,9 +152,17 @@ CLASS ZCLSD_CANCELAMENTOS_VENDAS IMPLEMENTATION.
               delivery      = ls_vbkok_wa-vbeln_vl
             EXCEPTIONS
               error_message = 99.
+
           IF sy-subrc <> 0.
-            MESSAGE ID sy-msgid TYPE sy-msgty NUMBER sy-msgno
-                    WITH sy-msgv1 sy-msgv2 sy-msgv3 sy-msgv4.
+            me->erro( VALUE scx_t100key( msgid = sy-msgid
+                                         msgno = sy-msgno
+                                         attr1 = sy-msgv1
+                                         attr2 = sy-msgv2
+                                         attr3 = sy-msgv3
+                                         attr4 = sy-msgv4
+            ) ).
+*            MESSAGE ID sy-msgid TYPE sy-msgty NUMBER sy-msgno
+*                    WITH sy-msgv1 sy-msgv2 sy-msgv3 sy-msgv4.
           ENDIF.
         ENDLOOP.
 
@@ -189,6 +201,7 @@ CLASS ZCLSD_CANCELAMENTOS_VENDAS IMPLEMENTATION.
         ENDLOOP.
 
       ENDIF.
+
       me->bapi_change( EXPORTING iv_salesdocument = lv_salesdocument is_header = gs_header is_headerx = gs_headerx it_item = gt_item it_itemx = gt_itemx ).
 
 *      IF gv_check_commit = abap_true.
@@ -206,8 +219,8 @@ CLASS ZCLSD_CANCELAMENTOS_VENDAS IMPLEMENTATION.
           lv_doc              TYPE vbeln,
           ls_order_header_in  TYPE bapisdh1,
           ls_order_header_inx TYPE bapisdh1x,
-          lt_order_item_in    TYPE TABLE of bapisditm,
-          lt_order_item_inx   TYPE TABLE of bapisditmx.
+          lt_order_item_in    TYPE TABLE OF bapisditm,
+          lt_order_item_inx   TYPE TABLE OF bapisditmx.
 
     MOVE-CORRESPONDING is_header TO ls_order_header_in.
     MOVE-CORRESPONDING is_headerx TO ls_order_header_inx.
@@ -230,15 +243,7 @@ CLASS ZCLSD_CANCELAMENTOS_VENDAS IMPLEMENTATION.
 
     IF ( sy-subrc NE 0 AND line_exists( lt_ret[ type = 'E' ] ) ) OR
        ( sy-subrc EQ 0 AND line_exists( lt_ret[ type = 'E' ] ) ).
-
-      me->erro( VALUE scx_t100key( msgid = lt_ret[ 1 ]-id
-                                   msgno = lt_ret[ 1 ]-number
-                                   attr1 = lt_ret[ 1 ]-message
-                                   attr2 = lt_ret[ 1 ]-message_v1
-                                   attr3 = lt_ret[ 1 ]-message_v2
-                                   attr4 = lt_ret[ 1 ]-message_v3
-                                    ) ).
-
+      APPEND LINES OF lt_ret TO me->gt_return.
     ELSE.
 
       me->bapi_commit(  ).
@@ -258,9 +263,28 @@ CLASS ZCLSD_CANCELAMENTOS_VENDAS IMPLEMENTATION.
 
   METHOD erro.
 
-    RAISE EXCEPTION TYPE zcxsd_erro_interface
-      EXPORTING
-        textid = is_erro.
+    APPEND VALUE #(
+      type       = 'E'
+      id         = is_erro-msgid
+      number     = is_erro-msgno
+      message_v1 = is_erro-attr1
+      message_v2 = is_erro-attr2
+      message_v3 = is_erro-attr3
+      message_v4 = is_erro-attr4
+    ) TO me->gt_return.
 
+*    RAISE EXCEPTION TYPE zcxsd_erro_interface
+*      EXPORTING
+*        textid = is_erro.
+
+  ENDMETHOD.
+
+  METHOD save_error_logs.
+    IF line_exists( me->gt_return[ type = 'E' ] ).
+      DATA(lo_log) = NEW zclca_save_log( gc_object ).
+      lo_log->create_log( iv_subobject = gc_subobject iv_externalid = |REF. CLIENTE: { gs_input-mt_venda_cancelamento-purchaseorderbycustomer }| ).
+      lo_log->add_msgs( me->gt_return ).
+      lo_log->save( ).
+    ENDIF.
   ENDMETHOD.
 ENDCLASS.

@@ -166,6 +166,7 @@ define root view entity ZI_SD_REL_FISCAL_SAIDA_APP
     left outer join        vbrk                                            as _vbrk              on _vbrk.vbeln = _Lin.BR_NFSourceDocumentNumber
     left outer join        vbrp                                            as _Vbrp              on  _Vbrp.vbeln = _Lin.BR_NFSourceDocumentNumber
                                                                                                  and _Vbrp.posnr = _Lin.BR_NFSourceDocumentItem
+    left outer join        I_Customer                                      as _Cust              on _Cust.Customer = _Doc.BR_NFPartner
   //    left outer join mseg                                                                                                               as _MSEG
 
 
@@ -229,8 +230,6 @@ define root view entity ZI_SD_REL_FISCAL_SAIDA_APP
 
   association to I_Customer                     as _Customer       on  _Customer.Customer = _Doc.BR_NFPartner
 
-
-
 {
 
       //  key _Lin.BR_NotaFiscal                                                                                           as NumDocumento,
@@ -247,7 +246,8 @@ define root view entity ZI_SD_REL_FISCAL_SAIDA_APP
       _Doc.BR_NFPartner                                                                                                                                                as Cliente,
       //_Partner.parid                                                                                               as Cliente,
       case when length(_Doc.BR_NFPartnerName1) > 0 then _Doc.BR_NFPartnerName1 else _Customer.CustomerName end                                                         as NomeCliente,
-      _Doc.BR_NFPartnerRegionCode                                                                                                                                      as UFDestino,
+      //_Doc.BR_NFPartnerRegionCode                                                                                                                                      as UFDestino,
+      _Cust.Region                                                                                                                                                     as UFDestino,
       _Doc.BR_NFPartnerTaxJurisdiction                                                                                                                                 as DomicilioFiscal,
       _SalesOrder.SalesOffice                                                                                                                                          as EscritorioVendas,
       _Lin.MaterialGroup                                                                                                                                               as GrupoMercadorias,

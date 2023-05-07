@@ -68,7 +68,8 @@ CLASS ZCLSD_CRIACAO_ORDENS_VENDAS IMPLEMENTATION.
           lt_arq_ordvend         TYPE TABLE OF ztsd_arq_ordvend,
 *          lo_status_ordem        TYPE REF TO zclsd_co_si_status_ordem_venda,
           lt_linhas              TYPE zclsd_dt_status_ordem_vend_tab,
-          ls_output              TYPE zclsd_mt_status_ordem_venda_fl.
+          ls_output              TYPE zclsd_mt_status_ordem_venda_fl,
+          lt_doc_type            TYPE tms_t_auart_range.
 
     TRY.
 
@@ -96,12 +97,26 @@ CLASS ZCLSD_CRIACAO_ORDENS_VENDAS IMPLEMENTATION.
       CLEAR lv_target_qu.
     ENDIF.
 
-    SELECT SINGLE low
-    INTO @DATA(lv_low)
-    FROM ztca_param_val
-    WHERE modulo = 'SD'
-    AND chave1 = 'FLUIG'
-    AND chave2 = 'ZPR0'.
+* LSCHEPP - 8000006885 - [FLUIG] - Erro_retorno. SAP_Prç_OV_Desp. - 03.05.2023 Início
+*    SELECT SINGLE low
+*    INTO @DATA(lv_low)
+*    FROM ztca_param_val
+*    WHERE modulo = 'SD'
+*    AND chave1 = 'FLUIG'
+*    AND chave2 = 'ZPR0'.
+
+    TRY.
+        NEW zclca_tabela_parametros( )->m_get_range(
+          EXPORTING
+            iv_modulo = 'SD'
+            iv_chave1 = 'FLUIG'
+            iv_chave2 = 'ZPR0'
+          IMPORTING
+            et_range  = lt_doc_type
+        ).
+      CATCH zcxca_tabela_parametros.
+    ENDTRY.
+* LSCHEPP - 8000006885 - [FLUIG] - Erro_retorno. SAP_Prç_OV_Desp. - 03.05.2023 Fim
 
     ls_order_header_in-doc_type    = gs_input-mt_criacao_ordem_venda_fluig-cabecalho-doc_type.
     ls_order_header_in-sales_org   = gs_input-mt_criacao_ordem_venda_fluig-cabecalho-sales_org.
@@ -145,7 +160,11 @@ CLASS ZCLSD_CRIACAO_ORDENS_VENDAS IMPLEMENTATION.
         ENDIF.
 
 *        IF <fs_materiais>-valor_unit NE lc_valor_zero AND lv_low IS INITIAL.
-        IF <fs_materiais>-valor_unit NE lc_valor_zero.
+* LSCHEPP - 8000006885 - [FLUIG] - Erro_retorno. SAP_Prç_OV_Desp. - 03.05.2023 Início
+*        IF <fs_materiais>-valor_unit NE lc_valor_zero.
+        IF <fs_materiais>-valor_unit NE lc_valor_zero AND
+           gs_input-mt_criacao_ordem_venda_fluig-cabecalho-doc_type NOT IN lt_doc_type.
+* LSCHEPP - 8000006885 - [FLUIG] - Erro_retorno. SAP_Prç_OV_Desp. - 03.05.2023 Fim
 
           APPEND VALUE #(
                     itm_number = <fs_materiais>-ind
