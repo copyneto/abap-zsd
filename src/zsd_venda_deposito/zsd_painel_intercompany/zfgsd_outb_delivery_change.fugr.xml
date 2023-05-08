@@ -11,6 +11,7 @@
     <item>
      <FUNCNAME>ZFMSD_OUTB_DELIVERY_CHANGE</FUNCNAME>
      <REMOTE_CALL>R</REMOTE_CALL>
+     <SHORT_TEXT>BAPI_OUTB_DELIVERY_CHANGE</SHORT_TEXT>
      <IMPORT>
       <RSIMP>
        <PARAMETER>IS_HEADER_DATA</PARAMETER>
@@ -37,18 +38,22 @@
       <RSFDO>
        <PARAMETER>IS_HEADER_DATA</PARAMETER>
        <KIND>P</KIND>
+       <STEXT>Modificação entrega dados de picking nível de cabeçalho</STEXT>
       </RSFDO>
       <RSFDO>
        <PARAMETER>IS_HEADER_CONTROL</PARAMETER>
        <KIND>P</KIND>
+       <STEXT>Dados de controle entrega nível de cabeçalho</STEXT>
       </RSFDO>
       <RSFDO>
        <PARAMETER>IV_DELIVERY</PARAMETER>
        <KIND>P</KIND>
+       <STEXT>Remessa</STEXT>
       </RSFDO>
       <RSFDO>
        <PARAMETER>ET_RETURN</PARAMETER>
        <KIND>P</KIND>
+       <STEXT>Tabela de retorno</STEXT>
       </RSFDO>
      </DOCUMENTATION>
     </item>

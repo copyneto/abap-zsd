@@ -4,7 +4,8 @@
   <asx:values>
    <DCLS>
     <DCLNAME>ZZ1_PRODUTIVDADE</DCLNAME>
-    <DCLLANGUAGE>E</DCLLANGUAGE>
+    <DCLLANGUAGE>P</DCLLANGUAGE>
+    <DDTEXT>DO NOT MODIFY! Basis CDS Entity: I_ManufacturingOrder</DDTEXT>
    </DCLS>
   </asx:values>
  </asx:abap>

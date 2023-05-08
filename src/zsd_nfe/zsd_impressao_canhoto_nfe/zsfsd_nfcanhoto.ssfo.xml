@@ -3,6 +3,7 @@
  <sf:SMARTFORM xmlns:sf="urn:sap-com:SmartForms:2000:internal-structure" xmlns="urn:sap-com:sdixml-ifr:2000">
   <HEADER>
    <FORMNAME>ZSFSD_NFCANHOTO</FORMNAME>
+   <CAPTION>Canhoto DANFE</CAPTION>
    <MASTERLANG>P</MASTERLANG>
    <DEVCLASS></DEVCLASS>
    <VERSION>00001</VERSION>
@@ -178,6 +179,7 @@
            <NAME>
             <INAME>FIRST_PAGE</INAME>
            </NAME>
+           <CAPTION>First Page</CAPTION>
            <NEXTPAGE>
             <INAME>FIRST_PAGE</INAME>
            </NEXTPAGE>
@@ -198,6 +200,7 @@
              <NAME>
               <INAME>%GRAPHIC1</INAME>
              </NAME>
+             <CAPTION>Tela de fundo</CAPTION>
              <GTYPE>B</GTYPE>
              <GKEYBDS>
               <BTYPE>BMON</BTYPE>
@@ -236,6 +239,7 @@
               <NAME>
                <INAME>HEADER</INAME>
               </NAME>
+              <CAPTION>Header</CAPTION>
               <WTYPE>M</WTYPE>
               <T_CAPTION>
                <item>
@@ -258,6 +262,7 @@
                      <NAME>
                       <INAME>TABLE_RECEIVED</INAME>
                      </NAME>
+                     <CAPTION>Received from...</CAPTION>
                      <SECTTYPE>C</SECTTYPE>
                      <TABHTYPE>I</TABHTYPE>
                      <OTABTYPE>D</OTABTYPE>
@@ -731,6 +736,7 @@
                         <NAME>
                          <INAME>%EVENT1</INAME>
                         </NAME>
+                        <CAPTION>Área de cabeçalho</CAPTION>
                         <EVTYPE>H</EVTYPE>
                         <T_CAPTION>
                          <item>
@@ -754,6 +760,7 @@
                         <NAME>
                          <INAME>%EVENT2</INAME>
                         </NAME>
+                        <CAPTION>Área principal</CAPTION>
                         <EVTYPE>B</EVTYPE>
                         <T_CAPTION>
                          <item>
@@ -775,6 +782,7 @@
                            <NAME>
                             <INAME>LOOP_ITEM</INAME>
                            </NAME>
+                           <CAPTION>Date of receipt</CAPTION>
                            <SECTTYPE>L</SECTTYPE>
                            <DATATYPE>L</DATATYPE>
                            <TABNAME>CANHOTOS-CANHOTO_NF</TABNAME>
@@ -883,6 +891,7 @@
                               <NAME>
                                <INAME>%FOLDER1</INAME>
                               </NAME>
+                              <CAPTION>Nova pasta 1</CAPTION>
                               <SECTTYPE>F</SECTTYPE>
                               <U_FHEIGHT>CM</U_FHEIGHT>
                               <PATTERN>
@@ -988,6 +997,7 @@
                                  <NAME>
                                   <INAME>INFSD</INAME>
                                  </NAME>
+                                 <CAPTION>Informações de SD</CAPTION>
                                  <SECTTYPE>R</SECTTYPE>
                                  <U_FHEIGHT>CM</U_FHEIGHT>
                                  <PATTERN>
@@ -1093,6 +1103,7 @@
                                     <NAME>
                                      <INAME>%TEXT8</INAME>
                                     </NAME>
+                                    <CAPTION>Texto novo 8</CAPTION>
                                     <SECTTYPE>E</SECTTYPE>
                                     <U_FHEIGHT>CM</U_FHEIGHT>
                                     <PATTERN>
@@ -1197,6 +1208,7 @@
                                        <NAME>
                                         <INAME>%CODE2</INAME>
                                        </NAME>
+                                       <CAPTION>Montar texto informativo</CAPTION>
                                        <PLIST>
                                         <item>
                                          <OPD>V_CANHOTO</OPD>
@@ -1249,6 +1261,7 @@
                                        <NAME>
                                         <INAME>%TEXT1</INAME>
                                        </NAME>
+                                       <CAPTION>Texto novo 1</CAPTION>
                                        <NOLANGUAGE>X</NOLANGUAGE>
                                        <APPMODE>P</APPMODE>
                                        <TEXT>
@@ -1298,6 +1311,7 @@
                                  <NAME>
                                   <INAME>RECEIVED</INAME>
                                  </NAME>
+                                 <CAPTION>Received from...</CAPTION>
                                  <SECTTYPE>R</SECTTYPE>
                                  <U_FHEIGHT>CM</U_FHEIGHT>
                                  <PATTERN>
@@ -1403,6 +1417,7 @@
                                     <NAME>
                                      <INAME>C_RECEIVED</INAME>
                                     </NAME>
+                                    <CAPTION>Received from...</CAPTION>
                                     <SECTTYPE>E</SECTTYPE>
                                     <U_FHEIGHT>CM</U_FHEIGHT>
                                     <PATTERN>
@@ -1507,6 +1522,7 @@
                                        <NAME>
                                         <INAME>%CODE1</INAME>
                                        </NAME>
+                                       <CAPTION>Novas linhasPrograma 1</CAPTION>
                                        <PLIST>
                                         <item>
                                          <OPD>V_CANHOTO</OPD>
@@ -1560,7 +1576,17 @@
                                        <NAME>
                                         <INAME>RECEIVED</INAME>
                                        </NAME>
+                                       <CAPTION>Received from...</CAPTION>
                                        <APPMODE>P</APPMODE>
+                                       <TEXT>
+                                        <item>
+                                         <TDFORMAT>CA</TDFORMAT>
+                                         <TDLINE>&lt;C1&gt;RECEBEMOS DE &amp;V_EMPRESA&amp; OS PRODUTOS CONSTANTES DA NOTA FISCAL AO</TDLINE>
+                                        </item>
+                                        <item>
+                                         <TDLINE>LADO&lt;/&gt;</TDLINE>
+                                        </item>
+                                       </TEXT>
                                        <STYLE_NAME>Z_NFSTDANFE_SAP_NEW</STYLE_NAME>
                                        <TEXT_AREA>
                                         <ENABLED>F</ENABLED>
@@ -1611,6 +1637,7 @@
                                     <NAME>
                                      <INAME>C_NFE</INAME>
                                     </NAME>
+                                    <CAPTION>NFe</CAPTION>
                                     <SECTTYPE>E</SECTTYPE>
                                     <U_FHEIGHT>CM</U_FHEIGHT>
                                     <PATTERN>
@@ -1715,7 +1742,14 @@
                                        <NAME>
                                         <INAME>NFE</INAME>
                                        </NAME>
+                                       <CAPTION>NFe</CAPTION>
                                        <APPMODE>P</APPMODE>
+                                       <TEXT>
+                                        <item>
+                                         <TDFORMAT>CB</TDFORMAT>
+                                         <TDLINE>&lt;CM&gt;NF-e&lt;/&gt;</TDLINE>
+                                        </item>
+                                       </TEXT>
                                        <STYLE_NAME>Z_NFSTDANFE_SAP_NEW</STYLE_NAME>
                                        <TEXT_AREA>
                                         <ENABLED>F</ENABLED>
@@ -1761,6 +1795,7 @@
                                  <NAME>
                                   <INAME>C_DTRECEI</INAME>
                                  </NAME>
+                                 <CAPTION>Date of receipt</CAPTION>
                                  <SECTTYPE>R</SECTTYPE>
                                  <U_FHEIGHT>CM</U_FHEIGHT>
                                  <PATTERN>
@@ -1866,6 +1901,7 @@
                                     <NAME>
                                      <INAME>%CELL3</INAME>
                                     </NAME>
+                                    <CAPTION>Coluna nova 3</CAPTION>
                                     <SECTTYPE>E</SECTTYPE>
                                     <U_FHEIGHT>CM</U_FHEIGHT>
                                     <PATTERN>
@@ -1970,7 +2006,17 @@
                                        <NAME>
                                         <INAME>%TEXT3</INAME>
                                        </NAME>
+                                       <CAPTION>Texto novo 3</CAPTION>
                                        <APPMODE>P</APPMODE>
+                                       <TEXT>
+                                        <item>
+                                         <TDFORMAT>*</TDFORMAT>
+                                         <TDLINE>&lt;C1&gt;DATA DE RECEBIMENTO&lt;/&gt;</TDLINE>
+                                        </item>
+                                        <item>
+                                         <TDFORMAT>CA</TDFORMAT>
+                                        </item>
+                                       </TEXT>
                                        <STYLE_NAME>Z_NFSTDANFE_SAP_NEW</STYLE_NAME>
                                        <TEXT_AREA>
                                         <ENABLED>F</ENABLED>
@@ -2021,6 +2067,7 @@
                                     <NAME>
                                      <INAME>%CELL4</INAME>
                                     </NAME>
+                                    <CAPTION>Coluna nova 4</CAPTION>
                                     <SECTTYPE>E</SECTTYPE>
                                     <U_FHEIGHT>CM</U_FHEIGHT>
                                     <PATTERN>
@@ -2125,7 +2172,14 @@
                                        <NAME>
                                         <INAME>%TEXT2</INAME>
                                        </NAME>
+                                       <CAPTION>Texto novo 2</CAPTION>
                                        <APPMODE>P</APPMODE>
+                                       <TEXT>
+                                        <item>
+                                         <TDFORMAT>*</TDFORMAT>
+                                         <TDLINE>&lt;C1&gt;IDENTIFICAÇÃO E ASSINATURA DO RECEBEDOR&lt;/&gt;</TDLINE>
+                                        </item>
+                                       </TEXT>
                                        <STYLE_NAME>Z_NFSTDANFE_SAP_NEW</STYLE_NAME>
                                        <TEXT_AREA>
                                         <ENABLED>F</ENABLED>
@@ -2168,6 +2222,7 @@
                                     <NAME>
                                      <INAME>C_NFE2</INAME>
                                     </NAME>
+                                    <CAPTION>NFe</CAPTION>
                                     <SECTTYPE>E</SECTTYPE>
                                     <U_FHEIGHT>CM</U_FHEIGHT>
                                     <PATTERN>
@@ -2272,7 +2327,18 @@
                                        <NAME>
                                         <INAME>D_NFE1</INAME>
                                        </NAME>
+                                       <CAPTION>NFe</CAPTION>
                                        <APPMODE>P</APPMODE>
+                                       <TEXT>
+                                        <item>
+                                         <TDFORMAT>PC</TDFORMAT>
+                                         <TDLINE>&lt;CN&gt;No. &amp;V_CANHOTO-NFENUM&amp;&lt;/&gt;</TDLINE>
+                                        </item>
+                                        <item>
+                                         <TDFORMAT>PC</TDFORMAT>
+                                         <TDLINE>&lt;CN&gt;Série &amp;V_CANHOTO-SERIES&amp;&lt;/&gt;</TDLINE>
+                                        </item>
+                                       </TEXT>
                                        <STYLE_NAME>Z_NFSTDANFE_SAP_NEW</STYLE_NAME>
                                        <TEXT_AREA>
                                         <ENABLED>F</ENABLED>
@@ -2327,6 +2393,7 @@
                                  <NAME>
                                   <INAME>RECORTE</INAME>
                                  </NAME>
+                                 <CAPTION>RECORTE</CAPTION>
                                  <SECTTYPE>R</SECTTYPE>
                                  <U_FHEIGHT>CM</U_FHEIGHT>
                                  <PATTERN>
@@ -2432,6 +2499,7 @@
                                     <NAME>
                                      <INAME>C_RECORTE</INAME>
                                     </NAME>
+                                    <CAPTION>C_RECORTE</CAPTION>
                                     <SECTTYPE>E</SECTTYPE>
                                     <U_FHEIGHT>CM</U_FHEIGHT>
                                     <PATTERN>
@@ -2536,6 +2604,7 @@
                                        <NAME>
                                         <INAME>T_RECORTE</INAME>
                                        </NAME>
+                                       <CAPTION>T_RECORTE</CAPTION>
                                        <NOLANGUAGE>X</NOLANGUAGE>
                                        <APPMODE>P</APPMODE>
                                        <TEXT>
@@ -2596,6 +2665,7 @@
                         <NAME>
                          <INAME>%EVENT3</INAME>
                         </NAME>
+                        <CAPTION>Nota de rodapé</CAPTION>
                         <EVTYPE>F</EVTYPE>
                         <T_CAPTION>
                          <item>
@@ -2624,6 +2694,7 @@
               <NAME>
                <INAME>%OUTATTRIB1</INAME>
               </NAME>
+              <CAPTION>Nova opção de saída</CAPTION>
               <U_WFRAME>PT</U_WFRAME>
               <U_WBOXV>CM</U_WBOXV>
               <U_WBOXH>CM</U_WBOXH>

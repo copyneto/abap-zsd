@@ -11,6 +11,7 @@
     <item>
      <FUNCNAME>ZFMSD_GERA_FATURAMENTO</FUNCNAME>
      <REMOTE_CALL>R</REMOTE_CALL>
+     <SHORT_TEXT>Grupo para geração de faturamento</SHORT_TEXT>
      <TABLES>
       <RSTBL>
        <PARAMETER>ET_BILLING_DATA_IN</PARAMETER>
@@ -33,18 +34,22 @@
       <RSFDO>
        <PARAMETER>ET_BILLING_DATA_IN</PARAMETER>
        <KIND>P</KIND>
+       <STEXT>Campos de comunicação p/campos do cabeçalho do doc.faturam.</STEXT>
       </RSFDO>
       <RSFDO>
        <PARAMETER>ET_CONDITION_DATA_IN</PARAMETER>
        <KIND>P</KIND>
+       <STEXT>Parâmetro de retorno</STEXT>
       </RSFDO>
       <RSFDO>
        <PARAMETER>ET_RETURN</PARAMETER>
        <KIND>P</KIND>
+       <STEXT>Parâmetro de retorno</STEXT>
       </RSFDO>
       <RSFDO>
        <PARAMETER>ET_CCARD_DATA_IN</PARAMETER>
        <KIND>P</KIND>
+       <STEXT>Tabela de comunicação meio de pagamento ordem/doc.faturam.</STEXT>
       </RSFDO>
      </DOCUMENTATION>
     </item>

@@ -4,6 +4,8 @@
   <asx:values>
    <DDLS>
     <DDLNAME>ZCSD_INCL_USER</DDLNAME>
+    <DDLANGUAGE>P</DDLANGUAGE>
+    <DDTEXT>inclusão dos usuários autorizar uma NF-e fora da competência</DDTEXT>
     <SOURCE_TYPE>P</SOURCE_TYPE>
    </DDLS>
   </asx:values>

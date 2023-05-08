@@ -5,7 +5,8 @@
    <SRVD>
     <NAME>ZUI_SD_ORDEM_G</NAME>
     <TYPE>SRVD/SRV</TYPE>
-    <LANGUAGE>EN</LANGUAGE>
+    <DESCRIPTION>Service definition Controle Ordem Genérica</DESCRIPTION>
+    <LANGUAGE>PT</LANGUAGE>
     <MASTER_LANGUAGE>PT</MASTER_LANGUAGE>
     <SOURCE_URI>./zui_sd_ordem_g/source/main</SOURCE_URI>
     <SOURCE_TYPE>ABAP_SOURCE</SOURCE_TYPE>

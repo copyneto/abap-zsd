@@ -6,6 +6,7 @@
     <METADATA>
      <NAME>ZUI_O2_VERIF_DISP_APP</NAME>
      <TYPE>SRVB/SVB</TYPE>
+     <DESCRIPTION>Service Bind Verifica Disponibilidade</DESCRIPTION>
      <LINKS>
       <item>
        <HREF>/sap/bc/adt/businessservices/odatav2/ZUI_O2_VERIF_DISP_APP</HREF>

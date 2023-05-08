@@ -11,6 +11,7 @@
     <item>
      <FUNCNAME>ZFMSD_READ_EMAIL</FUNCNAME>
      <REMOTE_CALL>R</REMOTE_CALL>
+     <SHORT_TEXT>função para buscar parameter de email</SHORT_TEXT>
      <EXPORT>
       <RSEXP>
        <PARAMETER>ET_RETURN</PARAMETER>
@@ -21,6 +22,7 @@
       <RSFDO>
        <PARAMETER>ET_RETURN</PARAMETER>
        <KIND>P</KIND>
+       <STEXT>Endereço de e-mail</STEXT>
       </RSFDO>
      </DOCUMENTATION>
     </item>

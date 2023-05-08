@@ -6,6 +6,7 @@
     <METADATA>
      <NAME>ZUI_O2_MOTIVOS_RESPONSAVEI</NAME>
      <TYPE>SRVB/SVB</TYPE>
+     <DESCRIPTION>SD - Motivos X Responsáveis</DESCRIPTION>
      <LINKS>
       <item>
        <HREF>/sap/bc/adt/businessservices/odatav2/ZUI_O2_MOTIVOS_RESPONSAVEI</HREF>

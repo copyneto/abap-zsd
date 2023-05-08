@@ -25,6 +25,7 @@
     <item>
      <SEGMENTHEADER>
       <SEGTYP>ZSDSI_E1MBEW</SEGTYP>
+      <DESCRP>Campos para Sistema Sirius Web - Segmentação</DESCRP>
      </SEGMENTHEADER>
      <SEGMENTDEFINITION>
       <SEGTYP>ZSDSI_E1MBEW</SEGTYP>

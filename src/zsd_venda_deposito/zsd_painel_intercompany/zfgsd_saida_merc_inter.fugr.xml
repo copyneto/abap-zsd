@@ -11,6 +11,7 @@
     <item>
      <FUNCNAME>ZFMSD_SAIDA_MERCADORIA_INTER</FUNCNAME>
      <REMOTE_CALL>R</REMOTE_CALL>
+     <SHORT_TEXT>Reverter Saida de Mercadoria</SHORT_TEXT>
      <IMPORT>
       <RSIMP>
        <PARAMETER>IT_REMESSA</PARAMETER>
@@ -27,10 +28,12 @@
       <RSFDO>
        <PARAMETER>IT_REMESSA</PARAMETER>
        <KIND>P</KIND>
+       <STEXT>Remessa saida de mercadoria</STEXT>
       </RSFDO>
       <RSFDO>
        <PARAMETER>ET_RETURN</PARAMETER>
        <KIND>P</KIND>
+       <STEXT>Mensagens de erro</STEXT>
       </RSFDO>
      </DOCUMENTATION>
     </item>

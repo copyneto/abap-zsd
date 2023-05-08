@@ -11,6 +11,7 @@
     <item>
      <FUNCNAME>ZFMSD_CMDLOC_DEVOLUCAO_REMESSA</FUNCNAME>
      <REMOTE_CALL>R</REMOTE_CALL>
+     <SHORT_TEXT>Comodato Locaçã - Devolução Remessa</SHORT_TEXT>
      <IMPORT>
       <RSIMP>
        <PARAMETER>IS_KEY</PARAMETER>
@@ -32,14 +33,17 @@
       <RSFDO>
        <PARAMETER>IS_KEY</PARAMETER>
        <KIND>P</KIND>
+       <STEXT>Chave Comodato Locação</STEXT>
       </RSFDO>
       <RSFDO>
        <PARAMETER>IS_VBAK</PARAMETER>
        <KIND>P</KIND>
+       <STEXT>Document Structure for XVBAK</STEXT>
       </RSFDO>
       <RSFDO>
        <PARAMETER>IT_VBAP</PARAMETER>
        <KIND>P</KIND>
+       <STEXT>Table Type for VBAP Structure within ATP Sales Grid</STEXT>
       </RSFDO>
      </DOCUMENTATION>
     </item>

@@ -11,6 +11,7 @@
     <item>
      <FUNCNAME>ZFMSD_ENVIO_FATURA_WEVO</FUNCNAME>
      <REMOTE_CALL>R</REMOTE_CALL>
+     <SHORT_TEXT>Envio de fatura para o Sirius</SHORT_TEXT>
      <IMPORT>
       <RSIMP>
        <PARAMETER>IV_NFENUM</PARAMETER>
@@ -47,6 +48,7 @@
       <RSFDO>
        <PARAMETER>IV_SALESDOCUMENT</PARAMETER>
        <KIND>P</KIND>
+       <STEXT>Documento de vendas</STEXT>
       </RSFDO>
       <RSFDO>
        <PARAMETER>IV_BILLINGDOCUMENT</PARAMETER>

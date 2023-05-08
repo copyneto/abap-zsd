@@ -5,6 +5,7 @@
    <DDLX>
     <METADATA>
      <NAME>ZC_SD_ORDEM_VENDAS_EXCEL</NAME>
+     <DESCRIPTION>Consumo Ordens de Vendas por Excel</DESCRIPTION>
      <MASTER_LANGUAGE>PT</MASTER_LANGUAGE>
     </METADATA>
    </DDLX>

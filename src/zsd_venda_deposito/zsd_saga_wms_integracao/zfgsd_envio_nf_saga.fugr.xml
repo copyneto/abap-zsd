@@ -11,6 +11,7 @@
     <item>
      <FUNCNAME>ZFMSD_ENVIO_NF_SAGA</FUNCNAME>
      <REMOTE_CALL>R</REMOTE_CALL>
+     <SHORT_TEXT>Envio NF para SAGA</SHORT_TEXT>
      <IMPORT>
       <RSIMP>
        <PARAMETER>IS_HEADER</PARAMETER>
@@ -21,6 +22,7 @@
       <RSFDO>
        <PARAMETER>IS_HEADER</PARAMETER>
        <KIND>P</KIND>
+       <STEXT>Cabeçalho da nota fiscal</STEXT>
       </RSFDO>
      </DOCUMENTATION>
     </item>

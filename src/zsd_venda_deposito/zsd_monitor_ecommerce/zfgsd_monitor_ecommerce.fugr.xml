@@ -11,6 +11,7 @@
     <item>
      <FUNCNAME>ZFMSD_ATUALIZACAO_REMESSA</FUNCNAME>
      <REMOTE_CALL>R</REMOTE_CALL>
+     <SHORT_TEXT>Função para atualização da remessa</SHORT_TEXT>
      <IMPORT>
       <RSIMP>
        <PARAMETER>IV_REMESSA</PARAMETER>
@@ -35,24 +36,29 @@
       <RSFDO>
        <PARAMETER>IV_REMESSA</PARAMETER>
        <KIND>P</KIND>
+       <STEXT>Remessa</STEXT>
       </RSFDO>
       <RSFDO>
        <PARAMETER>IV_VOLUME</PARAMETER>
        <KIND>P</KIND>
+       <STEXT>Volume</STEXT>
       </RSFDO>
       <RSFDO>
        <PARAMETER>IT_ITENS</PARAMETER>
        <KIND>P</KIND>
+       <STEXT>RFC ATUALIZAR LOTE ITEM REMESSA</STEXT>
       </RSFDO>
       <RSFDO>
        <PARAMETER>ES_RETORNO</PARAMETER>
        <KIND>P</KIND>
+       <STEXT>RFC - Atualização da Remessa - Retorno</STEXT>
       </RSFDO>
      </DOCUMENTATION>
     </item>
     <item>
      <FUNCNAME>ZFMSD_MONITOR_DESBLOQUEA_OV</FUNCNAME>
      <REMOTE_CALL>R</REMOTE_CALL>
+     <SHORT_TEXT>Monitor E-commerce - Desbloqueia Ordem</SHORT_TEXT>
      <IMPORT>
       <RSIMP>
        <PARAMETER>IV_ORDEM</PARAMETER>
@@ -73,12 +79,14 @@
       <RSFDO>
        <PARAMETER>ET_RETURN</PARAMETER>
        <KIND>P</KIND>
+       <STEXT>Mensagens de erro</STEXT>
       </RSFDO>
      </DOCUMENTATION>
     </item>
     <item>
      <FUNCNAME>ZFMSD_MONITOR_GERAR_ORDEMFRETE</FUNCNAME>
      <REMOTE_CALL>R</REMOTE_CALL>
+     <SHORT_TEXT>Monitor E-commerce - Gerar Ordem de Frete</SHORT_TEXT>
      <IMPORT>
       <RSIMP>
        <PARAMETER>IV_REMESSA</PARAMETER>

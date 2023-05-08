@@ -11,6 +11,7 @@
     <item>
      <FUNCNAME>ZFMSD_ENVIO_FATURA_SIRIUS</FUNCNAME>
      <REMOTE_CALL>R</REMOTE_CALL>
+     <SHORT_TEXT>Envio de fatura para o Sirius</SHORT_TEXT>
      <IMPORT>
       <RSIMP>
        <PARAMETER>IV_NFENUM</PARAMETER>

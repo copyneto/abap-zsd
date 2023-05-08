@@ -11,6 +11,7 @@
     <item>
      <FUNCNAME>ZFMSD_SALESORDER</FUNCNAME>
      <REMOTE_CALL>R</REMOTE_CALL>
+     <SHORT_TEXT>Ordem de vendas</SHORT_TEXT>
      <IMPORT>
       <RSIMP>
        <PARAMETER>IS_VBAK</PARAMETER>
@@ -31,14 +32,17 @@
       <RSFDO>
        <PARAMETER>IS_VBAK</PARAMETER>
        <KIND>P</KIND>
+       <STEXT>Documento de vendas: dados de cabeçalho</STEXT>
       </RSFDO>
       <RSFDO>
        <PARAMETER>IS_VBKD</PARAMETER>
        <KIND>P</KIND>
+       <STEXT>Documento de vendas: dados comerciais</STEXT>
       </RSFDO>
       <RSFDO>
        <PARAMETER>IT_VBAP</PARAMETER>
        <KIND>P</KIND>
+       <STEXT>Documento de vendas: dados de item</STEXT>
       </RSFDO>
      </DOCUMENTATION>
     </item>

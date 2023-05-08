@@ -13,6 +13,7 @@
     <LANGUAGE>P</LANGUAGE>
     <OBJECTNAME>ZVSD_INCL_USER</OBJECTNAME>
     <OBJECTTYPE>V</OBJECTTYPE>
+    <DDTEXT>Incl usuário autorizado a estornar NF-e fora da competência</DDTEXT>
    </OBJT>
    <OBJS>
     <OBJS>

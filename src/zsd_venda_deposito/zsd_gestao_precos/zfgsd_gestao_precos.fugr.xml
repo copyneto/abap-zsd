@@ -11,6 +11,7 @@
     <item>
      <FUNCNAME>ZFMSD_BAPI_PRICES_CONDITIONS</FUNCNAME>
      <REMOTE_CALL>R</REMOTE_CALL>
+     <SHORT_TEXT>Cria registros de condição de preço via RFC</SHORT_TEXT>
      <IMPORT>
       <RSIMP>
        <PARAMETER>IT_BAPICONDCT</PARAMETER>
@@ -60,22 +61,27 @@
       <RSFDO>
        <PARAMETER>IT_BAPICONDCT</PARAMETER>
        <KIND>P</KIND>
+       <STEXT>Estrutura de comunicação: tabelas de condições (COND_RECS)</STEXT>
       </RSFDO>
       <RSFDO>
        <PARAMETER>IT_BAPICONDHD</PARAMETER>
        <KIND>P</KIND>
+       <STEXT>Estrutura de comunicação: KONH</STEXT>
       </RSFDO>
       <RSFDO>
        <PARAMETER>IT_BAPICONDIT</PARAMETER>
        <KIND>P</KIND>
+       <STEXT>Estrutura de comunicação: KONP</STEXT>
       </RSFDO>
       <RSFDO>
        <PARAMETER>IT_BAPICONDQS</PARAMETER>
        <KIND>P</KIND>
+       <STEXT>Estrutura de comunicação: KONM</STEXT>
       </RSFDO>
       <RSFDO>
        <PARAMETER>IT_BAPICONDVS</PARAMETER>
        <KIND>P</KIND>
+       <STEXT>Estrutura de comunicação: KONW</STEXT>
       </RSFDO>
       <RSFDO>
        <PARAMETER>IT_BAPIKNUMHS</PARAMETER>
@@ -84,6 +90,7 @@
       <RSFDO>
        <PARAMETER>IT_MEM_INITIAL</PARAMETER>
        <KIND>P</KIND>
+       <STEXT>Condições: buffer para transferência de dados inicial</STEXT>
       </RSFDO>
       <RSFDO>
        <PARAMETER>IV_DELETE</PARAMETER>
@@ -96,12 +103,14 @@
       <RSFDO>
        <PARAMETER>ET_MESSAGES</PARAMETER>
        <KIND>P</KIND>
+       <STEXT>Tabela de retorno</STEXT>
       </RSFDO>
      </DOCUMENTATION>
     </item>
     <item>
      <FUNCNAME>ZFMSD_GESTAO_PRECO_EXCLUSAO</FUNCNAME>
      <REMOTE_CALL>R</REMOTE_CALL>
+     <SHORT_TEXT>Função APP Atualizar Vigência Preço</SHORT_TEXT>
      <IMPORT>
       <RSIMP>
        <PARAMETER>IV_DATA_IN</PARAMETER>
@@ -167,6 +176,7 @@
       <RSFDO>
        <PARAMETER>IS_RECORD</PARAMETER>
        <KIND>P</KIND>
+       <STEXT>App Atualizar Vigência Preço</STEXT>
       </RSFDO>
       <RSFDO>
        <PARAMETER>IS_NEWITEM</PARAMETER>
@@ -175,6 +185,7 @@
       <RSFDO>
        <PARAMETER>IV_OP_TYPE</PARAMETER>
        <KIND>P</KIND>
+       <STEXT>Tabela R/2</STEXT>
       </RSFDO>
       <RSFDO>
        <PARAMETER>IV_ALTERA_VIGENCIA</PARAMETER>

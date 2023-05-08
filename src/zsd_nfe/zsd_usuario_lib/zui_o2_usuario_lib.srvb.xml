@@ -6,6 +6,7 @@
     <METADATA>
      <NAME>ZUI_O2_USUARIO_LIB</NAME>
      <TYPE>SRVB/SVB</TYPE>
+     <DESCRIPTION>Service Bind Cadastro Usuários Liberação</DESCRIPTION>
      <LINKS>
       <item>
        <HREF>/sap/bc/adt/businessservices/odatav2/ZUI_O2_USUARIO_LIB</HREF>

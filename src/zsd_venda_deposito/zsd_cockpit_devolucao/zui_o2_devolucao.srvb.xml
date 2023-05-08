@@ -6,6 +6,7 @@
     <METADATA>
      <NAME>ZUI_O2_DEVOLUCAO</NAME>
      <TYPE>SRVB/SVB</TYPE>
+     <DESCRIPTION>Serv Binding Notas de devolução de cliente</DESCRIPTION>
      <LINKS>
       <item>
        <HREF>/sap/bc/adt/businessservices/odatav2/ZUI_O2_DEVOLUCAO</HREF>

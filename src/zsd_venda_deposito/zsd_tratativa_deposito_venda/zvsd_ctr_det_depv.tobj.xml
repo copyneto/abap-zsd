@@ -13,6 +13,7 @@
     <LANGUAGE>P</LANGUAGE>
     <OBJECTNAME>ZVSD_CTR_DET_DEP</OBJECTNAME>
     <OBJECTTYPE>V</OBJECTTYPE>
+    <DDTEXT>Controle de determinação de depósitos</DDTEXT>
    </OBJT>
    <OBJS>
     <OBJS>

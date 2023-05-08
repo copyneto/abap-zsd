@@ -6,6 +6,7 @@
     <METADATA>
      <NAME>ZUI_O2_SD_REL_MATERIAL_TER</NAME>
      <TYPE>SRVB/SVB</TYPE>
+     <DESCRIPTION>Service binding para SD_REL_MATERIAL_TERC</DESCRIPTION>
      <LINKS>
       <item>
        <HREF>/sap/bc/adt/businessservices/odatav2/ZUI_O2_SD_REL_MATERIAL_TER</HREF>

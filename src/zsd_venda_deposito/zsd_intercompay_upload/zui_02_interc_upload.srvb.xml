@@ -6,6 +6,7 @@
     <METADATA>
      <NAME>ZUI_02_INTERC_UPLOAD</NAME>
      <TYPE>SRVB/SVB</TYPE>
+     <DESCRIPTION>Service binding- Interc Upload via Ex</DESCRIPTION>
      <LINKS>
       <item>
        <HREF>/sap/bc/adt/businessservices/odatav2/ZUI_02_INTERC_UPLOAD</HREF>

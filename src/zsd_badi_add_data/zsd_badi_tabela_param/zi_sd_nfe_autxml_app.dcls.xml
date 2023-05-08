@@ -4,7 +4,8 @@
   <asx:values>
    <DCLS>
     <DCLNAME>ZI_SD_NFE_AUTXML_APP</DCLNAME>
-    <DCLLANGUAGE>E</DCLLANGUAGE>
+    <DCLLANGUAGE>P</DCLLANGUAGE>
+    <DDTEXT>Autorização para obter XML</DDTEXT>
    </DCLS>
   </asx:values>
  </asx:abap>

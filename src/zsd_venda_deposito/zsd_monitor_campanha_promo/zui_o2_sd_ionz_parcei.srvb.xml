@@ -6,6 +6,7 @@
     <METADATA>
      <NAME>ZUI_O2_SD_IONZ_PARCEI</NAME>
      <TYPE>SRVB/SVB</TYPE>
+     <DESCRIPTION>Service Binding Lista de parceiros para Ordens da campanha</DESCRIPTION>
      <LINKS>
       <item>
        <HREF>/sap/bc/adt/businessservices/odatav2/ZUI_O2_SD_IONZ_PARCEI</HREF>

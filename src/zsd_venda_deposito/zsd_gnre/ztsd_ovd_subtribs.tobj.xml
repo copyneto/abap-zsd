@@ -13,6 +13,7 @@
     <LANGUAGE>P</LANGUAGE>
     <OBJECTNAME>ZTSD_OVD_SUBTRIB</OBJECTNAME>
     <OBJECTTYPE>S</OBJECTTYPE>
+    <DDTEXT>Validação de substituição trib.  para ordens do tipo ZOVD</DDTEXT>
    </OBJT>
    <OBJS>
     <OBJS>

@@ -11,6 +11,7 @@
     <item>
      <FUNCNAME>ZFMSD_GERAR_BOLETO</FUNCNAME>
      <REMOTE_CALL>R</REMOTE_CALL>
+     <SHORT_TEXT>GF para gerar boletos</SHORT_TEXT>
      <IMPORT>
       <RSIMP>
        <PARAMETER>IS_PROCESS</PARAMETER>
@@ -48,14 +49,17 @@
       <RSFDO>
        <PARAMETER>IS_PROCESS</PARAMETER>
        <KIND>P</KIND>
+       <STEXT>Tipo de processamento</STEXT>
       </RSFDO>
       <RSFDO>
        <PARAMETER>IS_PARAM</PARAMETER>
        <KIND>P</KIND>
+       <STEXT>Smart Forms: estrutura de controle</STEXT>
       </RSFDO>
       <RSFDO>
        <PARAMETER>IT_KEY</PARAMETER>
        <KIND>P</KIND>
+       <STEXT>Lista com as chave do formulário</STEXT>
       </RSFDO>
       <RSFDO>
        <PARAMETER>EV_PDF_FILE</PARAMETER>
@@ -64,10 +68,12 @@
       <RSFDO>
        <PARAMETER>ET_RETURN</PARAMETER>
        <KIND>P</KIND>
+       <STEXT>Tabela com cadeias</STEXT>
       </RSFDO>
       <RSFDO>
        <PARAMETER>ET_OTF</PARAMETER>
        <KIND>P</KIND>
+       <STEXT>Smart Form: tabela OTF</STEXT>
       </RSFDO>
      </DOCUMENTATION>
     </item>

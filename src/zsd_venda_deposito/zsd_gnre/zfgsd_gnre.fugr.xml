@@ -11,6 +11,7 @@
    <FUNCTIONS>
     <item>
      <FUNCNAME>ZFMSD_B2B_GERA_GNRE</FUNCNAME>
+     <SHORT_TEXT>Função para geração de GNRE</SHORT_TEXT>
      <IMPORT>
       <RSIMP>
        <PARAMETER>IT_NFLIN</PARAMETER>

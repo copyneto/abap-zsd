@@ -6,6 +6,7 @@
     <METADATA>
      <NAME>ZUI_O2_SD_HIST_AGENDAMENTO</NAME>
      <TYPE>SRVB/SVB</TYPE>
+     <DESCRIPTION>Service binding - Histórico de Agendamento</DESCRIPTION>
      <LINKS>
       <item>
        <HREF>/sap/bc/adt/businessservices/odatav2/ZUI_O2_SD_HIST_AGENDAMENTO</HREF>

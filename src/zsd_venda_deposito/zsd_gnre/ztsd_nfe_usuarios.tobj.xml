@@ -13,6 +13,7 @@
     <LANGUAGE>P</LANGUAGE>
     <OBJECTNAME>ZTSD_NFE_USUARIO</OBJECTNAME>
     <OBJECTTYPE>S</OBJECTTYPE>
+    <DDTEXT>Processos usuários por notas fiscais x filiais e tipo de nf</DDTEXT>
    </OBJT>
    <OBJS>
     <OBJS>

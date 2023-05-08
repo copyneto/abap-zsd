@@ -11,6 +11,7 @@
     <item>
      <FUNCNAME>ZFMSD_COCKPIT_UTIL_BAPI</FUNCNAME>
      <REMOTE_CALL>R</REMOTE_CALL>
+     <SHORT_TEXT>FM PARA EXECUTAR BAPI</SHORT_TEXT>
      <IMPORT>
       <RSIMP>
        <PARAMETER>IV_ORDER</PARAMETER>
@@ -39,6 +40,7 @@
       <RSFDO>
        <PARAMETER>IV_ORDER</PARAMETER>
        <KIND>P</KIND>
+       <STEXT>Documento de vendas</STEXT>
       </RSFDO>
       <RSFDO>
        <PARAMETER>IS_ORDERX</PARAMETER>
@@ -55,6 +57,7 @@
       <RSFDO>
        <PARAMETER>TT_RETURN</PARAMETER>
        <KIND>P</KIND>
+       <STEXT>Parâmetro de retorno</STEXT>
       </RSFDO>
      </DOCUMENTATION>
     </item>

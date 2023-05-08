@@ -3,6 +3,7 @@
  <sf:SMARTFORM xmlns:sf="urn:sap-com:SmartForms:2000:internal-structure" xmlns="urn:sap-com:sdixml-ifr:2000">
   <HEADER>
    <FORMNAME>ZSFSD_GNRE_RJ</FORMNAME>
+   <CAPTION>GNRE RJ</CAPTION>
    <MASTERLANG>P</MASTERLANG>
    <LANGVECTOR>*</LANGVECTOR>
    <DEVCLASS></DEVCLASS>
@@ -436,6 +437,7 @@
            <NAME>
             <INAME>PRINCIPAL</INAME>
            </NAME>
+           <CAPTION>Boletos/Comprovante</CAPTION>
            <NEXTPAGE>
             <INAME>PRINCIPAL</INAME>
            </NEXTPAGE>
@@ -462,6 +464,7 @@
               <NAME>
                <INAME>MAIN</INAME>
               </NAME>
+              <CAPTION>Janela principal</CAPTION>
               <WTYPE>M</WTYPE>
               <T_CAPTION>
                <item>
@@ -484,6 +487,7 @@
                      <NAME>
                       <INAME>CONDICAO</INAME>
                      </NAME>
+                     <CAPTION>Condição para gerar duas págs</CAPTION>
                      <NEWPAGE>X</NEWPAGE>
                      <PAGENAME>
                       <INAME>SECUNDARIA</INAME>
@@ -512,6 +516,7 @@
               <NAME>
                <INAME>%OUTATTRIB1</INAME>
               </NAME>
+              <CAPTION>Nova opção de saída</CAPTION>
               <U_WFRAME>PT</U_WFRAME>
               <U_WBOXV>CM</U_WBOXV>
               <U_WBOXH>CM</U_WBOXH>
@@ -595,6 +600,7 @@
               <NAME>
                <INAME>CODIGO_BARRA</INAME>
               </NAME>
+              <CAPTION>Código de Barra</CAPTION>
               <WTYPE>T</WTYPE>
               <T_CAPTION>
                <item>
@@ -617,6 +623,7 @@
                      <NAME>
                       <INAME>CODBAR</INAME>
                      </NAME>
+                     <CAPTION>Código de Barras e Valor</CAPTION>
                      <PLIST>
                       <item>
                        <OPD>ZITENS_GNRE</OPD>
@@ -736,6 +743,7 @@
                      <NAME>
                       <INAME>CODIGO_BARRA</INAME>
                      </NAME>
+                     <CAPTION>Novo padrão 2</CAPTION>
                      <SECTTYPE>S</SECTTYPE>
                      <OTABTYPE>S</OTABTYPE>
                      <U_FHEIGHT>CM</U_FHEIGHT>
@@ -876,6 +884,7 @@
                         <NAME>
                          <INAME>COD_NUMERICO_BAR</INAME>
                         </NAME>
+                        <CAPTION>Código Númerico</CAPTION>
                         <NOLANGUAGE>X</NOLANGUAGE>
                         <APPMODE>P</APPMODE>
                         <TEXT>
@@ -992,6 +1001,7 @@
                         <NAME>
                          <INAME>COD_BARRA</INAME>
                         </NAME>
+                        <CAPTION>Código de Barras</CAPTION>
                         <NOLANGUAGE>X</NOLANGUAGE>
                         <APPMODE>P</APPMODE>
                         <TEXT>
@@ -1192,6 +1202,7 @@
               <NAME>
                <INAME>CODIGO_BARRA2</INAME>
               </NAME>
+              <CAPTION>Código de Barra 2</CAPTION>
               <WTYPE>T</WTYPE>
               <T_CAPTION>
                <item>
@@ -1214,6 +1225,7 @@
                      <NAME>
                       <INAME>COD_NUMERICO_BAR2</INAME>
                      </NAME>
+                     <CAPTION>Código Númerico 2</CAPTION>
                      <NOLANGUAGE>X</NOLANGUAGE>
                      <APPMODE>P</APPMODE>
                      <TEXT>
@@ -1406,6 +1418,7 @@
               <NAME>
                <INAME>COD_NUMERICO_BAR3</INAME>
               </NAME>
+              <CAPTION>Código de Barra 3</CAPTION>
               <WTYPE>T</WTYPE>
               <T_CAPTION>
                <item>
@@ -1428,6 +1441,7 @@
                      <NAME>
                       <INAME>CODIGO_BARRA3</INAME>
                      </NAME>
+                     <CAPTION>Código de Barra 3</CAPTION>
                      <SECTTYPE>S</SECTTYPE>
                      <OTABTYPE>S</OTABTYPE>
                      <U_FHEIGHT>CM</U_FHEIGHT>
@@ -1568,6 +1582,7 @@
                         <NAME>
                          <INAME>COD_NUMERICO_BAR3</INAME>
                         </NAME>
+                        <CAPTION>Código Númerico 3</CAPTION>
                         <NOLANGUAGE>X</NOLANGUAGE>
                         <APPMODE>P</APPMODE>
                         <TEXT>
@@ -1684,6 +1699,7 @@
                         <NAME>
                          <INAME>COD_BARRA3</INAME>
                         </NAME>
+                        <CAPTION>Código de Barras</CAPTION>
                         <NOLANGUAGE>X</NOLANGUAGE>
                         <APPMODE>P</APPMODE>
                         <TEXT>
@@ -1884,6 +1900,7 @@
               <NAME>
                <INAME>BOLETOS</INAME>
               </NAME>
+              <CAPTION>Guia de Boletos</CAPTION>
               <WTYPE>T</WTYPE>
               <T_CAPTION>
                <item>
@@ -1906,6 +1923,7 @@
                      <NAME>
                       <INAME>BOLETO_VIA1</INAME>
                      </NAME>
+                     <CAPTION>1° Via Boleto</CAPTION>
                      <SECTTYPE>S</SECTTYPE>
                      <OTABTYPE>S</OTABTYPE>
                      <U_FHEIGHT>CM</U_FHEIGHT>
@@ -8086,7 +8104,14 @@
                         <NAME>
                          <INAME>TX_TITULO</INAME>
                         </NAME>
+                        <CAPTION>Titulo(1:1)</CAPTION>
                         <APPMODE>P</APPMODE>
+                        <TEXT>
+                         <item>
+                          <TDFORMAT>PE</TDFORMAT>
+                          <TDLINE>&lt;C3&gt;Guia Nacional de Recolhimento de Tributos Estaduais - GNRE&lt;/&gt;</TDLINE>
+                         </item>
+                        </TEXT>
                         <STYLE_NAME>Z_ESTILO_GNRE_PE</STYLE_NAME>
                         <TEXT_AREA>
                          <ENABLED>F</ENABLED>
@@ -8200,7 +8225,14 @@
                         <NAME>
                          <INAME>N11</INAME>
                         </NAME>
+                        <CAPTION>11</CAPTION>
                         <APPMODE>P</APPMODE>
+                        <TEXT>
+                         <item>
+                          <TDFORMAT>*</TDFORMAT>
+                          <TDLINE>&lt;C4&gt;11&lt;/&gt;</TDLINE>
+                         </item>
+                        </TEXT>
                         <STYLE_NAME>Z_ESTILO_GNRE_PE</STYLE_NAME>
                         <TEXT_AREA>
                          <ENABLED>F</ENABLED>
@@ -8314,7 +8346,14 @@
                         <NAME>
                          <INAME>TX_UF_FAV</INAME>
                         </NAME>
+                        <CAPTION>Texto UF Favorecida(2:2)</CAPTION>
                         <APPMODE>P</APPMODE>
+                        <TEXT>
+                         <item>
+                          <TDFORMAT>*</TDFORMAT>
+                          <TDLINE>&lt;CF&gt;UF Favorecida&lt;/&gt;</TDLINE>
+                         </item>
+                        </TEXT>
                         <STYLE_NAME>Z_ESTILO_GNRE_PE</STYLE_NAME>
                         <TEXT_AREA>
                          <ENABLED>F</ENABLED>
@@ -8428,7 +8467,14 @@
                         <NAME>
                          <INAME>UF_FAV</INAME>
                         </NAME>
+                        <CAPTION>UF Favorecida(3:2)</CAPTION>
                         <APPMODE>P</APPMODE>
+                        <TEXT>
+                         <item>
+                          <TDFORMAT>*</TDFORMAT>
+                          <TDLINE>&lt;CF&gt;RJ - Rio de Janeiro&lt;/&gt;</TDLINE>
+                         </item>
+                        </TEXT>
                         <STYLE_NAME>Z_ESTILO_GNRE_PE</STYLE_NAME>
                         <TEXT_AREA>
                          <ENABLED>F</ENABLED>
@@ -8542,7 +8588,14 @@
                         <NAME>
                          <INAME>N12</INAME>
                         </NAME>
+                        <CAPTION>12</CAPTION>
                         <APPMODE>P</APPMODE>
+                        <TEXT>
+                         <item>
+                          <TDFORMAT>*</TDFORMAT>
+                          <TDLINE>&lt;C4&gt;12&lt;/&gt;</TDLINE>
+                         </item>
+                        </TEXT>
                         <STYLE_NAME>Z_ESTILO_GNRE_PE</STYLE_NAME>
                         <TEXT_AREA>
                          <ENABLED>F</ENABLED>
@@ -8656,7 +8709,14 @@
                         <NAME>
                          <INAME>TX_DT_VENC</INAME>
                         </NAME>
+                        <CAPTION>Texto Data de Vencimento(2:4)</CAPTION>
                         <APPMODE>P</APPMODE>
+                        <TEXT>
+                         <item>
+                          <TDFORMAT>*</TDFORMAT>
+                          <TDLINE>&lt;CF&gt;Data de Vencimento&lt;/&gt;</TDLINE>
+                         </item>
+                        </TEXT>
                         <STYLE_NAME>Z_ESTILO_GNRE_PE</STYLE_NAME>
                         <TEXT_AREA>
                          <ENABLED>F</ENABLED>
@@ -8770,6 +8830,7 @@
                         <NAME>
                          <INAME>DATA_VENC_IT2</INAME>
                         </NAME>
+                        <CAPTION>Valor Data de Vencimento(3:4)</CAPTION>
                         <NOLANGUAGE>X</NOLANGUAGE>
                         <APPMODE>P</APPMODE>
                         <TEXT>
@@ -8884,7 +8945,14 @@
                         <NAME>
                          <INAME>N1</INAME>
                         </NAME>
+                        <CAPTION>1</CAPTION>
                         <APPMODE>P</APPMODE>
+                        <TEXT>
+                         <item>
+                          <TDFORMAT>*</TDFORMAT>
+                          <TDLINE>&lt;C4&gt;1&lt;/&gt;</TDLINE>
+                         </item>
+                        </TEXT>
                         <STYLE_NAME>Z_ESTILO_GNRE_PE</STYLE_NAME>
                         <TEXT_AREA>
                          <ENABLED>F</ENABLED>
@@ -8998,7 +9066,14 @@
                         <NAME>
                          <INAME>TX_COD_UF_FAV</INAME>
                         </NAME>
+                        <CAPTION>Texto Cód UF Favorecida(2:7)</CAPTION>
                         <APPMODE>P</APPMODE>
+                        <TEXT>
+                         <item>
+                          <TDFORMAT>*</TDFORMAT>
+                          <TDLINE>&lt;CF&gt;Código UF Favorecida&lt;/&gt;</TDLINE>
+                         </item>
+                        </TEXT>
                         <STYLE_NAME>Z_ESTILO_GNRE_PE</STYLE_NAME>
                         <TEXT_AREA>
                          <ENABLED>F</ENABLED>
@@ -9112,7 +9187,14 @@
                         <NAME>
                          <INAME>COD_UF_FAV</INAME>
                         </NAME>
+                        <CAPTION>Texto Cód UF Favorecida(3:7)</CAPTION>
                         <APPMODE>P</APPMODE>
+                        <TEXT>
+                         <item>
+                          <TDFORMAT>PD</TDFORMAT>
+                          <TDLINE>&lt;CF&gt;22-1 - Rio de Janeiro&lt;/&gt;</TDLINE>
+                         </item>
+                        </TEXT>
                         <STYLE_NAME>Z_ESTILO_GNRE_PE</STYLE_NAME>
                         <TEXT_AREA>
                          <ENABLED>F</ENABLED>
@@ -9226,7 +9308,14 @@
                         <NAME>
                          <INAME>N13</INAME>
                         </NAME>
+                        <CAPTION>13</CAPTION>
                         <APPMODE>P</APPMODE>
+                        <TEXT>
+                         <item>
+                          <TDFORMAT>*</TDFORMAT>
+                          <TDLINE>&lt;C4&gt;13&lt;/&gt;</TDLINE>
+                         </item>
+                        </TEXT>
                         <STYLE_NAME>Z_ESTILO_GNRE_PE</STYLE_NAME>
                         <TEXT_AREA>
                          <ENABLED>F</ENABLED>
@@ -9340,7 +9429,14 @@
                         <NAME>
                          <INAME>TX_CONVENIO_PRODUTO</INAME>
                         </NAME>
+                        <CAPTION>Texto Convenio/Protocolo(4:2)</CAPTION>
                         <APPMODE>P</APPMODE>
+                        <TEXT>
+                         <item>
+                          <TDFORMAT>*</TDFORMAT>
+                          <TDLINE>&lt;CF&gt;Convênio ou Protocolo / Especificação da Mercadoria:&lt;/&gt;</TDLINE>
+                         </item>
+                        </TEXT>
                         <STYLE_NAME>Z_ESTILO_GNRE_PE</STYLE_NAME>
                         <TEXT_AREA>
                          <ENABLED>F</ENABLED>
@@ -9454,6 +9550,7 @@
                         <NAME>
                          <INAME>CONVENIO_PRODUTO</INAME>
                         </NAME>
+                        <CAPTION>Convenio/Protocolo(5:2)</CAPTION>
                         <NOLANGUAGE>X</NOLANGUAGE>
                         <APPMODE>P</APPMODE>
                         <TEXT>
@@ -9568,7 +9665,14 @@
                         <NAME>
                          <INAME>N2</INAME>
                         </NAME>
+                        <CAPTION>2</CAPTION>
                         <APPMODE>P</APPMODE>
+                        <TEXT>
+                         <item>
+                          <TDFORMAT>*</TDFORMAT>
+                          <TDLINE>&lt;C4&gt;2&lt;/&gt;</TDLINE>
+                         </item>
+                        </TEXT>
                         <STYLE_NAME>Z_ESTILO_GNRE_PE</STYLE_NAME>
                         <TEXT_AREA>
                          <ENABLED>F</ENABLED>
@@ -9682,7 +9786,14 @@
                         <NAME>
                          <INAME>TX_COD_RECEITA</INAME>
                         </NAME>
+                        <CAPTION>Texto Código da Receita(4:5)</CAPTION>
                         <APPMODE>P</APPMODE>
+                        <TEXT>
+                         <item>
+                          <TDFORMAT>*</TDFORMAT>
+                          <TDLINE>&lt;CF&gt;Código da Receita&lt;/&gt;</TDLINE>
+                         </item>
+                        </TEXT>
                         <STYLE_NAME>Z_ESTILO_GNRE_PE</STYLE_NAME>
                         <TEXT_AREA>
                          <ENABLED>F</ENABLED>
@@ -9796,6 +9907,7 @@
                         <NAME>
                          <INAME>COD_RECEITA</INAME>
                         </NAME>
+                        <CAPTION>Código da Receita(5:5)</CAPTION>
                         <NOLANGUAGE>X</NOLANGUAGE>
                         <APPMODE>P</APPMODE>
                         <TEXT>
@@ -9906,7 +10018,14 @@
                         <NAME>
                          <INAME>N14</INAME>
                         </NAME>
+                        <CAPTION>14</CAPTION>
                         <APPMODE>P</APPMODE>
+                        <TEXT>
+                         <item>
+                          <TDFORMAT>*</TDFORMAT>
+                          <TDLINE>&lt;C4&gt;14&lt;/&gt;</TDLINE>
+                         </item>
+                        </TEXT>
                         <STYLE_NAME>Z_ESTILO_GNRE_PE</STYLE_NAME>
                         <TEXT_AREA>
                          <ENABLED>F</ENABLED>
@@ -10020,7 +10139,14 @@
                         <NAME>
                          <INAME>TX_R_SOCIAL</INAME>
                         </NAME>
+                        <CAPTION>Texto Razão Social(6:2)</CAPTION>
                         <APPMODE>P</APPMODE>
+                        <TEXT>
+                         <item>
+                          <TDFORMAT>*</TDFORMAT>
+                          <TDLINE>&lt;CF&gt;Nome da Firma ou Razão Social:&lt;/&gt;</TDLINE>
+                         </item>
+                        </TEXT>
                         <STYLE_NAME>Z_ESTILO_GNRE_PE</STYLE_NAME>
                         <TEXT_AREA>
                          <ENABLED>F</ENABLED>
@@ -10134,6 +10260,7 @@
                         <NAME>
                          <INAME>R_SOCIAL_EMITENTE</INAME>
                         </NAME>
+                        <CAPTION>Valor Razão social(7:2)</CAPTION>
                         <NOLANGUAGE>X</NOLANGUAGE>
                         <APPMODE>P</APPMODE>
                         <TEXT>
@@ -10244,7 +10371,14 @@
                         <NAME>
                          <INAME>N15</INAME>
                         </NAME>
+                        <CAPTION>15</CAPTION>
                         <APPMODE>P</APPMODE>
+                        <TEXT>
+                         <item>
+                          <TDFORMAT>*</TDFORMAT>
+                          <TDLINE>&lt;C4&gt;15&lt;/&gt;</TDLINE>
+                         </item>
+                        </TEXT>
                         <STYLE_NAME>Z_ESTILO_GNRE_PE</STYLE_NAME>
                         <TEXT_AREA>
                          <ENABLED>F</ENABLED>
@@ -10358,7 +10492,14 @@
                         <NAME>
                          <INAME>TX_INSC_EST_UF_FAV</INAME>
                         </NAME>
+                        <CAPTION>Texto Insc. Est. UF Fav(6:4)</CAPTION>
                         <APPMODE>P</APPMODE>
+                        <TEXT>
+                         <item>
+                          <TDFORMAT>*</TDFORMAT>
+                          <TDLINE>&lt;CF&gt;Inscrição Estadual UF Favorecida&lt;/&gt;</TDLINE>
+                         </item>
+                        </TEXT>
                         <STYLE_NAME>Z_ESTILO_GNRE_PE</STYLE_NAME>
                         <TEXT_AREA>
                          <ENABLED>F</ENABLED>
@@ -10472,6 +10613,7 @@
                         <NAME>
                          <INAME>INSC_EST_UF_FAV</INAME>
                         </NAME>
+                        <CAPTION>Insc. Est. UF Fav(7:4)</CAPTION>
                         <NOLANGUAGE>X</NOLANGUAGE>
                         <APPMODE>P</APPMODE>
                         <TEXT>
@@ -10582,7 +10724,14 @@
                         <NAME>
                          <INAME>N3</INAME>
                         </NAME>
+                        <CAPTION>3</CAPTION>
                         <APPMODE>P</APPMODE>
+                        <TEXT>
+                         <item>
+                          <TDFORMAT>*</TDFORMAT>
+                          <TDLINE>&lt;C4&gt;3&lt;/&gt;</TDLINE>
+                         </item>
+                        </TEXT>
                         <STYLE_NAME>Z_ESTILO_GNRE_PE</STYLE_NAME>
                         <TEXT_AREA>
                          <ENABLED>F</ENABLED>
@@ -10696,7 +10845,14 @@
                         <NAME>
                          <INAME>TX_CNPJ_CPF_CONTRIB</INAME>
                         </NAME>
+                        <CAPTION>Texto CNPJ CPF Contrib(6:7)</CAPTION>
                         <APPMODE>P</APPMODE>
+                        <TEXT>
+                         <item>
+                          <TDFORMAT>*</TDFORMAT>
+                          <TDLINE>&lt;CF&gt;CNPJ/CPF do Contribuinte&lt;/&gt;</TDLINE>
+                         </item>
+                        </TEXT>
                         <STYLE_NAME>Z_ESTILO_GNRE_PE</STYLE_NAME>
                         <TEXT_AREA>
                          <ENABLED>F</ENABLED>
@@ -10810,6 +10966,7 @@
                         <NAME>
                          <INAME>CNPJ_CPF_CONTRIB</INAME>
                         </NAME>
+                        <CAPTION>CNPJ CPF Contrib(7:7)</CAPTION>
                         <NOLANGUAGE>X</NOLANGUAGE>
                         <APPMODE>P</APPMODE>
                         <TEXT>
@@ -10920,7 +11077,14 @@
                         <NAME>
                          <INAME>N16</INAME>
                         </NAME>
+                        <CAPTION>16</CAPTION>
                         <APPMODE>P</APPMODE>
+                        <TEXT>
+                         <item>
+                          <TDFORMAT>*</TDFORMAT>
+                          <TDLINE>&lt;C4&gt;16&lt;/&gt;</TDLINE>
+                         </item>
+                        </TEXT>
                         <STYLE_NAME>Z_ESTILO_GNRE_PE</STYLE_NAME>
                         <TEXT_AREA>
                          <ENABLED>F</ENABLED>
@@ -11034,7 +11198,14 @@
                         <NAME>
                          <INAME>TX_ENDERECO_EMITENTE</INAME>
                         </NAME>
+                        <CAPTION>Texto Endereço(8:2)</CAPTION>
                         <APPMODE>P</APPMODE>
+                        <TEXT>
+                         <item>
+                          <TDFORMAT>*</TDFORMAT>
+                          <TDLINE>&lt;CF&gt;Endereço Completo&lt;/&gt;</TDLINE>
+                         </item>
+                        </TEXT>
                         <STYLE_NAME>Z_ESTILO_GNRE_PE</STYLE_NAME>
                         <TEXT_AREA>
                          <ENABLED>F</ENABLED>
@@ -11148,6 +11319,7 @@
                         <NAME>
                          <INAME>ENDERECO_EMITENTE</INAME>
                         </NAME>
+                        <CAPTION>Endereço(9:2)</CAPTION>
                         <NOLANGUAGE>X</NOLANGUAGE>
                         <APPMODE>P</APPMODE>
                         <TEXT>
@@ -11258,7 +11430,14 @@
                         <NAME>
                          <INAME>N4</INAME>
                         </NAME>
+                        <CAPTION>4</CAPTION>
                         <APPMODE>P</APPMODE>
+                        <TEXT>
+                         <item>
+                          <TDFORMAT>*</TDFORMAT>
+                          <TDLINE>&lt;C4&gt;4&lt;/&gt;</TDLINE>
+                         </item>
+                        </TEXT>
                         <STYLE_NAME>Z_ESTILO_GNRE_PE</STYLE_NAME>
                         <TEXT_AREA>
                          <ENABLED>F</ENABLED>
@@ -11372,7 +11551,14 @@
                         <NAME>
                          <INAME>TX_N_DOC_ORIGEM</INAME>
                         </NAME>
+                        <CAPTION>Texto N° doc de origem(8:5)</CAPTION>
                         <APPMODE>P</APPMODE>
+                        <TEXT>
+                         <item>
+                          <TDFORMAT>*</TDFORMAT>
+                          <TDLINE>&lt;CF&gt;N° do Documento de Origem:&lt;/&gt;</TDLINE>
+                         </item>
+                        </TEXT>
                         <STYLE_NAME>Z_ESTILO_GNRE_PE</STYLE_NAME>
                         <TEXT_AREA>
                          <ENABLED>F</ENABLED>
@@ -11486,6 +11672,7 @@
                         <NAME>
                          <INAME>N_DOC_ORIGEM1</INAME>
                         </NAME>
+                        <CAPTION>Valor N° doc Origem(9:5)</CAPTION>
                         <NOLANGUAGE>X</NOLANGUAGE>
                         <APPMODE>P</APPMODE>
                         <TEXT>
@@ -11596,7 +11783,14 @@
                         <NAME>
                          <INAME>N17</INAME>
                         </NAME>
+                        <CAPTION>17</CAPTION>
                         <APPMODE>P</APPMODE>
+                        <TEXT>
+                         <item>
+                          <TDFORMAT>*</TDFORMAT>
+                          <TDLINE>&lt;C4&gt;17&lt;/&gt;</TDLINE>
+                         </item>
+                        </TEXT>
                         <STYLE_NAME>Z_ESTILO_GNRE_PE</STYLE_NAME>
                         <TEXT_AREA>
                          <ENABLED>F</ENABLED>
@@ -11710,7 +11904,14 @@
                         <NAME>
                          <INAME>TX_MUNICIPIO_EMITENTE</INAME>
                         </NAME>
+                        <CAPTION>Texto Município(10:2)</CAPTION>
                         <APPMODE>P</APPMODE>
+                        <TEXT>
+                         <item>
+                          <TDFORMAT>*</TDFORMAT>
+                          <TDLINE>&lt;CF&gt;Município:&lt;/&gt;</TDLINE>
+                         </item>
+                        </TEXT>
                         <STYLE_NAME>Z_ESTILO_GNRE_PE</STYLE_NAME>
                         <TEXT_AREA>
                          <ENABLED>F</ENABLED>
@@ -11824,6 +12025,7 @@
                         <NAME>
                          <INAME>MUNICIPIO_EMITENTE</INAME>
                         </NAME>
+                        <CAPTION>Município(11:2)</CAPTION>
                         <NOLANGUAGE>X</NOLANGUAGE>
                         <APPMODE>P</APPMODE>
                         <TEXT>
@@ -11934,7 +12136,14 @@
                         <NAME>
                          <INAME>N18</INAME>
                         </NAME>
+                        <CAPTION>18</CAPTION>
                         <APPMODE>P</APPMODE>
+                        <TEXT>
+                         <item>
+                          <TDFORMAT>*</TDFORMAT>
+                          <TDLINE>&lt;C4&gt;18&lt;/&gt;</TDLINE>
+                         </item>
+                        </TEXT>
                         <STYLE_NAME>Z_ESTILO_GNRE_PE</STYLE_NAME>
                         <TEXT_AREA>
                          <ENABLED>F</ENABLED>
@@ -12048,7 +12257,14 @@
                         <NAME>
                          <INAME>TX_UF_EMITENTE</INAME>
                         </NAME>
+                        <CAPTION>Texto UF(10:4)</CAPTION>
                         <APPMODE>P</APPMODE>
+                        <TEXT>
+                         <item>
+                          <TDFORMAT>*</TDFORMAT>
+                          <TDLINE>&lt;CF&gt;UF.:&lt;/&gt;</TDLINE>
+                         </item>
+                        </TEXT>
                         <STYLE_NAME>Z_ESTILO_GNRE_PE</STYLE_NAME>
                         <TEXT_AREA>
                          <ENABLED>F</ENABLED>
@@ -12162,6 +12378,7 @@
                         <NAME>
                          <INAME>UF_EMITENTE</INAME>
                         </NAME>
+                        <CAPTION>UF(11:4)</CAPTION>
                         <NOLANGUAGE>X</NOLANGUAGE>
                         <APPMODE>P</APPMODE>
                         <TEXT>
@@ -12272,7 +12489,14 @@
                         <NAME>
                          <INAME>N19</INAME>
                         </NAME>
+                        <CAPTION>19</CAPTION>
                         <APPMODE>P</APPMODE>
+                        <TEXT>
+                         <item>
+                          <TDFORMAT>*</TDFORMAT>
+                          <TDLINE>&lt;C4&gt;19&lt;/&gt;</TDLINE>
+                         </item>
+                        </TEXT>
                         <STYLE_NAME>Z_ESTILO_GNRE_PE</STYLE_NAME>
                         <TEXT_AREA>
                          <ENABLED>F</ENABLED>
@@ -12386,7 +12610,14 @@
                         <NAME>
                          <INAME>TX_CEP</INAME>
                         </NAME>
+                        <CAPTION>Texto cep(10:6)</CAPTION>
                         <APPMODE>P</APPMODE>
+                        <TEXT>
+                         <item>
+                          <TDFORMAT>*</TDFORMAT>
+                          <TDLINE>&lt;CF&gt;CEP.:&lt;/&gt;</TDLINE>
+                         </item>
+                        </TEXT>
                         <STYLE_NAME>Z_ESTILO_GNRE_PE</STYLE_NAME>
                         <TEXT_AREA>
                          <ENABLED>F</ENABLED>
@@ -12500,6 +12731,7 @@
                         <NAME>
                          <INAME>CEP</INAME>
                         </NAME>
+                        <CAPTION>cep(11:6)</CAPTION>
                         <NOLANGUAGE>X</NOLANGUAGE>
                         <APPMODE>P</APPMODE>
                         <TEXT>
@@ -12610,7 +12842,14 @@
                         <NAME>
                          <INAME>N20</INAME>
                         </NAME>
+                        <CAPTION>20</CAPTION>
                         <APPMODE>P</APPMODE>
+                        <TEXT>
+                         <item>
+                          <TDFORMAT>*</TDFORMAT>
+                          <TDLINE>&lt;C4&gt;20&lt;/&gt;</TDLINE>
+                         </item>
+                        </TEXT>
                         <STYLE_NAME>Z_ESTILO_GNRE_PE</STYLE_NAME>
                         <TEXT_AREA>
                          <ENABLED>F</ENABLED>
@@ -12724,7 +12963,14 @@
                         <NAME>
                          <INAME>TX_TELEFONE</INAME>
                         </NAME>
+                        <CAPTION>Texto Telefone(10:8)</CAPTION>
                         <APPMODE>P</APPMODE>
+                        <TEXT>
+                         <item>
+                          <TDFORMAT>*</TDFORMAT>
+                          <TDLINE>&lt;CF&gt;DDD / Telefone:&lt;/&gt;</TDLINE>
+                         </item>
+                        </TEXT>
                         <STYLE_NAME>Z_ESTILO_GNRE_PE</STYLE_NAME>
                         <TEXT_AREA>
                          <ENABLED>F</ENABLED>
@@ -12838,6 +13084,7 @@
                         <NAME>
                          <INAME>TELEFONE</INAME>
                         </NAME>
+                        <CAPTION>Telefone(11:8)</CAPTION>
                         <NOLANGUAGE>X</NOLANGUAGE>
                         <APPMODE>P</APPMODE>
                         <TEXT>
@@ -12948,7 +13195,14 @@
                         <NAME>
                          <INAME>N5</INAME>
                         </NAME>
+                        <CAPTION>5</CAPTION>
                         <APPMODE>P</APPMODE>
+                        <TEXT>
+                         <item>
+                          <TDFORMAT>*</TDFORMAT>
+                          <TDLINE>&lt;C4&gt;5&lt;/&gt;</TDLINE>
+                         </item>
+                        </TEXT>
                         <STYLE_NAME>Z_ESTILO_GNRE_PE</STYLE_NAME>
                         <TEXT_AREA>
                          <ENABLED>F</ENABLED>
@@ -13062,7 +13316,14 @@
                         <NAME>
                          <INAME>TX_PERIODO_REFERENCIA1</INAME>
                         </NAME>
+                        <CAPTION>Text Periodo Referência(10:11)</CAPTION>
                         <APPMODE>P</APPMODE>
+                        <TEXT>
+                         <item>
+                          <TDFORMAT>*</TDFORMAT>
+                          <TDLINE>&lt;CF&gt;Período de Referência / N° Parcela&lt;/&gt;</TDLINE>
+                         </item>
+                        </TEXT>
                         <STYLE_NAME>Z_ESTILO_GNRE_PE</STYLE_NAME>
                         <TEXT_AREA>
                          <ENABLED>F</ENABLED>
@@ -13176,6 +13437,7 @@
                         <NAME>
                          <INAME>PERIODO_REFERENCIA</INAME>
                         </NAME>
+                        <CAPTION>Periodo de Referência(11:11)</CAPTION>
                         <NOLANGUAGE>X</NOLANGUAGE>
                         <APPMODE>P</APPMODE>
                         <TEXT>
@@ -13286,7 +13548,14 @@
                         <NAME>
                          <INAME>N21</INAME>
                         </NAME>
+                        <CAPTION>21</CAPTION>
                         <APPMODE>P</APPMODE>
+                        <TEXT>
+                         <item>
+                          <TDFORMAT>*</TDFORMAT>
+                          <TDLINE>&lt;C4&gt;21&lt;/&gt;</TDLINE>
+                         </item>
+                        </TEXT>
                         <STYLE_NAME>Z_ESTILO_GNRE_PE</STYLE_NAME>
                         <TEXT_AREA>
                          <ENABLED>F</ENABLED>
@@ -13400,7 +13669,14 @@
                         <NAME>
                          <INAME>TX_INFOR_COMPLEMENTAR</INAME>
                         </NAME>
+                        <CAPTION>Informações complementar(12:2)</CAPTION>
                         <APPMODE>P</APPMODE>
+                        <TEXT>
+                         <item>
+                          <TDFORMAT>*</TDFORMAT>
+                          <TDLINE>&lt;CF&gt;Informações Complementares&lt;/&gt;</TDLINE>
+                         </item>
+                        </TEXT>
                         <STYLE_NAME>Z_ESTILO_GNRE_PE</STYLE_NAME>
                         <TEXT_AREA>
                          <ENABLED>F</ENABLED>
@@ -13514,7 +13790,18 @@
                         <NAME>
                          <INAME>INFOR_COMPLEMENTAR1</INAME>
                         </NAME>
+                        <CAPTION>Informações complementar(13:2)</CAPTION>
                         <APPMODE>P</APPMODE>
+                        <TEXT>
+                         <item>
+                          <TDFORMAT>/*</TDFORMAT>
+                          <TDLINE>&lt;CF&gt;GUIA REFERENTE NF-E &amp;is_zgnre_campos-doc_nfenum&amp;&lt;/&gt;</TDLINE>
+                         </item>
+                         <item>
+                          <TDFORMAT>*</TDFORMAT>
+                          <TDLINE>&lt;CF&gt;NFe &amp;is_ZGNRE_CAMPOS-DOC_NFENUM&amp;, chave &amp;is_ZGNRE_CAMPOS-ACCKEY&amp;&lt;/&gt;</TDLINE>
+                         </item>
+                        </TEXT>
                         <STYLE_NAME>Z_ESTILO_GNRE_PE</STYLE_NAME>
                         <TEXT_AREA>
                          <ENABLED>F</ENABLED>
@@ -13637,7 +13924,17 @@
                         <NAME>
                          <INAME>INFOR_COMPLEMENTAR2</INAME>
                         </NAME>
+                        <CAPTION>Informações compl. (14:2)</CAPTION>
                         <APPMODE>P</APPMODE>
+                        <TEXT>
+                         <item>
+                          <TDFORMAT>*</TDFORMAT>
+                          <TDLINE>&lt;CF&gt;**NOSSO NÚMERO: &amp;is_ZGNRE_CAMPOS-HR_CONTROLE&amp;       SEFAZ-RJ - CNPJ</TDLINE>
+                         </item>
+                         <item>
+                          <TDLINE>nº 42.498.675/0001-52&lt;/&gt;</TDLINE>
+                         </item>
+                        </TEXT>
                         <STYLE_NAME>Z_ESTILO_GNRE_PE</STYLE_NAME>
                         <TEXT_AREA>
                          <ENABLED>F</ENABLED>
@@ -13759,7 +14056,14 @@
                         <NAME>
                          <INAME>INFOR_COMPLEMENTAR3</INAME>
                         </NAME>
+                        <CAPTION>Informações compl. (15:2)</CAPTION>
                         <APPMODE>P</APPMODE>
+                        <TEXT>
+                         <item>
+                          <TDFORMAT>*</TDFORMAT>
+                          <TDLINE>&lt;CF&gt;Pagável nos bancos Bradesco, Banco do Brasil, Itaú ou Santander.&lt;/&gt;</TDLINE>
+                         </item>
+                        </TEXT>
                         <STYLE_NAME>Z_ESTILO_GNRE_PE</STYLE_NAME>
                         <TEXT_AREA>
                          <ENABLED>F</ENABLED>
@@ -13873,7 +14177,25 @@
                         <NAME>
                          <INAME>N_VIA1</INAME>
                         </NAME>
+                        <CAPTION>N° da via 1(17:2)</CAPTION>
                         <APPMODE>P</APPMODE>
+                        <TEXT>
+                         <item>
+                          <TDFORMAT>PE</TDFORMAT>
+                          <TDLINE>&lt;CG&gt;NÃO RECEBER APÓS &amp;is_ZGNRE_CAMPOS-FAEDT(2)&amp;/</TDLINE>
+                         </item>
+                         <item>
+                          <TDFORMAT>=</TDFORMAT>
+                          <TDLINE>&amp;is_ZGNRE_CAMPOS-FAEDT+3(2)&amp;/&amp;is_ZGNRE_CAMPOS-FAEDT+6(4)&amp;</TDLINE>
+                         </item>
+                         <item>
+                          <TDLINE>                                                                            &lt;/&gt;</TDLINE>
+                         </item>
+                         <item>
+                          <TDFORMAT>=</TDFORMAT>
+                          <TDLINE>PRIMEIRA VIA</TDLINE>
+                         </item>
+                        </TEXT>
                         <STYLE_NAME>Z_ESTILO_GNRE_PE</STYLE_NAME>
                         <TEXT_AREA>
                          <ENABLED>F</ENABLED>
@@ -14013,7 +14335,14 @@
                         <NAME>
                          <INAME>N6</INAME>
                         </NAME>
+                        <CAPTION>6</CAPTION>
                         <APPMODE>P</APPMODE>
+                        <TEXT>
+                         <item>
+                          <TDFORMAT>*</TDFORMAT>
+                          <TDLINE>&lt;C4&gt;6&lt;/&gt;</TDLINE>
+                         </item>
+                        </TEXT>
                         <STYLE_NAME>Z_ESTILO_GNRE_PE</STYLE_NAME>
                         <TEXT_AREA>
                          <ENABLED>F</ENABLED>
@@ -14127,7 +14456,14 @@
                         <NAME>
                          <INAME>TX_VALOR_PRINCIPAL</INAME>
                         </NAME>
+                        <CAPTION>Texto Valor Principal(10:2)</CAPTION>
                         <APPMODE>P</APPMODE>
+                        <TEXT>
+                         <item>
+                          <TDFORMAT>*</TDFORMAT>
+                          <TDLINE>&lt;CF&gt;Valor Principal&lt;/&gt;</TDLINE>
+                         </item>
+                        </TEXT>
                         <STYLE_NAME>Z_ESTILO_GNRE_PE</STYLE_NAME>
                         <TEXT_AREA>
                          <ENABLED>F</ENABLED>
@@ -14241,6 +14577,7 @@
                         <NAME>
                          <INAME>VALOR_PRINCIPAL</INAME>
                         </NAME>
+                        <CAPTION>Valor Principal(11:2)</CAPTION>
                         <NOLANGUAGE>X</NOLANGUAGE>
                         <APPMODE>P</APPMODE>
                         <TEXT>
@@ -14351,7 +14688,14 @@
                         <NAME>
                          <INAME>N7</INAME>
                         </NAME>
+                        <CAPTION>7</CAPTION>
                         <APPMODE>P</APPMODE>
+                        <TEXT>
+                         <item>
+                          <TDFORMAT>*</TDFORMAT>
+                          <TDLINE>&lt;C4&gt;7&lt;/&gt;</TDLINE>
+                         </item>
+                        </TEXT>
                         <STYLE_NAME>Z_ESTILO_GNRE_PE</STYLE_NAME>
                         <TEXT_AREA>
                          <ENABLED>F</ENABLED>
@@ -14465,7 +14809,14 @@
                         <NAME>
                          <INAME>TX_ATUAL_MONETARIA</INAME>
                         </NAME>
+                        <CAPTION>Texto Atualiz. Monetária(14:5)</CAPTION>
                         <APPMODE>P</APPMODE>
+                        <TEXT>
+                         <item>
+                          <TDFORMAT>*</TDFORMAT>
+                          <TDLINE>&lt;CF&gt;Atualização Monetária&lt;/&gt;</TDLINE>
+                         </item>
+                        </TEXT>
                         <STYLE_NAME>Z_ESTILO_GNRE_PE</STYLE_NAME>
                         <TEXT_AREA>
                          <ENABLED>F</ENABLED>
@@ -14579,7 +14930,14 @@
                         <NAME>
                          <INAME>ATUAL_MONETARIA</INAME>
                         </NAME>
+                        <CAPTION>Atualiz. Monetária(15:5)</CAPTION>
                         <APPMODE>P</APPMODE>
+                        <TEXT>
+                         <item>
+                          <TDFORMAT>PD</TDFORMAT>
+                          <TDLINE>&lt;CF&gt;0,00&lt;/&gt;</TDLINE>
+                         </item>
+                        </TEXT>
                         <STYLE_NAME>Z_ESTILO_GNRE_PE</STYLE_NAME>
                         <TEXT_AREA>
                          <ENABLED>F</ENABLED>
@@ -14693,7 +15051,14 @@
                         <NAME>
                          <INAME>N8</INAME>
                         </NAME>
+                        <CAPTION>8</CAPTION>
                         <APPMODE>P</APPMODE>
+                        <TEXT>
+                         <item>
+                          <TDFORMAT>*</TDFORMAT>
+                          <TDLINE>&lt;C4&gt;8&lt;/&gt;</TDLINE>
+                         </item>
+                        </TEXT>
                         <STYLE_NAME>Z_ESTILO_GNRE_PE</STYLE_NAME>
                         <TEXT_AREA>
                          <ENABLED>F</ENABLED>
@@ -14807,7 +15172,14 @@
                         <NAME>
                          <INAME>TX_JUROS</INAME>
                         </NAME>
+                        <CAPTION>Texto Juros(16:5)</CAPTION>
                         <APPMODE>P</APPMODE>
+                        <TEXT>
+                         <item>
+                          <TDFORMAT>*</TDFORMAT>
+                          <TDLINE>&lt;CF&gt;Juros de Mora&lt;/&gt;</TDLINE>
+                         </item>
+                        </TEXT>
                         <STYLE_NAME>Z_ESTILO_GNRE_PE</STYLE_NAME>
                         <TEXT_AREA>
                          <ENABLED>F</ENABLED>
@@ -14921,7 +15293,14 @@
                         <NAME>
                          <INAME>JUROS</INAME>
                         </NAME>
+                        <CAPTION>Valor Juros(17:5)</CAPTION>
                         <APPMODE>P</APPMODE>
+                        <TEXT>
+                         <item>
+                          <TDFORMAT>PD</TDFORMAT>
+                          <TDLINE>&lt;CF&gt;0,00&lt;/&gt;</TDLINE>
+                         </item>
+                        </TEXT>
                         <STYLE_NAME>Z_ESTILO_GNRE_PE</STYLE_NAME>
                         <TEXT_AREA>
                          <ENABLED>F</ENABLED>
@@ -15035,7 +15414,14 @@
                         <NAME>
                          <INAME>N22</INAME>
                         </NAME>
+                        <CAPTION>22</CAPTION>
                         <APPMODE>P</APPMODE>
+                        <TEXT>
+                         <item>
+                          <TDFORMAT>*</TDFORMAT>
+                          <TDLINE>&lt;C4&gt;22&lt;/&gt;</TDLINE>
+                         </item>
+                        </TEXT>
                         <STYLE_NAME>Z_ESTILO_GNRE_PE</STYLE_NAME>
                         <TEXT_AREA>
                          <ENABLED>F</ENABLED>
@@ -15149,7 +15535,14 @@
                         <NAME>
                          <INAME>AUTENTICACAO</INAME>
                         </NAME>
+                        <CAPTION>Autenticação(18,2)</CAPTION>
                         <APPMODE>P</APPMODE>
+                        <TEXT>
+                         <item>
+                          <TDFORMAT>*</TDFORMAT>
+                          <TDLINE>&lt;CF&gt;Autenticação&lt;/&gt;</TDLINE>
+                         </item>
+                        </TEXT>
                         <STYLE_NAME>Z_ESTILO_GNRE_PE</STYLE_NAME>
                         <TEXT_AREA>
                          <ENABLED>F</ENABLED>
@@ -15263,7 +15656,14 @@
                         <NAME>
                          <INAME>N9</INAME>
                         </NAME>
+                        <CAPTION>9</CAPTION>
                         <APPMODE>P</APPMODE>
+                        <TEXT>
+                         <item>
+                          <TDFORMAT>*</TDFORMAT>
+                          <TDLINE>&lt;C4&gt;9&lt;/&gt;</TDLINE>
+                         </item>
+                        </TEXT>
                         <STYLE_NAME>Z_ESTILO_GNRE_PE</STYLE_NAME>
                         <TEXT_AREA>
                          <ENABLED>F</ENABLED>
@@ -15377,7 +15777,14 @@
                         <NAME>
                          <INAME>TX_MULTA</INAME>
                         </NAME>
+                        <CAPTION>Texto Multa(18:5)</CAPTION>
                         <APPMODE>P</APPMODE>
+                        <TEXT>
+                         <item>
+                          <TDFORMAT>*</TDFORMAT>
+                          <TDLINE>&lt;CF&gt;Multa de Mora&lt;/&gt;</TDLINE>
+                         </item>
+                        </TEXT>
                         <STYLE_NAME>Z_ESTILO_GNRE_PE</STYLE_NAME>
                         <TEXT_AREA>
                          <ENABLED>F</ENABLED>
@@ -15491,7 +15898,14 @@
                         <NAME>
                          <INAME>MULTA</INAME>
                         </NAME>
+                        <CAPTION>Multa(19:5)</CAPTION>
                         <APPMODE>P</APPMODE>
+                        <TEXT>
+                         <item>
+                          <TDFORMAT>PD</TDFORMAT>
+                          <TDLINE>&lt;CF&gt;0,00&lt;/&gt;</TDLINE>
+                         </item>
+                        </TEXT>
                         <STYLE_NAME>Z_ESTILO_GNRE_PE</STYLE_NAME>
                         <TEXT_AREA>
                          <ENABLED>F</ENABLED>
@@ -15605,7 +16019,14 @@
                         <NAME>
                          <INAME>N10</INAME>
                         </NAME>
+                        <CAPTION>10</CAPTION>
                         <APPMODE>P</APPMODE>
+                        <TEXT>
+                         <item>
+                          <TDFORMAT>*</TDFORMAT>
+                          <TDLINE>&lt;C4&gt;10&lt;/&gt;</TDLINE>
+                         </item>
+                        </TEXT>
                         <STYLE_NAME>Z_ESTILO_GNRE_PE</STYLE_NAME>
                         <TEXT_AREA>
                          <ENABLED>F</ENABLED>
@@ -15719,7 +16140,14 @@
                         <NAME>
                          <INAME>TX_VALOR_TOTAL</INAME>
                         </NAME>
+                        <CAPTION>Texto Valor Total(20:5)</CAPTION>
                         <APPMODE>P</APPMODE>
+                        <TEXT>
+                         <item>
+                          <TDFORMAT>*</TDFORMAT>
+                          <TDLINE>&lt;CF&gt;Total Recolher&lt;/&gt;</TDLINE>
+                         </item>
+                        </TEXT>
                         <STYLE_NAME>Z_ESTILO_GNRE_PE</STYLE_NAME>
                         <TEXT_AREA>
                          <ENABLED>F</ENABLED>
@@ -15833,6 +16261,7 @@
                         <NAME>
                          <INAME>VALOR_TOTAL</INAME>
                         </NAME>
+                        <CAPTION>Valor Total(21:5)</CAPTION>
                         <NOLANGUAGE>X</NOLANGUAGE>
                         <APPMODE>P</APPMODE>
                         <TEXT>
@@ -15943,6 +16372,7 @@
                         <NAME>
                          <INAME>SEPARADOR</INAME>
                         </NAME>
+                        <CAPTION>Separador(23:1)</CAPTION>
                         <NOLANGUAGE>X</NOLANGUAGE>
                         <APPMODE>P</APPMODE>
                         <TEXT>
@@ -16062,6 +16492,7 @@
                         <NAME>
                          <INAME>COND_CGC_CPF</INAME>
                         </NAME>
+                        <CAPTION>Condição de exibição(cgc/cpf)</CAPTION>
                         <COND>
                          <item>
                           <COP>NE</COP>
@@ -16090,6 +16521,7 @@
                            <NAME>
                             <INAME>%EVENT3</INAME>
                            </NAME>
+                           <CAPTION>TRUE</CAPTION>
                            <EVTYPE>+</EVTYPE>
                            <T_CAPTION>
                             <item>
@@ -16111,7 +16543,14 @@
                               <NAME>
                                <INAME>CGC_DESTINATARIO</INAME>
                               </NAME>
+                              <CAPTION>Cgc Destinatário CGC(9:1)</CAPTION>
                               <APPMODE>P</APPMODE>
+                              <TEXT>
+                               <item>
+                                <TDFORMAT>*</TDFORMAT>
+                                <TDLINE>&lt;CG&gt;CPF/CNPJ/Insc. Est: &lt;/&gt;    &lt;CF&gt;&amp;is_zgnre_campos-doc_cgc&amp;&lt;/&gt;</TDLINE>
+                               </item>
+                              </TEXT>
                               <STYLE_NAME>Z_ESTILO_GNRE_PE</STYLE_NAME>
                               <TEXT_AREA>
                                <ENABLED>F</ENABLED>
@@ -16226,6 +16665,7 @@
                            <NAME>
                             <INAME>%EVENT4</INAME>
                            </NAME>
+                           <CAPTION>FALSE</CAPTION>
                            <EVTYPE>-</EVTYPE>
                            <T_CAPTION>
                             <item>
@@ -16247,7 +16687,14 @@
                               <NAME>
                                <INAME>CPF_DESTINATARIO</INAME>
                               </NAME>
+                              <CAPTION>Cpf destinatário(9:1)</CAPTION>
                               <APPMODE>P</APPMODE>
+                              <TEXT>
+                               <item>
+                                <TDFORMAT>*</TDFORMAT>
+                                <TDLINE>&lt;CG&gt;CPF/CNPJ/Insc. Est: &lt;/&gt;  &lt;CF&gt; &amp;is_zgnre_campos-doc_cpf&amp;&lt;/&gt;</TDLINE>
+                               </item>
+                              </TEXT>
                               <STYLE_NAME>Z_ESTILO_GNRE_PE</STYLE_NAME>
                               <TEXT_AREA>
                                <ENABLED>F</ENABLED>
@@ -16365,7 +16812,14 @@
                         <NAME>
                          <INAME>TX_DDS_EMIT</INAME>
                         </NAME>
+                        <CAPTION>Dados do C.Emitente(2:1)</CAPTION>
                         <APPMODE>P</APPMODE>
+                        <TEXT>
+                         <item>
+                          <TDFORMAT>PC</TDFORMAT>
+                          <TDLINE>&lt;CN&gt;&lt;CG&gt;Dados do Contribuinte Emitente&lt;/&gt;&lt;/&gt;</TDLINE>
+                         </item>
+                        </TEXT>
                         <STYLE_NAME>Z_ESTILO_GNRE_PE</STYLE_NAME>
                         <TEXT_AREA>
                          <ENABLED>F</ENABLED>
@@ -16477,7 +16931,14 @@
                         <NAME>
                          <INAME>TX_N_CONTROLE</INAME>
                         </NAME>
+                        <CAPTION>Texto Número de controle(2:2)</CAPTION>
                         <APPMODE>P</APPMODE>
+                        <TEXT>
+                         <item>
+                          <TDFORMAT>*</TDFORMAT>
+                          <TDLINE>&lt;CN&gt;&lt;CG&gt;Nº de Controle&lt;/&gt;&lt;/&gt;</TDLINE>
+                         </item>
+                        </TEXT>
                         <STYLE_NAME>Z_ESTILO_GNRE</STYLE_NAME>
                         <TEXT_AREA>
                          <ENABLED>F</ENABLED>
@@ -16589,6 +17050,7 @@
                         <NAME>
                          <INAME>N_CONTROLE</INAME>
                         </NAME>
+                        <CAPTION>Valor Número de controle(3:3)</CAPTION>
                         <NOLANGUAGE>X</NOLANGUAGE>
                         <APPMODE>P</APPMODE>
                         <TEXT>
@@ -16697,7 +17159,14 @@
                         <NAME>
                          <INAME>TX_DDS_DESTINATARIO</INAME>
                         </NAME>
+                        <CAPTION>Dados destinatário(8:1)</CAPTION>
                         <APPMODE>P</APPMODE>
+                        <TEXT>
+                         <item>
+                          <TDFORMAT>PC</TDFORMAT>
+                          <TDLINE>&lt;CN&gt;&lt;CG&gt;Dados do Destinatário&lt;/&gt;&lt;/&gt;</TDLINE>
+                         </item>
+                        </TEXT>
                         <STYLE_NAME>Z_ESTILO_GNRE_PE</STYLE_NAME>
                         <TEXT_AREA>
                          <ENABLED>F</ENABLED>
@@ -16809,7 +17278,14 @@
                         <NAME>
                          <INAME>TX_PERIODO_REFERENCIA</INAME>
                         </NAME>
+                        <CAPTION>Periodo de Referência(8:2)</CAPTION>
                         <APPMODE>P</APPMODE>
+                        <TEXT>
+                         <item>
+                          <TDFORMAT>*</TDFORMAT>
+                          <TDLINE>&lt;CG&gt;Período de Referência&lt;/&gt;</TDLINE>
+                         </item>
+                        </TEXT>
                         <STYLE_NAME>Z_ESTILO_GNRE_PE</STYLE_NAME>
                         <TEXT_AREA>
                          <ENABLED>F</ENABLED>
@@ -16921,7 +17397,14 @@
                         <NAME>
                          <INAME>PARCELA</INAME>
                         </NAME>
+                        <CAPTION>Parcela(8:3)</CAPTION>
                         <APPMODE>P</APPMODE>
+                        <TEXT>
+                         <item>
+                          <TDFORMAT>*</TDFORMAT>
+                          <TDLINE>&lt;CN&gt;&lt;CG&gt;Parcela&lt;/&gt;&lt;/&gt;</TDLINE>
+                         </item>
+                        </TEXT>
                         <STYLE_NAME>Z_ESTILO_GNRE_PE</STYLE_NAME>
                         <TEXT_AREA>
                          <ENABLED>F</ENABLED>
@@ -17035,7 +17518,14 @@
                         <NAME>
                          <INAME>MUNICIPIO_DESTINATARIO</INAME>
                         </NAME>
+                        <CAPTION>Município Destinatário(10:1)</CAPTION>
                         <APPMODE>P</APPMODE>
+                        <TEXT>
+                         <item>
+                          <TDFORMAT>*</TDFORMAT>
+                          <TDLINE>&lt;CG&gt;Município:   &lt;/&gt;        &lt;CF&gt;   &amp;is_zgnre_campos-doc_ort01&amp;&lt;/&gt;</TDLINE>
+                         </item>
+                        </TEXT>
                         <STYLE_NAME>Z_ESTILO_GNRE_PE</STYLE_NAME>
                         <TEXT_AREA>
                          <ENABLED>F</ENABLED>
@@ -17147,7 +17637,14 @@
                         <NAME>
                          <INAME>TX_RESERVADO_FISC</INAME>
                         </NAME>
+                        <CAPTION>Texto Reservado à Fiscal(11:1)</CAPTION>
                         <APPMODE>P</APPMODE>
+                        <TEXT>
+                         <item>
+                          <TDFORMAT>PC</TDFORMAT>
+                          <TDLINE>&lt;CN&gt;&lt;CG&gt;Reservado à Fiscalização&lt;/&gt;&lt;/&gt;</TDLINE>
+                         </item>
+                        </TEXT>
                         <STYLE_NAME>Z_ESTILO_GNRE</STYLE_NAME>
                         <TEXT_AREA>
                          <ENABLED>F</ENABLED>
@@ -17259,7 +17756,21 @@
                         <NAME>
                          <INAME>DOC_VALIDO_DT</INAME>
                         </NAME>
+                        <CAPTION>Documento válido até(16:1)</CAPTION>
                         <APPMODE>P</APPMODE>
+                        <TEXT>
+                         <item>
+                          <TDFORMAT>*</TDFORMAT>
+                         </item>
+                         <item>
+                          <TDFORMAT>*</TDFORMAT>
+                          <TDLINE>&lt;CN&gt;&lt;CG&gt;Documento Válido para pagamento até &lt;/&gt;&lt;/&gt;&lt;CG&gt;    &lt;/&gt;   &lt;CF&gt;</TDLINE>
+                         </item>
+                         <item>
+                          <TDFORMAT>=</TDFORMAT>
+                          <TDLINE>&amp;sy-datum(2)&amp;&lt;/&gt;&lt;CF&gt;/&amp;sy-datum+3(2)&amp;/&amp;sy-datum+6(4)&amp;&lt;/&gt;</TDLINE>
+                         </item>
+                        </TEXT>
                         <STYLE_NAME>Z_ESTILO_GNRE</STYLE_NAME>
                         <TEXT_AREA>
                          <ENABLED>F</ENABLED>
@@ -17393,6 +17904,7 @@
                      <NAME>
                       <INAME>BOLETO_VIA2</INAME>
                      </NAME>
+                     <CAPTION>2° Via Boleto</CAPTION>
                      <SECTTYPE>S</SECTTYPE>
                      <OTABTYPE>S</OTABTYPE>
                      <U_FHEIGHT>CM</U_FHEIGHT>
@@ -23573,7 +24085,14 @@
                         <NAME>
                          <INAME>%TEXT1</INAME>
                         </NAME>
+                        <CAPTION>Titulo(1:1)</CAPTION>
                         <APPMODE>P</APPMODE>
+                        <TEXT>
+                         <item>
+                          <TDFORMAT>PE</TDFORMAT>
+                          <TDLINE>&lt;C3&gt;Guia Nacional de Recolhimento de Tributos Estaduais - GNRE&lt;/&gt;</TDLINE>
+                         </item>
+                        </TEXT>
                         <STYLE_NAME>Z_ESTILO_GNRE_PE</STYLE_NAME>
                         <TEXT_AREA>
                          <ENABLED>F</ENABLED>
@@ -23687,7 +24206,14 @@
                         <NAME>
                          <INAME>%TEXT2</INAME>
                         </NAME>
+                        <CAPTION>11</CAPTION>
                         <APPMODE>P</APPMODE>
+                        <TEXT>
+                         <item>
+                          <TDFORMAT>*</TDFORMAT>
+                          <TDLINE>&lt;C4&gt;11&lt;/&gt;</TDLINE>
+                         </item>
+                        </TEXT>
                         <STYLE_NAME>Z_ESTILO_GNRE_PE</STYLE_NAME>
                         <TEXT_AREA>
                          <ENABLED>F</ENABLED>
@@ -23801,7 +24327,14 @@
                         <NAME>
                          <INAME>%TEXT3</INAME>
                         </NAME>
+                        <CAPTION>Texto UF Favorecida(2:2)</CAPTION>
                         <APPMODE>P</APPMODE>
+                        <TEXT>
+                         <item>
+                          <TDFORMAT>*</TDFORMAT>
+                          <TDLINE>&lt;CF&gt;UF Favorecida&lt;/&gt;</TDLINE>
+                         </item>
+                        </TEXT>
                         <STYLE_NAME>Z_ESTILO_GNRE_PE</STYLE_NAME>
                         <TEXT_AREA>
                          <ENABLED>F</ENABLED>
@@ -23915,7 +24448,14 @@
                         <NAME>
                          <INAME>%TEXT4</INAME>
                         </NAME>
+                        <CAPTION>UF Favorecida(3:2)</CAPTION>
                         <APPMODE>P</APPMODE>
+                        <TEXT>
+                         <item>
+                          <TDFORMAT>*</TDFORMAT>
+                          <TDLINE>&lt;CF&gt;RJ - Rio de Janeiro&lt;/&gt;</TDLINE>
+                         </item>
+                        </TEXT>
                         <STYLE_NAME>Z_ESTILO_GNRE_PE</STYLE_NAME>
                         <TEXT_AREA>
                          <ENABLED>F</ENABLED>
@@ -24029,7 +24569,14 @@
                         <NAME>
                          <INAME>%TEXT5</INAME>
                         </NAME>
+                        <CAPTION>12</CAPTION>
                         <APPMODE>P</APPMODE>
+                        <TEXT>
+                         <item>
+                          <TDFORMAT>*</TDFORMAT>
+                          <TDLINE>&lt;C4&gt;12&lt;/&gt;</TDLINE>
+                         </item>
+                        </TEXT>
                         <STYLE_NAME>Z_ESTILO_GNRE_PE</STYLE_NAME>
                         <TEXT_AREA>
                          <ENABLED>F</ENABLED>
@@ -24143,7 +24690,14 @@
                         <NAME>
                          <INAME>%TEXT6</INAME>
                         </NAME>
+                        <CAPTION>Texto Data de Vencimento(2:4)</CAPTION>
                         <APPMODE>P</APPMODE>
+                        <TEXT>
+                         <item>
+                          <TDFORMAT>*</TDFORMAT>
+                          <TDLINE>&lt;CF&gt;Data de Vencimento&lt;/&gt;</TDLINE>
+                         </item>
+                        </TEXT>
                         <STYLE_NAME>Z_ESTILO_GNRE_PE</STYLE_NAME>
                         <TEXT_AREA>
                          <ENABLED>F</ENABLED>
@@ -24257,6 +24811,7 @@
                         <NAME>
                          <INAME>%TEXT7</INAME>
                         </NAME>
+                        <CAPTION>Valor Data de Vencimento(3:4)</CAPTION>
                         <NOLANGUAGE>X</NOLANGUAGE>
                         <APPMODE>P</APPMODE>
                         <TEXT>
@@ -24371,7 +24926,14 @@
                         <NAME>
                          <INAME>%TEXT8</INAME>
                         </NAME>
+                        <CAPTION>1</CAPTION>
                         <APPMODE>P</APPMODE>
+                        <TEXT>
+                         <item>
+                          <TDFORMAT>*</TDFORMAT>
+                          <TDLINE>&lt;C4&gt;1&lt;/&gt;</TDLINE>
+                         </item>
+                        </TEXT>
                         <STYLE_NAME>Z_ESTILO_GNRE_PE</STYLE_NAME>
                         <TEXT_AREA>
                          <ENABLED>F</ENABLED>
@@ -24485,7 +25047,14 @@
                         <NAME>
                          <INAME>%TEXT9</INAME>
                         </NAME>
+                        <CAPTION>Texto Cód UF Favorecida(2:7)</CAPTION>
                         <APPMODE>P</APPMODE>
+                        <TEXT>
+                         <item>
+                          <TDFORMAT>*</TDFORMAT>
+                          <TDLINE>&lt;CF&gt;Código UF Favorecida&lt;/&gt;</TDLINE>
+                         </item>
+                        </TEXT>
                         <STYLE_NAME>Z_ESTILO_GNRE_PE</STYLE_NAME>
                         <TEXT_AREA>
                          <ENABLED>F</ENABLED>
@@ -24599,7 +25168,14 @@
                         <NAME>
                          <INAME>%TEXT10</INAME>
                         </NAME>
+                        <CAPTION>Texto Cód UF Favorecida(3:7)</CAPTION>
                         <APPMODE>P</APPMODE>
+                        <TEXT>
+                         <item>
+                          <TDFORMAT>PD</TDFORMAT>
+                          <TDLINE>&lt;CF&gt;22-1 - Rio de Janeiro&lt;/&gt;</TDLINE>
+                         </item>
+                        </TEXT>
                         <STYLE_NAME>Z_ESTILO_GNRE_PE</STYLE_NAME>
                         <TEXT_AREA>
                          <ENABLED>F</ENABLED>
@@ -24713,7 +25289,14 @@
                         <NAME>
                          <INAME>%TEXT11</INAME>
                         </NAME>
+                        <CAPTION>13</CAPTION>
                         <APPMODE>P</APPMODE>
+                        <TEXT>
+                         <item>
+                          <TDFORMAT>*</TDFORMAT>
+                          <TDLINE>&lt;C4&gt;13&lt;/&gt;</TDLINE>
+                         </item>
+                        </TEXT>
                         <STYLE_NAME>Z_ESTILO_GNRE_PE</STYLE_NAME>
                         <TEXT_AREA>
                          <ENABLED>F</ENABLED>
@@ -24827,7 +25410,14 @@
                         <NAME>
                          <INAME>%TEXT12</INAME>
                         </NAME>
+                        <CAPTION>Texto Convenio/Protocolo(4:2)</CAPTION>
                         <APPMODE>P</APPMODE>
+                        <TEXT>
+                         <item>
+                          <TDFORMAT>*</TDFORMAT>
+                          <TDLINE>&lt;CF&gt;Convênio ou Protocolo / Especificação da Mercadoria:&lt;/&gt;</TDLINE>
+                         </item>
+                        </TEXT>
                         <STYLE_NAME>Z_ESTILO_GNRE_PE</STYLE_NAME>
                         <TEXT_AREA>
                          <ENABLED>F</ENABLED>
@@ -24941,6 +25531,7 @@
                         <NAME>
                          <INAME>%TEXT13</INAME>
                         </NAME>
+                        <CAPTION>Convenio/Protocolo(5:2)</CAPTION>
                         <NOLANGUAGE>X</NOLANGUAGE>
                         <APPMODE>P</APPMODE>
                         <TEXT>
@@ -25055,7 +25646,14 @@
                         <NAME>
                          <INAME>%TEXT14</INAME>
                         </NAME>
+                        <CAPTION>2</CAPTION>
                         <APPMODE>P</APPMODE>
+                        <TEXT>
+                         <item>
+                          <TDFORMAT>*</TDFORMAT>
+                          <TDLINE>&lt;C4&gt;2&lt;/&gt;</TDLINE>
+                         </item>
+                        </TEXT>
                         <STYLE_NAME>Z_ESTILO_GNRE_PE</STYLE_NAME>
                         <TEXT_AREA>
                          <ENABLED>F</ENABLED>
@@ -25169,7 +25767,14 @@
                         <NAME>
                          <INAME>%TEXT15</INAME>
                         </NAME>
+                        <CAPTION>Texto Código da Receita(4:5)</CAPTION>
                         <APPMODE>P</APPMODE>
+                        <TEXT>
+                         <item>
+                          <TDFORMAT>*</TDFORMAT>
+                          <TDLINE>&lt;CF&gt;Código da Receita&lt;/&gt;</TDLINE>
+                         </item>
+                        </TEXT>
                         <STYLE_NAME>Z_ESTILO_GNRE_PE</STYLE_NAME>
                         <TEXT_AREA>
                          <ENABLED>F</ENABLED>
@@ -25283,6 +25888,7 @@
                         <NAME>
                          <INAME>%TEXT16</INAME>
                         </NAME>
+                        <CAPTION>Código da Receita(5:5)</CAPTION>
                         <NOLANGUAGE>X</NOLANGUAGE>
                         <APPMODE>P</APPMODE>
                         <TEXT>
@@ -25393,7 +25999,14 @@
                         <NAME>
                          <INAME>%TEXT17</INAME>
                         </NAME>
+                        <CAPTION>14</CAPTION>
                         <APPMODE>P</APPMODE>
+                        <TEXT>
+                         <item>
+                          <TDFORMAT>*</TDFORMAT>
+                          <TDLINE>&lt;C4&gt;14&lt;/&gt;</TDLINE>
+                         </item>
+                        </TEXT>
                         <STYLE_NAME>Z_ESTILO_GNRE_PE</STYLE_NAME>
                         <TEXT_AREA>
                          <ENABLED>F</ENABLED>
@@ -25507,7 +26120,14 @@
                         <NAME>
                          <INAME>%TEXT18</INAME>
                         </NAME>
+                        <CAPTION>Texto Razão Social(6:2)</CAPTION>
                         <APPMODE>P</APPMODE>
+                        <TEXT>
+                         <item>
+                          <TDFORMAT>*</TDFORMAT>
+                          <TDLINE>&lt;CF&gt;Nome da Firma ou Razão Social:&lt;/&gt;</TDLINE>
+                         </item>
+                        </TEXT>
                         <STYLE_NAME>Z_ESTILO_GNRE_PE</STYLE_NAME>
                         <TEXT_AREA>
                          <ENABLED>F</ENABLED>
@@ -25621,6 +26241,7 @@
                         <NAME>
                          <INAME>%TEXT19</INAME>
                         </NAME>
+                        <CAPTION>Valor Razão social(7:2)</CAPTION>
                         <NOLANGUAGE>X</NOLANGUAGE>
                         <APPMODE>P</APPMODE>
                         <TEXT>
@@ -25731,7 +26352,14 @@
                         <NAME>
                          <INAME>%TEXT20</INAME>
                         </NAME>
+                        <CAPTION>15</CAPTION>
                         <APPMODE>P</APPMODE>
+                        <TEXT>
+                         <item>
+                          <TDFORMAT>*</TDFORMAT>
+                          <TDLINE>&lt;C4&gt;15&lt;/&gt;</TDLINE>
+                         </item>
+                        </TEXT>
                         <STYLE_NAME>Z_ESTILO_GNRE_PE</STYLE_NAME>
                         <TEXT_AREA>
                          <ENABLED>F</ENABLED>
@@ -25845,7 +26473,14 @@
                         <NAME>
                          <INAME>%TEXT21</INAME>
                         </NAME>
+                        <CAPTION>Texto Insc. Est. UF Fav(6:4)</CAPTION>
                         <APPMODE>P</APPMODE>
+                        <TEXT>
+                         <item>
+                          <TDFORMAT>*</TDFORMAT>
+                          <TDLINE>&lt;CF&gt;Inscrição Estadual UF Favorecida&lt;/&gt;</TDLINE>
+                         </item>
+                        </TEXT>
                         <STYLE_NAME>Z_ESTILO_GNRE_PE</STYLE_NAME>
                         <TEXT_AREA>
                          <ENABLED>F</ENABLED>
@@ -25959,6 +26594,7 @@
                         <NAME>
                          <INAME>%TEXT22</INAME>
                         </NAME>
+                        <CAPTION>Insc. Est. UF Fav(7:4)</CAPTION>
                         <NOLANGUAGE>X</NOLANGUAGE>
                         <APPMODE>P</APPMODE>
                         <TEXT>
@@ -26069,7 +26705,14 @@
                         <NAME>
                          <INAME>%TEXT23</INAME>
                         </NAME>
+                        <CAPTION>3</CAPTION>
                         <APPMODE>P</APPMODE>
+                        <TEXT>
+                         <item>
+                          <TDFORMAT>*</TDFORMAT>
+                          <TDLINE>&lt;C4&gt;3&lt;/&gt;</TDLINE>
+                         </item>
+                        </TEXT>
                         <STYLE_NAME>Z_ESTILO_GNRE_PE</STYLE_NAME>
                         <TEXT_AREA>
                          <ENABLED>F</ENABLED>
@@ -26183,7 +26826,14 @@
                         <NAME>
                          <INAME>%TEXT24</INAME>
                         </NAME>
+                        <CAPTION>Texto CNPJ CPF Contrib(6:7)</CAPTION>
                         <APPMODE>P</APPMODE>
+                        <TEXT>
+                         <item>
+                          <TDFORMAT>*</TDFORMAT>
+                          <TDLINE>&lt;CF&gt;CNPJ/CPF do Contribuinte&lt;/&gt;</TDLINE>
+                         </item>
+                        </TEXT>
                         <STYLE_NAME>Z_ESTILO_GNRE_PE</STYLE_NAME>
                         <TEXT_AREA>
                          <ENABLED>F</ENABLED>
@@ -26297,6 +26947,7 @@
                         <NAME>
                          <INAME>%TEXT157</INAME>
                         </NAME>
+                        <CAPTION>CNPJ CPF Contrib(7:7)</CAPTION>
                         <NOLANGUAGE>X</NOLANGUAGE>
                         <APPMODE>P</APPMODE>
                         <TEXT>
@@ -26407,7 +27058,14 @@
                         <NAME>
                          <INAME>%TEXT26</INAME>
                         </NAME>
+                        <CAPTION>16</CAPTION>
                         <APPMODE>P</APPMODE>
+                        <TEXT>
+                         <item>
+                          <TDFORMAT>*</TDFORMAT>
+                          <TDLINE>&lt;C4&gt;16&lt;/&gt;</TDLINE>
+                         </item>
+                        </TEXT>
                         <STYLE_NAME>Z_ESTILO_GNRE_PE</STYLE_NAME>
                         <TEXT_AREA>
                          <ENABLED>F</ENABLED>
@@ -26521,7 +27179,14 @@
                         <NAME>
                          <INAME>%TEXT27</INAME>
                         </NAME>
+                        <CAPTION>Texto Endereço(8:2)</CAPTION>
                         <APPMODE>P</APPMODE>
+                        <TEXT>
+                         <item>
+                          <TDFORMAT>*</TDFORMAT>
+                          <TDLINE>&lt;CF&gt;Endereço Completo&lt;/&gt;</TDLINE>
+                         </item>
+                        </TEXT>
                         <STYLE_NAME>Z_ESTILO_GNRE_PE</STYLE_NAME>
                         <TEXT_AREA>
                          <ENABLED>F</ENABLED>
@@ -26635,6 +27300,7 @@
                         <NAME>
                          <INAME>%TEXT28</INAME>
                         </NAME>
+                        <CAPTION>Endereço(9:2)</CAPTION>
                         <NOLANGUAGE>X</NOLANGUAGE>
                         <APPMODE>P</APPMODE>
                         <TEXT>
@@ -26745,7 +27411,14 @@
                         <NAME>
                          <INAME>%TEXT29</INAME>
                         </NAME>
+                        <CAPTION>4</CAPTION>
                         <APPMODE>P</APPMODE>
+                        <TEXT>
+                         <item>
+                          <TDFORMAT>*</TDFORMAT>
+                          <TDLINE>&lt;C4&gt;4&lt;/&gt;</TDLINE>
+                         </item>
+                        </TEXT>
                         <STYLE_NAME>Z_ESTILO_GNRE_PE</STYLE_NAME>
                         <TEXT_AREA>
                          <ENABLED>F</ENABLED>
@@ -26859,7 +27532,14 @@
                         <NAME>
                          <INAME>%TEXT30</INAME>
                         </NAME>
+                        <CAPTION>Texto N° doc de origem(8:5)</CAPTION>
                         <APPMODE>P</APPMODE>
+                        <TEXT>
+                         <item>
+                          <TDFORMAT>*</TDFORMAT>
+                          <TDLINE>&lt;CF&gt;N° do Documento de Origem:&lt;/&gt;</TDLINE>
+                         </item>
+                        </TEXT>
                         <STYLE_NAME>Z_ESTILO_GNRE_PE</STYLE_NAME>
                         <TEXT_AREA>
                          <ENABLED>F</ENABLED>
@@ -26973,6 +27653,7 @@
                         <NAME>
                          <INAME>%TEXT31</INAME>
                         </NAME>
+                        <CAPTION>Valor N° doc Origem(9:5)</CAPTION>
                         <NOLANGUAGE>X</NOLANGUAGE>
                         <APPMODE>P</APPMODE>
                         <TEXT>
@@ -27083,7 +27764,14 @@
                         <NAME>
                          <INAME>%TEXT32</INAME>
                         </NAME>
+                        <CAPTION>17</CAPTION>
                         <APPMODE>P</APPMODE>
+                        <TEXT>
+                         <item>
+                          <TDFORMAT>*</TDFORMAT>
+                          <TDLINE>&lt;C4&gt;17&lt;/&gt;</TDLINE>
+                         </item>
+                        </TEXT>
                         <STYLE_NAME>Z_ESTILO_GNRE_PE</STYLE_NAME>
                         <TEXT_AREA>
                          <ENABLED>F</ENABLED>
@@ -27197,7 +27885,14 @@
                         <NAME>
                          <INAME>%TEXT33</INAME>
                         </NAME>
+                        <CAPTION>Texto Município(10:2)</CAPTION>
                         <APPMODE>P</APPMODE>
+                        <TEXT>
+                         <item>
+                          <TDFORMAT>*</TDFORMAT>
+                          <TDLINE>&lt;CF&gt;Município:&lt;/&gt;</TDLINE>
+                         </item>
+                        </TEXT>
                         <STYLE_NAME>Z_ESTILO_GNRE_PE</STYLE_NAME>
                         <TEXT_AREA>
                          <ENABLED>F</ENABLED>
@@ -27311,6 +28006,7 @@
                         <NAME>
                          <INAME>%TEXT34</INAME>
                         </NAME>
+                        <CAPTION>Município(11:2)</CAPTION>
                         <NOLANGUAGE>X</NOLANGUAGE>
                         <APPMODE>P</APPMODE>
                         <TEXT>
@@ -27421,7 +28117,14 @@
                         <NAME>
                          <INAME>%TEXT35</INAME>
                         </NAME>
+                        <CAPTION>18</CAPTION>
                         <APPMODE>P</APPMODE>
+                        <TEXT>
+                         <item>
+                          <TDFORMAT>*</TDFORMAT>
+                          <TDLINE>&lt;C4&gt;18&lt;/&gt;</TDLINE>
+                         </item>
+                        </TEXT>
                         <STYLE_NAME>Z_ESTILO_GNRE_PE</STYLE_NAME>
                         <TEXT_AREA>
                          <ENABLED>F</ENABLED>
@@ -27535,7 +28238,14 @@
                         <NAME>
                          <INAME>%TEXT36</INAME>
                         </NAME>
+                        <CAPTION>Texto UF(10:4)</CAPTION>
                         <APPMODE>P</APPMODE>
+                        <TEXT>
+                         <item>
+                          <TDFORMAT>*</TDFORMAT>
+                          <TDLINE>&lt;CF&gt;UF.:&lt;/&gt;</TDLINE>
+                         </item>
+                        </TEXT>
                         <STYLE_NAME>Z_ESTILO_GNRE_PE</STYLE_NAME>
                         <TEXT_AREA>
                          <ENABLED>F</ENABLED>
@@ -27649,6 +28359,7 @@
                         <NAME>
                          <INAME>%TEXT37</INAME>
                         </NAME>
+                        <CAPTION>UF(11:4)</CAPTION>
                         <NOLANGUAGE>X</NOLANGUAGE>
                         <APPMODE>P</APPMODE>
                         <TEXT>
@@ -27759,7 +28470,14 @@
                         <NAME>
                          <INAME>%TEXT38</INAME>
                         </NAME>
+                        <CAPTION>19</CAPTION>
                         <APPMODE>P</APPMODE>
+                        <TEXT>
+                         <item>
+                          <TDFORMAT>*</TDFORMAT>
+                          <TDLINE>&lt;C4&gt;19&lt;/&gt;</TDLINE>
+                         </item>
+                        </TEXT>
                         <STYLE_NAME>Z_ESTILO_GNRE_PE</STYLE_NAME>
                         <TEXT_AREA>
                          <ENABLED>F</ENABLED>
@@ -27873,7 +28591,14 @@
                         <NAME>
                          <INAME>%TEXT39</INAME>
                         </NAME>
+                        <CAPTION>Texto cep(10:6)</CAPTION>
                         <APPMODE>P</APPMODE>
+                        <TEXT>
+                         <item>
+                          <TDFORMAT>*</TDFORMAT>
+                          <TDLINE>&lt;CF&gt;CEP.:&lt;/&gt;</TDLINE>
+                         </item>
+                        </TEXT>
                         <STYLE_NAME>Z_ESTILO_GNRE_PE</STYLE_NAME>
                         <TEXT_AREA>
                          <ENABLED>F</ENABLED>
@@ -27987,6 +28712,7 @@
                         <NAME>
                          <INAME>%TEXT40</INAME>
                         </NAME>
+                        <CAPTION>cep(11:6)</CAPTION>
                         <NOLANGUAGE>X</NOLANGUAGE>
                         <APPMODE>P</APPMODE>
                         <TEXT>
@@ -28097,7 +28823,14 @@
                         <NAME>
                          <INAME>%TEXT41</INAME>
                         </NAME>
+                        <CAPTION>20</CAPTION>
                         <APPMODE>P</APPMODE>
+                        <TEXT>
+                         <item>
+                          <TDFORMAT>*</TDFORMAT>
+                          <TDLINE>&lt;C4&gt;20&lt;/&gt;</TDLINE>
+                         </item>
+                        </TEXT>
                         <STYLE_NAME>Z_ESTILO_GNRE_PE</STYLE_NAME>
                         <TEXT_AREA>
                          <ENABLED>F</ENABLED>
@@ -28211,7 +28944,14 @@
                         <NAME>
                          <INAME>%TEXT42</INAME>
                         </NAME>
+                        <CAPTION>Texto Telefone(10:8)</CAPTION>
                         <APPMODE>P</APPMODE>
+                        <TEXT>
+                         <item>
+                          <TDFORMAT>*</TDFORMAT>
+                          <TDLINE>&lt;CF&gt;DDD / Telefone:&lt;/&gt;</TDLINE>
+                         </item>
+                        </TEXT>
                         <STYLE_NAME>Z_ESTILO_GNRE_PE</STYLE_NAME>
                         <TEXT_AREA>
                          <ENABLED>F</ENABLED>
@@ -28325,6 +29065,7 @@
                         <NAME>
                          <INAME>%TEXT43</INAME>
                         </NAME>
+                        <CAPTION>Telefone(11:8)</CAPTION>
                         <NOLANGUAGE>X</NOLANGUAGE>
                         <APPMODE>P</APPMODE>
                         <TEXT>
@@ -28435,7 +29176,14 @@
                         <NAME>
                          <INAME>%TEXT44</INAME>
                         </NAME>
+                        <CAPTION>5</CAPTION>
                         <APPMODE>P</APPMODE>
+                        <TEXT>
+                         <item>
+                          <TDFORMAT>*</TDFORMAT>
+                          <TDLINE>&lt;C4&gt;5&lt;/&gt;</TDLINE>
+                         </item>
+                        </TEXT>
                         <STYLE_NAME>Z_ESTILO_GNRE_PE</STYLE_NAME>
                         <TEXT_AREA>
                          <ENABLED>F</ENABLED>
@@ -28549,7 +29297,14 @@
                         <NAME>
                          <INAME>%TEXT45</INAME>
                         </NAME>
+                        <CAPTION>Text Periodo Referência(10:11)</CAPTION>
                         <APPMODE>P</APPMODE>
+                        <TEXT>
+                         <item>
+                          <TDFORMAT>*</TDFORMAT>
+                          <TDLINE>&lt;CF&gt;Período de Referência / N° Parcela&lt;/&gt;</TDLINE>
+                         </item>
+                        </TEXT>
                         <STYLE_NAME>Z_ESTILO_GNRE_PE</STYLE_NAME>
                         <TEXT_AREA>
                          <ENABLED>F</ENABLED>
@@ -28663,6 +29418,7 @@
                         <NAME>
                          <INAME>%TEXT46</INAME>
                         </NAME>
+                        <CAPTION>Periodo de Referência(11:11)</CAPTION>
                         <NOLANGUAGE>X</NOLANGUAGE>
                         <APPMODE>P</APPMODE>
                         <TEXT>
@@ -28773,7 +29529,14 @@
                         <NAME>
                          <INAME>%TEXT47</INAME>
                         </NAME>
+                        <CAPTION>21</CAPTION>
                         <APPMODE>P</APPMODE>
+                        <TEXT>
+                         <item>
+                          <TDFORMAT>*</TDFORMAT>
+                          <TDLINE>&lt;C4&gt;21&lt;/&gt;</TDLINE>
+                         </item>
+                        </TEXT>
                         <STYLE_NAME>Z_ESTILO_GNRE_PE</STYLE_NAME>
                         <TEXT_AREA>
                          <ENABLED>F</ENABLED>
@@ -28887,7 +29650,14 @@
                         <NAME>
                          <INAME>%TEXT48</INAME>
                         </NAME>
+                        <CAPTION>Informações complementar(12:2)</CAPTION>
                         <APPMODE>P</APPMODE>
+                        <TEXT>
+                         <item>
+                          <TDFORMAT>*</TDFORMAT>
+                          <TDLINE>&lt;CF&gt;Informações Complementares&lt;/&gt;</TDLINE>
+                         </item>
+                        </TEXT>
                         <STYLE_NAME>Z_ESTILO_GNRE_PE</STYLE_NAME>
                         <TEXT_AREA>
                          <ENABLED>F</ENABLED>
@@ -29001,7 +29771,18 @@
                         <NAME>
                          <INAME>%TEXT127</INAME>
                         </NAME>
+                        <CAPTION>Informações complementar(13:2)</CAPTION>
                         <APPMODE>P</APPMODE>
+                        <TEXT>
+                         <item>
+                          <TDFORMAT>/*</TDFORMAT>
+                          <TDLINE>&lt;CF&gt;GUIA REFERENTE NF-E &amp;zgnre_campos-doc_nfenum&amp;&lt;/&gt;</TDLINE>
+                         </item>
+                         <item>
+                          <TDFORMAT>*</TDFORMAT>
+                          <TDLINE>&lt;CF&gt;NFe &amp;IS_ZGNRE_CAMPOS-DOC_NFENUM&amp;, chave &amp;IS_ZGNRE_CAMPOS-ACCKEY&amp;&lt;/&gt;</TDLINE>
+                         </item>
+                        </TEXT>
                         <STYLE_NAME>Z_ESTILO_GNRE_PE</STYLE_NAME>
                         <TEXT_AREA>
                          <ENABLED>F</ENABLED>
@@ -29124,7 +29905,17 @@
                         <NAME>
                          <INAME>%TEXT49</INAME>
                         </NAME>
+                        <CAPTION>Informações compl. (14:2)</CAPTION>
                         <APPMODE>P</APPMODE>
+                        <TEXT>
+                         <item>
+                          <TDFORMAT>*</TDFORMAT>
+                          <TDLINE>&lt;CF&gt;**NOSSO NÚMERO: &amp;IS_ZGNRE_CAMPOS-HR_CONTROLE&amp;       SEFAZ-RJ - CNPJ</TDLINE>
+                         </item>
+                         <item>
+                          <TDLINE>nº 42.498.675/0001-52&lt;/&gt;</TDLINE>
+                         </item>
+                        </TEXT>
                         <STYLE_NAME>Z_ESTILO_GNRE_PE</STYLE_NAME>
                         <TEXT_AREA>
                          <ENABLED>F</ENABLED>
@@ -29246,7 +30037,18 @@
                         <NAME>
                          <INAME>%TEXT145</INAME>
                         </NAME>
+                        <CAPTION>Informações compl. (15:2)</CAPTION>
                         <APPMODE>P</APPMODE>
+                        <TEXT>
+                         <item>
+                          <TDFORMAT>*</TDFORMAT>
+                          <TDLINE>&lt;CF&gt;**Pagável nos bancos Bradesco, Banco do Brasil, Itaú ou Santander.**</TDLINE>
+                         </item>
+                         <item>
+                          <TDFORMAT>=</TDFORMAT>
+                          <TDLINE>&lt;/&gt;</TDLINE>
+                         </item>
+                        </TEXT>
                         <STYLE_NAME>Z_ESTILO_GNRE_PE</STYLE_NAME>
                         <TEXT_AREA>
                          <ENABLED>F</ENABLED>
@@ -29369,7 +30171,25 @@
                         <NAME>
                          <INAME>N_VIA2</INAME>
                         </NAME>
+                        <CAPTION>N° da via 2(17:2)</CAPTION>
                         <APPMODE>P</APPMODE>
+                        <TEXT>
+                         <item>
+                          <TDFORMAT>PE</TDFORMAT>
+                          <TDLINE>&lt;CG&gt;NÃO RECEBER APÓS &amp;IS_ZGNRE_CAMPOS-FAEDT(2)&amp;/</TDLINE>
+                         </item>
+                         <item>
+                          <TDFORMAT>=</TDFORMAT>
+                          <TDLINE>&amp;IS_ZGNRE_CAMPOS-FAEDT+3(2)&amp;/&amp;IS_ZGNRE_CAMPOS-FAEDT+6(4)&amp;</TDLINE>
+                         </item>
+                         <item>
+                          <TDLINE>                                                                            &lt;/&gt;</TDLINE>
+                         </item>
+                         <item>
+                          <TDFORMAT>=</TDFORMAT>
+                          <TDLINE>SEGUNDA VIA</TDLINE>
+                         </item>
+                        </TEXT>
                         <STYLE_NAME>Z_ESTILO_GNRE_PE</STYLE_NAME>
                         <TEXT_AREA>
                          <ENABLED>F</ENABLED>
@@ -29509,7 +30329,14 @@
                         <NAME>
                          <INAME>%TEXT51</INAME>
                         </NAME>
+                        <CAPTION>6</CAPTION>
                         <APPMODE>P</APPMODE>
+                        <TEXT>
+                         <item>
+                          <TDFORMAT>*</TDFORMAT>
+                          <TDLINE>&lt;C4&gt;6&lt;/&gt;</TDLINE>
+                         </item>
+                        </TEXT>
                         <STYLE_NAME>Z_ESTILO_GNRE_PE</STYLE_NAME>
                         <TEXT_AREA>
                          <ENABLED>F</ENABLED>
@@ -29623,7 +30450,14 @@
                         <NAME>
                          <INAME>%TEXT52</INAME>
                         </NAME>
+                        <CAPTION>Texto Valor Principal(10:2)</CAPTION>
                         <APPMODE>P</APPMODE>
+                        <TEXT>
+                         <item>
+                          <TDFORMAT>*</TDFORMAT>
+                          <TDLINE>&lt;CF&gt;Valor Principal&lt;/&gt;</TDLINE>
+                         </item>
+                        </TEXT>
                         <STYLE_NAME>Z_ESTILO_GNRE_PE</STYLE_NAME>
                         <TEXT_AREA>
                          <ENABLED>F</ENABLED>
@@ -29737,6 +30571,7 @@
                         <NAME>
                          <INAME>%TEXT53</INAME>
                         </NAME>
+                        <CAPTION>Valor Principal(11:2)</CAPTION>
                         <NOLANGUAGE>X</NOLANGUAGE>
                         <APPMODE>P</APPMODE>
                         <TEXT>
@@ -29847,7 +30682,14 @@
                         <NAME>
                          <INAME>%TEXT54</INAME>
                         </NAME>
+                        <CAPTION>7</CAPTION>
                         <APPMODE>P</APPMODE>
+                        <TEXT>
+                         <item>
+                          <TDFORMAT>*</TDFORMAT>
+                          <TDLINE>&lt;C4&gt;7&lt;/&gt;</TDLINE>
+                         </item>
+                        </TEXT>
                         <STYLE_NAME>Z_ESTILO_GNRE_PE</STYLE_NAME>
                         <TEXT_AREA>
                          <ENABLED>F</ENABLED>
@@ -29961,7 +30803,14 @@
                         <NAME>
                          <INAME>%TEXT55</INAME>
                         </NAME>
+                        <CAPTION>Texto Atualiz. Monetária(14:5)</CAPTION>
                         <APPMODE>P</APPMODE>
+                        <TEXT>
+                         <item>
+                          <TDFORMAT>*</TDFORMAT>
+                          <TDLINE>&lt;CF&gt;Atualização Monetária&lt;/&gt;</TDLINE>
+                         </item>
+                        </TEXT>
                         <STYLE_NAME>Z_ESTILO_GNRE_PE</STYLE_NAME>
                         <TEXT_AREA>
                          <ENABLED>F</ENABLED>
@@ -30075,7 +30924,14 @@
                         <NAME>
                          <INAME>%TEXT56</INAME>
                         </NAME>
+                        <CAPTION>Atualiz. Monetária(15:5)</CAPTION>
                         <APPMODE>P</APPMODE>
+                        <TEXT>
+                         <item>
+                          <TDFORMAT>PD</TDFORMAT>
+                          <TDLINE>&lt;CF&gt;0,00&lt;/&gt;</TDLINE>
+                         </item>
+                        </TEXT>
                         <STYLE_NAME>Z_ESTILO_GNRE_PE</STYLE_NAME>
                         <TEXT_AREA>
                          <ENABLED>F</ENABLED>
@@ -30189,7 +31045,14 @@
                         <NAME>
                          <INAME>%TEXT57</INAME>
                         </NAME>
+                        <CAPTION>8</CAPTION>
                         <APPMODE>P</APPMODE>
+                        <TEXT>
+                         <item>
+                          <TDFORMAT>*</TDFORMAT>
+                          <TDLINE>&lt;C4&gt;8&lt;/&gt;</TDLINE>
+                         </item>
+                        </TEXT>
                         <STYLE_NAME>Z_ESTILO_GNRE_PE</STYLE_NAME>
                         <TEXT_AREA>
                          <ENABLED>F</ENABLED>
@@ -30303,7 +31166,14 @@
                         <NAME>
                          <INAME>%TEXT58</INAME>
                         </NAME>
+                        <CAPTION>Texto Juros(16:5)</CAPTION>
                         <APPMODE>P</APPMODE>
+                        <TEXT>
+                         <item>
+                          <TDFORMAT>*</TDFORMAT>
+                          <TDLINE>&lt;CF&gt;Juros de Mora&lt;/&gt;</TDLINE>
+                         </item>
+                        </TEXT>
                         <STYLE_NAME>Z_ESTILO_GNRE_PE</STYLE_NAME>
                         <TEXT_AREA>
                          <ENABLED>F</ENABLED>
@@ -30417,7 +31287,14 @@
                         <NAME>
                          <INAME>%TEXT59</INAME>
                         </NAME>
+                        <CAPTION>Valor Juros(17:5)</CAPTION>
                         <APPMODE>P</APPMODE>
+                        <TEXT>
+                         <item>
+                          <TDFORMAT>PD</TDFORMAT>
+                          <TDLINE>&lt;CF&gt;0,00&lt;/&gt;</TDLINE>
+                         </item>
+                        </TEXT>
                         <STYLE_NAME>Z_ESTILO_GNRE_PE</STYLE_NAME>
                         <TEXT_AREA>
                          <ENABLED>F</ENABLED>
@@ -30531,7 +31408,14 @@
                         <NAME>
                          <INAME>%TEXT60</INAME>
                         </NAME>
+                        <CAPTION>22</CAPTION>
                         <APPMODE>P</APPMODE>
+                        <TEXT>
+                         <item>
+                          <TDFORMAT>*</TDFORMAT>
+                          <TDLINE>&lt;C4&gt;22&lt;/&gt;</TDLINE>
+                         </item>
+                        </TEXT>
                         <STYLE_NAME>Z_ESTILO_GNRE_PE</STYLE_NAME>
                         <TEXT_AREA>
                          <ENABLED>F</ENABLED>
@@ -30645,7 +31529,14 @@
                         <NAME>
                          <INAME>%TEXT61</INAME>
                         </NAME>
+                        <CAPTION>Autenticação(18,2)</CAPTION>
                         <APPMODE>P</APPMODE>
+                        <TEXT>
+                         <item>
+                          <TDFORMAT>*</TDFORMAT>
+                          <TDLINE>&lt;CF&gt;Autenticação&lt;/&gt;</TDLINE>
+                         </item>
+                        </TEXT>
                         <STYLE_NAME>Z_ESTILO_GNRE_PE</STYLE_NAME>
                         <TEXT_AREA>
                          <ENABLED>F</ENABLED>
@@ -30759,7 +31650,14 @@
                         <NAME>
                          <INAME>%TEXT62</INAME>
                         </NAME>
+                        <CAPTION>9</CAPTION>
                         <APPMODE>P</APPMODE>
+                        <TEXT>
+                         <item>
+                          <TDFORMAT>*</TDFORMAT>
+                          <TDLINE>&lt;C4&gt;9&lt;/&gt;</TDLINE>
+                         </item>
+                        </TEXT>
                         <STYLE_NAME>Z_ESTILO_GNRE_PE</STYLE_NAME>
                         <TEXT_AREA>
                          <ENABLED>F</ENABLED>
@@ -30873,7 +31771,14 @@
                         <NAME>
                          <INAME>%TEXT63</INAME>
                         </NAME>
+                        <CAPTION>Texto Multa(18:5)</CAPTION>
                         <APPMODE>P</APPMODE>
+                        <TEXT>
+                         <item>
+                          <TDFORMAT>*</TDFORMAT>
+                          <TDLINE>&lt;CF&gt;Multa de Mora&lt;/&gt;</TDLINE>
+                         </item>
+                        </TEXT>
                         <STYLE_NAME>Z_ESTILO_GNRE_PE</STYLE_NAME>
                         <TEXT_AREA>
                          <ENABLED>F</ENABLED>
@@ -30987,7 +31892,14 @@
                         <NAME>
                          <INAME>%TEXT64</INAME>
                         </NAME>
+                        <CAPTION>Multa(19:5)</CAPTION>
                         <APPMODE>P</APPMODE>
+                        <TEXT>
+                         <item>
+                          <TDFORMAT>PD</TDFORMAT>
+                          <TDLINE>&lt;CF&gt;0,00&lt;/&gt;</TDLINE>
+                         </item>
+                        </TEXT>
                         <STYLE_NAME>Z_ESTILO_GNRE_PE</STYLE_NAME>
                         <TEXT_AREA>
                          <ENABLED>F</ENABLED>
@@ -31101,7 +32013,14 @@
                         <NAME>
                          <INAME>%TEXT65</INAME>
                         </NAME>
+                        <CAPTION>10</CAPTION>
                         <APPMODE>P</APPMODE>
+                        <TEXT>
+                         <item>
+                          <TDFORMAT>*</TDFORMAT>
+                          <TDLINE>&lt;C4&gt;10&lt;/&gt;</TDLINE>
+                         </item>
+                        </TEXT>
                         <STYLE_NAME>Z_ESTILO_GNRE_PE</STYLE_NAME>
                         <TEXT_AREA>
                          <ENABLED>F</ENABLED>
@@ -31215,7 +32134,14 @@
                         <NAME>
                          <INAME>%TEXT66</INAME>
                         </NAME>
+                        <CAPTION>Texto Valor Total(20:5)</CAPTION>
                         <APPMODE>P</APPMODE>
+                        <TEXT>
+                         <item>
+                          <TDFORMAT>*</TDFORMAT>
+                          <TDLINE>&lt;CF&gt;Total Recolher&lt;/&gt;</TDLINE>
+                         </item>
+                        </TEXT>
                         <STYLE_NAME>Z_ESTILO_GNRE_PE</STYLE_NAME>
                         <TEXT_AREA>
                          <ENABLED>F</ENABLED>
@@ -31329,6 +32255,7 @@
                         <NAME>
                          <INAME>%TEXT67</INAME>
                         </NAME>
+                        <CAPTION>Valor Total(21:5)</CAPTION>
                         <NOLANGUAGE>X</NOLANGUAGE>
                         <APPMODE>P</APPMODE>
                         <TEXT>
@@ -31439,6 +32366,7 @@
                         <NAME>
                          <INAME>SEPARADOR2</INAME>
                         </NAME>
+                        <CAPTION>Separador(23:1)</CAPTION>
                         <NOLANGUAGE>X</NOLANGUAGE>
                         <APPMODE>P</APPMODE>
                         <TEXT>
@@ -31558,6 +32486,7 @@
                         <NAME>
                          <INAME>%CONDITION2</INAME>
                         </NAME>
+                        <CAPTION>Condição de exibição(cgc/cpf)</CAPTION>
                         <COND>
                          <item>
                           <COP>NE</COP>
@@ -31586,6 +32515,7 @@
                            <NAME>
                             <INAME>%EVENT1</INAME>
                            </NAME>
+                           <CAPTION>TRUE</CAPTION>
                            <EVTYPE>+</EVTYPE>
                            <T_CAPTION>
                             <item>
@@ -31607,7 +32537,14 @@
                               <NAME>
                                <INAME>%TEXT69</INAME>
                               </NAME>
+                              <CAPTION>Cgc Destinatário CGC(9:1)</CAPTION>
                               <APPMODE>P</APPMODE>
+                              <TEXT>
+                               <item>
+                                <TDFORMAT>*</TDFORMAT>
+                                <TDLINE>&lt;CG&gt;CPF/CNPJ/Insc. Est: &lt;/&gt;    &lt;CF&gt;&amp;IS_zgnre_campos-doc_cgc&amp;&lt;/&gt;</TDLINE>
+                               </item>
+                              </TEXT>
                               <STYLE_NAME>Z_ESTILO_GNRE_PE</STYLE_NAME>
                               <TEXT_AREA>
                                <ENABLED>F</ENABLED>
@@ -31722,6 +32659,7 @@
                            <NAME>
                             <INAME>%EVENT2</INAME>
                            </NAME>
+                           <CAPTION>FALSE</CAPTION>
                            <EVTYPE>-</EVTYPE>
                            <T_CAPTION>
                             <item>
@@ -31743,7 +32681,14 @@
                               <NAME>
                                <INAME>%TEXT70</INAME>
                               </NAME>
+                              <CAPTION>Cpf destinatário(9:1)</CAPTION>
                               <APPMODE>P</APPMODE>
+                              <TEXT>
+                               <item>
+                                <TDFORMAT>*</TDFORMAT>
+                                <TDLINE>&lt;CG&gt;CPF/CNPJ/Insc. Est: &lt;/&gt;  &lt;CF&gt; &amp;is_zgnre_campos-doc_cpf&amp;&lt;/&gt;</TDLINE>
+                               </item>
+                              </TEXT>
                               <STYLE_NAME>Z_ESTILO_GNRE_PE</STYLE_NAME>
                               <TEXT_AREA>
                                <ENABLED>F</ENABLED>
@@ -31861,7 +32806,14 @@
                         <NAME>
                          <INAME>%TEXT71</INAME>
                         </NAME>
+                        <CAPTION>Dados do C.Emitente(2:1)</CAPTION>
                         <APPMODE>P</APPMODE>
+                        <TEXT>
+                         <item>
+                          <TDFORMAT>PC</TDFORMAT>
+                          <TDLINE>&lt;CN&gt;&lt;CG&gt;Dados do Contribuinte Emitente&lt;/&gt;&lt;/&gt;</TDLINE>
+                         </item>
+                        </TEXT>
                         <STYLE_NAME>Z_ESTILO_GNRE_PE</STYLE_NAME>
                         <TEXT_AREA>
                          <ENABLED>F</ENABLED>
@@ -31973,7 +32925,14 @@
                         <NAME>
                          <INAME>%TEXT72</INAME>
                         </NAME>
+                        <CAPTION>Texto Número de controle(2:2)</CAPTION>
                         <APPMODE>P</APPMODE>
+                        <TEXT>
+                         <item>
+                          <TDFORMAT>*</TDFORMAT>
+                          <TDLINE>&lt;CN&gt;&lt;CG&gt;Nº de Controle&lt;/&gt;&lt;/&gt;</TDLINE>
+                         </item>
+                        </TEXT>
                         <STYLE_NAME>Z_ESTILO_GNRE</STYLE_NAME>
                         <TEXT_AREA>
                          <ENABLED>F</ENABLED>
@@ -32085,6 +33044,7 @@
                         <NAME>
                          <INAME>%TEXT73</INAME>
                         </NAME>
+                        <CAPTION>Valor Número de controle(3:3)</CAPTION>
                         <NOLANGUAGE>X</NOLANGUAGE>
                         <APPMODE>P</APPMODE>
                         <TEXT>
@@ -32193,7 +33153,14 @@
                         <NAME>
                          <INAME>%TEXT74</INAME>
                         </NAME>
+                        <CAPTION>Dados destinatário(8:1)</CAPTION>
                         <APPMODE>P</APPMODE>
+                        <TEXT>
+                         <item>
+                          <TDFORMAT>PC</TDFORMAT>
+                          <TDLINE>&lt;CN&gt;&lt;CG&gt;Dados do Destinatário&lt;/&gt;&lt;/&gt;</TDLINE>
+                         </item>
+                        </TEXT>
                         <STYLE_NAME>Z_ESTILO_GNRE_PE</STYLE_NAME>
                         <TEXT_AREA>
                          <ENABLED>F</ENABLED>
@@ -32305,7 +33272,14 @@
                         <NAME>
                          <INAME>%TEXT75</INAME>
                         </NAME>
+                        <CAPTION>Periodo de Referência(8:2)</CAPTION>
                         <APPMODE>P</APPMODE>
+                        <TEXT>
+                         <item>
+                          <TDFORMAT>*</TDFORMAT>
+                          <TDLINE>&lt;CG&gt;Período de Referência&lt;/&gt;</TDLINE>
+                         </item>
+                        </TEXT>
                         <STYLE_NAME>Z_ESTILO_GNRE_PE</STYLE_NAME>
                         <TEXT_AREA>
                          <ENABLED>F</ENABLED>
@@ -32417,7 +33391,14 @@
                         <NAME>
                          <INAME>%TEXT76</INAME>
                         </NAME>
+                        <CAPTION>Parcela(8:3)</CAPTION>
                         <APPMODE>P</APPMODE>
+                        <TEXT>
+                         <item>
+                          <TDFORMAT>*</TDFORMAT>
+                          <TDLINE>&lt;CN&gt;&lt;CG&gt;Parcela&lt;/&gt;&lt;/&gt;</TDLINE>
+                         </item>
+                        </TEXT>
                         <STYLE_NAME>Z_ESTILO_GNRE_PE</STYLE_NAME>
                         <TEXT_AREA>
                          <ENABLED>F</ENABLED>
@@ -32531,7 +33512,14 @@
                         <NAME>
                          <INAME>%TEXT77</INAME>
                         </NAME>
+                        <CAPTION>Município Destinatário(10:1)</CAPTION>
                         <APPMODE>P</APPMODE>
+                        <TEXT>
+                         <item>
+                          <TDFORMAT>*</TDFORMAT>
+                          <TDLINE>&lt;CG&gt;Município:   &lt;/&gt;        &lt;CF&gt;   &amp;is_zgnre_campos-doc_ort01&amp;&lt;/&gt;</TDLINE>
+                         </item>
+                        </TEXT>
                         <STYLE_NAME>Z_ESTILO_GNRE_PE</STYLE_NAME>
                         <TEXT_AREA>
                          <ENABLED>F</ENABLED>
@@ -32643,7 +33631,14 @@
                         <NAME>
                          <INAME>%TEXT78</INAME>
                         </NAME>
+                        <CAPTION>Texto Reservado à Fiscal(11:1)</CAPTION>
                         <APPMODE>P</APPMODE>
+                        <TEXT>
+                         <item>
+                          <TDFORMAT>PC</TDFORMAT>
+                          <TDLINE>&lt;CN&gt;&lt;CG&gt;Reservado à Fiscalização&lt;/&gt;&lt;/&gt;</TDLINE>
+                         </item>
+                        </TEXT>
                         <STYLE_NAME>Z_ESTILO_GNRE</STYLE_NAME>
                         <TEXT_AREA>
                          <ENABLED>F</ENABLED>
@@ -32755,7 +33750,21 @@
                         <NAME>
                          <INAME>%TEXT79</INAME>
                         </NAME>
+                        <CAPTION>Documento válido até(16:1)</CAPTION>
                         <APPMODE>P</APPMODE>
+                        <TEXT>
+                         <item>
+                          <TDFORMAT>*</TDFORMAT>
+                         </item>
+                         <item>
+                          <TDFORMAT>*</TDFORMAT>
+                          <TDLINE>&lt;CN&gt;&lt;CG&gt;Documento Válido para pagamento até &lt;/&gt;&lt;/&gt;&lt;CG&gt;    &lt;/&gt;   &lt;CF&gt;</TDLINE>
+                         </item>
+                         <item>
+                          <TDFORMAT>=</TDFORMAT>
+                          <TDLINE>&amp;sy-datum(2)&amp;&lt;/&gt;&lt;CF&gt;/&amp;sy-datum+3(2)&amp;/&amp;sy-datum+6(4)&amp;&lt;/&gt;</TDLINE>
+                         </item>
+                        </TEXT>
                         <STYLE_NAME>Z_ESTILO_GNRE</STYLE_NAME>
                         <TEXT_AREA>
                          <ENABLED>F</ENABLED>
@@ -32889,6 +33898,7 @@
                      <NAME>
                       <INAME>BOLETO_VIA3</INAME>
                      </NAME>
+                     <CAPTION>3° Via Boleto</CAPTION>
                      <SECTTYPE>S</SECTTYPE>
                      <OTABTYPE>S</OTABTYPE>
                      <U_FHEIGHT>CM</U_FHEIGHT>
@@ -38907,7 +39917,14 @@
                         <NAME>
                          <INAME>%TEXT50</INAME>
                         </NAME>
+                        <CAPTION>Titulo(1:1)</CAPTION>
                         <APPMODE>P</APPMODE>
+                        <TEXT>
+                         <item>
+                          <TDFORMAT>PE</TDFORMAT>
+                          <TDLINE>&lt;C3&gt;Guia Nacional de Recolhimento de Tributos Estaduais - GNRE&lt;/&gt;</TDLINE>
+                         </item>
+                        </TEXT>
                         <STYLE_NAME>Z_ESTILO_GNRE_PE</STYLE_NAME>
                         <TEXT_AREA>
                          <ENABLED>F</ENABLED>
@@ -39021,7 +40038,14 @@
                         <NAME>
                          <INAME>%TEXT68</INAME>
                         </NAME>
+                        <CAPTION>11</CAPTION>
                         <APPMODE>P</APPMODE>
+                        <TEXT>
+                         <item>
+                          <TDFORMAT>*</TDFORMAT>
+                          <TDLINE>&lt;C4&gt;11&lt;/&gt;</TDLINE>
+                         </item>
+                        </TEXT>
                         <STYLE_NAME>Z_ESTILO_GNRE_PE</STYLE_NAME>
                         <TEXT_AREA>
                          <ENABLED>F</ENABLED>
@@ -39135,7 +40159,14 @@
                         <NAME>
                          <INAME>%TEXT80</INAME>
                         </NAME>
+                        <CAPTION>Texto UF Favorecida(2:2)</CAPTION>
                         <APPMODE>P</APPMODE>
+                        <TEXT>
+                         <item>
+                          <TDFORMAT>*</TDFORMAT>
+                          <TDLINE>&lt;CF&gt;UF Favorecida&lt;/&gt;</TDLINE>
+                         </item>
+                        </TEXT>
                         <STYLE_NAME>Z_ESTILO_GNRE_PE</STYLE_NAME>
                         <TEXT_AREA>
                          <ENABLED>F</ENABLED>
@@ -39249,7 +40280,14 @@
                         <NAME>
                          <INAME>%TEXT81</INAME>
                         </NAME>
+                        <CAPTION>UF Favorecida(3:2)</CAPTION>
                         <APPMODE>P</APPMODE>
+                        <TEXT>
+                         <item>
+                          <TDFORMAT>*</TDFORMAT>
+                          <TDLINE>&lt;CF&gt;RJ - Rio de Janeiro&lt;/&gt;</TDLINE>
+                         </item>
+                        </TEXT>
                         <STYLE_NAME>Z_ESTILO_GNRE_PE</STYLE_NAME>
                         <TEXT_AREA>
                          <ENABLED>F</ENABLED>
@@ -39363,7 +40401,14 @@
                         <NAME>
                          <INAME>%TEXT82</INAME>
                         </NAME>
+                        <CAPTION>12</CAPTION>
                         <APPMODE>P</APPMODE>
+                        <TEXT>
+                         <item>
+                          <TDFORMAT>*</TDFORMAT>
+                          <TDLINE>&lt;C4&gt;12&lt;/&gt;</TDLINE>
+                         </item>
+                        </TEXT>
                         <STYLE_NAME>Z_ESTILO_GNRE_PE</STYLE_NAME>
                         <TEXT_AREA>
                          <ENABLED>F</ENABLED>
@@ -39477,7 +40522,14 @@
                         <NAME>
                          <INAME>%TEXT83</INAME>
                         </NAME>
+                        <CAPTION>Texto Data de Vencimento(2:4)</CAPTION>
                         <APPMODE>P</APPMODE>
+                        <TEXT>
+                         <item>
+                          <TDFORMAT>*</TDFORMAT>
+                          <TDLINE>&lt;CF&gt;Data de Vencimento&lt;/&gt;</TDLINE>
+                         </item>
+                        </TEXT>
                         <STYLE_NAME>Z_ESTILO_GNRE_PE</STYLE_NAME>
                         <TEXT_AREA>
                          <ENABLED>F</ENABLED>
@@ -39591,6 +40643,7 @@
                         <NAME>
                          <INAME>%TEXT84</INAME>
                         </NAME>
+                        <CAPTION>Valor Data de Vencimento(3:4)</CAPTION>
                         <NOLANGUAGE>X</NOLANGUAGE>
                         <APPMODE>P</APPMODE>
                         <TEXT>
@@ -39705,7 +40758,14 @@
                         <NAME>
                          <INAME>%TEXT85</INAME>
                         </NAME>
+                        <CAPTION>1</CAPTION>
                         <APPMODE>P</APPMODE>
+                        <TEXT>
+                         <item>
+                          <TDFORMAT>*</TDFORMAT>
+                          <TDLINE>&lt;C4&gt;1&lt;/&gt;</TDLINE>
+                         </item>
+                        </TEXT>
                         <STYLE_NAME>Z_ESTILO_GNRE_PE</STYLE_NAME>
                         <TEXT_AREA>
                          <ENABLED>F</ENABLED>
@@ -39819,7 +40879,14 @@
                         <NAME>
                          <INAME>%TEXT86</INAME>
                         </NAME>
+                        <CAPTION>Texto Cód UF Favorecida(2:7)</CAPTION>
                         <APPMODE>P</APPMODE>
+                        <TEXT>
+                         <item>
+                          <TDFORMAT>*</TDFORMAT>
+                          <TDLINE>&lt;CF&gt;Código UF Favorecida&lt;/&gt;</TDLINE>
+                         </item>
+                        </TEXT>
                         <STYLE_NAME>Z_ESTILO_GNRE_PE</STYLE_NAME>
                         <TEXT_AREA>
                          <ENABLED>F</ENABLED>
@@ -39933,7 +41000,14 @@
                         <NAME>
                          <INAME>%TEXT87</INAME>
                         </NAME>
+                        <CAPTION>Texto Cód UF Favorecida(3:7)</CAPTION>
                         <APPMODE>P</APPMODE>
+                        <TEXT>
+                         <item>
+                          <TDFORMAT>PD</TDFORMAT>
+                          <TDLINE>&lt;CF&gt;22-1 - Rio de Janeiro&lt;/&gt;</TDLINE>
+                         </item>
+                        </TEXT>
                         <STYLE_NAME>Z_ESTILO_GNRE_PE</STYLE_NAME>
                         <TEXT_AREA>
                          <ENABLED>F</ENABLED>
@@ -40047,7 +41121,14 @@
                         <NAME>
                          <INAME>%TEXT88</INAME>
                         </NAME>
+                        <CAPTION>13</CAPTION>
                         <APPMODE>P</APPMODE>
+                        <TEXT>
+                         <item>
+                          <TDFORMAT>*</TDFORMAT>
+                          <TDLINE>&lt;C4&gt;13&lt;/&gt;</TDLINE>
+                         </item>
+                        </TEXT>
                         <STYLE_NAME>Z_ESTILO_GNRE_PE</STYLE_NAME>
                         <TEXT_AREA>
                          <ENABLED>F</ENABLED>
@@ -40161,7 +41242,14 @@
                         <NAME>
                          <INAME>%TEXT89</INAME>
                         </NAME>
+                        <CAPTION>Texto Convenio/Protocolo(4:2)</CAPTION>
                         <APPMODE>P</APPMODE>
+                        <TEXT>
+                         <item>
+                          <TDFORMAT>*</TDFORMAT>
+                          <TDLINE>&lt;CF&gt;Convênio ou Protocolo / Especificação da Mercadoria:&lt;/&gt;</TDLINE>
+                         </item>
+                        </TEXT>
                         <STYLE_NAME>Z_ESTILO_GNRE_PE</STYLE_NAME>
                         <TEXT_AREA>
                          <ENABLED>F</ENABLED>
@@ -40275,6 +41363,7 @@
                         <NAME>
                          <INAME>%TEXT90</INAME>
                         </NAME>
+                        <CAPTION>Convenio/Protocolo(5:2)</CAPTION>
                         <NOLANGUAGE>X</NOLANGUAGE>
                         <APPMODE>P</APPMODE>
                         <TEXT>
@@ -40389,7 +41478,14 @@
                         <NAME>
                          <INAME>%TEXT91</INAME>
                         </NAME>
+                        <CAPTION>2</CAPTION>
                         <APPMODE>P</APPMODE>
+                        <TEXT>
+                         <item>
+                          <TDFORMAT>*</TDFORMAT>
+                          <TDLINE>&lt;C4&gt;2&lt;/&gt;</TDLINE>
+                         </item>
+                        </TEXT>
                         <STYLE_NAME>Z_ESTILO_GNRE_PE</STYLE_NAME>
                         <TEXT_AREA>
                          <ENABLED>F</ENABLED>
@@ -40503,7 +41599,14 @@
                         <NAME>
                          <INAME>%TEXT92</INAME>
                         </NAME>
+                        <CAPTION>Texto Código da Receita(4:5)</CAPTION>
                         <APPMODE>P</APPMODE>
+                        <TEXT>
+                         <item>
+                          <TDFORMAT>*</TDFORMAT>
+                          <TDLINE>&lt;CF&gt;Código da Receita&lt;/&gt;</TDLINE>
+                         </item>
+                        </TEXT>
                         <STYLE_NAME>Z_ESTILO_GNRE_PE</STYLE_NAME>
                         <TEXT_AREA>
                          <ENABLED>F</ENABLED>
@@ -40617,6 +41720,7 @@
                         <NAME>
                          <INAME>%TEXT93</INAME>
                         </NAME>
+                        <CAPTION>Código da Receita(5:5)</CAPTION>
                         <NOLANGUAGE>X</NOLANGUAGE>
                         <APPMODE>P</APPMODE>
                         <TEXT>
@@ -40727,7 +41831,14 @@
                         <NAME>
                          <INAME>%TEXT94</INAME>
                         </NAME>
+                        <CAPTION>14</CAPTION>
                         <APPMODE>P</APPMODE>
+                        <TEXT>
+                         <item>
+                          <TDFORMAT>*</TDFORMAT>
+                          <TDLINE>&lt;C4&gt;14&lt;/&gt;</TDLINE>
+                         </item>
+                        </TEXT>
                         <STYLE_NAME>Z_ESTILO_GNRE_PE</STYLE_NAME>
                         <TEXT_AREA>
                          <ENABLED>F</ENABLED>
@@ -40841,7 +41952,14 @@
                         <NAME>
                          <INAME>%TEXT95</INAME>
                         </NAME>
+                        <CAPTION>Texto Razão Social(6:2)</CAPTION>
                         <APPMODE>P</APPMODE>
+                        <TEXT>
+                         <item>
+                          <TDFORMAT>*</TDFORMAT>
+                          <TDLINE>&lt;CF&gt;Nome da Firma ou Razão Social:&lt;/&gt;</TDLINE>
+                         </item>
+                        </TEXT>
                         <STYLE_NAME>Z_ESTILO_GNRE_PE</STYLE_NAME>
                         <TEXT_AREA>
                          <ENABLED>F</ENABLED>
@@ -40955,6 +42073,7 @@
                         <NAME>
                          <INAME>%TEXT96</INAME>
                         </NAME>
+                        <CAPTION>Valor Razão social(7:2)</CAPTION>
                         <NOLANGUAGE>X</NOLANGUAGE>
                         <APPMODE>P</APPMODE>
                         <TEXT>
@@ -41065,7 +42184,14 @@
                         <NAME>
                          <INAME>%TEXT97</INAME>
                         </NAME>
+                        <CAPTION>15</CAPTION>
                         <APPMODE>P</APPMODE>
+                        <TEXT>
+                         <item>
+                          <TDFORMAT>*</TDFORMAT>
+                          <TDLINE>&lt;C4&gt;15&lt;/&gt;</TDLINE>
+                         </item>
+                        </TEXT>
                         <STYLE_NAME>Z_ESTILO_GNRE_PE</STYLE_NAME>
                         <TEXT_AREA>
                          <ENABLED>F</ENABLED>
@@ -41179,7 +42305,14 @@
                         <NAME>
                          <INAME>%TEXT98</INAME>
                         </NAME>
+                        <CAPTION>Texto Insc. Est. UF Fav(6:4)</CAPTION>
                         <APPMODE>P</APPMODE>
+                        <TEXT>
+                         <item>
+                          <TDFORMAT>*</TDFORMAT>
+                          <TDLINE>&lt;CF&gt;Inscrição Estadual UF Favorecida&lt;/&gt;</TDLINE>
+                         </item>
+                        </TEXT>
                         <STYLE_NAME>Z_ESTILO_GNRE_PE</STYLE_NAME>
                         <TEXT_AREA>
                          <ENABLED>F</ENABLED>
@@ -41293,6 +42426,7 @@
                         <NAME>
                          <INAME>%TEXT99</INAME>
                         </NAME>
+                        <CAPTION>Insc. Est. UF Fav(7:4)</CAPTION>
                         <NOLANGUAGE>X</NOLANGUAGE>
                         <APPMODE>P</APPMODE>
                         <TEXT>
@@ -41403,7 +42537,14 @@
                         <NAME>
                          <INAME>%TEXT100</INAME>
                         </NAME>
+                        <CAPTION>3</CAPTION>
                         <APPMODE>P</APPMODE>
+                        <TEXT>
+                         <item>
+                          <TDFORMAT>*</TDFORMAT>
+                          <TDLINE>&lt;C4&gt;3&lt;/&gt;</TDLINE>
+                         </item>
+                        </TEXT>
                         <STYLE_NAME>Z_ESTILO_GNRE_PE</STYLE_NAME>
                         <TEXT_AREA>
                          <ENABLED>F</ENABLED>
@@ -41517,7 +42658,14 @@
                         <NAME>
                          <INAME>%TEXT101</INAME>
                         </NAME>
+                        <CAPTION>Texto CNPJ CPF Contrib(6:7)</CAPTION>
                         <APPMODE>P</APPMODE>
+                        <TEXT>
+                         <item>
+                          <TDFORMAT>*</TDFORMAT>
+                          <TDLINE>&lt;CF&gt;CNPJ/CPF do Contribuinte&lt;/&gt;</TDLINE>
+                         </item>
+                        </TEXT>
                         <STYLE_NAME>Z_ESTILO_GNRE_PE</STYLE_NAME>
                         <TEXT_AREA>
                          <ENABLED>F</ENABLED>
@@ -41631,6 +42779,7 @@
                         <NAME>
                          <INAME>%TEXT25</INAME>
                         </NAME>
+                        <CAPTION>CNPJ CPF Contrib(7:7)</CAPTION>
                         <NOLANGUAGE>X</NOLANGUAGE>
                         <APPMODE>P</APPMODE>
                         <TEXT>
@@ -41741,7 +42890,14 @@
                         <NAME>
                          <INAME>%TEXT103</INAME>
                         </NAME>
+                        <CAPTION>16</CAPTION>
                         <APPMODE>P</APPMODE>
+                        <TEXT>
+                         <item>
+                          <TDFORMAT>*</TDFORMAT>
+                          <TDLINE>&lt;C4&gt;16&lt;/&gt;</TDLINE>
+                         </item>
+                        </TEXT>
                         <STYLE_NAME>Z_ESTILO_GNRE_PE</STYLE_NAME>
                         <TEXT_AREA>
                          <ENABLED>F</ENABLED>
@@ -41855,7 +43011,14 @@
                         <NAME>
                          <INAME>%TEXT104</INAME>
                         </NAME>
+                        <CAPTION>Texto Endereço(8:2)</CAPTION>
                         <APPMODE>P</APPMODE>
+                        <TEXT>
+                         <item>
+                          <TDFORMAT>*</TDFORMAT>
+                          <TDLINE>&lt;CF&gt;Endereço Completo&lt;/&gt;</TDLINE>
+                         </item>
+                        </TEXT>
                         <STYLE_NAME>Z_ESTILO_GNRE_PE</STYLE_NAME>
                         <TEXT_AREA>
                          <ENABLED>F</ENABLED>
@@ -41969,6 +43132,7 @@
                         <NAME>
                          <INAME>%TEXT105</INAME>
                         </NAME>
+                        <CAPTION>Endereço(9:2)</CAPTION>
                         <NOLANGUAGE>X</NOLANGUAGE>
                         <APPMODE>P</APPMODE>
                         <TEXT>
@@ -42079,7 +43243,14 @@
                         <NAME>
                          <INAME>%TEXT106</INAME>
                         </NAME>
+                        <CAPTION>4</CAPTION>
                         <APPMODE>P</APPMODE>
+                        <TEXT>
+                         <item>
+                          <TDFORMAT>*</TDFORMAT>
+                          <TDLINE>&lt;C4&gt;4&lt;/&gt;</TDLINE>
+                         </item>
+                        </TEXT>
                         <STYLE_NAME>Z_ESTILO_GNRE_PE</STYLE_NAME>
                         <TEXT_AREA>
                          <ENABLED>F</ENABLED>
@@ -42193,7 +43364,14 @@
                         <NAME>
                          <INAME>%TEXT107</INAME>
                         </NAME>
+                        <CAPTION>Texto N° doc de origem(8:5)</CAPTION>
                         <APPMODE>P</APPMODE>
+                        <TEXT>
+                         <item>
+                          <TDFORMAT>*</TDFORMAT>
+                          <TDLINE>&lt;CF&gt;N° do Documento de Origem:&lt;/&gt;</TDLINE>
+                         </item>
+                        </TEXT>
                         <STYLE_NAME>Z_ESTILO_GNRE_PE</STYLE_NAME>
                         <TEXT_AREA>
                          <ENABLED>F</ENABLED>
@@ -42307,6 +43485,7 @@
                         <NAME>
                          <INAME>%TEXT108</INAME>
                         </NAME>
+                        <CAPTION>Valor N° doc Origem(9:5)</CAPTION>
                         <NOLANGUAGE>X</NOLANGUAGE>
                         <APPMODE>P</APPMODE>
                         <TEXT>
@@ -42417,7 +43596,14 @@
                         <NAME>
                          <INAME>%TEXT109</INAME>
                         </NAME>
+                        <CAPTION>17</CAPTION>
                         <APPMODE>P</APPMODE>
+                        <TEXT>
+                         <item>
+                          <TDFORMAT>*</TDFORMAT>
+                          <TDLINE>&lt;C4&gt;17&lt;/&gt;</TDLINE>
+                         </item>
+                        </TEXT>
                         <STYLE_NAME>Z_ESTILO_GNRE_PE</STYLE_NAME>
                         <TEXT_AREA>
                          <ENABLED>F</ENABLED>
@@ -42531,7 +43717,14 @@
                         <NAME>
                          <INAME>%TEXT110</INAME>
                         </NAME>
+                        <CAPTION>Texto Município(10:2)</CAPTION>
                         <APPMODE>P</APPMODE>
+                        <TEXT>
+                         <item>
+                          <TDFORMAT>*</TDFORMAT>
+                          <TDLINE>&lt;CF&gt;Município:&lt;/&gt;</TDLINE>
+                         </item>
+                        </TEXT>
                         <STYLE_NAME>Z_ESTILO_GNRE_PE</STYLE_NAME>
                         <TEXT_AREA>
                          <ENABLED>F</ENABLED>
@@ -42645,6 +43838,7 @@
                         <NAME>
                          <INAME>%TEXT111</INAME>
                         </NAME>
+                        <CAPTION>Município(11:2)</CAPTION>
                         <NOLANGUAGE>X</NOLANGUAGE>
                         <APPMODE>P</APPMODE>
                         <TEXT>
@@ -42755,7 +43949,14 @@
                         <NAME>
                          <INAME>%TEXT112</INAME>
                         </NAME>
+                        <CAPTION>18</CAPTION>
                         <APPMODE>P</APPMODE>
+                        <TEXT>
+                         <item>
+                          <TDFORMAT>*</TDFORMAT>
+                          <TDLINE>&lt;C4&gt;18&lt;/&gt;</TDLINE>
+                         </item>
+                        </TEXT>
                         <STYLE_NAME>Z_ESTILO_GNRE_PE</STYLE_NAME>
                         <TEXT_AREA>
                          <ENABLED>F</ENABLED>
@@ -42869,7 +44070,14 @@
                         <NAME>
                          <INAME>%TEXT113</INAME>
                         </NAME>
+                        <CAPTION>Texto UF(10:4)</CAPTION>
                         <APPMODE>P</APPMODE>
+                        <TEXT>
+                         <item>
+                          <TDFORMAT>*</TDFORMAT>
+                          <TDLINE>&lt;CF&gt;UF.:&lt;/&gt;</TDLINE>
+                         </item>
+                        </TEXT>
                         <STYLE_NAME>Z_ESTILO_GNRE_PE</STYLE_NAME>
                         <TEXT_AREA>
                          <ENABLED>F</ENABLED>
@@ -42983,6 +44191,7 @@
                         <NAME>
                          <INAME>%TEXT114</INAME>
                         </NAME>
+                        <CAPTION>UF(11:4)</CAPTION>
                         <NOLANGUAGE>X</NOLANGUAGE>
                         <APPMODE>P</APPMODE>
                         <TEXT>
@@ -43093,7 +44302,14 @@
                         <NAME>
                          <INAME>%TEXT115</INAME>
                         </NAME>
+                        <CAPTION>19</CAPTION>
                         <APPMODE>P</APPMODE>
+                        <TEXT>
+                         <item>
+                          <TDFORMAT>*</TDFORMAT>
+                          <TDLINE>&lt;C4&gt;19&lt;/&gt;</TDLINE>
+                         </item>
+                        </TEXT>
                         <STYLE_NAME>Z_ESTILO_GNRE_PE</STYLE_NAME>
                         <TEXT_AREA>
                          <ENABLED>F</ENABLED>
@@ -43207,7 +44423,14 @@
                         <NAME>
                          <INAME>%TEXT116</INAME>
                         </NAME>
+                        <CAPTION>Texto cep(10:6)</CAPTION>
                         <APPMODE>P</APPMODE>
+                        <TEXT>
+                         <item>
+                          <TDFORMAT>*</TDFORMAT>
+                          <TDLINE>&lt;CF&gt;CEP.:&lt;/&gt;</TDLINE>
+                         </item>
+                        </TEXT>
                         <STYLE_NAME>Z_ESTILO_GNRE_PE</STYLE_NAME>
                         <TEXT_AREA>
                          <ENABLED>F</ENABLED>
@@ -43321,6 +44544,7 @@
                         <NAME>
                          <INAME>%TEXT117</INAME>
                         </NAME>
+                        <CAPTION>cep(11:6)</CAPTION>
                         <NOLANGUAGE>X</NOLANGUAGE>
                         <APPMODE>P</APPMODE>
                         <TEXT>
@@ -43431,7 +44655,14 @@
                         <NAME>
                          <INAME>%TEXT118</INAME>
                         </NAME>
+                        <CAPTION>20</CAPTION>
                         <APPMODE>P</APPMODE>
+                        <TEXT>
+                         <item>
+                          <TDFORMAT>*</TDFORMAT>
+                          <TDLINE>&lt;C4&gt;20&lt;/&gt;</TDLINE>
+                         </item>
+                        </TEXT>
                         <STYLE_NAME>Z_ESTILO_GNRE_PE</STYLE_NAME>
                         <TEXT_AREA>
                          <ENABLED>F</ENABLED>
@@ -43545,7 +44776,14 @@
                         <NAME>
                          <INAME>%TEXT119</INAME>
                         </NAME>
+                        <CAPTION>Texto Telefone(10:8)</CAPTION>
                         <APPMODE>P</APPMODE>
+                        <TEXT>
+                         <item>
+                          <TDFORMAT>*</TDFORMAT>
+                          <TDLINE>&lt;CF&gt;DDD / Telefone:&lt;/&gt;</TDLINE>
+                         </item>
+                        </TEXT>
                         <STYLE_NAME>Z_ESTILO_GNRE_PE</STYLE_NAME>
                         <TEXT_AREA>
                          <ENABLED>F</ENABLED>
@@ -43659,6 +44897,7 @@
                         <NAME>
                          <INAME>%TEXT120</INAME>
                         </NAME>
+                        <CAPTION>Telefone(11:8)</CAPTION>
                         <NOLANGUAGE>X</NOLANGUAGE>
                         <APPMODE>P</APPMODE>
                         <TEXT>
@@ -43769,7 +45008,14 @@
                         <NAME>
                          <INAME>%TEXT121</INAME>
                         </NAME>
+                        <CAPTION>5</CAPTION>
                         <APPMODE>P</APPMODE>
+                        <TEXT>
+                         <item>
+                          <TDFORMAT>*</TDFORMAT>
+                          <TDLINE>&lt;C4&gt;5&lt;/&gt;</TDLINE>
+                         </item>
+                        </TEXT>
                         <STYLE_NAME>Z_ESTILO_GNRE_PE</STYLE_NAME>
                         <TEXT_AREA>
                          <ENABLED>F</ENABLED>
@@ -43883,7 +45129,14 @@
                         <NAME>
                          <INAME>%TEXT122</INAME>
                         </NAME>
+                        <CAPTION>Text Periodo Referência(10:11)</CAPTION>
                         <APPMODE>P</APPMODE>
+                        <TEXT>
+                         <item>
+                          <TDFORMAT>*</TDFORMAT>
+                          <TDLINE>&lt;CF&gt;Período de Referência / N° Parcela&lt;/&gt;</TDLINE>
+                         </item>
+                        </TEXT>
                         <STYLE_NAME>Z_ESTILO_GNRE_PE</STYLE_NAME>
                         <TEXT_AREA>
                          <ENABLED>F</ENABLED>
@@ -43997,6 +45250,7 @@
                         <NAME>
                          <INAME>%TEXT123</INAME>
                         </NAME>
+                        <CAPTION>Periodo de Referência(11:11)</CAPTION>
                         <NOLANGUAGE>X</NOLANGUAGE>
                         <APPMODE>P</APPMODE>
                         <TEXT>
@@ -44107,7 +45361,14 @@
                         <NAME>
                          <INAME>%TEXT124</INAME>
                         </NAME>
+                        <CAPTION>21</CAPTION>
                         <APPMODE>P</APPMODE>
+                        <TEXT>
+                         <item>
+                          <TDFORMAT>*</TDFORMAT>
+                          <TDLINE>&lt;C4&gt;21&lt;/&gt;</TDLINE>
+                         </item>
+                        </TEXT>
                         <STYLE_NAME>Z_ESTILO_GNRE_PE</STYLE_NAME>
                         <TEXT_AREA>
                          <ENABLED>F</ENABLED>
@@ -44221,7 +45482,14 @@
                         <NAME>
                          <INAME>%TEXT125</INAME>
                         </NAME>
+                        <CAPTION>Informações complementar(12:2)</CAPTION>
                         <APPMODE>P</APPMODE>
+                        <TEXT>
+                         <item>
+                          <TDFORMAT>*</TDFORMAT>
+                          <TDLINE>&lt;CF&gt;Informações Complementares&lt;/&gt;</TDLINE>
+                         </item>
+                        </TEXT>
                         <STYLE_NAME>Z_ESTILO_GNRE_PE</STYLE_NAME>
                         <TEXT_AREA>
                          <ENABLED>F</ENABLED>
@@ -44335,7 +45603,18 @@
                         <NAME>
                          <INAME>%TEXT158</INAME>
                         </NAME>
+                        <CAPTION>Informações complementar(13:2)</CAPTION>
                         <APPMODE>P</APPMODE>
+                        <TEXT>
+                         <item>
+                          <TDFORMAT>/*</TDFORMAT>
+                          <TDLINE>&lt;CF&gt;GUIA REFERENTE NF-E &amp;zgnre_campos-doc_nfenum&amp;&lt;/&gt;</TDLINE>
+                         </item>
+                         <item>
+                          <TDFORMAT>*</TDFORMAT>
+                          <TDLINE>&lt;CF&gt;NFe &amp;IS_ZGNRE_CAMPOS-DOC_NFENUM&amp;, chave &amp;IS_ZGNRE_CAMPOS-ACCKEY&amp;&lt;/&gt;</TDLINE>
+                         </item>
+                        </TEXT>
                         <STYLE_NAME>Z_ESTILO_GNRE_PE</STYLE_NAME>
                         <TEXT_AREA>
                          <ENABLED>F</ENABLED>
@@ -44458,7 +45737,17 @@
                         <NAME>
                          <INAME>%TEXT126</INAME>
                         </NAME>
+                        <CAPTION>Informações compl. (14:2)</CAPTION>
                         <APPMODE>P</APPMODE>
+                        <TEXT>
+                         <item>
+                          <TDFORMAT>*</TDFORMAT>
+                          <TDLINE>&lt;CF&gt;**NOSSO NÚMERO: &amp;IS_ZGNRE_CAMPOS-HR_CONTROLE&amp;       SEFAZ-RJ - CNPJ</TDLINE>
+                         </item>
+                         <item>
+                          <TDLINE>nº 42.498.675/0001-52&lt;/&gt;</TDLINE>
+                         </item>
+                        </TEXT>
                         <STYLE_NAME>Z_ESTILO_GNRE_PE</STYLE_NAME>
                         <TEXT_AREA>
                          <ENABLED>F</ENABLED>
@@ -44580,7 +45869,14 @@
                         <NAME>
                          <INAME>%TEXT159</INAME>
                         </NAME>
+                        <CAPTION>Informações compl. (15:2)</CAPTION>
                         <APPMODE>P</APPMODE>
+                        <TEXT>
+                         <item>
+                          <TDFORMAT>*</TDFORMAT>
+                          <TDLINE>&lt;CF&gt;Pagável nos bancos Bradesco, Banco do Brasil, Itaú ou Santander.&lt;/&gt;</TDLINE>
+                         </item>
+                        </TEXT>
                         <STYLE_NAME>Z_ESTILO_GNRE_PE</STYLE_NAME>
                         <TEXT_AREA>
                          <ENABLED>F</ENABLED>
@@ -44694,7 +45990,21 @@
                         <NAME>
                          <INAME>N_VIA3</INAME>
                         </NAME>
+                        <CAPTION>N° da via 1(17:2)</CAPTION>
                         <APPMODE>P</APPMODE>
+                        <TEXT>
+                         <item>
+                          <TDFORMAT>PE</TDFORMAT>
+                          <TDLINE>&lt;CG&gt;NÃO RECEBER APÓS &amp;IS_ZGNRE_CAMPOS-FAEDT(2)&amp;/</TDLINE>
+                         </item>
+                         <item>
+                          <TDFORMAT>=</TDFORMAT>
+                          <TDLINE>&amp;IS_ZGNRE_CAMPOS-FAEDT+3(2)&amp;/&amp;IS_ZGNRE_CAMPOS-FAEDT+6(4)&amp;                                           &lt;/&gt;</TDLINE>
+                         </item>
+                         <item>
+                          <TDLINE>                        TERCEIRA VIA</TDLINE>
+                         </item>
+                        </TEXT>
                         <STYLE_NAME>Z_ESTILO_GNRE_PE</STYLE_NAME>
                         <TEXT_AREA>
                          <ENABLED>F</ENABLED>
@@ -44825,7 +46135,14 @@
                         <NAME>
                          <INAME>%TEXT128</INAME>
                         </NAME>
+                        <CAPTION>6</CAPTION>
                         <APPMODE>P</APPMODE>
+                        <TEXT>
+                         <item>
+                          <TDFORMAT>*</TDFORMAT>
+                          <TDLINE>&lt;C4&gt;6&lt;/&gt;</TDLINE>
+                         </item>
+                        </TEXT>
                         <STYLE_NAME>Z_ESTILO_GNRE_PE</STYLE_NAME>
                         <TEXT_AREA>
                          <ENABLED>F</ENABLED>
@@ -44939,7 +46256,14 @@
                         <NAME>
                          <INAME>%TEXT129</INAME>
                         </NAME>
+                        <CAPTION>Texto Valor Principal(10:2)</CAPTION>
                         <APPMODE>P</APPMODE>
+                        <TEXT>
+                         <item>
+                          <TDFORMAT>*</TDFORMAT>
+                          <TDLINE>&lt;CF&gt;Valor Principal&lt;/&gt;</TDLINE>
+                         </item>
+                        </TEXT>
                         <STYLE_NAME>Z_ESTILO_GNRE_PE</STYLE_NAME>
                         <TEXT_AREA>
                          <ENABLED>F</ENABLED>
@@ -45053,6 +46377,7 @@
                         <NAME>
                          <INAME>%TEXT130</INAME>
                         </NAME>
+                        <CAPTION>Valor Principal(11:2)</CAPTION>
                         <NOLANGUAGE>X</NOLANGUAGE>
                         <APPMODE>P</APPMODE>
                         <TEXT>
@@ -45163,7 +46488,14 @@
                         <NAME>
                          <INAME>%TEXT131</INAME>
                         </NAME>
+                        <CAPTION>7</CAPTION>
                         <APPMODE>P</APPMODE>
+                        <TEXT>
+                         <item>
+                          <TDFORMAT>*</TDFORMAT>
+                          <TDLINE>&lt;C4&gt;7&lt;/&gt;</TDLINE>
+                         </item>
+                        </TEXT>
                         <STYLE_NAME>Z_ESTILO_GNRE_PE</STYLE_NAME>
                         <TEXT_AREA>
                          <ENABLED>F</ENABLED>
@@ -45277,7 +46609,14 @@
                         <NAME>
                          <INAME>%TEXT132</INAME>
                         </NAME>
+                        <CAPTION>Texto Atualiz. Monetária(14:5)</CAPTION>
                         <APPMODE>P</APPMODE>
+                        <TEXT>
+                         <item>
+                          <TDFORMAT>*</TDFORMAT>
+                          <TDLINE>&lt;CF&gt;Atualização Monetária&lt;/&gt;</TDLINE>
+                         </item>
+                        </TEXT>
                         <STYLE_NAME>Z_ESTILO_GNRE_PE</STYLE_NAME>
                         <TEXT_AREA>
                          <ENABLED>F</ENABLED>
@@ -45391,7 +46730,14 @@
                         <NAME>
                          <INAME>%TEXT133</INAME>
                         </NAME>
+                        <CAPTION>Atualiz. Monetária(15:5)</CAPTION>
                         <APPMODE>P</APPMODE>
+                        <TEXT>
+                         <item>
+                          <TDFORMAT>PD</TDFORMAT>
+                          <TDLINE>&lt;CF&gt;0,00&lt;/&gt;</TDLINE>
+                         </item>
+                        </TEXT>
                         <STYLE_NAME>Z_ESTILO_GNRE_PE</STYLE_NAME>
                         <TEXT_AREA>
                          <ENABLED>F</ENABLED>
@@ -45505,7 +46851,14 @@
                         <NAME>
                          <INAME>%TEXT134</INAME>
                         </NAME>
+                        <CAPTION>8</CAPTION>
                         <APPMODE>P</APPMODE>
+                        <TEXT>
+                         <item>
+                          <TDFORMAT>*</TDFORMAT>
+                          <TDLINE>&lt;C4&gt;8&lt;/&gt;</TDLINE>
+                         </item>
+                        </TEXT>
                         <STYLE_NAME>Z_ESTILO_GNRE_PE</STYLE_NAME>
                         <TEXT_AREA>
                          <ENABLED>F</ENABLED>
@@ -45619,7 +46972,14 @@
                         <NAME>
                          <INAME>%TEXT135</INAME>
                         </NAME>
+                        <CAPTION>Texto Juros(16:5)</CAPTION>
                         <APPMODE>P</APPMODE>
+                        <TEXT>
+                         <item>
+                          <TDFORMAT>*</TDFORMAT>
+                          <TDLINE>&lt;CF&gt;Juros de Mora&lt;/&gt;</TDLINE>
+                         </item>
+                        </TEXT>
                         <STYLE_NAME>Z_ESTILO_GNRE_PE</STYLE_NAME>
                         <TEXT_AREA>
                          <ENABLED>F</ENABLED>
@@ -45733,7 +47093,14 @@
                         <NAME>
                          <INAME>%TEXT136</INAME>
                         </NAME>
+                        <CAPTION>Valor Juros(17:5)</CAPTION>
                         <APPMODE>P</APPMODE>
+                        <TEXT>
+                         <item>
+                          <TDFORMAT>PD</TDFORMAT>
+                          <TDLINE>&lt;CF&gt;0,00&lt;/&gt;</TDLINE>
+                         </item>
+                        </TEXT>
                         <STYLE_NAME>Z_ESTILO_GNRE_PE</STYLE_NAME>
                         <TEXT_AREA>
                          <ENABLED>F</ENABLED>
@@ -45847,7 +47214,14 @@
                         <NAME>
                          <INAME>%TEXT137</INAME>
                         </NAME>
+                        <CAPTION>22</CAPTION>
                         <APPMODE>P</APPMODE>
+                        <TEXT>
+                         <item>
+                          <TDFORMAT>*</TDFORMAT>
+                          <TDLINE>&lt;C4&gt;22&lt;/&gt;</TDLINE>
+                         </item>
+                        </TEXT>
                         <STYLE_NAME>Z_ESTILO_GNRE_PE</STYLE_NAME>
                         <TEXT_AREA>
                          <ENABLED>F</ENABLED>
@@ -45961,7 +47335,14 @@
                         <NAME>
                          <INAME>%TEXT138</INAME>
                         </NAME>
+                        <CAPTION>Autenticação(18,2)</CAPTION>
                         <APPMODE>P</APPMODE>
+                        <TEXT>
+                         <item>
+                          <TDFORMAT>*</TDFORMAT>
+                          <TDLINE>&lt;CF&gt;Autenticação&lt;/&gt;</TDLINE>
+                         </item>
+                        </TEXT>
                         <STYLE_NAME>Z_ESTILO_GNRE_PE</STYLE_NAME>
                         <TEXT_AREA>
                          <ENABLED>F</ENABLED>
@@ -46075,7 +47456,14 @@
                         <NAME>
                          <INAME>%TEXT139</INAME>
                         </NAME>
+                        <CAPTION>9</CAPTION>
                         <APPMODE>P</APPMODE>
+                        <TEXT>
+                         <item>
+                          <TDFORMAT>*</TDFORMAT>
+                          <TDLINE>&lt;C4&gt;9&lt;/&gt;</TDLINE>
+                         </item>
+                        </TEXT>
                         <STYLE_NAME>Z_ESTILO_GNRE_PE</STYLE_NAME>
                         <TEXT_AREA>
                          <ENABLED>F</ENABLED>
@@ -46189,7 +47577,14 @@
                         <NAME>
                          <INAME>%TEXT140</INAME>
                         </NAME>
+                        <CAPTION>Texto Multa(18:5)</CAPTION>
                         <APPMODE>P</APPMODE>
+                        <TEXT>
+                         <item>
+                          <TDFORMAT>*</TDFORMAT>
+                          <TDLINE>&lt;CF&gt;Multa de Mora&lt;/&gt;</TDLINE>
+                         </item>
+                        </TEXT>
                         <STYLE_NAME>Z_ESTILO_GNRE_PE</STYLE_NAME>
                         <TEXT_AREA>
                          <ENABLED>F</ENABLED>
@@ -46303,7 +47698,14 @@
                         <NAME>
                          <INAME>%TEXT141</INAME>
                         </NAME>
+                        <CAPTION>Multa(19:5)</CAPTION>
                         <APPMODE>P</APPMODE>
+                        <TEXT>
+                         <item>
+                          <TDFORMAT>PD</TDFORMAT>
+                          <TDLINE>&lt;CF&gt;0,00&lt;/&gt;</TDLINE>
+                         </item>
+                        </TEXT>
                         <STYLE_NAME>Z_ESTILO_GNRE_PE</STYLE_NAME>
                         <TEXT_AREA>
                          <ENABLED>F</ENABLED>
@@ -46417,7 +47819,14 @@
                         <NAME>
                          <INAME>%TEXT142</INAME>
                         </NAME>
+                        <CAPTION>10</CAPTION>
                         <APPMODE>P</APPMODE>
+                        <TEXT>
+                         <item>
+                          <TDFORMAT>*</TDFORMAT>
+                          <TDLINE>&lt;C4&gt;10&lt;/&gt;</TDLINE>
+                         </item>
+                        </TEXT>
                         <STYLE_NAME>Z_ESTILO_GNRE_PE</STYLE_NAME>
                         <TEXT_AREA>
                          <ENABLED>F</ENABLED>
@@ -46531,7 +47940,14 @@
                         <NAME>
                          <INAME>%TEXT143</INAME>
                         </NAME>
+                        <CAPTION>Texto Valor Total(20:5)</CAPTION>
                         <APPMODE>P</APPMODE>
+                        <TEXT>
+                         <item>
+                          <TDFORMAT>*</TDFORMAT>
+                          <TDLINE>&lt;CF&gt;Total Recolher&lt;/&gt;</TDLINE>
+                         </item>
+                        </TEXT>
                         <STYLE_NAME>Z_ESTILO_GNRE_PE</STYLE_NAME>
                         <TEXT_AREA>
                          <ENABLED>F</ENABLED>
@@ -46645,6 +48061,7 @@
                         <NAME>
                          <INAME>%TEXT144</INAME>
                         </NAME>
+                        <CAPTION>Valor Total(21:5)</CAPTION>
                         <NOLANGUAGE>X</NOLANGUAGE>
                         <APPMODE>P</APPMODE>
                         <TEXT>
@@ -46755,6 +48172,7 @@
                         <NAME>
                          <INAME>%CONDITION3</INAME>
                         </NAME>
+                        <CAPTION>Condição de exibição(cgc/cpf)</CAPTION>
                         <COND>
                          <item>
                           <COP>NE</COP>
@@ -46783,6 +48201,7 @@
                            <NAME>
                             <INAME>%EVENT5</INAME>
                            </NAME>
+                           <CAPTION>TRUE</CAPTION>
                            <EVTYPE>+</EVTYPE>
                            <T_CAPTION>
                             <item>
@@ -46804,7 +48223,14 @@
                               <NAME>
                                <INAME>%TEXT146</INAME>
                               </NAME>
+                              <CAPTION>Cgc Destinatário CGC(9:1)</CAPTION>
                               <APPMODE>P</APPMODE>
+                              <TEXT>
+                               <item>
+                                <TDFORMAT>*</TDFORMAT>
+                                <TDLINE>&lt;CG&gt;CPF/CNPJ/Insc. Est: &lt;/&gt;    &lt;CF&gt;&amp;IS_zgnre_campos-doc_cgc&amp;&lt;/&gt;</TDLINE>
+                               </item>
+                              </TEXT>
                               <STYLE_NAME>Z_ESTILO_GNRE_PE</STYLE_NAME>
                               <TEXT_AREA>
                                <ENABLED>F</ENABLED>
@@ -46919,6 +48345,7 @@
                            <NAME>
                             <INAME>%EVENT6</INAME>
                            </NAME>
+                           <CAPTION>FALSE</CAPTION>
                            <EVTYPE>-</EVTYPE>
                            <T_CAPTION>
                             <item>
@@ -46940,7 +48367,14 @@
                               <NAME>
                                <INAME>%TEXT147</INAME>
                               </NAME>
+                              <CAPTION>Cpf destinatário(9:1)</CAPTION>
                               <APPMODE>P</APPMODE>
+                              <TEXT>
+                               <item>
+                                <TDFORMAT>*</TDFORMAT>
+                                <TDLINE>&lt;CG&gt;CPF/CNPJ/Insc. Est: &lt;/&gt;  &lt;CF&gt; &amp;is_zgnre_campos-doc_cpf&amp;&lt;/&gt;</TDLINE>
+                               </item>
+                              </TEXT>
                               <STYLE_NAME>Z_ESTILO_GNRE_PE</STYLE_NAME>
                               <TEXT_AREA>
                                <ENABLED>F</ENABLED>
@@ -47058,7 +48492,14 @@
                         <NAME>
                          <INAME>%TEXT148</INAME>
                         </NAME>
+                        <CAPTION>Dados do C.Emitente(2:1)</CAPTION>
                         <APPMODE>P</APPMODE>
+                        <TEXT>
+                         <item>
+                          <TDFORMAT>PC</TDFORMAT>
+                          <TDLINE>&lt;CN&gt;&lt;CG&gt;Dados do Contribuinte Emitente&lt;/&gt;&lt;/&gt;</TDLINE>
+                         </item>
+                        </TEXT>
                         <STYLE_NAME>Z_ESTILO_GNRE_PE</STYLE_NAME>
                         <TEXT_AREA>
                          <ENABLED>F</ENABLED>
@@ -47170,7 +48611,14 @@
                         <NAME>
                          <INAME>%TEXT149</INAME>
                         </NAME>
+                        <CAPTION>Texto Número de controle(2:2)</CAPTION>
                         <APPMODE>P</APPMODE>
+                        <TEXT>
+                         <item>
+                          <TDFORMAT>*</TDFORMAT>
+                          <TDLINE>&lt;CN&gt;&lt;CG&gt;Nº de Controle&lt;/&gt;&lt;/&gt;</TDLINE>
+                         </item>
+                        </TEXT>
                         <STYLE_NAME>Z_ESTILO_GNRE</STYLE_NAME>
                         <TEXT_AREA>
                          <ENABLED>F</ENABLED>
@@ -47282,6 +48730,7 @@
                         <NAME>
                          <INAME>%TEXT150</INAME>
                         </NAME>
+                        <CAPTION>Valor Número de controle(3:3)</CAPTION>
                         <NOLANGUAGE>X</NOLANGUAGE>
                         <APPMODE>P</APPMODE>
                         <TEXT>
@@ -47390,7 +48839,14 @@
                         <NAME>
                          <INAME>%TEXT151</INAME>
                         </NAME>
+                        <CAPTION>Dados destinatário(8:1)</CAPTION>
                         <APPMODE>P</APPMODE>
+                        <TEXT>
+                         <item>
+                          <TDFORMAT>PC</TDFORMAT>
+                          <TDLINE>&lt;CN&gt;&lt;CG&gt;Dados do Destinatário&lt;/&gt;&lt;/&gt;</TDLINE>
+                         </item>
+                        </TEXT>
                         <STYLE_NAME>Z_ESTILO_GNRE_PE</STYLE_NAME>
                         <TEXT_AREA>
                          <ENABLED>F</ENABLED>
@@ -47502,7 +48958,14 @@
                         <NAME>
                          <INAME>%TEXT152</INAME>
                         </NAME>
+                        <CAPTION>Periodo de Referência(8:2)</CAPTION>
                         <APPMODE>P</APPMODE>
+                        <TEXT>
+                         <item>
+                          <TDFORMAT>*</TDFORMAT>
+                          <TDLINE>&lt;CG&gt;Período de Referência&lt;/&gt;</TDLINE>
+                         </item>
+                        </TEXT>
                         <STYLE_NAME>Z_ESTILO_GNRE_PE</STYLE_NAME>
                         <TEXT_AREA>
                          <ENABLED>F</ENABLED>
@@ -47614,7 +49077,14 @@
                         <NAME>
                          <INAME>%TEXT153</INAME>
                         </NAME>
+                        <CAPTION>Parcela(8:3)</CAPTION>
                         <APPMODE>P</APPMODE>
+                        <TEXT>
+                         <item>
+                          <TDFORMAT>*</TDFORMAT>
+                          <TDLINE>&lt;CN&gt;&lt;CG&gt;Parcela&lt;/&gt;&lt;/&gt;</TDLINE>
+                         </item>
+                        </TEXT>
                         <STYLE_NAME>Z_ESTILO_GNRE_PE</STYLE_NAME>
                         <TEXT_AREA>
                          <ENABLED>F</ENABLED>
@@ -47728,7 +49198,14 @@
                         <NAME>
                          <INAME>%TEXT154</INAME>
                         </NAME>
+                        <CAPTION>Município Destinatário(10:1)</CAPTION>
                         <APPMODE>P</APPMODE>
+                        <TEXT>
+                         <item>
+                          <TDFORMAT>*</TDFORMAT>
+                          <TDLINE>&lt;CG&gt;Município:   &lt;/&gt;        &lt;CF&gt;   &amp;is_zgnre_campos-doc_ort01&amp;&lt;/&gt;</TDLINE>
+                         </item>
+                        </TEXT>
                         <STYLE_NAME>Z_ESTILO_GNRE_PE</STYLE_NAME>
                         <TEXT_AREA>
                          <ENABLED>F</ENABLED>
@@ -47840,7 +49317,14 @@
                         <NAME>
                          <INAME>%TEXT155</INAME>
                         </NAME>
+                        <CAPTION>Texto Reservado à Fiscal(11:1)</CAPTION>
                         <APPMODE>P</APPMODE>
+                        <TEXT>
+                         <item>
+                          <TDFORMAT>PC</TDFORMAT>
+                          <TDLINE>&lt;CN&gt;&lt;CG&gt;Reservado à Fiscalização&lt;/&gt;&lt;/&gt;</TDLINE>
+                         </item>
+                        </TEXT>
                         <STYLE_NAME>Z_ESTILO_GNRE</STYLE_NAME>
                         <TEXT_AREA>
                          <ENABLED>F</ENABLED>
@@ -47952,7 +49436,21 @@
                         <NAME>
                          <INAME>%TEXT156</INAME>
                         </NAME>
+                        <CAPTION>Documento válido até(16:1)</CAPTION>
                         <APPMODE>P</APPMODE>
+                        <TEXT>
+                         <item>
+                          <TDFORMAT>*</TDFORMAT>
+                         </item>
+                         <item>
+                          <TDFORMAT>*</TDFORMAT>
+                          <TDLINE>&lt;CN&gt;&lt;CG&gt;Documento Válido para pagamento até &lt;/&gt;&lt;/&gt;&lt;CG&gt;    &lt;/&gt;   &lt;CF&gt;</TDLINE>
+                         </item>
+                         <item>
+                          <TDFORMAT>=</TDFORMAT>
+                          <TDLINE>&amp;sy-datum(2)&amp;&lt;/&gt;&lt;CF&gt;/&amp;sy-datum+3(2)&amp;/&amp;sy-datum+6(4)&amp;&lt;/&gt;</TDLINE>
+                         </item>
+                        </TEXT>
                         <STYLE_NAME>Z_ESTILO_GNRE</STYLE_NAME>
                         <TEXT_AREA>
                          <ENABLED>F</ENABLED>
@@ -48170,6 +49668,7 @@
               <NAME>
                <INAME>JANELA_EXTERIOR</INAME>
               </NAME>
+              <CAPTION>Nova janela 1</CAPTION>
               <WTYPE>T</WTYPE>
               <T_CAPTION>
                <item>
@@ -48192,6 +49691,7 @@
                      <NAME>
                       <INAME>JANELA1</INAME>
                      </NAME>
+                     <CAPTION>Novo padrão 1</CAPTION>
                      <SECTTYPE>S</SECTTYPE>
                      <OTABTYPE>S</OTABTYPE>
                      <U_FHEIGHT>CM</U_FHEIGHT>
@@ -48292,6 +49792,7 @@
                      <NAME>
                       <INAME>JANELA2</INAME>
                      </NAME>
+                     <CAPTION>Novo padrão 1</CAPTION>
                      <SECTTYPE>S</SECTTYPE>
                      <OTABTYPE>S</OTABTYPE>
                      <U_FHEIGHT>CM</U_FHEIGHT>
@@ -48448,6 +49949,7 @@
                      <NAME>
                       <INAME>JANELA3</INAME>
                      </NAME>
+                     <CAPTION>Novo padrão 1</CAPTION>
                      <SECTTYPE>S</SECTTYPE>
                      <OTABTYPE>S</OTABTYPE>
                      <U_FHEIGHT>CM</U_FHEIGHT>
@@ -48688,6 +50190,7 @@
               <NAME>
                <INAME>VIA1</INAME>
               </NAME>
+              <CAPTION>Primeira Via</CAPTION>
               <WTYPE>T</WTYPE>
               <T_CAPTION>
                <item>
@@ -48710,7 +50213,103 @@
                      <NAME>
                       <INAME>VIA1</INAME>
                      </NAME>
+                     <CAPTION>Primeira Via</CAPTION>
                      <APPMODE>P</APPMODE>
+                     <TEXT>
+                      <item>
+                       <TDFORMAT>PZ</TDFORMAT>
+                       <TDLINE>&lt;C4&gt;1ª&lt;/&gt;</TDLINE>
+                      </item>
+                      <item>
+                       <TDFORMAT>PZ</TDFORMAT>
+                      </item>
+                      <item>
+                       <TDFORMAT>PZ</TDFORMAT>
+                       <TDLINE>&lt;C4&gt;V&lt;/&gt;</TDLINE>
+                      </item>
+                      <item>
+                       <TDFORMAT>PZ</TDFORMAT>
+                       <TDLINE>&lt;C4&gt;I&lt;/&gt;</TDLINE>
+                      </item>
+                      <item>
+                       <TDFORMAT>PZ</TDFORMAT>
+                       <TDLINE>&lt;C4&gt;A&lt;/&gt;</TDLINE>
+                      </item>
+                      <item>
+                       <TDFORMAT>PZ</TDFORMAT>
+                      </item>
+                      <item>
+                       <TDFORMAT>PZ</TDFORMAT>
+                       <TDLINE>&lt;C4&gt;B&lt;/&gt;</TDLINE>
+                      </item>
+                      <item>
+                       <TDFORMAT>PZ</TDFORMAT>
+                       <TDLINE>&lt;C4&gt;A&lt;/&gt;</TDLINE>
+                      </item>
+                      <item>
+                       <TDFORMAT>PZ</TDFORMAT>
+                       <TDLINE>&lt;C4&gt;N&lt;/&gt;</TDLINE>
+                      </item>
+                      <item>
+                       <TDFORMAT>PZ</TDFORMAT>
+                       <TDLINE>&lt;C4&gt;C&lt;/&gt;</TDLINE>
+                      </item>
+                      <item>
+                       <TDFORMAT>PZ</TDFORMAT>
+                       <TDLINE>&lt;C4&gt;O&lt;/&gt;</TDLINE>
+                      </item>
+                      <item>
+                       <TDFORMAT>PZ</TDFORMAT>
+                       <TDLINE>&lt;C4&gt;/&lt;/&gt;</TDLINE>
+                      </item>
+                      <item>
+                       <TDFORMAT>PZ</TDFORMAT>
+                       <TDLINE>&lt;C4&gt;F&lt;/&gt;</TDLINE>
+                      </item>
+                      <item>
+                       <TDFORMAT>PZ</TDFORMAT>
+                       <TDLINE>&lt;C4&gt;I&lt;/&gt;</TDLINE>
+                      </item>
+                      <item>
+                       <TDFORMAT>PZ</TDFORMAT>
+                       <TDLINE>&lt;C4&gt;S&lt;/&gt;</TDLINE>
+                      </item>
+                      <item>
+                       <TDFORMAT>PZ</TDFORMAT>
+                       <TDLINE>&lt;C4&gt;C&lt;/&gt;</TDLINE>
+                      </item>
+                      <item>
+                       <TDFORMAT>PZ</TDFORMAT>
+                       <TDLINE>&lt;C4&gt;O&lt;/&gt;</TDLINE>
+                      </item>
+                      <item>
+                       <TDFORMAT>PZ</TDFORMAT>
+                      </item>
+                      <item>
+                       <TDFORMAT>PZ</TDFORMAT>
+                       <TDLINE>&lt;C4&gt;O&lt;/&gt;</TDLINE>
+                      </item>
+                      <item>
+                       <TDFORMAT>PZ</TDFORMAT>
+                       <TDLINE>&lt;C4&gt;R&lt;/&gt;</TDLINE>
+                      </item>
+                      <item>
+                       <TDFORMAT>PZ</TDFORMAT>
+                       <TDLINE>&lt;C4&gt;I&lt;/&gt;</TDLINE>
+                      </item>
+                      <item>
+                       <TDFORMAT>PZ</TDFORMAT>
+                       <TDLINE>&lt;C4&gt;G&lt;/&gt;</TDLINE>
+                      </item>
+                      <item>
+                       <TDFORMAT>PZ</TDFORMAT>
+                       <TDLINE>&lt;C4&gt;E&lt;/&gt;</TDLINE>
+                      </item>
+                      <item>
+                       <TDFORMAT>PZ</TDFORMAT>
+                       <TDLINE>&lt;C4&gt;M&lt;/&gt;</TDLINE>
+                      </item>
+                     </TEXT>
                      <STYLE_NAME>Z_ESTILO_GNRE_PE</STYLE_NAME>
                      <TEXT_AREA>
                       <ENABLED>F</ENABLED>
@@ -49038,6 +50637,7 @@
               <NAME>
                <INAME>VIA2</INAME>
               </NAME>
+              <CAPTION>Segunda Via</CAPTION>
               <WTYPE>T</WTYPE>
               <T_CAPTION>
                <item>
@@ -49060,7 +50660,80 @@
                      <NAME>
                       <INAME>VIA2</INAME>
                      </NAME>
+                     <CAPTION>Segunda Via</CAPTION>
                      <APPMODE>P</APPMODE>
+                     <TEXT>
+                      <item>
+                       <TDFORMAT>PZ</TDFORMAT>
+                       <TDLINE>&lt;C4&gt;2ª&lt;/&gt;</TDLINE>
+                      </item>
+                      <item>
+                       <TDFORMAT>PZ</TDFORMAT>
+                      </item>
+                      <item>
+                       <TDFORMAT>PZ</TDFORMAT>
+                       <TDLINE>&lt;C4&gt;V&lt;/&gt;</TDLINE>
+                      </item>
+                      <item>
+                       <TDFORMAT>PZ</TDFORMAT>
+                       <TDLINE>&lt;C4&gt;I&lt;/&gt;</TDLINE>
+                      </item>
+                      <item>
+                       <TDFORMAT>PZ</TDFORMAT>
+                       <TDLINE>&lt;C4&gt;A&lt;/&gt;</TDLINE>
+                      </item>
+                      <item>
+                       <TDFORMAT>PZ</TDFORMAT>
+                      </item>
+                      <item>
+                       <TDFORMAT>PZ</TDFORMAT>
+                       <TDLINE>&lt;C4&gt;C&lt;/&gt;</TDLINE>
+                      </item>
+                      <item>
+                       <TDFORMAT>PZ</TDFORMAT>
+                       <TDLINE>&lt;C4&gt;O&lt;/&gt;</TDLINE>
+                      </item>
+                      <item>
+                       <TDFORMAT>PZ</TDFORMAT>
+                       <TDLINE>&lt;C4&gt;N&lt;/&gt;</TDLINE>
+                      </item>
+                      <item>
+                       <TDFORMAT>PZ</TDFORMAT>
+                       <TDLINE>&lt;C4&gt;T&lt;/&gt;</TDLINE>
+                      </item>
+                      <item>
+                       <TDFORMAT>PZ</TDFORMAT>
+                       <TDLINE>&lt;C4&gt;R&lt;/&gt;</TDLINE>
+                      </item>
+                      <item>
+                       <TDFORMAT>PZ</TDFORMAT>
+                       <TDLINE>&lt;C4&gt;I&lt;/&gt;</TDLINE>
+                      </item>
+                      <item>
+                       <TDFORMAT>PZ</TDFORMAT>
+                       <TDLINE>&lt;C4&gt;B&lt;/&gt;</TDLINE>
+                      </item>
+                      <item>
+                       <TDFORMAT>PZ</TDFORMAT>
+                       <TDLINE>&lt;C4&gt;U&lt;/&gt;</TDLINE>
+                      </item>
+                      <item>
+                       <TDFORMAT>PZ</TDFORMAT>
+                       <TDLINE>&lt;C4&gt;I&lt;/&gt;</TDLINE>
+                      </item>
+                      <item>
+                       <TDFORMAT>PZ</TDFORMAT>
+                       <TDLINE>&lt;C4&gt;N&lt;/&gt;</TDLINE>
+                      </item>
+                      <item>
+                       <TDFORMAT>PZ</TDFORMAT>
+                       <TDLINE>&lt;C4&gt;T&lt;/&gt;</TDLINE>
+                      </item>
+                      <item>
+                       <TDFORMAT>PZ</TDFORMAT>
+                       <TDLINE>&lt;C4&gt;E&lt;/&gt;</TDLINE>
+                      </item>
+                     </TEXT>
                      <STYLE_NAME>Z_ESTILO_GNRE_PE</STYLE_NAME>
                      <TEXT_AREA>
                       <ENABLED>F</ENABLED>
@@ -49335,6 +51008,7 @@
               <NAME>
                <INAME>VIA3</INAME>
               </NAME>
+              <CAPTION>Terceira Via</CAPTION>
               <WTYPE>T</WTYPE>
               <T_CAPTION>
                <item>
@@ -49357,7 +51031,103 @@
                      <NAME>
                       <INAME>VIA3</INAME>
                      </NAME>
+                     <CAPTION>Terceira Via</CAPTION>
                      <APPMODE>P</APPMODE>
+                     <TEXT>
+                      <item>
+                       <TDFORMAT>PZ</TDFORMAT>
+                       <TDLINE>&lt;C4&gt;3ª&lt;/&gt;</TDLINE>
+                      </item>
+                      <item>
+                       <TDFORMAT>PZ</TDFORMAT>
+                      </item>
+                      <item>
+                       <TDFORMAT>PZ</TDFORMAT>
+                       <TDLINE>&lt;C4&gt;V&lt;/&gt;</TDLINE>
+                      </item>
+                      <item>
+                       <TDFORMAT>PZ</TDFORMAT>
+                       <TDLINE>&lt;C4&gt;I&lt;/&gt;</TDLINE>
+                      </item>
+                      <item>
+                       <TDFORMAT>PZ</TDFORMAT>
+                       <TDLINE>&lt;C4&gt;A&lt;/&gt;</TDLINE>
+                      </item>
+                      <item>
+                       <TDFORMAT>PZ</TDFORMAT>
+                      </item>
+                      <item>
+                       <TDFORMAT>PZ</TDFORMAT>
+                       <TDLINE>&lt;C4&gt;C&lt;/&gt;</TDLINE>
+                      </item>
+                      <item>
+                       <TDFORMAT>PZ</TDFORMAT>
+                       <TDLINE>&lt;C4&gt;O&lt;/&gt;</TDLINE>
+                      </item>
+                      <item>
+                       <TDFORMAT>PZ</TDFORMAT>
+                       <TDLINE>&lt;C4&gt;N&lt;/&gt;</TDLINE>
+                      </item>
+                      <item>
+                       <TDFORMAT>PZ</TDFORMAT>
+                       <TDLINE>&lt;C4&gt;T&lt;/&gt;</TDLINE>
+                      </item>
+                      <item>
+                       <TDFORMAT>PZ</TDFORMAT>
+                       <TDLINE>&lt;C4&gt;R&lt;/&gt;</TDLINE>
+                      </item>
+                      <item>
+                       <TDFORMAT>PZ</TDFORMAT>
+                       <TDLINE>&lt;C4&gt;I&lt;/&gt;</TDLINE>
+                      </item>
+                      <item>
+                       <TDFORMAT>PZ</TDFORMAT>
+                       <TDLINE>&lt;C4&gt;B&lt;/&gt;</TDLINE>
+                      </item>
+                      <item>
+                       <TDFORMAT>PZ</TDFORMAT>
+                       <TDLINE>&lt;C4&gt;U&lt;/&gt;</TDLINE>
+                      </item>
+                      <item>
+                       <TDFORMAT>PZ</TDFORMAT>
+                       <TDLINE>&lt;C4&gt;I&lt;/&gt;</TDLINE>
+                      </item>
+                      <item>
+                       <TDFORMAT>PZ</TDFORMAT>
+                       <TDLINE>&lt;C4&gt;N&lt;/&gt;</TDLINE>
+                      </item>
+                      <item>
+                       <TDFORMAT>PZ</TDFORMAT>
+                       <TDLINE>&lt;C4&gt;T&lt;/&gt;</TDLINE>
+                      </item>
+                      <item>
+                       <TDFORMAT>PZ</TDFORMAT>
+                       <TDLINE>&lt;C4&gt;E&lt;/&gt;</TDLINE>
+                      </item>
+                      <item>
+                       <TDFORMAT>PZ</TDFORMAT>
+                      </item>
+                      <item>
+                       <TDFORMAT>PZ</TDFORMAT>
+                       <TDLINE>&lt;C4&gt;F&lt;/&gt;</TDLINE>
+                      </item>
+                      <item>
+                       <TDFORMAT>PZ</TDFORMAT>
+                       <TDLINE>&lt;C4&gt;I&lt;/&gt;</TDLINE>
+                      </item>
+                      <item>
+                       <TDFORMAT>PZ</TDFORMAT>
+                       <TDLINE>&lt;C4&gt;S&lt;/&gt;</TDLINE>
+                      </item>
+                      <item>
+                       <TDFORMAT>PZ</TDFORMAT>
+                       <TDLINE>&lt;C4&gt;C&lt;/&gt;</TDLINE>
+                      </item>
+                      <item>
+                       <TDFORMAT>PZ</TDFORMAT>
+                       <TDLINE>&lt;C4&gt;O&lt;/&gt;</TDLINE>
+                      </item>
+                     </TEXT>
                      <STYLE_NAME>Z_ESTILO_GNRE_PE</STYLE_NAME>
                      <TEXT_AREA>
                       <ENABLED>F</ENABLED>
@@ -49688,6 +51458,7 @@
            <NAME>
             <INAME>SECUNDARIA</INAME>
            </NAME>
+           <CAPTION>Detalhamento de Itens</CAPTION>
            <NEXTPAGE>
             <INAME>SECUNDARIA</INAME>
            </NEXTPAGE>
@@ -49717,6 +51488,7 @@
               <NAME>
                <INAME>%OUTATTRIB4</INAME>
               </NAME>
+              <CAPTION>Nova opção de saída</CAPTION>
               <U_WFRAME>PT</U_WFRAME>
               <U_WBOXV>CM</U_WBOXV>
               <U_WBOXH>CM</U_WBOXH>
@@ -49800,6 +51572,7 @@
               <NAME>
                <INAME>CABEC</INAME>
               </NAME>
+              <CAPTION>Cabeçalho</CAPTION>
               <WTYPE>T</WTYPE>
               <T_CAPTION>
                <item>
@@ -49822,6 +51595,7 @@
                      <NAME>
                       <INAME>CABEC</INAME>
                      </NAME>
+                     <CAPTION>Novo padrão 1</CAPTION>
                      <SECTTYPE>S</SECTTYPE>
                      <OTABTYPE>S</OTABTYPE>
                      <U_FHEIGHT>CM</U_FHEIGHT>
@@ -49962,6 +51736,7 @@
                         <NAME>
                          <INAME>LOGO</INAME>
                         </NAME>
+                        <CAPTION>Logo Brasão RJ</CAPTION>
                         <RESOLUTION>0600</RESOLUTION>
                         <GTYPE>B</GTYPE>
                         <GKEYBDS>
@@ -50078,7 +51853,32 @@
                         <NAME>
                          <INAME>CABEC</INAME>
                         </NAME>
+                        <CAPTION>Dados do Governo do RJ</CAPTION>
                         <APPMODE>P</APPMODE>
+                        <TEXT>
+                         <item>
+                          <TDFORMAT>*</TDFORMAT>
+                          <TDLINE>Governo do Estado do Rio de Janeiro</TDLINE>
+                         </item>
+                         <item>
+                          <TDFORMAT>*</TDFORMAT>
+                          <TDLINE>Secretaria de Estado de Fazenda</TDLINE>
+                         </item>
+                         <item>
+                          <TDFORMAT>*</TDFORMAT>
+                          <TDLINE>Superintendência de Arrecadação, Cadastro e Informações</TDLINE>
+                         </item>
+                         <item>
+                          <TDLINE>Econômico-Fiscais</TDLINE>
+                         </item>
+                         <item>
+                          <TDFORMAT>*</TDFORMAT>
+                         </item>
+                         <item>
+                          <TDFORMAT>*</TDFORMAT>
+                          <TDLINE>&lt;C6&gt;Demonstrativo de Item de Pagamento - DIP&lt;/&gt;</TDLINE>
+                         </item>
+                        </TEXT>
                         <STYLE_NAME>Z_ESTILO_GNRE_PE</STYLE_NAME>
                         <TEXT_AREA>
                          <ENABLED>F</ENABLED>
@@ -50322,6 +52122,7 @@
               <NAME>
                <INAME>DADOS_DOC</INAME>
               </NAME>
+              <CAPTION>Dados do Doc de Arrecadação</CAPTION>
               <WTYPE>T</WTYPE>
               <T_CAPTION>
                <item>
@@ -50344,6 +52145,7 @@
                      <NAME>
                       <INAME>HEADER</INAME>
                      </NAME>
+                     <CAPTION>Cabeçalho 2° Folha</CAPTION>
                      <SECTTYPE>S</SECTTYPE>
                      <OTABTYPE>S</OTABTYPE>
                      <U_FHEIGHT>CM</U_FHEIGHT>
@@ -51093,6 +52895,7 @@
                         <NAME>
                          <INAME>%CODE1</INAME>
                         </NAME>
+                        <CAPTION>Novas linhasPrograma 1</CAPTION>
                         <PLIST>
                          <item>
                           <OPD>ZITENS_GNRE</OPD>
@@ -51299,7 +53102,18 @@
                         <NAME>
                          <INAME>CABEC_DADOS_DOC</INAME>
                         </NAME>
+                        <CAPTION>Dados Doc. de Arrecadação(1:1)</CAPTION>
                         <APPMODE>P</APPMODE>
+                        <TEXT>
+                         <item>
+                          <TDFORMAT>PE</TDFORMAT>
+                          <TDLINE>&lt;C4&gt; &lt;/&gt;</TDLINE>
+                         </item>
+                         <item>
+                          <TDFORMAT>PE</TDFORMAT>
+                          <TDLINE>&lt;C6&gt;Dados do Documento de Arrecadação&lt;/&gt;</TDLINE>
+                         </item>
+                        </TEXT>
                         <STYLE_NAME>Z_ESTILO_GNRE_PE</STYLE_NAME>
                         <TEXT_AREA>
                          <ENABLED>F</ENABLED>
@@ -51422,7 +53236,26 @@
                         <NAME>
                          <INAME>TX_DADOS_DOC</INAME>
                         </NAME>
+                        <CAPTION>Texto Dados Doc(2:1)</CAPTION>
                         <APPMODE>P</APPMODE>
+                        <TEXT>
+                         <item>
+                          <TDFORMAT>PA</TDFORMAT>
+                          <TDLINE>&lt;C5&gt;Nosso Número:&lt;/&gt;</TDLINE>
+                         </item>
+                         <item>
+                          <TDFORMAT>PA</TDFORMAT>
+                          <TDLINE>&lt;C5&gt;Tipo de Documento:&lt;/&gt;</TDLINE>
+                         </item>
+                         <item>
+                          <TDFORMAT>PA</TDFORMAT>
+                          <TDLINE>&lt;C5&gt;Tipo de Pagamento:&lt;/&gt;</TDLINE>
+                         </item>
+                         <item>
+                          <TDFORMAT>PA</TDFORMAT>
+                          <TDLINE>&lt;C5&gt;Data Pagamento:&lt;/&gt;</TDLINE>
+                         </item>
+                        </TEXT>
                         <STYLE_NAME>Z_ESTILO_GNRE_PE</STYLE_NAME>
                         <TEXT_AREA>
                          <ENABLED>F</ENABLED>
@@ -51563,7 +53396,26 @@
                         <NAME>
                          <INAME>DADOS_DOC</INAME>
                         </NAME>
+                        <CAPTION>Dados Doc(2:2)</CAPTION>
                         <APPMODE>P</APPMODE>
+                        <TEXT>
+                         <item>
+                          <TDFORMAT>PA</TDFORMAT>
+                          <TDLINE>&lt;C5&gt;&amp;IS_ZGNRET001-NUM_GUIA&amp;&lt;/&gt;</TDLINE>
+                         </item>
+                         <item>
+                          <TDFORMAT>PA</TDFORMAT>
+                          <TDLINE>&lt;C5&gt;GNRE&lt;/&gt;</TDLINE>
+                         </item>
+                         <item>
+                          <TDFORMAT>PA</TDFORMAT>
+                          <TDLINE>&lt;C5&gt;ICMS/FECP&lt;/&gt;</TDLINE>
+                         </item>
+                         <item>
+                          <TDFORMAT>PA</TDFORMAT>
+                          <TDLINE>&lt;C5&gt;&amp;IS_ZGNRET001-FAEDT&amp;&lt;/&gt;</TDLINE>
+                         </item>
+                        </TEXT>
                         <STYLE_NAME>Z_ESTILO_GNRE_PE</STYLE_NAME>
                         <TEXT_AREA>
                          <ENABLED>F</ENABLED>
@@ -51704,7 +53556,18 @@
                         <NAME>
                          <INAME>CABEC_IT_PAGAMENTO</INAME>
                         </NAME>
+                        <CAPTION>Dados Item Pagamento(3:1)</CAPTION>
                         <APPMODE>P</APPMODE>
+                        <TEXT>
+                         <item>
+                          <TDFORMAT>PE</TDFORMAT>
+                          <TDLINE>&lt;C4&gt; &lt;/&gt;</TDLINE>
+                         </item>
+                         <item>
+                          <TDFORMAT>PE</TDFORMAT>
+                          <TDLINE>&lt;C6&gt;Dados do Item de Pagamento&lt;/&gt;</TDLINE>
+                         </item>
+                        </TEXT>
                         <STYLE_NAME>Z_ESTILO_GNRE_PE</STYLE_NAME>
                         <TEXT_AREA>
                          <ENABLED>F</ENABLED>
@@ -51827,7 +53690,70 @@
                         <NAME>
                          <INAME>TX_DADOS_IT_PAGTO</INAME>
                         </NAME>
+                        <CAPTION>Texto Dados It Pagto(4:1)</CAPTION>
                         <APPMODE>P</APPMODE>
+                        <TEXT>
+                         <item>
+                          <TDFORMAT>PA</TDFORMAT>
+                          <TDLINE>&lt;C5&gt;Natureza da receita:&lt;/&gt;</TDLINE>
+                         </item>
+                         <item>
+                          <TDFORMAT>PA</TDFORMAT>
+                          <TDLINE>&lt;C5&gt;Produto:&lt;/&gt;</TDLINE>
+                         </item>
+                         <item>
+                          <TDFORMAT>PA</TDFORMAT>
+                          <TDLINE>&lt;C5&gt;CNPJ/CPF:&lt;/&gt;</TDLINE>
+                         </item>
+                         <item>
+                          <TDFORMAT>PA</TDFORMAT>
+                          <TDLINE>&lt;C5&gt;Inscrição estadual/RJ:&lt;/&gt;</TDLINE>
+                         </item>
+                         <item>
+                          <TDFORMAT>PA</TDFORMAT>
+                          <TDLINE>&lt;C5&gt;Nome/razão social:&lt;/&gt;</TDLINE>
+                         </item>
+                         <item>
+                          <TDFORMAT>PA</TDFORMAT>
+                          <TDLINE>&lt;C5&gt;Endereço:&lt;/&gt;</TDLINE>
+                         </item>
+                         <item>
+                          <TDFORMAT>PA</TDFORMAT>
+                          <TDLINE>&lt;C5&gt;Município:&lt;/&gt;</TDLINE>
+                         </item>
+                         <item>
+                          <TDFORMAT>PA</TDFORMAT>
+                          <TDLINE>&lt;C5&gt;UF:&lt;/&gt;</TDLINE>
+                         </item>
+                         <item>
+                          <TDFORMAT>PA</TDFORMAT>
+                          <TDLINE>&lt;C5&gt;CEP:&lt;/&gt;</TDLINE>
+                         </item>
+                         <item>
+                          <TDFORMAT>PA</TDFORMAT>
+                          <TDLINE>&lt;C5&gt;Telefone:&lt;/&gt;</TDLINE>
+                         </item>
+                         <item>
+                          <TDFORMAT>PA</TDFORMAT>
+                          <TDLINE>&lt;C5&gt;Nº Nota Fiscal:&lt;/&gt;</TDLINE>
+                         </item>
+                         <item>
+                          <TDFORMAT>PA</TDFORMAT>
+                          <TDLINE>&lt;C5&gt;CNPJ/CPF Emitente:&lt;/&gt;</TDLINE>
+                         </item>
+                         <item>
+                          <TDFORMAT>PA</TDFORMAT>
+                          <TDLINE>&lt;C5&gt;Período de Referência:&lt;/&gt;</TDLINE>
+                         </item>
+                         <item>
+                          <TDFORMAT>PA</TDFORMAT>
+                          <TDLINE>&lt;C5&gt;Data Vencimento:&lt;/&gt;</TDLINE>
+                         </item>
+                         <item>
+                          <TDFORMAT>PA</TDFORMAT>
+                          <TDLINE>&lt;C5&gt;Informações Complementares:&lt;/&gt;</TDLINE>
+                         </item>
+                        </TEXT>
                         <STYLE_NAME>Z_ESTILO_GNRE_PE</STYLE_NAME>
                         <TEXT_AREA>
                          <ENABLED>F</ENABLED>
@@ -52067,7 +53993,82 @@
                         <NAME>
                          <INAME>DADOS_IT_PAGTO</INAME>
                         </NAME>
+                        <CAPTION>Dados It Pagto(4:2)</CAPTION>
                         <APPMODE>P</APPMODE>
+                        <TEXT>
+                         <item>
+                          <TDFORMAT>PA</TDFORMAT>
+                          <TDLINE>&lt;C5&gt;&amp;GV_DESC_RECEITA&amp;&lt;/&gt;</TDLINE>
+                         </item>
+                         <item>
+                          <TDFORMAT>PA</TDFORMAT>
+                          <TDLINE>&lt;C5&gt;&amp;GV_DESC_PRODUTO&amp;&lt;/&gt;</TDLINE>
+                         </item>
+                         <item>
+                          <TDFORMAT>PA</TDFORMAT>
+                          <TDLINE>&lt;C5&gt;&amp;GV_CPF_CNPJ&amp;&lt;/&gt;</TDLINE>
+                         </item>
+                         <item>
+                          <TDFORMAT>PA</TDFORMAT>
+                          <TDLINE>&lt;C5&gt;&amp;GV_STATE_INSC&amp;&lt;/&gt;</TDLINE>
+                         </item>
+                         <item>
+                          <TDFORMAT>PA</TDFORMAT>
+                          <TDLINE>&lt;C5&gt;&amp;IS_ZGNRE_CAMPOS-EMIT_NAME1&amp;&lt;/&gt;</TDLINE>
+                         </item>
+                         <item>
+                          <TDFORMAT>PA</TDFORMAT>
+                          <TDLINE>&lt;C5&gt;&amp;IS_ZGNRE_CAMPOS-EMIT_STRAS&amp;&lt;/&gt;</TDLINE>
+                         </item>
+                         <item>
+                          <TDFORMAT>PA</TDFORMAT>
+                          <TDLINE>&lt;C5&gt;&amp;IS_ZGNRE_CAMPOS-EMIT_ORT01&amp;&lt;/&gt;</TDLINE>
+                         </item>
+                         <item>
+                          <TDFORMAT>PA</TDFORMAT>
+                          <TDLINE>&lt;C5&gt;&amp;IS_ZGNRE_CAMPOS-EMIT_REG&amp;&lt;/&gt;</TDLINE>
+                         </item>
+                         <item>
+                          <TDFORMAT>PA</TDFORMAT>
+                          <TDLINE>&lt;C5&gt;&amp;IS_ZGNRE_CAMPOS-EMIT_PSTLZ&amp;&lt;/&gt;</TDLINE>
+                         </item>
+                         <item>
+                          <TDFORMAT>PA</TDFORMAT>
+                          <TDLINE>&lt;C5&gt;&amp;IS_ZGNRE_CAMPOS-EMIT_TELF1&amp;&lt;/&gt;</TDLINE>
+                         </item>
+                         <item>
+                          <TDFORMAT>PA</TDFORMAT>
+                          <TDLINE>&lt;C5&gt;&amp;GS_NFDOC-NFENUM&amp;,,,,,,Série:&lt;/&gt; &lt;C5&gt;&amp;GS_NFDOC-SERIES&amp;&lt;/&gt; ,,,,</TDLINE>
+                         </item>
+                         <item>
+                          <TDFORMAT>=</TDFORMAT>
+                          <TDLINE>&lt;C5&gt;Tipo: &lt;/&gt; &lt;C5&gt;NF-e&lt;/&gt;</TDLINE>
+                         </item>
+                         <item>
+                          <TDFORMAT>PA</TDFORMAT>
+                          <TDLINE>&lt;C5&gt;&amp;GV_CPF_CNPJ&amp;,,,,Data Emissão:&lt;/&gt; &lt;C5&gt;&amp;IS_ZGNRET001-CREDAT(2)&amp;/</TDLINE>
+                         </item>
+                         <item>
+                          <TDFORMAT>=</TDFORMAT>
+                          <TDLINE>&amp;IS_ZGNRET001-CREDAT+3(2)&amp;/&amp;IS_ZGNRET001-CREDAT+6(4)&amp;&lt;/&gt;</TDLINE>
+                         </item>
+                         <item>
+                          <TDFORMAT>PA</TDFORMAT>
+                          <TDLINE>&lt;C5&gt;&amp;IS_ZGNRET001-FAEDT+3(2)&amp;/&amp;IS_ZGNRET001-FAEDT+6(4)&amp;&lt;/&gt;</TDLINE>
+                         </item>
+                         <item>
+                          <TDFORMAT>PA</TDFORMAT>
+                          <TDLINE>&lt;C5&gt;&amp;IS_ZGNRET001-FAEDT(2)&amp;/&amp;IS_ZGNRET001-FAEDT+3(2)&amp;/</TDLINE>
+                         </item>
+                         <item>
+                          <TDFORMAT>=</TDFORMAT>
+                          <TDLINE>&amp;IS_ZGNRET001-FAEDT+6(4)&amp;&lt;/&gt;</TDLINE>
+                         </item>
+                         <item>
+                          <TDFORMAT>PA</TDFORMAT>
+                          <TDLINE>&lt;C5&gt;NFe&lt;/&gt; &lt;C5&gt;&amp;GS_NFDOC-NFENUM&amp;, chave &amp;GV_CHV_NFE&amp;&lt;/&gt;</TDLINE>
+                         </item>
+                        </TEXT>
                         <STYLE_NAME>Z_ESTILO_GNRE_PE</STYLE_NAME>
                         <TEXT_AREA>
                          <ENABLED>F</ENABLED>
@@ -52334,7 +54335,18 @@
                         <NAME>
                          <INAME>CABEC_VALORES_EM_REAL</INAME>
                         </NAME>
+                        <CAPTION>Valores em Real(5:1)</CAPTION>
                         <APPMODE>P</APPMODE>
+                        <TEXT>
+                         <item>
+                          <TDFORMAT>PE</TDFORMAT>
+                          <TDLINE>&lt;C4&gt; &lt;/&gt;</TDLINE>
+                         </item>
+                         <item>
+                          <TDFORMAT>PE</TDFORMAT>
+                          <TDLINE>&lt;C6&gt;Valores em Real&lt;/&gt;</TDLINE>
+                         </item>
+                        </TEXT>
                         <STYLE_NAME>Z_ESTILO_GNRE_PE</STYLE_NAME>
                         <TEXT_AREA>
                          <ENABLED>F</ENABLED>
@@ -52457,7 +54469,18 @@
                         <NAME>
                          <INAME>CABEC_REAL1</INAME>
                         </NAME>
+                        <CAPTION>Valores em Real(5:2)</CAPTION>
                         <APPMODE>P</APPMODE>
+                        <TEXT>
+                         <item>
+                          <TDFORMAT>PD</TDFORMAT>
+                          <TDLINE>&lt;C4&gt; &lt;/&gt;</TDLINE>
+                         </item>
+                         <item>
+                          <TDFORMAT>PD</TDFORMAT>
+                          <TDLINE>&lt;C6&gt;R$&lt;/&gt;</TDLINE>
+                         </item>
+                        </TEXT>
                         <STYLE_NAME>Z_ESTILO_GNRE_PE</STYLE_NAME>
                         <TEXT_AREA>
                          <ENABLED>F</ENABLED>
@@ -52580,7 +54603,18 @@
                         <NAME>
                          <INAME>CABEC_REAL2</INAME>
                         </NAME>
+                        <CAPTION>Valores em Real(5:4)</CAPTION>
                         <APPMODE>P</APPMODE>
+                        <TEXT>
+                         <item>
+                          <TDFORMAT>PD</TDFORMAT>
+                          <TDLINE>&lt;C4&gt; &lt;/&gt;</TDLINE>
+                         </item>
+                         <item>
+                          <TDFORMAT>PD</TDFORMAT>
+                          <TDLINE>&lt;C6&gt;R$&lt;/&gt;</TDLINE>
+                         </item>
+                        </TEXT>
                         <STYLE_NAME>Z_ESTILO_GNRE_PE</STYLE_NAME>
                         <TEXT_AREA>
                          <ENABLED>F</ENABLED>
@@ -52703,7 +54737,34 @@
                         <NAME>
                          <INAME>TX_VALORES1</INAME>
                         </NAME>
+                        <CAPTION>Texto Valores(6:1)</CAPTION>
                         <APPMODE>P</APPMODE>
+                        <TEXT>
+                         <item>
+                          <TDFORMAT>PA</TDFORMAT>
+                          <TDLINE>&lt;C5&gt;ICMS Informado:&lt;/&gt;</TDLINE>
+                         </item>
+                         <item>
+                          <TDFORMAT>PA</TDFORMAT>
+                          <TDLINE>&lt;C5&gt;ICMS Compensado:&lt;/&gt;</TDLINE>
+                         </item>
+                         <item>
+                          <TDFORMAT>PA</TDFORMAT>
+                          <TDLINE>&lt;C5&gt;ICMS Atualizado:&lt;/&gt;</TDLINE>
+                         </item>
+                         <item>
+                          <TDFORMAT>PA</TDFORMAT>
+                          <TDLINE>&lt;C5&gt;Juros:&lt;/&gt;</TDLINE>
+                         </item>
+                         <item>
+                          <TDFORMAT>PA</TDFORMAT>
+                          <TDLINE>&lt;C5&gt;Multa de Mora:&lt;/&gt;</TDLINE>
+                         </item>
+                         <item>
+                          <TDFORMAT>PA</TDFORMAT>
+                          <TDLINE>&lt;C5&gt;Total:&lt;/&gt;</TDLINE>
+                         </item>
+                        </TEXT>
                         <STYLE_NAME>Z_ESTILO_GNRE_PE</STYLE_NAME>
                         <TEXT_AREA>
                          <ENABLED>F</ENABLED>
@@ -52862,6 +54923,7 @@
                         <NAME>
                          <INAME>VALORES1</INAME>
                         </NAME>
+                        <CAPTION>Texto Valores(6:2)</CAPTION>
                         <NOLANGUAGE>X</NOLANGUAGE>
                         <APPMODE>P</APPMODE>
                         <TEXT>
@@ -52992,7 +55054,30 @@
                         <NAME>
                          <INAME>TX_VALORES2</INAME>
                         </NAME>
+                        <CAPTION>Texto Valores(6:3)</CAPTION>
                         <APPMODE>P</APPMODE>
+                        <TEXT>
+                         <item>
+                          <TDFORMAT>PA</TDFORMAT>
+                          <TDLINE>&lt;C5&gt;FECP Informado:&lt;/&gt;</TDLINE>
+                         </item>
+                         <item>
+                          <TDFORMAT>PA</TDFORMAT>
+                          <TDLINE>&lt;C5&gt;FECP Atualizado:&lt;/&gt;</TDLINE>
+                         </item>
+                         <item>
+                          <TDFORMAT>PA</TDFORMAT>
+                          <TDLINE>&lt;C5&gt;Juros:&lt;/&gt;</TDLINE>
+                         </item>
+                         <item>
+                          <TDFORMAT>PA</TDFORMAT>
+                          <TDLINE>&lt;C5&gt;Multa de Mora:&lt;/&gt;</TDLINE>
+                         </item>
+                         <item>
+                          <TDFORMAT>PA</TDFORMAT>
+                          <TDLINE>&lt;C5&gt;Total:&lt;/&gt;</TDLINE>
+                         </item>
+                        </TEXT>
                         <STYLE_NAME>Z_ESTILO_GNRE_PE</STYLE_NAME>
                         <TEXT_AREA>
                          <ENABLED>F</ENABLED>
@@ -53142,6 +55227,7 @@
                         <NAME>
                          <INAME>VALORES2</INAME>
                         </NAME>
+                        <CAPTION>Texto Valores(6:4)</CAPTION>
                         <NOLANGUAGE>X</NOLANGUAGE>
                         <APPMODE>P</APPMODE>
                         <TEXT>
@@ -53355,6 +55441,7 @@
               <NAME>
                <INAME>COMPROVANTE</INAME>
               </NAME>
+              <CAPTION>Gui de Comprovante</CAPTION>
               <WTYPE>T</WTYPE>
               <T_CAPTION>
                <item>
@@ -53377,6 +55464,7 @@
                      <NAME>
                       <INAME>COMPROVANTE</INAME>
                      </NAME>
+                     <CAPTION>Comprovante de Pagamento</CAPTION>
                      <SECTTYPE>S</SECTTYPE>
                      <OTABTYPE>S</OTABTYPE>
                      <U_FHEIGHT>CM</U_FHEIGHT>
@@ -53729,7 +55817,14 @@
                         <NAME>
                          <INAME>TITULO_COMP</INAME>
                         </NAME>
+                        <CAPTION>Comprovante para Pagamento</CAPTION>
                         <APPMODE>P</APPMODE>
+                        <TEXT>
+                         <item>
+                          <TDFORMAT>PH</TDFORMAT>
+                          <TDLINE>COMPROVANTE DE PAGAMENTO</TDLINE>
+                         </item>
+                        </TEXT>
                         <STYLE_NAME>Z_ESTILO_GNRE_PE</STYLE_NAME>
                         <TEXT_AREA>
                          <ENABLED>F</ENABLED>
@@ -53843,7 +55938,30 @@
                         <NAME>
                          <INAME>PAGADOR_COMP</INAME>
                         </NAME>
+                        <CAPTION>Cliente / Agência / Conta</CAPTION>
                         <APPMODE>P</APPMODE>
+                        <TEXT>
+                         <item>
+                          <TDFORMAT>/*</TDFORMAT>
+                          <TDLINE>CLIENTE: &amp;J_1BINNAD-name1&amp;</TDLINE>
+                         </item>
+                         <item>
+                          <TDFORMAT>*</TDFORMAT>
+                          <TDLINE>CLIENTE: &amp;IS_ZGNRE_CAMPOS-EMIT_NAME1&amp;</TDLINE>
+                         </item>
+                         <item>
+                          <TDFORMAT>/*</TDFORMAT>
+                          <TDLINE>AGENCIA: &amp;ZGNRE_SMARTFORMS-AGENCIA&amp;          CONTA:</TDLINE>
+                         </item>
+                         <item>
+                          <TDFORMAT>/*</TDFORMAT>
+                          <TDLINE>&amp;ZGNRE_SMARTFORMS-CONTA&amp;</TDLINE>
+                         </item>
+                         <item>
+                          <TDFORMAT>*</TDFORMAT>
+                          <TDLINE>AGENCIA: &amp;GV_AGENCIA&amp;               CONTA: &amp;GV_CONTA&amp;</TDLINE>
+                         </item>
+                        </TEXT>
                         <STYLE_NAME>Z_ESTILO_GNRE_PE</STYLE_NAME>
                         <TEXT_AREA>
                          <ENABLED>F</ENABLED>
@@ -53993,7 +56111,28 @@
                         <NAME>
                          <INAME>CODIGO_BARRA_COMP</INAME>
                         </NAME>
+                        <CAPTION>Código de barra / Comprovante</CAPTION>
                         <APPMODE>P</APPMODE>
+                        <TEXT>
+                         <item>
+                          <TDFORMAT>*</TDFORMAT>
+                         </item>
+                         <item>
+                          <TDFORMAT>*</TDFORMAT>
+                          <TDLINE>Codigo de Barras</TDLINE>
+                         </item>
+                         <item>
+                          <TDFORMAT>*</TDFORMAT>
+                         </item>
+                         <item>
+                          <TDFORMAT>*</TDFORMAT>
+                          <TDLINE>Data do Pagamento</TDLINE>
+                         </item>
+                         <item>
+                          <TDFORMAT>*</TDFORMAT>
+                          <TDLINE>Valor Total</TDLINE>
+                         </item>
+                        </TEXT>
                         <STYLE_NAME>Z_ESTILO_GNRE_PE</STYLE_NAME>
                         <TEXT_AREA>
                          <ENABLED>F</ENABLED>
@@ -54141,6 +56280,7 @@
                         <NAME>
                          <INAME>CODIGO_BARRA_COMP_VALORES</INAME>
                         </NAME>
+                        <CAPTION>Código de barra / Comprovante</CAPTION>
                         <NOLANGUAGE>X</NOLANGUAGE>
                         <APPMODE>P</APPMODE>
                         <TEXT>
@@ -54269,7 +56409,22 @@
                         <NAME>
                          <INAME>AUTENTICACAO_COMP</INAME>
                         </NAME>
+                        <CAPTION>Documento / Autenticação</CAPTION>
                         <APPMODE>P</APPMODE>
+                        <TEXT>
+                         <item>
+                          <TDFORMAT>/*</TDFORMAT>
+                          <TDLINE>DOCUMENTO:  &amp;ZGNRE_SMARTFORMS-COD_DOC_BANCO&amp;</TDLINE>
+                         </item>
+                         <item>
+                          <TDFORMAT>*</TDFORMAT>
+                          <TDLINE>DOCUMENTO:</TDLINE>
+                         </item>
+                         <item>
+                          <TDFORMAT>*</TDFORMAT>
+                          <TDLINE>AUTENTICACAO:</TDLINE>
+                         </item>
+                        </TEXT>
                         <STYLE_NAME>Z_ESTILO_GNRE_PE</STYLE_NAME>
                         <TEXT_AREA>
                          <ENABLED>F</ENABLED>
@@ -54401,6 +56556,7 @@
                         <NAME>
                          <INAME>AUTENTICACAO_COMP_VALORES</INAME>
                         </NAME>
+                        <CAPTION>Autenticação</CAPTION>
                         <NOLANGUAGE>X</NOLANGUAGE>
                         <APPMODE>P</APPMODE>
                         <TEXT>

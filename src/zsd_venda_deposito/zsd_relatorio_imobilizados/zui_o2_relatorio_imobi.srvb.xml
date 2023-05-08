@@ -6,6 +6,7 @@
     <METADATA>
      <NAME>ZUI_O2_RELATORIO_IMOBI</NAME>
      <TYPE>SRVB/SVB</TYPE>
+     <DESCRIPTION>Serv Bind Relatório Imobilizado</DESCRIPTION>
      <LINKS>
       <item>
        <HREF>/sap/bc/adt/businessservices/odatav2/ZUI_O2_RELATORIO_IMOBI</HREF>

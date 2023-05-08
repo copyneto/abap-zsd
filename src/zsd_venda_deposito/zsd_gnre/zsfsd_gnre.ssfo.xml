@@ -3,6 +3,7 @@
  <sf:SMARTFORM xmlns:sf="urn:sap-com:SmartForms:2000:internal-structure" xmlns="urn:sap-com:sdixml-ifr:2000">
   <HEADER>
    <FORMNAME>ZSFSD_GNRE</FORMNAME>
+   <CAPTION>GNRE</CAPTION>
    <MASTERLANG>P</MASTERLANG>
    <LANGVECTOR>*</LANGVECTOR>
    <DEVCLASS></DEVCLASS>
@@ -243,6 +244,7 @@
            <NAME>
             <INAME>PRINCIPAL</INAME>
            </NAME>
+           <CAPTION>Página nova</CAPTION>
            <NEXTPAGE>
             <INAME>PRINCIPAL</INAME>
            </NEXTPAGE>
@@ -263,6 +265,7 @@
              <NAME>
               <INAME>%GRAPHIC1</INAME>
              </NAME>
+             <CAPTION>Tela de fundo</CAPTION>
              <GTYPE>B</GTYPE>
              <GKEYBDS>
               <BTYPE>BMON</BTYPE>
@@ -301,6 +304,7 @@
               <NAME>
                <INAME>MAIN</INAME>
               </NAME>
+              <CAPTION>Janela principal</CAPTION>
               <WTYPE>M</WTYPE>
               <T_CAPTION>
                <item>
@@ -323,6 +327,7 @@
                      <NAME>
                       <INAME>BOLETO_VIA</INAME>
                      </NAME>
+                     <CAPTION>Boleto GNRE</CAPTION>
                      <SECTTYPE>S</SECTTYPE>
                      <OTABTYPE>S</OTABTYPE>
                      <U_FHEIGHT>CM</U_FHEIGHT>
@@ -1789,6 +1794,7 @@
                         <NAME>
                          <INAME>CODE_CODBARRA</INAME>
                         </NAME>
+                        <CAPTION>Tratamento para Código barra</CAPTION>
                         <PLIST>
                          <item>
                           <OPD>ZGNRE_SMARTFORMS</OPD>
@@ -1892,7 +1898,14 @@
                         <NAME>
                          <INAME>TITULO</INAME>
                         </NAME>
+                        <CAPTION>Titulo GNRE</CAPTION>
                         <APPMODE>P</APPMODE>
+                        <TEXT>
+                         <item>
+                          <TDFORMAT>PH</TDFORMAT>
+                          <TDLINE>&lt;CN&gt;&lt;CS&gt;Guia Nacional de Recolhimento de Tributos Estaduais - GNRE&lt;/&gt;&lt;/&gt;</TDLINE>
+                         </item>
+                        </TEXT>
                         <STYLE_NAME>Z_ESTILO_GNRE</STYLE_NAME>
                         <TEXT_AREA>
                          <ENABLED>F</ENABLED>
@@ -2006,7 +2019,18 @@
                         <NAME>
                          <INAME>UF_FAV</INAME>
                         </NAME>
+                        <CAPTION>UF Favorecida</CAPTION>
                         <APPMODE>P</APPMODE>
+                        <TEXT>
+                         <item>
+                          <TDFORMAT>*</TDFORMAT>
+                          <TDLINE>&lt;CN&gt;UF Favorecida&lt;/&gt;</TDLINE>
+                         </item>
+                         <item>
+                          <TDFORMAT>PD</TDFORMAT>
+                          <TDLINE>&amp;j_1bnfdoc-regio&amp;</TDLINE>
+                         </item>
+                        </TEXT>
                         <STYLE_NAME>Z_ESTILO_GNRE</STYLE_NAME>
                         <TEXT_AREA>
                          <ENABLED>F</ENABLED>
@@ -2129,7 +2153,18 @@
                         <NAME>
                          <INAME>COD_RECEITA</INAME>
                         </NAME>
+                        <CAPTION>Código da Receita</CAPTION>
                         <APPMODE>P</APPMODE>
+                        <TEXT>
+                         <item>
+                          <TDFORMAT>*</TDFORMAT>
+                          <TDLINE>&lt;CN&gt;Código da Receita&lt;/&gt;</TDLINE>
+                         </item>
+                         <item>
+                          <TDFORMAT>PD</TDFORMAT>
+                          <TDLINE>&amp;ZGNRE_SMARTFORMS-COD_RECEITA&amp;</TDLINE>
+                         </item>
+                        </TEXT>
                         <STYLE_NAME>Z_ESTILO_GNRE</STYLE_NAME>
                         <TEXT_AREA>
                          <ENABLED>F</ENABLED>
@@ -2252,7 +2287,18 @@
                         <NAME>
                          <INAME>NUM_CONTROLE</INAME>
                         </NAME>
+                        <CAPTION>Nº de Controle</CAPTION>
                         <APPMODE>P</APPMODE>
+                        <TEXT>
+                         <item>
+                          <TDFORMAT>*</TDFORMAT>
+                          <TDLINE>&lt;CN&gt;Nº de Controle&lt;/&gt;</TDLINE>
+                         </item>
+                         <item>
+                          <TDFORMAT>PD</TDFORMAT>
+                          <TDLINE>&amp;ZGNRE_SMARTFORMS-NUM_CONTROLE&amp;</TDLINE>
+                         </item>
+                        </TEXT>
                         <STYLE_NAME>Z_ESTILO_GNRE</STYLE_NAME>
                         <TEXT_AREA>
                          <ENABLED>F</ENABLED>
@@ -2375,7 +2421,18 @@
                         <NAME>
                          <INAME>DT_VENC</INAME>
                         </NAME>
+                        <CAPTION>Data de Vencimento</CAPTION>
                         <APPMODE>P</APPMODE>
+                        <TEXT>
+                         <item>
+                          <TDFORMAT>*</TDFORMAT>
+                          <TDLINE>&lt;CN&gt;Data de Vencimento&lt;/&gt;</TDLINE>
+                         </item>
+                         <item>
+                          <TDFORMAT>PD</TDFORMAT>
+                          <TDLINE>&amp;v_data_venc&amp;</TDLINE>
+                         </item>
+                        </TEXT>
                         <STYLE_NAME>Z_ESTILO_GNRE</STYLE_NAME>
                         <TEXT_AREA>
                          <ENABLED>F</ENABLED>
@@ -2498,7 +2555,14 @@
                         <NAME>
                          <INAME>NUM_DOC_ORIGEM</INAME>
                         </NAME>
+                        <CAPTION>Nº Documento de Origem</CAPTION>
                         <APPMODE>P</APPMODE>
+                        <TEXT>
+                         <item>
+                          <TDFORMAT>*</TDFORMAT>
+                          <TDLINE>&lt;CN&gt;Nº Documento de Origem&lt;/&gt;</TDLINE>
+                         </item>
+                        </TEXT>
                         <STYLE_NAME>Z_ESTILO_GNRE</STYLE_NAME>
                         <TEXT_AREA>
                          <ENABLED>F</ENABLED>
@@ -2612,7 +2676,14 @@
                         <NAME>
                          <INAME>PERIODO_REF</INAME>
                         </NAME>
+                        <CAPTION>Período de Referência</CAPTION>
                         <APPMODE>P</APPMODE>
+                        <TEXT>
+                         <item>
+                          <TDFORMAT>*</TDFORMAT>
+                          <TDLINE>&lt;CN&gt;Período de Referência&lt;/&gt;</TDLINE>
+                         </item>
+                        </TEXT>
                         <STYLE_NAME>Z_ESTILO_GNRE</STYLE_NAME>
                         <TEXT_AREA>
                          <ENABLED>F</ENABLED>
@@ -2726,7 +2797,14 @@
                         <NAME>
                          <INAME>PARCELA</INAME>
                         </NAME>
+                        <CAPTION>Parcela</CAPTION>
                         <APPMODE>P</APPMODE>
+                        <TEXT>
+                         <item>
+                          <TDFORMAT>*</TDFORMAT>
+                          <TDLINE>&lt;CN&gt;Parcela&lt;/&gt;</TDLINE>
+                         </item>
+                        </TEXT>
                         <STYLE_NAME>Z_ESTILO_GNRE</STYLE_NAME>
                         <TEXT_AREA>
                          <ENABLED>F</ENABLED>
@@ -2840,7 +2918,18 @@
                         <NAME>
                          <INAME>VALOR_PRIN</INAME>
                         </NAME>
+                        <CAPTION>Valor Principal</CAPTION>
                         <APPMODE>P</APPMODE>
+                        <TEXT>
+                         <item>
+                          <TDFORMAT>*</TDFORMAT>
+                          <TDLINE>&lt;CN&gt;Valor Principal&lt;/&gt;</TDLINE>
+                         </item>
+                         <item>
+                          <TDFORMAT>PD</TDFORMAT>
+                          <TDLINE>&amp;v_vl_princ&amp;</TDLINE>
+                         </item>
+                        </TEXT>
                         <STYLE_NAME>Z_ESTILO_GNRE</STYLE_NAME>
                         <TEXT_AREA>
                          <ENABLED>F</ENABLED>
@@ -2963,7 +3052,18 @@
                         <NAME>
                          <INAME>ATUALIZ_MON</INAME>
                         </NAME>
+                        <CAPTION>Atualização Monetária</CAPTION>
                         <APPMODE>P</APPMODE>
+                        <TEXT>
+                         <item>
+                          <TDFORMAT>*</TDFORMAT>
+                          <TDLINE>&lt;CN&gt;Atualização Monetária&lt;/&gt;</TDLINE>
+                         </item>
+                         <item>
+                          <TDFORMAT>PD</TDFORMAT>
+                          <TDLINE>R$ 0,00</TDLINE>
+                         </item>
+                        </TEXT>
                         <STYLE_NAME>Z_ESTILO_GNRE</STYLE_NAME>
                         <TEXT_AREA>
                          <ENABLED>F</ENABLED>
@@ -3086,7 +3186,14 @@
                         <NAME>
                          <INAME>JUROS</INAME>
                         </NAME>
+                        <CAPTION>Juros</CAPTION>
                         <APPMODE>P</APPMODE>
+                        <TEXT>
+                         <item>
+                          <TDFORMAT>*</TDFORMAT>
+                          <TDLINE>&lt;CN&gt;Juros&lt;/&gt;</TDLINE>
+                         </item>
+                        </TEXT>
                         <STYLE_NAME>Z_ESTILO_GNRE</STYLE_NAME>
                         <TEXT_AREA>
                          <ENABLED>F</ENABLED>
@@ -3200,7 +3307,14 @@
                         <NAME>
                          <INAME>MULTA</INAME>
                         </NAME>
+                        <CAPTION>Multa</CAPTION>
                         <APPMODE>P</APPMODE>
+                        <TEXT>
+                         <item>
+                          <TDFORMAT>*</TDFORMAT>
+                          <TDLINE>&lt;CN&gt;Multa&lt;/&gt;</TDLINE>
+                         </item>
+                        </TEXT>
                         <STYLE_NAME>Z_ESTILO_GNRE</STYLE_NAME>
                         <TEXT_AREA>
                          <ENABLED>F</ENABLED>
@@ -3314,7 +3428,18 @@
                         <NAME>
                          <INAME>TOTAL_RECOLHER</INAME>
                         </NAME>
+                        <CAPTION>Total a Recolher</CAPTION>
                         <APPMODE>P</APPMODE>
+                        <TEXT>
+                         <item>
+                          <TDFORMAT>*</TDFORMAT>
+                          <TDLINE>&lt;CN&gt;Total a Recolher&lt;/&gt;</TDLINE>
+                         </item>
+                         <item>
+                          <TDFORMAT>PD</TDFORMAT>
+                          <TDLINE>&amp;v_vl_princ&amp;</TDLINE>
+                         </item>
+                        </TEXT>
                         <STYLE_NAME>Z_ESTILO_GNRE</STYLE_NAME>
                         <TEXT_AREA>
                          <ENABLED>F</ENABLED>
@@ -3437,7 +3562,18 @@
                         <NAME>
                          <INAME>DADOS_EMITENTE_1</INAME>
                         </NAME>
+                        <CAPTION>Dados do Contribuinte Emitente</CAPTION>
                         <APPMODE>P</APPMODE>
+                        <TEXT>
+                         <item>
+                          <TDFORMAT>PC</TDFORMAT>
+                          <TDLINE>&lt;CN&gt;Dados do Contribuinte Emitente&lt;/&gt;</TDLINE>
+                         </item>
+                         <item>
+                          <TDFORMAT>PE</TDFORMAT>
+                          <TDLINE>&lt;CN&gt;Razão Social: &lt;/&gt;&amp;J_1BINNAD-name1&amp;</TDLINE>
+                         </item>
+                        </TEXT>
                         <STYLE_NAME>Z_ESTILO_GNRE</STYLE_NAME>
                         <TEXT_AREA>
                          <ENABLED>F</ENABLED>
@@ -3560,7 +3696,18 @@
                         <NAME>
                          <INAME>DADOS_EMITENTE_2</INAME>
                         </NAME>
+                        <CAPTION>Dados do Contribuinte Emitente</CAPTION>
                         <APPMODE>P</APPMODE>
+                        <TEXT>
+                         <item>
+                          <TDFORMAT>PE</TDFORMAT>
+                          <TDLINE>&lt;CN&gt;CNPJ/CPF/Insc. Est.: &lt;/&gt;&amp;J_1BINNAD-cgc&amp;</TDLINE>
+                         </item>
+                         <item>
+                          <TDFORMAT>PF</TDFORMAT>
+                          <TDLINE>&lt;CN&gt;Endereço: &lt;/&gt;&amp;J_1BINNAD-stras&amp;</TDLINE>
+                         </item>
+                        </TEXT>
                         <STYLE_NAME>Z_ESTILO_GNRE</STYLE_NAME>
                         <TEXT_AREA>
                          <ENABLED>F</ENABLED>
@@ -3683,7 +3830,18 @@
                         <NAME>
                          <INAME>DADOS_EMITENTE_3</INAME>
                         </NAME>
+                        <CAPTION>Dados do Contribuinte Emitente</CAPTION>
                         <APPMODE>P</APPMODE>
+                        <TEXT>
+                         <item>
+                          <TDFORMAT>PE</TDFORMAT>
+                          <TDLINE>&lt;CN&gt;Município: &lt;/&gt;&amp;J_1BINNAD-ort01&amp;</TDLINE>
+                         </item>
+                         <item>
+                          <TDFORMAT>PF</TDFORMAT>
+                          <TDLINE>&lt;CN&gt;CEP: &lt;/&gt;&amp;J_1BINNAD-pstlz&amp;</TDLINE>
+                         </item>
+                        </TEXT>
                         <STYLE_NAME>Z_ESTILO_GNRE</STYLE_NAME>
                         <TEXT_AREA>
                          <ENABLED>F</ENABLED>
@@ -3806,7 +3964,18 @@
                         <NAME>
                          <INAME>DADOS_EMITENTE_4</INAME>
                         </NAME>
+                        <CAPTION>Dados do Contribuinte Emitente</CAPTION>
                         <APPMODE>P</APPMODE>
+                        <TEXT>
+                         <item>
+                          <TDFORMAT>PE</TDFORMAT>
+                          <TDLINE>&lt;CN&gt;UF:&lt;/&gt; &amp;J_1BINNAD-regio&amp;</TDLINE>
+                         </item>
+                         <item>
+                          <TDFORMAT>PF</TDFORMAT>
+                          <TDLINE>&lt;CN&gt;Telefone:&lt;/&gt; &amp;J_1BINNAD-telf1&amp;</TDLINE>
+                         </item>
+                        </TEXT>
                         <STYLE_NAME>Z_ESTILO_GNRE</STYLE_NAME>
                         <TEXT_AREA>
                          <ENABLED>F</ENABLED>
@@ -3929,7 +4098,14 @@
                         <NAME>
                          <INAME>DADOS_DESTINATARIO1</INAME>
                         </NAME>
+                        <CAPTION>Dados do Destinatário</CAPTION>
                         <APPMODE>P</APPMODE>
+                        <TEXT>
+                         <item>
+                          <TDFORMAT>PC</TDFORMAT>
+                          <TDLINE>&lt;CN&gt;Dados do Destinatário&lt;/&gt;</TDLINE>
+                         </item>
+                        </TEXT>
                         <STYLE_NAME>Z_ESTILO_GNRE</STYLE_NAME>
                         <TEXT_AREA>
                          <ENABLED>F</ENABLED>
@@ -4043,7 +4219,18 @@
                         <NAME>
                          <INAME>DADOS_DESTINATARIO2</INAME>
                         </NAME>
+                        <CAPTION>Dados do Destinatário</CAPTION>
                         <APPMODE>P</APPMODE>
+                        <TEXT>
+                         <item>
+                          <TDFORMAT>PE</TDFORMAT>
+                          <TDLINE>&lt;CN&gt;CNPJ/CPF/Insc. Est.: &lt;/&gt;&amp;J_1BNFDOC-CPF&amp;</TDLINE>
+                         </item>
+                         <item>
+                          <TDFORMAT>PF</TDFORMAT>
+                          <TDLINE>&lt;CN&gt;Município:&lt;/&gt; &amp;J_1BNFDOC-ORT01&amp;</TDLINE>
+                         </item>
+                        </TEXT>
                         <STYLE_NAME>Z_ESTILO_GNRE</STYLE_NAME>
                         <TEXT_AREA>
                          <ENABLED>F</ENABLED>
@@ -4166,7 +4353,14 @@
                         <NAME>
                          <INAME>RESERVADO_FISCO1</INAME>
                         </NAME>
+                        <CAPTION>Reservado à Fiscalização</CAPTION>
                         <APPMODE>P</APPMODE>
+                        <TEXT>
+                         <item>
+                          <TDFORMAT>PC</TDFORMAT>
+                          <TDLINE>&lt;CN&gt;Reservado à Fiscalização&lt;/&gt;</TDLINE>
+                         </item>
+                        </TEXT>
                         <STYLE_NAME>Z_ESTILO_GNRE</STYLE_NAME>
                         <TEXT_AREA>
                          <ENABLED>F</ENABLED>
@@ -4280,7 +4474,18 @@
                         <NAME>
                          <INAME>RESERVADO_FISCO2</INAME>
                         </NAME>
+                        <CAPTION>Reservado à Fiscalização</CAPTION>
                         <APPMODE>P</APPMODE>
+                        <TEXT>
+                         <item>
+                          <TDFORMAT>PE</TDFORMAT>
+                          <TDLINE>&lt;CN&gt;Convênio/Protocolo:  &lt;/&gt;EC 87/2015</TDLINE>
+                         </item>
+                         <item>
+                          <TDFORMAT>PF</TDFORMAT>
+                          <TDLINE>&lt;CN&gt;Produto:&lt;/&gt;</TDLINE>
+                         </item>
+                        </TEXT>
                         <STYLE_NAME>Z_ESTILO_GNRE</STYLE_NAME>
                         <TEXT_AREA>
                          <ENABLED>F</ENABLED>
@@ -4403,7 +4608,14 @@
                         <NAME>
                          <INAME>INFO_COMPLEMENTAR1</INAME>
                         </NAME>
+                        <CAPTION>Informações Complementares</CAPTION>
                         <APPMODE>P</APPMODE>
+                        <TEXT>
+                         <item>
+                          <TDFORMAT>PE</TDFORMAT>
+                          <TDLINE>&lt;CN&gt;Informações Complementares: &lt;/&gt;NFe: &amp;J_1BNFDOC-NFENUM&amp;</TDLINE>
+                         </item>
+                        </TEXT>
                         <STYLE_NAME>Z_ESTILO_GNRE</STYLE_NAME>
                         <TEXT_AREA>
                          <ENABLED>F</ENABLED>
@@ -4517,7 +4729,14 @@
                         <NAME>
                          <INAME>INFO_COMPLEMENTA2</INAME>
                         </NAME>
+                        <CAPTION>Informações Complementares</CAPTION>
                         <APPMODE>P</APPMODE>
+                        <TEXT>
+                         <item>
+                          <TDFORMAT>PF</TDFORMAT>
+                          <TDLINE>&lt;CN&gt;Documento Válido para pagamento até &lt;/&gt;&amp;V_DATA_VENC&amp;</TDLINE>
+                         </item>
+                        </TEXT>
                         <STYLE_NAME>Z_ESTILO_GNRE</STYLE_NAME>
                         <TEXT_AREA>
                          <ENABLED>F</ENABLED>
@@ -4631,6 +4850,7 @@
                         <NAME>
                          <INAME>CODIGO_BARRA_DV</INAME>
                         </NAME>
+                        <CAPTION>Código de barra</CAPTION>
                         <NOLANGUAGE>X</NOLANGUAGE>
                         <APPMODE>P</APPMODE>
                         <TEXT>
@@ -4741,6 +4961,7 @@
                         <NAME>
                          <INAME>CODIGO_BARRA</INAME>
                         </NAME>
+                        <CAPTION>Código de barra</CAPTION>
                         <NOLANGUAGE>X</NOLANGUAGE>
                         <APPMODE>P</APPMODE>
                         <TEXT>
@@ -4857,6 +5078,7 @@
                      <NAME>
                       <INAME>COMPROVANTE</INAME>
                      </NAME>
+                     <CAPTION>Comprovante de pagamento</CAPTION>
                      <SECTTYPE>S</SECTTYPE>
                      <OTABTYPE>S</OTABTYPE>
                      <U_FHEIGHT>CM</U_FHEIGHT>
@@ -5360,6 +5582,7 @@
                         <NAME>
                          <INAME>CODE_CODBARRA_COMP</INAME>
                         </NAME>
+                        <CAPTION>Tratamento para Código barra</CAPTION>
                         <PLIST>
                          <item>
                           <OPD>ZGNRE_SMARTFORMS</OPD>
@@ -5463,7 +5686,14 @@
                         <NAME>
                          <INAME>TITULO_COMP</INAME>
                         </NAME>
+                        <CAPTION>Comprovante de pagamento</CAPTION>
                         <APPMODE>P</APPMODE>
+                        <TEXT>
+                         <item>
+                          <TDFORMAT>PH</TDFORMAT>
+                          <TDLINE>COMPROVANTE DE PAGAMENTO</TDLINE>
+                         </item>
+                        </TEXT>
                         <STYLE_NAME>Z_ESTILO_GNRE</STYLE_NAME>
                         <TEXT_AREA>
                          <ENABLED>F</ENABLED>
@@ -5577,7 +5807,21 @@
                         <NAME>
                          <INAME>PAGADOR_COMP</INAME>
                         </NAME>
+                        <CAPTION>Cliente / Agência / Conta</CAPTION>
                         <APPMODE>P</APPMODE>
+                        <TEXT>
+                         <item>
+                          <TDFORMAT>*</TDFORMAT>
+                          <TDLINE>CLIENTE: &amp;J_1BINNAD-name1&amp;</TDLINE>
+                         </item>
+                         <item>
+                          <TDFORMAT>*</TDFORMAT>
+                          <TDLINE>AGENCIA: &amp;ZGNRE_SMARTFORMS-AGENCIA&amp;          CONTA:</TDLINE>
+                         </item>
+                         <item>
+                          <TDLINE>&amp;ZGNRE_SMARTFORMS-CONTA&amp;</TDLINE>
+                         </item>
+                        </TEXT>
                         <STYLE_NAME>Z_ESTILO_GNRE</STYLE_NAME>
                         <TEXT_AREA>
                          <ENABLED>F</ENABLED>
@@ -5708,7 +5952,28 @@
                         <NAME>
                          <INAME>CODIGO_BARRA_COMP</INAME>
                         </NAME>
+                        <CAPTION>Código de barra / Comprovante</CAPTION>
                         <APPMODE>P</APPMODE>
+                        <TEXT>
+                         <item>
+                          <TDFORMAT>*</TDFORMAT>
+                         </item>
+                         <item>
+                          <TDFORMAT>*</TDFORMAT>
+                          <TDLINE>Codigo de Barras</TDLINE>
+                         </item>
+                         <item>
+                          <TDFORMAT>*</TDFORMAT>
+                         </item>
+                         <item>
+                          <TDFORMAT>*</TDFORMAT>
+                          <TDLINE>Data do Pagamento</TDLINE>
+                         </item>
+                         <item>
+                          <TDFORMAT>*</TDFORMAT>
+                          <TDLINE>Valor Total</TDLINE>
+                         </item>
+                        </TEXT>
                         <STYLE_NAME>Z_ESTILO_GNRE</STYLE_NAME>
                         <TEXT_AREA>
                          <ENABLED>F</ENABLED>
@@ -5856,6 +6121,7 @@
                         <NAME>
                          <INAME>CODIGO_BARRA_COMP_VALORES</INAME>
                         </NAME>
+                        <CAPTION>Código de barra / Comprovante</CAPTION>
                         <NOLANGUAGE>X</NOLANGUAGE>
                         <APPMODE>P</APPMODE>
                         <TEXT>
@@ -5984,7 +6250,18 @@
                         <NAME>
                          <INAME>AUTENTICACAO_COMP</INAME>
                         </NAME>
+                        <CAPTION>Documento / Autenticação</CAPTION>
                         <APPMODE>P</APPMODE>
+                        <TEXT>
+                         <item>
+                          <TDFORMAT>*</TDFORMAT>
+                          <TDLINE>DOCUMENTO:  &amp;ZGNRE_SMARTFORMS-COD_DOC_BANCO&amp;</TDLINE>
+                         </item>
+                         <item>
+                          <TDFORMAT>*</TDFORMAT>
+                          <TDLINE>AUTENTICACAO:</TDLINE>
+                         </item>
+                        </TEXT>
                         <STYLE_NAME>Z_ESTILO_GNRE</STYLE_NAME>
                         <TEXT_AREA>
                          <ENABLED>F</ENABLED>
@@ -6107,6 +6384,7 @@
                         <NAME>
                          <INAME>AUTENTICACAO_COMP_VALORES</INAME>
                         </NAME>
+                        <CAPTION>Autenticação</CAPTION>
                         <NOLANGUAGE>X</NOLANGUAGE>
                         <APPMODE>P</APPMODE>
                         <TEXT>
@@ -6225,6 +6503,7 @@
               <NAME>
                <INAME>%OUTATTRIB1</INAME>
               </NAME>
+              <CAPTION>Nova opção de saída</CAPTION>
               <U_WFRAME>PT</U_WFRAME>
               <U_WBOXV>CM</U_WBOXV>
               <U_WBOXH>CM</U_WBOXH>
