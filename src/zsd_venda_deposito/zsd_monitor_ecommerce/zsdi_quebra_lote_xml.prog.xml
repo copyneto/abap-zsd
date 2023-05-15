@@ -3,7 +3,7 @@
  <asx:abap xmlns:asx="http://www.sap.com/abapxml" version="1.0">
   <asx:values>
    <PROGDIR>
-    <NAME>ZSDI_AGRUPA_MATERIAIS</NAME>
+    <NAME>ZSDI_QUEBRA_LOTE_XML</NAME>
     <SUBC>I</SUBC>
     <RLOAD>P</RLOAD>
     <UCCHECK>X</UCCHECK>
@@ -11,8 +11,8 @@
    <TPOOL>
     <item>
      <ID>R</ID>
-     <ENTRY>Agrupa materiais - Partição de Lote</ENTRY>
-     <LENGTH>35</LENGTH>
+     <ENTRY>SD - Quebra de lote - XML</ENTRY>
+     <LENGTH>25</LENGTH>
     </item>
    </TPOOL>
   </asx:values>

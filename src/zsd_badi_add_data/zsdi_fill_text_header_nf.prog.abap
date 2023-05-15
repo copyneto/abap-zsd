@@ -62,7 +62,47 @@
      SORT lt_nfetx BY seqnum DESCENDING.
    ENDIF.
 
-   LOOP AT it_nflin ASSIGNING FIELD-SYMBOL(<fs_nflin>).
+
+   DATA(lt_nflin_group_batch) = it_nflin.
+   DATA(lt_itens_adicional) = ct_itens_adicional.
+
+   IF is_header-land1 = 'BR' AND
+       check_coligada( is_header ) IS INITIAL.
+     DATA(ls_nflin_index1) = VALUE #( it_nflin[ 1 ] OPTIONAL ).
+
+     IF ls_nflin_index1-itmtyp <> '2'.
+
+       SORT lt_nflin_group_batch BY docnum matnr itmnum.
+       DELETE ADJACENT DUPLICATES FROM lt_nflin_group_batch COMPARING docnum matnr.
+       SORT lt_nflin_group_batch BY docnum itmnum.
+
+       LOOP AT lt_nflin_group_batch INTO DATA(ls_nflin_group_batch).
+         READ TABLE lt_itens_adicional ASSIGNING FIELD-SYMBOL(<fs_item_adicional_x>) WITH KEY itmnum = ls_nflin_group_batch-itmnum.
+         IF sy-subrc <> 0.
+           CONTINUE.
+         ENDIF.
+         LOOP AT it_nflin INTO DATA(ls_nflin_batch) WHERE docnum = ls_nflin_group_batch-docnum
+                                                      AND matnr  = ls_nflin_group_batch-matnr.
+           LOOP AT  lt_itens_adicional INTO DATA(ls_item_adicional) WHERE itmnum = ls_nflin_batch-itmnum.
+             IF sy-subrc = 0.
+               IF ls_nflin_group_batch-itmnum <> ls_nflin_batch-itmnum.
+                 <fs_item_adicional_x>-vbcstret  = <fs_item_adicional_x>-vbcstret  + ls_item_adicional-vbcstret.
+                 <fs_item_adicional_x>-vbcefet   = <fs_item_adicional_x>-vbcefet   + ls_item_adicional-vbcefet.
+               ENDIF.
+             ENDIF.
+           ENDLOOP.
+         ENDLOOP.
+       ENDLOOP.
+       LOOP AT lt_itens_adicional INTO ls_item_adicional.
+         DATA(li_tabix_add) = sy-tabix.
+         IF NOT line_exists( lt_nflin_group_batch[ itmnum = ls_item_adicional-itmnum ] ).
+           DELETE lt_itens_adicional INDEX li_tabix_add.
+         ENDIF.
+       ENDLOOP.
+     ENDIF.
+   ENDIF.
+
+   LOOP AT lt_nflin_group_batch ASSIGNING FIELD-SYMBOL(<fs_nflin>).
      DATA(lv_line_item) = sy-tabix.
 
      IF <fs_nflin>-itmnum = lc_itmnum.
@@ -91,11 +131,13 @@
      "Textos Infadprod sem caracter espcial para MT
      INCLUDE zsdi_caracter_especiais_item IF FOUND.
      "Texto ICMS Desonerado
-***     INCLUDE zsdi_fill_text_icms_deson IF FOUND.
+*    **     INCLUDE zsdi_fill_text_icms_deson IF FOUND.
 
      INCLUDE zsdi_add_text_deposito_fechado IF FOUND.
 
    ENDLOOP.
+
+
 
    "Texto FCP Infcpl
    INCLUDE zsdi_add_fcp_infcpl IF FOUND.

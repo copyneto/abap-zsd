@@ -1205,10 +1205,14 @@ CLASS ZCLSD_CMDLOC_DEVOL_MERCADORIA IMPLEMENTATION.
                 IF sy-subrc IS INITIAL.
                   LOOP AT lt_lines ASSIGNING FIELD-SYMBOL(<fs_lines>).
                     DATA(lv_nfe) = <fs_lines>-tdline+26(8).
-                    IF lv_nfe IS NOT INITIAL.
-                      EXIT.
-                    ENDIF.
+                    SPLIT <fs_lines>-tdline AT '/' INTO DATA(lv_chave) DATA(lv_valor).
+*                    IF lv_nfe IS NOT INITIAL.
+*                      EXIT.
+*                    ENDIF.
                   ENDLOOP.
+
+                  CONDENSE lv_valor NO-GAPS.
+                  REPLACE ALL OCCURRENCES OF ',' IN lv_valor WITH '.'.
 
                 ENDIF.
 
@@ -1257,7 +1261,8 @@ CLASS ZCLSD_CMDLOC_DEVOL_MERCADORIA IMPLEMENTATION.
 
                   IF is_vbak-bsark EQ gc_const-bsark_carg.
                     lv_entry_qnt = <fs_itens>-kwmeng.
-                    lv_ext_base_amount = <fs_itens>-netwr.
+                    "lv_ext_base_amount = <fs_itens>-netwr.
+                    lv_ext_base_amount = lv_valor.
                   ELSE.
                     lv_entry_qnt = <fs_lin>-menge.
                     lv_ext_base_amount = <fs_lin>-netwr.

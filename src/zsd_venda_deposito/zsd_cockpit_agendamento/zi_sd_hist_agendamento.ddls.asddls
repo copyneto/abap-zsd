@@ -13,14 +13,17 @@
 define root view entity ZI_SD_HIST_AGENDAMENTO
 
   as select from           ztsd_agendamento           as _agend
-    inner join             ZI_SD_AGEND_MIN_ITEM       as _teste on  _teste.Ordem = _agend.ordem
-                                                                and _teste.Item  = _agend.item
+    inner join             ZI_SD_AGEND_MIN_ITEM       as _teste on  _teste.Ordem   = _agend.ordem
+                                                                and _teste.Item    = _agend.item
+                                                                and _teste.Remessa = _agend.remessa
+                                                                and _teste.Nfe     = _agend.nf_e
     left outer to one join ZI_SD_FLAG_AGENDAMENTO_MAX as _Flag  on  _Flag.ordem   = _agend.ordem
                                                                 and _Flag.item    = _teste.Item
                                                                 and _Flag.remessa = _agend.remessa
                                                                 and _Flag.nf_e    = _agend.nf_e
     left outer to one join ZI_SD_AGEN_ENTREGA         as _Agen  on  _Agen.SalesOrder     = _agend.ordem
                                                                 and _Agen.SalesOrderItem = _teste.Item
+                                                                and _Agen.Remessa        = _agend.remessa
 
   association [1..1] to tvtgt          as _texto on  _texto.vstga = $projection.Motivo
                                                  and _texto.spras = $session.system_language

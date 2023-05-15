@@ -10,8 +10,17 @@
 define view entity ZI_SD_CKPT_AGEN_ENTREGA_HD
   //  as select from ZI_SD_ORDERS_ITEMS as I_Sales
   as select from    I_SalesOrder            as I_Sales
-    inner join      I_SalesOrderItem        as _Item     on  I_Sales.SalesOrder            = _Item.SalesOrder
-                                                         and _Item.SalesDocumentRjcnReason = ''
+    inner join      I_SalesOrderItem        as _Item     on I_Sales.SalesOrder             =  _Item.SalesOrder
+                                                         and(
+                                                           _Item.SalesDocumentRjcnReason   =  ''
+                                                           or(
+                                                             _Item.SalesDocumentRjcnReason <> ''
+                                                             and(
+                                                               _Item.DeliveryStatus        =  'B'
+                                                               or _Item.DeliveryStatus     =  'C'
+                                                             )
+                                                           )
+                                                         )
     left outer join ZI_SD_CKPT_AGEN_REMESSA as I_Remessa on I_Remessa.SalesOrder = I_Sales.SalesOrder
 
 {
@@ -23,7 +32,16 @@ define view entity ZI_SD_CKPT_AGEN_ENTREGA_HD
       _Item.TransactionCurrency
 }
 where
-  I_Sales.OverallSDDocumentRejectionSts <> 'C'
+  (
+            I_Sales.OverallSDDocumentRejectionSts <> 'C'
+    or(
+            I_Sales.OverallSDDocumentRejectionSts =  'C'
+      and(
+           _Item.DeliveryStatus                  = 'B'
+        or _Item.DeliveryStatus                  = 'C'
+      )
+    )
+  )
 group by
   I_Sales.SalesOrder,
   I_Remessa.Document,

@@ -158,7 +158,7 @@ ENDCLASS.
 
 
 
-CLASS zclsd_get_tax_values IMPLEMENTATION.
+CLASS ZCLSD_GET_TAX_VALUES IMPLEMENTATION.
 
 
   METHOD constructor.
@@ -300,6 +300,18 @@ CLASS zclsd_get_tax_values IMPLEMENTATION.
      WHERE ekbe~ebeln EQ @is_item-xped
        AND ekbe~ebelp EQ @is_item-nitemped
       INTO ( @DATA(lv_vbeln), @DATA(lv_kposn), @DATA(lv_bwart) ).
+
+* LSCHEPP - 8000007048 - CST 60 - Valor do ICMS Substituto - 10.05.2023 Início
+    SELECT SINGLE meins
+      FROM mara
+      INTO @DATA(lv_umb)
+      WHERE matnr EQ @is_item-matnr.
+    IF sy-subrc EQ 0.
+      IF lv_umb NE is_item-meins.
+        lv_bwart = '862'.
+      ENDIF.
+    ENDIF.
+* LSCHEPP - 8000007048 - CST 60 - Valor do ICMS Substituto - 10.05.2023 Fim
 
     lv_ult_compra = get_last_purchase( is_item = is_item iv_uf = is_header-regio iv_um = COND #( WHEN lv_bwart = |862| THEN abap_true ELSE abap_false ) ).
 

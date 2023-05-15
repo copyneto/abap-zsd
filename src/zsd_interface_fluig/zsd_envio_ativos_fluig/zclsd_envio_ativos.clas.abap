@@ -166,6 +166,9 @@ CLASS ZCLSD_ENVIO_ATIVOS IMPLEMENTATION.
            FROM zi_sd_invoiceinfo_ativo_fluig
             WHERE numero_serie = @lv_sernr
               AND centro       = @gs_input-mt_consulta_ativo-b_werk
+* LSCHEPP - SD - 8000007423 - [Y007 - Y026] Não integração de NF SF - 12.05.2023 Início
+             AND material      = @lv_matnr
+* LSCHEPP - SD - 8000007423 - [Y007 - Y026] Não integração de NF SF - 12.05.2023 Fim
                       INTO @DATA(ls_ativo_fluig).
 
 
@@ -208,78 +211,112 @@ CLASS ZCLSD_ENVIO_ATIVOS IMPLEMENTATION.
 *            ENDIF.
           ELSE.
 
-            SELECT SINGLE obknr
+* LSCHEPP - SD - 8000007299 - Erro Distrato Locação MICRO Carga - 158 - 11.05.2023 Início
+*            SELECT SINGLE obknr
+*              FROM objk
+*              INTO @DATA(lv_obknr)
+*              WHERE matnr EQ @lv_matnr
+*                AND sernr EQ @lv_sernr
+*                AND taser EQ 'SER02'.
+
+            SELECT obknr
               FROM objk
-              INTO @DATA(lv_obknr)
+              INTO TABLE @DATA(lt_objk)
               WHERE matnr EQ @lv_matnr
                 AND sernr EQ @lv_sernr
                 AND taser EQ 'SER02'.
             IF sy-subrc EQ 0.
-              SELECT SINGLE sdaufnr, posnr
+
+              SELECT sdaufnr, posnr
                 FROM ser02
-                INTO @DATA(ls_ser02)
-                WHERE obknr EQ @lv_obknr.
+                INTO TABLE @DATA(lt_ser02)
+                FOR ALL ENTRIES IN @lt_objk
+                WHERE obknr EQ @lt_objk-obknr.
               IF sy-subrc EQ 0.
-                SELECT COUNT( * )
-                  FROM vbak
-                  WHERE vbeln EQ @ls_ser02-sdaufnr
-                    AND bsark EQ 'CARG'.
+
+                SELECT vbeln
+                  FROM vbap
+                  INTO TABLE @DATA(lt_vbap)
+                  FOR ALL ENTRIES IN @lt_ser02
+                  WHERE vbeln EQ @lt_ser02-sdaufnr
+                    AND werks EQ @gs_input-mt_consulta_ativo-b_werk.
                 IF sy-subrc EQ 0.
 
-                  lv_name = |{ ls_ser02-sdaufnr }{ ls_ser02-posnr }|.
+                  TRY.
+                      DATA(lv_vbeln) = lt_vbap[ 1 ]-vbeln.
+                      DATA(ls_ser02) = lt_ser02[ sdaufnr = lv_vbeln ].
+                    CATCH cx_sy_itab_line_not_found.
+                  ENDTRY.
+*            IF sy-subrc EQ 0.
+*              SELECT SINGLE sdaufnr, posnr
+*                FROM ser02
+*                INTO @DATA(ls_ser02)
+*                WHERE obknr EQ @lv_obknr.
+*              IF sy-subrc EQ 0.
+* LSCHEPP - SD - 8000007299 - Erro Distrato Locação MICRO Carga - 158 - 11.05.2023 Fim
+                  SELECT COUNT( * )
+                    FROM vbak
+                    WHERE vbeln EQ @ls_ser02-sdaufnr
+                      AND bsark EQ 'CARG'.
+                  IF sy-subrc EQ 0.
 
-                  CALL FUNCTION 'READ_TEXT'
-                    EXPORTING
-                      id                      = lc_z010
-                      language                = sy-langu
-                      name                    = lv_name
-                      object                  = lc_vbbp
-                    TABLES
-                      lines                   = lt_lines
-                    EXCEPTIONS
-                      id                      = 1
-                      language                = 2
-                      name                    = 3
-                      not_found               = 4
-                      object                  = 5
-                      reference_check         = 6
-                      wrong_access_to_archive = 7
-                      OTHERS                  = 8.
+                    lv_name = |{ ls_ser02-sdaufnr }{ ls_ser02-posnr }|.
 
-                  LOOP AT lt_lines ASSIGNING FIELD-SYMBOL(<fs_lines>).
-                    DATA(lv_nfe) = <fs_lines>-tdline+26(8).
-                    SPLIT <fs_lines>-tdline AT '/' INTO DATA(lv_chave) DATA(lv_valor).
-                  ENDLOOP.
+                    CALL FUNCTION 'READ_TEXT'
+                      EXPORTING
+                        id                      = lc_z010
+                        language                = sy-langu
+                        name                    = lv_name
+                        object                  = lc_vbbp
+                      TABLES
+                        lines                   = lt_lines
+                      EXCEPTIONS
+                        id                      = 1
+                        language                = 2
+                        name                    = 3
+                        not_found               = 4
+                        object                  = 5
+                        reference_check         = 6
+                        wrong_access_to_archive = 7
+                        OTHERS                  = 8.
 
-                  CONDENSE lv_valor NO-GAPS.
-                  REPLACE ALL OCCURRENCES OF ',' IN lv_valor WITH '.'.
-                  lv_lppnet = lv_valor.
+                    LOOP AT lt_lines ASSIGNING FIELD-SYMBOL(<fs_lines>).
+                      DATA(lv_nfe) = <fs_lines>-tdline+26(8).
+                      SPLIT <fs_lines>-tdline AT '/' INTO DATA(lv_chave) DATA(lv_valor).
+                    ENDLOOP.
 
-                  SELECT SINGLE invnr,
-                     sernr,
-                     equnr,
-                     elief,
-                     matnr,
-                     b_werk,
-                     b_lager
-                  INTO @ls_data
-                  FROM v_equi_eqbs_sml
-                   WHERE matnr   = @lv_matnr
-                     AND b_werk  = @gs_input-mt_consulta_ativo-b_werk
-                     AND sernr   = @lv_sernr.
+                    CONDENSE lv_valor NO-GAPS.
+                    REPLACE ALL OCCURRENCES OF ',' IN lv_valor WITH '.'.
+                    lv_lppnet = lv_valor.
 
-                  gs_output-mt_envia_ativo-invnr   = ls_data-invnr.
-                  gs_output-mt_envia_ativo-sernr   = gs_input-mt_consulta_ativo-sernr.
-                  gs_output-mt_envia_ativo-matnr   = gs_input-mt_consulta_ativo-matnr.
-                  gs_output-mt_envia_ativo-equnr   = ls_data-equnr.
-                  gs_output-mt_envia_ativo-lppnet  = lv_lppnet.
-                  gs_output-mt_envia_ativo-b_werk  = gs_input-mt_consulta_ativo-b_werk.
-                  gs_output-mt_envia_ativo-b_lager = gs_input-mt_consulta_ativo-b_lager.
-                  gs_output-mt_envia_ativo-vbeln   = ls_ser02-sdaufnr.
-                  gs_output-mt_envia_ativo-posnr   = ls_ser02-posnr.
-                  gs_output-mt_envia_ativo-nfnum   = lv_nfe.
+                    SELECT SINGLE invnr,
+                       sernr,
+                       equnr,
+                       elief,
+                       matnr,
+                       b_werk,
+                       b_lager
+                    INTO @ls_data
+                    FROM v_equi_eqbs_sml
+                     WHERE matnr   = @lv_matnr
+                       AND b_werk  = @gs_input-mt_consulta_ativo-b_werk
+                       AND sernr   = @lv_sernr.
 
+                    gs_output-mt_envia_ativo-invnr   = ls_data-invnr.
+                    gs_output-mt_envia_ativo-sernr   = gs_input-mt_consulta_ativo-sernr.
+                    gs_output-mt_envia_ativo-matnr   = gs_input-mt_consulta_ativo-matnr.
+                    gs_output-mt_envia_ativo-equnr   = ls_data-equnr.
+                    gs_output-mt_envia_ativo-lppnet  = lv_lppnet.
+                    gs_output-mt_envia_ativo-b_werk  = gs_input-mt_consulta_ativo-b_werk.
+                    gs_output-mt_envia_ativo-b_lager = gs_input-mt_consulta_ativo-b_lager.
+                    gs_output-mt_envia_ativo-vbeln   = ls_ser02-sdaufnr.
+                    gs_output-mt_envia_ativo-posnr   = ls_ser02-posnr.
+                    gs_output-mt_envia_ativo-nfnum   = lv_nfe.
+
+                  ENDIF.
+* LSCHEPP - SD - 8000007299 - Erro Distrato Locação MICRO Carga - 158 - 11.05.2023 Início
                 ENDIF.
+* LSCHEPP - SD - 8000007299 - Erro Distrato Locação MICRO Carga - 158 - 11.05.2023 Fim
               ENDIF.
             ENDIF.
           ENDIF.
@@ -289,7 +326,7 @@ CLASS ZCLSD_ENVIO_ATIVOS IMPLEMENTATION.
 
         SELECT SINGLE obknr
           FROM objk
-          INTO @lv_obknr
+          INTO @DATA(lv_obknr)
           WHERE matnr EQ @lv_matnr
             AND sernr EQ @lv_sernr
             AND taser EQ 'SER02'.

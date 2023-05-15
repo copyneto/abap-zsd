@@ -224,9 +224,6 @@ CLASS ZCLSD_GET_TAX_CALCULATIONS IMPLEMENTATION.
 
   METHOD main.
 
-
-
-
     IF iv_vbeln NE gv_vbeln_old AND
        iv_kposn NE gv_kposn_old.
       SELECT COUNT( * )
@@ -264,6 +261,9 @@ CLASS ZCLSD_GET_TAX_CALCULATIONS IMPLEMENTATION.
 
     es_calculos = gs_calculos.
 
+* LSCHEPP - 8000006860 - GAP 170 - TAG <pRedBCEfet> - 08.05.2023 Início
+    CLEAR gs_calculos.
+* LSCHEPP - 8000006860 - GAP 170 - TAG <pRedBCEfet> - 08.05.2023 Fim
 
   ENDMETHOD.
 

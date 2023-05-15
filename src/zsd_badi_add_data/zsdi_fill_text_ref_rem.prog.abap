@@ -13,7 +13,10 @@
 
     DATA lt_out_lines TYPE TABLE OF j_1bmessag.
 
-    FIELD-SYMBOLS <fs_nf_ftx_tab> TYPE ty_t_nfe_tx.
+    FIELD-SYMBOLS: <fs_nf_ftx_tab>  TYPE ty_t_nfe_tx,
+* LSCHEPP - MM - 8000007315 - Erro dados fiscais nf-e de remessa dep. - 12.05.2023 Início
+                   <fs_gv_vbeln_vl> TYPE vbeln_vl.
+* LSCHEPP - MM - 8000007315 - Erro dados fiscais nf-e de remessa dep. - 12.05.2023 Fim
 
 
 * Texto para remessa simbólica (triangulação na subcontratação)
@@ -47,24 +50,43 @@
 
         IF sy-subrc NE 0.
 
-          SELECT DISTINCT ebeln, CAST( substring( concat( '000', ebelp ), 3, 6 ) AS NUMC ) AS ebelp
-            FROM ekbe
-           WHERE ekbe~ebeln EQ @ls_lin-xped
-             AND ekbe~vgabe = '8'
-            INTO TABLE @DATA(lt_ekbe).
+* LSCHEPP - MM - 8000007315 - Erro dados fiscais nf-e de remessa dep. - 12.05.2023 Início
+          IF NOT ls_lin-xped IS INITIAL.
+* LSCHEPP - MM - 8000007315 - Erro dados fiscais nf-e de remessa dep. - 12.05.2023 Fim
+            SELECT DISTINCT ebeln, CAST( substring( concat( '000', ebelp ), 3, 6 ) AS NUMC ) AS ebelp
+              FROM ekbe
+             WHERE ekbe~ebeln EQ @ls_lin-xped
+               AND ekbe~vgabe = '8'
+              INTO TABLE @DATA(lt_ekbe).
 
-          SELECT lips~vbeln
-            FROM lips
-             FOR ALL ENTRIES IN @lt_ekbe
-           WHERE lips~vgbel EQ @lt_ekbe-ebeln
-             AND lips~vgpos EQ @lt_ekbe-ebelp
-             AND lips~matnr EQ @ls_lin-matnr
-            INTO @ls_mseg-vbeln_im
-           UP TO 1 ROWS.
-          ENDSELECT.
+* LSCHEPP - MM - 8000007315 - Erro dados fiscais nf-e de remessa dep. - 12.05.2023 Início
+            IF NOT lt_ekbe IS INITIAL.
+* LSCHEPP - MM - 8000007315 - Erro dados fiscais nf-e de remessa dep. - 12.05.2023 Fim
+              SELECT lips~vbeln
+                FROM lips
+                 FOR ALL ENTRIES IN @lt_ekbe
+               WHERE lips~vgbel EQ @lt_ekbe-ebeln
+                 AND lips~vgpos EQ @lt_ekbe-ebelp
+                 AND lips~matnr EQ @ls_lin-matnr
+                INTO @ls_mseg-vbeln_im
+               UP TO 1 ROWS.
+              ENDSELECT.
+* LSCHEPP - MM - 8000007315 - Erro dados fiscais nf-e de remessa dep. - 12.05.2023 Início
+            ENDIF.
+          ENDIF.
+* LSCHEPP - MM - 8000007315 - Erro dados fiscais nf-e de remessa dep. - 12.05.2023 Fim
 
         ENDIF.
 
+* LSCHEPP - MM - 8000007315 - Erro dados fiscais nf-e de remessa dep. - 12.05.2023 Início
+        IF ls_mseg-vbeln_im IS INITIAL.
+          ASSIGN ('(SAPLZFGMM_PICKING)GV_VBELN_VL') TO <fs_gv_vbeln_vl>.
+          IF <fs_gv_vbeln_vl> IS ASSIGNED.
+            ls_mseg-vbeln_im = <fs_gv_vbeln_vl>.
+            UNASSIGN <fs_gv_vbeln_vl>.
+          ENDIF.
+        ENDIF.
+* LSCHEPP - MM - 8000007315 - Erro dados fiscais nf-e de remessa dep. - 12.05.2023 Fim
 
         IF ls_mseg-vbeln_im IS NOT INITIAL.
 

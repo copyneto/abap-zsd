@@ -287,14 +287,14 @@ CLASS lcl_cockpit IMPLEMENTATION.
         IF lt_devolucao IS NOT INITIAL.
           MODIFY ztsd_devolucao FROM TABLE lt_devolucao.
 
-          MODIFY ENTITIES OF zi_sd_cockpit_devolucao IN LOCAL MODE
-          ENTITY cockpit
-          UPDATE FIELDS ( situacao protocorrencia )
-          WITH VALUE #( FOR ls_dados IN lt_devolucao (
-          %key-guid      = ls_dados-guid
-          situacao       = ls_dados-situacao
-          protocorrencia = ls_dados-prot_ocorrencia ) )
-          REPORTED DATA(lt_reported).
+*          MODIFY ENTITIES OF zi_sd_cockpit_devolucao IN LOCAL MODE
+*          ENTITY cockpit
+*          UPDATE FIELDS ( situacao protocorrencia )
+*          WITH VALUE #( FOR ls_dados IN lt_devolucao (
+*          %key-guid      = ls_dados-guid
+*          situacao       = ls_dados-situacao
+*          protocorrencia = ls_dados-prot_ocorrencia ) )
+*          REPORTED DATA(lt_reported).
 
         ENDIF.
 

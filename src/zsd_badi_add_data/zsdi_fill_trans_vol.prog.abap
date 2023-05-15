@@ -125,6 +125,9 @@
             <fs_transvol>-pesob = lv_pesob.
             <fs_transvol>-nvol  = lv_pesob.
             CONDENSE <fs_transvol>-nvol NO-GAPS.
+* LSCHEPP - SD - 8000007193 - Peso liquido e bruto no DANFE (paletes) - 10.05.2023 Início
+            lv_pesol = is_header-ntgew.
+* LSCHEPP - SD - 8000007193 - Peso liquido e bruto no DANFE (paletes) - 10.05.2023 Fim
             <fs_transvol>-pesol = lv_pesol.
             IF <fs_wnfdoc> IS ASSIGNED.
               <fs_wnfdoc>-brgew      = lv_pesob.

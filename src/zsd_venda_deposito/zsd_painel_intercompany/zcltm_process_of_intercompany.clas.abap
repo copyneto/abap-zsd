@@ -946,6 +946,7 @@ CLASS ZCLTM_PROCESS_OF_INTERCOMPANY IMPLEMENTATION.
       " Atualiza campos da Ordem de Frete
       TRY.
           zcltm_manage_of=>change_of( EXPORTING iv_interface = zcltm_manage_of=>gc_interface-intercompany
+                                                iv_vbeln     = is_freight_unit-vbeln  " CHANGE - JWSILVA - 11.05.2023
                                       CHANGING  cs_root      = ls_tor_root
                                                 ct_changed   = lt_changed ).
         CATCH cx_root.

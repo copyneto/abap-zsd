@@ -30,11 +30,19 @@ TRY.
   CATCH cx_sy_itab_line_not_found zcxca_tabela_parametros.
 ENDTRY.
 
-LOOP AT xaccit ASSIGNING FIELD-SYMBOL(<fs_xaccit2>) WHERE posnr LT '0000001000'.
-  IF NOT <fs_xaccit2>-rebzg IS INITIAL.
-    READ TABLE lt_vbrk TRANSPORTING NO FIELDS WITH KEY vbeln = <fs_xaccit2>-rebzg.
-    IF sy-subrc NE 0.
-      CLEAR <fs_xaccit2>-rebzg.
+* LSCHEPP - SD - 8000007176 - Erro docto contábil - Devoluções - 11.05.2023 Início
+IF NOT lt_vbrk IS INITIAL.
+* LSCHEPP - SD - 8000007176 - Erro docto contábil - Devoluções - 11.05.2023 Fim
+
+  LOOP AT xaccit ASSIGNING FIELD-SYMBOL(<fs_xaccit2>) WHERE posnr LT '0000001000'.
+    IF NOT <fs_xaccit2>-rebzg IS INITIAL.
+      READ TABLE lt_vbrk TRANSPORTING NO FIELDS WITH KEY vbeln = <fs_xaccit2>-rebzg.
+      IF sy-subrc NE 0.
+        CLEAR <fs_xaccit2>-rebzg.
+      ENDIF.
     ENDIF.
-  ENDIF.
-ENDLOOP.
+  ENDLOOP.
+
+* LSCHEPP - SD - 8000007176 - Erro docto contábil - Devoluções - 11.05.2023 Início
+ENDIF.
+* LSCHEPP - SD - 8000007176 - Erro docto contábil - Devoluções - 11.05.2023 Fim

@@ -230,7 +230,7 @@ CLASS ZCLSD_SAGA_DEVOLV_PICKING IMPLEMENTATION.
     SELECT SINGLE lfart
       FROM likp
       INTO @DATA(lv_lfart)
-      WHERE vbeln EQ @lv_vbeln.
+      WHERE vbeln EQ @gs_vbkok-vbeln_vl.
     IF sy-subrc EQ 0.
       IF lv_lfart IN lt_doc_type.
         gs_vbkok-anzpk = is_proxy-anzpk.

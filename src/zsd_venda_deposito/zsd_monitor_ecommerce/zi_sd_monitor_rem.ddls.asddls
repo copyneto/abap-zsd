@@ -27,12 +27,12 @@ define view entity ZI_SD_MONITOR_REM
 
       //Preceding
   key _SDDocumentFlow.PrecedingDocument, 
-  key _SDDocumentFlow.PrecedingDocumentItem,
+  key min( _SDDocumentFlow.PrecedingDocumentItem  ) as PrecedingDocumentItem ,
       _SDDocumentFlow.PrecedingDocumentCategory,
 
       //Subsequent
       _SDDocumentFlow.SubsequentDocument,
-      _SDDocumentFlow.SubsequentDocumentItem,
+      min( _SDDocumentFlow.SubsequentDocumentItem ) as SubsequentDocumentItem,
       _SDDocumentFlow.SubsequentDocumentCategory,
       case
           when _SDDocumentFlow.SubsequentDocument is not null then _SDDocumentFlow.SubsequentDocument
@@ -74,7 +74,7 @@ define view entity ZI_SD_MONITOR_REM
 
       case
           when _FlowFatura.BR_NotaFiscal is not null then _FlowFatura.BR_NotaFiscal
-          else cast( '0000000000' as j_1bdocnum )
+//          else cast( '0000000000' as j_1bdocnum )
       end                                                as BR_NotaFiscal,
       _FlowFatura.BR_NFPartnerRegionCode,
       _FlowFatura.BR_NFIsPrinted,
@@ -90,18 +90,18 @@ define view entity ZI_SD_MONITOR_REM
 }
 where
       _SDDocumentFlow.SubsequentDocumentCategory = 'J'
-  and _SDDocumentFlow.SubsequentDocumentItem     = '000010'
+//  and _SDDocumentFlow.SubsequentDocumentItem     = '000010'
 group by
   _SDDocumentFlow.DocRelationshipUUID,
 
   //Preceding
   _SDDocumentFlow.PrecedingDocument,
-  _SDDocumentFlow.PrecedingDocumentItem,
+//  _SDDocumentFlow.PrecedingDocumentItem,
   _SDDocumentFlow.PrecedingDocumentCategory,
 
   //Subsequent
   _SDDocumentFlow.SubsequentDocument,
-  _SDDocumentFlow.SubsequentDocumentItem,
+//  _SDDocumentFlow.SubsequentDocumentItem,
   _SDDocumentFlow.SubsequentDocumentCategory,
   _Delivery.CreationDate,
   _Delivery.CreationTime,

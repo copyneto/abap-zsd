@@ -22,6 +22,7 @@ define view entity ZI_SD_INVOICEINFO_ATIVO_FLUIG
   FluxoDocSD.posnv     as OrdemVendaItem,
   NFHeader.nfenum      as Numero_NF,
   Obj_Manutencao.sernr as Numero_Serie,
+  NFItem.matnr         as Material,
   NFItem.werks         as Centro,
   NFHeader.waerk       as Moeda,
   @Semantics.amount.currencyCode: 'Moeda'
@@ -32,4 +33,4 @@ define view entity ZI_SD_INVOICEINFO_ATIVO_FLUIG
 where
       Invoice.fksto      = ''
   and FluxoDocSD.vbtyp_v = 'G'
-  and NFItem.itmnum      = '000010'
+//  and NFItem.itmnum      = '000010'

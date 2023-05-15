@@ -4812,7 +4812,7 @@ CLASS ZCLSD_GESTAO_PRECO_EVENTS IMPLEMENTATION.
            AND loevm_ko EQ @space
            INTO TABLE @DATA(lt_lista_preco_del).
 
-    SORT lt_lista_preco_del BY vtweg pltyp werks  matnr.
+    SORT lt_lista_preco_del BY vtweg pltyp werks  matnr  kstbm.
     LOOP AT ct_item_elim ASSIGNING FIELD-SYMBOL(<fs_item_del>).
 
 
@@ -4820,7 +4820,8 @@ CLASS ZCLSD_GESTAO_PRECO_EVENTS IMPLEMENTATION.
       READ TABLE lt_lista_preco_del ASSIGNING FIELD-SYMBOL(<fs_lista>) WITH KEY  vtweg = <fs_item_del>-dist_channel
                                                                                  pltyp = <fs_item_del>-price_list
                                                                                  werks = <fs_item_del>-plant
-                                                                                 matnr = <fs_item_del>-material BINARY SEARCH.
+                                                                                 matnr = <fs_item_del>-material
+                                                                                 kstbm = <fs_item_del>-scale BINARY SEARCH.
       IF sy-subrc IS INITIAL.
 
         ls_record  = CORRESPONDING #( <fs_lista>  ).
@@ -5559,40 +5560,50 @@ CLASS ZCLSD_GESTAO_PRECO_EVENTS IMPLEMENTATION.
                                                     ELSE 0 ).
 
 
-      " Tipo Operação Aumento
+
       IF ls_item->operation_type(1)  NE gc_tipo_operacao-inclusao.
 
-        IF ls_item->min_value > ls_item->active_min_value.
-          IF ls_item->operation_type+2(3) = gc_tipo_operacao-aumento_a817+2(3).
-            ls_item->operation_type  = gc_tipo_operacao-aumento_a817.
-          ELSE.
-            ls_item->operation_type  = gc_tipo_operacao-aumento_a816.
+      " Tipo Operação Exclusão
+        IF  ls_item->zzdelete = 'X' OR ls_item->zzdelete = 'x'.
+          ls_item->operation_type  =  gc_tipo_operacao-exclusao_a817.
+        ELSE.
+
+      " Tipo Operação Aumento
+          IF ls_item->min_value > ls_item->active_min_value.
+            IF ls_item->operation_type+2(3) = gc_tipo_operacao-aumento_a817+2(3).
+              ls_item->operation_type  = gc_tipo_operacao-aumento_a817.
+            ELSE.
+              ls_item->operation_type  = gc_tipo_operacao-aumento_a816.
+            ENDIF.
+          ELSEIF ls_item->sug_value > ls_item->active_sug_value.
+            IF ls_item->operation_type+2(3) = gc_tipo_operacao-aumento_a817+2(3).
+              ls_item->operation_type  = gc_tipo_operacao-aumento_a817.
+            ELSE.
+              ls_item->operation_type  = gc_tipo_operacao-aumento_a816.
+            ENDIF.
           ENDIF.
-        ELSEIF ls_item->sug_value > ls_item->active_sug_value.
-          IF ls_item->operation_type+2(3) = gc_tipo_operacao-aumento_a817+2(3).
-            ls_item->operation_type  = gc_tipo_operacao-aumento_a817.
-          ELSE.
-            ls_item->operation_type  = gc_tipo_operacao-aumento_a816.
-          ENDIF.
-        ENDIF.
 
 
-        " Tipo Operação Rebaixa
-        IF ls_item->min_value < ls_item->active_min_value.
-          IF ls_item->operation_type+2(3) = gc_tipo_operacao-rebaixa_a817+2(3).
-            ls_item->operation_type  = gc_tipo_operacao-rebaixa_a817.
-          ELSE.
-            ls_item->operation_type  = gc_tipo_operacao-rebaixa_a816.
+          " Tipo Operação Rebaixa
+          IF ls_item->min_value < ls_item->active_min_value.
+            IF ls_item->operation_type+2(3) = gc_tipo_operacao-rebaixa_a817+2(3).
+              ls_item->operation_type  = gc_tipo_operacao-rebaixa_a817.
+            ELSE.
+              ls_item->operation_type  = gc_tipo_operacao-rebaixa_a816.
+            ENDIF.
+          ELSEIF ls_item->sug_value < ls_item->active_sug_value.
+            IF ls_item->operation_type+2(3) = gc_tipo_operacao-rebaixa_a817+2(3).
+              ls_item->operation_type  = gc_tipo_operacao-rebaixa_a817.
+            ELSE.
+              ls_item->operation_type  = gc_tipo_operacao-rebaixa_a816.
+            ENDIF.
           ENDIF.
-        ELSEIF ls_item->sug_value < ls_item->active_sug_value.
-          IF ls_item->operation_type+2(3) = gc_tipo_operacao-rebaixa_a817+2(3).
-            ls_item->operation_type  = gc_tipo_operacao-rebaixa_a817.
-          ELSE.
-            ls_item->operation_type  = gc_tipo_operacao-rebaixa_a816.
-          ENDIF.
+
         ENDIF.
 
       ENDIF.
+
+
 
     ENDLOOP.
 

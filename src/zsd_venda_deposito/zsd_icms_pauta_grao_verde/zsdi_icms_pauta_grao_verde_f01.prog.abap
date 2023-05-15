@@ -18,7 +18,7 @@ IF xworkm IS NOT INITIAL.
     IF xkomv-kschl = 'BX10'.
 
       xkawrt = ykmeng.
-      xkwert = xworkm.
+      xkwert = ( xworkm * ykmeng ) / '1000'.
 
     ENDIF.
   ENDIF.
@@ -27,7 +27,7 @@ IF xworkm IS NOT INITIAL.
 
 *    xkawrt = ( xworkm * ( komp-umvkn / komp-umvkz ) ) / '1000'.
 *    xkwert = ( xkawrt * xkomv-kbetr ) / '100'.
-    xkwert = ( xworkm * xkomv-kbetr ) / '100000'.
+    xkwert = ( ( xworkm * ykmeng / '1000' ) * xkomv-kbetr ) / '100000'.
 
 
   ENDIF.

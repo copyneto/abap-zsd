@@ -109,8 +109,10 @@
      WHERE kunnr EQ @is_header-parid.
 
   IF lv_cont_icms IN lr_cont_icms.
-
-    READ TABLE ct_itens_adicional ASSIGNING FIELD-SYMBOL(<fs_item>) WITH KEY itmnum = <fs_nflin>-itmnum BINARY SEARCH.
+*    IF sy-uname = 'CGARCIA' or SY-UNAME = 'SSEIXAS' OR SY-UNAME = 'LSCHEPP'.
+*      READ TABLE ct_itens_adicional ASSIGNING FIELD-SYMBOL(<fs_item>) WITH KEY itmnum = <fs_nflin>-itmnum BINARY SEARCH.
+*    ENDIF.
+      READ TABLE lt_ITENS_ADICIONAL ASSIGNING FIELD-SYMBOL(<fs_item>) WITH KEY itmnum = <fs_nflin>-itmnum BINARY SEARCH.
     IF sy-subrc = 0.
 
       SELECT SINGLE regio

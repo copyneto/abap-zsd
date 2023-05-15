@@ -79,7 +79,8 @@ CLASS ZCLSD_CRIACAO_CONTRATOS IMPLEMENTATION.
           lt_contract_items_in_c      TYPE TABLE OF bapisditm,
           lt_contract_partners_c      TYPE TABLE OF bapiparnr,
           lt_contract_conditions_in_c TYPE TABLE OF bapicond,
-          lt_vbap_aux                 TYPE STANDARD TABLE OF ty_vbap.
+          lt_vbap_aux                 TYPE STANDARD TABLE OF ty_vbap,
+          lt_doc_type                 TYPE tms_t_auart_range.
 
     DATA: ls_contract_header_in_u  TYPE bapisdh1,
           ls_contract_header_inx_u TYPE bapisdh1x,
@@ -374,189 +375,211 @@ CLASS ZCLSD_CRIACAO_CONTRATOS IMPLEMENTATION.
           DATA(lt_item_in) = gs_input-mt_criar_contrato-contract_item_in[].
           SORT lt_item_in BY itm_number.
 
-          "**** Criação do objeto técnico ****
-          LOOP AT lt_contract_items_in_c INTO ls_item.
 
-            READ TABLE lt_contract_partners_c INTO ls_parceiro INDEX 1.
 
-            CALL FUNCTION 'CONVERSION_EXIT_ALPHA_OUTPUT'
-              EXPORTING
-                input  = ls_item-itm_number
-              IMPORTING
-                output = lv_item.
+            "**** Criação do objeto técnico ****
+            LOOP AT lt_contract_items_in_c INTO ls_item.
 
-            READ TABLE lt_item_in INTO DATA(ls_produto)
-                                   WITH KEY itm_number = lv_item
-                                   BINARY SEARCH.
+              READ TABLE lt_contract_partners_c INTO ls_parceiro INDEX 1.
 
-            IF sy-subrc EQ 0.
+              CALL FUNCTION 'CONVERSION_EXIT_ALPHA_OUTPUT'
+                EXPORTING
+                  input  = ls_item-itm_number
+                IMPORTING
+                  output = lv_item.
 
-              IF ls_produto-tipomaquina EQ 'propria'.
+              READ TABLE lt_item_in INTO DATA(ls_produto)
+                                     WITH KEY itm_number = lv_item
+                                     BINARY SEARCH.
 
-                CALL FUNCTION 'CONVERSION_EXIT_ALPHA_INPUT'
-                  EXPORTING
-                    input  = ls_produto-plaqueta
-                  IMPORTING
-                    output = lv_serie.
+              IF sy-subrc EQ 0.
 
-              ELSE.
+                IF ls_produto-tipomaquina EQ 'propria'.
 
-                CALL FUNCTION 'CONVERSION_EXIT_ALPHA_INPUT'
-                  EXPORTING
-                    input  = ls_produto-numserie
-                  IMPORTING
-                    output = lv_serie.
+                  CALL FUNCTION 'CONVERSION_EXIT_ALPHA_INPUT'
+                    EXPORTING
+                      input  = ls_produto-plaqueta
+                    IMPORTING
+                      output = lv_serie.
 
+                ELSE.
+
+                  CALL FUNCTION 'CONVERSION_EXIT_ALPHA_INPUT'
+                    EXPORTING
+                      input  = ls_produto-numserie
+                    IMPORTING
+                      output = lv_serie.
+
+                ENDIF.
               ENDIF.
-            ENDIF.
 
-            lv_material = ls_item-material.
-            lv_tp_doc   = gs_input-mt_criar_contrato-contract_header_in-doc_type.
+              lv_material = ls_item-material.
+              lv_tp_doc   = gs_input-mt_criar_contrato-contract_header_in-doc_type.
 
-            CALL FUNCTION 'SERNR_ADD_TO_AU'
-              EXPORTING
-                sernr                 = lv_serie
-                profile               = '0006'
-                material              = lv_material
-                quantity              = '1'
-                j_vorgang             = space
-                document              = lv_salesdocument_c
-                item                  = ls_item-itm_number
-                debitor               = ls_parceiro-partn_numb
-                vbtyp                 = 'G'
-                sd_auart              = lv_tp_doc
-                sd_postyp             = lv_tp_doc
-              EXCEPTIONS
-                konfigurations_error  = 1
-                serialnumber_errors   = 2
-                serialnumber_warnings = 3
-                no_profile_operation  = 4
-                OTHERS                = 5.
+              CALL FUNCTION 'SERNR_ADD_TO_AU'
+                EXPORTING
+                  sernr                 = lv_serie
+                  profile               = '0006'
+                  material              = lv_material
+                  quantity              = '1'
+                  j_vorgang             = space
+                  document              = lv_salesdocument_c
+                  item                  = ls_item-itm_number
+                  debitor               = ls_parceiro-partn_numb
+                  vbtyp                 = 'G'
+                  sd_auart              = lv_tp_doc
+                  sd_postyp             = lv_tp_doc
+                EXCEPTIONS
+                  konfigurations_error  = 1
+                  serialnumber_errors   = 2
+                  serialnumber_warnings = 3
+                  no_profile_operation  = 4
+                  OTHERS                = 5.
 
-            IF sy-subrc EQ 0.
-              CALL FUNCTION 'SERIAL_LISTE_POST_AU'.
-              CALL FUNCTION 'BAPI_TRANSACTION_COMMIT'.
+              IF sy-subrc EQ 0.
+                CALL FUNCTION 'SERIAL_LISTE_POST_AU'.
+                CALL FUNCTION 'BAPI_TRANSACTION_COMMIT'.
 *              EXPORTING
 *                wait = lc_x.
-            ENDIF.
+              ENDIF.
 
-            CLEAR: ls_item, ls_parceiro, lv_serie, lv_item.
+              CLEAR: ls_item, ls_parceiro, lv_serie, lv_item.
 
-          ENDLOOP.
+            ENDLOOP.
 
-          " SHDB para confirmar o Nro de Série
-          call_shdb( iv_vbeln = lv_salesdocument_c ).
+            " SHDB para confirmar o Nro de Série
+            call_shdb( iv_vbeln = lv_salesdocument_c ).
 
-          " ****Criação do objeto técnico****
+            " ****Criação do objeto técnico****
 
-          "****Criação da quantidade (divisão de remessa)****
-          ls_head-collect_no  = lv_salesdocument_c.
-          ls_headx-updateflag = lc_update.
+* LSCHEPP - 8000006993 -  Erro Criação OVs Y074 e Y075 - GAP 158 - 08.05.2023 Início
+          TRY.
+              NEW zclca_tabela_parametros( )->m_get_range(
+                EXPORTING
+                  iv_modulo = 'SD'
+                  iv_chave1 = 'FLUIG'
+                  iv_chave2 = 'DOC_TYPE'
+                IMPORTING
+                  et_range  = lt_doc_type
+              ).
+            CATCH zcxca_tabela_parametros.
+          ENDTRY.
 
-          LOOP AT lt_contract_items_in_c INTO ls_item.
+          IF gs_input-mt_criar_contrato-contract_header_in-doc_type IN lt_doc_type.
+* LSCHEPP - 8000006993 - Erro Criação OVs Y074 e Y075 - GAP 158 - 08.05.2023 Início
 
-            ls_item2-itm_number = ls_item-itm_number.
-            ls_item2-ref_doc    = lv_order.
-            ls_item2-material   = ls_item-material.
-            ls_item2-rnddlv_qty = '1'.
-            ls_item2-target_qu  = 'UN'.
 
-            APPEND ls_item2 TO lt_item2.
-            CLEAR ls_item2.
+            "****Criação da quantidade (divisão de remessa)****
+            ls_head-collect_no  = lv_salesdocument_c.
+            ls_headx-updateflag = lc_update.
 
-            ls_itemx2-updateflag = lc_update.
-            ls_item2-itm_number  = ls_item-itm_number.
-            ls_item2-ref_doc     = lc_x.
-            ls_itemx2-material   = lc_x.
-            ls_itemx2-rnddlv_qty = lc_x.
-            ls_itemx2-target_qu  = lc_x.
-            APPEND ls_itemx2 TO lt_itemx2.
-            CLEAR ls_itemx2.
+            LOOP AT lt_contract_items_in_c INTO ls_item.
 
-            ls_schd-itm_number = ls_item-itm_number.
-            ls_schd-sched_line = '1'.
-            ls_schd-req_qty    = '1'.
-            APPEND ls_schd TO lt_schd.
-            CLEAR ls_schd.
+              ls_item2-itm_number = ls_item-itm_number.
+              ls_item2-ref_doc    = lv_order.
+              ls_item2-material   = ls_item-material.
+              ls_item2-rnddlv_qty = '1'.
+              ls_item2-target_qu  = 'UN'.
 
-            ls_schdx-itm_number = ls_item-itm_number.
-            ls_schdx-updateflag = lc_update.
-            ls_schdx-sched_line = lc_x.
-            ls_schdx-req_qty    = lc_x.
-            APPEND ls_schdx TO lt_schdx.
-            CLEAR ls_schdx.
+              APPEND ls_item2 TO lt_item2.
+              CLEAR ls_item2.
 
-            CLEAR: ls_item, ls_schdx, ls_schd, ls_itemx2, ls_item2.
+              ls_itemx2-updateflag = lc_update.
+              ls_item2-itm_number  = ls_item-itm_number.
+              ls_item2-ref_doc     = lc_x.
+              ls_itemx2-material   = lc_x.
+              ls_itemx2-rnddlv_qty = lc_x.
+              ls_itemx2-target_qu  = lc_x.
+              APPEND ls_itemx2 TO lt_itemx2.
+              CLEAR ls_itemx2.
 
-          ENDLOOP.
+              ls_schd-itm_number = ls_item-itm_number.
+              ls_schd-sched_line = '1'.
+              ls_schd-req_qty    = '1'.
+              APPEND ls_schd TO lt_schd.
+              CLEAR ls_schd.
 
-          CALL FUNCTION 'BAPI_SALESORDER_CHANGE'
-            EXPORTING
-              salesdocument    = lv_salesdocument_c
-              order_header_in  = ls_head
-              order_header_inx = ls_headx
-            TABLES
-              return           = lt_return2
-              order_item_in    = lt_item2
-              order_item_inx   = lt_itemx2
-              schedule_lines   = lt_schd
-              schedule_linesx  = lt_schdx.
+              ls_schdx-itm_number = ls_item-itm_number.
+              ls_schdx-updateflag = lc_update.
+              ls_schdx-sched_line = lc_x.
+              ls_schdx-req_qty    = lc_x.
+              APPEND ls_schdx TO lt_schdx.
+              CLEAR ls_schdx.
 
-          READ TABLE lt_return2 WITH KEY type = 'E' TRANSPORTING NO FIELDS.
+              CLEAR: ls_item, ls_schdx, ls_schd, ls_itemx2, ls_item2.
 
-          IF sy-subrc NE 0.
-            CALL FUNCTION 'BAPI_TRANSACTION_COMMIT'
+            ENDLOOP.
+
+            CALL FUNCTION 'BAPI_SALESORDER_CHANGE'
               EXPORTING
-                wait = lc_x.
+                salesdocument    = lv_salesdocument_c
+                order_header_in  = ls_head
+                order_header_inx = ls_headx
+              TABLES
+                return           = lt_return2
+                order_item_in    = lt_item2
+                order_item_inx   = lt_itemx2
+                schedule_lines   = lt_schd
+                schedule_linesx  = lt_schdx.
 
-            CALL FUNCTION 'SD_SALES_DOCUMENT_INIT'
-              EXPORTING
-                simulation_mode_bapi = abap_true.
+            READ TABLE lt_return2 WITH KEY type = 'E' TRANSPORTING NO FIELDS.
 
-            CALL FUNCTION 'SD_SALES_DOCUMENT_INIT'.
+            IF sy-subrc NE 0.
+              CALL FUNCTION 'BAPI_TRANSACTION_COMMIT'
+                EXPORTING
+                  wait = lc_x.
 
-            ASSIGN ('(SAPLMCS1)TMCB') TO <fs_tmcb>.
-            IF sy-subrc EQ 0.
-              CLEAR <fs_tmcb>.
-              UNASSIGN <fs_tmcb>.
-            ENDIF.
+              CALL FUNCTION 'SD_SALES_DOCUMENT_INIT'
+                EXPORTING
+                  simulation_mode_bapi = abap_true.
 
-            ASSIGN ('(SAPLV14A)KONP') TO <fs_any>.
+              CALL FUNCTION 'SD_SALES_DOCUMENT_INIT'.
 
-            IF sy-subrc EQ 0.
-              CLEAR <fs_any>.
-              UNASSIGN <fs_any>.
-            ENDIF.
+              ASSIGN ('(SAPLMCS1)TMCB') TO <fs_tmcb>.
+              IF sy-subrc EQ 0.
+                CLEAR <fs_tmcb>.
+                UNASSIGN <fs_tmcb>.
+              ENDIF.
 
-            ASSIGN ('(SAPFV45P)KONP') TO <fs_any>.
+              ASSIGN ('(SAPLV14A)KONP') TO <fs_any>.
 
-            IF sy-subrc EQ 0.
-              CLEAR <fs_any>.
-              UNASSIGN <fs_any>.
-            ENDIF.
+              IF sy-subrc EQ 0.
+                CLEAR <fs_any>.
+                UNASSIGN <fs_any>.
+              ENDIF.
 
-            ASSIGN ('(SAPMV45A)STATUS_BUFF_INIT') TO <fs_any>.
+              ASSIGN ('(SAPFV45P)KONP') TO <fs_any>.
 
-            IF sy-subrc EQ 0.
-              CLEAR <fs_any>.
-              UNASSIGN <fs_any>.
-            ENDIF.
+              IF sy-subrc EQ 0.
+                CLEAR <fs_any>.
+                UNASSIGN <fs_any>.
+              ENDIF.
 
-            ASSIGN ('(SAPLVBAK)STATUS_BUFF_INIT') TO <fs_any>.
+              ASSIGN ('(SAPMV45A)STATUS_BUFF_INIT') TO <fs_any>.
 
-            IF sy-subrc EQ 0.
-              CLEAR <fs_any>.
-              UNASSIGN <fs_any>.
-            ENDIF.
+              IF sy-subrc EQ 0.
+                CLEAR <fs_any>.
+                UNASSIGN <fs_any>.
+              ENDIF.
 
-            ASSIGN ('(SAPLV45A)STATUS_BUFF_INIT') TO <fs_any>.
+              ASSIGN ('(SAPLVBAK)STATUS_BUFF_INIT') TO <fs_any>.
 
-            IF sy-subrc EQ 0.
-              CLEAR <fs_any>.
-              UNASSIGN <fs_any>.
-            ENDIF.
+              IF sy-subrc EQ 0.
+                CLEAR <fs_any>.
+                UNASSIGN <fs_any>.
+              ENDIF.
+
+              ASSIGN ('(SAPLV45A)STATUS_BUFF_INIT') TO <fs_any>.
+
+              IF sy-subrc EQ 0.
+                CLEAR <fs_any>.
+                UNASSIGN <fs_any>.
+              ENDIF.
 ********************
+            ENDIF.
+* LSCHEPP - 8000006993 - Erro Criação OVs Y074 e Y075 - GAP 158 - 08.05.2023 Início
           ENDIF.
+* LSCHEPP - 8000006993 - Erro Criação OVs Y074 e Y075 - GAP 158 - 08.05.2023 Fim
           "****Criação da quantidade (Divisão de remessa)****
 
           ls_output-mt_status_contrato-assignee  = gs_input-mt_criar_contrato-contract_header_in-purch_no_c.

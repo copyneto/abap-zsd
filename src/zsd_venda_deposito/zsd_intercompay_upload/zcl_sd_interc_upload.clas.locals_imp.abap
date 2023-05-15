@@ -112,9 +112,15 @@ CLASS lcl_IntercompanyUpload IMPLEMENTATION.
 
     UNPACK ls_key-%param-Incoterms         TO ls_key-%param-Incoterms.
     UNPACK ls_key-%param-CondicaoExpedicao TO ls_key-%param-CondicaoExpedicao.
-    UNPACK ls_key-%param-AgenteFrete       TO ls_key-%param-AgenteFrete.
-    UNPACK ls_key-%param-Motorista         TO ls_key-%param-Motorista.
     UNPACK ls_key-%param-material          TO ls_key-%param-material.
+
+    IF ls_key-%param-AgenteFrete IS NOT INITIAL.
+      UNPACK ls_key-%param-AgenteFrete TO ls_key-%param-AgenteFrete.
+    ENDIF.
+
+    IF ls_key-%param-Motorista IS NOT INITIAL.
+      UNPACK ls_key-%param-Motorista TO ls_key-%param-Motorista.
+    ENDIF.
 
     "----Passa valores
     DATA(ls_cockpit) = CORRESPONDING zi_sd_01_cockpit( ls_key MAPPING Processo                     = %param-processo

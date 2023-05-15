@@ -443,12 +443,12 @@ CLASS ZCLSD_DEVOLUCOES_VENDAS IMPLEMENTATION.
         READ TABLE gt_salesdocument ASSIGNING FIELD-SYMBOL(<fs_salesdocument>) INDEX 1.
         IF sy-subrc = 0.
 
-*         READ TABLE gt_param_val ASSIGNING FIELD-SYMBOL(<fs_cond_type>) WITH KEY chave2 = TEXT-005 BINARY SEARCH.
-*          IF sy-subrc = 0.
-*            ls_order_header_in-doc_type = <fs_cond_type>-low.
-*          ENDIF.
+         READ TABLE gt_param_val ASSIGNING FIELD-SYMBOL(<fs_cond_type>) WITH KEY CHAVE2 = 'DOC_TYPE' .
+          IF sy-subrc = 0.
+            ls_order_header_in-doc_type = <fs_cond_type>-low.
+          ENDIF.
 
-          ls_order_header_in-doc_type    = 'Y024'.
+*          ls_order_header_in-doc_type    = 'Y024'.
           ls_order_header_in-sales_org   = <fs_billingdocumentbasic>-salesorganization.
           ls_order_header_in-distr_chan  = <fs_billingdocumentbasic>-distributionchannel.
           ls_order_header_in-division    = <fs_billingdocumentbasic>-division.
@@ -557,6 +557,7 @@ CLASS ZCLSD_DEVOLUCOES_VENDAS IMPLEMENTATION.
 
         READ TABLE gt_salesdocument ASSIGNING FIELD-SYMBOL(<fs_salesdocument>) INDEX 1.
         IF sy-subrc = 0.
+
 
           ls_order_header_in-doc_type    = 'Z012'.
           ls_order_header_in-sales_org   = <fs_billingdocumentbasic>-salesorganization.

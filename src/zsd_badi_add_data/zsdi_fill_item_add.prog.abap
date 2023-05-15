@@ -5,6 +5,13 @@
           lv_tlines TYPE char120,
           lv_name   TYPE thead-tdname.
 
+* LSCHEPP - 8000007104 - Unidade tributária XML - 09.05.2023 Início
+    DATA: lv_matnr   TYPE mara-matnr,
+          lv_in_me   TYPE mara-meins,
+          lv_out_me  TYPE mara-meins,
+          lv_menge_i TYPE ekpo-menge,
+          lv_menge_o TYPE ekpo-menge.
+* LSCHEPP - 8000007104 - Unidade tributária XML - 09.05.2023 Fim
 
     CONSTANTS: lc_he   TYPE numtp VALUE 'HE',
                lc_cean TYPE char8 VALUE 'SEM GTIN'.
@@ -18,8 +25,16 @@
         FROM mean
         INTO TABLE @DATA(lt_mean)
         FOR ALL ENTRIES IN @it_nflin
-        WHERE matnr EQ @it_nflin-matnr
-          AND meinh EQ @it_nflin-meins.
+        WHERE matnr EQ @it_nflin-matnr.
+* LSCHEPP - 8000007138 - CORE 11 - Tag <cEANTrib> do XML - 09.05.2023 Início
+*          AND meinh EQ @it_nflin-meins.
+
+      SELECT matnr, meins
+        FROM mara
+        INTO TABLE @DATA(lt_mara)
+        FOR ALL ENTRIES IN @it_nflin
+        WHERE matnr EQ @it_nflin-matnr.
+* LSCHEPP - 8000007138 - CORE 11 - Tag <cEANTrib> do XML - 09.05.2023 Fim
     ENDIF.
 
     LOOP AT it_nflin INTO DATA(ls_items).
@@ -67,6 +82,49 @@
           ENDIF.
 
         ENDIF.
+
+* LSCHEPP - 8000007138 - CORE 11 - Tag <cEANTrib> do XML - 09.05.2023 Início
+        READ TABLE lt_mara ASSIGNING FIELD-SYMBOL(<fs_mara>) WITH KEY matnr = ls_items-matnr BINARY SEARCH.
+        IF sy-subrc EQ 0.
+          IF <fs_mara>-meins NE ls_items-meins.
+            TRY.
+                <fs_item>-cean_trib = lt_mean[ matnr = ls_items-matnr
+                                               meinh = <fs_mara>-meins
+                                               eantp = lc_he ]-ean11.
+              CATCH cx_sy_itab_line_not_found.
+            ENDTRY.
+* LSCHEPP - 8000007104 - Unidade tributária XML - 09.05.2023 Início
+            <fs_item>-meins_trib = <fs_mara>-meins.
+
+            lv_matnr   = ls_items-matnr.
+            lv_in_me   = ls_items-meins.
+            lv_out_me  = <fs_mara>-meins.
+            lv_menge_i = ls_items-menge.
+
+            CALL FUNCTION 'MD_CONVERT_MATERIAL_UNIT'
+              EXPORTING
+                i_matnr              = lv_matnr
+                i_in_me              = lv_in_me
+                i_out_me             = lv_out_me
+                i_menge              = lv_menge_i
+              IMPORTING
+                e_menge              = lv_menge_o
+              EXCEPTIONS
+                error_in_application = 1
+                error                = 2
+                OTHERS               = 3.
+            IF sy-subrc EQ 0.
+              <fs_item>-menge_trib = lv_menge_o.
+            ENDIF.
+
+            CLEAR: lv_matnr,
+                   lv_in_me,
+                   lv_out_me,
+                   lv_menge_i.
+* LSCHEPP - 8000007104 - Unidade tributária XML - 09.05.2023 Fim
+          ENDIF.
+        ENDIF.
+* LSCHEPP - 8000007138 - CORE 11 - Tag <cEANTrib> do XML - 09.05.2023 Fim
 
         INCLUDE zsdi_add_tax_cst60_f01 IF FOUND.
         INCLUDE zsdi_add_cest_f02 IF FOUND.
