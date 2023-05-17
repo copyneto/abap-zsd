@@ -84,46 +84,47 @@
         ENDIF.
 
 * LSCHEPP - 8000007138 - CORE 11 - Tag <cEANTrib> do XML - 09.05.2023 Início
-        READ TABLE lt_mara ASSIGNING FIELD-SYMBOL(<fs_mara>) WITH KEY matnr = ls_items-matnr BINARY SEARCH.
-        IF sy-subrc EQ 0.
-          IF <fs_mara>-meins NE ls_items-meins.
-            TRY.
-                <fs_item>-cean_trib = lt_mean[ matnr = ls_items-matnr
-                                               meinh = <fs_mara>-meins
-                                               eantp = lc_he ]-ean11.
-              CATCH cx_sy_itab_line_not_found.
-            ENDTRY.
+        TRY.
+            DATA(lv_umb) = lt_mara[ matnr = ls_items-matnr ]-meins.
+            IF lv_umb NE ls_items-meins.
+              TRY.
+                  <fs_item>-cean_trib = lt_mean[ matnr = ls_items-matnr
+                                                 meinh = lv_umb
+                                                 eantp = lc_he ]-ean11.
+                CATCH cx_sy_itab_line_not_found.
+              ENDTRY.
 * LSCHEPP - 8000007104 - Unidade tributária XML - 09.05.2023 Início
-            <fs_item>-meins_trib = <fs_mara>-meins.
+              <fs_item>-meins_trib = lv_umb.
 
-            lv_matnr   = ls_items-matnr.
-            lv_in_me   = ls_items-meins.
-            lv_out_me  = <fs_mara>-meins.
-            lv_menge_i = ls_items-menge.
+              lv_matnr   = ls_items-matnr.
+              lv_in_me   = ls_items-meins.
+              lv_out_me  = lv_umb.
+              lv_menge_i = ls_items-menge.
 
-            CALL FUNCTION 'MD_CONVERT_MATERIAL_UNIT'
-              EXPORTING
-                i_matnr              = lv_matnr
-                i_in_me              = lv_in_me
-                i_out_me             = lv_out_me
-                i_menge              = lv_menge_i
-              IMPORTING
-                e_menge              = lv_menge_o
-              EXCEPTIONS
-                error_in_application = 1
-                error                = 2
-                OTHERS               = 3.
-            IF sy-subrc EQ 0.
-              <fs_item>-menge_trib = lv_menge_o.
-            ENDIF.
+              CALL FUNCTION 'MD_CONVERT_MATERIAL_UNIT'
+                EXPORTING
+                  i_matnr              = lv_matnr
+                  i_in_me              = lv_in_me
+                  i_out_me             = lv_out_me
+                  i_menge              = lv_menge_i
+                IMPORTING
+                  e_menge              = lv_menge_o
+                EXCEPTIONS
+                  error_in_application = 1
+                  error                = 2
+                  OTHERS               = 3.
+              IF sy-subrc EQ 0.
+                <fs_item>-menge_trib = lv_menge_o.
+              ENDIF.
 
-            CLEAR: lv_matnr,
-                   lv_in_me,
-                   lv_out_me,
-                   lv_menge_i.
+              CLEAR: lv_matnr,
+                     lv_in_me,
+                     lv_out_me,
+                     lv_menge_i.
 * LSCHEPP - 8000007104 - Unidade tributária XML - 09.05.2023 Fim
-          ENDIF.
-        ENDIF.
+            ENDIF.
+          CATCH cx_sy_itab_line_not_found.
+        ENDTRY.
 * LSCHEPP - 8000007138 - CORE 11 - Tag <cEANTrib> do XML - 09.05.2023 Fim
 
         INCLUDE zsdi_add_tax_cst60_f01 IF FOUND.

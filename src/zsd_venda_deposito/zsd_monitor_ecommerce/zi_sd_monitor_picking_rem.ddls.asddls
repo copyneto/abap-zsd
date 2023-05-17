@@ -18,16 +18,17 @@ define view entity ZI_SD_MONITOR_PICKING_REM
 
 {
   key _SDDocumentFlow.PrecedingDocument,
+      min( _SDDocumentFlow.SubsequentDocumentItem ) as SubsequentDocumentItem,
       _Picking.PrecedingDocumentCategory,
       _Picking.SubsequentDocumentCategory,
-      max( _Picking.CreationDate ) as CreationDate,
-      max( _Picking.CreationTime ) as CreationTime
+      max( _Picking.CreationDate )                  as CreationDate,
+      max( _Picking.CreationTime )                  as CreationTime
 }
 where
-      _SDDocumentFlow.SubsequentDocumentCategory = 'J'
-  and _SDDocumentFlow.SubsequentDocumentItem     = '000010'
-  
-  group by
+  _SDDocumentFlow.SubsequentDocumentCategory = 'J'
+//  and _SDDocumentFlow.SubsequentDocumentItem     = '000010'
+
+group by
   _SDDocumentFlow.PrecedingDocument,
   _Picking.PrecedingDocumentCategory,
   _Picking.SubsequentDocumentCategory

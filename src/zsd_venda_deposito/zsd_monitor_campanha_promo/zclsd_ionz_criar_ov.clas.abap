@@ -38,6 +38,7 @@ CLASS zclsd_ionz_criar_ov DEFINITION
         cc_s      TYPE c                 VALUE '2',
         cc_x      TYPE c                 VALUE 'X',
         cc_motivo TYPE char3             VALUE 'Z01',
+        cc_method TYPE char4             VALUE 'IONZ',
       END OF gc_constante.
 
     CONSTANTS:
@@ -326,7 +327,7 @@ ENDCLASS.
 
 
 
-CLASS zclsd_ionz_criar_ov IMPLEMENTATION.
+CLASS ZCLSD_IONZ_CRIAR_OV IMPLEMENTATION.
 
 
   METHOD trata_select_options.
@@ -614,6 +615,11 @@ CLASS zclsd_ionz_criar_ov IMPLEMENTATION.
 *Motivo da ordem
     gs_header-ord_reason     = gc_constante-cc_motivo.
     gs_headerx-ord_reason    = gc_constante-cc_x.
+
+
+*Tipo de pedido
+    gs_header-po_method      = gc_constante-cc_method.
+    gs_headerx-po_method     = gc_constante-cc_x.
 
 * Centro
     gs_plant                = seleciona_centro( ).

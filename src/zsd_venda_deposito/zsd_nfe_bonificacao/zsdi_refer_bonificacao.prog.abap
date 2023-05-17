@@ -38,12 +38,48 @@
 
       IF sy-subrc = 0.
 
-        SELECT COUNT(*) FROM vbfa
-        WHERE vbelv = @lv_vbelv
-        AND vbtyp_n = 'M'.
-        IF sy-subrc <> 0.
+* LSCHEPP - SD - 8000006867 - Número NF de referência - 16.05.2023 Início
+*        SELECT COUNT(*) FROM vbfa
+*        WHERE vbelv = @lv_vbelv
+*        AND vbtyp_n = 'M'.
+*        IF sy-subrc <> 0.
+*          MESSAGE e007(zsd) WITH vbkd-ihrez. "Faturar OV & antes de faturar a bonificação
+*        ENDIF.
+        SELECT SINGLE vbeln
+          FROM vbfa
+          INTO @DATA(lv_vbeln)
+          WHERE vbelv   = @lv_vbelv
+            AND vbtyp_n = 'M'.
+        IF sy-subrc NE 0.
           MESSAGE e007(zsd) WITH vbkd-ihrez. "Faturar OV & antes de faturar a bonificação
+        ELSE.
+          SELECT SINGLE docnum
+            FROM j_1bnflin
+            INTO @DATA(lv_docnum)
+            WHERE refkey = @lv_vbeln.
+          IF sy-subrc EQ 0.
+            SELECT SINGLE code
+              FROM j_1bnfe_active
+              INTO @DATA(lv_status)
+              WHERE docnum = @lv_docnum.
+            IF sy-subrc EQ 0.
+              DO 90 TIMES.
+                CASE lv_status.
+                  WHEN '100'.
+                    EXIT.
+                  WHEN ' '.
+                  WHEN OTHERS.
+                    MESSAGE e012(zsd) WITH vbkd-ihrez. "Ordem de referência &1 não autorizada na SEFAZ.
+                ENDCASE.
+                WAIT UP TO 1 SECONDS.
+              ENDDO.
+              IF lv_status IS INITIAL.
+                MESSAGE e013(zsd) WITH lv_docnum. "Docnum de referência & sem retorno da SEFAZ.
+              ENDIF.
+            ENDIF.
+          ENDIF.
         ENDIF.
+* LSCHEPP - SD - 8000006867 - Número NF de referência - 16.05.2023 Fim
       ENDIF.
     ENDIF.
   ENDIF.

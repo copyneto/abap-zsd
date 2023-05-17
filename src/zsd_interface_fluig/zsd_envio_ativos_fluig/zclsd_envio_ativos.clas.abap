@@ -279,6 +279,10 @@ CLASS ZCLSD_ENVIO_ATIVOS IMPLEMENTATION.
                         reference_check         = 6
                         wrong_access_to_archive = 7
                         OTHERS                  = 8.
+                    IF sy-subrc <> 0.
+                      MESSAGE ID sy-msgid TYPE sy-msgty NUMBER sy-msgno
+                        WITH sy-msgv1 sy-msgv2 sy-msgv3 sy-msgv4 INTO DATA(lv_message).
+                    ENDIF.
 
                     LOOP AT lt_lines ASSIGNING FIELD-SYMBOL(<fs_lines>).
                       DATA(lv_nfe) = <fs_lines>-tdline+26(8).
@@ -302,7 +306,11 @@ CLASS ZCLSD_ENVIO_ATIVOS IMPLEMENTATION.
                        AND b_werk  = @gs_input-mt_consulta_ativo-b_werk
                        AND sernr   = @lv_sernr.
 
-                    gs_output-mt_envia_ativo-invnr   = ls_data-invnr.
+****CFARIA - SD - Chamado 8000007455, Busca Imobilizado Contratos carga - 16/05/2023 - Início
+*                    gs_output-mt_envia_ativo-invnr   = ls_data-invnr.
+                    gs_output-mt_envia_ativo-invnr   = lv_anln1.
+****CFARIA - SD - Chamado 8000007455, Busca Imobilizado Contratos carga - 16/05/2023 - Fim
+
                     gs_output-mt_envia_ativo-sernr   = gs_input-mt_consulta_ativo-sernr.
                     gs_output-mt_envia_ativo-matnr   = gs_input-mt_consulta_ativo-matnr.
                     gs_output-mt_envia_ativo-equnr   = ls_data-equnr.
@@ -361,6 +369,10 @@ CLASS ZCLSD_ENVIO_ATIVOS IMPLEMENTATION.
                   reference_check         = 6
                   wrong_access_to_archive = 7
                   OTHERS                  = 8.
+              IF sy-subrc <> 0.
+                MESSAGE ID sy-msgid TYPE sy-msgty NUMBER sy-msgno
+                  WITH sy-msgv1 sy-msgv2 sy-msgv3 sy-msgv4 INTO lv_message.
+              ENDIF.
 
               LOOP AT lt_lines ASSIGNING <fs_lines>.
                 lv_nfe = <fs_lines>-tdline+26(8).

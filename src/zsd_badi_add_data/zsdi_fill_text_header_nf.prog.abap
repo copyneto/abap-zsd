@@ -77,7 +77,7 @@
        SORT lt_nflin_group_batch BY docnum itmnum.
 
        LOOP AT lt_nflin_group_batch INTO DATA(ls_nflin_group_batch).
-         READ TABLE lt_itens_adicional ASSIGNING FIELD-SYMBOL(<fs_item_adicional_x>) WITH KEY itmnum = ls_nflin_group_batch-itmnum.
+         READ TABLE lt_itens_adicional ASSIGNING FIELD-SYMBOL(<fs_item_adicional_x>) WITH KEY itmnum = ls_nflin_group_batch-itmnum BINARY SEARCH..
          IF sy-subrc <> 0.
            CONTINUE.
          ENDIF.

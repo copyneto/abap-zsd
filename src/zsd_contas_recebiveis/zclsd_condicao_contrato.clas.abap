@@ -1328,8 +1328,14 @@ CLASS ZCLSD_CONDICAO_CONTRATO IMPLEMENTATION.
                       calc_date = lv_dt_valiacao.
 *            lv_dt_valiacao = lv_dt_base(6) && <fs_item_jan_dia_mes>-diamesfixo.
                 ELSE.
-                  IF lv_dt_base+6(2) LE <fs_item_jan_dia_mes1>-diamesfixo.
-                    lv_dt_valiacao = |{ lv_dt_base(6) }{ <fs_item_jan_dia_mes1>-diamesfixo }|.
+                  IF <fs_item_jan_dia_mes1>-diamesfixo LE lv_dt_valiacao+6(2).
+                    IF NOT lv_dt_valiacao IS INITIAL.
+                      lv_dt_valiacao = |{ lv_dt_valiacao(6) }{ <fs_item_jan_dia_mes1>-diamesfixo }|.
+                    ELSE.
+                      IF <fs_item_jan_dia_mes1>-diamesfixo LE lv_dt_base+6(2).
+                        lv_dt_valiacao = |{ lv_dt_base(6) }{ <fs_item_jan_dia_mes1>-diamesfixo }|.
+                      ENDIF.
+                    ENDIF.
                   ENDIF.
                 ENDIF.
 
@@ -1530,12 +1536,16 @@ CLASS ZCLSD_CONDICAO_CONTRATO IMPLEMENTATION.
           ENDIF.
 
           LOOP AT lt_dados_janela ASSIGNING <fs_dados_janela>.
-            IF strlen( <fs_dados_janela>-diamesfixo ) EQ 1.
-              <fs_dados_janela>-diamesfixo = |0{ <fs_dados_janela>-diamesfixo }|.
+            IF NOT <fs_dados_janela>-diamesfixo IS INITIAL.
+              IF strlen( <fs_dados_janela>-diamesfixo ) EQ 1.
+                <fs_dados_janela>-diamesfixo = |0{ <fs_dados_janela>-diamesfixo }|.
+              ENDIF.
               DATA(lv_diasmesfixo) = abap_true.
             ENDIF.
-            IF strlen( <fs_dados_janela>-diasemana ) EQ 1.
-              <fs_dados_janela>-diasemana = |0{ <fs_dados_janela>-diasemana }|.
+            IF NOT <fs_dados_janela>-diasemana IS INITIAL.
+              IF strlen( <fs_dados_janela>-diasemana ) EQ 1.
+                <fs_dados_janela>-diasemana = |0{ <fs_dados_janela>-diasemana }|.
+              ENDIF.
               DATA(lv_diasemana) = abap_true.
             ENDIF.
           ENDLOOP.
@@ -1567,8 +1577,14 @@ CLASS ZCLSD_CONDICAO_CONTRATO IMPLEMENTATION.
                       calc_date = lv_dt_valiacao.
 *            lv_dt_valiacao = lv_dt_base(6) && <fs_item_jan_dia_mes>-diamesfixo.
                 ELSE.
-                  IF lv_dt_base+6(2) LE <fs_item_jan_dia_mes1>-diasemana.
-                    lv_dt_valiacao = |{ lv_dt_base(6) }{ <fs_item_jan_dia_mes1>-diasemana }|.
+                  IF <fs_item_jan_dia_mes1>-diamesfixo LE lv_dt_valiacao+6(2).
+                    IF NOT lv_dt_valiacao IS INITIAL.
+                      lv_dt_valiacao = |{ lv_dt_valiacao(6) }{ <fs_item_jan_dia_mes1>-diamesfixo }|.
+                    ELSE.
+                      IF <fs_item_jan_dia_mes1>-diamesfixo LE lv_dt_base+6(2).
+                        lv_dt_valiacao = |{ lv_dt_base(6) }{ <fs_item_jan_dia_mes1>-diamesfixo }|.
+                      ENDIF.
+                    ENDIF.
                   ENDIF.
                 ENDIF.
 

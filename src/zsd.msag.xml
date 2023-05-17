@@ -80,6 +80,18 @@
      <MSGNR>011</MSGNR>
      <TEXT>Status da ordem processado completamente.</TEXT>
     </T100>
+    <T100>
+     <SPRSL>P</SPRSL>
+     <ARBGB>ZSD</ARBGB>
+     <MSGNR>012</MSGNR>
+     <TEXT>Ordem de referência &amp;1 não autorizada na SEFAZ.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>P</SPRSL>
+     <ARBGB>ZSD</ARBGB>
+     <MSGNR>013</MSGNR>
+     <TEXT>Docnum de referência &amp; sem retorno da SEFAZ.</TEXT>
+    </T100>
    </T100>
   </asx:values>
  </asx:abap>
