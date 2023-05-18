@@ -17,25 +17,26 @@ define view entity ZI_SD_ULT_EVT_PREST_CONTAS
 }
 where
   (
-        TranspOrdEventCode = 'ENTREGUE'
+    TranspOrdEventCode = 'ENTREGUE'
   )
   or(
-        TranspOrdEventCode = 'HASSIGNATURE'
+    TranspOrdEventCode = 'HASSIGNATURE'
   )
   or(
-        TranspOrdEventCode = 'DEVOLVIDO'
+    TranspOrdEventCode = 'DEVOLVIDO'
   )
   or(
-        TranspOrdEventCode = 'PENDENTE'
+    TranspOrdEventCode = 'PENDENTE'
   )
   or(
-        TranspOrdEventCode = 'SINISTRO'
+    TranspOrdEventCode = 'SINISTRO'
   )
   or(
-        TranspOrdEventCode = 'COLETADO'
+    TranspOrdEventCode = 'COLETADO'
   )
   or(
-        TranspOrdEventCode = 'NÃO COLETADO'
+    TranspOrdEventCode = 'NÃO COLETADO'
   )
+
 group by
   TransportationOrderUUID

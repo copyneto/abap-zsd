@@ -84,7 +84,7 @@ define root view entity ZI_SD_PREST_CONTAS_OF
       DriverName,                       //Motorista(Nome)
       ConsigneeId,                      //Recebedor
       ConsigneeName,                    //Recebedor(Nome)
-      BusinessPartner,                  //Destino
+      BusinessPartner,                  //Destino/Emissor da Ordem
       LocationDescription,              //Destino(Descrição)
       PostalCode,                       //CEP
       StreetName,                       //Rua

@@ -422,6 +422,15 @@ CLASS ZCLSD_GET_TAX_VALUES IMPLEMENTATION.
                                                           iv_gp_mercadoria  = is_item-matkl
                                                 IMPORTING ev_um             = lv_um ).
 
+* LSCHEPP - SD - 8000007351 - CST 60 - Nota manual - 18.05.2023 Início
+        IF lv_um IS INITIAL.
+          SELECT SINGLE meins
+            FROM mara
+            INTO @lv_um
+            WHERE matnr EQ @is_item-matnr.
+        ENDIF.
+* LSCHEPP - SD - 8000007351 - CST 60 - Nota manual - 18.05.2023 Fim
+
         CALL FUNCTION 'MD_CONVERT_MATERIAL_UNIT'
           EXPORTING
             i_matnr              = is_item-matnr
@@ -443,7 +452,11 @@ CLASS ZCLSD_GET_TAX_VALUES IMPLEMENTATION.
 
 
       IF <fs_ult_compra>-lppid = lc_s.
-        rv_ult_compra = <fs_ult_compra>-lppbrt + <fs_ult_compra>-subtval * lv_qt. "is_item-menge .
+* LSCHEPP - SD - 8000007351 - CST 60 - Nota manual - 18.05.2023 Início
+*        rv_ult_compra = <fs_ult_compra>-lppbrt + <fs_ult_compra>-subtval * lv_qt. "is_item-menge .
+        rv_ult_compra = <fs_ult_compra>-lppbrt." + <fs_ult_compra>-subtval.
+        rv_ult_compra = rv_ult_compra * lv_qt.
+* LSCHEPP - SD - 8000007351 - CST 60 - Nota manual - 18.05.2023 Fim
 
       ELSEIF <fs_ult_compra>-lppid = lc_i.
         rv_ult_compra = <fs_ult_compra>-lppbrt * lv_qt. "is_item-menge.

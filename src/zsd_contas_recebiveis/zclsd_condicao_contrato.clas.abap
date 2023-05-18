@@ -1880,23 +1880,21 @@ CLASS ZCLSD_CONDICAO_CONTRATO IMPLEMENTATION.
       lv_result += <fs_vbrpvb>-zzkzwi2.
     ENDLOOP.
 
-    IF lv_result > 0.
-      DATA(lt_xaccit) = ct_xaccit[].
-      DELETE lt_xaccit WHERE posnr GE '0000001000'.
-      DESCRIBE TABLE lt_xaccit LINES DATA(lv_lines).
-      LOOP AT ct_xaccit ASSIGNING FIELD-SYMBOL(<fs_xaccit>) WHERE posnr LT '0000001000'.
-        READ TABLE ct_xacccr ASSIGNING FIELD-SYMBOL(<fs_xacccr>) WITH KEY posnr = <fs_xaccit>-posnr.
-        IF sy-subrc EQ 0.
+    DATA(lt_xaccit) = ct_xaccit[].
+    DELETE lt_xaccit WHERE posnr GE '0000001000'.
+    DESCRIBE TABLE lt_xaccit LINES DATA(lv_lines).
+    LOOP AT ct_xaccit ASSIGNING FIELD-SYMBOL(<fs_xaccit>) WHERE posnr LT '0000001000'.
+      READ TABLE ct_xacccr ASSIGNING FIELD-SYMBOL(<fs_xacccr>) WITH KEY posnr = <fs_xaccit>-posnr.
+      IF sy-subrc EQ 0.
+        IF lv_result > 0.
           lv_desconto = lv_result * 100 / <fs_xacccr>-wrbtr.
           <fs_xaccit>-zbd1p = lv_desconto / lv_lines.
-          <fs_xacccr>-skfbt = <fs_xacccr>-wrbtr.
+        ELSE.
+          CLEAR <fs_xaccit>-zbd1p.
         ENDIF.
-      ENDLOOP.
-    ELSE.
-      LOOP AT ct_xacccr ASSIGNING <fs_xacccr> WHERE posnr LT '0000001000'.
         <fs_xacccr>-skfbt = <fs_xacccr>-wrbtr.
-      ENDLOOP.
-    ENDIF.
+      ENDIF.
+    ENDLOOP.
 
   ENDMETHOD.
 

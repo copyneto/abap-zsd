@@ -21,8 +21,14 @@
     <item>
      <ID>I</ID>
      <KEY>002</KEY>
-     <ENTRY>ZCLSD_CANCELAMENTOS_VENDAS</ENTRY>
+     <ENTRY>ZSD_ORDEM_WEVO</ENTRY>
      <LENGTH>52</LENGTH>
+    </item>
+    <item>
+     <ID>I</ID>
+     <KEY>003</KEY>
+     <ENTRY>Documento de vendas não encontrado</ENTRY>
+     <LENGTH>68</LENGTH>
     </item>
    </TPOOL>
   </asx:values>

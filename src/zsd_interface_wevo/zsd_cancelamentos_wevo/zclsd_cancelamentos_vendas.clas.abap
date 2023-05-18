@@ -9,7 +9,9 @@ CLASS zclsd_cancelamentos_vendas DEFINITION
       "! Constructor
       constructor
         IMPORTING
-          is_input TYPE zclsd_mt_venda_cancelamento.
+          is_input TYPE zclsd_mt_venda_cancelamento
+        RAISING
+          zcxtm_erro_interface.
 
   PROTECTED SECTION.
   PRIVATE SECTION.
@@ -30,7 +32,9 @@ CLASS zclsd_cancelamentos_vendas DEFINITION
 
     METHODS:
       "! Process interface
-      process_data,
+      process_data
+        RAISING
+          zcxtm_erro_interface,
 
       "! Execute bapi 'BAPI_SALESORDER_CHANGE'
       bapi_change
@@ -39,17 +43,22 @@ CLASS zclsd_cancelamentos_vendas DEFINITION
           is_header        TYPE bapisdh1 OPTIONAL
           is_headerx       TYPE bapisdh1x OPTIONAL
           it_item          TYPE tt_item OPTIONAL
-          it_itemx         TYPE tt_itemx OPTIONAL,
+          it_itemx         TYPE tt_itemx OPTIONAL
+        RAISING
+          zcxtm_erro_interface,
 
-      "! Raising erro
-      erro
+      "! Log application error
+      call_exeception
         IMPORTING
-          is_erro TYPE scx_t100key,
+          iv_msgid TYPE symsgid
+          iv_msgno TYPE symsgno
+          iv_attr1 TYPE scx_attrname OPTIONAL
+          iv_attr2 TYPE scx_attrname OPTIONAL
+          iv_attr3 TYPE scx_attrname OPTIONAL
+          iv_attr4 TYPE scx_attrname OPTIONAL
+        RAISING
+          zcxtm_erro_interface,
 
-      "!Save error logs
-      save_error_logs,
-
-      "! Commit changes
       bapi_commit.
 
 ENDCLASS.
@@ -62,7 +71,7 @@ CLASS zclsd_cancelamentos_vendas IMPLEMENTATION.
   METHOD constructor.
     MOVE-CORRESPONDING is_input TO gs_input.
     me->process_data( ).
-    me->save_error_logs( ).
+*    me->save_error_logs( ).
   ENDMETHOD.
 
 
@@ -108,11 +117,9 @@ CLASS zclsd_cancelamentos_vendas IMPLEMENTATION.
           WHERE purchaseorderbycustomer EQ @lv_purchaseorderbycustomer
           INTO TABLE @lt_salesdocument.
         IF sy-subrc NE 0.
-          me->erro( VALUE scx_t100key( msgid = TEXT-002
-                                       msgno = '001'
-                                       attr1 = TEXT-001
-          ) ).
-
+          me->call_exeception(  iv_msgid = CONV symsgid( TEXT-002 )
+                                iv_msgno = 001
+                                iv_attr1 = CONV scx_attrname( lv_purchaseorderbycustomer ) ).
         ENDIF.
       ENDIF.
     ELSE.
@@ -121,11 +128,9 @@ CLASS zclsd_cancelamentos_vendas IMPLEMENTATION.
         WHERE purchaseorderbycustomer EQ @lv_purchaseorderbycustomer
         INTO TABLE @lt_salesdocument.
       IF sy-subrc NE 0.
-        me->erro( VALUE scx_t100key( msgid = TEXT-002
-                                     msgno = '001'
-                                     attr1 = TEXT-001
-        ) ).
-
+        me->call_exeception(  iv_msgid = CONV symsgid( TEXT-002 )
+                              iv_msgno = 001
+                              iv_attr1 = CONV scx_attrname( lv_purchaseorderbycustomer ) ).
       ENDIF.
     ENDIF.
 
@@ -154,15 +159,12 @@ CLASS zclsd_cancelamentos_vendas IMPLEMENTATION.
               error_message = 99.
 
           IF sy-subrc <> 0.
-            me->erro( VALUE scx_t100key( msgid = sy-msgid
-                                         msgno = sy-msgno
-                                         attr1 = sy-msgv1
-                                         attr2 = sy-msgv2
-                                         attr3 = sy-msgv3
-                                         attr4 = sy-msgv4
-            ) ).
-*            MESSAGE ID sy-msgid TYPE sy-msgty NUMBER sy-msgno
-*                    WITH sy-msgv1 sy-msgv2 sy-msgv3 sy-msgv4.
+            me->call_exeception( iv_msgid = sy-msgid
+                                 iv_msgno = sy-msgno
+                                 iv_attr1 = CONV scx_attrname( sy-msgv1 )
+                                 iv_attr2 = CONV scx_attrname( sy-msgv2 )
+                                 iv_attr3 = CONV scx_attrname( sy-msgv3 )
+                                 iv_attr4 = CONV scx_attrname( sy-msgv4 ) ).
           ENDIF.
         ENDLOOP.
 
@@ -259,32 +261,17 @@ CLASS zclsd_cancelamentos_vendas IMPLEMENTATION.
         wait = abap_true.
 
   ENDMETHOD.
+  METHOD call_exeception.
 
-
-  METHOD erro.
-
-    APPEND VALUE #(
-      type       = 'E'
-      id         = is_erro-msgid
-      number     = is_erro-msgno
-      message_v1 = is_erro-attr1
-      message_v2 = is_erro-attr2
-      message_v3 = is_erro-attr3
-      message_v4 = is_erro-attr4
-    ) TO me->gt_return.
-
-*    RAISE EXCEPTION TYPE zcxsd_erro_interface
-*      EXPORTING
-*        textid = is_erro.
+    RAISE EXCEPTION TYPE zcxtm_erro_interface
+      EXPORTING
+        iv_textid = VALUE scx_t100key( msgid = iv_msgid
+                                       msgno = iv_msgno
+                                       attr1 = iv_attr1
+                                       attr2 = iv_attr2
+                                       attr3 = iv_attr3
+                                       attr4 = iv_attr4 ).
 
   ENDMETHOD.
 
-  METHOD save_error_logs.
-    IF line_exists( me->gt_return[ type = 'E' ] ).
-      DATA(lo_log) = NEW zclca_save_log( gc_object ).
-      lo_log->create_log( iv_subobject = gc_subobject iv_externalid = |REF. CLIENTE: { gs_input-mt_venda_cancelamento-purchaseorderbycustomer }| ).
-      lo_log->add_msgs( me->gt_return ).
-      lo_log->save( ).
-    ENDIF.
-  ENDMETHOD.
 ENDCLASS.

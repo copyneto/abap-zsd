@@ -39,6 +39,13 @@
             AND b~bwart IN ( 'YG6', 'YG8' ).
         IF sy-subrc EQ 0.
 
+          data: lv_break TYPE c VALUE 'X'.
+          DO.
+            IF lv_break = ''.
+              EXIT.
+            ENDIF.
+          ENDDO.
+
           SELECT SINGLE vbelv
             FROM vbfa
             INTO @DATA(lv_vbelv)

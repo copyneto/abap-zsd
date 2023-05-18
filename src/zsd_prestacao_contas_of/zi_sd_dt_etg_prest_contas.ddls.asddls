@@ -8,13 +8,12 @@
 }
 define view entity ZI_SD_DT_ETG_PREST_CONTAS
   as select from I_TranspOrdExecution as Ev
-  
+
   //*Recupera último evento*//
   association [1..1] to ZI_SD_ULT_ETG_PREST_CONTAS as _UltimoEvt on $projection.TransportationOrderUUID = _UltimoEvt.TransportationOrderUUID
 
 {
-  key Ev.TransportationOrderEventUUID,
-      Ev.TransportationOrderUUID,
+  key Ev.TransportationOrderUUID,
       Ev.TranspOrdExecution,
       Ev.TranspOrdEvtActualDateTime,
       tstmp_to_dats( Ev.TranspOrdEvtActualDateTime,
@@ -28,3 +27,8 @@ where
         Ev.TransportationOrderUUID = _UltimoEvt.TransportationOrderUUID
     and Ev.TranspOrdExecution      = _UltimoEvt.TranspOrdExecution
   )
+
+group by
+  TransportationOrderUUID,
+  TranspOrdExecution,
+  TranspOrdEvtActualDateTime

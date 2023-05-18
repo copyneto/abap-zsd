@@ -394,7 +394,13 @@ CLASS ZCLSD_CRIACAO_CONTRATOS IMPLEMENTATION.
 
               IF sy-subrc EQ 0.
 
-                IF ls_produto-tipomaquina EQ 'propria'.
+
+***CFARIA - 8000007544, Criação Contrato Maquina Terceiro - 158 - 18.05.2023 Início
+
+*                IF ls_produto-tipomaquina EQ 'propria'.
+                IF ls_produto-tipomaquina EQ 'propria' OR ls_produto-tipomaquina EQ 'alugada'.
+
+***CFARIA - 8000007544, Criação Contrato Maquina Terceiro - 158 - 18.05.2023 Fim
 
                   CALL FUNCTION 'CONVERSION_EXIT_ALPHA_INPUT'
                     EXPORTING

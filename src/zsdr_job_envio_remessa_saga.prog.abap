@@ -5,7 +5,7 @@
 *&
 *& Envio de remessas não integradas para o SAGA -> Execução via JOB
 *&---------------------------------------------------------------------*
-REPORT zsdr_envio_remessa_saga.
+REPORT zsdr_job_envio_remessa_saga.
 
 TYPES ty_remessas_enviadas TYPE STANDARD TABLE OF ztsd_rem_saga WITH DEFAULT KEY.
 

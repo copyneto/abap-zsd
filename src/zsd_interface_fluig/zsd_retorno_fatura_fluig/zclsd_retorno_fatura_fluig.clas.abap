@@ -1,4 +1,5 @@
 CLASS zclsd_retorno_fatura_fluig DEFINITION
+
   PUBLIC
   FINAL
   CREATE PUBLIC .
@@ -17,7 +18,6 @@ CLASS zclsd_retorno_fatura_fluig DEFINITION
           is_header TYPE j_1bnfdoc
         RAISING
           zcxca_erro_interface.
-
   PROTECTED SECTION.
   PRIVATE SECTION.
 
@@ -46,12 +46,11 @@ CLASS zclsd_retorno_fatura_fluig DEFINITION
           iv_document      TYPE vbeln_va
         RETURNING
           VALUE(rv_result) TYPE vbeln_va.
-
 ENDCLASS.
 
 
 
-CLASS zclsd_retorno_fatura_fluig IMPLEMENTATION.
+CLASS ZCLSD_RETORNO_FATURA_FLUIG IMPLEMENTATION.
 
 
   METHOD main.
@@ -76,6 +75,8 @@ CLASS zclsd_retorno_fatura_fluig IMPLEMENTATION.
                     ).
 
     IF is_header-code IN lr_valid_code
+
+
 *        AND is_header-direct EQ gc_nfe_saida
         AND is_header-form   EQ gc_form_nf_eletronica.
 
@@ -196,6 +197,7 @@ CLASS zclsd_retorno_fatura_fluig IMPLEMENTATION.
 
   ENDMETHOD.
 
+
   METHOD get_vbelv.
 
     SELECT SINGLE vbelv FROM vbfa
@@ -204,5 +206,4 @@ CLASS zclsd_retorno_fatura_fluig IMPLEMENTATION.
     INTO @rv_result.
 
   ENDMETHOD.
-
 ENDCLASS.

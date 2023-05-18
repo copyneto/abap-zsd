@@ -306,16 +306,16 @@ define root view entity ZC_SD_RELATORIO_REMESSA
       //      @EndUserText.label: 'Evento'
       //      EventName,
 
-      @UI: { selectionField: [ { position: 90 } ] }
+      @UI: { selectionField: [ { position: 260 } ] }
       @EndUserText.label: 'Status da ordem de venda'
       @Consumption.valueHelpDefinition: [{ entity: { name: 'I_OverallSDProcessStatus', element: 'OverallSDProcessStatus' } }]
       OverallSDProcessStatus,
 
-      @UI: { selectionField: [ { position: 90 } ] }
+      @UI: { selectionField: [ { position: 270 } ] }
       @Consumption.valueHelpDefinition: [{ entity: { name: 'ZI_CA_VH_BZIRK', element: 'RegiaoVendas' } }]
       SalesDistrict,
 
-      @UI: { selectionField: [ { position: 90 } ] }
+      @UI: { selectionField: [ { position: 280 } ] }
       @EndUserText.label: 'Canal entrada pedido'
       @Consumption.valueHelpDefinition: [{ entity: { name: 'I_CustomerPurchaseOrderType', element: 'CustomerPurchaseOrderType' } }]
       CustomerPurchaseOrderType,

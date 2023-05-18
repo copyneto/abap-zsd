@@ -8,7 +8,8 @@
                  local_ret TYPE ztca_param_par-chave2 VALUE 'LOCAL RETIRADA',
                END OF lc_param_df.
 
-    FIELD-SYMBOLS <fs_item_tab> TYPE j_1bnflin_tab.
+    FIELD-SYMBOLS: <fs_item_tab>    TYPE j_1bnflin_tab,
+                   <fs_partner_tab> TYPE nfe_partner_tab.
 
     DATA: lt_werks_e  TYPE wrma_werks_ran_tab,
           lt_werks_lr TYPE wrma_werks_ran_tab.
@@ -159,6 +160,42 @@
           CLEAR lv_excecao.
         ENDIF.
 * LSCHEPP - SD - 8000007071 - TAG LOCAL DE RETIRADA - 11.05.2023 Início
+* LSCHEPP - SD - 8000007531 - CORE 8 - SEM Tag do local de entrega - 18.05.2023 Início
+        ASSIGN ('(SAPLJ_1B_NFE)WK_PARTNER[]') TO <fs_partner_tab>.
+        IF <fs_partner_tab> IS NOT ASSIGNED.
+          RETURN.
+        ENDIF.
+
+        TRY.
+            DATA(ls_partner) = <fs_partner_tab>[ parvw = 'ZD' ].
+            ASSIGN ('(SAPLJ_1B_NFE)XMLH') TO <fs_xmlh>.
+            IF <fs_xmlh> IS NOT ASSIGNED.
+              RETURN.
+            ENDIF.
+            <fs_xmlh>-g_cnpj    = ls_partner-cgc.
+            <fs_xmlh>-g_ie      = ls_partner-stains.
+            <fs_xmlh>-g_fone    = ls_partner-telf1.
+            <fs_xmlh>-g_xnome   = ls_partner-name1.
+            <fs_xmlh>-g_xbairro = ls_partner-ort02.
+            <fs_xmlh>-g_cmun    = ls_partner-txjcd+3.
+            <fs_xmlh>-g_xmun    = ls_partner-ort01.
+            <fs_xmlh>-g_uf      = ls_partner-regio.
+
+            TRANSLATE ls_partner-pstlz USING '- '.
+            CONDENSE ls_partner-pstlz NO-GAPS.
+            <fs_xmlh>-g_cep     = ls_partner-pstlz.
+            <fs_xmlh>-g_cpais   = '1058'.
+            <fs_xmlh>-g_xpais   = TEXT-t13.
+
+            SELECT SINGLE a~street, a~house_num1
+              FROM adrc AS a
+              INNER JOIN kna1 AS b ON a~addrnumber = b~adrnr
+              INTO ( @<fs_xmlh>-g_xlgr, @<fs_xmlh>-g_nro )
+              WHERE b~kunnr EQ @ls_partner-parid.
+
+          CATCH cx_sy_itab_line_not_found.
+        ENDTRY.
+* LSCHEPP - SD - 8000007531 - CORE 8 - SEM Tag do local de entrega - 18.05.2023 Fim
       ENDIF.
       CLEAR lv_check.
 * LSCHEPP - SD - 8000007071 - TAG LOCAL DE RETIRADA - 11.05.2023 Fim

@@ -32,7 +32,7 @@ annotate view ZC_SD_PREST_CONTAS_OF with
 
   @UI:{ lineItem:       [{ position: 30, label: 'Canhoto Eletrônico?' }] }
   ElectronicStub;
-  
+
   @Consumption.semanticObject:'FreightOrder'
   @UI:{ selectionField: [{ position: 20 }],
         lineItem:       [{ position: 40, label: 'Ordem de Frete' }] }
@@ -43,6 +43,12 @@ annotate view ZC_SD_PREST_CONTAS_OF with
         lineItem:       [{ position: 50, label: 'Status Ordem de Frete', criticality: 'TranspOrdLifeCycleStatusCrit' }] }
   @EndUserText.label: 'Status Ordem de Frete'
   TranspOrdLifeCycleStatus;
+  
+  @UI.hidden: true
+  TranspOrdLifeCycleStatusDesc;
+
+  @UI.hidden: true
+  TranspOrdLifeCycleStatusCrit;
 
   @UI:{ selectionField: [{ position: 30 }],
         lineItem:       [{ position: 60, label: 'Data Criação Ordem de Frete' }] }
@@ -58,22 +64,34 @@ annotate view ZC_SD_PREST_CONTAS_OF with
         lineItem:       [{ position: 80, label: 'Local de Expedição' }] }
   @EndUserText.label: 'Local de Expedição'
   ShippingPointTransportationOrd;
-  
-  @UI:{ lineItem:       [{ position: 90, label: 'Descrição Local Expedição' }] }
+
+  @UI.hidden: true
   ShippingPointName;
 
   @UI:{ lineItem:       [{ position: 100, label: 'Condição expedição' }] }
   ShippingCondition;
+  
+  @UI.hidden: true
+  ShippingConditionName;
 
   @UI:{ lineItem:       [{ position: 110, label: 'Região Vendas (Grupo Cliente)' }] }
   CustomerGroup;
   
+  @UI.hidden: true
+  CustomerGroupName;
+
   @Consumption.semanticObject:'FreightUnit'
   @UI:{ lineItem:       [{ position: 120, label: 'Unidade de Frete' }] }
   FreightUnit;
 
   @UI:{ lineItem:       [{ position: 130, label: 'Status Unidade de Frete', criticality: 'TranspOrdEventCodeCrit' }] }
   TranspOrdEventCode;
+  
+  @UI.hidden: true
+  TranspOrdEventCodeDesc;
+
+  @UI.hidden: true
+  TranspOrdEventCodeCrit;
 
   @UI:{ lineItem:       [{ position: 140, label: 'Data Entrega' }] }
   DateDelivery;
@@ -86,21 +104,30 @@ annotate view ZC_SD_PREST_CONTAS_OF with
 
   @UI:{ lineItem:       [{ position: 170, label: 'Entrega' }] }
   DeliveryDocument;
-  
+
   @Consumption.semanticObject:'NotaFiscal'
   @UI:{ selectionField: [{ position: 50 }],
         lineItem:       [{ position: 180, label: 'Nota Fiscal' }] }
   @EndUserText.label: 'Nota Fiscal'
   BR_NotaFiscal;
 
-  @UI:{ lineItem:       [{ position: 190, label: 'Motorista' }] }
+  @UI:{ lineItem:       [{ position: 190, label: 'Código Motorista' }] }
   DriverId;
 
-  @UI:{ lineItem:       [{ position: 200, label: 'Recebedor' }] }
-  ConsigneeId;
+  @UI.hidden: true
+  DriverName;
 
-  @UI:{ lineItem:       [{ position: 210, label: 'Destino' }] }
+  @UI:{ lineItem:       [{ position: 200, label: 'Recebedor da Mercadoria' }] }
+  ConsigneeId;
+  
+  @UI.hidden: true
+  ConsigneeName;
+
+  @UI:{ lineItem:       [{ position: 210, label: 'Emissor da Ordem' }] }
   BusinessPartner;
+  
+  @UI.hidden: true
+  LocationDescription;
 
   @UI:{ lineItem:       [{ position: 220, label: 'CEP' }] }
   PostalCode;
