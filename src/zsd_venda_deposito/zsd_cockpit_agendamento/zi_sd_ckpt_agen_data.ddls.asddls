@@ -7,14 +7,16 @@
     sizeCategory: #S,
     dataClass: #MIXED
 }
-define view entity ZI_SD_CKPT_AGEN_DATA 
+define view entity ZI_SD_CKPT_AGEN_DATA
   as select from ztsd_agendamento
 {
   key ordem,
   key remessa,
+  key nf_e,
       max( data_registro ) as Max_data_registro
 
 }
 group by
   ordem,
-  remessa
+  remessa,
+  nf_e

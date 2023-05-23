@@ -73,10 +73,10 @@
 
     CHECK lv_perc_difal IS NOT INITIAL.
 
-    DATA(lv_baseMA) = CONV mty_taxamount( ms_tax_data-net_amount + ( ms_tax_data-net_amount * ms_tax_data-ipirate ) ).
-    lv_baseMA = ( lv_baseMA * ( lv_perc_difal / 100 ) ).
+    DATA(lv_basema) = CONV mty_taxamount( ms_tax_data-net_amount + ( ms_tax_data-net_amount * ms_tax_data-ipirate ) ).
+    lv_basema = ( lv_basema * ( lv_perc_difal / 100 ) ).
 
-    IF lv_baseMA > lv_min.
+    IF lv_basema > lv_min.
       lv_base1 = ms_tax_data-net_amount + ( ms_tax_data-net_amount * ms_tax_data-ipirate ).
       lv_base1 = lv_base1 + ( lv_base1 * ( ms_tax_data-subtribsurcharge ) ).
     ENDIF.
@@ -112,3 +112,34 @@
     ENDIF.
 
   ENDDO.
+
+* LSCHEPP - SD - RM 1009 BC ICMSST reduzida MT/MT - 22.05.2023 Início
+  FIELD-SYMBOLS <fs_xkomv_t> TYPE tax_xkomv_tab.
+
+  IF ms_tax_data-subtribsurtype EQ '2'.
+    SELECT SINGLE rate
+      FROM j_1btxst3
+      INTO @DATA(lv_mva)
+      WHERE land1     EQ @ms_komk-aland
+        AND shipfrom  EQ @ms_komp-txreg_sf
+        AND shipto    EQ @ms_komp-txreg_st
+        AND value     EQ @ms_komp-matnr
+        AND value2    EQ @ms_komp-werks
+        AND validfrom GT @ms_komk-prsdt
+        AND validto   LE @ms_komk-prsdt
+        AND sur_type  EQ '2'.
+    IF sy-subrc EQ 0.
+      ASSIGN ('(SAPLV61A)XKOMV[]') TO <fs_xkomv_t>.
+      IF <fs_xkomv_t> IS ASSIGNED.
+        READ TABLE <fs_xkomv_t> ASSIGNING FIELD-SYMBOL(<fs_xkomv>) WITH KEY kposn = ms_komp-kposn
+                                                                            kschl = 'ICMO'.
+        IF sy-subrc EQ 0.
+          ev_amount = ms_tax_data-net_amount * ms_tax_data-icmsbase.
+          ev_amount = ev_amount * ( lv_mva / 100 ) + ev_amount.
+          ev_amount = ev_amount * iv_rate.
+          ev_amount = ev_amount - <fs_xkomv>-kawrt.
+        ENDIF.
+      ENDIF.
+    ENDIF.
+  ENDIF.
+* LSCHEPP - SD - RM 1009 BC ICMSST reduzida MT/MT - 22.05.2023 Fim

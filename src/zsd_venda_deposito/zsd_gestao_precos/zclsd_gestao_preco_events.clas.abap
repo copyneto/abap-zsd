@@ -6825,6 +6825,7 @@ CLASS ZCLSD_GESTAO_PRECO_EVENTS IMPLEMENTATION.
       lt_new_scale = VALUE #( FOR ls_it IN it_item WHERE (  guid         EQ is_item_key-guid
                                                       AND   dist_channel EQ is_item_key-dist_channel
                                                       AND   price_list   EQ is_item_key-price_list
+                                                      AND   plant        EQ is_item_key-plant
                                                       AND   material     EQ is_item_key-material )
                                                                  ( CORRESPONDING #( ls_it ) )   ).
 

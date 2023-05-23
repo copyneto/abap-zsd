@@ -22,6 +22,9 @@ define root view entity ZC_SD_RELATORIO_REMESSA
              selectionField: [ { position: 260 } ] }
       @Consumption.valueHelpDefinition: [{ entity: { name: 'I_DELIVERYDOCUMENTSTDVH', element: 'DeliveryDocument' } }]
   key DeliveryDocument,
+  
+  @UI: { hidden: true }
+  key DeliveryDocumentItem,
 
       @UI: { lineItem:       [ { position: 30, importance: #HIGH } ],
              selectionField: [ { position: 230 } ] }
@@ -186,7 +189,7 @@ define root view entity ZC_SD_RELATORIO_REMESSA
 
       @UI: { lineItem:       [ { position: 360, importance: #HIGH } ],
              selectionField: [ { position: 250 } ] }
-      @Consumption.valueHelpDefinition: [{ entity: { name: 'ZI_TM_VH_CFOP', element: 'cfop' } }]
+      @Consumption.valueHelpDefinition: [{ entity: { name: 'ZI_TM_VH_CFOP_MK', element: 'cfop' } }]
       @EndUserText.label: 'CFOP'
       CFOPCode,
 

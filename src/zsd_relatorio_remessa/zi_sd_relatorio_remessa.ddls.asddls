@@ -73,7 +73,7 @@ define root view entity ZI_SD_RELATORIO_REMESSA
   key SalesDocumentItem.SalesDocument                                                                                     as SalesOrderDocument,
   key SalesDocumentItem.SalesDocumentItem                                                                                 as SalesOrderDocumentItem,
   key DeliveryDocumentItem.DeliveryDocument,
-      DeliveryDocumentItem.DeliveryDocumentItem,
+  key DeliveryDocumentItem.DeliveryDocumentItem,
       DeliveryDocumentItem.DeliveryDocumentItemText,
       @Semantics.quantity.unitOfMeasure: 'ItemWeightUnit'
       DeliveryDocumentItem.ItemNetWeight,
@@ -164,7 +164,7 @@ define root view entity ZI_SD_RELATORIO_REMESSA
 
       DeliveryDocumentItem.Batch,
 
-      cast( SalesDocumentItemCompl.j_1bcfop as abap.char(10) )                                                            as CFOPCode,
+      cast( SalesDocumentItemCompl.j_1bcfop as abap.char(10) )      as CFOPCode,
       @Semantics.amount.currencyCode: 'SalesDocumentCurrency'
       NFDocument.BR_NFNetAmount                                                                                           as NFNetAmount,
       NFDocument.SalesDocumentCurrency,

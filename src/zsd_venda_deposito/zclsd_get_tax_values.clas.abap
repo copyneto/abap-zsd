@@ -342,8 +342,8 @@ CLASS ZCLSD_GET_TAX_VALUES IMPLEMENTATION.
         iv_valor_prod    = lv_valor_prod
         iv_quantidade    = is_item-menge
         iv_unidade       = is_item-meins
-        iv_vbeln         = CONV #( lv_vbeln )
-        iv_kposn         = CONV #( lv_kposn )
+        iv_vbeln         = lv_vbeln
+        iv_kposn         = lv_kposn
       IMPORTING
         es_calculos      = DATA(ls_tax)
     ).
@@ -443,6 +443,10 @@ CLASS ZCLSD_GET_TAX_VALUES IMPLEMENTATION.
             error_in_application = 1
             error                = 2
             OTHERS               = 3.
+        IF sy-subrc <> 0.
+          MESSAGE ID sy-msgid TYPE sy-msgty NUMBER sy-msgno
+            WITH sy-msgv1 sy-msgv2 sy-msgv3 sy-msgv4 INTO DATA(lv_message).
+        ENDIF.
 
       ELSE.
 

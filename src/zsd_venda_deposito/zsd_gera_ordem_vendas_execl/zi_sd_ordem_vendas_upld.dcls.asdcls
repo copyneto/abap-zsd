@@ -6,6 +6,8 @@ define role ZI_SD_ORDEM_VENDAS_UPLD {
             on
                 ZI_SD_ORDEM_VENDAS_UPLD
                     where
-                        ( SalesOrganization ) = aspect pfcg_auth( ZSDVKORG, VKORG, ACTVT = '03' );
+                        ( SalesOrganization ) = aspect pfcg_auth( ZSDVKORG, VKORG, ACTVT = '03' )
+                        OR 
+                        ( ) = aspect pfcg_auth( ZSDVKORG2, ACTVT = '03' );
                         
 }

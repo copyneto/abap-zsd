@@ -55,86 +55,87 @@ CLASS zclsd_get_tax_calculations DEFINITION
       EXPORTING
         !es_calculos      TYPE ty_calculos .
   PROTECTED SECTION.
-  PRIVATE SECTION.
+private section.
 
-    CONSTANTS:
+  constants:
       "! Constantes para tabela de parâmetros
-      BEGIN OF gc_parametros,
+    BEGIN OF gc_parametros,
         modulo TYPE ze_param_modulo VALUE 'SD',
         chave1 TYPE ze_param_chave  VALUE 'CONTRIBUINTE DE ICMS',
       END OF gc_parametros .
     "! Estrutura com Calculos
-    DATA gs_calculos TYPE ty_calculos .
+  data GS_CALCULOS type TY_CALCULOS .
     "! Atributo Centro
-    DATA gs_centro TYPE werks_ext .
-    CLASS-DATA go_instance TYPE REF TO zclsd_get_tax_calculations .
+  data GS_CENTRO type WERKS_EXT .
+  class-data GO_INSTANCE type ref to ZCLSD_GET_TAX_CALCULATIONS .
     "! Atributo UF
-    DATA gs_uf TYPE ze_uf_receb .
+  data GS_UF type ZE_UF_RECEB .
     "! Atributo Material
-    DATA gs_material TYPE matnr .
+  data GS_MATERIAL type MATNR .
     "! Atributo Grupo Mercadorias
-    DATA gs_gp_mercadoria TYPE matkl .
+  data GS_GP_MERCADORIA type MATKL .
     "! Atributo Tabela selecionada
-    DATA gs_tabela TYPE char20 .
+  data GS_TABELA type CHAR20 .
     "! Atributo %Agregado
-    DATA gs_agregado TYPE ze_agregado .
+  data GS_AGREGADO type ZE_AGREGADO .
     "! Atributo ICMS Destino
-    DATA gs_icms_dest TYPE ze_icms_dest .
+  data GS_ICMS_DEST type ZE_ICMS_DEST .
     "! Atributo ICMS Origem
-    DATA gs_icms_orig TYPE ze_icms_orig .
+  data GS_ICMS_ORIG type ZE_ICMS_ORIG .
     "! Atributo Compra Interna
-    DATA gs_compra_interna TYPE char1 .
+  data GS_COMPRA_INTERNA type CHAR1 .
     "! Atributo Base Origem
-    DATA gs_base_red_orig TYPE ze_base_red_orig .
+  data GS_BASE_RED_ORIG type ZE_BASE_RED_ORIG .
     "! Atributo Base Destino
-    DATA gs_base_red_dest TYPE ze_base_red_dest .
+  data GS_BASE_RED_DEST type ZE_BASE_RED_DEST .
     "! Atributo Taxa FCP
-    DATA gs_taxa_fcp TYPE ze_taxa_fcp .
+  data GS_TAXA_FCP type ZE_TAXA_FCP .
     "! Atributo ICMS Efetivo
-    DATA gs_icms_efet TYPE ze_icms_efet .
+  data GS_ICMS_EFET type ZE_ICMS_EFET .
     "! Atributo Base ICMS Efetivo
-    DATA gs_baseredefet TYPE ze_baseredefet .
+  data GS_BASEREDEFET type ZE_BASEREDEFET .
     "! Atributo Preço Comparação
-    DATA gs_preco_compar TYPE ze_preco_compar .
+  data GS_PRECO_COMPAR type ZE_PRECO_COMPAR .
     "! Atributo Preço Pauta
-    DATA gs_preco_pauta TYPE ze_preco_pauta .
+  data GS_PRECO_PAUTA type ZE_PRECO_PAUTA .
     "! Atributo Agregado Pauta
-    DATA gs_agregado_pauta TYPE ze_agregado_pauta .
+  data GS_AGREGADO_PAUTA type ZE_AGREGADO_PAUTA .
     "! Atributo  Número de unidades por UM informada
-    DATA gs_nro_unids TYPE ze_nro_unids .
+  data GS_NRO_UNIDS type ZE_NRO_UNIDS .
     "! Atributo Unidade Medida
-    DATA gs_um TYPE ze_um .
+  data GS_UM type ZE_UM .
     "! Atributo Modalidade
-    DATA gs_modalidade TYPE ze_modalidade .
+  data GS_MODALIDADE type ZE_MODALIDADE .
     "! Atributo Calculo Efetivo
-    DATA gs_calc_efetivo TYPE char1 .
+  data GS_CALC_EFETIVO type CHAR1 .
     "! Atributo Contribuente
-    DATA gs_contribuinte TYPE j_1bicmstaxpay .
+  data GS_CONTRIBUINTE type J_1BICMSTAXPAY .
     "! Atributo Ultima Compra
-    DATA gs_ult_compra TYPE verpr .
-    DATA gs_ult_ipi TYPE verpr .
-    DATA gv_ipi TYPE flag .
+  data GS_ULT_COMPRA type VERPR .
+  data GS_ULT_IPI type VERPR .
+  data GV_IPI type FLAG .
     "! Atributo Valor Unitário
-    DATA gs_valor_unit TYPE j_1bnetpri .
+  data GS_VALOR_UNIT type J_1BNETPRI .
     "! Atributo Valor Produção
-    DATA gs_valor_prod TYPE j_1bnfnett .
+  data GS_VALOR_PROD type J_1BNFNETT .
     "! Atributo Quantidade
-    DATA gs_quantidade TYPE j_1bnetqty .
+  data GS_QUANTIDADE type J_1BNETQTY .
     "! Atributo Unidade
-    DATA gs_unidade TYPE j_1bnetunt .
-    DATA:
+  data GS_UNIDADE type J_1BNETUNT .
+  data:
         "! Atributo Contribuente ICMS
-      gt_contribuinte_icms TYPE RANGE OF j_1bicmstaxpay .
-    DATA gs_perc_bc_icms TYPE ze_perc_bc_icms .
-    DATA gv_vl02n TYPE abap_bool .
-    DATA gv_zipival TYPE ze_ipi .
-    DATA gv_zipival_check TYPE abap_bool .
-    DATA gv_contribuinte_icms_check TYPE abap_bool .
-    DATA gv_vbeln_old TYPE vbeln_vl .
-    DATA gv_kposn_old TYPE kposn .
-    DATA gv_bukrs_old TYPE bukrs .
-    DATA gv_centro_old TYPE werks_ext .
-    DATA gv_material_old TYPE matnr .
+    gt_contribuinte_icms TYPE RANGE OF j_1bicmstaxpay .
+  data GS_PERC_BC_ICMS type ZE_PERC_BC_ICMS .
+  data GV_VL02N type ABAP_BOOL .
+  data GV_ZIPIVAL type ZE_IPI .
+  data GV_ZIPIVAL_CHECK type ABAP_BOOL .
+  data GV_CONTRIBUINTE_ICMS_CHECK type ABAP_BOOL .
+  data GV_VBELN_OLD type VBELN_VL .
+  data GV_KPOSN_OLD type KPOSN .
+  data GV_BUKRS_OLD type BUKRS .
+  data GV_CENTRO_OLD type WERKS_EXT .
+  data GV_MATERIAL_OLD type MATNR .
+  data GV_CENTRO1_OLD type WERKS_EXT .
 
     "! Método preenche atributos chaves
     "! @parameter iv_centro        | Centro
@@ -148,73 +149,73 @@ CLASS zclsd_get_tax_calculations DEFINITION
     "! @parameter iv_quantidade    | Quantidade
     "! @parameter iv_unidade       | Unidade de Medida
     "! @parameter rv_ok_keys       | Retorno se chaves foram preenchidas
-    METHODS get_keys
-      IMPORTING
-        !iv_bukrs         TYPE bukrs
-        !iv_centro        TYPE werks_ext
-        !iv_uf            TYPE ze_uf_receb
-        !iv_material      TYPE matnr
-        !iv_gp_mercadoria TYPE matkl
-        !iv_contribuinte  TYPE j_1bicmstaxpay
-        !iv_ult_compra    TYPE verpr
-        !iv_ult_ipi       TYPE verpr
-        !iv_valor_unit    TYPE j_1bnetpri
-        !iv_valor_prod    TYPE j_1bnfnett
-        !iv_quantidade    TYPE j_1bnetqty
-        !iv_unidade       TYPE j_1bnetunt
-      RETURNING
-        VALUE(rv_ok_keys) TYPE abap_bool .
+  methods GET_KEYS
+    importing
+      !IV_BUKRS type BUKRS
+      !IV_CENTRO type WERKS_EXT
+      !IV_UF type ZE_UF_RECEB
+      !IV_MATERIAL type MATNR
+      !IV_GP_MERCADORIA type MATKL
+      !IV_CONTRIBUINTE type J_1BICMSTAXPAY
+      !IV_ULT_COMPRA type VERPR
+      !IV_ULT_IPI type VERPR
+      !IV_VALOR_UNIT type J_1BNETPRI
+      !IV_VALOR_PROD type J_1BNFNETT
+      !IV_QUANTIDADE type J_1BNETQTY
+      !IV_UNIDADE type J_1BNETUNT
+    returning
+      value(RV_OK_KEYS) type ABAP_BOOL .
     "! Método Seleciona dados
-    METHODS select .
+  methods SELECT .
     "! Método Seleciona dados tabela parâmetros
-    METHODS get_param_icms .
+  methods GET_PARAM_ICMS .
     "! Método Seleciona dados calculados
-    METHODS get_calculations .
+  methods GET_CALCULATIONS .
     "! Método seleciona quantidade
     "! @parameter rv_menge | Quantidade
-    METHODS get_quantity
-      RETURNING
-        VALUE(rv_menge) TYPE bstmg .
+  methods GET_QUANTITY
+    returning
+      value(RV_MENGE) type BSTMG .
     "!Método Seleciona Base ICMS Modalidade 1
-    METHODS get_base_icms_mod_1 .
+  methods GET_BASE_ICMS_MOD_1 .
     "!Método Seleciona Base ICMS Modalidade 2
-    METHODS get_base_icms_mod_2 .
+  methods GET_BASE_ICMS_MOD_2 .
     "!Método Seleciona Base ICMS Modalidade 3
-    METHODS get_base_icms_mod_3 .
+  methods GET_BASE_ICMS_MOD_3 .
     "!Método Seleciona Base ICMS Modalidade 4
-    METHODS get_base_icms_mod_4 .
+  methods GET_BASE_ICMS_MOD_4 .
     "!Método Seleciona ICMS ST
-    METHODS get_icms_st .
+  methods GET_ICMS_ST .
     "!Método Seleciona ICMS ST por unidade
-    METHODS get_icms_st_for_unit .
+  methods GET_ICMS_ST_FOR_UNIT .
     "!Método Seleciona FCP Modalidade 1
-    METHODS get_fcp_ret_mod_1 .
+  methods GET_FCP_RET_MOD_1 .
     "!Método Seleciona FCP Modalidade 4
-    METHODS get_fcp_ret_mod_4 .
+  methods GET_FCP_RET_MOD_4 .
     "!Método preenche valores Modalidade 1
-    METHODS set_values_mod_1 .
+  methods SET_VALUES_MOD_1 .
     "!Método preenche valores Modalidade 2
-    METHODS set_values_mod_2 .
+  methods SET_VALUES_MOD_2 .
     "!Método preenche valores Modalidade 3
-    METHODS set_values_mod_3 .
+  methods SET_VALUES_MOD_3 .
     "!Método preenche valores Modalidade 4
-    METHODS set_values_mod_4 .
+  methods SET_VALUES_MOD_4 .
     "!Método preenche valores Modalidade 5
-    METHODS set_values_mod_5 .
+  methods SET_VALUES_MOD_5 .
     "!Método seleciona base efetiva
-    METHODS get_base_efet .
+  methods GET_BASE_EFET .
     "!Método seleciona ICMS efetivo
-    METHODS get_icms_efet .
+  methods GET_ICMS_EFET .
     "!Método preenche valores efetivos
-    METHODS set_values_calc_efet .
+  methods SET_VALUES_CALC_EFET .
     "!Método preenche valores Modalidades
-    METHODS set_values_mod .
-    METHODS set_values_mod_6 .
-    METHODS get_base_icms_mod_6 .
-    METHODS get_base_icms_mod_5 .
-    METHODS set_values_mod_7 .
-    METHODS get_base_icms_mod_7 .
-    METHODS get_base_icms_mod_8 .
+  methods SET_VALUES_MOD .
+  methods SET_VALUES_MOD_6 .
+  methods GET_BASE_ICMS_MOD_6 .
+  methods GET_BASE_ICMS_MOD_5 .
+  methods SET_VALUES_MOD_7 .
+  methods GET_BASE_ICMS_MOD_7 .
+  methods GET_BASE_ICMS_MOD_8 .
 ENDCLASS.
 
 
@@ -388,7 +389,7 @@ CLASS ZCLSD_GET_TAX_CALCULATIONS IMPLEMENTATION.
       gs_unidade          =  iv_unidade.
 
       IF iv_material NE gv_material_old AND
-         iv_centro NE gv_centro_old.
+         iv_centro NE gv_centro1_old.
         SELECT SINGLE zipival
           FROM j_1blpp
           INTO gv_zipival
@@ -405,7 +406,7 @@ CLASS ZCLSD_GET_TAX_CALCULATIONS IMPLEMENTATION.
           gv_zipival = gv_zipival * lv_menge.
         ENDIF.
         gv_material_old = iv_material.
-        gv_centro_old = iv_centro.
+        gv_centro1_old = iv_centro.
       ENDIF.
 
       rv_ok_keys = abap_true.
@@ -652,7 +653,7 @@ CLASS ZCLSD_GET_TAX_CALCULATIONS IMPLEMENTATION.
 
     IF gs_valor_unit > gs_preco_compar.
 
-      DATA(lv_base) = gs_ult_compra * gs_calculos-vbcfcpstret.
+      DATA(lv_base) = CONV j_1bnfe_vbcfcpstret( gs_ult_compra * gs_calculos-vbcfcpstret ).
 
       gs_calculos-vfcpstret = lv_base * gs_calculos-pfcpstret.
     ELSE.
@@ -664,7 +665,7 @@ CLASS ZCLSD_GET_TAX_CALCULATIONS IMPLEMENTATION.
 
   METHOD get_fcp_ret_mod_1.
 
-    DATA(lv_debito) = gs_calculos-vbcstret * gs_calculos-pfcpstret .
+    DATA(lv_debito) = CONV f( gs_calculos-vbcstret * gs_calculos-pfcpstret ) .
     DATA(lv_base_fecop) = CONV f( ( gs_ult_compra * gs_base_red_orig ) / 100 ).
     DATA(lv_credito) = lv_base_fecop * gs_calculos-pfcpstret .
 
@@ -863,7 +864,10 @@ CLASS ZCLSD_GET_TAX_CALCULATIONS IMPLEMENTATION.
       gs_calculos-vbcstret = gs_ult_compra - ( gs_ult_compra * lv_perc_red_base / 100 ).
       gs_calculos-vbcstret = gs_calculos-vbcstret + ( gs_calculos-vbcstret * gs_agregado / 100 ).
     ELSE.
-      gs_calculos-vbcstret = gs_ult_compra + ( gs_ult_compra * gs_agregado / 100 ).
+* LSCHEPP - SD - 8000007497 - RM1008 CST60 - BASE ICMS ST SEM IPI - 22.05.2023 Início
+*      gs_calculos-vbcstret = gs_ult_compra + ( gs_ult_compra * gs_agregado / 100 ).
+      gs_calculos-vbcstret = ( gs_ult_compra + gv_zipival ) + ( ( gs_ult_compra + gv_zipival ) * ( gs_agregado / 100 ) ).
+* LSCHEPP - SD - 8000007497 - RM1008 CST60 - BASE ICMS ST SEM IPI - 22.05.2023 Fim
 *      gs_calculos-vbcstret = gs_preco_compar.
     ENDIF.
 

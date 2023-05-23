@@ -195,6 +195,9 @@ CLASS ZCLSD_DADOS_ADD_BONIFICACAO IMPLEMENTATION.
   ON j_1bnflin~docnum EQ j_1bnfdoc~docnum
       FOR ALL ENTRIES IN @lt_remessa
       WHERE vbfa~vbelv   EQ @lt_remessa-vbeln
+* LSCHEPP - SD - 8000007698 - REF DA BONIFICAÇÃO GAP175 - 23.05.2023 Início
+        AND j_1bnfdoc~cancel EQ @space
+* LSCHEPP - SD - 8000007698 - REF DA BONIFICAÇÃO GAP175 - 23.05.2023 Fim
         AND vbfa~vbtyp_n EQ 'M'.
 
     ENDIF.

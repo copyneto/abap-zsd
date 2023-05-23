@@ -685,7 +685,15 @@ CLASS ZCLSD_CRIACAO_CONTRATOS IMPLEMENTATION.
             ls_contract_header_inx_u-ship_cond  =  lc_x.
           ENDIF.
 
+          SELECT SINGLE ihrez
+          FROM vbak
+          WHERE vbeln EQ @lv_salesdocument_u
+          INTO @DATA(lv_ihrez). "#EC CI_SEL_NESTED
 
+          IF lv_ihrez IS INITIAL.
+            ls_contract_header_in_u-ref_1      = gs_input-mt_criar_contrato-contract_header_in-ref_1.
+            ls_contract_header_inx_u-ref_1     = lc_x.
+          ENDIF.
 
 
           CALL FUNCTION 'BAPI_CUSTOMERCONTRACT_CHANGE'

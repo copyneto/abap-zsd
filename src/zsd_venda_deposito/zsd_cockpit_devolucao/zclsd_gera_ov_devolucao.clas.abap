@@ -727,11 +727,14 @@ CLASS zclsd_gera_ov_devolucao IMPLEMENTATION.
                   IF ls_vbrk-waerk NE 'BRL'.
 
                     <fs_pricing>-kschl ='ZPR1'.
+                    <fs_pricing>-kbetr = ( <fs_pricing>-kwert / <fs_devolucao>-quantidadefatura ) * 1000.
+
                     APPEND VALUE #( itm_number    = lv_itm_number
                                     cond_type     = <fs_pricing>-kschl
                                     cond_value    = <fs_pricing>-kbetr
                                     currency      = <fs_pricing>-waerk
-                                    cond_unit     = <fs_pricing>-kmein ) TO gt_conditions_in.
+                                    cond_unit     = <fs_pricing>-kmein
+                                    cond_p_unt    = '1000' ) TO gt_conditions_in.
 
                   ELSE.
                     <fs_pricing>-kbetr = ( <fs_pricing>-kwert / <fs_devolucao>-quantidadefatura ) * 1000.

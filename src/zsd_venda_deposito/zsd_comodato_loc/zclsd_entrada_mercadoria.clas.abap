@@ -1,29 +1,29 @@
 "! <p>Entrada de mercadorias</p>
-class ZCLSD_ENTRADA_MERCADORIA definition
-  public
-  final
-  create public .
+CLASS zclsd_entrada_mercadoria DEFINITION
+  PUBLIC
+  FINAL
+  CREATE PUBLIC .
 
-public section.
+  PUBLIC SECTION.
 
-      "! Executar a Entrada de mercadorias
-      "! @parameter iv_docnum        | Nr. Documento de entrada
-      "! @parameter iv_docfatura     | Nr. Documento de faturamente
-      "! @parameter iv_centro        | Centro
-      "! @parameter rt_mensagens     | Retorno de mensagens da BAPI
-  methods EXECUTAR
-    importing
-      !IV_DOCNUM type J_1BDOCNUM
-      !IV_DOCFATURA type VBELN_NACH
-      !IV_CENTRO type WERKS_D
-      !IV_CENTRO_ORIG type WERKS_D optional
-    returning
-      value(RT_MENSAGENS) type BAPIRET2_TAB .
-      "! Método executado após chamada da função background
-      "! @parameter p_task | Parametro obrigatório do método
-  methods TASK_FINISH
-    importing
-      !P_TASK type CLIKE .
+    "! Executar a Entrada de mercadorias
+    "! @parameter iv_docnum        | Nr. Documento de entrada
+    "! @parameter iv_docfatura     | Nr. Documento de faturamente
+    "! @parameter iv_centro        | Centro
+    "! @parameter rt_mensagens     | Retorno de mensagens da BAPI
+    METHODS executar
+      IMPORTING
+        !iv_docnum          TYPE j_1bdocnum
+        !iv_docfatura       TYPE vbeln_nach
+        !iv_centro          TYPE werks_d
+        !iv_centro_orig     TYPE werks_d OPTIONAL
+      RETURNING
+        VALUE(rt_mensagens) TYPE bapiret2_tab .
+    "! Método executado após chamada da função background
+    "! @parameter p_task | Parametro obrigatório do método
+    METHODS task_finish
+      IMPORTING
+        !p_task TYPE clike .
   PRIVATE SECTION.
     METHODS:
       "! Método para filtrar mensagens de retorno
@@ -94,7 +94,7 @@ ENDCLASS.
 
 
 
-CLASS ZCLSD_ENTRADA_MERCADORIA IMPLEMENTATION.
+CLASS zclsd_entrada_mercadoria IMPLEMENTATION.
 
 
   METHOD executar.
@@ -273,6 +273,12 @@ CLASS ZCLSD_ENTRADA_MERCADORIA IMPLEMENTATION.
                                                       number  = gc_mensagem_sucess-ciado_sucess
                                                       message = lv_msg_sucess ) ).
     ENDIF.
+
+    LOOP AT rt_mensagens ASSIGNING FIELD-SYMBOL(<fs_mensagens>).
+      IF <fs_mensagens>-type EQ 'A'.
+        <fs_mensagens>-type = 'I'.
+      ENDIF.
+    ENDLOOP.
 
   ENDMETHOD.
 

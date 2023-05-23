@@ -133,18 +133,47 @@ IF ( sy-tcode     EQ 'VA01'   OR   "Criação
           LEAVE SCREEN.
         ENDIF.
 
+* LSCHEPP - SD - 8000007660 - Erro_Alteração de valor OV cockpit devol - 19.05.2023 Início
+        IF <fs_vbrp>-vrkme NE <fs_xvbap>-meins.
+
+          lv_quantidade = <fs_vbrp>-fkimg.
+
+          CLEAR lv_menge.
+          CALL FUNCTION 'MD_CONVERT_MATERIAL_UNIT'
+            EXPORTING
+              i_matnr              = <fs_vbrp>-matnr
+              i_in_me              = <fs_vbrp>-vrkme
+              i_out_me             = <fs_xvbap>-meins
+              i_menge              = lv_quantidade
+            IMPORTING
+              e_menge              = lv_menge
+            EXCEPTIONS
+              error_in_application = 1
+              error                = 2
+              OTHERS               = 3.
+
+          IF sy-subrc NE 0.
+            lv_menge = <fs_vbrp>-fkimg.
+          ENDIF.
+* LSCHEPP - SD - 8000007741 - ERRO RETORNOS DE CONSIGNAÇÃO - 22.05.2023 Início
+        ELSE.
+          lv_menge = <fs_vbrp>-fkimg.
+* LSCHEPP - SD - 8000007741 - ERRO RETORNOS DE CONSIGNAÇÃO - 22.05.2023 Fim
+        ENDIF.
+* LSCHEPP - SD - 8000007660 - Erro_Alteração de valor OV cockpit devol - 19.05.2023 Fim
+
         READ TABLE lt_vbfa_sum ASSIGNING FIELD-SYMBOL(<fs_vbfa_sum>)
         WITH KEY vbelv = <fs_xvbap>-vgbel
                  posnv = <fs_xvbap>-vgpos BINARY SEARCH.
         IF sy-subrc EQ 0.
-          lv_qtdispfat = <fs_vbrp>-fkimg - <fs_vbfa_sum>-rfmng.
+          lv_qtdispfat = lv_menge - <fs_vbfa_sum>-rfmng.
         ELSE.
-          lv_qtdispfat = <fs_vbrp>-fkimg.
+          lv_qtdispfat = lv_menge.
         ENDIF.
 
         IF sy-tcode EQ 'VA02'.
           IF lv_qtdispfat LT 0.
-          ELSEIF lv_qtdispfat LE <fs_vbrp>-fkimg.
+          ELSEIF lv_qtdispfat LE lv_menge.
             CONTINUE.
           ENDIF.
         ENDIF.

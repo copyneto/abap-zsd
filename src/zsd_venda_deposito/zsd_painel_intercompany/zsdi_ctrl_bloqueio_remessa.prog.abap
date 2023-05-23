@@ -3,10 +3,10 @@
 *&---------------------------------------------------------------------*
 
 CONSTANTS:                                                "8000006102
-  module_sd       TYPE ze_param_modulo  VALUE 'SD',       "8000006102
-  parameter_wevo  TYPE ze_param_chave   VALUE 'WEVO',     "8000006102
-  parameter_augru TYPE ze_param_chave   VALUE 'AUGRU',    "8000006102
-  parameter_devol TYPE ze_param_chave_3 VALUE 'DEVOL'.    "8000006102
+  lc_module_sd       TYPE ze_param_modulo  VALUE 'SD',       "8000006102
+  lc_parameter_wevo  TYPE ze_param_chave   VALUE 'WEVO',     "8000006102
+  lc_parameter_augru TYPE ze_param_chave   VALUE 'AUGRU',    "8000006102
+  lc_parameter_devol TYPE ze_param_chave_3 VALUE 'DEVOL'.    "8000006102
 
 DATA:                                                     "8000006102
   parameter_value TYPE augru.                             "8000006102
@@ -28,10 +28,10 @@ IF t180-trtyp = 'H'.
 
       NEW zclca_tabela_parametros( )->m_get_single(
                                         EXPORTING
-                                          iv_modulo = module_sd
-                                          iv_chave1 = parameter_wevo
-                                          iv_chave2 = parameter_augru
-                                          iv_chave3 = parameter_devol
+                                          iv_modulo = lc_module_sd
+                                          iv_chave1 = lc_parameter_wevo
+                                          iv_chave2 = lc_parameter_augru
+                                          iv_chave3 = lc_parameter_devol
                                         IMPORTING
                                           ev_param  = parameter_value
                                       ).

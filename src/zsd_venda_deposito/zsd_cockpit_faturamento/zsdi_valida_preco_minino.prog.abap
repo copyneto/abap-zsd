@@ -196,7 +196,7 @@
                                                                         BINARY SEARCH.
                 IF <fs_sales> IS ASSIGNED.
                   IF <fs_sales>-orderquantity IS NOT INITIAL.
-                    DATA(lv_valor_rem_item) = lv_kert / <fs_sales>-orderquantity.
+                    DATA(lv_valor_rem_item) = CONV kwmeng( lv_kert / <fs_sales>-orderquantity ).
                     lv_som_rem_item = lv_som_rem_item + ( lv_valor_rem_item * <fs_xlips>-lfimg ).
                     CLEAR lv_valor_rem_item.
                   ENDIF.
