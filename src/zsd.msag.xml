@@ -92,6 +92,12 @@
      <MSGNR>013</MSGNR>
      <TEXT>Docnum de referência &amp; sem retorno da SEFAZ.</TEXT>
     </T100>
+    <T100>
+     <SPRSL>P</SPRSL>
+     <ARBGB>ZSD</ARBGB>
+     <MSGNR>014</MSGNR>
+     <TEXT>Não é possível criar a remessa devido ao bloqueio de faturamento 15 na OV</TEXT>
+    </T100>
    </T100>
   </asx:values>
  </asx:abap>

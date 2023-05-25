@@ -189,7 +189,7 @@ define root view entity ZC_SD_RELATORIO_REMESSA
 
       @UI: { lineItem:       [ { position: 360, importance: #HIGH } ],
              selectionField: [ { position: 250 } ] }
-      @Consumption.valueHelpDefinition: [{ entity: { name: 'ZI_TM_VH_CFOP_MK', element: 'cfop' } }]
+      @Consumption.valueHelpDefinition: [{ entity: { name: 'ZI_TM_VH_CFOP_REL_REM', element: 'cfop' } }]
       @EndUserText.label: 'CFOP'
       CFOPCode,
 

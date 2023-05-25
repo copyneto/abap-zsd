@@ -31,7 +31,7 @@ define root view entity ZI_SD_PREST_CONTAS_OF
        when StatusSinistro    then 'Sinistro'
        when StatusColetado    then 'Coletado'
        when StatusNaoColetado then 'Não Coletado'
-       else 'Sem status' end                  as StatusProvision,
+       else 'Sem status' end                                               as StatusProvision,
 
       case 'X'
        when StatusEntregue    then 3
@@ -40,7 +40,7 @@ define root view entity ZI_SD_PREST_CONTAS_OF
        when StatusSinistro    then 2
        when StatusColetado    then 2
        when StatusNaoColetado then 0
-       else 0 end                             as StatusProvisionCriticality,
+       else 0 end                                                          as StatusProvisionCriticality,
 
       //*Data referente ao último evento citado*//
       case when StatusEntregue = 'X'
@@ -50,7 +50,10 @@ define root view entity ZI_SD_PREST_CONTAS_OF
         or StatusColetado      = 'X'
         or StatusNaoColetado   = 'X'
       then
-      _LastEventUF.TranspOrdEvtActualDate end as DateStatusProvision,
+      tstmp_to_dats( _LastEventUF.LastDate,
+                      abap_user_timezone(   $session.user,
+                                            $session.client,'NULL' ) ,
+                                            $session.client, 'NULL' )  end as DateStatusProvision,
 
       //*Canhoto Eletrônico?*//
       cast( case when TranspOrdEventCodeSignature = 'X'
@@ -62,7 +65,7 @@ define root view entity ZI_SD_PREST_CONTAS_OF
                   and TranspOrdEventCode <> 'NÃO COLETADO'
                  then 'Sim'
                  else 'Não'
-                 end as abap.char(3) )        as ElectronicStub,
+                 end as abap.char(3) )                                     as ElectronicStub,
 
       FreightOrder,                     //Ordem de frete
       TranspOrdLifeCycleStatus,         //Status ordem de frete
@@ -74,7 +77,10 @@ define root view entity ZI_SD_PREST_CONTAS_OF
       TranspOrdEventCodeCrit,           //Criticidade unidade de frete
 
       //*Data de entrega, parcial ou total*//
-      _LastDeliveryUF.TranspOrdEvtActualDate  as DateDelivery,
+      tstmp_to_dats( _LastDeliveryUF.LastDate,
+                      abap_user_timezone(   $session.user,
+                                            $session.client,'NULL' ) ,
+                                            $session.client, 'NULL' )      as DateDelivery,
 
       SalesDocument,                    //Ordem de venda
       SalesDocumentType,                //Tipo de Ordem de Venda
@@ -101,7 +107,7 @@ define root view entity ZI_SD_PREST_CONTAS_OF
       case
        when _FluxoTransportationOrder.TranspOrdLifeCycleStatus = '05'
        then _FluxoTransportationOrder.FreightOrderEndDate
-          end                                 as FreightOrderEndDate, //Data de encerramento da ordem de frete
+          end                                                              as FreightOrderEndDate, //Data de encerramento da ordem de frete
 
       _FluxoTransportationOrder.ShippingPointTransportationOrd, //Local de expedição
       _FluxoTransportationOrder.ShippingPointName,              //Local de expedição(Nome)

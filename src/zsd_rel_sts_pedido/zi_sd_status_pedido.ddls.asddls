@@ -96,7 +96,8 @@ define root view entity ZI_SD_STATUS_PEDIDO
 
       _FlowRemessa.CreationDate, //dt ordem de frete
 
-      _FlowRemessa.CreationDate               as CreationDateFatura,
+//            _FlowRemessa.CreationDate               as CreationDateFatura,
+      _FlowRemessa.CreationDateFatura,
       //      _FlowRemessa.BillingDocument,
       _FlowRemessa.BR_NFeNumber,
       _FlowRemessa.BR_NFAuthenticationDate,

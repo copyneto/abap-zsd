@@ -15,12 +15,7 @@ define view entity ZI_SD_DT_ETG_PREST_CONTAS
 {
   key Ev.TransportationOrderUUID,
       Ev.TranspOrdExecution,
-      Ev.TranspOrdEvtActualDateTime,
-      tstmp_to_dats( Ev.TranspOrdEvtActualDateTime,
-                      abap_user_timezone(   $session.user,
-                                            $session.client,'NULL' ) ,
-                                            $session.client, 'NULL' ) as TranspOrdEvtActualDate
-
+      max(Ev.TranspOrdEvtActualDateTime) as LastDate
 }
 where
   (
@@ -30,5 +25,4 @@ where
 
 group by
   TransportationOrderUUID,
-  TranspOrdExecution,
-  TranspOrdEvtActualDateTime
+  TranspOrdExecution

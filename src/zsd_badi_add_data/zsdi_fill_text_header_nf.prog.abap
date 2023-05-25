@@ -62,6 +62,18 @@
      SORT lt_nfetx BY seqnum DESCENDING.
    ENDIF.
 
+* LSCHEPP - SD - 8000007675 - Junç itens Mens diferid e bc icms incorr - 24.05.2023 Início
+   REFRESH: lt_mont_dif,
+            lt_fcp_values.
+   LOOP AT it_nflin ASSIGNING FIELD-SYMBOL(<fs_nflin1>).
+     INCLUDE zsdi_calc_montante_diferido IF FOUND.
+* LSCHEPP - SD - 8000007840 - Quebra de lote - Total FCP e reembolso - 24.05.2023 Início
+     INCLUDE zsdi_soma_add_fcp_text IF FOUND.
+* LSCHEPP - SD - 8000007840 - Quebra de lote - Total FCP e reembolso - 24.05.2023 Fim
+   ENDLOOP.
+   SORT lt_mont_dif BY matnr.
+   SORT lt_fcp_values BY itmnum taxtyp.
+* LSCHEPP - SD - 8000007675 - Junç itens Mens diferid e bc icms incorr - 24.05.2023 Fim
 
    DATA(lt_nflin_group_batch) = it_nflin.
    DATA(lt_itens_adicional) = ct_itens_adicional.

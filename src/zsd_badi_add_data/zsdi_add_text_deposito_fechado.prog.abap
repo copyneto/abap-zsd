@@ -256,8 +256,21 @@
         DATA(ls_partner) = it_partner[ parvw = 'ZD' ].
         SEARCH cs_header-infcpl FOR TEXT-t10.
         IF sy-subrc NE 0.
+* LSCHEPP - SD - 8000007730 - Tag local de entrega e dados adicionais - 23.05.2023 Início
+          SELECT SINGLE a~street, a~house_num1
+            FROM adrc AS a
+            INNER JOIN kna1 AS b ON a~addrnumber = b~adrnr
+            INTO ( @DATA(lv_street), @DATA(lv_house_num1) )
+            WHERE b~kunnr EQ @ls_partner-parid.
+          IF sy-subrc EQ 0.
+            DATA(lv_rua_nro) = CONV char200( |{ lv_street }, { lv_house_num1 }| ).
+          ENDIF.
+* LSCHEPP - SD - 8000007730 - Tag local de entrega e dados adicionais - 23.05.2023 Fim
           cs_header-infcpl = |{ cs_header-infcpl } { TEXT-t10 }|.
-          cs_header-infcpl = |{ cs_header-infcpl } { ls_partner-stras }, { ls_partner-ort02 }, |.
+* LSCHEPP - SD - 8000007730 - Tag local de entrega e dados adicionais - 23.05.2023 Início
+*          cs_header-infcpl = |{ cs_header-infcpl } { ls_partner-stras }, { ls_partner-ort02 }, |.
+          cs_header-infcpl = |{ cs_header-infcpl } { lv_rua_nro }, { ls_partner-ort02 }, |.
+* LSCHEPP - SD - 8000007730 - Tag local de entrega e dados adicionais - 23.05.2023 Início
           cs_header-infcpl = |{ cs_header-infcpl } { ls_partner-ort01 } { ls_partner-regio }, |.
           cs_header-infcpl = |{ cs_header-infcpl } { ls_partner-pstlz } -|.
           cs_header-infcpl = |{ cs_header-infcpl } CNPJ: { ls_partner-cgc  }, |.
@@ -298,7 +311,10 @@
 
             CLEAR lv_linha.
             lv_linha = TEXT-t10.
-            lv_linha = |{ lv_linha } { ls_partner-stras }, { ls_partner-ort02 }, |.
+* LSCHEPP - SD - 8000007730 - Tag local de entrega e dados adicionais - 23.05.2023 Início
+*            lv_linha = |{ lv_linha } { ls_partner-stras }, { ls_partner-ort02 }, |.
+            lv_linha = |{ lv_linha } { lv_rua_nro }, { ls_partner-ort02 }, |.
+* LSCHEPP - SD - 8000007730 - Tag local de entrega e dados adicionais - 23.05.2023 Fim
             lv_linha = |{ lv_linha } { ls_partner-ort01 } { ls_partner-regio }, |.
             lv_linha = |{ lv_linha } { ls_partner-pstlz } -|.
             lv_linha = |{ lv_linha } CNPJ: { ls_partner-cgc  }, |.

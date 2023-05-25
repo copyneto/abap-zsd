@@ -2,16 +2,22 @@
 *& Include          ZSDI_CTRL_BLOQUEIO_REMESSA
 *&---------------------------------------------------------------------*
 
-CONSTANTS:                                                "8000006102
-  lc_module_sd       TYPE ze_param_modulo  VALUE 'SD',       "8000006102
-  lc_parameter_wevo  TYPE ze_param_chave   VALUE 'WEVO',     "8000006102
-  lc_parameter_augru TYPE ze_param_chave   VALUE 'AUGRU',    "8000006102
-  lc_parameter_devol TYPE ze_param_chave_3 VALUE 'DEVOL'.    "8000006102
+CONSTANTS:                                                  "8000006102
+  lc_module_sd       TYPE ze_param_modulo  VALUE 'SD',      "8000006102
+  lc_parameter_wevo  TYPE ze_param_chave   VALUE 'WEVO',    "8000006102
+  lc_parameter_augru TYPE ze_param_chave   VALUE 'AUGRU',   "8000006102
+  lc_parameter_devol TYPE ze_param_chave_3 VALUE 'DEVOL'.   "8000006102
 
-DATA:                                                     "8000006102
-  parameter_value TYPE augru.                             "8000006102
+DATA:                                                       "8000006102
+  parameter_value TYPE augru.                               "8000006102
 
 IF t180-trtyp = 'H'.
+
+* LSCHEPP - SD - 8000007558 - Cancelamento pedido Ecomm - 23.05.2023 Início
+  IF vbak-faksk EQ '15'.
+    MESSAGE e014(zsd).
+  ENDIF.
+* LSCHEPP - SD - 8000007558 - Cancelamento pedido Ecomm - 23.05.2023 Fim
 
   ">>> 8000006102: Bloqueio remessa - FURTO/EXTRAVIO
   TRY.

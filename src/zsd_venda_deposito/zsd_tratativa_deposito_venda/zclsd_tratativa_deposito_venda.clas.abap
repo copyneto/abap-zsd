@@ -93,6 +93,12 @@ CLASS ZCLSD_TRATATIVA_DEPOSITO_VENDA IMPLEMENTATION.
       SORT gt_ctr_dep BY auart bsark.
       READ TABLE gt_ctr_dep ASSIGNING FIELD-SYMBOL(<fs_ctr_dep>) WITH KEY auart = gs_vbak-auart
                                                                           bsark = gs_vbkd-bsark
+* LSCHEPP - SD - 8000007852 - [YD62]Trazendo_DP_1019_divergente_2601 - 24.05.2023 Início
+                                                                          kunnr = space
+                                                                          augru = space
+                                                                          matkl = space
+                                                                          werks = space
+* LSCHEPP - SD - 8000007852 - [YD62]Trazendo_DP_1019_divergente_2601 - 24.05.2023 Fim
                                                                           BINARY SEARCH.
       IF sy-subrc IS INITIAL.
         gs_vbap-lgort = <fs_ctr_dep>-lgort.
@@ -103,6 +109,12 @@ CLASS ZCLSD_TRATATIVA_DEPOSITO_VENDA IMPLEMENTATION.
     SORT gt_ctr_dep BY auart kunnr.
     READ TABLE gt_ctr_dep ASSIGNING <fs_ctr_dep> WITH KEY auart = gs_vbak-auart
                                                           kunnr = gs_vbak-kunnr
+* LSCHEPP - SD - 8000007852 - [YD62]Trazendo_DP_1019_divergente_2601 - 24.05.2023 Início
+                                                          bsark = space
+                                                          augru = space
+                                                          matkl = space
+                                                          werks = space
+* LSCHEPP - SD - 8000007852 - [YD62]Trazendo_DP_1019_divergente_2601 - 24.05.2023 Fim
                                                           BINARY SEARCH.
     IF sy-subrc IS INITIAL.
       gs_vbap-lgort = <fs_ctr_dep>-lgort.
@@ -114,6 +126,11 @@ CLASS ZCLSD_TRATATIVA_DEPOSITO_VENDA IMPLEMENTATION.
       READ TABLE gt_ctr_dep ASSIGNING <fs_ctr_dep> WITH KEY auart = gs_vbak-auart
                                                             matkl = gs_vbap-matkl
                                                             werks = lv_werks
+* LSCHEPP - SD - 8000007852 - [YD62]Trazendo_DP_1019_divergente_2601 - 24.05.2023 Início
+                                                            kunnr = space
+                                                            bsark = space
+                                                            augru = space
+* LSCHEPP - SD - 8000007852 - [YD62]Trazendo_DP_1019_divergente_2601 - 24.05.2023 Fim
                                                             BINARY SEARCH.
       IF sy-subrc IS INITIAL.
         gs_vbap-lgort = <fs_ctr_dep>-lgort.
@@ -125,6 +142,12 @@ CLASS ZCLSD_TRATATIVA_DEPOSITO_VENDA IMPLEMENTATION.
       SORT gt_ctr_dep BY auart augru.
       READ TABLE gt_ctr_dep ASSIGNING <fs_ctr_dep> WITH KEY auart = gs_vbak-auart
                                                             augru = gs_vbak-augru
+* LSCHEPP - SD - 8000007852 - [YD62]Trazendo_DP_1019_divergente_2601 - 24.05.2023 Início
+                                                            matkl = space
+                                                            werks = space
+                                                            kunnr = space
+                                                            bsark = space
+* LSCHEPP - SD - 8000007852 - [YD62]Trazendo_DP_1019_divergente_2601 - 24.05.2023 Fim
                                                             BINARY SEARCH.
       IF sy-subrc IS INITIAL.
         gs_vbap-lgort = <fs_ctr_dep>-lgort.
@@ -136,6 +159,12 @@ CLASS ZCLSD_TRATATIVA_DEPOSITO_VENDA IMPLEMENTATION.
       SORT gt_ctr_dep BY auart werks.
       READ TABLE gt_ctr_dep ASSIGNING <fs_ctr_dep> WITH KEY auart = gs_vbak-auart
                                                             werks = lv_werks
+* LSCHEPP - SD - 8000007852 - [YD62]Trazendo_DP_1019_divergente_2601 - 24.05.2023 Início
+                                                            matkl = space
+                                                            augru = space
+                                                            kunnr = space
+                                                            bsark = space
+* LSCHEPP - SD - 8000007852 - [YD62]Trazendo_DP_1019_divergente_2601 - 24.05.2023 Fim
                                                             BINARY SEARCH.
       IF sy-subrc IS INITIAL.
         gs_vbap-lgort = <fs_ctr_dep>-lgort.
@@ -146,6 +175,13 @@ CLASS ZCLSD_TRATATIVA_DEPOSITO_VENDA IMPLEMENTATION.
 
     SORT gt_ctr_dep BY auart.
     READ TABLE gt_ctr_dep ASSIGNING <fs_ctr_dep> WITH KEY auart = gs_vbak-auart
+* LSCHEPP - SD - 8000007852 - [YD62]Trazendo_DP_1019_divergente_2601 - 24.05.2023 Início
+                                                          werks = space
+                                                          matkl = space
+                                                          augru = space
+                                                          kunnr = space
+                                                          bsark = space
+* LSCHEPP - SD - 8000007852 - [YD62]Trazendo_DP_1019_divergente_2601 - 24.05.2023 Fim
                                                           BINARY SEARCH.
     IF sy-subrc IS INITIAL.
       gs_vbap-lgort = <fs_ctr_dep>-lgort.

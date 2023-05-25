@@ -112,7 +112,8 @@
                   SELECT SINGLE code
                     FROM j_1bnfe_active
                     INTO @DATA(lv_status)
-                    WHERE docnum = @lv_docnum.
+                    WHERE docnum EQ @lv_docnum
+                      AND nfnum9 NE @space.
                   IF sy-subrc EQ 0.
                     DO 90 TIMES.
                       CASE lv_status.

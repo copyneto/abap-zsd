@@ -143,7 +143,6 @@ define root view entity ZI_SD_REL_FISCAL_SAIDA_APP
     left outer to one join t001w                                           as _RegioOrigem       on _RegioOrigem.werks = _Lin.Plant
 
 
-
     left outer join        ZI_SD_REL_FISCAL_SAIDA_VPRS                     as _ValorVPRS         on  _ValorVPRS.vbeln = _OutboundDelivery.vbeln
                                                                                                  and _ValorVPRS.posnr = _OutboundDelivery.posnr
 
@@ -247,7 +246,8 @@ define root view entity ZI_SD_REL_FISCAL_SAIDA_APP
       //_Partner.parid                                                                                               as Cliente,
       case when length(_Doc.BR_NFPartnerName1) > 0 then _Doc.BR_NFPartnerName1 else _Customer.CustomerName end                                                         as NomeCliente,
       //_Doc.BR_NFPartnerRegionCode                                                                                                                                      as UFDestino,
-      _Cust.Region                                                                                                                                                     as UFDestino,
+      //_Cust.Region                                                                                                                                                     as UFDestino,
+      case when _Doc.BR_NFType = 'YC' then _Doc.BR_NFPartnerRegionCode else _Cust.Region end                                                                                    as UFDestino,
       _Doc.BR_NFPartnerTaxJurisdiction                                                                                                                                 as DomicilioFiscal,
       _SalesOrder.SalesOffice                                                                                                                                          as EscritorioVendas,
       _Lin.MaterialGroup                                                                                                                                               as GrupoMercadorias,

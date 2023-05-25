@@ -450,6 +450,17 @@ CLASS ZCLSD_CMDLOC_DEVOL_MERCADORIA IMPLEMENTATION.
     DATA: lt_conditions_in  TYPE STANDARD TABLE OF bapicond,
           lt_conditions_inx TYPE STANDARD TABLE OF bapicondx.
 
+    DATA: ls_xvbak TYPE tds_xvbak.
+
+    IF is_vbak IS INITIAL.
+      SELECT SINGLE *
+      FROM vbak
+      WHERE vbeln EQ @is_key-contrato
+      INTO @ls_xvbak.
+    ELSE.
+      ls_xvbak = is_vbak.
+    ENDIF.
+
     IF it_vbap[] IS INITIAL.
 
       SELECT vbak~erdat,
@@ -609,7 +620,7 @@ CLASS ZCLSD_CMDLOC_DEVOL_MERCADORIA IMPLEMENTATION.
             <fs_vbak>-abgru = <fs_vbap>-abgru.
           ENDIF.
 
-          <fs_vbak>-vsbed = is_vbak-vsbed.
+          <fs_vbak>-vsbed = ls_xvbak-vsbed.
 
           lt_itens = VALUE #( BASE lt_itens ( vbeln = <fs_vbap>-vbeln
                                               posnr = <fs_vbap>-posnr
@@ -641,7 +652,7 @@ CLASS ZCLSD_CMDLOC_DEVOL_MERCADORIA IMPLEMENTATION.
       DATA(ls_vbak_ref) = VALUE #( lt_vbak[ 1 ] OPTIONAL ).
 
       IF ls_vbak_ref-vtweg = gc_const-vtweg_macro
-     AND is_vbak-bsark <> gc_const-bsark_carg
+     AND ls_xvbak-bsark <> gc_const-bsark_carg
      AND ( ls_vbak_ref-auart = gc_const-auart_z023 OR
            ls_vbak_ref-auart = gc_const-auart_z024 ).
 
@@ -769,7 +780,7 @@ CLASS ZCLSD_CMDLOC_DEVOL_MERCADORIA IMPLEMENTATION.
           "lv_xblnr = is_key-nfesaida.
         ENDIF.
 
-      ELSEIF is_vbak-bsark = gc_const-bsark_carg. "Contratos via CARGA
+      ELSEIF ls_xvbak-bsark = gc_const-bsark_carg. "Contratos via CARGA
 
         READ TABLE lt_itens ASSIGNING FIELD-SYMBOL(<fs_item_carg>) INDEX 1.
 
@@ -863,7 +874,7 @@ CLASS ZCLSD_CMDLOC_DEVOL_MERCADORIA IMPLEMENTATION.
                                          iv_vtweg        = ls_vbak->vtweg
                                          iv_abgru        = ls_vbak->abgru
                                          "iv_fatura       = is_key-fatura
-                                         iv_fatura       = COND #( WHEN is_vbak-bsark EQ gc_const-bsark_carg
+                                         iv_fatura       = COND #( WHEN ls_xvbak-bsark EQ gc_const-bsark_carg
                                                                        THEN is_key-contrato
                                                                        ELSE is_key-fatura )
                                          iv_xblnr        = lv_xblnr
@@ -1220,9 +1231,10 @@ CLASS ZCLSD_CMDLOC_DEVOL_MERCADORIA IMPLEMENTATION.
 
               ls_goodsmvt_header = VALUE #( "pstng_date    = ls_doc-pstdat
                                             pstng_date    = sy-datum
-                                            doc_date      = COND #( WHEN is_vbak-bsark EQ gc_const-bsark_carg
-                                                                       THEN sy-datum
-                                                                       ELSE ls_doc-docdat )
+*                                            doc_date      = COND #( WHEN is_vbak-bsark EQ gc_const-bsark_carg
+*                                                                       THEN sy-datum
+*                                                                       ELSE ls_doc-docdat )
+                                            doc_date      = sy-datum
                                             ref_doc_no    = COND #( WHEN is_vbak-bsark EQ gc_const-bsark_carg
                                                                        THEN lv_nfe
                                                                        ELSE ls_doc-nfenum && ls_doc-series )

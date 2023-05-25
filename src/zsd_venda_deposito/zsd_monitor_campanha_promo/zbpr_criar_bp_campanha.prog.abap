@@ -20,10 +20,10 @@ TABLES: ztsd_sint_proces.
 *----------------------------------------------------------------------*
 * TELA DE SELEÇÃO
 *----------------------------------------------------------------------*
-  SELECTION-SCREEN BEGIN OF BLOCK b1 WITH FRAME TITLE TEXT-001.
-    SELECT-OPTIONS: s_id FOR ztsd_sint_proces-id,
-                    s_pr FOR ztsd_sint_proces-promocao.
-  SELECTION-SCREEN END OF BLOCK b1.
+SELECTION-SCREEN BEGIN OF BLOCK b1 WITH FRAME TITLE TEXT-001.
+  SELECT-OPTIONS: s_id FOR ztsd_sint_proces-id,
+                  s_pr FOR ztsd_sint_proces-promocao.
+SELECTION-SCREEN END OF BLOCK b1.
 
 START-OF-SELECTION.
 

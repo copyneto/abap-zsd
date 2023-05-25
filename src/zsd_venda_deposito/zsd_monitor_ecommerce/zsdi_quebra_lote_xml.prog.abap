@@ -10,7 +10,9 @@
      check_coligada( is_header ) IS INITIAL.
     DATA(ls_nflin_index1) = VALUE #( it_nflin[ 1 ] OPTIONAL ).
 
-    IF ls_nflin_index1-itmtyp <> '2'.
+    IF ls_nflin_index1-itmtyp <> '2'  AND
+       ls_nflin_index1-itmtyp <> '72' AND                     "Inclusão de condição para Comodato - VARAUJO 23.05.2023 - Def. 8000007682
+       ls_nflin_index1-itmtyp <> '75'.                        "Inclusão de condição para Locação  - VARAUJO 24.05.2023 - Def. 8000007649
       ASSIGN ('(SAPLJ1BF)WA_NF_LIN[]') TO <fs_wa_nf_lin_xml>.
       ASSIGN ('(SAPLJ1BF)WA_NF_STX[]') TO <fs_wa_nf_stx_xml>.
       IF <fs_wa_nf_lin_xml> IS ASSIGNED AND <fs_wa_nf_stx_xml> IS ASSIGNED.

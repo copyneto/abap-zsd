@@ -43,6 +43,16 @@ IF NOT lt_vbrk IS INITIAL.
     ENDIF.
   ENDLOOP.
 
+* LSCHEPP - SD - 8000007643 - Ordens YR74 e YR75 não estão contabiliza - 23.05.2023 Início
+ELSE.
+
+  LOOP AT xaccit ASSIGNING <fs_xaccit2> WHERE posnr LT '0000001000'.
+    IF NOT <fs_xaccit2>-rebzg IS INITIAL.
+      <fs_xaccit2>-rebzg_check = 'N'.
+    ENDIF.
+  ENDLOOP.
+* LSCHEPP - SD - 8000007643 - Ordens YR74 e YR75 não estão contabiliza - 23.05.2023 Fim
+
 * LSCHEPP - SD - 8000007176 - Erro docto contábil - Devoluções - 11.05.2023 Início
 ENDIF.
 * LSCHEPP - SD - 8000007176 - Erro docto contábil - Devoluções - 11.05.2023 Fim

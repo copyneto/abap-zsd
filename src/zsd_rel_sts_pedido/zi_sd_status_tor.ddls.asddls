@@ -16,7 +16,8 @@ define view entity ZI_SD_STATUS_TOR
   _TorDrf.parent_key         as ParentKey,
   right( _TorDrf.btd_id, 10) as Remessa,
   _TorId.tor_id              as OrdemFrete,
-  _TorId.zz_motorista        as Motorista
+  _TorId.zz_motorista        as Motorista,
+  cast( _TorId.created_on    as abap.char(18) ) as DataOF
 
 }
 where

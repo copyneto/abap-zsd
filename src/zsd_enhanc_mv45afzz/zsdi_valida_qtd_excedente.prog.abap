@@ -83,12 +83,19 @@
                 IF sy-subrc EQ 0.
 
                   LOOP AT lt_vbfa ASSIGNING <fs_vbfa>.
+                    UNASSIGN <fs_xvbap>.
                     READ TABLE lt_xvbap ASSIGNING <fs_xvbap>
                     WITH KEY vbeln = <fs_vbfa>-vbeln
                              posnr = <fs_vbfa>-posnn BINARY SEARCH.
-                    IF sy-subrc EQ 0.
+*** Flávia leite- 8000007739 - 23.05.2023
+                    IF <fs_xvbap> IS NOT ASSIGNED AND sy-tcode EQ 'VA01'.
+                      READ TABLE lt_xvbap ASSIGNING <fs_xvbap>
+                      WITH KEY posnr = <fs_vbfa>-posnn BINARY SEARCH.
+                    ENDIF.
 
-
+                    IF <fs_xvbap> IS ASSIGNED.
+*                    IF sy-subrc EQ 0.
+*** Flávia leite- 8000007739 - 23.05.2023
                       IF <fs_vbfa>-meins <> <fs_xvbap>-zieme.
 
                         lv_quantidade = <fs_vbfa>-rfmng.
