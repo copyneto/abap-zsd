@@ -261,6 +261,12 @@
      <LANGU>P</LANGU>
      <DESCRIPT>Update SERNR do Contrato</DESCRIPT>
     </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>VALIDA_POSNR</CMPNAME>
+     <SCONAME>IV_POSNR</SCONAME>
+     <LANGU>P</LANGU>
+     <DESCRIPT>Item do documento de vendas</DESCRIPT>
+    </SEOSUBCOTX>
    </DESCRIPTIONS_SUB>
   </asx:values>
  </asx:abap>

@@ -113,33 +113,35 @@
 
   ENDDO.
 
-* LSCHEPP - SD - RM 1009 BC ICMSST reduzida MT/MT - 22.05.2023 Início
-  FIELD-SYMBOLS <fs_xkomv_t> TYPE tax_xkomv_tab.
-
-  IF ms_tax_data-subtribsurtype EQ '2'.
-    SELECT SINGLE rate
-      FROM j_1btxst3
-      INTO @DATA(lv_mva)
-      WHERE land1     EQ @ms_komk-aland
-        AND shipfrom  EQ @ms_komp-txreg_sf
-        AND shipto    EQ @ms_komp-txreg_st
-        AND value     EQ @ms_komp-matnr
-        AND value2    EQ @ms_komp-werks
-        AND validfrom GT @ms_komk-prsdt
-        AND validto   LE @ms_komk-prsdt
-        AND sur_type  EQ '2'.
-    IF sy-subrc EQ 0.
-      ASSIGN ('(SAPLV61A)XKOMV[]') TO <fs_xkomv_t>.
-      IF <fs_xkomv_t> IS ASSIGNED.
-        READ TABLE <fs_xkomv_t> ASSIGNING FIELD-SYMBOL(<fs_xkomv>) WITH KEY kposn = ms_komp-kposn
-                                                                            kschl = 'ICMO'.
-        IF sy-subrc EQ 0.
-          ev_amount = ms_tax_data-net_amount * ms_tax_data-icmsbase.
-          ev_amount = ev_amount * ( lv_mva / 100 ) + ev_amount.
-          ev_amount = ev_amount * iv_rate.
-          ev_amount = ev_amount - <fs_xkomv>-kawrt.
-        ENDIF.
-      ENDIF.
-    ENDIF.
-  ENDIF.
-* LSCHEPP - SD - RM 1009 BC ICMSST reduzida MT/MT - 22.05.2023 Fim
+* LSCHEPP - SD - 8000007511 - RM 1009 BC ICMSST reduzida MT/MT - 30.05.2023 Início
+***  FIELD-SYMBOLS <fs_xkomv_t> TYPE tax_xkomv_tab.
+***
+***  IF ms_tax_data-subtribsurtype EQ '3' AND
+***    ( ms_komp-txreg_sf = 'MT' AND ms_komp-txreg_st = 'MT' ).
+***
+***    SELECT SINGLE rate
+***      FROM j_1btxst3
+***      INTO @DATA(lv_mva)
+***      WHERE land1     EQ @ms_komk-aland
+***        AND shipfrom  EQ @ms_komp-txreg_sf
+***        AND shipto    EQ @ms_komp-txreg_st
+***        AND value     EQ @ms_komp-matnr
+***        AND value2    EQ @ms_komp-werks
+***        AND validfrom GT @ms_komk-prsdt
+***        AND validto   LE @ms_komk-prsdt
+***        AND sur_type  EQ '3'.
+***    IF sy-subrc EQ 0.
+***      ASSIGN ('(SAPLV61A)XKOMV[]') TO <fs_xkomv_t>.
+***      IF <fs_xkomv_t> IS ASSIGNED.
+***        READ TABLE <fs_xkomv_t> ASSIGNING FIELD-SYMBOL(<fs_xkomv>) WITH KEY kposn = ms_komp-kposn
+***                                                                            kschl = 'ICMO'.
+***        IF sy-subrc EQ 0.
+***          ev_amount = ms_tax_data-net_amount * ms_tax_data-icmsbase.
+***          ev_amount = ev_amount * ( lv_mva / 100 ) + ev_amount.
+***          ev_amount = ev_amount * iv_rate.
+***          ev_amount = ev_amount - <fs_xkomv>-kawrt.
+***        ENDIF.
+***      ENDIF.
+***    ENDIF.
+***  ENDIF.
+* LSCHEPP - SD - 8000007511 - RM 1009 BC ICMSST reduzida MT/MT - 30.05.2023 Fim

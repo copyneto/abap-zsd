@@ -19,7 +19,7 @@ define view entity ZI_SD_COMODATO_LAST_VBFA
 }
 where
       fplnr   is not initial
-  and vbtyp_n = 'M'
+  and  ( vbtyp_n = 'M' or vbtyp_n = 'P' )
   and fktyp   = 'D'
 group by
   vbelv,

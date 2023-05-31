@@ -17,7 +17,7 @@ define view entity ZI_SD_REL_MATERIAL_TERC
     left outer join I_BR_NFDocumentFlow_C as _NFDocumentFlow      on  _NFDocumentFlow.ReferenceDocument     = _BillingDocumentItem.BillingDocument
                                                                   and _NFDocumentFlow.ReferenceDocumentItem = _BillingDocumentItem.BillingDocumentItem
 
-  //association [0..1] to I_BR_NFDocument                as _NFDocument          on _NFDocument.BR_NotaFiscal = $projection.BR_NotaFiscal
+   //association [0..1] to I_BR_NFDocument                as _NFDocument          on _NFDocument.BR_NotaFiscal = $projection.BR_NotaFiscal
 
   association [0..1] to I_BR_NFItem                    as _NFItem              on (
                   _NFItem.BR_NotaFiscal         = _NFDocumentFlow.BR_NotaFiscal
@@ -77,8 +77,8 @@ define view entity ZI_SD_REL_MATERIAL_TERC
               else ' '
             end                                                                  as ReferenceDocument,
 
-            DocMaterial.StorageLocation,
-
+//            DocMaterial.StorageLocation,
+            _BillingDocumentItem.StorageLocation,
             _BillingDocumentItem.BillingDocument,
             
             _BillingDocumentItem._BillingDocument.BillingDocumentType,
@@ -95,7 +95,7 @@ define view entity ZI_SD_REL_MATERIAL_TERC
 
             DocMaterial.MaterialBaseUnit,
 
-            cast(_NFItem._BR_NotaFiscal.BR_NFTotalAmount as logbr_nftotalamount) as BR_NFTotalAmount,
+            cast(_NFItem.BR_NFTotalAmount as logbr_nftotalamount) as BR_NFTotalAmount,
 
 
             COALESCE( _NFItem._BR_NotaFiscal.BR_NFIsCanceled, ' ' )              as NFCanceled,

@@ -72,7 +72,7 @@
 * LSCHEPP - SD - 8000007840 - Quebra de lote - Total FCP e reembolso - 24.05.2023 Fim
    ENDLOOP.
    SORT lt_mont_dif BY matnr.
-   SORT lt_fcp_values BY itmnum taxtyp.
+   SORT lt_fcp_values BY matnr taxtyp.
 * LSCHEPP - SD - 8000007675 - Junç itens Mens diferid e bc icms incorr - 24.05.2023 Fim
 
    DATA(lt_nflin_group_batch) = it_nflin.
@@ -100,6 +100,7 @@
                IF ls_nflin_group_batch-itmnum <> ls_nflin_batch-itmnum.
                  <fs_item_adicional_x>-vbcstret  = <fs_item_adicional_x>-vbcstret  + ls_item_adicional-vbcstret.
                  <fs_item_adicional_x>-vbcefet   = <fs_item_adicional_x>-vbcefet   + ls_item_adicional-vbcefet.
+                 <fs_item_adicional_x>-vicmsstret   = <fs_item_adicional_x>-vicmsstret   + ls_item_adicional-vicmsstret.
                ENDIF.
              ENDIF.
            ENDLOOP.

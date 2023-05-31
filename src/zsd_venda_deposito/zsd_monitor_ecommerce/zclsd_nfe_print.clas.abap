@@ -19,7 +19,7 @@ ENDCLASS.
 
 
 
-CLASS zclsd_nfe_print IMPLEMENTATION.
+CLASS ZCLSD_NFE_PRINT IMPLEMENTATION.
 
 
   METHOD if_ex_cl_nfe_print~call_rsnast00.
@@ -289,8 +289,12 @@ CLASS zclsd_nfe_print IMPLEMENTATION.
             ls_item_aux-x_vissqn        = ls_item_aux-x_vissqn        + ls_item-x_vissqn.
 
             ls_item_aux-vicmssubstituto = ls_item-vicmssubstituto."ls_item_aux-vicmssubstituto + ls_item-vicmssubstituto.
-            ls_item_aux-vbcfcpstret     = ls_item-vbcfcpstret.    "ls_item_aux-vbcfcpstret     + ls_item-vbcfcpstret.
-            ls_item_aux-vfcpstret       = ls_item-vfcpstret.      "ls_item_aux-vfcpstret       + ls_item-vfcpstret.
+* LSCHEPP - SD - 8000007872 - Quebra de lote Val incor Tag ICMS retid - 25.05.2023 Início
+*            ls_item_aux-vbcfcpstret     = ls_item-vbcfcpstret.    "ls_item_aux-vbcfcpstret     + ls_item-vbcfcpstret.
+*            ls_item_aux-vfcpstret       = ls_item-vfcpstret.      "ls_item_aux-vfcpstret       + ls_item-vfcpstret.
+            ls_item_aux-vbcfcpstret     = ls_item_aux-vbcfcpstret     + ls_item-vbcfcpstret.
+            ls_item_aux-vfcpstret       = ls_item_aux-vfcpstret       + ls_item-vfcpstret.
+* LSCHEPP - SD - 8000007872 - Quebra de lote Val incor Tag ICMS retid - 25.05.2023 Fim
             ls_item_aux-vbcefet         = ls_item-vbcefet.        "ls_item_aux-vbcefet         + ls_item-vbcefet.
             ls_item_aux-vicmsefet       = ls_item-vicmsefet.      "ls_item_aux-vicmsefet       + ls_item-vicmsefet.
 
@@ -446,6 +450,7 @@ CLASS zclsd_nfe_print IMPLEMENTATION.
 
   METHOD if_ex_cl_nfe_print~fill_add_inflin.
   ENDMETHOD.
+
 
   METHOD check_coligada.
     DATA ls_zcgc_coligada TYPE t001w.

@@ -232,76 +232,88 @@ define root view entity ZI_SD_REL_FISCAL_SAIDA_APP
 {
 
       //  key _Lin.BR_NotaFiscal                                                                                           as NumDocumento,
-  key _Lin.BR_NotaFiscal                                                                                                                                               as NotaFiscal,
-  key _Lin.BR_NotaFiscalItem                                                                                                                                           as ItemNF,
+  key _Lin.BR_NotaFiscal                                                                                               as NotaFiscal,
+  key _Lin.BR_NotaFiscalItem                                                                                           as ItemNF,
       //  _Lin.BR_NotaFiscal                                                                                           as NumDocumento,
-      _Doc.BR_NFType                                                                                                                                                   as CategNF,
-      _Doc.BR_NFIsCreatedManually                                                                                                                                      as NFIsCreatedManually,
+      _Doc.BR_NFType                                                                                                   as CategNF,
+      _Doc.BR_NFIsCreatedManually                                                                                      as NFIsCreatedManually,
       //      _Doc.BR_NFNumber                                                                                       as NumNF,
-      _NFeACtive.BR_NFeNumber                                                                                                                                          as NumNF,
+      _NFeACtive.BR_NFeNumber                                                                                          as NumNF,
       //      _NFeACtive.BR_NFeNumber                                                                                      as NotaFiscal,
-      _Doc.BR_NFPostingDate                                                                                                                                            as DtLancamentoNF,
-      _Doc.BusinessPlace                                                                                                                                               as LocalNegocios,
-      _Doc.BR_NFPartner                                                                                                                                                as Cliente,
+      _Doc.BR_NFPostingDate                                                                                            as DtLancamentoNF,
+      _Doc.BusinessPlace                                                                                               as LocalNegocios,
+      _Doc.BR_NFPartner                                                                                                as Cliente,
       //_Partner.parid                                                                                               as Cliente,
-      case when length(_Doc.BR_NFPartnerName1) > 0 then _Doc.BR_NFPartnerName1 else _Customer.CustomerName end                                                         as NomeCliente,
+      case when length(_Doc.BR_NFPartnerName1) > 0 then _Doc.BR_NFPartnerName1 else _Customer.CustomerName end         as NomeCliente,
       //_Doc.BR_NFPartnerRegionCode                                                                                                                                      as UFDestino,
       //_Cust.Region                                                                                                                                                     as UFDestino,
-      case when _Doc.BR_NFType = 'YC' then _Doc.BR_NFPartnerRegionCode else _Cust.Region end                                                                                    as UFDestino,
-      _Doc.BR_NFPartnerTaxJurisdiction                                                                                                                                 as DomicilioFiscal,
-      _SalesOrder.SalesOffice                                                                                                                                          as EscritorioVendas,
-      _Lin.MaterialGroup                                                                                                                                               as GrupoMercadorias,
+      case when _Cust.Region is initial or _Cust.Region is null then _Doc.BR_NFPartnerRegionCode else _Cust.Region end as UFDestino,
+      _Doc.BR_NFPartnerTaxJurisdiction                                                                                 as DomicilioFiscal,
+      _SalesOrder.SalesOffice                                                                                          as EscritorioVendas,
+      _Lin.MaterialGroup                                                                                               as GrupoMercadorias,
       //@Semantics.amount.currencyCode:'SalesDocumentCurrency'
       //@Aggregation.default:#SUM
       //      cast(_TaxIPI3.BR_NFItemTaxAmount as logbr_invoicenetamount)                                                                                                      as ValorIPI,
       case
         when _TaxIPI3.BR_NFItemTaxAmount is initial or _TaxIPI3.BR_NFItemTaxAmount is null
             then 0
+             when not _TaxIPI3.BR_NFItemIsStatisticalTax is initial
+                 then 0
             else cast(_TaxIPI3.BR_NFItemTaxAmount as abap.dec( 15, 2 ) ) end
              + case
+             when not _TaxIPI2.BR_NFItemIsStatisticalTax is initial
+                 then 0
                     when _TaxIPI2.BR_NFItemTaxAmount is initial or _TaxIPI2.BR_NFItemTaxAmount is null
                       then 0
                       else cast(_TaxIPI2.BR_NFItemTaxAmount as abap.dec( 15, 2 ) ) end
              + case
+                    when not _TaxIPI1.BR_NFItemIsStatisticalTax is initial
+                      then 0
                     when _TaxIPI1.BR_NFItemTaxAmount is initial or _TaxIPI1.BR_NFItemTaxAmount is null
                       then 0
-                      else cast(_TaxIPI1.BR_NFItemTaxAmount as abap.dec( 15, 2 ) ) end                                                                                 as ValorIPI,
-      _Lin.BR_ICMSSTMarginAddedPercent                                                                                                                                 as MVA,
+                      else cast(_TaxIPI1.BR_NFItemTaxAmount as abap.dec( 15, 2 ) ) end                                 as ValorIPI,
+      //_Lin.BR_ICMSSTMarginAddedPercent                                                                                 as MVA,
+      case
+              when not _TaxICM3.BR_NFItemIsStatisticalTax is initial
+                  then 0
+              else
+                  _Lin.BR_ICMSSTMarginAddedPercent
+            end                                                                                                        as MVA,
       //      _DescTip.icmstaxpay                                                                                          as ContribuinteICMS,
-      _Partner.icmstaxpay                                                                                                                                              as ContribuinteICMS,
+      _Partner.icmstaxpay                                                                                              as ContribuinteICMS,
       _Partner.j_1bicmstaxpayx,
-      _Lin.Material                                                                                                                                                    as Material,
-      _Lin.MaterialName                                                                                                                                                as Descricao,
+      _Lin.Material                                                                                                    as Material,
+      _Lin.MaterialName                                                                                                as Descricao,
       //      @Semantics.quantity.unitOfMeasure: 'MaterialWeightUnit'
-      cast (_Material.MaterialGrossWeight as logbr_nfe_tax_base_quantity )                                                                                             as MaterialGrossWeight,
+      cast (_Material.MaterialGrossWeight as logbr_nfe_tax_base_quantity )                                             as MaterialGrossWeight,
       _Material.MaterialWeightUnit,
       //      @Semantics.amount.currencyCode:'SalesDocumentCurrency'
       //@Aggregation.default:#SUM
-      cast (_Lin.BR_NFFreightAmountWithTaxes as logbr_invoicenetamount)                                                                                                as Frete,
-      _Doc.BR_NFPartnerCityName                                                                                                                                        as Municipio,
+      cast (_Lin.BR_NFFreightAmountWithTaxes as logbr_invoicenetamount)                                                as Frete,
+      _Doc.BR_NFPartnerCityName                                                                                        as Municipio,
       //      @Semantics.quantity.unitOfMeasure:'BaseUnit'
       //@Aggregation.default:#SUM
-      cast (_Lin.QuantityInBaseUnit as  logbr_nfe_tax_base_quantity )                                                                                                  as QtdConfNFEmitida,
+      cast (_Lin.QuantityInBaseUnit as  logbr_nfe_tax_base_quantity )                                                  as QtdConfNFEmitida,
       _Lin.BaseUnit,
 
       //      @Semantics.quantity.unitOfMeasure:'BaseUnitKG'
       //      //@Aggregation.default:#SUM
       @ObjectModel.virtualElement: true
       @ObjectModel.virtualElementCalculatedBy: 'ABAP:ZCLSD_CONVERSION_KG'
-      cast( 0  as logbr_nfe_tax_base_quantity )                                                                                                                        as QuantityInBaseUnitKG,
+      cast( 0  as logbr_nfe_tax_base_quantity )                                                                        as QuantityInBaseUnitKG,
       // @Semantics.quantity.unitOfMeasure: 'BaseUnitKG'
       //      _ConversaoUN.umren                                                                                           as QuantityInBaseUnitKG,
 
       //      cast( 0 as abap.quan(13,3) )                                                                           as QuantityInBaseUnitKG,
-      _ConversaoKG.meinh                                                                                                                                               as BaseUnitKG,
+      _ConversaoKG.meinh                                                                                               as BaseUnitKG,
 
-      _Lin.NetPriceAmount                                                                                                                                              as PrecoUnitNF,
+      _Lin.NetPriceAmount                                                                                              as PrecoUnitNF,
       //@Semantics.quantity.unitOfMeasure:'BaseUnit'
       //      //@Aggregation.default:#SUM
       @ObjectModel.virtualElement: true
       @ObjectModel.virtualElementCalculatedBy: 'ABAP:ZCLSD_CONVERSION_UN'
-      cast( 0  as logbr_nfe_tax_base_quantity )                                                                                                                        as QtdUnVdaBasica,
-      _Lin.BR_CFOPCode                                                                                                                                                 as CFOP,
+      cast( 0  as logbr_nfe_tax_base_quantity )                                                                        as QtdUnVdaBasica,
+      _Lin.BR_CFOPCode                                                                                                 as CFOP,
       //      _Doc.BR_NFNetAmount                                                                                          as Valor,
       //            @Semantics.amount.currencyCode: 'SalesDocumentCurrency'
       @DefaultAggregation: #SUM
@@ -322,26 +334,34 @@ define root view entity ZI_SD_REL_FISCAL_SAIDA_APP
 
       // ICFP
                + case
+                      when not _TaxICFP.BR_NFItemIsStatisticalTax is initial
+                      then 0
                       when _TaxICFP.BR_NFItemTaxAmount is initial or _TaxICFP.BR_NFItemTaxAmount is null
                         then 0
                         else cast(_TaxICFP.BR_NFItemTaxAmount as abap.dec( 15, 2 ) ) end
 
       // IPI 0
-             + case when _TaxIPI0.BR_NFItemTaxAmount is initial or _TaxIPI0.BR_NFItemTaxAmount is null
+             + case               when not _TaxIPI0.BR_NFItemIsStatisticalTax is initial
+                  then 0
+                      when _TaxIPI0.BR_NFItemTaxAmount is initial or _TaxIPI0.BR_NFItemTaxAmount is null
                       then 0
                       else cast(_TaxIPI0.BR_NFItemTaxAmount as abap.dec( 15, 2 ) ) end
       // IPI 3
-             + case
+             + case              when not _TaxIPI3.BR_NFItemIsStatisticalTax is initial
+                  then 0
                     when _TaxIPI3.BR_NFItemTaxAmount is initial or _TaxIPI3.BR_NFItemTaxAmount is null
                       then 0
                       else cast(_TaxIPI3.BR_NFItemTaxAmount as abap.dec( 15, 2 ) ) end
       // IPI 2
-             + case
+             + case              when not _TaxIPI2.BR_NFItemIsStatisticalTax is initial
+                  then 0
                     when _TaxIPI2.BR_NFItemTaxAmount is initial or _TaxIPI2.BR_NFItemTaxAmount is null
                       then 0
                       else cast(_TaxIPI2.BR_NFItemTaxAmount as abap.dec( 15, 2 ) ) end
       // IPI 1
              + case
+                                  when not _TaxIPI1.BR_NFItemIsStatisticalTax is initial
+                  then 0
                     when _TaxIPI1.BR_NFItemTaxAmount is initial or _TaxIPI1.BR_NFItemTaxAmount is null
                       then 0
                       else cast(_TaxIPI1.BR_NFItemTaxAmount as abap.dec( 15, 2 ) )  end
@@ -362,16 +382,22 @@ define root view entity ZI_SD_REL_FISCAL_SAIDA_APP
       //                      else cast(_TaxICM3.BR_NFItemTaxAmount as abap.dec( 15, 2 ) ) end
       // ICS3
                + case
+                                    when not _TaxICS3.BR_NFItemIsStatisticalTax is initial
+                  then 0
                       when _TaxICS3.BR_NFItemTaxAmount is initial or _TaxICS3.BR_NFItemTaxAmount is null
                         then 0
                         else cast(_TaxICS3.BR_NFItemTaxAmount as abap.dec( 15, 2 ) ) end
       // ICS2
                    + case
+                                 when not _TaxICS2.BR_NFItemIsStatisticalTax is initial
+                  then 0
                           when _TaxICS2.BR_NFItemTaxAmount is initial or _TaxICS2.BR_NFItemTaxAmount is null
                             then 0
                             else cast(_TaxICS2.BR_NFItemTaxAmount as abap.dec( 15, 2 ) ) end
       // ICS1
                    + case
+                                        when not _TaxICS1.BR_NFItemIsStatisticalTax is initial
+                  then 0
                           when _TaxICS1.BR_NFItemTaxAmount is initial or _TaxICS1.BR_NFItemTaxAmount is null
                             then 0
                             else cast(_TaxICS1.BR_NFItemTaxAmount as abap.dec( 15, 2 ) ) end
@@ -404,12 +430,12 @@ define root view entity ZI_SD_REL_FISCAL_SAIDA_APP
        + case
               when _Lin.BR_NFNetDiscountAmount is initial or _Lin.BR_NFNetDiscountAmount is null
                 then 0
-                else _Lin.BR_NFNetDiscountAmount end                                                                                                                   as Valor,
+                else _Lin.BR_NFNetDiscountAmount end                                                                   as Valor,
 
       //      @Semantics.amount.currencyCode:'SalesDocumentCurrency'
       //@Aggregation.default:#SUM
       // cast( _Lin.NetValueAmount as logbr_invoicenetamount)
-      cast( _Lin.BR_NFValueAmountWithTaxes as logbr_invoicenetamount)                                                                                                  as ValorProdutos,
+      cast( _Lin.BR_NFValueAmountWithTaxes as logbr_invoicenetamount)                                                  as ValorProdutos,
 
       //      // ICM2
       //      + case
@@ -435,7 +461,7 @@ define root view entity ZI_SD_REL_FISCAL_SAIDA_APP
       //                else cast(_TaxICM1.BR_NFItemTaxAmount as abap.dec( 15, 2 ) ) end                                                                                       as ValorProdutos,
       @Semantics.amount.currencyCode:'SalesDocumentCurrency'
       //@Aggregation.default:#SUM
-      cast( _TaxIPI1.BR_NFItemTaxAmount as logbr_invoicenetamount)                                                                                                     as NFItemTaxAmountIPI1,
+      cast( _TaxIPI1.BR_NFItemTaxAmount as logbr_invoicenetamount)                                                     as NFItemTaxAmountIPI1,
       //      @Semantics.amount.currencyCode:'SalesDocumentCurrency'
       //      //@Aggregation.default:#SUM
       //      _Lin.BR_NFDiscountAmountWithTaxes                                                                      as DescFarelo,
@@ -465,7 +491,7 @@ define root view entity ZI_SD_REL_FISCAL_SAIDA_APP
                 when _Lin.MaterialGroup != 'FAR'
                     then cast( abs(_Lin.BR_NFDiscountAmountWithTaxes) as abap.dec(15,2) )
         end
-      end                                                                                                                                                              as DescIncond,
+      end                                                                                                              as DescIncond,
 
       //      fltp_to_dec(
       //
@@ -483,18 +509,20 @@ define root view entity ZI_SD_REL_FISCAL_SAIDA_APP
             then cast(_TaxICM3.BR_NFItemBaseAmount as logbr_invoicenetamount)
         else
             cast(_TaxICM2.BR_NFItemBaseAmount as logbr_invoicenetamount)
-      end                                                                                                                                                              as BaseICMS,
+      end                                                                                                              as BaseICMS,
 
 
       //@Aggregation.default:#SUM
       case
+        when not _TaxICM3.BR_NFItemIsStatisticalTax is initial
+            then 0
         when _TaxICM3.BR_NotaFiscal = _Lin.BR_NotaFiscal and ( _TaxZF.BR_NFItemTaxAmount is initial or _TaxZF.BR_NFItemTaxAmount is null )
             then cast(_TaxICM3.BR_NFItemTaxAmount as logbr_invoicenetamount)
         when _TaxICM3.BR_NotaFiscal = _Lin.BR_NotaFiscal and not _TaxZF.BR_NFItemTaxAmount is initial
             then 0
         else
             cast(_TaxICM2.BR_NFItemTaxAmount as logbr_invoicenetamount)
-      end                                                                                                                                                              as ValorICMS,
+      end                                                                                                              as ValorICMS,
 
 
 
@@ -516,22 +544,28 @@ define root view entity ZI_SD_REL_FISCAL_SAIDA_APP
             + case
                when _TaxICS1.BR_NFItemBaseAmount is initial or _TaxICS1.BR_NFItemBaseAmount is null
                   then 0
-                  else cast(_TaxICS1.BR_NFItemBaseAmount as abap.dec( 15, 2 ) ) end                                                                                    as BaseST,
+                  else cast(_TaxICS1.BR_NFItemBaseAmount as abap.dec( 15, 2 ) ) end                                    as BaseST,
       //      @Semantics.amount.currencyCode:'SalesDocumentCurrency'
       //@Aggregation.default:#SUM
       //      cast(_TaxICS3.BR_NFItemTaxAmount as logbr_invoicenetamount)                                                                                                      as ValorST,
       case
+               when not _TaxICS3.BR_NFItemIsStatisticalTax is initial
+                  then 0
         when _TaxICS3.BR_NFItemTaxAmount is initial or _TaxICS3.BR_NFItemTaxAmount is null
             then 0
             else cast(_TaxICS3.BR_NFItemTaxAmount as abap.dec( 15, 2 ) ) end
             + case
+               when not _TaxICS2.BR_NFItemIsStatisticalTax is initial
+                  then 0
                when _TaxICS2.BR_NFItemTaxAmount is initial or _TaxICS2.BR_NFItemTaxAmount is null
                   then 0
                   else cast(_TaxICS2.BR_NFItemTaxAmount as abap.dec( 15, 2 ) ) end
             + case
+               when not _TaxICS1.BR_NFItemIsStatisticalTax is initial
+                  then 0
                when _TaxICS1.BR_NFItemTaxAmount is initial or _TaxICS1.BR_NFItemTaxAmount is null
                   then 0
-                  else cast(_TaxICS1.BR_NFItemTaxAmount as abap.dec( 15, 2 ) ) end                                                                                     as ValorST,
+                  else cast(_TaxICS1.BR_NFItemTaxAmount as abap.dec( 15, 2 ) ) end                                     as ValorST,
 
       //      @Semantics.amount.currencyCode:'SalesDocumentCurrency'
 
@@ -543,7 +577,7 @@ define root view entity ZI_SD_REL_FISCAL_SAIDA_APP
                   then cast(_TaxIPI2.BR_NFItemBaseAmount as logbr_invoicenetamount)
         else
             cast(_TaxIPI3.BR_NFItemBaseAmount as logbr_invoicenetamount)
-      end                                                                                                                                                              as BaseIPI,
+      end                                                                                                              as BaseIPI,
 
 
       //@Aggregation.default:#SUM
@@ -554,7 +588,7 @@ define root view entity ZI_SD_REL_FISCAL_SAIDA_APP
                   then cast(_TaxIPSV.BR_NFItemTaxAmount as logbr_invoicenetamount)
         else
             cast(_TaxIPIS.BR_NFItemTaxAmount as logbr_invoicenetamount)
-      end                                                                                                                                                              as PIS,
+      end                                                                                                              as PIS,
 
       //@Aggregation.default:#SUM
       case
@@ -564,7 +598,7 @@ define root view entity ZI_SD_REL_FISCAL_SAIDA_APP
                   then cast(_TaxICOF.BR_NFItemTaxAmount as logbr_invoicenetamount)
         else
             cast(_TaxICOV.BR_NFItemTaxAmount as logbr_invoicenetamount)
-      end                                                                                                                                                              as COFINS,
+      end                                                                                                              as COFINS,
 
 
       //      //@Aggregation.default:#SUM
@@ -577,57 +611,57 @@ define root view entity ZI_SD_REL_FISCAL_SAIDA_APP
       //      cast(_TaxICON.BR_NFItemTaxAmount as logbr_invoicenetamount)                                                  as COFINS,
       //      @Semantics.amount.currencyCode:'SalesDocumentCurrency'
       //@Aggregation.default:#SUM
-      cast(_TaxICEP.BR_NFItemTaxAmount as logbr_invoicenetamount)                                                                                                      as ICMS_ICEP,
+      cast(_TaxICEP.BR_NFItemTaxAmount as logbr_invoicenetamount)                                                      as ICMS_ICEP,
       //      @Semantics.amount.currencyCode:'SalesDocumentCurrency'
       //@Aggregation.default:#SUM
-      cast(_TaxICAP.BR_NFItemTaxAmount as logbr_invoicenetamount)                                                                                                      as ICMS_ICAP,
+      cast(_TaxICAP.BR_NFItemTaxAmount as logbr_invoicenetamount)                                                      as ICMS_ICAP,
       //      @Semantics.amount.currencyCode:'SalesDocumentCurrency'
       //@Aggregation.default:#SUM
-      cast(_TaxICSP.BR_NFItemTaxAmount as logbr_invoicenetamount)                                                                                                      as ICMS_ICSP,
+      cast(_TaxICSP.BR_NFItemTaxAmount as logbr_invoicenetamount)                                                      as ICMS_ICSP,
       //@Aggregation.default:#SUM
-      cast( ABS(_TaxZF.BR_NFItemTaxAmount) as logbr_invoicenetamount)                                                                                                  as ICMS_ZN,
+      cast( ABS(_TaxZF.BR_NFItemTaxAmount) as logbr_invoicenetamount)                                                  as ICMS_ZN,
       //      _Lin.BR_ISSBenefitCode                                                                                 as CodBenef,
-      _Lin.TaxIncentiveCode                                                                                                                                            as CodBenef,
-      _Lin.BR_ICMSStatisticalExemptionAmt                                                                                                                              as ICMSDeson,
-      _Lin.BR_ICMSTaxSituation                                                                                                                                         as ST_ICMS,
-      _Lin.BR_ICMSTaxLaw                                                                                                                                               as LF_ICMS,
-      _Partner.Industry                                                                                                                                                as SetorIndustrial,
+      _Lin.TaxIncentiveCode                                                                                            as CodBenef,
+      _Lin.BR_ICMSStatisticalExemptionAmt                                                                              as ICMSDeson,
+      _Lin.BR_ICMSTaxSituation                                                                                         as ST_ICMS,
+      _Lin.BR_ICMSTaxLaw                                                                                               as LF_ICMS,
+      _Partner.Industry                                                                                                as SetorIndustrial,
       //      _DescTip.j_1bindtypx                                                                                         as DescTipPrinInd,
-      _Partner.j_1bindtypx                                                                                                                                             as DescTipPrinInd,
-      _Partner.TaxNumber3                                                                                                                                              as InscEstadual,
-      _Segment.segment                                                                                                                                                 as Segmento,
-      _Doc.CreatedByUser                                                                                                                                               as UserCriador,
-      _Doc.BR_NFSituationCode                                                                                                                                          as CodSitDoc,
-      _DocSit.Text                                                                                                                                                     as DescSitDoc,
+      _Partner.j_1bindtypx                                                                                             as DescTipPrinInd,
+      _Partner.TaxNumber3                                                                                              as InscEstadual,
+      _Segment.segment                                                                                                 as Segmento,
+      _Doc.CreatedByUser                                                                                               as UserCriador,
+      _Doc.BR_NFSituationCode                                                                                          as CodSitDoc,
+      _DocSit.Text                                                                                                     as DescSitDoc,
       //      @Semantics.amount.currencyCode:'SalesDocumentCurrency'
       //@Aggregation.default:#SUM
-      cast(_TaxICOP.BR_NFItemBaseAmount as logbr_invoicenetamount)                                                                                                     as BaseDifAliquotas,
+      cast(_TaxICOP.BR_NFItemBaseAmount as logbr_invoicenetamount)                                                     as BaseDifAliquotas,
       //      @Semantics.amount.currencyCode:'SalesDocumentCurrency'
       //@Aggregation.default:#SUM
-      cast(_TaxICOP.BR_NFItemTaxAmount as logbr_invoicenetamount)                                                                                                      as ValorDifAliquotas,
-      _Lin.Plant                                                                                                                                                       as Area,
-      _Plant.PlantName                                                                                                                                                 as AreaName,
+      cast(_TaxICOP.BR_NFItemTaxAmount as logbr_invoicenetamount)                                                      as ValorDifAliquotas,
+      _Lin.Plant                                                                                                       as Area,
+      _Plant.PlantName                                                                                                 as AreaName,
       //      _OrderItemAPI01.TaxCode                                                                                as IVA,
-      _Lin.BR_TaxCode                                                                                                                                                  as IVA,
-      _Lin.BR_IPITaxLaw                                                                                                                                                as LF_IPI,
-      _Lin.BR_IPITaxSituation                                                                                                                                          as ST_IPI,
-      _Lin.BR_COFINSTaxLaw                                                                                                                                             as LF_COF,
-      _Lin.BR_COFINSTaxSituation                                                                                                                                       as ST_COF,
-      _Lin.BR_PISTaxLaw                                                                                                                                                as LF_PIS,
-      _Lin.BR_PISTaxSituation                                                                                                                                          as ST_PIS,
+      _Lin.BR_TaxCode                                                                                                  as IVA,
+      _Lin.BR_IPITaxLaw                                                                                                as LF_IPI,
+      _Lin.BR_IPITaxSituation                                                                                          as ST_IPI,
+      _Lin.BR_COFINSTaxLaw                                                                                             as LF_COF,
+      _Lin.BR_COFINSTaxSituation                                                                                       as ST_COF,
+      _Lin.BR_PISTaxLaw                                                                                                as LF_PIS,
+      _Lin.BR_PISTaxSituation                                                                                          as ST_PIS,
       //      _Lin.CostCenter                                                                                        as CentroCustos,
-      _SalesOrder.CostCenter                                                                                                                                           as CentroCustos,
+      _SalesOrder.CostCenter                                                                                           as CentroCustos,
 
 
       case
         when  _Lin.Batch is not initial
             then _Lin.Batch
         else _mseg.charg
-      end                                                                                                                                                              as Lote,
+      end                                                                                                              as Lote,
 
 
       //      _Lin.Batch                                                                                                   as Lote,
-      _Partner.TaxNumber2                                                                                                                                              as CPF,
+      _Partner.TaxNumber2                                                                                              as CPF,
       //      @Semantics.amount.currencyCode:'SalesDocumentCurrency'
       //@Aggregation.default:#SUM
       //      cast(_mbew.verpr as logbr_invoicenetamount)                                                                                                                      as PrecoCustoUnitario,
@@ -639,12 +673,12 @@ define root view entity ZI_SD_REL_FISCAL_SAIDA_APP
       //      case when _mbew.verpr = 0 or _mbew.verpr is null
       //         then fltp_to_dec(cast(_Lin.QuantityInBaseUnit as abap.fltp ) * cast(_mbew.stprs as abap.fltp ) as abap.dec(15,2))
       //         else fltp_to_dec(cast(_Lin.QuantityInBaseUnit as abap.fltp ) * cast(_mbew.verpr as abap.fltp ) as abap.dec(15,2)) end                                         as PrecoCustoTotal,
-      fltp_to_dec(cast(_mbew.PrecoCustoUnitario as abap.fltp) as abap.dec(15,2))                                                                                       as PrecoCustoUnitario,
+      fltp_to_dec(cast(_mbew.PrecoCustoUnitario as abap.fltp) as abap.dec(15,2))                                       as PrecoCustoUnitario,
 
       //      fltp_to_dec(cast( _Lin.QuantityInBaseUnit as abap.fltp)  * cast(_mbew.PrecoCustoUnitario as abap.fltp ) as abap.dec(15,2))                       as PrecoCustoTotal,
       @ObjectModel.virtualElement: true
       @ObjectModel.virtualElementCalculatedBy: 'ABAP:ZCLSD_CONVERSION_UN'
-      fltp_to_dec(cast(cast( 0  as logbr_nfe_tax_base_quantity ) as abap.fltp) as abap.dec(15,2))                                                                      as PrecoCustoTotal,
+      fltp_to_dec(cast(cast( 0  as logbr_nfe_tax_base_quantity ) as abap.fltp) as abap.dec(15,2))                      as PrecoCustoTotal,
 
       //            case
       //                when _J1BLPP.lppid = 'S' then
@@ -666,7 +700,7 @@ define root view entity ZI_SD_REL_FISCAL_SAIDA_APP
                then fltp_to_dec(_J1BLPP.VlUnPrdConfI as logbr_invoicenetamount)
           else
             cast(_ValorVPRS.VlUnitario as logbr_invoicenetamount)
-      end                                                                                                                                                              as VlUnPrdConfNF,
+      end                                                                                                              as VlUnPrdConfNF,
 
       case
           when _J1BLPP.VlTotalUnPrdConfS > 0
@@ -675,7 +709,7 @@ define root view entity ZI_SD_REL_FISCAL_SAIDA_APP
           else
           fltp_to_dec(cast(_Lin.QuantityInBaseUnit as abap.fltp ) * cast(_ValorVPRS.VlTotal as abap.fltp ) as abap.dec(15,2))
       //            cast(_ValorVPRS.VlTotal as logbr_invoicenetamount)
-      end                                                                                                                                                              as VlTotalUnPrdConfNF,
+      end                                                                                                              as VlTotalUnPrdConfNF,
 
 
       //      cast( _VL_PRD_CONF_NF.VlUnitario as  logbr_invoicenetamount )                                                                                                    as VlUnPrdConfNF,
@@ -684,23 +718,23 @@ define root view entity ZI_SD_REL_FISCAL_SAIDA_APP
 
       //      _MSEG.sakto                                                                                            as Conta,
       //      _SKAT.txt20                                                                                            as DescConta,
-      _CONTA.GLAccount                                                                                                                                                 as Conta,
-      _CONTA.GLAccountText                                                                                                                                             as DescConta,
-      _Lin.NCMCode                                                                                                                                                     as NCM,
-      _Lin.ValuationType                                                                                                                                               as TipoAvaliacao,
+      _CONTA.GLAccount                                                                                                 as Conta,
+      _CONTA.GLAccountText                                                                                             as DescConta,
+      _Lin.NCMCode                                                                                                     as NCM,
+      _Lin.ValuationType                                                                                               as TipoAvaliacao,
       //      _SalesOrder.SalesOrder                                                                                 as OrdemVenda,
-      _SalesOrder.SalesDocument                                                                                                                                        as OrdemVenda,
-      _SalesOrder.SalesOrganization                                                                                                                                    as OrgVendas,
-      _SalesOrder.DistributionChannel                                                                                                                                  as CanalDistrib,
+      _SalesOrder.SalesDocument                                                                                        as OrdemVenda,
+      _SalesOrder.SalesOrganization                                                                                    as OrgVendas,
+      _SalesOrder.DistributionChannel                                                                                  as CanalDistrib,
       //            _SalesOrder.BillingCompanyCode                                                                         as Empresa,
       //      cast ( '' as bukrs )                                                                                   as Empresa,
       //      _SalesOrder.CompanyCode                                                                                as Empresa,
-      _Doc.CompanyCode                                                                                                                                                 as Empresa,
-      _SalesOrder.OrganizationDivision                                                                                                                                 as SetorAtividade,
-      _SalesOrder.SDDocumentReason                                                                                                                                     as MotivoOrdem,
+      _Doc.CompanyCode                                                                                                 as Empresa,
+      _SalesOrder.OrganizationDivision                                                                                 as SetorAtividade,
+      _SalesOrder.SDDocumentReason                                                                                     as MotivoOrdem,
       //      @Semantics.amount.currencyCode:'SalesDocumentCurrency'
       //@Aggregation.default:#SUM
-      cast(_TaxICM3.BR_NFItemExcludedBaseAmount as logbr_invoicenetamount preserving type )                                                                            as IsentosICMS,
+      cast(_TaxICM3.BR_NFItemExcludedBaseAmount as logbr_invoicenetamount preserving type )                            as IsentosICMS,
       //      @Semantics.amount.currencyCode:'SalesDocumentCurrency'
 
 
@@ -710,13 +744,13 @@ define root view entity ZI_SD_REL_FISCAL_SAIDA_APP
             then cast(_TaxICM3.BR_NFItemOtherBaseAmount as logbr_invoicenetamount)
         else
             cast(_TaxICM2.BR_NFItemOtherBaseAmount as logbr_invoicenetamount)
-      end                                                                                                                                                              as OutrasICMS,
+      end                                                                                                              as OutrasICMS,
 
       //      //@Aggregation.default:#SUM
       //      cast(_TaxICM3.BR_NFItemOtherBaseAmount as logbr_invoicenetamount)                                            as OutrasICMS,
       //      @Semantics.amount.currencyCode:'SalesDocumentCurrency'
       //@Aggregation.default:#SUM
-      cast(_TaxIPI3.BR_NFItemExcludedBaseAmount as logbr_invoicenetamount preserving type )                                                                            as IsentosIPI,
+      cast(_TaxIPI3.BR_NFItemExcludedBaseAmount as logbr_invoicenetamount preserving type )                            as IsentosIPI,
       //      @Semantics.amount.currencyCode:'SalesDocumentCurrency'
 
 
@@ -726,18 +760,20 @@ define root view entity ZI_SD_REL_FISCAL_SAIDA_APP
             then cast(_TaxIPI1.BR_NFItemOtherBaseAmount as logbr_invoicenetamount)
               when _TaxIPI2.BR_NotaFiscal = _Lin.BR_NotaFiscal
                   then cast(_TaxIPI2.BR_NFItemOtherBaseAmount as logbr_invoicenetamount)
-        else
+              when _TaxIPI0.BR_NotaFiscal = _Lin.BR_NotaFiscal
+                  then cast(_TaxIPI0.BR_NFItemOtherBaseAmount as logbr_invoicenetamount)
+         else
             cast(_TaxIPI3.BR_NFItemOtherBaseAmount as logbr_invoicenetamount)
-      end                                                                                                                                                              as OutrasIPI,
+      end                                                                                                              as OutrasIPI,
 
 
       //      cast(_TaxIPI3.BR_NFItemOtherBaseAmount as logbr_invoicenetamount)                                            as OutrasIPI,
-      _Lin.BR_MaterialOrigin                                                                                                                                           as OrigemMaterial,
+      _Lin.BR_MaterialOrigin                                                                                           as OrigemMaterial,
       //      _SalesOrder.SalesOrderType                                                                             as TipoDocVendas,
-      _SalesOrder.SalesDocumentItemCategory                                                                                                                            as TipoDocVendas,
-      _Lin.BR_ReferenceNFNumber                                                                                                                                        as NumdocOriginalNF,
-      _Lin.BR_ReferenceNFItem                                                                                                                                          as NumdocOriginalItem,
-      _NFeACtive.Region                                                                                                                                                as RegiaoEmissor,
+      _SalesOrder.SalesDocumentItemCategory                                                                            as TipoDocVendas,
+      _Lin.BR_ReferenceNFNumber                                                                                        as NumdocOriginalNF,
+      _Lin.BR_ReferenceNFItem                                                                                          as NumdocOriginalItem,
+      _NFeACtive.Region                                                                                                as RegiaoEmissor,
       _NFeACtive.BR_NFeIssueYear,
       _NFeACtive.BR_NFeIssueMonth,
       _NFeACtive.BR_NFeAccessKeyCNPJOrCPF,
@@ -746,34 +782,34 @@ define root view entity ZI_SD_REL_FISCAL_SAIDA_APP
       _NFeACtive.BR_NFeNumber,
       _NFeACtive.BR_NFeRandomNumber,
       _NFeACtive.BR_NFeCheckDigit,
-      _Doc.BR_NFArrivalOrDepartureDate                                                                                                                                 as DataSaidaNF,
-      _Doc.BR_SUFRAMACode                                                                                                                                              as CodSuframa,
-      _DescTip.tdt                                                                                                                                                     as TipoDeclaracaoImposto,
+      _Doc.BR_NFArrivalOrDepartureDate                                                                                 as DataSaidaNF,
+      _Doc.BR_SUFRAMACode                                                                                              as CodSuframa,
+      _DescTip.tdt                                                                                                     as TipoDeclaracaoImposto,
 
-      cast(_Lin.BR_NFNetOtherExpensesAmount as logbr_invoicenetamount)                                                                                                 as despesa,
+      cast(_Lin.BR_NFNetOtherExpensesAmount as logbr_invoicenetamount)                                                 as despesa,
 
       //      cast(_Lin.BR_NFExpensesAmountWithTaxes    as logbr_invoicenetamount)                                                                                             as despesa,
 
       //      @Semantics.amount.currencyCode:'SalesDocumentCurrency'
       //@Aggregation.default:#SUM
-      cast(_TaxICSC.BR_NFItemBaseAmount as logbr_invoicenetamount)                                                                                                     as BaseICMS_FCP,
+      cast(_TaxICSC.BR_NFItemBaseAmount as logbr_invoicenetamount)                                                     as BaseICMS_FCP,
       //      @Semantics.amount.currencyCode:'SalesDocumentCurrency'
       //@Aggregation.default:#SUM
-      cast(_TaxICSC.BR_NFItemTaxAmount as logbr_invoicenetamount)                                                                                                      as ValorICMS_FCP,
+      cast(_TaxICSC.BR_NFItemTaxAmount as logbr_invoicenetamount)                                                      as ValorICMS_FCP,
       //      @Semantics.amount.currencyCode:'SalesDocumentCurrency'
       //@Aggregation.default:#SUM
-      cast(_TaxICFP.BR_NFItemBaseAmount as logbr_invoicenetamount)                                                                                                     as BaseST_FCP,
+      cast(_TaxICFP.BR_NFItemBaseAmount as logbr_invoicenetamount)                                                     as BaseST_FCP,
       //      @Semantics.amount.currencyCode:'SalesDocumentCurrency'
       //@Aggregation.default:#SUM
-      cast(_TaxICFP.BR_NFItemTaxAmount as logbr_invoicenetamount)                                                                                                      as ValorST_FCP,
+      cast(_TaxICFP.BR_NFItemTaxAmount as logbr_invoicenetamount)                                                      as ValorST_FCP,
       //      _NFemsg.BR_NFMessageText                                                                               as TextoDFICMS1,
       //      _NFemsg.BR_NFMessageText                                                                               as TextoDFICMS2,
       //      _NFemsg.BR_NFMessageText                                                                               as TextoDFICMS3,
       //      _NFemsg.BR_NFMessageText                                                                               as TextoDFIPI,
-      _ICMSText.BR_ICMSTaxLawLine1                                                                                                                                     as TextoDFICMS1,
-      _ICMSText.BR_ICMSTaxLawLine2                                                                                                                                     as TextoDFICMS2,
-      _ICMSText.BR_ICMSTaxLawLine3                                                                                                                                     as TextoDFICMS3,
-      _IPIText.BR_IPITaxLawLine1                                                                                                                                       as TextoDFIPI,
+      _ICMSText.BR_ICMSTaxLawLine1                                                                                     as TextoDFICMS1,
+      _ICMSText.BR_ICMSTaxLawLine2                                                                                     as TextoDFICMS2,
+      _ICMSText.BR_ICMSTaxLawLine3                                                                                     as TextoDFICMS3,
+      _IPIText.BR_IPITaxLawLine1                                                                                       as TextoDFIPI,
       //      _Lin.BR_ICMSSTBaseDetermination                                                                        as BaseICMS_STReemb,
       //      cast(_Lin.BR_WithholdingICMSSTBaseAmount    as abap.dec(15,2))                                               as BaseICMS_STReemb,
 
@@ -790,32 +826,32 @@ define root view entity ZI_SD_REL_FISCAL_SAIDA_APP
       //      cast(_J1BNFSTX_ICFP.base    as abap.dec(15,2))                                                                                                                   as BaseICMS_STFCPReemb,
       //      cast(_J1BNFSTX_ICFP.taxval  as abap.dec(15,2))                                                                                                                   as IcmsStFCPReembolso,
 
-      _Lin.BR_ICMSSTRateIncludingFCP                                                                                                                                   as pst,
-      _Lin.BR_FCPonICMSSTWithheldRate                                                                                                                                  as pfcpstret,
-      _Lin.BR_EffectiveICMSRate                                                                                                                                        as picmsefet,
+      _Lin.BR_ICMSSTRateIncludingFCP                                                                                   as pst,
+      _Lin.BR_FCPonICMSSTWithheldRate                                                                                  as pfcpstret,
+      _Lin.BR_EffectiveICMSRate                                                                                        as picmsefet,
       _Lin.Plant,
-      cast(_Lin.BR_EffctvCalcBasisAmount as abap.dec(15,2))                                                                                                            as vbcefet,
-      cast(_Lin.BR_WithholdingICMSSTAmount  as abap.dec(15,2))                                                                                                         as BR_WithholdingICMSSTAmount,
+      cast(_Lin.BR_EffctvCalcBasisAmount as abap.dec(15,2))                                                            as vbcefet,
+      cast(_Lin.BR_WithholdingICMSSTAmount  as abap.dec(15,2))                                                         as BR_WithholdingICMSSTAmount,
 
 
       @ObjectModel.virtualElement: true
       @ObjectModel.virtualElementCalculatedBy: 'ABAP:ZCLSD_CALC_REEMB'
       //      cast(_Lin.BR_WithholdingICMSSTBaseAmount as abap.dec(15,2))                                                                                                      as BaseICMS_STReemb,
-      cast(0 as abap.dec(15,2))                                                                                                                                        as BaseICMS_STReemb,
+      cast(0 as abap.dec(15,2))                                                                                        as BaseICMS_STReemb,
 
       @ObjectModel.virtualElement: true
       @ObjectModel.virtualElementCalculatedBy: 'ABAP:ZCLSD_CALC_REEMB'
-      cast(_Lin.BR_WithholdingICMSSTAmount  as abap.dec(15,2))                                                                                                         as IcmsStReembolso,
+      cast(_Lin.BR_WithholdingICMSSTAmount  as abap.dec(15,2))                                                         as IcmsStReembolso,
 
 
       @ObjectModel.virtualElement: true
       @ObjectModel.virtualElementCalculatedBy: 'ABAP:ZCLSD_CALC_REEMB'
       //      cast(_Lin.BR_FCPOnICMSSTWithheldBaseAmt    as abap.dec(15,2))                                                                                                    as BaseICMS_STFCPReemb,
-      cast(0    as abap.dec(15,2))                                                                                                                                     as BaseICMS_STFCPReemb,
+      cast(0    as abap.dec(15,2))                                                                                     as BaseICMS_STFCPReemb,
       @ObjectModel.virtualElement: true
       @ObjectModel.virtualElementCalculatedBy: 'ABAP:ZCLSD_CALC_REEMB'
       //      cast(_Lin.BR_FCPOnICMSSTWithheldAmount  as abap.dec(15,2))                                                                                                       as IcmsStFCPReembolso,
-      cast(0  as abap.dec(15,2))                                                                                                                                       as IcmsStFCPReembolso,
+      cast(0  as abap.dec(15,2))                                                                                       as IcmsStFCPReembolso,
 
       case
        when _regra_gp_mercador.grpmercadoria is not initial or _regra_material.material is not initial
@@ -826,7 +862,7 @@ define root view entity ZI_SD_REL_FISCAL_SAIDA_APP
                 else    ''
                 end
        else ''
-      end                                                                                                                                                              as StEntrada,
+      end                                                                                                              as StEntrada,
 
 
 
@@ -838,13 +874,15 @@ define root view entity ZI_SD_REL_FISCAL_SAIDA_APP
       case
               when not _TaxZF.BR_NFItemTaxAmount is initial
                   then 0
+              when not _TaxICM3.BR_NFItemIsStatisticalTax is initial
+                  then 0
               else
                   _TaxICM3.BR_NFItemTaxRate
-            end                                                                                                                                                        as AliqICMS,
+            end                                                                                                        as AliqICMS,
       //      _TaxICM3.BR_NFItemTaxRate                                                                                                                                        as AliqICMS,
 
       //      _Lin.BR_NFTributaryUnit                                                                                as UnVdaBasica,
-      _Material.MaterialBaseUnit                                                                                                                                       as UnVdaBasica,
+      _Material.MaterialBaseUnit                                                                                       as UnVdaBasica,
       //      @Semantics.quantity.unitOfMeasure:'BaseUnit'
       //@Aggregation.default:#SUM
       //      cast(_Doc.HeaderGrossWeight  as logbr_nfe_tax_base_quantity )                                                                                                    as PesoBrutoNF,
@@ -853,24 +891,29 @@ define root view entity ZI_SD_REL_FISCAL_SAIDA_APP
         when _Vbrp.brgew is initial or _Vbrp.brgew is null
         then _VolumesTransporte.PesoBrutoVolumes
         else cast(_Vbrp.brgew as abap.dec(15,3) )
-      end                                                                                                                                                              as PesoBrutoNF,
-      _Doc.BR_NFModel                                                                                                                                                  as ModeloNF,
-      _DescTip.brtxt                                                                                                                                                   as DescSetorInd,
+      end                                                                                                              as PesoBrutoNF,
+      _Doc.BR_NFModel                                                                                                  as ModeloNF,
+      _DescTip.brtxt                                                                                                   as DescSetorInd,
 
       //cast( _Lin.BR_NFValueAmountWithTaxes as abap.fltp ) * cast( _TaxICOP.BR_NFItemTaxAmount as abap.fltp )       as ValorICMSsemBenef,
-      fltp_to_dec( (cast( _Lin.BR_NFValueAmountWithTaxes as abap.fltp ) * cast( _TaxICM3.BR_NFItemTaxRate as abap.fltp ) / cast(100 as abap.fltp) ) as abap.dec(15,2)) as ValorICMSsemBenef,
-
-      _Lin.InternationalArticleNumber                                                                                                                                  as Gtin,
-      _OutboundDelivery.vgbel                                                                                                                                          as DocRem,
+      //fltp_to_dec( (cast( _Lin.BR_NFValueAmountWithTaxes as abap.fltp ) * cast( _TaxICM3.BR_NFItemTaxRate as abap.fltp ) / cast(100 as abap.fltp) ) as abap.dec(15,2)) as ValorICMSsemBenef,
+      case
+         when not _TaxICM3.BR_NFItemIsStatisticalTax is initial
+             then 0
+         else
+             fltp_to_dec( (cast( _Lin.BR_NFValueAmountWithTaxes as abap.fltp ) * cast( _TaxICM3.BR_NFItemTaxRate as abap.fltp ) / cast(100 as abap.fltp) ) as abap.dec(15,2))
+       end                                                                                                             as ValorICMSsemBenef,
+      _Lin.InternationalArticleNumber                                                                                  as Gtin,
+      _OutboundDelivery.vgbel                                                                                          as DocRem,
       //      _DocMigo.DocMigo
 
       case
       when _Lin.BR_NFSourceDocumentType  = 'MD'
         then substring( _Lin.BR_NFSourceDocumentNumber, 1, 10 )
         else ''
-      end                                                                                                                                                              as DocMigo,
+      end                                                                                                              as DocMigo,
       //      _DocFat.DocFaturamento                                                                                                                                           as DocFaturamento,
-      substring( _Lin.BR_NFSourceDocumentNumber, 1, 10 )                                                                                                               as DocFaturamento,
+      substring( _Lin.BR_NFSourceDocumentNumber, 1, 10 )                                                               as DocFaturamento,
       //      @Semantics.amount.currencyCode:'SalesDocumentCurrency'
       //      //@Aggregation.default:#SUM
       //_DescFar.BR_NFNetDiscountAmount                                                                              as DescFarelo,
@@ -879,9 +922,9 @@ define root view entity ZI_SD_REL_FISCAL_SAIDA_APP
             then cast( abs(_Lin.BR_NFDiscountAmountWithTaxes) as abap.dec(15,2) )
         else
             cast(0 as abap.dec(15,2) )
-      end                                                                                                                                                              as DescFarelo,
+      end                                                                                                              as DescFarelo,
 
-      _CodImpSD.j_1btxsdc                                                                                                                                              as CodImpSD,
+      _CodImpSD.j_1btxsdc                                                                                              as CodImpSD,
       case
         when _Doc.BR_NFPartnerCNPJ is initial
             then ''
@@ -894,17 +937,19 @@ define root view entity ZI_SD_REL_FISCAL_SAIDA_APP
             concat( '/',
             concat( substring(_Doc.BR_NFPartnerCNPJ, 9, 4),
             concat( '-',  substring(_Doc.BR_NFPartnerCNPJ, 13, 2) ) ) ) ) ) ) ) )
-        end                                                                                                                                                            as CNPJ,
+        end                                                                                                            as CNPJ,
       //cast( _Lin.BR_NFValueAmountWithTaxes as abap.fltp ) * cast( _TaxIPI3.BR_NFItemTaxAmount as abap.fltp )       as ValorBaseCalsemBenef,
 
       //      cast(_TaxIPI3.BR_NFItemBaseAmount as abap.dec(15,2) )                                                                                                            as ValorBaseCalsemBenef,
       //      cast(_TaxICM3.BR_NFItemBaseAmount as abap.dec(15,2) )                                                                                                            as ValorBaseCalsemBenef,
       //      cast(_Lin.NetValueAmount as abap.dec(15,2) )                                                                                                                     as ValorBaseCalsemBenef,
       cast(  case
+          when not _TaxICM3.BR_NFItemIsStatisticalTax is initial
+            then 0
           when _TaxICM3.BR_NFItemTaxRate <> 0
             then cast(_Lin.NetValueAmount as abap.dec(15,2) )
             else cast(0  as abap.dec(15,2) )
-          end  as abap.dec(15,2) )                                                                                                                                     as ValorBaseCalsemBenef,
+          end  as abap.dec(15,2) )                                                                                     as ValorBaseCalsemBenef,
 
 
       //      _DocMigo.AnoMigo
@@ -913,9 +958,15 @@ define root view entity ZI_SD_REL_FISCAL_SAIDA_APP
         when _Lin.BR_NFSourceDocumentType  = 'MD'
             then   substring(_Lin.BR_NFSourceDocumentNumber, 11, 4 )
         else ''
-       end                                                                                                                                                             as AnoMigo,
-      _TaxIPI3.BR_NFItemTaxRate                                                                                                                                        as AliqIPI,
-      _Doc.BR_NFPartner                                                                                                                                                as EmissorOrdem,
+       end                                                                                                             as AnoMigo,
+      //_TaxIPI3.BR_NFItemTaxRate                                                                                                                                        as AliqIPI,
+      case
+         when not _TaxIPI3.BR_NFItemIsStatisticalTax is initial
+             then 0
+         else
+             _TaxIPI3.BR_NFItemTaxRate
+       end                                                                                                             as AliqIPI,
+      _Doc.BR_NFPartner                                                                                                as EmissorOrdem,
       //      @Semantics.amount.currencyCode:'SalesDocumentCurrency'
       //@Aggregation.default:#SUM
       //      cast( _Lin.BR_NFTotalAmount as abap.dec(15,2) ) - cast( _Lin.BR_NFFreightAmountWithTaxes as abap.dec(15,2) )                                                     as ValorsemFrete,
@@ -974,15 +1025,15 @@ define root view entity ZI_SD_REL_FISCAL_SAIDA_APP
       - case
         when _Lin.BR_NFFreightAmountWithTaxes is initial or _Lin.BR_NFFreightAmountWithTaxes is null
           then 0
-          else cast( _Lin.BR_NFFreightAmountWithTaxes as abap.dec(15,2) ) end                                                                                          as ValorsemFrete,
+          else cast( _Lin.BR_NFFreightAmountWithTaxes as abap.dec(15,2) ) end                                          as ValorsemFrete,
 
-      _Doc.BR_NFPartnerTaxRegimenCode                                                                                                                                  as CodRegTribNum,
+      _Doc.BR_NFPartnerTaxRegimenCode                                                                                  as CodRegTribNum,
 
 
       //Referencias
-      _Doc.SalesDocumentCurrency                                                                                                                                       as SalesDocumentCurrency,
-      _Chave.chaveAcesso                                                                                                                                               as ChaveAcesso,
-      _Partner.Industry                                                                                                                                                as DescontoInd
+      _Doc.SalesDocumentCurrency                                                                                       as SalesDocumentCurrency,
+      _Chave.chaveAcesso                                                                                               as ChaveAcesso,
+      _Partner.Industry                                                                                                as DescontoInd
 
 }
 

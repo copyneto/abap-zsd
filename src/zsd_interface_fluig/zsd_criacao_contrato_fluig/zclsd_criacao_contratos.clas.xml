@@ -36,6 +36,18 @@
      <ENTRY>Contrato Criado:</ENTRY>
      <LENGTH>26</LENGTH>
     </item>
+    <item>
+     <ID>I</ID>
+     <KEY>005</KEY>
+     <ENTRY>Falta o número do item para Distrato</ENTRY>
+     <LENGTH>72</LENGTH>
+    </item>
+    <item>
+     <ID>I</ID>
+     <KEY>006</KEY>
+     <ENTRY>erro________</ENTRY>
+     <LENGTH>22</LENGTH>
+    </item>
    </TPOOL>
    <DESCRIPTIONS_SUB>
     <SEOSUBCOTX>

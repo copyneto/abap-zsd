@@ -263,7 +263,10 @@ CLASS ZCLSD_CRIACAO_CONTRATOS IMPLEMENTATION.
 
           IF <fs_contract_partners_c>-partn_numb_merc IS NOT INITIAL.
             APPEND VALUE #( partn_role = <fs_contract_partners_c>-partn_role_merc
-                            partn_numb = <fs_contract_partners_c>-partn_numb_merc ) TO lt_contract_partners_c.
+* LSCHEPP - SD - 8000007845 - Função Parceiro UNOP - Comod e Locaç - 25.05.2023 Início
+*                            partn_numb = <fs_contract_partners_c>-partn_numb_merc ) TO lt_contract_partners_c.
+                            partn_numb = |{ <fs_contract_partners_c>-partn_numb_merc ALPHA = IN }| ) TO lt_contract_partners_c.
+* LSCHEPP - SD - 8000007845 - Função Parceiro UNOP - Comod e Locaç - 25.05.2023 Fim
           ENDIF.
 
         ENDLOOP.
@@ -377,86 +380,86 @@ CLASS ZCLSD_CRIACAO_CONTRATOS IMPLEMENTATION.
 
 
 
-            "**** Criação do objeto técnico ****
-            LOOP AT lt_contract_items_in_c INTO ls_item.
+          "**** Criação do objeto técnico ****
+          LOOP AT lt_contract_items_in_c INTO ls_item.
 
-              READ TABLE lt_contract_partners_c INTO ls_parceiro INDEX 1.
+            READ TABLE lt_contract_partners_c INTO ls_parceiro INDEX 1.
 
-              CALL FUNCTION 'CONVERSION_EXIT_ALPHA_OUTPUT'
-                EXPORTING
-                  input  = ls_item-itm_number
-                IMPORTING
-                  output = lv_item.
+            CALL FUNCTION 'CONVERSION_EXIT_ALPHA_OUTPUT'
+              EXPORTING
+                input  = ls_item-itm_number
+              IMPORTING
+                output = lv_item.
 
-              READ TABLE lt_item_in INTO DATA(ls_produto)
-                                     WITH KEY itm_number = lv_item
-                                     BINARY SEARCH.
+            READ TABLE lt_item_in INTO DATA(ls_produto)
+                                   WITH KEY itm_number = lv_item
+                                   BINARY SEARCH.
 
-              IF sy-subrc EQ 0.
+            IF sy-subrc EQ 0.
 
 
 ***CFARIA - 8000007544, Criação Contrato Maquina Terceiro - 158 - 18.05.2023 Início
 
 *                IF ls_produto-tipomaquina EQ 'propria'.
-                IF ls_produto-tipomaquina EQ 'propria' OR ls_produto-tipomaquina EQ 'alugada'.
+              IF ls_produto-tipomaquina EQ 'propria' OR ls_produto-tipomaquina EQ 'alugada'.
 
 ***CFARIA - 8000007544, Criação Contrato Maquina Terceiro - 158 - 18.05.2023 Fim
 
-                  CALL FUNCTION 'CONVERSION_EXIT_ALPHA_INPUT'
-                    EXPORTING
-                      input  = ls_produto-plaqueta
-                    IMPORTING
-                      output = lv_serie.
+                CALL FUNCTION 'CONVERSION_EXIT_ALPHA_INPUT'
+                  EXPORTING
+                    input  = ls_produto-plaqueta
+                  IMPORTING
+                    output = lv_serie.
 
-                ELSE.
+              ELSE.
 
-                  CALL FUNCTION 'CONVERSION_EXIT_ALPHA_INPUT'
-                    EXPORTING
-                      input  = ls_produto-numserie
-                    IMPORTING
-                      output = lv_serie.
+                CALL FUNCTION 'CONVERSION_EXIT_ALPHA_INPUT'
+                  EXPORTING
+                    input  = ls_produto-numserie
+                  IMPORTING
+                    output = lv_serie.
 
-                ENDIF.
               ENDIF.
+            ENDIF.
 
-              lv_material = ls_item-material.
-              lv_tp_doc   = gs_input-mt_criar_contrato-contract_header_in-doc_type.
+            lv_material = ls_item-material.
+            lv_tp_doc   = gs_input-mt_criar_contrato-contract_header_in-doc_type.
 
-              CALL FUNCTION 'SERNR_ADD_TO_AU'
-                EXPORTING
-                  sernr                 = lv_serie
-                  profile               = '0006'
-                  material              = lv_material
-                  quantity              = '1'
-                  j_vorgang             = space
-                  document              = lv_salesdocument_c
-                  item                  = ls_item-itm_number
-                  debitor               = ls_parceiro-partn_numb
-                  vbtyp                 = 'G'
-                  sd_auart              = lv_tp_doc
-                  sd_postyp             = lv_tp_doc
-                EXCEPTIONS
-                  konfigurations_error  = 1
-                  serialnumber_errors   = 2
-                  serialnumber_warnings = 3
-                  no_profile_operation  = 4
-                  OTHERS                = 5.
+            CALL FUNCTION 'SERNR_ADD_TO_AU'
+              EXPORTING
+                sernr                 = lv_serie
+                profile               = '0006'
+                material              = lv_material
+                quantity              = '1'
+                j_vorgang             = space
+                document              = lv_salesdocument_c
+                item                  = ls_item-itm_number
+                debitor               = ls_parceiro-partn_numb
+                vbtyp                 = 'G'
+                sd_auart              = lv_tp_doc
+                sd_postyp             = lv_tp_doc
+              EXCEPTIONS
+                konfigurations_error  = 1
+                serialnumber_errors   = 2
+                serialnumber_warnings = 3
+                no_profile_operation  = 4
+                OTHERS                = 5.
 
-              IF sy-subrc EQ 0.
-                CALL FUNCTION 'SERIAL_LISTE_POST_AU'.
-                CALL FUNCTION 'BAPI_TRANSACTION_COMMIT'.
+            IF sy-subrc EQ 0.
+              CALL FUNCTION 'SERIAL_LISTE_POST_AU'.
+              CALL FUNCTION 'BAPI_TRANSACTION_COMMIT'.
 *              EXPORTING
 *                wait = lc_x.
-              ENDIF.
+            ENDIF.
 
-              CLEAR: ls_item, ls_parceiro, lv_serie, lv_item.
+            CLEAR: ls_item, ls_parceiro, lv_serie, lv_item.
 
-            ENDLOOP.
+          ENDLOOP.
 
-            " SHDB para confirmar o Nro de Série
-            call_shdb( iv_vbeln = lv_salesdocument_c ).
+          " SHDB para confirmar o Nro de Série
+          call_shdb( iv_vbeln = lv_salesdocument_c ).
 
-            " ****Criação do objeto técnico****
+          " ****Criação do objeto técnico****
 
 * LSCHEPP - 8000006993 -  Erro Criação OVs Y074 e Y075 - GAP 158 - 08.05.2023 Início
           TRY.
@@ -606,6 +609,18 @@ CLASS ZCLSD_CRIACAO_CONTRATOS IMPLEMENTATION.
 
     ELSE.
 
+* LSCHEPP - SD - 8000007867 - Item com recusa e duplicado - 26.05.2023 Início
+      IF line_exists( gs_input-mt_criar_contrato-produtorecolhido[ po_itm_no = space ] ).
+        APPEND VALUE #( processado      = TEXT-006
+                        desc_processado = TEXT-005 ) TO ls_output-mt_status_contrato-form_fields-lista.
+        TRY.
+            NEW zclsd_co_si_status_contrato_ou( )->si_status_contrato_out( output = ls_output ).
+          CATCH cx_ai_system_fault.
+        ENDTRY.
+        RETURN.
+      ENDIF.
+* LSCHEPP - SD - 8000007867 - Item com recusa e duplicado - 26.05.2023 Fim
+
       lt_vbap_aux = VALUE #( FOR ls_pdotudoescolhido IN gs_input-mt_criar_contrato-produtorecolhido (
                                  vbeln = CONV vbeln( |{ ls_pdotudoescolhido-salesdocument ALPHA = IN }| )
                                  posnr = ls_pdotudoescolhido-po_itm_no ) ).
@@ -688,7 +703,7 @@ CLASS ZCLSD_CRIACAO_CONTRATOS IMPLEMENTATION.
           SELECT SINGLE ihrez
           FROM vbak
           WHERE vbeln EQ @lv_salesdocument_u
-          INTO @DATA(lv_ihrez). "#EC CI_SEL_NESTED
+          INTO @DATA(lv_ihrez).                      "#EC CI_SEL_NESTED
 
           IF lv_ihrez IS INITIAL.
             ls_contract_header_in_u-ref_1      = gs_input-mt_criar_contrato-contract_header_in-ref_1.

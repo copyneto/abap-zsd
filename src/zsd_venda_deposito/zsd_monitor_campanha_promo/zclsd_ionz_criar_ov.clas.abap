@@ -575,7 +575,7 @@ CLASS ZCLSD_IONZ_CRIAR_OV IMPLEMENTATION.
 
   METHOD limpa_tabelas.
 
-    CLEAR: gt_material, gt_item, gt_itemx , gt_partner , gt_schedules_inx, gt_schedules_in, gt_return, gs_modelo.
+    CLEAR: gt_item, gt_itemx , gt_partner , gt_schedules_inx, gt_schedules_in, gt_return, gs_modelo.
 
   ENDMETHOD.
 
@@ -710,46 +710,48 @@ CLASS ZCLSD_IONZ_CRIAR_OV IMPLEMENTATION.
 
 * processar todos os materiais da tabela
 * WC_INCPO - incremento de item da tabela TVAK
-    READ TABLE gt_material WITH KEY modelo = gs_modelo TRANSPORTING NO FIELDS BINARY SEARCH.
-    CHECK sy-subrc = 0.
+    READ TABLE gt_material WITH KEY modelo = gs_modelo TRANSPORTING NO FIELDS
+                                                       BINARY SEARCH.
+    IF sy-subrc = 0.
 
-    LOOP AT gt_material ASSIGNING FIELD-SYMBOL(<fs_mat>) FROM sy-tabix.
+      LOOP AT gt_material ASSIGNING FIELD-SYMBOL(<fs_mat>) FROM sy-tabix.
 
-      IF <fs_mat>-modelo NE gs_modelo.
-        EXIT.
-      ELSE.
+        IF <fs_mat>-modelo NE gs_modelo.
+          EXIT.
+        ELSE.
 
-        lv_cont = lv_cont + gs_incpo.
+          lv_cont = lv_cont + gs_incpo.
 
-        APPEND VALUE #( itm_number  = lv_cont
-                        material    = <fs_mat>-zmatnr
-                        target_qty  = <fs_mat>-zmenge
-                        sales_unit  = <fs_mat>-zmeins
-                        store_loc   = <fs_mat>-zlgort
-                        plant       = gs_plant        ) TO gt_item.
+          APPEND VALUE #( itm_number  = lv_cont
+                          material    = <fs_mat>-zmatnr
+                          target_qty  = <fs_mat>-zmenge
+                          sales_unit  = <fs_mat>-zmeins
+                          store_loc   = <fs_mat>-zlgort
+                          plant       = gs_plant        ) TO gt_item.
 
-        APPEND VALUE #(  itm_number = lv_cont
-                         material   = gc_constante-cc_x
-                         target_qty = gc_constante-cc_x
-                         sales_unit = gc_constante-cc_x
-                         store_loc  = gc_constante-cc_x
-                         plant      = gc_constante-cc_x
-                         updateflag = gc_constante-cc_i ) TO gt_itemx.
+          APPEND VALUE #(  itm_number = lv_cont
+                           material   = gc_constante-cc_x
+                           target_qty = gc_constante-cc_x
+                           sales_unit = gc_constante-cc_x
+                           store_loc  = gc_constante-cc_x
+                           plant      = gc_constante-cc_x
+                           updateflag = gc_constante-cc_i ) TO gt_itemx.
 
-        ADD 1 TO lv_cont_line.
+          ADD 1 TO lv_cont_line.
 
-        APPEND VALUE #( itm_number  = lv_cont
-                        sched_line  = lv_cont_line
-                        req_qty     = <fs_mat>-zmenge ) TO gt_schedules_in.
+          APPEND VALUE #( itm_number  = lv_cont
+                          sched_line  = lv_cont_line
+                          req_qty     = <fs_mat>-zmenge ) TO gt_schedules_in.
 
-        APPEND VALUE #( itm_number  = lv_cont
-                        sched_line  = lv_cont_line
-                        updateflag  = gc_constante-cc_x
-                        req_qty     = gc_constante-cc_x ) TO gt_schedules_inx.
+          APPEND VALUE #( itm_number  = lv_cont
+                          sched_line  = lv_cont_line
+                          updateflag  = gc_constante-cc_x
+                          req_qty     = gc_constante-cc_x ) TO gt_schedules_inx.
 
-      ENDIF.
+        ENDIF.
 
-    ENDLOOP.
+      ENDLOOP.
+    ENDIF.
 
     IF gt_item IS INITIAL.
 

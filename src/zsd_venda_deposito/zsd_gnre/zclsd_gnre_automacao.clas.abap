@@ -51,6 +51,9 @@ public section.
         ort01        TYPE j_1bnfdoc-ort01,
         authtime     TYPE j_1bnfdoc-authtime,
         stains       TYPE j_1bnfdoc-stains,
+* LSCHEPP - SD - 8000007642 - GNRE DUA-ES, Codigo de barras incorreto - 29.05.2023 Início
+        waerk        TYPE j_1bnfdoc-waerk,
+* LSCHEPP - SD - 8000007642 - GNRE DUA-ES, Codigo de barras incorreto - 29.05.2023 Fim
         regio_branch TYPE adrc-region,
       END OF ty_s_j_1bnfdoc .
   types:
@@ -1911,75 +1914,115 @@ CLASS ZCLSD_GNRE_AUTOMACAO IMPLEMENTATION.
 
   METHOD print_nf.
 
-    DATA: lt_bdcdata TYPE TABLE OF bdcdata,
-          lt_bdcmsg  TYPE TABLE OF bdcmsgcoll,
-          lv_mode    TYPE c VALUE 'N',
-          lv_msg     TYPE ztsd_gnret003-desc_st_guia,
-          lv_objeto  TYPE seqg3-garg,
-          lv_subrc   TYPE sy-subrc,
-          lv_tabix   TYPE sy-tabix,
-          lt_enq     TYPE TABLE OF seqg7,
-          lv_while   TYPE c.
+* LSCHEPP - SD - 8000007861 - Impressão de guia GNRE e NF - 29.05.2023 Início
+    DATA: lv_pdf_nfe  TYPE char1,
+          lv_buf_id   TYPE indx_srtfd,
+          lv_file     TYPE xstring,
+          lv_filesize TYPE int4.
 
-    DEFINE _bdc_dynpro.
-      APPEND VALUE #( program  = &1
-                      dynpro   = &2
-                      dynbegin = 'X' ) TO lt_bdcdata.
-    END-OF-DEFINITION.
+    DATA: lt_otf TYPE tsfotf,
+          lt_pdf TYPE tline_t.
 
-    DEFINE _bdc_field.
-      APPEND VALUE #( fnam = &1
-                      fval = &2 ) TO lt_bdcdata.
-    END-OF-DEFINITION.
 
-    IF gs_j_1bnfdoc-printd = abap_true.
+    " Import no report ZNFE_PRINT_DANFE
+    lv_pdf_nfe = abap_true.
+    lv_buf_id = 'NFE_PDF_' && gs_j_1bnfdoc-docnum.
+    EXPORT lv_pdf_nfe = lv_pdf_nfe TO MEMORY ID lv_buf_id.
 
-      _bdc_dynpro 'SAPMJ1B1'           '1100'.
-      _bdc_field: 'BDC_OKCODE'         '=REPR',
-                  'J_1BDYDOC-DOCNUM'   gv_docnum.
+    CALL FUNCTION 'ZFMSD_GET_DANFE_PDF'
+      EXPORTING
+        iv_docnum            = gs_j_1bnfdoc-docnum
+      IMPORTING
+        et_file              = lt_pdf
+        ev_filesize          = lv_filesize
+        ev_file              = lv_file
+      TABLES
+        et_otf               = lt_otf
+      EXCEPTIONS
+        document_not_found   = 1
+        nfe_not_approved     = 2
+        nfe_not_printed      = 3
+        conversion_exception = 4
+        print_program_error  = 5
+        OTHERS               = 6.
 
-      _bdc_dynpro 'SAPLSPO1'           '0100'.
-      _bdc_field  'BDC_OKCODE'         '=YES'.
-
+    IF sy-subrc EQ 0.
+      generate_pdf( iv_path    = iv_path
+                    iv_compl   = |{ gs_j_1bnfdoc-docnum }|
+                    it_otfdata = lt_otf[] ).
     ENDIF.
 
-    _bdc_dynpro 'SAPMJ1B1'           '1100'.
-    _bdc_field: 'BDC_OKCODE'         '=OUTP',
-                'J_1BDYDOC-DOCNUM'   gv_docnum.
+*    DATA: lt_bdcdata TYPE TABLE OF bdcdata,
+*          lt_bdcmsg  TYPE TABLE OF bdcmsgcoll,
+*          lv_mode    TYPE c VALUE 'N',
+*          lv_msg     TYPE ztsd_gnret003-desc_st_guia,
+*          lv_objeto  TYPE seqg3-garg,
+*          lv_subrc   TYPE sy-subrc,
+*          lv_tabix   TYPE sy-tabix,
+*          lt_enq     TYPE TABLE OF seqg7,
+*          lv_while   TYPE c.
+*
+*    DEFINE _bdc_dynpro.
+*      APPEND VALUE #( program  = &1
+*                      dynpro   = &2
+*                      dynbegin = 'X' ) TO lt_bdcdata.
+*    END-OF-DEFINITION.
+*
+*    DEFINE _bdc_field.
+*      APPEND VALUE #( fnam = &1
+*                      fval = &2 ) TO lt_bdcdata.
+*    END-OF-DEFINITION.
+*
+*    IF gs_j_1bnfdoc-printd = abap_true.
+*
+*      _bdc_dynpro 'SAPMJ1B1'           '1100'.
+*      _bdc_field: 'BDC_OKCODE'         '=REPR',
+*                  'J_1BDYDOC-DOCNUM'   gv_docnum.
+*
+*      _bdc_dynpro 'SAPLSPO1'           '0100'.
+*      _bdc_field  'BDC_OKCODE'         '=YES'.
+*
+*    ENDIF.
+*
+*    _bdc_dynpro 'SAPMJ1B1'           '1100'.
+*    _bdc_field: 'BDC_OKCODE'         '=OUTP',
+*                'J_1BDYDOC-DOCNUM'   gv_docnum.
+*
+*    EXPORT p1 = iv_pdf              TO MEMORY ID 'ZNFE_PRINT_MANUAL_B_PDF'.
+*    EXPORT p1 = iv_path             TO MEMORY ID 'ZNFE_PRINT_MANUAL_B_FILE'.
+*    EXPORT p1 = gs_j_1bnfdoc-docnum TO MEMORY ID 'ZNFE_PRINT_MANUAL_B_DOCNUM'.
+*
+*    CALL TRANSACTION  'J1B3N'
+*               WITH AUTHORITY-CHECK
+*               USING  lt_bdcdata
+*               MODE   lv_mode
+*               UPDATE 'S'
+*               MESSAGES INTO lt_bdcmsg.
+*
+*    lv_objeto = |{ sy-mandt }{ gs_j_1bnfdoc-docnum }|.
+*
+*    WHILE lv_while IS INITIAL.
+*      CALL FUNCTION 'ENQUE_READ2'
+*        EXPORTING
+*          gclient = sy-mandt
+*          gname   = 'J_1BNFDOC'
+*          garg    = lv_objeto
+*          guname  = sy-uname
+*        IMPORTING
+*          number  = lv_tabix
+*          subrc   = lv_subrc
+*        TABLES
+*          enq     = lt_enq.
+*      IF lt_enq[] IS INITIAL.
+*        lv_while = 'X'.
+*      ENDIF.
+*    ENDWHILE.
+*
+*    FREE MEMORY ID 'ZNFE_PRINT_MANUAL_B_PDF'.
+*    FREE MEMORY ID 'ZNFE_PRINT_MANUAL_B_FILE'.
+*    FREE MEMORY ID 'ZNFE_PRINT_MANUAL_B_DOCNUM'.
 
-    EXPORT p1 = iv_pdf              TO MEMORY ID 'ZNFE_PRINT_MANUAL_B_PDF'.
-    EXPORT p1 = iv_path             TO MEMORY ID 'ZNFE_PRINT_MANUAL_B_FILE'.
-    EXPORT p1 = gs_j_1bnfdoc-docnum TO MEMORY ID 'ZNFE_PRINT_MANUAL_B_DOCNUM'.
-
-    CALL TRANSACTION  'J1B3N'
-               WITH AUTHORITY-CHECK
-               USING  lt_bdcdata
-               MODE   lv_mode
-               UPDATE 'S'
-               MESSAGES INTO lt_bdcmsg.
-
-    lv_objeto = |{ sy-mandt }{ gs_j_1bnfdoc-docnum }|.
-
-    WHILE lv_while IS INITIAL.
-      CALL FUNCTION 'ENQUE_READ2'
-        EXPORTING
-          gclient = sy-mandt
-          gname   = 'J_1BNFDOC'
-          garg    = lv_objeto
-          guname  = sy-uname
-        IMPORTING
-          number  = lv_tabix
-          subrc   = lv_subrc
-        TABLES
-          enq     = lt_enq.
-      IF lt_enq[] IS INITIAL.
-        lv_while = 'X'.
-      ENDIF.
-    ENDWHILE.
-
-    FREE MEMORY ID 'ZNFE_PRINT_MANUAL_B_PDF'.
-    FREE MEMORY ID 'ZNFE_PRINT_MANUAL_B_FILE'.
-    FREE MEMORY ID 'ZNFE_PRINT_MANUAL_B_DOCNUM'.
+* LSCHEPP - SD - 8000007933 - 8000007861 - Impressão de guia GNRE e NF - 29.05.2023 Fim
 
   ENDMETHOD.
 
@@ -2021,13 +2064,18 @@ CLASS ZCLSD_GNRE_AUTOMACAO IMPLEMENTATION.
 
     IF iv_pdf = abap_true.
       DATA(lv_strlen) = xstrlen( lv_pdf_str ).
-
-      me->generate_pdf(
-          iv_path    = iv_path
-          iv_compl   = |COMPROVANTE_MULTIBANCOS_{ gs_j_1bnfdoc-nfenum }-{ gs_j_1bnfdoc-branch }-{ gs_j_1bnfdoc-regio }-{ is_gnre_header-docguia ALPHA = OUT }|
-          iv_pdfsize = lv_strlen
-          it_pdfdata = lt_pdf_data
-      ).
+* LSCHEPP - SD - 8000007861 - Impressão de guia GNRE e NF - 26.05.2023 Início
+      IF NOT lv_strlen IS INITIAL.
+* LSCHEPP - SD - 8000007861 - Impressão de guia GNRE e NF - 26.05.2023 Fim
+        me->generate_pdf(
+            iv_path    = iv_path
+            iv_compl   = |COMPROVANTE_MULTIBANCOS_{ gs_j_1bnfdoc-nfenum }-{ gs_j_1bnfdoc-branch }-{ gs_j_1bnfdoc-regio }-{ is_gnre_header-docguia ALPHA = OUT }|
+            iv_pdfsize = lv_strlen
+            it_pdfdata = lt_pdf_data
+        ).
+* LSCHEPP - SD - 8000007861 - Impressão de guia GNRE e NF - 26.05.2023 Início
+      ENDIF.
+* LSCHEPP - SD - 8000007861 - Impressão de guia GNRE e NF - 26.05.2023 Fim
     ENDIF.
 *    ENDIF.
   ENDMETHOD.
@@ -2248,6 +2296,9 @@ CLASS ZCLSD_GNRE_AUTOMACAO IMPLEMENTATION.
            j_1bnfdoc~ort01
            j_1bnfdoc~authtime
            j_1bnfdoc~stains
+* LSCHEPP - SD - 8000007642 - GNRE DUA-ES, Codigo de barras incorreto - 29.05.2023 Início
+           j_1bnfdoc~waerk
+* LSCHEPP - SD - 8000007642 - GNRE DUA-ES, Codigo de barras incorreto - 29.05.2023 Fim
            adrc~region
       FROM j_1bnfdoc
       INNER JOIN j_1bbranch

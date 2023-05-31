@@ -38,7 +38,7 @@ ENDCLASS.
 
 
 
-CLASS zclsd_cmdloc_pag_contrato IMPLEMENTATION.
+CLASS ZCLSD_CMDLOC_PAG_CONTRATO IMPLEMENTATION.
 
 
   METHOD processar.
@@ -117,7 +117,7 @@ CLASS zclsd_cmdloc_pag_contrato IMPLEMENTATION.
     SELECT SINGLE vbeln
       FROM vbfa
      WHERE vbelv = @lv_contrato
-       AND vbtyp_n = 'M'
+       AND vbtyp_n = 'P'
        AND plmin   = '+'
       INTO @DATA(lv_vbeln).
 

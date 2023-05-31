@@ -40,7 +40,6 @@ CLASS lcl_cockpit DEFINITION INHERITING FROM cl_abap_behavior_handler.
         ev_param TYPE any.
 
 
-
     CONSTANTS:
       "! <p class="shorttext synchronized">Constantes da tabela de Parâmetros</p>
       BEGIN OF gc_param,

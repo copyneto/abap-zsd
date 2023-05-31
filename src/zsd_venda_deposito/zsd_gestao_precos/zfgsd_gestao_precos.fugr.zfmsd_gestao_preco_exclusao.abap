@@ -60,6 +60,8 @@ FUNCTION zfmsd_gestao_preco_exclusao.
           iv_op_type   = iv_op_type
           is_record    = is_record
           is_newitem   = is_newitem
+          it_scale     = it_new_scale[]""***Inclusão para ajuste card 8000007283
+          it_old_scale = it_old_scale[]""***Inclusão para ajuste card 8000007283
       IMPORTING
           et_return = et_return ).
 

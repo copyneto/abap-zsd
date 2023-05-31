@@ -197,13 +197,14 @@ TYPES:
              WITH NON-UNIQUE KEY vtweg pltyp,
 
   BEGIN OF ty_konp,
-    knumh TYPE konp-knumh,
-    kopos TYPE konp-kopos,
-    kbetr TYPE konp-kbetr,
-    konwa TYPE konp-konwa,
-    kmein TYPE konp-kmein,
-    mxwrt TYPE konp-mxwrt,
-    gkwrt TYPE konp-gkwrt,
+    knumh    TYPE konp-knumh,
+    kopos    TYPE konp-kopos,
+    kbetr    TYPE konp-kbetr,
+    konwa    TYPE konp-konwa,
+    kmein    TYPE konp-kmein,
+    mxwrt    TYPE konp-mxwrt,
+    gkwrt    TYPE konp-gkwrt,
+    loevm_ko TYPE konp-loevm_ko,
   END OF ty_konp,
 
   ty_t_konp      TYPE SORTED TABLE OF ty_konp

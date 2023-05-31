@@ -62,12 +62,55 @@
           IF NOT sy-subrc IS INITIAL AND
             lv_vbelv IS INITIAL.
 
-            SELECT contrato, contratoitem, solicitacao AS aditivo, serie
-            FROM zi_sd_inf_distrato_ctr
-            WHERE nfretorno EQ @<fs_wk_header>-nfenum
+            SELECT _sd_infdis~contrato,
+                   _sd_infdis~contratoitem,
+                   _sd_infdis~solicitacao AS aditivo,
+                   _sd_infdis~serie
+            FROM zi_sd_inf_distrato_nf as _sd_infdis
+            JOIN vbkd as _vbkd on _sd_infdis~contrato = _vbkd~vbeln and
+                                  _sd_infdis~contratoitem = _vbkd~posnr
+            WHERE _sd_infdis~nfretorno EQ @<fs_wk_header>-nfenum
+            AND   _sd_infdis~docnum EQ @<fs_wk_header>-docnum
+            AND   _sd_infdis~distributionchannel EQ '10'
             INTO TABLE @DATA(lt_contrato).
 
-            IF sy-subrc IS INITIAL.
+            IF NOT sy-subrc IS INITIAL.
+
+              SELECT SINGLE VKORG
+              FROM t001w
+              WHERE j_1bbranch EQ @<fs_wk_header>-branch
+              INTO @DATA(lv_orgven).
+
+              SELECT _sd_infdis~contrato,
+                     _sd_infdis~contratoitem,
+                     _sd_infdis~solicitacao AS aditivo,
+                     _sd_infdis~serie
+              FROM zi_sd_inf_distrato_nf as _sd_infdis
+              JOIN vbkd as _vbkd on _sd_infdis~contrato = _vbkd~vbeln and
+                                    _sd_infdis~contratoitem = _vbkd~posnr
+              WHERE _sd_infdis~nfretorno EQ @<fs_wk_header>-nfenum
+              AND   _sd_infdis~docnum EQ @<fs_wk_header>-docnum
+              AND   _sd_infdis~SalesOrganization EQ @lv_orgven
+              INTO TABLE @lt_contrato.
+
+              IF NOT sy-subrc IS INITIAL.
+                SELECT _sd_infdis~contrato,
+                       _sd_infdis~contratoitem,
+                       _sd_infdis~solicitacao AS aditivo,
+                       _sd_infdis~serie
+                FROM zi_sd_inf_distrato_nf as _sd_infdis
+                JOIN vbkd as _vbkd on _sd_infdis~contrato = _vbkd~vbeln and
+                                      _sd_infdis~contratoitem = _vbkd~posnr
+                WHERE _sd_infdis~nfretorno EQ @<fs_wk_header>-nfenum
+                AND   _sd_infdis~docnum EQ @<fs_wk_header>-docnum
+                INTO TABLE @lt_contrato.
+              ENDIF.
+
+            ENDIF.
+
+            IF NOT lt_contrato[] IS INITIAL.
+
+              SORT lt_contrato BY contrato contratoitem ASCENDING.
 
               READ TABLE lt_contrato ASSIGNING FIELD-SYMBOL(<fs_contrato>) INDEX 1.
 
@@ -75,6 +118,15 @@
               FROM vbak
               WHERE vbeln EQ @<fs_contrato>-contrato
               INTO @DATA(lv_contrato_new).
+
+              IF lv_contrato_new IS INITIAL.
+                SELECT SINGLE ihrez
+                FROM vbkd
+                WHERE vbeln EQ @<fs_contrato>-contrato
+                AND posnr IS INITIAL
+                INTO @lv_contrato_new.
+
+              ENDIF.
 
 
               READ TABLE <fs_header_text> ASSIGNING FIELD-SYMBOL(<fs_header_text_lines_new>) INDEX 1.

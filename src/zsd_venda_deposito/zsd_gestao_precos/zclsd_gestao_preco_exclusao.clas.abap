@@ -1,57 +1,56 @@
-CLASS zclsd_gestao_preco_exclusao DEFINITION
-  PUBLIC
-  FINAL
-  CREATE PUBLIC .
+class ZCLSD_GESTAO_PRECO_EXCLUSAO definition
+  public
+  final
+  create public .
 
-  PUBLIC SECTION.
+public section.
 
-    TYPES:
-      tt_return    TYPE TABLE OF bapiret2 .
-
-    TYPES ty_item TYPE ztsd_preco_i .
-    TYPES:
-      ty_t_item         TYPE STANDARD TABLE OF ztsd_preco_i.
+  types:
+    tt_return    TYPE TABLE OF bapiret2 .
+  types TY_ITEM type ZTSD_PRECO_I .
+  types:
+    ty_t_item         TYPE STANDARD TABLE OF ztsd_preco_i .
 
     "! Chama BAPI para atualização das datas das condições de preço
     "! @parameter iv_data_in  | Data Inicio Validade
     "! @parameter iv_data_fim | Data Fim Validade
     "! @parameter is_record   | Registro selecionado no app.
     "! @parameter et_return   | Mensagens de retorno
-    METHODS exclusao
-      IMPORTING
-        !iv_data_in  TYPE dats
-        !iv_data_fim TYPE dats
-        !is_record   TYPE zi_sd_lista_de_preco
-        !iv_op_type  TYPE char5
-        !is_newitem  TYPE zi_sd_lista_de_preco
-      EXPORTING
-        !et_return   TYPE tt_return.
-
-    METHODS atualizar_periodo
-      IMPORTING
-        !iv_data_in   TYPE dats
-        !iv_data_fim  TYPE dats
-        !is_record    TYPE zi_sd_lista_de_preco
-        !iv_op_type   TYPE char5
-        !it_scale     TYPE ty_t_item OPTIONAL
-        !it_old_scale TYPE ty_t_item OPTIONAL
-      EXPORTING
-        !et_return    TYPE tt_return
-      CHANGING
-        !cs_newitem   TYPE zi_sd_lista_de_preco.
-
-    METHODS atualizar_vigencia
-      IMPORTING
-        !iv_data_in   TYPE dats
-        !iv_data_fim  TYPE dats
-        !is_record    TYPE zi_sd_lista_de_preco
-        !iv_op_type   TYPE char5
-        !it_scale     TYPE ty_t_item OPTIONAL
-        !it_old_scale TYPE ty_t_item OPTIONAL
-      EXPORTING
-        !et_return    TYPE tt_return
-      CHANGING
-        !cs_newitem   TYPE zi_sd_lista_de_preco.
+  methods EXCLUSAO
+    importing
+      !IV_DATA_IN type DATS
+      !IV_DATA_FIM type DATS
+      !IS_RECORD type ZI_SD_LISTA_DE_PRECO
+      !IV_OP_TYPE type CHAR5
+      !IS_NEWITEM type ZI_SD_LISTA_DE_PRECO
+      !IT_SCALE type TY_T_ITEM optional
+      !IT_OLD_SCALE type TY_T_ITEM optional
+    exporting
+      !ET_RETURN type TT_RETURN .
+  methods ATUALIZAR_PERIODO
+    importing
+      !IV_DATA_IN type DATS
+      !IV_DATA_FIM type DATS
+      !IS_RECORD type ZI_SD_LISTA_DE_PRECO
+      !IV_OP_TYPE type CHAR5
+      !IT_SCALE type TY_T_ITEM optional
+      !IT_OLD_SCALE type TY_T_ITEM optional
+    exporting
+      !ET_RETURN type TT_RETURN
+    changing
+      !CS_NEWITEM type ZI_SD_LISTA_DE_PRECO .
+  methods ATUALIZAR_VIGENCIA
+    importing
+      !IV_DATA_IN type DATS
+      !IV_DATA_FIM type DATS
+      !IS_RECORD type ZI_SD_LISTA_DE_PRECO
+      !IV_OP_TYPE type CHAR5
+      !IT_SCALE type TY_T_ITEM optional
+      !IT_OLD_SCALE type TY_T_ITEM optional
+    exporting
+      !ET_RETURN type TT_RETURN
+    changing
+      !CS_NEWITEM type ZI_SD_LISTA_DE_PRECO .
   PROTECTED SECTION.
 private section.
 
@@ -137,10 +136,12 @@ private section.
       !IV_DATA_IN type DATS
       !IV_DATA_FIM type DATS
       !IS_RECORD type ZI_SD_LISTA_DE_PRECO
+      !IT_ITEM_SCALE type TY_T_ITEM optional
     changing
       !CT_BAPICONDIT type TY_LT_BAPICONDIT_1
       !CT_BAPICONDHD type TY_LT_BAPICONDHD_1
-      !CT_BAPICONDCT type TY_LT_BAPICONDCT_1 .
+      !CT_BAPICONDCT type TY_LT_BAPICONDCT_1
+      !CT_BAPICONDQS type TY_LT_BAPICONDQS_2 optional .
   methods CALL_BAPI
     exporting
       !ET_RETURN type ZCLSD_GESTAO_PRECO_EXCLUSAO=>TT_RETURN
@@ -158,11 +159,13 @@ private section.
       !IV_DATA_FIM type DATS optional
       !IS_RECORD type ZI_SD_LISTA_DE_PRECO
       !IV_OPERATION type CHAR3
+      !IT_ITEM_SCALE type TY_T_ITEM optional
     changing
       !CT_RETURN type ZCLSD_GESTAO_PRECO_EXCLUSAO=>TT_RETURN
       !CT_BAPICONDCT type ZCLSD_GESTAO_PRECO_EXCLUSAO=>TY_LT_BAPICONDCT
       !CT_BAPICONDHD type ZCLSD_GESTAO_PRECO_EXCLUSAO=>TY_LT_BAPICONDHD
-      !CT_BAPICONDIT type ZCLSD_GESTAO_PRECO_EXCLUSAO=>TY_LT_BAPICONDIT .
+      !CT_BAPICONDIT type ZCLSD_GESTAO_PRECO_EXCLUSAO=>TY_LT_BAPICONDIT
+      !CT_BAPICONDQS type TY_LT_BAPICONDQS_2 optional .
   methods DATA_CALCULATION
     importing
       !IV_DATA type BEGDA
@@ -240,6 +243,8 @@ CLASS ZCLSD_GESTAO_PRECO_EXCLUSAO IMPLEMENTATION.
   METHOD altera_dados_bapi.
     DATA lv_cond TYPE char10.
 
+    DATA ls_bapicondqs  TYPE bapicondqs.
+
     READ TABLE ct_bapicondit ASSIGNING FIELD-SYMBOL(<fs_bapicondit>) INDEX 1.
     IF sy-subrc = 0.
       <fs_bapicondit>-operation = iv_operation.
@@ -247,6 +252,11 @@ CLASS ZCLSD_GESTAO_PRECO_EXCLUSAO IMPLEMENTATION.
         <fs_bapicondit>-indidelete = ' '.
         get_cond( CHANGING cs_newitem = lv_cond ).
         <fs_bapicondit>-cond_no = lv_cond.
+*** Inicio - Inclusão para ajuste card 8000007283
+        <fs_bapicondit>-cond_unit  = is_record-kmein.
+        <fs_bapicondit>-lowerlimit = is_record-mxwrt.
+        <fs_bapicondit>-upperlimit = is_record-gkwrt.
+*** Fim -Inclusão para ajuste card 8000007283
       ELSE.
         <fs_bapicondit>-indidelete = 'X'.
       ENDIF.
@@ -295,6 +305,31 @@ CLASS ZCLSD_GESTAO_PRECO_EXCLUSAO IMPLEMENTATION.
     ENDIF.
 
 
+*** Inicio - Inclusão para ajuste card 8000007283
+    IF iv_data_in EQ iv_data_fim.
+      DATA(lv_index) = 0.
+
+      LOOP AT it_item_scale[] INTO DATA(ls_item_qs). "#EC CI_LOOP_INTO_WA #EC CI_STDSEQ #EC CI_NESTED
+        CLEAR ls_bapicondqs.
+        ls_bapicondqs-operation   = iv_operation.
+        ls_bapicondqs-cond_no     = lv_cond.
+        ls_bapicondqs-cond_count  = 1.
+        IF ls_item_qs-line <> 0.
+          ls_bapicondqs-line_no   = ls_item_qs-line.
+        ELSE.
+          ls_bapicondqs-line_no   = lv_index = lv_index + 1.
+        ENDIF.
+        ls_bapicondqs-scale_qty   = ls_item_qs-scale.
+        ls_bapicondqs-cond_unit   = ls_item_qs-base_unit.
+        ls_bapicondqs-currency    = ls_item_qs-sug_value.
+        ls_bapicondqs-condcurr    = ls_item_qs-currency.
+        APPEND ls_bapicondqs TO ct_bapicondqs[].
+      ENDLOOP.
+
+    ENDIF.
+
+*** Fim -Inclusão para ajuste card 8000007283
+
   ENDMETHOD.
 
 
@@ -321,6 +356,7 @@ CLASS ZCLSD_GESTAO_PRECO_EXCLUSAO IMPLEMENTATION.
                is_record     = is_record
                iv_op_type    = iv_op_type
                iv_operation  = lc_003
+               it_item_scale = it_old_scale " ***Inclusão para ajuste card 8000007283
                IMPORTING
                et_bapicondct = lt_bapicondct
                et_bapicondhd = lt_bapicondhd
@@ -347,11 +383,13 @@ CLASS ZCLSD_GESTAO_PRECO_EXCLUSAO IMPLEMENTATION.
                          iv_data_in    = lv_data_in
                          is_record     = is_record
                          iv_operation  = lc_009
+                         it_item_scale = it_old_scale " ***Inclusão para ajuste card 8000007283
                         CHANGING
                          ct_return     = et_return
                          ct_bapicondct = lt_bapicondct
                          ct_bapicondhd = lt_bapicondhd
-                         ct_bapicondit = lt_bapicondit ).
+                         ct_bapicondit = lt_bapicondit
+                         ct_bapicondqs = lt_bapicondqs ). " ***Inclusão para ajuste card 8000007283
 
 * ---------------------------------------------------------------------------
 * Inclui uma linha igual a existente e modifica o "Data até" do registro excluido com o D-1
@@ -361,27 +399,31 @@ CLASS ZCLSD_GESTAO_PRECO_EXCLUSAO IMPLEMENTATION.
                          iv_data_fim   = lv_data_fim
                          is_record     = is_record
                          iv_operation  = lc_004
+                         it_item_scale = it_old_scale " ***Inclusão para ajuste card 8000007283
                         CHANGING
                          ct_return = et_return
                          ct_bapicondct = lt_bapicondct
                          ct_bapicondhd = lt_bapicondhd
-                         ct_bapicondit = lt_bapicondit ).
+                         ct_bapicondit = lt_bapicondit
+                         ct_bapicondqs = lt_bapicondqs ). " ***Inclusão para ajuste card 8000007283
 
 
 * ---------------------------------------------------------------------------
 * Inclui uma linha igual a existente e modifica o "Data desde/até" , sendo datas iguais
 * ---------------------------------------------------------------------------
-
+    CLEAR lt_bapicondqs.
     add_data_conditons( EXPORTING
                          iv_data_in    = iv_data_in
                          iv_data_fim   = iv_data_fim
-                         is_record     = is_record
+                         is_record     = is_newitem "is_record - ***Ajuste para card 8000007283
                          iv_operation  = lc_004
+                         it_item_scale = it_scale " ***Inclusão para ajuste card 8000007283
                         CHANGING
                          ct_return = et_return
                          ct_bapicondct = lt_bapicondct
                          ct_bapicondhd = lt_bapicondhd
-                         ct_bapicondit = lt_bapicondit ).
+                         ct_bapicondit = lt_bapicondit
+                         ct_bapicondqs = lt_bapicondqs ). " ***Inclusão para ajuste card 8000007283
 
 
     busca_condicoes( EXPORTING
@@ -410,14 +452,16 @@ CLASS ZCLSD_GESTAO_PRECO_EXCLUSAO IMPLEMENTATION.
     DATA lt_bapicondqs TYPE ty_lt_bapicondqs_2.
 
     altera_dados_bapi( EXPORTING
-                            iv_operation = iv_operation
-                            is_record   = is_record
-                            iv_data_fim = iv_data_fim
-                            iv_data_in  = iv_data_in
+                            iv_operation  = iv_operation
+                            is_record     = is_record
+                            iv_data_fim   = iv_data_fim
+                            iv_data_in    = iv_data_in
+                            it_item_scale = it_item_scale " ***Inclusão para ajuste card 8000007283
                            CHANGING
                             ct_bapicondit = ct_bapicondit
                             ct_bapicondhd = ct_bapicondhd
-                            ct_bapicondct = ct_bapicondct ).
+                            ct_bapicondct = ct_bapicondct
+                            ct_bapicondqs = ct_bapicondqs )." ***Inclusão para ajuste card 8000007283
 
     call_bapi( IMPORTING
                  et_return = ct_return
@@ -425,7 +469,7 @@ CLASS ZCLSD_GESTAO_PRECO_EXCLUSAO IMPLEMENTATION.
                  ct_bapicondit = ct_bapicondit
                  ct_bapicondhd = ct_bapicondhd
                  ct_bapicondct = ct_bapicondct
-                 ct_bapicondqs = lt_bapicondqs ).
+                 ct_bapicondqs = ct_bapicondqs ).
 
 
 
@@ -547,20 +591,25 @@ CLASS ZCLSD_GESTAO_PRECO_EXCLUSAO IMPLEMENTATION.
 
     DATA(lv_index) = 0.
 
-    IF iv_operation NE lc_003.
-      LOOP AT it_item_scale[] INTO DATA(ls_item_qs). "#EC CI_LOOP_INTO_WA #EC CI_STDSEQ #EC CI_NESTED
-        CLEAR ls_bapicondqs.
-        ls_bapicondqs-operation   = iv_operation.
-        ls_bapicondqs-cond_no     = is_record-knumh.
-        ls_bapicondqs-cond_count  = 1.
+*    IF iv_operation NE lc_003. " ***Ajuste para card 8000007283
+    LOOP AT it_item_scale[] INTO DATA(ls_item_qs). "#EC CI_LOOP_INTO_WA #EC CI_STDSEQ #EC CI_NESTED
+      CLEAR ls_bapicondqs.
+      ls_bapicondqs-operation   = iv_operation.
+      ls_bapicondqs-cond_no     = is_record-knumh.
+      ls_bapicondqs-cond_count  = 1.
+      IF ls_item_qs-line <> 0.
+        ls_bapicondqs-line_no     = ls_item_qs-line.
+      ELSE.
         ls_bapicondqs-line_no     = lv_index = lv_index + 1.
-        ls_bapicondqs-scale_qty   = ls_item_qs-scale.
-        ls_bapicondqs-cond_unit   = ls_item_qs-base_unit.
-        ls_bapicondqs-currency    = ls_item_qs-sug_value.
-        ls_bapicondqs-condcurr    = ls_item_qs-currency.
-        APPEND ls_bapicondqs TO et_bapicondqs[].
-      ENDLOOP.
-    ENDIF.
+      ENDIF.
+      ls_bapicondqs-scale_qty   = ls_item_qs-scale.
+      ls_bapicondqs-cond_unit   = ls_item_qs-base_unit.
+      ls_bapicondqs-currency    = ls_item_qs-sug_value.
+      ls_bapicondqs-condcurr    = ls_item_qs-currency.
+      APPEND ls_bapicondqs TO et_bapicondqs[].
+    ENDLOOP.
+    CLEAR lv_index.
+*    ENDIF. " ***Ajuste para card 8000007283
 
   ENDMETHOD.
 

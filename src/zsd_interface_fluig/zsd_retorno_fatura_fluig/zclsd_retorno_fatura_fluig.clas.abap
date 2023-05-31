@@ -106,7 +106,9 @@ CLASS ZCLSD_RETORNO_FATURA_FLUIG IMPLEMENTATION.
             FROM i_salesdocument
             WHERE salesdocument IN @lr_salesdocument.
         ENDIF.
-        SORT lt_docflow BY posnn vbtyp_v.
+
+*        SORT lt_docflow BY posnn vbtyp_v.
+
         LOOP AT lt_salesdocument ASSIGNING FIELD-SYMBOL(<fs_salesdocument>).
 
           IF <fs_salesdocument>-customerpurchaseordertype = 'FLUI'.
@@ -117,9 +119,15 @@ CLASS ZCLSD_RETORNO_FATURA_FLUIG IMPLEMENTATION.
                 iv_docnum  = lv_docnum
               IMPORTING
                 et_docflow = lt_docflow.
+
             IF lt_docflow IS NOT INITIAL.
 
-              READ TABLE lt_docflow ASSIGNING <fs_docflow> WITH KEY posnn = '0000' vbtyp_v = 'J' BINARY SEARCH.
+              SORT lt_docflow BY posnn
+                                 vbtyp_v.
+
+              READ TABLE lt_docflow ASSIGNING <fs_docflow> WITH KEY posnn   = '0000'
+                                                                    vbtyp_v = 'J'
+                                                                    BINARY SEARCH.
               IF sy-subrc = 0.
 
                 lv_docnum =   <fs_docflow>-docnuv.
@@ -129,12 +137,17 @@ CLASS ZCLSD_RETORNO_FATURA_FLUIG IMPLEMENTATION.
                     iv_docnum  = lv_docnum
                   IMPORTING
                     et_docflow = lt_docflow.
-                IF lt_docflow IS NOT INITIAL.
-                  SORT lt_docflow BY posnn vbtyp_n.
-                  READ TABLE lt_docflow ASSIGNING <fs_docflow> WITH KEY posnn = '0000' vbtyp_n = 'TMFO' BINARY SEARCH.
-                  IF sy-subrc = 0.
-                    gs_dados_nota-mt_dados_fatura_fluig-ordemfrete    = <fs_docflow>-docnum.
 
+                IF lt_docflow IS NOT INITIAL.
+
+                  SORT lt_docflow BY posnn
+                                     vbtyp_n.
+
+                  READ TABLE lt_docflow ASSIGNING <fs_docflow> WITH KEY posnn   = '0000'
+                                                                        vbtyp_n = 'TMFO'
+                                                                        BINARY SEARCH.
+                  IF sy-subrc = 0.
+                    gs_dados_nota-mt_dados_fatura_fluig-ordemfrete = <fs_docflow>-docnum.
                   ENDIF.
 
                 ENDIF.
@@ -146,7 +159,45 @@ CLASS ZCLSD_RETORNO_FATURA_FLUIG IMPLEMENTATION.
                 gs_dados_nota-mt_dados_fatura_fluig-code          = is_header-code.
                 gs_dados_nota-mt_dados_fatura_fluig-id            = <fs_salesdocument>-purchaseorderbycustomer.
                 interface_fluig( ).
+* LSCHEPP - SD - 8000007924 - Erro retorno da NF Distrato p/ Fluig - 26.05.2023 Início
+              ELSE.
 
+                READ TABLE lt_docflow ASSIGNING <fs_docflow> WITH KEY posnn   = '000000'
+                                                                      vbtyp_v = 'T'
+                                                                      BINARY SEARCH.
+                IF sy-subrc = 0.
+
+                  lv_docnum =   <fs_docflow>-docnuv.
+                  REFRESH lt_docflow.
+                  CALL FUNCTION 'SD_DOCUMENT_FLOW_GET'
+                    EXPORTING
+                      iv_docnum  = lv_docnum
+                    IMPORTING
+                      et_docflow = lt_docflow.
+
+                  IF lt_docflow IS NOT INITIAL.
+
+                    SORT lt_docflow BY posnn
+                                       vbtyp_n.
+
+                    READ TABLE lt_docflow ASSIGNING <fs_docflow> WITH KEY posnn   = '0000'
+                                                                          vbtyp_n = 'TMFO'
+                                                                          BINARY SEARCH.
+                    IF sy-subrc = 0.
+                      gs_dados_nota-mt_dados_fatura_fluig-ordemfrete = <fs_docflow>-docnum.
+                    ENDIF.
+
+                  ENDIF.
+
+                  lv_sldocument = get_vbelv( <fs_salesdocument>-salesdocument ).
+
+                  gs_dados_nota-mt_dados_fatura_fluig-salesdocument = COND #( WHEN lv_sldocument IS NOT INITIAL THEN lv_sldocument ELSE <fs_salesdocument>-salesdocument ).
+                  gs_dados_nota-mt_dados_fatura_fluig-nfenum        = is_header-nfenum.
+                  gs_dados_nota-mt_dados_fatura_fluig-code          = is_header-code.
+                  gs_dados_nota-mt_dados_fatura_fluig-id            = <fs_salesdocument>-purchaseorderbycustomer.
+                  interface_fluig( ).
+                ENDIF.
+* LSCHEPP - SD - 8000007924 - Erro retorno da NF Distrato p/ Fluig - 26.05.2023 Fim
               ENDIF.
 
             ENDIF.

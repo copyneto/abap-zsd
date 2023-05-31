@@ -35,7 +35,8 @@ define view entity ZI_SD_REL_FISCAL_SAIDA_TAX
       @Aggregation.default:#SUM
       _Tax.BR_NFItemOtherBaseAmount,
       _Tax.SalesDocumentCurrency,
-      _Tax.BR_NFItemTaxRate
+      _Tax.BR_NFItemTaxRate,
+      _Tax.BR_NFItemIsStatisticalTax
 
 }
 where

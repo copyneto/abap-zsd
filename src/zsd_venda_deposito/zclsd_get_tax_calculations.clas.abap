@@ -135,7 +135,6 @@ private section.
   data GV_BUKRS_OLD type BUKRS .
   data GV_CENTRO_OLD type WERKS_EXT .
   data GV_MATERIAL_OLD type MATNR .
-  data GV_CENTRO1_OLD type WERKS_EXT .
 
     "! Método preenche atributos chaves
     "! @parameter iv_centro        | Centro
@@ -388,8 +387,8 @@ CLASS ZCLSD_GET_TAX_CALCULATIONS IMPLEMENTATION.
       gs_quantidade       =  iv_quantidade.
       gs_unidade          =  iv_unidade.
 
-      IF iv_material NE gv_material_old AND
-         iv_centro NE gv_centro1_old.
+      IF iv_material NE gv_material_old.
+        CLEAR gs_um.
         SELECT SINGLE zipival
           FROM j_1blpp
           INTO gv_zipival
@@ -406,7 +405,6 @@ CLASS ZCLSD_GET_TAX_CALCULATIONS IMPLEMENTATION.
           gv_zipival = gv_zipival * lv_menge.
         ENDIF.
         gv_material_old = iv_material.
-        gv_centro1_old = iv_centro.
       ENDIF.
 
       rv_ok_keys = abap_true.

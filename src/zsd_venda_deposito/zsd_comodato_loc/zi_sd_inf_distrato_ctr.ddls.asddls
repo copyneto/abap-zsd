@@ -14,12 +14,11 @@ define view ZI_SD_INF_DISTRATO_CTR
     left outer to one join I_BillingDocumentItem     as Fatura         on  Fatura.SalesDocument     = Ordem.SalesDocument
                                                                        and Fatura.SalesDocumentItem = Ordem.SalesDocumentItem
 
-    left outer join        I_BR_NFItem               as NFItem         on  NFItem.BR_NFSourceDocumentType   = 'BI'
+    left outer to one join I_BR_NFItem               as NFItem         on  NFItem.BR_NFSourceDocumentType   = 'BI'
                                                                        and NFItem.BR_NFSourceDocumentNumber = Fatura.BillingDocument
                                                                        and NFItem.BR_NFSourceDocumentItem   = Fatura.BillingDocumentItem
 
     left outer join        I_BR_NFDocument           as NF             on NF.BR_NotaFiscal = NFItem.BR_NotaFiscal
-
 
     left outer join        vbfa                      as _FlowDoc       on  Contrato.SalesContract     = _FlowDoc.vbelv
                                                                        and Contrato.SalesContractItem = _FlowDoc.posnv
@@ -107,7 +106,7 @@ define view ZI_SD_INF_DISTRATO_CTR
       _Vbkd.ihrez            as Solicitacao,
 
       //Ordem.ReferenceSDDocument        as Ordem,
-      _DistrC.vbeln          as Ordem,
+      max(_DistrC.vbeln)     as Ordem,
       //Fatura.ReferenceSDDocument as Remessa,
       _FlowDoc.vbeln         as Remessa,
       //Fatura.BillingDocument     as Fatura,
@@ -129,8 +128,9 @@ define view ZI_SD_INF_DISTRATO_CTR
       _VbapC.arktx
       end                    as DescricaoEquip,
 
-      NF.BR_NFeNumber        as NFeNumber,
+      max( NF.BR_NFeNumber ) as NFeNumber,
       Frete.OrdemFrete       as OrdemFrete,
+
       Contrato.Plant         as Centro,
       _Remes.vbeln           as RemessaRetorno,
       //_NFDoc.nfenum              as NFRetorno
@@ -146,7 +146,7 @@ group by
   //Contrato.PurchaseOrderByCustomer,
   //_Vbkd.bstkd,
   //Ordem.ReferenceSDDocument,
-  _DistrC.vbeln,
+  //  _DistrC.vbeln,
   //Fatura.ReferenceSDDocument,
   _FlowDoc.vbeln,
   //Fatura.BillingDocument,
@@ -154,7 +154,7 @@ group by
   _Objk.sernr,
   _VbapC.matnr,
   _VbapC.arktx,
-  NF.BR_NFeNumber,
+  //  NF.BR_NFeNumber,
   Frete.OrdemFrete,
   Contrato.Plant,
   _Remes.vbeln,

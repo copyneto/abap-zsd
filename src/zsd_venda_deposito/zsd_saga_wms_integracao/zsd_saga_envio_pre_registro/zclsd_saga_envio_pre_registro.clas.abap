@@ -379,12 +379,23 @@ CLASS ZCLSD_SAGA_ENVIO_PRE_REGISTRO IMPLEMENTATION.
 *    SELECT SINGLE data_agendada
 *     FROM ztsd_agendamento
 *     WHERE ordem = @ls_vbak-vbeln
-      SELECT SINGLE DataAgendada
+* LSCHEPP - SD - 8000007671 - AGENDAMENTO ORDEM PARCIAL - 26.05.2023 Início
+    SELECT SINGLE dataagendada
+     FROM zi_sd_hist_agendamento
+     WHERE remessa     = @ls_likp-vbeln
+       AND agend_valid = @abap_true
+      INTO @lv_dataagend.
+    IF sy-subrc NE 0.
+* LSCHEPP - SD - 8000007671 - AGENDAMENTO ORDEM PARCIAL - 26.05.2023 Fim
+      SELECT SINGLE dataagendada
       FROM zi_sd_hist_agendamento
-      WHERE SalesOrder = @ls_vbak-vbeln
+      WHERE salesorder = @ls_vbak-vbeln
         AND agend_valid = @abap_true
 ***Flávia Leite - 12/04/2023
      INTO @lv_dataagend.
+* LSCHEPP - SD - 8000007671 - AGENDAMENTO ORDEM PARCIAL - 26.05.2023 Início
+    ENDIF.
+* LSCHEPP - SD - 8000007671 - AGENDAMENTO ORDEM PARCIAL - 26.05.2023 Fim
 
 
     IF lt_lips[] IS NOT INITIAL.
@@ -419,7 +430,7 @@ CLASS ZCLSD_SAGA_ENVIO_PRE_REGISTRO IMPLEMENTATION.
         FROM vbpa
         WHERE vbeln = @ls_vbak-vbeln AND
                       parvw = @lv_parvw
-      into @lv_agente_frete.
+      INTO @lv_agente_frete.
 
     ENDIF.
 

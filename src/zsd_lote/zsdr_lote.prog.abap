@@ -105,7 +105,13 @@ CLASS lcl_main IMPLEMENTATION.
 
       APPEND VALUE #( program = 'SAPMV50A' dynpro = '1000' dynbegin = 'X' ) TO lt_bdcdata.
       APPEND VALUE #( fnam = 'BDC_OKCODE' fval = '=CHSP_T' ) TO lt_bdcdata.
+** Inclusão para tratar o Picking
+      APPEND VALUE #( program = 'SAPMV50A' dynpro = '3000' dynbegin = 'X' ) TO lt_bdcdata.
+      APPEND VALUE #( fnam = 'BDC_OKCODE' fval = '=MKAL_T' ) TO lt_bdcdata.
 
+      APPEND VALUE #( program = 'SAPMV50A' dynpro = '3000' dynbegin = 'X' ) TO lt_bdcdata.
+      APPEND VALUE #( fnam = 'BDC_OKCODE' fval = '=POLO_T' ) TO lt_bdcdata.
+**
       APPEND VALUE #( program = 'SAPMV50A' dynpro = '3000' dynbegin = 'X' ) TO lt_bdcdata.
       APPEND VALUE #( fnam = 'BDC_OKCODE' fval = '=CHFD_T' ) TO lt_bdcdata.
 

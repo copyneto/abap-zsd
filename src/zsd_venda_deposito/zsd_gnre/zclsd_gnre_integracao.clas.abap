@@ -2256,6 +2256,10 @@ CLASS ZCLSD_GNRE_INTEGRACAO IMPLEMENTATION.
     DATA: lv_xml_result_sig TYPE string.
     DATA: lv_str_xstring TYPE xstring.
 
+* LSCHEPP - SD - 8000007642 - GNRE DUA-ES, Codigo de barras incorreto - 30.05.2023 Início
+    DATA lv_vlrtot_conv TYPE char15.
+* LSCHEPP - SD - 8000007642 - GNRE DUA-ES, Codigo de barras incorreto - 30.05.2023 Fim
+
     go_automacao->get_nf_data(
       IMPORTING
         es_j_1bnfdoc      = DATA(ls_j_1bnfdoc)
@@ -2266,12 +2270,26 @@ CLASS ZCLSD_GNRE_INTEGRACAO IMPLEMENTATION.
         DATA(lr_dua_es) = NEW zclsd_co_si_enviar_dados_emiss( ).
 
 
-        DATA(lv_vlrtot_conv) = CONV char15( gs_gnre_header-vlrtot ).
-        REPLACE ALL OCCURRENCES OF '.' IN lv_vlrtot_conv WITH ''.
+* LSCHEPP - SD - 8000007642 - GNRE DUA-ES, Codigo de barras incorreto - 30.05.2023 Início
+        WRITE gs_gnre_header-vlrtot TO lv_vlrtot_conv CURRENCY ls_j_1bnfdoc-waerk.
         CONDENSE lv_vlrtot_conv NO-GAPS.
+        IF lv_vlrtot_conv(1) EQ '0'.
+          REPLACE ALL OCCURRENCES OF ',' IN lv_vlrtot_conv WITH '.'.
+          CONDENSE lv_vlrtot_conv NO-GAPS.
+        ELSE.
+*          DATA(lv_vlrtot_conv) = CONV char15( gs_gnre_header-vlrtot ).
+* LSCHEPP - SD - 8000007642 - GNRE DUA-ES, Codigo de barras incorreto - 30.05.2023 Fim
+          REPLACE ALL OCCURRENCES OF '.' IN lv_vlrtot_conv WITH ''.
+* LSCHEPP - SD - 8000007642 - GNRE DUA-ES, Codigo de barras incorreto - 31.05.2023 Início
+          REPLACE ALL OCCURRENCES OF ',' IN lv_vlrtot_conv WITH '.'.
+* LSCHEPP - SD - 8000007642 - GNRE DUA-ES, Codigo de barras incorreto - 31.05.2023 Fim
+          CONDENSE lv_vlrtot_conv NO-GAPS.
 
-        SHIFT lv_vlrtot_conv LEFT DELETING LEADING '0'.
-        CONDENSE lv_vlrtot_conv NO-GAPS.
+          SHIFT lv_vlrtot_conv LEFT DELETING LEADING '0'.
+          CONDENSE lv_vlrtot_conv NO-GAPS.
+* LSCHEPP - SD - 8000007642 - GNRE DUA-ES, Codigo de barras incorreto - 30.05.2023 Início
+        ENDIF.
+* LSCHEPP - SD - 8000007642 - GNRE DUA-ES, Codigo de barras incorreto - 30.05.2023 Fim
 
         DATA(ls_emis_dua) = VALUE zssd_gnree009( tp_amb   = get_tp_amb( )
                                              cnpj_org = '27080571000130'

@@ -248,6 +248,7 @@
           IF  <fs_texto>-seqnum = <fs_texto_ref>-seqnum.
 
             READ TABLE ct_itens_adicional ASSIGNING FIELD-SYMBOL(<fs_item_add>) WITH KEY itmnum = <fs_nflin>-itmnum BINARY SEARCH.
+*            READ TABLE lt_ITENS_ADICIONAL ASSIGNING FIELD-SYMBOL(<fs_item_add>) WITH KEY itmnum = <fs_nflin>-itmnum BINARY SEARCH.
             IF sy-subrc = 0.
               <fs_item_add>-infadprod = |{ <fs_item_add>-infadprod } { <fs_texto>-message }|.
             ENDIF.
@@ -267,6 +268,7 @@
     REPLACE ALL OCCURRENCES OF '.' IN lv_texto WITH ','.
 
     READ TABLE ct_itens_adicional ASSIGNING <fs_item_add> WITH KEY itmnum = <fs_nflin>-itmnum BINARY SEARCH.
+*    READ TABLE lt_ITENS_ADICIONAL ASSIGNING <fs_item_add> WITH KEY itmnum = <fs_nflin>-itmnum BINARY SEARCH.
     IF sy-subrc = 0.
       <fs_item_add>-infadprod = |{ <fs_item_add>-infadprod } { lv_texto }|.
       CLEAR: lv_texto.

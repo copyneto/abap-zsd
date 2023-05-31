@@ -129,6 +129,11 @@ private section.
       !IV_CHAVE3 type ZE_PARAM_CHAVE_3
     returning
       value(RV_VALOR) type ZE_PARAM_LOW .
+  methods VALIDA_POSNR
+    importing
+      !IV_POSNR type POSNR_VA
+    returning
+      value(RV_MULTIPLICADOR) type I .
 ENDCLASS.
 
 
@@ -452,6 +457,9 @@ CLASS ZCLSD_CMDLOC_DEVOL_MERCADORIA IMPLEMENTATION.
 
     DATA: ls_xvbak TYPE tds_xvbak.
 
+    DATA: lv_multiplicador TYPE i,
+          lv_posnr         TYPE posnr_va.
+
     IF is_vbak IS INITIAL.
       SELECT SINGLE *
       FROM vbak
@@ -460,6 +468,17 @@ CLASS ZCLSD_CMDLOC_DEVOL_MERCADORIA IMPLEMENTATION.
     ELSE.
       ls_xvbak = is_vbak.
     ENDIF.
+
+    "contratos de carga podem ser importados com numeração de itens errados, então validamos a numeração do primeiro item 1 item.
+    SELECT salescontractitem
+      FROM i_salescontractitem
+      WHERE salescontract = @is_key-contrato
+      ORDER BY salescontractitem ASCENDING
+      INTO @lv_posnr
+      UP TO 1 ROWS.
+    ENDSELECT.
+
+    lv_multiplicador = me->valida_posnr( iv_posnr = lv_posnr ).
 
     IF it_vbap[] IS INITIAL.
 
@@ -598,9 +617,9 @@ CLASS ZCLSD_CMDLOC_DEVOL_MERCADORIA IMPLEMENTATION.
                                                           posnr = <fs_vbap_excl>-posnr
                                                           BINARY SEARCH.
             IF sy-subrc IS NOT INITIAL.
-              lt_item_in = VALUE #( BASE lt_item_in ( itm_number = <fs_vbap_excl>-posnr ) ).
+              lt_item_in = VALUE #( BASE lt_item_in ( itm_number = <fs_vbap_excl>-posnr * lv_multiplicador ) ).
 
-              lt_item_inx = VALUE #( BASE lt_item_inx ( itm_number = <fs_vbap_excl>-posnr
+              lt_item_inx = VALUE #( BASE lt_item_inx ( itm_number = <fs_vbap_excl>-posnr * lv_multiplicador
                                                         updateflag = gc_delt ) ).
             ENDIF.
           ENDLOOP.
@@ -782,50 +801,73 @@ CLASS ZCLSD_CMDLOC_DEVOL_MERCADORIA IMPLEMENTATION.
 
       ELSEIF ls_xvbak-bsark = gc_const-bsark_carg. "Contratos via CARGA
 
-        READ TABLE lt_itens ASSIGNING FIELD-SYMBOL(<fs_item_carg>) INDEX 1.
+        LOOP AT lt_itens ASSIGNING <fs_itens>.
 
-        lv_name = |{ <fs_item_carg>-vbeln }{ <fs_item_carg>-posnr }|.
+          IF <fs_itens>-abgru IS NOT INITIAL.
 
-        CALL FUNCTION 'READ_TEXT'
-          EXPORTING
-            id                      = gc_const-z010
-            language                = sy-langu
-            name                    = lv_name
-            object                  = gc_const-vbbp
-          TABLES
-            lines                   = lt_lines
-          EXCEPTIONS
-            id                      = 1
-            language                = 2
-            name                    = 3
-            not_found               = 4
-            object                  = 5
-            reference_check         = 6
-            wrong_access_to_archive = 7
-            OTHERS                  = 8.
+            READ TABLE lt_vbfa_devol ASSIGNING <fs_vbfa_devol>
+                                            WITH KEY vbelv = <fs_itens>-vbeln
+                                                     posnv = <fs_itens>-posnr BINARY SEARCH.
+            IF sy-subrc IS NOT INITIAL.
 
-        IF sy-subrc IS INITIAL.
-          LOOP AT lt_lines ASSIGNING FIELD-SYMBOL(<fs_lines>).
-            DATA(lv_nfe) = <fs_lines>-tdline+26(8).
-            SPLIT <fs_lines>-tdline AT '/' INTO DATA(lv_chave) DATA(lv_valor).
-          ENDLOOP.
+              CLEAR: lv_name.
+              REFRESH lt_lines.
 
-          CONDENSE lv_valor NO-GAPS.
-          REPLACE ALL OCCURRENCES OF ',' IN lv_valor WITH '.'.
+              lv_name = |{ <fs_itens>-vbeln }{ <fs_itens>-posnr }|.
 
-          "Alterar valor da condição
-          APPEND VALUE #( cond_type   = gc_const-zpr1
-                          cond_value  = lv_valor / 10
-                          itm_number  = <fs_item_carg>-posnr ) TO lt_conditions_in.
+              IF lv_name IS NOT INITIAL.
 
-          APPEND VALUE #( cond_type  = gc_const-zpr1
-                          cond_value = 'X'
-                          itm_number = <fs_item_carg>-posnr
-                          updateflag = 'I' ) TO lt_conditions_inx.
+                CALL FUNCTION 'READ_TEXT'
+                  EXPORTING
+                    id                      = gc_const-z010
+                    language                = sy-langu
+                    name                    = lv_name
+                    object                  = gc_const-vbbp
+                  TABLES
+                    lines                   = lt_lines
+                  EXCEPTIONS
+                    id                      = 1
+                    language                = 2
+                    name                    = 3
+                    not_found               = 4
+                    object                  = 5
+                    reference_check         = 6
+                    wrong_access_to_archive = 7
+                    OTHERS                  = 8.
 
-          lv_xblnr = lv_nfe.
+                IF sy-subrc IS INITIAL.
+                  LOOP AT lt_lines ASSIGNING FIELD-SYMBOL(<fs_lines>).
+                    DATA(lv_nfe) = <fs_lines>-tdline+26(8).
+                    SPLIT <fs_lines>-tdline AT '/' INTO DATA(lv_chave) DATA(lv_valor).
+                  ENDLOOP.
 
-        ENDIF.
+                  IF lv_valor IS NOT INITIAL.
+
+                    CONDENSE lv_valor NO-GAPS.
+                    REPLACE ALL OCCURRENCES OF ',' IN lv_valor WITH '.'.
+
+                    "Alterar valor da condição
+                    APPEND VALUE #( cond_type   = gc_const-zpr1
+                                    cond_value  = lv_valor / 10
+                                    itm_number  = <fs_itens>-posnr * lv_multiplicador ) TO lt_conditions_in.
+
+                    APPEND VALUE #( cond_type  = gc_const-zpr1
+                                    cond_value = 'X'
+                                    itm_number = <fs_itens>-posnr * lv_multiplicador
+                                    updateflag = 'I' ) TO lt_conditions_inx.
+
+                  ENDIF.
+
+                  IF lv_xblnr IS INITIAL AND
+                    lv_nfe IS NOT INITIAL.
+                    lv_xblnr = lv_nfe.
+                  ENDIF.
+
+                ENDIF.
+              ENDIF.
+            ENDIF.
+          ENDIF.
+        ENDLOOP.
 
       ELSE.
         lv_xblnr = is_key-nfesaida.
@@ -861,6 +903,15 @@ CLASS ZCLSD_CMDLOC_DEVOL_MERCADORIA IMPLEMENTATION.
            AND posnr = @ls_itens-posnr
           INTO @DATA(lv_ihrez).
       ENDIF.
+
+      IF lv_ihrez IS INITIAL.
+        SELECT SINGLE ihrez
+          FROM vbkd
+         WHERE vbeln = @ls_itens-vbeln
+           AND posnr IS INITIAL
+          INTO @lv_ihrez.
+      ENDIF.
+
     ENDIF.
 
     LOOP AT lt_vbak REFERENCE INTO DATA(ls_vbak).
@@ -899,9 +950,9 @@ CLASS ZCLSD_CMDLOC_DEVOL_MERCADORIA IMPLEMENTATION.
             ENDIF.
 
             IF <fs_itens>-abgru IS INITIAL.
-              lt_item_in = VALUE #( BASE lt_item_in ( itm_number = <fs_itens>-posnr ) ).
+              lt_item_in = VALUE #( BASE lt_item_in ( itm_number = <fs_itens>-posnr * lv_multiplicador ) ).
 
-              lt_item_inx = VALUE #( BASE lt_item_inx ( itm_number = <fs_itens>-posnr
+              lt_item_inx = VALUE #( BASE lt_item_inx ( itm_number = <fs_itens>-posnr * lv_multiplicador
                                                         updateflag = gc_delt ) ).
               CONTINUE.
 
@@ -912,9 +963,9 @@ CLASS ZCLSD_CMDLOC_DEVOL_MERCADORIA IMPLEMENTATION.
                                                  posnv = <fs_itens>-posnr
                                                  BINARY SEARCH.
               IF sy-subrc IS INITIAL.
-                lt_item_in = VALUE #( BASE lt_item_in ( itm_number = <fs_itens>-posnr ) ).
+                lt_item_in = VALUE #( BASE lt_item_in ( itm_number = <fs_itens>-posnr * lv_multiplicador ) ).
 
-                lt_item_inx = VALUE #( BASE lt_item_inx ( itm_number = <fs_itens>-posnr
+                lt_item_inx = VALUE #( BASE lt_item_inx ( itm_number = <fs_itens>-posnr * lv_multiplicador
                                                           updateflag = gc_delt ) ).
                 CONTINUE.
               ENDIF.
@@ -927,7 +978,7 @@ CLASS ZCLSD_CMDLOC_DEVOL_MERCADORIA IMPLEMENTATION.
 
             IF sy-subrc IS INITIAL.
               sernr_update( is_key = VALUE #( document   = lv_nw_salesdoc
-                                              itm_number = <fs_itens>-posnr
+                                              itm_number = ( <fs_itens>-posnr * lv_multiplicador )
                                               sernr      = <fs_objk>-sernr
                                               matnr      = <fs_itens>-matnr
                                               partn_numb = <fs_itens>-kunnr
@@ -1569,5 +1620,18 @@ CLASS ZCLSD_CMDLOC_DEVOL_MERCADORIA IMPLEMENTATION.
       ENDIF.
     ENDIF.
 
+  ENDMETHOD.
+
+
+  METHOD valida_posnr.
+    IF iv_posnr MOD 10 = 0.
+      "'O número é múltiplo de 10'.
+      "rv_multiplica = abap_true.
+      rv_multiplicador = 1.
+    ELSE.
+      "'O número não é múltiplo de 10'.
+      "rv_multiplica = abap_false.
+      rv_multiplicador = 10.
+    ENDIF.
   ENDMETHOD.
 ENDCLASS.

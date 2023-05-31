@@ -72,7 +72,7 @@
 
                 IF NOT lv_certif IS INITIAL AND
                    NOT lv_data_val IS INITIAL.
-                  lv_dados_cert = |LOTE { lv_lote } CERT. { lv_certif } DATA { lv_data_val } PROD. { lv_material }|.
+                  lv_dados_cert = |PROD. { lv_material } LOTE { lv_lote } CERT. { lv_certif } DATA { lv_data_val }|.
                 ENDIF.
 
                 TRY.
@@ -90,7 +90,7 @@
 
                 IF NOT lv_certif_1 IS INITIAL AND
                    NOT lv_data_val_1 IS INITIAL.
-                  lv_dados_cert = |{ lv_dados_cert } LOTE { lv_lote_1 } CERT. { lv_certif_1 } DATA { lv_data_val_1 } PROD. { lv_material }|.
+                  lv_dados_cert = |{ lv_dados_cert } PROD. { lv_material } LOTE { lv_lote_1 } CERT. { lv_certif_1 } DATA { lv_data_val_1 }|.
                 ENDIF.
 
                 TRY.
@@ -108,7 +108,7 @@
 
                 IF NOT lv_certif_2 IS INITIAL AND
                    NOT lv_data_val_2 IS INITIAL.
-                  lv_dados_cert = |{ lv_dados_cert } LOTE { lv_lote_2 } CERT. { lv_certif_2 } DATA { lv_data_val_2 } PROD. { lv_material }|.
+                  lv_dados_cert = |{ lv_dados_cert } PROD. { lv_material } LOTE { lv_lote_2 } CERT. { lv_certif_2 } DATA { lv_data_val_2 }|.
                 ENDIF.
 
                 IF NOT lv_dados_cert IS INITIAL.

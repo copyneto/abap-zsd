@@ -16,6 +16,7 @@ READ TABLE lt_tax ASSIGNING FIELD-SYMBOL(<fs_taxtyp>) WITH KEY itmnum = <fs_nfli
                                                                taxtyp = lc_icsc BINARY SEARCH.
 IF sy-subrc = 0.
   MOVE-CORRESPONDING <fs_taxtyp> TO ls_fcp_values.
+  ls_fcp_values-matnr = <fs_nflin1>-matnr.
   COLLECT ls_fcp_values INTO lt_fcp_values.
 ENDIF.
 
@@ -23,6 +24,7 @@ READ TABLE lt_tax ASSIGNING <fs_taxtyp> WITH KEY itmnum = <fs_nflin1>-itmnum
                                                  taxtyp = lc_icfp BINARY SEARCH.
 IF sy-subrc = 0.
   MOVE-CORRESPONDING <fs_taxtyp> TO ls_fcp_values.
+  ls_fcp_values-matnr = <fs_nflin1>-matnr.
   COLLECT ls_fcp_values INTO lt_fcp_values.
 ENDIF.
 
@@ -31,6 +33,7 @@ READ TABLE lt_tax ASSIGNING <fs_taxtyp> WITH KEY itmnum = <fs_nflin1>-itmnum
                                                  BINARY SEARCH.
 IF sy-subrc = 0.
   MOVE-CORRESPONDING <fs_taxtyp> TO ls_fcp_values.
+  ls_fcp_values-matnr = <fs_nflin1>-matnr.
   COLLECT ls_fcp_values INTO lt_fcp_values.
 ENDIF.
 
@@ -39,6 +42,7 @@ READ TABLE lt_tax ASSIGNING <fs_taxtyp> WITH KEY itmnum = <fs_nflin1>-itmnum
                                                  BINARY SEARCH.
 IF sy-subrc = 0.
   MOVE-CORRESPONDING <fs_taxtyp> TO ls_fcp_values.
+  ls_fcp_values-matnr = <fs_nflin1>-matnr.
   COLLECT ls_fcp_values INTO lt_fcp_values.
 ENDIF.
 
@@ -47,5 +51,6 @@ READ TABLE lt_tax ASSIGNING <fs_taxtyp> WITH KEY itmnum = <fs_nflin1>-itmnum
                                                  BINARY SEARCH.
 IF sy-subrc = 0.
   MOVE-CORRESPONDING <fs_taxtyp> TO ls_fcp_values.
+  ls_fcp_values-matnr = <fs_nflin1>-matnr.
   COLLECT ls_fcp_values INTO lt_fcp_values.
 ENDIF.
