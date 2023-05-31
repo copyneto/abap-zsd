@@ -29,6 +29,8 @@ define view ZI_SD_CR_CP_CTR
 
     left outer join        bsik                     as Bsik     on bsik.xblnr = vbrk_ref.xblnr
 
+    left outer join        bsid                     as Bsid     on bsid.xblnr = vbrk_ref.xblnr
+
   //    left outer join        acdoca                   as acdoca_d on  acdoca_d.rbukrs   = vbrk_ref.bukrs
   //                                                                and acdoca_d.gjahr    = substring(
   //      vbrk_ref.fkdat, 1, 4
@@ -71,7 +73,8 @@ define view ZI_SD_CR_CP_CTR
       //      bseg.augcp                 as DataCriacao,
       //      bseg.augbl                 as DocFinRecebimento,
       bsik.belnr                 as DocFinRecebimento,
-      bsik.bldat                 as DataCriacao
+      //      bsik.bldat                 as DataCriacao
+      bsid.bldat                 as DataCriacao
 }
 where
   fplt.fakwr <> 0

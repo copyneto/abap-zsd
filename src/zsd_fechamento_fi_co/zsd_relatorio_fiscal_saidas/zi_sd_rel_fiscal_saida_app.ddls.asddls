@@ -24,6 +24,8 @@ define root view entity ZI_SD_REL_FISCAL_SAIDA_APP
                                                                                                  and _TaxICM2.BR_NotaFiscalItem = _Lin.BR_NotaFiscalItem
     left outer join        ZI_SD_REL_FISCAL_SAIDA_TAX(  chave3 : 'ICM1' )  as _TaxICM1           on  _TaxICM1.BR_NotaFiscal     = _Lin.BR_NotaFiscal
                                                                                                  and _TaxICM1.BR_NotaFiscalItem = _Lin.BR_NotaFiscalItem
+    left outer join        ZI_SD_REL_FISCAL_SAIDA_TAX(  chave3 : 'ICM0' )  as _TaxICM0           on  _TaxICM0.BR_NotaFiscal     = _Lin.BR_NotaFiscal
+                                                                                                 and _TaxICM0.BR_NotaFiscalItem = _Lin.BR_NotaFiscalItem
     left outer join        ZI_SD_REL_FISCAL_SAIDA_TAX(  chave3 : 'ICS3' )  as _TaxICS3           on  _TaxICS3.BR_NotaFiscal     = _Lin.BR_NotaFiscal
                                                                                                  and _TaxICS3.BR_NotaFiscalItem = _Lin.BR_NotaFiscalItem
     left outer join        ZI_SD_REL_FISCAL_SAIDA_TAX(  chave3 : 'ICS2' )  as _TaxICS2           on  _TaxICS2.BR_NotaFiscal     = _Lin.BR_NotaFiscal
@@ -742,6 +744,10 @@ define root view entity ZI_SD_REL_FISCAL_SAIDA_APP
       case
         when _TaxICM3.BR_NotaFiscal = _Lin.BR_NotaFiscal
             then cast(_TaxICM3.BR_NFItemOtherBaseAmount as logbr_invoicenetamount)
+               when _TaxICM0.BR_NotaFiscal = _Lin.BR_NotaFiscal
+                  then cast(_TaxICM0.BR_NFItemOtherBaseAmount as logbr_invoicenetamount)        
+               when _TaxICM1.BR_NotaFiscal = _Lin.BR_NotaFiscal
+                  then cast(_TaxICM1.BR_NFItemOtherBaseAmount as logbr_invoicenetamount)        
         else
             cast(_TaxICM2.BR_NFItemOtherBaseAmount as logbr_invoicenetamount)
       end                                                                                                              as OutrasICMS,

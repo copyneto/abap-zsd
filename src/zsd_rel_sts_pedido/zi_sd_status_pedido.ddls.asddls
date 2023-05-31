@@ -8,10 +8,11 @@
     dataClass: #MIXED
 }
 define root view entity ZI_SD_STATUS_PEDIDO
-  as select from I_SalesOrder     as _SalesOrder
+  as select from I_SalesOrder  as _SalesOrder
 
-    inner join   I_SalesOrderItem as _SalesOrderItem on  _SalesOrderItem.SalesOrder     = _SalesOrder.SalesOrder
-                                                     and _SalesOrderItem.SalesOrderItem = '000010'
+  //    inner join   I_SalesOrderItem as _SalesOrderItem on  _SalesOrderItem.SalesOrder     = _SalesOrder.SalesOrder
+  //                                                     and _SalesOrderItem.SalesOrderItem = '000010'
+    inner join   ZI_SD_OV_ITEM as _SalesOrderItem on _SalesOrderItem.SalesOrder = _SalesOrder.SalesOrder
   association to vbak                      as _Vbak         on _Vbak.vbeln = _SalesOrder.SalesOrder
 
   //  //Remessa
@@ -96,7 +97,7 @@ define root view entity ZI_SD_STATUS_PEDIDO
 
       _FlowRemessa.CreationDate, //dt ordem de frete
 
-//            _FlowRemessa.CreationDate               as CreationDateFatura,
+      //            _FlowRemessa.CreationDate               as CreationDateFatura,
       _FlowRemessa.CreationDateFatura,
       //      _FlowRemessa.BillingDocument,
       _FlowRemessa.BR_NFeNumber,
