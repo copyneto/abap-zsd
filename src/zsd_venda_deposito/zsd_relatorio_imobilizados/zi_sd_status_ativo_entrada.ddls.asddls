@@ -28,9 +28,11 @@ define view entity ZI_SD_STATUS_ATIVO_ENTRADA
     left outer join        t001w                     as _t001w        on _t001w.werks = _NfItemSaida.Plant
 
     left outer join        ZI_SD_ATIVOS_IMOBILIZADOS as _Ativos       on  _Ativos.Fkart         = _BillingDoc.BillingDocumentType
+                                                                      and _Ativos.RegiaoSaida   = _t001w.regio
                                                                       and _Ativos.RegiaoDestino = _NfDocSaida.BR_NFPartnerRegionCode
 
     left outer join        ZI_SD_ATIVOS_IMOBILIZADOS as _Ativos3      on  _Ativos3.Fkart         = _BillingDoc.BillingDocumentType
+                                                                      and _Ativos3.RegiaoSaida   = _t001w.regio
                                                                       and _Ativos3.RegiaoDestino = ' '
 
 

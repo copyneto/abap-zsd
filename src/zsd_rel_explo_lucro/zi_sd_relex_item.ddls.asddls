@@ -29,6 +29,9 @@ define view entity ZI_SD_RELEX_ITEM
   association [1]    to ZI_SD_RELEX_TAX         as _ImpIPI               on  _NFItem.BR_NotaFiscal     = _ImpIPI.BR_NotaFiscal
                                                                          and _NFItem.BR_NotaFiscalItem = _ImpIPI.BR_NotaFiscalItem
                                                                          and 'IPI'                     = _ImpIPI.GrupoImposto
+  association [1]    to ZI_SD_RELEX_TAX         as _ImpFCP               on  _NFItem.BR_NotaFiscal     = _ImpFCP.BR_NotaFiscal
+                                                                         and _NFItem.BR_NotaFiscalItem = _ImpFCP.BR_NotaFiscalItem
+                                                                         and 'FCP'                     = _ImpFCP.GrupoImposto
 
   association [1]    to ZI_SD_RELEX_TAX         as _ImpSUBTRIB           on  _NFItem.BR_NotaFiscal     = _ImpSUBTRIB.BR_NotaFiscal
                                                                          and _NFItem.BR_NotaFiscalItem = _ImpSUBTRIB.BR_NotaFiscalItem
@@ -107,13 +110,21 @@ define view entity ZI_SD_RELEX_ITEM
   cast(       case
 //     when _NFItem.NetValueAmount  is null then cast( 0 as abap.dec(15,2))
 //     else cast( _NFItem.NetValueAmount as abap.dec(15,2))
-     when _NFItem.BR_NFTotalAmount  is null then cast( 0 as abap.dec(15,2))
-     else cast( _NFItem.BR_NFTotalAmount as abap.dec(15,2))
+//     when _NFItem.BR_NFTotalAmount  is null then cast( 0 as abap.dec(15,2))
+//     else cast( _NFItem.BR_NFTotalAmount as abap.dec(15,2))
+     when _NFItem.BR_NFValueAmountWithTaxes is initial or _NFItem.BR_NFValueAmountWithTaxes is null
+     then 0
+     else cast(_NFItem.BR_NFValueAmountWithTaxes as abap.dec( 15, 2 ) )
      end
      +
      case
      when _ImpIPI.BR_NFItemTaxAmount is null then cast( 0 as abap.dec(15,2))
      else cast( _ImpIPI.BR_NFItemTaxAmount as abap.dec(15,2))
+     end
+     +
+     case
+     when _ImpFCP.BR_NFItemTaxAmount is null then cast( 0 as abap.dec(15,2))
+     else cast( _ImpFCP.BR_NFItemTaxAmount as abap.dec(15,2))
      end
      +
      case

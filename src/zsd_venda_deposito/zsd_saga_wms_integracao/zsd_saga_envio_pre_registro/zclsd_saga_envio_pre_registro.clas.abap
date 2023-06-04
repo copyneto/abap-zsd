@@ -122,7 +122,8 @@ private section.
       !IV_ORDEMFRETE type ZE_ORDEMFRETE
     exporting
       !ES_TRANSP type ZCLSD_DT_REMESSA_ORDEM_TRANSPO
-      !EV_AGENTE_FRETE type /SCMTMS/PTY_CARRIER .
+      !EV_AGENTE_FRETE type /SCMTMS/PTY_CARRIER
+      !EV_ORDEMFRETE_MAE type abap_bool.
 ENDCLASS.
 
 
@@ -414,9 +415,22 @@ CLASS ZCLSD_SAGA_ENVIO_PRE_REGISTRO IMPLEMENTATION.
                            iv_ordemfrete = iv_ordemfrete
                            IMPORTING
                             es_transp       = DATA(ls_transp)
-                            ev_agente_frete = DATA(lv_agente_frete)  ).
+                            ev_agente_frete = DATA(lv_agente_frete)
+                            ev_ordemfrete_mae = DATA(lv_ordemfrete_mae) ).
 
+    "Caso a ordem de frete seja do tipo transit point ou ordem de frete mãe não deve ser enviada para o WMS
+    IF lv_ordemfrete_mae = abap_true.
 
+        DATA ls_bapiret2 TYPE bapiret2.
+
+        ls_bapiret2-id = 'OFFIL'.
+        ls_bapiret2-message = 'Registro não enviado, a OF possui referências a documentos do tipo OFFIL' ##NO_TEXT .
+
+        APPEND ls_bapiret2 TO et_return.
+
+        RETURN.
+
+    ENDIF.
 
     IF lv_agente_frete IS INITIAL.
 
@@ -608,7 +622,8 @@ CLASS ZCLSD_SAGA_ENVIO_PRE_REGISTRO IMPLEMENTATION.
           lt_tor_root_key TYPE /bobf/t_frw_key,
           lt_tor_party    TYPE /scmtms/t_tor_party_k,
           lt_parameters   TYPE /bobf/t_frw_query_selparam,
-          lt_itemtr       TYPE /scmtms/t_tor_item_tr_k.
+          lt_itemtr       TYPE /scmtms/t_tor_item_tr_k,
+          lt_tor_ref      TYPE /scmtms/t_tor_docref_k.
 
     go_srv_tor = /bobf/cl_tra_serv_mgr_factory=>get_service_manager( /scmtms/if_tor_c=>sc_bo_key ).
 
@@ -650,9 +665,27 @@ CLASS ZCLSD_SAGA_ENVIO_PRE_REGISTRO IMPLEMENTATION.
        IMPORTING
             et_data       = lt_tor_party ).
 
+      go_srv_tor->retrieve_by_association(
+       EXPORTING
+           iv_node_key             = /scmtms/if_tor_c=>sc_node-root
+           it_key                  = lt_tor_root_key
+           iv_association = /scmtms/if_tor_c=>sc_association-root-docreference
+           iv_fill_data   = abap_true
+       IMPORTING
+            et_data       = lt_tor_ref ).
+
       ev_agente_frete = <fs_tor>-tspid.
 
     ENDLOOP.
+
+    ev_ordemfrete_mae = abap_false.
+    LOOP AT lt_tor_ref ASSIGNING FIELD-SYMBOL(<fs_ref>).
+        IF <fs_ref>-btd_tco = 'OFFIL'.
+            ev_ordemfrete_mae = abap_true.
+            EXIT.
+        ENDIF.
+    ENDLOOP.
+
     LOOP AT lt_itemtr ASSIGNING FIELD-SYMBOL(<fs_itemtr>).
       CHECK <fs_itemtr>-item_cat = 'AVR'.
       es_transp-ztpveic = <fs_itemtr>-tures_tco.
@@ -672,5 +705,6 @@ CLASS ZCLSD_SAGA_ENVIO_PRE_REGISTRO IMPLEMENTATION.
         es_transp-zcpfmot  = ls_lfa1-stcd2.
       ENDIF.
     ENDIF.
+
   ENDMETHOD.
 ENDCLASS.

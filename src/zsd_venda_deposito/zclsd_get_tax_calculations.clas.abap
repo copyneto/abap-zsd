@@ -354,9 +354,13 @@ CLASS ZCLSD_GET_TAX_CALCULATIONS IMPLEMENTATION.
   METHOD get_keys.
 
     IF iv_centro          IS NOT INITIAL OR
-      iv_uf               IS NOT INITIAL OR
-      iv_material         IS NOT INITIAL OR
-      iv_gp_mercadoria    IS NOT INITIAL.
+       iv_uf              IS NOT INITIAL OR
+       iv_material        IS NOT INITIAL OR
+       iv_gp_mercadoria   IS NOT INITIAL.
+
+* LSCHEPP - SD - 8000008090 - Cálc. incorreto tag </vBCSTRet> CST60 - 01.06.2023 Início
+      CLEAR gv_zipival.
+* LSCHEPP - SD - 8000008090 - Cálc. incorreto tag </vBCSTRet> CST60 - 01.06.2023 Fim
 
       gs_centro           =  iv_centro.
       gs_uf               =  iv_uf.

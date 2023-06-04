@@ -43,16 +43,21 @@ CLASS ZCLSD_RELATORIO_IMOBILIZADOS IMPLEMENTATION.
 *        INTO TABLE @DATA(lt_dados).
     DATA(lt_dados) = lt_original_data[].
     IF lt_dados[] IS NOT INITIAL.
+
       SORT lt_dados BY docnum_saida item_saida.
       DELETE ADJACENT DUPLICATES FROM lt_dados COMPARING docnum_saida item_saida.
 
-      SELECT BR_NotaFiscal, br_notafiscalitem, diasatraso1, diasatraso2, nodias
-      FROM zi_sd_status_ativo_entrada
-      FOR ALL ENTRIES IN @lt_dados
-      WHERE br_notafiscal = @lt_dados-docnum_saida
-        AND br_notafiscalitem = @lt_dados-item_saida
-        AND docnumentrada = '0000000000'
-        AND regiaodestino = @lt_dados-ufdestino
+      SELECT br_notafiscal,
+             br_notafiscalitem,
+             diasatraso1,
+             diasatraso2,
+             nodias
+        FROM zi_sd_status_ativo_entrada
+         FOR ALL ENTRIES IN @lt_dados
+       WHERE br_notafiscal = @lt_dados-docnum_saida
+         AND br_notafiscalitem = @lt_dados-item_saida
+         AND docnumentrada = '0000000000'
+         AND regiaodestino = @lt_dados-ufdestino
         INTO TABLE @DATA(lt_ativos).
 
       IF lt_ativos IS NOT INITIAL.
@@ -62,7 +67,7 @@ CLASS ZCLSD_RELATORIO_IMOBILIZADOS IMPLEMENTATION.
 
       ENDIF.
 
-      SELECT BR_NotaFiscal, br_notafiscalitem, docnumentrada, diasatraso1, diasatraso2, nodias
+      SELECT br_notafiscal, br_notafiscalitem, docnumentrada, diasatraso1, diasatraso2, nodias
       FROM zi_sd_status_ativo_entrada
       FOR ALL ENTRIES IN @lt_original_data
       WHERE br_notafiscal = @lt_original_data-docnum_saida
@@ -78,7 +83,7 @@ CLASS ZCLSD_RELATORIO_IMOBILIZADOS IMPLEMENTATION.
 
       ENDIF.
 
-      SELECT BR_NotaFiscal, br_notafiscalitem, diasatraso1, diasatraso2, nodias
+      SELECT br_notafiscal, br_notafiscalitem, diasatraso1, diasatraso2, nodias
       FROM zi_sd_status_ativo_entrada
       FOR ALL ENTRIES IN @lt_original_data
       WHERE br_notafiscal = @lt_original_data-docnum_saida
@@ -138,46 +143,48 @@ CLASS ZCLSD_RELATORIO_IMOBILIZADOS IMPLEMENTATION.
 
     LOOP AT lt_original_data ASSIGNING FIELD-SYMBOL(<fs_data>).
 
-      READ TABLE lt_ativos ASSIGNING FIELD-SYMBOL(<fs_saida>) WITH KEY br_notafiscal = <fs_data>-docnum_saida
-                                                                   br_notafiscalitem = <fs_data>-item_saida BINARY SEARCH.
+      IF <fs_data>-docnum IS INITIAL.
 
-      "Só calcular quando não haver docnum de entrada
-      IF <fs_saida> IS ASSIGNED.
+        READ TABLE lt_ativos ASSIGNING FIELD-SYMBOL(<fs_saida>) WITH KEY br_notafiscal = <fs_data>-docnum_saida
+                                                                     br_notafiscalitem = <fs_data>-item_saida BINARY SEARCH.
 
-        IF <fs_saida>-nodias > 0 AND <fs_saida>-nodias < <fs_saida>-diasatraso1.
-          <fs_data>-status = text-001.
-        ELSEIF <fs_saida>-nodias > 0 AND <fs_saida>-nodias >= <fs_saida>-diasatraso1 AND <fs_saida>-nodias <= <fs_saida>-diasatraso2.
-          <fs_data>-status = text-002.
-        ELSEIF <fs_saida>-nodias > 0 AND  <fs_saida>-nodias > <fs_saida>-diasatraso2.
-          <fs_data>-status = text-003.
-        ELSE.
-          <fs_data>-status = text-001.
-        ENDIF.
+        "Só calcular quando não haver docnum de entrada
+        IF <fs_saida> IS ASSIGNED.
 
-        IF <fs_saida>-nodias > 0 AND <fs_saida>-nodias < <fs_saida>-diasatraso1.
-          <fs_data>-statuscriticality = 3.
-        ELSEIF <fs_saida>-nodias > 0 AND <fs_saida>-nodias >= <fs_saida>-diasatraso1 AND <fs_saida>-nodias <= <fs_saida>-diasatraso2.
-          <fs_data>-statuscriticality = 2.
-        ELSEIF <fs_saida>-nodias > 0 AND  <fs_saida>-nodias > <fs_saida>-diasatraso2.
-          <fs_data>-statuscriticality = 1.
-        ELSE.
-          <fs_data>-statuscriticality = 3.
-        ENDIF.
+          IF <fs_saida>-nodias > 0 AND <fs_saida>-nodias < <fs_saida>-diasatraso1.
+            <fs_data>-status = TEXT-001.
+          ELSEIF <fs_saida>-nodias > 0 AND <fs_saida>-nodias >= <fs_saida>-diasatraso1 AND <fs_saida>-nodias <= <fs_saida>-diasatraso2.
+            <fs_data>-status = TEXT-002.
+          ELSEIF <fs_saida>-nodias > 0 AND  <fs_saida>-nodias > <fs_saida>-diasatraso2.
+            <fs_data>-status = TEXT-003.
+          ELSE.
+            <fs_data>-status = TEXT-001.
+          ENDIF.
+
+          IF <fs_saida>-nodias > 0 AND <fs_saida>-nodias < <fs_saida>-diasatraso1.
+            <fs_data>-statuscriticality = 3.
+          ELSEIF <fs_saida>-nodias > 0 AND <fs_saida>-nodias >= <fs_saida>-diasatraso1 AND <fs_saida>-nodias <= <fs_saida>-diasatraso2.
+            <fs_data>-statuscriticality = 2.
+          ELSEIF <fs_saida>-nodias > 0 AND  <fs_saida>-nodias > <fs_saida>-diasatraso2.
+            <fs_data>-statuscriticality = 1.
+          ELSE.
+            <fs_data>-statuscriticality = 3.
+          ENDIF.
 
 
-        lv_day_saida = <fs_saida>-diasatraso2.
-        lv_date_saida = <fs_data>-datasaida.
+          lv_day_saida = <fs_saida>-diasatraso2.
+          lv_date_saida = <fs_data>-datasaida.
 
-        CALL FUNCTION 'SLIM_GET_START_END_DAY'
-          EXPORTING
-            slim_meas_date  = lv_date_saida
-            days_back       = 0
-            days_forward    = lv_day_saida
-          IMPORTING
-            start_date      = lv_start_date
-            end_date        = lv_prazo_saida
-            start_timestamp = lv_start_timestamp
-            end_timestamp   = lv_end_timestamp.
+          CALL FUNCTION 'SLIM_GET_START_END_DAY'
+            EXPORTING
+              slim_meas_date  = lv_date_saida
+              days_back       = 0
+              days_forward    = lv_day_saida
+            IMPORTING
+              start_date      = lv_start_date
+              end_date        = lv_prazo_saida
+              start_timestamp = lv_start_timestamp
+              end_timestamp   = lv_end_timestamp.
 
 *        CALL FUNCTION 'RP_CALC_DATE_IN_INTERVAL'
 *          EXPORTING
@@ -189,30 +196,30 @@ CLASS ZCLSD_RELATORIO_IMOBILIZADOS IMPLEMENTATION.
 *          IMPORTING
 *            calc_date = lv_prazo_saida.
 
-        IF sy-datum > lv_prazo_saida.
+          IF sy-datum > lv_prazo_saida.
 
-          CALL FUNCTION 'FIMA_DAYS_AND_MONTHS_AND_YEARS'
-            EXPORTING
-              i_date_from = lv_prazo_saida
-              i_date_to   = sy-datum
-            IMPORTING
-              e_days      = lv_dias_atraso.
+            CALL FUNCTION 'FIMA_DAYS_AND_MONTHS_AND_YEARS'
+              EXPORTING
+                i_date_from = lv_prazo_saida
+                i_date_to   = sy-datum
+              IMPORTING
+                e_days      = lv_dias_atraso.
 
-          <fs_data>-diasatrasados = lv_dias_atraso.
+            <fs_data>-diasatrasados = lv_dias_atraso.
 
 *          READ TABLE lt_ativos_entrada TRANSPORTING NO FIELDS WITH KEY br_notafiscal = <fs_data>-docnum_saida.
 *          IF sy-subrc IS INITIAL.
 
 
-          <fs_data>-diaspendentes = <fs_saida>-nodias.
+            <fs_data>-diaspendentes = <fs_saida>-nodias.
 *          ELSE.
 *
 *            <fs_data>-diaspendentes = 0.
 *          ENDIF.
 
-          UNASSIGN <fs_saida>.
+            UNASSIGN <fs_saida>.
 
-        ELSE.
+          ELSE.
 
 *          CALL FUNCTION 'FIMA_DAYS_AND_MONTHS_AND_YEARS'
 *            EXPORTING
@@ -221,18 +228,22 @@ CLASS ZCLSD_RELATORIO_IMOBILIZADOS IMPLEMENTATION.
 *            IMPORTING
 *              e_days      = lv_dias_pendentes.
 
-          <fs_data>-diasatrasados = 0.
+            <fs_data>-diasatrasados = 0.
 *          <fs_data>-diaspendentes = lv_dias_pendentes.
-          <fs_data>-diaspendentes = <fs_saida>-nodias.
+            <fs_data>-diaspendentes = <fs_saida>-nodias.
+          ENDIF.
         ENDIF.
 
       ELSE.
 
-        READ TABLE lt_ativos_entrada ASSIGNING FIELD-SYMBOL(<fs_entrada>) WITH KEY br_notafiscal = <fs_data>-docnum_saida
-                                                                                   br_notafiscalitem = <fs_data>-item_saida
-                                                                                   docnumentrada     = <fs_data>-docnum   BINARY SEARCH.
+        READ TABLE lt_ativos_entrada ASSIGNING FIELD-SYMBOL(<fs_entrada>)
+                                                   WITH KEY br_notafiscal     = <fs_data>-docnum_saida
+                                                            br_notafiscalitem = <fs_data>-item_saida
+                                                            docnumentrada     = <fs_data>-docnum
+                                                            BINARY SEARCH.
 
-        IF <fs_entrada> IS ASSIGNED.
+*        IF <fs_entrada> IS ASSIGNED.
+        IF sy-subrc IS INITIAL.
 
           lv_day_entrada  = <fs_entrada>-diasatraso2.
           lv_date_entrada =  <fs_data>-dataentrada.
@@ -285,13 +296,13 @@ CLASS ZCLSD_RELATORIO_IMOBILIZADOS IMPLEMENTATION.
           <fs_data>-diaspendentes = 0.
 
           IF lv_dias_pendentes < <fs_entrada>-diasatraso1.
-            <fs_data>-status = text-001.
+            <fs_data>-status = TEXT-001.
           ELSEIF lv_dias_atraso2 >= <fs_entrada>-diasatraso1 AND lv_dias_atraso2 <= <fs_entrada>-diasatraso2.
-            <fs_data>-status = text-002.
+            <fs_data>-status = TEXT-002.
           ELSEIF lv_dias_atraso2 > <fs_entrada>-diasatraso2.
-            <fs_data>-status = text-003.
+            <fs_data>-status = TEXT-003.
           ELSE.
-            <fs_data>-status = text-001.
+            <fs_data>-status = TEXT-001.
           ENDIF.
 
           IF lv_dias_pendentes < <fs_entrada>-diasatraso1.
@@ -307,8 +318,10 @@ CLASS ZCLSD_RELATORIO_IMOBILIZADOS IMPLEMENTATION.
 
         ELSE.
 
-          READ TABLE lt_ativos_todas_regioes ASSIGNING FIELD-SYMBOL(<fs_todas_regioes>) WITH KEY br_notafiscal = <fs_data>-docnum_saida
-                                                                                     br_notafiscalitem = <fs_data>-item_saida   BINARY SEARCH.
+          READ TABLE lt_ativos_todas_regioes ASSIGNING FIELD-SYMBOL(<fs_todas_regioes>)
+                                                           WITH KEY br_notafiscal     = <fs_data>-docnum_saida
+                                                                    br_notafiscalitem = <fs_data>-item_saida
+                                                                    BINARY SEARCH.
 
 
           IF  <fs_todas_regioes> IS ASSIGNED.
@@ -342,7 +355,7 @@ CLASS ZCLSD_RELATORIO_IMOBILIZADOS IMPLEMENTATION.
 
           ELSE.
 
-            <fs_data>-status = text-001.
+            <fs_data>-status = TEXT-001.
             <fs_data>-statuscriticality = 3.
             <fs_data>-diasatrasados = 0.
             <fs_data>-diaspendentes = 0.

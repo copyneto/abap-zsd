@@ -59,10 +59,13 @@ END-OF-SELECTION.
                                         iv_ordemfrete = CONV #( remessa_saga->ordem_frete )
                               IMPORTING et_return     = DATA(lt_return)
                             ).
-
         remessa_saga->enviado_saga = abap_true.
 
-        WRITE / |{ id_log } - Registro enviado com sucesso.|.
+        IF lt_return IS NOT INITIAL AND LINES( lt_return ) > 0.
+            WRITE / |{ id_log } - { lt_return[ 1 ]-message } |.
+        ELSE.
+            WRITE / |{ id_log } - Registro enviado com sucesso.|.
+        ENDIF.
 
       CATCH cx_mdg_missing_input_parameter INTO DATA(lo_catch).
         WRITE / |{ id_log } - Erro na chamada do método de envio de registros à SAGA.|.

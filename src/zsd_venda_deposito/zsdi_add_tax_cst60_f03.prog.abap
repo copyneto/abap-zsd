@@ -32,6 +32,9 @@
         lr_cont_icms TYPE RANGE OF kna1-icmstaxpay.
 
   DATA: lv_icmsst       TYPE j_1bnflin-vicmsstret,
+* LSCHEPP - SD - 8000007767 - RM1008 - tag infAdFisco - 01.06.2023 Início
+        lv_icmsst_txt   TYPE char30,
+* LSCHEPP - SD - 8000007767 - RM1008 - tag infAdFisco - 01.06.2023 Fim
         lv_stfcp        TYPE j_1bnflin-vfcpstret,
         lv_porcentagem1 TYPE j_1bnfe_pfcpstret,
         lv_porcentagem2 TYPE j_1bnfe_pfcpstret,
@@ -109,10 +112,7 @@
      WHERE kunnr EQ @is_header-parid.
 
   IF lv_cont_icms IN lr_cont_icms.
-*    IF sy-uname = 'CGARCIA' or SY-UNAME = 'SSEIXAS' OR SY-UNAME = 'LSCHEPP'.
-*      READ TABLE ct_itens_adicional ASSIGNING FIELD-SYMBOL(<fs_item>) WITH KEY itmnum = <fs_nflin>-itmnum BINARY SEARCH.
-*    ENDIF.
-      READ TABLE lt_ITENS_ADICIONAL ASSIGNING FIELD-SYMBOL(<fs_item>) WITH KEY itmnum = <fs_nflin>-itmnum BINARY SEARCH.
+    READ TABLE lt_itens_adicional ASSIGNING FIELD-SYMBOL(<fs_item>) WITH KEY itmnum = <fs_nflin>-itmnum BINARY SEARCH.
     IF sy-subrc = 0.
 
       SELECT SINGLE regio
@@ -140,14 +140,24 @@
           lv_texto  = |{ lv_texto } { TEXT-f22 }: { lv_icmsst }|.
 
           IF lv_regio IN lr_sp.
+* LSCHEPP - SD - 8000007767 - RM1008 - tag infAdFisco - 01.06.2023 Início
+            WRITE lv_icmsst TO lv_icmsst_txt CURRENCY is_header-waerk.
+            CONDENSE lv_icmsst_txt NO-GAPS.
+* LSCHEPP - SD - 8000007767 - RM1008 - tag infAdFisco - 01.06.2023 Fim
             IF lv_infadfisco IS INITIAL.
               DATA(lv_material) = |{ <fs_nflin>-matnr ALPHA = OUT  }|.
               CONDENSE lv_material NO-GAPS.
-              lv_infadfisco = |{ '&|' }{ lv_material } { '|' }{ lv_icmsst }{ '|' }|.
+* LSCHEPP - SD - 8000007767 - RM1008 - tag infAdFisco - 01.06.2023 Início
+*              lv_infadfisco = |{ '&|' }{ lv_material } { '|' }{ lv_icmsst }{ '|' }|.
+              lv_infadfisco = |{ '&|' }{ lv_material } { '|' }{ lv_icmsst_txt }{ '|' }|.
+* LSCHEPP - SD - 8000007767 - RM1008 - tag infAdFisco - 01.06.2023 Fim
             ELSE.
               lv_material = |{ '&|' }{ <fs_nflin>-matnr ALPHA = OUT  }|.
               CONDENSE lv_material NO-GAPS.
-              lv_infadfisco = |{ lv_infadfisco }{ lv_material }{ '|' } { lv_icmsst }{ '|' }|.
+* LSCHEPP - SD - 8000007767 - RM1008 - tag infAdFisco - 01.06.2023 Início
+*              lv_infadfisco = |{ lv_infadfisco }{ lv_material }{ '|' } { lv_icmsst }{ '|' }|.
+              lv_infadfisco = |{ lv_infadfisco }{ lv_material }{ '|' } { lv_icmsst_txt }{ '|' }|.
+* LSCHEPP - SD - 8000007767 - RM1008 - tag infAdFisco - 01.06.2023 Fim
             ENDIF.
           ENDIF.
 

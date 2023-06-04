@@ -31,3 +31,4 @@ define root view entity ZI_SD_CR_CP
       /* associations */
 //      _Cockpit
 }
+where Estorno = ''

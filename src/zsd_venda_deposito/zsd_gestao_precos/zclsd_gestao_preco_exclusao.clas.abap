@@ -102,6 +102,7 @@ private section.
       !IV_OP_TYPE type CHAR5
       !IV_OPERATION type CHAR3
       !IT_ITEM_SCALE type TY_T_ITEM optional
+      !IV_NEW_SCALE type ABAP_BOOL optional
     exporting
       !EV_003 type C
       !EV_004 type C
@@ -137,6 +138,7 @@ private section.
       !IV_DATA_FIM type DATS
       !IS_RECORD type ZI_SD_LISTA_DE_PRECO
       !IT_ITEM_SCALE type TY_T_ITEM optional
+      !IV_NEW_SCALE type ABAP_BOOL optional
     changing
       !CT_BAPICONDIT type TY_LT_BAPICONDIT_1
       !CT_BAPICONDHD type TY_LT_BAPICONDHD_1
@@ -160,6 +162,7 @@ private section.
       !IS_RECORD type ZI_SD_LISTA_DE_PRECO
       !IV_OPERATION type CHAR3
       !IT_ITEM_SCALE type TY_T_ITEM optional
+      !IV_NEW_SCALE type ABAP_BOOL optional
     changing
       !CT_RETURN type ZCLSD_GESTAO_PRECO_EXCLUSAO=>TT_RETURN
       !CT_BAPICONDCT type ZCLSD_GESTAO_PRECO_EXCLUSAO=>TY_LT_BAPICONDCT
@@ -190,6 +193,7 @@ private section.
       !IS_NEWITEM type ZI_SD_LISTA_DE_PRECO
       !IV_004 type CHAR3
       !IT_ITEM_SCALE type TY_T_ITEM
+      !IV_NEW_SCALE type ABAP_BOOL optional
     exporting
       !ET_RETURN type ZCLSD_GESTAO_PRECO_EXCLUSAO=>TT_RETURN .
   methods ADD_NEW_PERIOD_UNLIMITE
@@ -309,12 +313,13 @@ CLASS ZCLSD_GESTAO_PRECO_EXCLUSAO IMPLEMENTATION.
     IF iv_data_in EQ iv_data_fim.
       DATA(lv_index) = 0.
 
+      CLEAR ct_bapicondqs[].
       LOOP AT it_item_scale[] INTO DATA(ls_item_qs). "#EC CI_LOOP_INTO_WA #EC CI_STDSEQ #EC CI_NESTED
-        CLEAR ls_bapicondqs.
+        CLEAR: ls_bapicondqs.
         ls_bapicondqs-operation   = iv_operation.
         ls_bapicondqs-cond_no     = lv_cond.
         ls_bapicondqs-cond_count  = 1.
-        IF ls_item_qs-line <> 0.
+        IF ls_item_qs-line <> 0 AND iv_new_scale = abap_false.
           ls_bapicondqs-line_no   = ls_item_qs-line.
         ELSE.
           ls_bapicondqs-line_no   = lv_index = lv_index + 1.
@@ -418,6 +423,7 @@ CLASS ZCLSD_GESTAO_PRECO_EXCLUSAO IMPLEMENTATION.
                          is_record     = is_newitem "is_record - ***Ajuste para card 8000007283
                          iv_operation  = lc_004
                          it_item_scale = it_scale " ***Inclusão para ajuste card 8000007283
+                         iv_new_scale  = abap_true
                         CHANGING
                          ct_return = et_return
                          ct_bapicondct = lt_bapicondct
@@ -457,6 +463,7 @@ CLASS ZCLSD_GESTAO_PRECO_EXCLUSAO IMPLEMENTATION.
                             iv_data_fim   = iv_data_fim
                             iv_data_in    = iv_data_in
                             it_item_scale = it_item_scale " ***Inclusão para ajuste card 8000007283
+                            iv_new_scale  = iv_new_scale
                            CHANGING
                             ct_bapicondit = ct_bapicondit
                             ct_bapicondhd = ct_bapicondhd
@@ -591,13 +598,14 @@ CLASS ZCLSD_GESTAO_PRECO_EXCLUSAO IMPLEMENTATION.
 
     DATA(lv_index) = 0.
 
-*    IF iv_operation NE lc_003. " ***Ajuste para card 8000007283
+*    IF iv_operation NE lc_003. " ***Ajuste para card 80000072833
+    CLEAR: et_bapicondqs[].
     LOOP AT it_item_scale[] INTO DATA(ls_item_qs). "#EC CI_LOOP_INTO_WA #EC CI_STDSEQ #EC CI_NESTED
-      CLEAR ls_bapicondqs.
+      CLEAR: ls_bapicondqs.
       ls_bapicondqs-operation   = iv_operation.
       ls_bapicondqs-cond_no     = is_record-knumh.
       ls_bapicondqs-cond_count  = 1.
-      IF ls_item_qs-line <> 0.
+      IF ls_item_qs-line <> 0 AND iv_new_scale EQ abap_false.
         ls_bapicondqs-line_no     = ls_item_qs-line.
       ELSE.
         ls_bapicondqs-line_no     = lv_index = lv_index + 1.
@@ -689,13 +697,21 @@ CLASS ZCLSD_GESTAO_PRECO_EXCLUSAO IMPLEMENTATION.
     DATA lt_ykonh   TYPE TABLE OF konhdb.
     DATA lt_ykonp   TYPE TABLE OF konpdb.
 
-    SELECT * FROM konh
-    APPENDING CORRESPONDING FIELDS OF TABLE et_ykonh
-    WHERE knumh EQ is_record-knumh.
+    CLEAR: et_ykonh[], et_ykonp.
+
+    DO 3 TIMES.
+      SELECT * FROM konh
+      APPENDING CORRESPONDING FIELDS OF TABLE et_ykonh
+      WHERE knumh EQ is_record-knumh.
+      IF  et_ykonh IS NOT INITIAL.
+        EXIT.
+      ENDIF.
+    ENDDO.
     SORT et_ykonh BY knumh.
     LOOP AT et_ykonh ASSIGNING FIELD-SYMBOL(<fs_ykonh>).
       <fs_ykonh>-updkz = gc_update.
     ENDLOOP.
+
 
     SELECT * FROM konp APPENDING CORRESPONDING FIELDS OF TABLE
            et_ykonp WHERE knumh = is_record-knumh.
@@ -893,6 +909,7 @@ CLASS ZCLSD_GESTAO_PRECO_EXCLUSAO IMPLEMENTATION.
               iv_op_type    = iv_op_type
               iv_operation  = lc_004
               it_item_scale = it_scale
+              iv_new_scale  = abap_true
               IMPORTING
                et_bapicondct = lt_bapicondct
                et_bapicondhd = lt_bapicondhd
@@ -1013,6 +1030,7 @@ CLASS ZCLSD_GESTAO_PRECO_EXCLUSAO IMPLEMENTATION.
                      is_newitem    = cs_newitem
                      iv_004        = lc_004
                      it_item_scale = it_scale
+                     iv_new_scale  = abap_true
                     IMPORTING
                      et_return     = et_return ).
 
@@ -1109,6 +1127,7 @@ CLASS ZCLSD_GESTAO_PRECO_EXCLUSAO IMPLEMENTATION.
                iv_op_type    = iv_op_type
                iv_operation  = iv_004
                it_item_scale = it_item_scale
+               iv_new_scale  = iv_new_scale
                IMPORTING
                et_bapicondct = lt_bapicondct
                et_bapicondhd = lt_bapicondhd

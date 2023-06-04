@@ -193,8 +193,8 @@ annotate view ZC_SD_REL_FISCAL_SAIDA_APP with
   @UI: { lineItem:     [{ position: 450 }],
        identification: [{ position: 450 }] }
   SetorIndustrial;
-  @UI: { lineItem:     [{ position: 460 }],
-       identification: [{ position: 460 }] }
+  @UI: { lineItem:     [{ position: 460, label: 'Desc. Tip. Prin. Ind.' }],
+       identification: [{ position: 460, label: 'Desc. Tip. Prin. Ind.' }] }
   DescTipPrinInd;
   @UI: { lineItem:     [{ position: 470}],
        identification: [{ position: 470}] }
@@ -419,8 +419,8 @@ annotate view ZC_SD_REL_FISCAL_SAIDA_APP with
   //       identification: [{ position: 2010, label: 'Modelo NF' }] }
   @UI.hidden: true
   ModeloNF;
-  @UI: { lineItem:     [{ position: 2020, label: 'Desc. Tip. Prin. Ind.' }],
-       identification: [{ position: 2020, label: 'Desc. Tip. Prin. Ind.' }] }
+  @UI: { lineItem:     [{ position: 2020, label: 'Desc. Setor Ind.' }],
+       identification: [{ position: 2020, label: 'Desc. Setor Ind.' }] }
   DescSetorInd;
   @UI: { lineItem:     [{ position: 2030, label: 'Valor ICMS sem Benef.' }],
        identification: [{ position: 2030, label: 'Valor ICMS sem Benef.' }] }

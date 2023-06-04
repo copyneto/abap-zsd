@@ -81,7 +81,8 @@ define root view entity ZI_SD_STATUS_PEDIDO
       _SalesOrder.CustomerPurchaseOrderDate   as Cust_PurchaseOrderDate,
       _SalesOrder.CreationDate                as Creation_Date,
       _SalesOrder.PurchaseOrderByShipToParty  as Purch_ShipToParty,
-      _SalesOrder.DeliveryBlockReason         as Delivery_BlockReason,
+      ////      _SalesOrder.DeliveryBlockReason         as Delivery_BlockReason,
+      _FlowRemessa.DeliveryBlockReason        as Delivery_BlockReason,
       @Consumption.valueHelpDefinition: [ { entity:  { name: 'ZI_SD_VH_STATUS_GLOBAL_OV', element: 'StatusGlobalOv' } }]
       _SalesOrder.OverallSDProcessStatus      as StatusOV,
 

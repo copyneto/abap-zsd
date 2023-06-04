@@ -5,6 +5,7 @@
   DATA: ls_active_edit TYPE j_1bnfe_active.
 
   FIELD-SYMBOLS: <fs_wa_nf_doc> TYPE j_1bnfdoc.
+  FIELD-SYMBOLS: <fs_imseg> TYPE ty_t_imseg.
 
   IF is_header-nftype EQ 'Y6'.
 
@@ -46,7 +47,8 @@
 
           SELECT SINGLE docnum,
                         authcod,
-                        docnum9
+                        docnum9,
+                        tpemis
             FROM j_1bnfe_active
            WHERE docnum = @lv_docnum_aux
             INTO @DATA(ls_active).
@@ -64,6 +66,18 @@
             es_active = ls_active_edit.
 
         ls_active_edit-docnum9 = ls_active-docnum9.
+
+        IF ls_active-tpemis <> ls_active_edit-tpemis.
+
+          ASSIGN ('(SAPLMBWL)IMSEG[]') TO <fs_imseg>.
+          IF <fs_imseg> IS ASSIGNED.
+            IF <fs_imseg>[] IS NOT INITIAL AND
+              ( <fs_imseg>[ 1 ]-bwart EQ 'YG5' OR <fs_imseg>[ 1 ]-bwart EQ 'YG7' ).
+              ls_active_edit-tpemis = ls_active-tpemis.
+            ENDIF.
+          ENDIF.
+
+        ENDIF.
 
         CALL FUNCTION 'J_1B_NFE_DATA_TRANSFER'
           EXPORTING

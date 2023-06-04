@@ -15,9 +15,10 @@ define view entity ZI_SD_REL_MATERIAL_TERC
                                                                   and _BillingDocumentItem.ReferenceSDDocumentItem = DocMaterial.DeliveryDocumentItem
 
     left outer join I_BR_NFDocumentFlow_C as _NFDocumentFlow      on  _NFDocumentFlow.ReferenceDocument     = _BillingDocumentItem.BillingDocument
-                                                                  and _NFDocumentFlow.ReferenceDocumentItem = _BillingDocumentItem.BillingDocumentItem
+    //                                                                  and _NFDocumentFlow.ReferenceDocumentItem = _BillingDocumentItem.BillingDocumentItem
+                                                                  and _NFDocumentFlow.ReferenceDocumentItem = _BillingDocumentItem.BillingDocumentItemInPartSgmt
 
-   //association [0..1] to I_BR_NFDocument                as _NFDocument          on _NFDocument.BR_NotaFiscal = $projection.BR_NotaFiscal
+  //association [0..1] to I_BR_NFDocument                as _NFDocument          on _NFDocument.BR_NotaFiscal = $projection.BR_NotaFiscal
 
   association [0..1] to I_BR_NFItem                    as _NFItem              on (
                   _NFItem.BR_NotaFiscal         = _NFDocumentFlow.BR_NotaFiscal
@@ -55,7 +56,7 @@ define view entity ZI_SD_REL_MATERIAL_TERC
             case DocMaterial.DebitCreditCode
               when 'S' then ( cast(DocMaterial.QuantityInEntryUnit as abap.dec( 13, 3 ) ) * -1 )
               when 'H' then cast(DocMaterial.QuantityInEntryUnit as abap.dec( 13, 3 ) )
-            end                                                                  as QuantityInEntryUnit,
+            end                                                       as QuantityInEntryUnit,
 
             DocMaterial.EntryUnit,
 
@@ -75,14 +76,14 @@ define view entity ZI_SD_REL_MATERIAL_TERC
             case _NFItem._BR_NotaFiscal.BR_NFDirection
               when '1' then _NFDocumentFlowSaida.ReferenceDocument
               else ' '
-            end                                                                  as ReferenceDocument,
+            end                                                       as ReferenceDocument,
 
-//            DocMaterial.StorageLocation,
+            //            DocMaterial.StorageLocation,
             _BillingDocumentItem.StorageLocation,
             _BillingDocumentItem.BillingDocument,
-            
+
             _BillingDocumentItem._BillingDocument.BillingDocumentType,
-            
+
             _BillingDocumentItem._BillingDocument._BillingDocumentType._Text[ Language = $session.system_language ].BillingDocumentTypeName,
 
             DocMaterial.PostingDate,
@@ -95,12 +96,12 @@ define view entity ZI_SD_REL_MATERIAL_TERC
 
             DocMaterial.MaterialBaseUnit,
 
-            cast(_NFItem.BR_NFTotalAmount as logbr_nftotalamount) as BR_NFTotalAmount,
+            cast(_NFItem.BR_NFTotalAmount as logbr_nftotalamount)     as BR_NFTotalAmount,
 
 
-            COALESCE( _NFItem._BR_NotaFiscal.BR_NFIsCanceled, ' ' )              as NFCanceled,
+            COALESCE( _NFItem._BR_NotaFiscal.BR_NFIsCanceled, ' ' )   as NFCanceled,
 
-            COALESCE( _NFItem._BR_NotaFiscal.BR_NFDocumentType, '0' )            as BR_NFDocumentType,
+            COALESCE( _NFItem._BR_NotaFiscal.BR_NFDocumentType, '0' ) as BR_NFDocumentType,
 
             //@ObjectModel.text.element: ['BR_NFeDocumentStatusDesc']
             _NFItem._BR_NotaFiscal.BR_NFeDocumentStatus,
@@ -113,7 +114,7 @@ define view entity ZI_SD_REL_MATERIAL_TERC
               when '2' then 1    -- 'Recusado'
               when '3' then 1    -- 'Rejeitado'
                         else 0
-            end                                                                  as StatusCriticality
+            end                                                       as StatusCriticality
 
 
 }

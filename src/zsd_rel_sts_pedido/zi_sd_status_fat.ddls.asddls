@@ -18,11 +18,11 @@ define view entity ZI_SD_STATUS_FAT
       //Preceding
   key Flow.PrecedingDocument,
   key Flow.SubsequentDocument,
-//      min( Flow.PrecedingDocumentItem )  as PrecedingDocumentItem,
-//Flow.PrecedingDocumentItem,
+      //      min( Flow.PrecedingDocumentItem )  as PrecedingDocumentItem,
+      //Flow.PrecedingDocumentItem,
       Flow.PrecedingDocumentCategory,
       min( Flow.SubsequentDocumentItem ) as SubsequentDocumentItem,
-//Flow.SubsequentDocumentItem ,
+      //Flow.SubsequentDocumentItem ,
       Flow.SubsequentDocumentCategory,
       _Nfe.BR_NotaFiscal,
       _Nfe.BR_CFOPCode,
@@ -40,8 +40,9 @@ define view entity ZI_SD_STATUS_FAT
       _Billing.CreationDate
 
 }
-where
-  Flow.SubsequentDocumentCategory = 'M'
+where  Flow.SubsequentDocumentCategory     = 'M'
+  and _Billing.BillingDocumentIsCancelled <> 'X'
+
 //  and Flow.SubsequentDocumentItem     = '000010'
 group by
   Flow.PrecedingDocument,

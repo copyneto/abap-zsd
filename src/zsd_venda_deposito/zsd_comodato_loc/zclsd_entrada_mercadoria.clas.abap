@@ -94,7 +94,7 @@ ENDCLASS.
 
 
 
-CLASS zclsd_entrada_mercadoria IMPLEMENTATION.
+CLASS ZCLSD_ENTRADA_MERCADORIA IMPLEMENTATION.
 
 
   METHOD executar.
@@ -211,7 +211,7 @@ CLASS zclsd_entrada_mercadoria IMPLEMENTATION.
                          iv_key3  = gc_param-tax_code
                IMPORTING ev_param = lv_taxcode ).
 
-    DATA(ls_goodsmvt_header) = VALUE bapi2017_gm_head_01( pstng_date    = ls_nf_documento-pstdat
+    DATA(ls_goodsmvt_header) = VALUE bapi2017_gm_head_01( pstng_date    = sy-datum "ls_nf_documento-pstdat
                                                           doc_date      = ls_nf_documento-docdat
                                                           ref_doc_no    = ls_nf_documento-nfenum && ls_nf_documento-series
                                                           gr_gi_slip_no = iv_docfatura

@@ -4830,9 +4830,11 @@ CLASS ZCLSD_GESTAO_PRECO_EVENTS IMPLEMENTATION.
 
     SORT lt_lista_preco_del BY vtweg pltyp werks  matnr  kstbm.
 
+    DELETE ADJACENT DUPLICATES FROM ct_item_elim COMPARING dist_channel price_list plant material.
+
     LOOP AT ct_item_elim ASSIGNING FIELD-SYMBOL(<fs_item_del>).
 
-
+      CLEAR: lt_new_scale, lt_old_scale.
 
       READ TABLE lt_lista_preco_del ASSIGNING FIELD-SYMBOL(<fs_lista>) WITH KEY  vtweg = <fs_item_del>-dist_channel
                                                                                  pltyp = <fs_item_del>-price_list
@@ -4885,7 +4887,7 @@ CLASS ZCLSD_GESTAO_PRECO_EVENTS IMPLEMENTATION.
                                line      = <fs_lp>-klfn1 ) TO lt_old_scale.
 
           ENDIF.
-        ENDLOOP."#EC CI_NESTED
+        ENDLOOP.                                         "#EC CI_NESTED
 ***Fim - Inclusão para ajuste card 8000007283
 
         CALL FUNCTION 'ZFMSD_GESTAO_PRECO_EXCLUSAO'
@@ -5613,7 +5615,7 @@ CLASS ZCLSD_GESTAO_PRECO_EVENTS IMPLEMENTATION.
 
       " Tipo Operação Exclusão
         IF  ls_item->zzdelete = 'X' OR ls_item->zzdelete = 'x'.
-          ls_item->operation_type  =  gc_tipo_operacao-exclusao_a817.
+          ls_item->operation_type(1)  =  gc_tipo_operacao-exclusao.
         ELSE.
 
       " Tipo Operação Aumento
@@ -6882,7 +6884,8 @@ CLASS ZCLSD_GESTAO_PRECO_EVENTS IMPLEMENTATION.
            INTO TABLE @lt_lista_preco_del.
     ENDIF.
 
-    SORT lt_lista_preco_del DESCENDING BY vtweg pltyp werks matnr kopos datbi.
+    SORT lt_lista_preco_del DESCENDING BY datbi.
+    SORT lt_lista_preco_del BY vtweg pltyp werks matnr kopos.
 
     READ TABLE lt_lista_preco_del ASSIGNING FIELD-SYMBOL(<fs_lista>) WITH KEY  vtweg = is_item_key-dist_channel
                                                                                pltyp = is_item_key-price_list

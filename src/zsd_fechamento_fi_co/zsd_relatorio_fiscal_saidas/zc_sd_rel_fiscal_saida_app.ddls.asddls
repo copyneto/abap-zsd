@@ -110,7 +110,7 @@ define root view entity ZC_SD_REL_FISCAL_SAIDA_APP
           LF_ICMS,
           @EndUserText.label:'Tipo Principal de Setor Ind'
           SetorIndustrial,
-          @EndUserText.label:'Desc. Setor Ind.'
+          @EndUserText.label:'Desc. Tip. Prin. Ind.'
           DescTipPrinInd,
           @EndUserText.label:'Insc. Estadual'
           InscEstadual,
@@ -246,7 +246,7 @@ define root view entity ZC_SD_REL_FISCAL_SAIDA_APP
           PesoBrutoNF,
           @EndUserText.label:'Modelo NF'
           ModeloNF,
-          @EndUserText.label:'Desc. Tip. Prin. Ind.'
+          @EndUserText.label:'Desc. Setor Ind.'
           DescSetorInd,
           @EndUserText.label:'Valor ICMS sem Benef.'
           ValorICMSsemBenef,

@@ -72,7 +72,9 @@ CLASS ZCLSD_CMDLOC_PAG_CONTRATO IMPLEMENTATION.
              xblnr,
              gjahr,
              belnr,
-             dmbtr
+             dmbtr,
+             bldat,
+             budat
         FROM bsid_view
        WHERE belnr = @iv_vbeln
         INTO @DATA(ls_bsid)
@@ -95,7 +97,9 @@ CLASS ZCLSD_CMDLOC_PAG_CONTRATO IMPLEMENTATION.
              xblnr,
              gjahr,
              belnr,
-             dmbtr
+             dmbtr,
+             bldat,
+             budat
         FROM bsad_view
        WHERE belnr = @iv_vbeln
         INTO @ls_bsid
@@ -103,6 +107,22 @@ CLASS ZCLSD_CMDLOC_PAG_CONTRATO IMPLEMENTATION.
       ENDSELECT.
 
       CHECK sy-subrc = 0.
+    ENDIF.
+
+    IF ls_bsid IS NOT INITIAL.
+
+      SELECT bukrs,
+             belnr,
+             gjahr,
+             monat
+        FROM bkpf
+        WHERE bukrs EQ @ls_bsid-bukrs
+        AND   belnr EQ @ls_bsid-belnr
+        AND   gjahr EQ @ls_bsid-gjahr
+        INTO @DATA(ls_bkpf)
+        UP TO 1 ROWS.
+      ENDSELECT.
+
     ENDIF.
 
     CHECK ls_bsid-xblnr CA '0123456789'.
@@ -349,13 +369,18 @@ CLASS ZCLSD_CMDLOC_PAG_CONTRATO IMPLEMENTATION.
     DATA(ls_header) = VALUE bapiache09( obj_type   = gc_obj_type
                                         username   = sy-uname
                                         doc_type   = lv_doc_type
-                                        header_txt = |{ TEXT-t13 } - { ls_vbrk-fkdat+4(2) }/{ ls_vbrk-fkdat(4) }|
+*                                        header_txt = |{ TEXT-t13 } - { ls_vbrk-fkdat+4(2) }/{ ls_vbrk-fkdat(4) }|
+                                        header_txt = |{ TEXT-t13 } - { ls_bkpf-monat }/{ ls_bkpf-gjahr }|
                                         comp_code  = ls_cgc_kunnr-bukrs
                                         ref_doc_no = ls_bsid-xblnr
-                                        doc_date   = ls_vbrk-fkdat
-                                        pstng_date = ls_vbrk-fkdat
-                                        fisc_year  = ls_vbrk-fkdat(4)
-                                        fis_period = ls_vbrk-fkdat+4(2) ).
+*                                        doc_date   = ls_vbrk-fkdat
+*                                        pstng_date = ls_vbrk-fkdat
+*                                        fisc_year  = ls_vbrk-fkdat(4)
+*                                        fis_period = ls_vbrk-fkdat+4(2) ).
+                                        doc_date   = ls_bsid-bldat
+                                        pstng_date = ls_bsid-budat
+                                        fisc_year  = ls_bkpf-gjahr
+                                        fis_period = ls_bkpf-monat ).
 
     DATA(ls_itemforn) = VALUE bapiacap09( itemno_acc    = 1
                                           vendor_no     = ls_cgc_lifnr-lifnr
@@ -363,9 +388,11 @@ CLASS ZCLSD_CMDLOC_PAG_CONTRATO IMPLEMENTATION.
                                           comp_code     = ls_cgc_kunnr-bukrs
                                           bus_area      = ls_divisao-gsber
                                           pmnttrms      = lv_zterm
-                                          item_text     = |{ TEXT-t13 } - { ls_vbrk-fkdat+4(2) }/{ ls_vbrk-fkdat(4) }|
+*                                          item_text     = |{ TEXT-t13 } - { ls_vbrk-fkdat+4(2) }/{ ls_vbrk-fkdat(4) }|
+                                          item_text = |{ TEXT-t13 } - { ls_bkpf-monat }/{ ls_bkpf-gjahr }|
                                           alloc_nmbr    = ls_bsid-zuonr
-                                          bline_date    = sy-datum ).
+*                                          bline_date    = sy-datum ).
+                                          bline_date    = ls_bsid-budat ).
 
     DATA(ls_curr) = VALUE bapiaccr09( itemno_acc = ls_itemforn-itemno_acc
                                       currency   = gc_moeda

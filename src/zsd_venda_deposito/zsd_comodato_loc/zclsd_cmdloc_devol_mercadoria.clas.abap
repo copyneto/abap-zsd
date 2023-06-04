@@ -671,7 +671,7 @@ CLASS ZCLSD_CMDLOC_DEVOL_MERCADORIA IMPLEMENTATION.
       DATA(ls_vbak_ref) = VALUE #( lt_vbak[ 1 ] OPTIONAL ).
 
       IF ls_vbak_ref-vtweg = gc_const-vtweg_macro
-     AND ls_xvbak-bsark <> gc_const-bsark_carg
+     "AND ls_xvbak-bsark <> gc_const-bsark_carg
      AND ( ls_vbak_ref-auart = gc_const-auart_z023 OR
            ls_vbak_ref-auart = gc_const-auart_z024 ).
 
@@ -799,7 +799,9 @@ CLASS ZCLSD_CMDLOC_DEVOL_MERCADORIA IMPLEMENTATION.
           "lv_xblnr = is_key-nfesaida.
         ENDIF.
 
-      ELSEIF ls_xvbak-bsark = gc_const-bsark_carg. "Contratos via CARGA
+      ENDIF.
+
+      IF ls_xvbak-bsark = gc_const-bsark_carg. "Contratos via CARGA
 
         LOOP AT lt_itens ASSIGNING <fs_itens>.
 
@@ -869,7 +871,9 @@ CLASS ZCLSD_CMDLOC_DEVOL_MERCADORIA IMPLEMENTATION.
           ENDIF.
         ENDLOOP.
 
-      ELSE.
+      ENDIF.
+
+      IF lv_xblnr IS INITIAL.
         lv_xblnr = is_key-nfesaida.
       ENDIF.
 
@@ -1358,6 +1362,7 @@ CLASS ZCLSD_CMDLOC_DEVOL_MERCADORIA IMPLEMENTATION.
                      lv_docyear.
 
 
+              "usado no programa: ZSDI_CHECK_DATE_DOC
               DATA: lv_check TYPE abap_bool VALUE abap_true.
               EXPORT lv_check FROM lv_check TO MEMORY ID 'ZMVT_CMM'.
 

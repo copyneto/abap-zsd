@@ -273,7 +273,8 @@ CLASS ZCLSD_ADOBE_NOTA_DEBITO IMPLEMENTATION.
            meins,
            fklmg,
            netwr,
-           waerk
+           waerk,
+           cmpre                        " INSERT - JWSILVA - 03.06.2023
         FROM vbrp
         INTO TABLE @DATA(lt_itens)
         WHERE vbeln EQ @iv_vbeln.
@@ -285,7 +286,7 @@ CLASS ZCLSD_ADOBE_NOTA_DEBITO IMPLEMENTATION.
         APPEND INITIAL LINE TO rs_adobe-item ASSIGNING FIELD-SYMBOL(<fs_adobe>).
         <fs_adobe>-codigo     = <fs_itens>-matnr.
         <fs_adobe>-descricao  = <fs_itens>-arktx.
-        <fs_adobe>-valor_tot  = <fs_itens>-netwr.
+        <fs_adobe>-valor_tot  = <fs_itens>-cmpre.           " CHANGE - JWSILVA - 03.06.2023
         <fs_adobe>-moeda      = <fs_itens>-waerk.
         <fs_adobe>-quantidade = <fs_itens>-fklmg.
         <fs_adobe>-unidade    = <fs_itens>-meins.
@@ -296,12 +297,14 @@ CLASS ZCLSD_ADOBE_NOTA_DEBITO IMPLEMENTATION.
             <fs_adobe>-valor_uni  = <fs_vl_uni>-kbetr.
           ENDIF.
         ELSE.
-          <fs_adobe>-valor_uni  = <fs_itens>-netwr.
+          "<fs_adobe>-valor_uni  = <fs_itens>-netwr.
+          <fs_adobe>-valor_uni  = <fs_itens>-cmpre.
         ENDIF.
 
       ENDLOOP.
 
       SELECT SINGLE netwr,
+                    mwsbk,
                     waerk,
                     xblnr
         FROM vbrk
@@ -310,7 +313,8 @@ CLASS ZCLSD_ADOBE_NOTA_DEBITO IMPLEMENTATION.
 
       IF sy-subrc IS INITIAL.
 
-        rs_adobe-valor_total = ls_valor-netwr.
+        "rs_adobe-valor_total = ls_valor-netwr.
+        rs_adobe-valor_total = ( ls_valor-netwr + ls_valor-mwsbk ).
         rs_adobe-moeda       = ls_valor-waerk.
         rs_adobe-nrlevel     = ls_valor-xblnr.
 

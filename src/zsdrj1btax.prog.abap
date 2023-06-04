@@ -3,7 +3,7 @@
 *&---------------------------------------------------------------------*
 *&
 *&---------------------------------------------------------------------*
-REPORT ZSDRJ1BTAX.
+REPORT zsdrj1btax.
 
 *--------------------------------------------------------------------*
 *** Includes
@@ -1064,18 +1064,23 @@ FORM ic3 .
   PERFORM bdc USING:
         'X' 'SAPLJ1BW' '0018',
         ' ' 'BDC_OKCODE' '/00',
-        ' ' 'J_1BTXIC3V-SHIPFROM(01)'  wf_z005-b,
-        ' ' 'J_1BTXIC3V-SHIPTO(01)'    wf_z005-c,
-*        ' ' 'J_1BTXIC3V-VALUE(01)'     wf_z005-E,
-*        ' ' 'J_1BTXIC3V-VALUE2(01)'    wf_z005-F,
-*        ' ' 'J_1BTXIC3V-VALUE3(01)'    wf_z005-G,
-        ' ' 'J_1BTXIC3V-VALIDFROM(01)' wf_z005-h,
-        ' ' 'J_1BTXIC3V-VALIDTO(01)'   wf_z005-i,
-        ' ' 'J_1BTXIC3V-RATE(01)'      wf_z005-j,
-        ' ' 'J_1BTXIC3V-BASE(01)'      wf_z005-k,
-        ' ' 'J_1BTXIC3V-EXEMPT(01)'    wf_z005-l,
-        ' ' 'J_1BTXIC3V-TAXLAW(01)'    wf_z005-m,
-        ' ' 'J_1BTXIC3V-CONVEN100(01)' wf_z005-n.
+        ' ' 'J_1BTXIC3V-SHIPFROM(01)'   wf_z005-b,
+        ' ' 'J_1BTXIC3V-SHIPTO(01)'     wf_z005-c,
+*        ' ' 'J_1BTXIC3V-VALUE(01)'      wf_z005-E,
+*        ' ' 'J_1BTXIC3V-VALUE2(01)'     wf_z005-F,
+*        ' ' 'J_1BTXIC3V-VALUE3(01)'     wf_z005-G,
+        ' ' 'J_1BTXIC3V-VALIDFROM(01)'  wf_z005-h,
+        ' ' 'J_1BTXIC3V-VALIDTO(01)'    wf_z005-i,
+        ' ' 'J_1BTXIC3V-RATE(01)'       wf_z005-j,
+        ' ' 'J_1BTXIC3V-BASE(01)'       wf_z005-k,
+        ' ' 'J_1BTXIC3V-EXEMPT(01)'     wf_z005-l,
+        ' ' 'J_1BTXIC3V-TAXLAW(01)'     wf_z005-m,
+        ' ' 'J_1BTXIC3V-CONVEN100(01)'  wf_z005-n,
+        ' ' 'J_1BTXIC3V-SPECF_RATE(01)' wf_z005-o,
+        ' ' 'J_1BTXIC3V-SPECF_BASE(01)' wf_z005-p,
+        ' ' 'J_1BTXIC3V-PARTILHA_EXEMPT(01)' wf_z005-q,
+        ' ' 'J_1BTXIC3V-SPECF_RESALE(01)'    wf_z005-r.
+
 
   IF wf_grp-field IS NOT INITIAL.
     PERFORM bdc USING:

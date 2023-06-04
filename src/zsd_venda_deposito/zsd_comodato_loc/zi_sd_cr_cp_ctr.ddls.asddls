@@ -25,11 +25,16 @@ define view ZI_SD_CR_CP_CTR
 
     left outer join        bseg                     as Bseg     on bseg.vbeln = Vbfa.vbeln
 
+    left outer join        ZI_SD_COMODATO_LAST_EST  as Est      on Est.vbelv = bseg.belnr
+
     left outer join        vbrk                     as vbrk_ref on vbrk_ref.vbeln = Vbfa.vbeln
 
     left outer join        bsik                     as Bsik     on bsik.xblnr = vbrk_ref.xblnr
 
     left outer join        bsid                     as Bsid     on bsid.xblnr = vbrk_ref.xblnr
+
+//    left outer join        ZI_SD_COMODATO_LAST_BSIK as DocRec   on  DocRec.vbelv = fpla.vbeln
+//                                                                and DocRec.netdt = Bseg.netdt
 
   //    left outer join        acdoca                   as acdoca_d on  acdoca_d.rbukrs   = vbrk_ref.bukrs
   //                                                                and acdoca_d.gjahr    = substring(
@@ -72,9 +77,13 @@ define view ZI_SD_CR_CP_CTR
       //      acdoca_k.belnr             as DocFinRecebimento
       //      bseg.augcp                 as DataCriacao,
       //      bseg.augbl                 as DocFinRecebimento,
-      bsik.belnr                 as DocFinRecebimento,
+      bsik.belnr as DocFinRecebimento,
       //      bsik.bldat                 as DataCriacao
-      bsid.bldat                 as DataCriacao
+      bsid.bldat                 as DataCriacao,
+
+      case
+      when Est.Estorno  is not initial or Est.Estorno is not null
+      then 'X' else '' end       as Estorno
 }
 where
   fplt.fakwr <> 0

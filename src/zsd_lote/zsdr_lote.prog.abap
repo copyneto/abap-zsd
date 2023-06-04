@@ -79,7 +79,7 @@ CLASS lcl_main IMPLEMENTATION.
   METHOD start_process.
     DATA lt_bdcdata TYPE tab_bdcdata.
 
-    SELECT lips~vbeln, lips~posnr, likp~wbstk, lips~wbsta
+    SELECT lips~vbeln, lips~posnr, likp~wbstk, lips~wbsta, likp~kostk
       FROM lips INNER JOIN likp ON likp~vbeln = lips~vbeln
       INTO TABLE @DATA(lt_lips)
       WHERE likp~vbeln IN @ir_vbeln
@@ -89,12 +89,35 @@ CLASS lcl_main IMPLEMENTATION.
       ORDER BY lips~vbeln, lips~posnr.
 
     LOOP AT lt_lips ASSIGNING FIELD-SYMBOL(<fs_lips>).
+
       AT NEW vbeln.
-        CLEAR lt_bdcdata[].
-        APPEND VALUE #( program = 'SAPMV50A' dynpro = '4004' dynbegin = 'X' ) TO lt_bdcdata.
-        APPEND VALUE #( fnam = 'BDC_OKCODE' fval = '=ENT2' ) TO lt_bdcdata.
-        APPEND VALUE #( fnam = 'LIKP-VBELN' fval = <fs_lips>-vbeln ) TO lt_bdcdata.
+
+        "---Verificação para permissão de lançamento
+        IF  <fs_lips>-kostk <> 'A'
+        AND <fs_lips>-kostk <> 'B'.
+
+          CLEAR lt_bdcdata[].
+          APPEND VALUE #( program = 'SAPMV50A' dynpro = '4004' dynbegin = 'X' ) TO lt_bdcdata.
+          APPEND VALUE #( fnam = 'BDC_OKCODE' fval = '=ENT2' ) TO lt_bdcdata.
+          APPEND VALUE #( fnam = 'LIKP-VBELN' fval = <fs_lips>-vbeln ) TO lt_bdcdata.
+
+        ELSE.
+
+          "---Processamento do picking não concluído. Remessa não processada.
+          APPEND VALUE #( vbeln = <fs_lips>-vbeln messtab = VALUE tab_bdcmsgcoll( ( msgid  = 'ZSD_LOTE'
+                                                                                    msgnr  = '001'
+                                                                                    msgtyp = 'E' )
+                                                                                  ( msgid  = 'ZSD_LOTE'
+                                                                                    msgnr  = '002'
+                                                                                    msgtyp = 'E' ) ) ) TO gt_log.
+          CONTINUE.
+
+        ENDIF.
+
       ENDAT.
+
+      CHECK <fs_lips>-kostk <> 'A'
+        AND <fs_lips>-kostk <> 'B'.
 
       APPEND VALUE #( program = 'SAPMV50A' dynpro = '1000' dynbegin = 'X' ) TO lt_bdcdata.
       APPEND VALUE #( fnam = 'BDC_OKCODE' fval = '=POPO_T' ) TO lt_bdcdata.
@@ -122,6 +145,10 @@ CLASS lcl_main IMPLEMENTATION.
       APPEND VALUE #( fnam = 'BDC_OKCODE' fval = '=BACK_T' ) TO lt_bdcdata.
 
       AT END OF vbeln.
+
+        CHECK <fs_lips>-kostk <> 'A'
+          AND <fs_lips>-kostk <> 'B'.
+
         APPEND VALUE #( program = 'SAPMV50A' dynpro = '1000' dynbegin = 'X' ) TO lt_bdcdata.
         APPEND VALUE #( fnam = 'BDC_OKCODE' fval = '=SICH_T' ) TO lt_bdcdata.
 
@@ -130,8 +157,11 @@ CLASS lcl_main IMPLEMENTATION.
 
         APPEND VALUE #( vbeln = <fs_lips>-vbeln messtab = lt_messtab ) TO gt_log.
         CLEAR lt_messtab[].
+
       ENDAT.
+
     ENDLOOP.
+
   ENDMETHOD.
   METHOD call_vl02n.
     CHECK it_bdcdata[] IS NOT INITIAL.

@@ -12,6 +12,7 @@ FUNCTION zfmsd_entrada_mercadoria.
 
   gv_cockpit = abap_true.
 
+  "Utilizado no programa ZSDI_CHECK_DATE_DOC
   DATA: lv_check TYPE abap_bool VALUE abap_true.
   EXPORT lv_check FROM lv_check TO MEMORY ID 'ZMVT_CMM'.
 
