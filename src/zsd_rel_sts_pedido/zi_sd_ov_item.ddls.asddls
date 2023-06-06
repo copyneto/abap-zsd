@@ -14,11 +14,11 @@ define view entity ZI_SD_OV_ITEM
   key  _SalesOrderItem.SalesOrder              as SalesOrder,
        min( _SalesOrderItem.SalesOrderItem )   as SalesOrderItem,
        _SalesOrderItem.Plant                   as Plant,
-       _SalesOrderItem.ShippingPoint           as ShippingPoint,
-       _SalesOrderItem.SalesDocumentRjcnReason as SalesDocumentRjcnReason
+       _SalesOrderItem.ShippingPoint           as ShippingPoint
+////       _SalesOrderItem.SalesDocumentRjcnReason as SalesDocumentRjcnReason
 }
 group by
   _SalesOrderItem.SalesOrder,
   _SalesOrderItem.Plant,
-  _SalesOrderItem.ShippingPoint,
-  _SalesOrderItem.SalesDocumentRjcnReason
+  _SalesOrderItem.ShippingPoint
+////  _SalesOrderItem.SalesDocumentRjcnReason

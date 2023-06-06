@@ -4828,6 +4828,7 @@ CLASS ZCLSD_GESTAO_PRECO_EVENTS IMPLEMENTATION.
            AND loevm_ko EQ @space
            INTO TABLE @DATA(lt_lista_preco_del).
 
+    SORT lt_lista_preco_del DESCENDING BY datbi.
     SORT lt_lista_preco_del BY vtweg pltyp werks  matnr  kstbm.
 
     DELETE ADJACENT DUPLICATES FROM ct_item_elim COMPARING dist_channel price_list plant material.
@@ -6024,8 +6025,8 @@ CLASS ZCLSD_GESTAO_PRECO_EVENTS IMPLEMENTATION.
 
   METHOD check_data_sap_file.
 
-    DATA lt_a817 TYPE ty_t_a817.
-    DATA lt_a816 TYPE ty_t_a816.
+    DATA lt_a817 TYPE TABLE OF a817.
+    DATA lt_a816 TYPE TABLE OF a816.
 
     CLEAR:gv_vigencia, gv_periodo.
 
@@ -6044,6 +6045,7 @@ CLASS ZCLSD_GESTAO_PRECO_EVENTS IMPLEMENTATION.
 
     TRY.
 
+        SORT lt_a817 DESCENDING BY datbi.
         DATA(ls_data) = lt_a817[ vtweg = is_item_key-dist_channel
                                  pltyp = is_item_key-price_list
                                  werks = is_item_key-plant
@@ -6063,27 +6065,28 @@ CLASS ZCLSD_GESTAO_PRECO_EVENTS IMPLEMENTATION.
         ENDIF.
 
       CATCH cx_root.
+        CLEAR: ls_data.
 
         TRY.
+            SORT lt_a816 DESCENDING BY datbi.
+            DATA(ls_data_a816) = lt_a816[ vtweg = is_item_key-dist_channel
+                                          werks = is_item_key-plant
+                                          matnr = is_item_key-material ].
 
-            ls_data = lt_a816[ vtweg = is_item_key-dist_channel
-                               werks = is_item_key-plant
-                               matnr = is_item_key-material ].
-
-            IF ls_data-datab = ls_data-datbi.
+            IF ls_data_a816-datab = ls_data_a816-datbi.
               gv_inclusao =  abap_true.
               EXIT.
             ELSE.
               TRY.
-                  DATA(ls_konp_a816) = it_konp[ knumh = ls_data-knumh loevm_ko = 'X' ].
+                  DATA(ls_konp_a816) = it_konp[ knumh = ls_data_a816-knumh loevm_ko = 'X' ].
                   gv_inclusao =  abap_true.
                   EXIT.
                 CATCH cx_root.
               ENDTRY.
             ENDIF.
-
+            MOVE-CORRESPONDING ls_data_a816 TO ls_data.
           CATCH cx_root.
-            CLEAR: ls_data.
+            CLEAR: ls_data_a816.
         ENDTRY.
 
     ENDTRY.
@@ -6145,6 +6148,7 @@ CLASS ZCLSD_GESTAO_PRECO_EVENTS IMPLEMENTATION.
           et_item_qs[]             = VALUE #( FOR ls_it IN it_item WHERE (     guid         EQ is_item-guid
                                                                           AND dist_channel EQ is_item-dist_channel
                                                                           AND price_list   EQ is_item-price_list
+                                                                          AND plant        EQ is_item-plant
                                                                           AND material     EQ is_item-material )
                                                                           ( CORRESPONDING #( ls_it ) )   ). "#EC CI_STDSEQ
 
@@ -6178,6 +6182,7 @@ CLASS ZCLSD_GESTAO_PRECO_EVENTS IMPLEMENTATION.
           et_item_qs[]             = VALUE #( FOR ls_it IN it_item WHERE (    guid         EQ is_item-guid
                                                                           AND dist_channel EQ is_item-dist_channel
                                                                           AND price_list   EQ space
+                                                                          AND plant        EQ is_item-plant
                                                                           AND material     EQ is_item-material )
                                                                           ( CORRESPONDING #( ls_it ) ) ). "#EC CI_STDSEQ
 

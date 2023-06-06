@@ -24,6 +24,8 @@
           lv_xabln       TYPE xabln,
           lv_mblnr       TYPE mblnr.
 
+    DATA: lv_modify TYPE abap_bool.
+
     DATA: lv_name_read  TYPE thead-tdname,
           lt_lines_read TYPE tline_tab.
 
@@ -128,7 +130,6 @@
 
               ENDIF.
 
-
               READ TABLE <fs_header_text> ASSIGNING FIELD-SYMBOL(<fs_header_text_lines_new>) INDEX 1.
               SEARCH <fs_header_text_lines_new>-text FOR TEXT-f80.
 
@@ -136,12 +137,14 @@
               IF sy-subrc NE 0.
                 lv_aditivo = |{ TEXT-f80 }: { <fs_contrato>-aditivo }|.
                 <fs_header_text_lines_new>-text = |{ <fs_header_text_lines_new>-text } { lv_aditivo }|.
+                lv_modify = abap_true.
               ENDIF.
 
               "Contrato
               SEARCH <fs_header_text_lines_new>-text FOR TEXT-f92.
               IF sy-subrc NE 0.
                 <fs_header_text_lines_new>-text = |{ <fs_header_text_lines_new>-text } { TEXT-f92 } { lv_contrato_new }|.
+                lv_modify = abap_true.
               ENDIF.
 
               "NF e Data
@@ -261,16 +264,19 @@
 
                 IF sy-subrc NE 0.
                   <fs_header_text_lines_new>-text = |{ <fs_header_text_lines_new>-text } { lv_pla_imo_nfe }|.
+                  lv_modify = abap_true.
                 ENDIF.
 
                 SEARCH <fs_header_text_lines_new>-text FOR TEXT-f53.
                 IF sy-subrc NE 0.
                   <fs_header_text_lines_new>-text = |{ <fs_header_text_lines_new>-text } { lv_pla_imo_nfe }|.
+                  lv_modify = abap_true.
                 ENDIF.
 
                 SEARCH <fs_header_text_lines_new>-text FOR 'Referencia NFe'.
                 IF sy-subrc NE 0.
                   <fs_header_text_lines_new>-text = |{ <fs_header_text_lines_new>-text } { lv_pla_imo_nfe }|.
+                  lv_modify = abap_true.
                 ENDIF.
 
               ENDIF.
@@ -279,7 +285,7 @@
                 FROM j_1bnfftx
                 INTO TABLE @DATA(lt_nfftx_new)
                 WHERE docnum EQ @<fs_wk_header>-docnum.
-              IF sy-subrc EQ 0.
+              IF sy-subrc EQ 0 AND lv_modify EQ abap_true.
 
                 REFRESH lt_out_lines.
                 lv_linha = <fs_header_text_lines_new>-text.
@@ -382,6 +388,7 @@
                   READ TABLE lt_vbkd ASSIGNING FIELD-SYMBOL(<fs_vbkd>) INDEX 1.
                   lv_aditivo = |{ TEXT-f80 }: { <fs_vbkd>-ihrez }|.
                   <fs_header_text_lines>-text = |{ <fs_header_text_lines>-text } { lv_aditivo }|.
+                  lv_modify = abap_true.
                 ENDIF.
 
                 SELECT SINGLE ihrez
@@ -392,6 +399,7 @@
                 SEARCH <fs_header_text_lines>-text FOR TEXT-f92.
                 IF sy-subrc NE 0.
                   <fs_header_text_lines>-text = |{ <fs_header_text_lines>-text } { TEXT-f92 } { lv_contrato }|.
+                  lv_modify = abap_true.
                 ENDIF.
 
                 IF NOT lt_eqp[] IS INITIAL.
@@ -489,16 +497,19 @@
 
                   IF sy-subrc NE 0.
                     <fs_header_text_lines>-text = |{ <fs_header_text_lines>-text } { lv_pla_imo_nfe }|.
+                    lv_modify = abap_true.
                   ENDIF.
 
                   SEARCH <fs_header_text_lines>-text FOR TEXT-f53.
                   IF sy-subrc NE 0.
                     <fs_header_text_lines>-text = |{ <fs_header_text_lines>-text } { lv_pla_imo_nfe }|.
+                    lv_modify = abap_true.
                   ENDIF.
 
                   SEARCH <fs_header_text_lines>-text FOR 'Referencia NFe'.
                   IF sy-subrc NE 0.
                     <fs_header_text_lines>-text = |{ <fs_header_text_lines>-text } { lv_pla_imo_nfe }|.
+                    lv_modify = abap_true.
                   ENDIF.
 
                 ENDIF.
@@ -510,7 +521,7 @@
               FROM j_1bnfftx
               INTO TABLE @DATA(lt_nfftx)
               WHERE docnum EQ @<fs_wk_header>-docnum.
-            IF sy-subrc EQ 0.
+            IF sy-subrc EQ 0 AND lv_modify EQ abap_true.
 
               REFRESH lt_out_lines.
               lv_linha = <fs_header_text_lines>-text.

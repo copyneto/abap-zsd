@@ -132,6 +132,8 @@ private section.
   methods VALIDA_POSNR
     importing
       !IV_POSNR type POSNR_VA
+    changing
+      !CV_MULTIPLO type ABAP_BOOL
     returning
       value(RV_MULTIPLICADOR) type I .
 ENDCLASS.
@@ -458,7 +460,8 @@ CLASS ZCLSD_CMDLOC_DEVOL_MERCADORIA IMPLEMENTATION.
     DATA: ls_xvbak TYPE tds_xvbak.
 
     DATA: lv_multiplicador TYPE i,
-          lv_posnr         TYPE posnr_va.
+          lv_posnr         TYPE posnr_va,
+          lv_multiplo      TYPE abap_bool.
 
     IF is_vbak IS INITIAL.
       SELECT SINGLE *
@@ -478,7 +481,8 @@ CLASS ZCLSD_CMDLOC_DEVOL_MERCADORIA IMPLEMENTATION.
       UP TO 1 ROWS.
     ENDSELECT.
 
-    lv_multiplicador = me->valida_posnr( iv_posnr = lv_posnr ).
+    lv_multiplicador = me->valida_posnr( EXPORTING iv_posnr =  lv_posnr
+                                         CHANGING cv_multiplo = lv_multiplo ).
 
     IF it_vbap[] IS INITIAL.
 
@@ -1473,6 +1477,7 @@ CLASS ZCLSD_CMDLOC_DEVOL_MERCADORIA IMPLEMENTATION.
     DATA(lv_debitor) = is_key-partn_numb.
     DATA(lv_auart)   = is_key-auart.
     DATA(lv_postyp)  = is_key-pstyv.
+    DATA: lv_multiplo  TYPE abap_bool.
 
     DO 10 TIMES.
       CALL FUNCTION 'SD_SALES_DOCUMENT_ENQUEUE'
@@ -1502,6 +1507,27 @@ CLASS ZCLSD_CMDLOC_DEVOL_MERCADORIA IMPLEMENTATION.
 
     IF lv_desbloq IS NOT INITIAL.
       CLEAR lv_desbloq.
+
+      "Contratos de carga podem vir com itens numerados errados.
+      SELECT SINGLE posnr
+      FROM vbap
+      WHERE vbeln EQ @lv_doument
+      AND posnr EQ @lv_item
+      INTO @DATA(lv_posnr).
+
+      IF sy-subrc IS NOT INITIAL.
+
+        me->valida_posnr( EXPORTING iv_posnr    = lv_item
+                          CHANGING  cv_multiplo = lv_multiplo ).
+
+        IF lv_multiplo EQ abap_true.
+          lv_item = ( lv_item / 10 ).
+        ELSE.
+          lv_item = ( lv_item * 10 ).
+        ENDIF.
+
+      ENDIF.
+
 
       CALL FUNCTION 'SERNR_ADD_TO_AU'
         EXPORTING
@@ -1631,11 +1657,11 @@ CLASS ZCLSD_CMDLOC_DEVOL_MERCADORIA IMPLEMENTATION.
   METHOD valida_posnr.
     IF iv_posnr MOD 10 = 0.
       "'O número é múltiplo de 10'.
-      "rv_multiplica = abap_true.
+      cv_multiplo = abap_true.
       rv_multiplicador = 1.
     ELSE.
       "'O número não é múltiplo de 10'.
-      "rv_multiplica = abap_false.
+      cv_multiplo = abap_false.
       rv_multiplicador = 10.
     ENDIF.
   ENDMETHOD.

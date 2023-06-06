@@ -263,13 +263,17 @@ define root view entity ZI_SD_REL_FISCAL_SAIDA_APP
       //@Aggregation.default:#SUM
       //      cast(_TaxIPI3.BR_NFItemTaxAmount as logbr_invoicenetamount)                                                                                                      as ValorIPI,
       case
-        when _TaxIPI3.BR_NFItemTaxAmount is initial or _TaxIPI3.BR_NFItemTaxAmount is null
+        when _TaxIPI3.BR_NFItemTaxAmount is initial or _TaxIPI3.BR_NFItemTaxAmount is null or
+             ( _TaxIPI3.BR_NFItemBaseAmount is initial or _TaxIPI3.BR_NFItemBaseAmount is null and
+               _Doc.BR_NFDocumentType = '6' )
             then 0
              when not _TaxIPI3.BR_NFItemIsStatisticalTax is initial
                  then 0
             else cast(_TaxIPI3.BR_NFItemTaxAmount as abap.dec( 15, 2 ) ) end
              + case
-             when not _TaxIPI2.BR_NFItemIsStatisticalTax is initial
+             when not _TaxIPI2.BR_NFItemIsStatisticalTax is initial or
+             ( _TaxIPI2.BR_NFItemBaseAmount is initial or _TaxIPI2.BR_NFItemBaseAmount is null and
+               _Doc.BR_NFDocumentType = '6' )
                  then 0
                     when _TaxIPI2.BR_NFItemTaxAmount is initial or _TaxIPI2.BR_NFItemTaxAmount is null
                       then 0
@@ -277,7 +281,9 @@ define root view entity ZI_SD_REL_FISCAL_SAIDA_APP
              + case
                     when not _TaxIPI1.BR_NFItemIsStatisticalTax is initial
                       then 0
-                    when _TaxIPI1.BR_NFItemTaxAmount is initial or _TaxIPI1.BR_NFItemTaxAmount is null
+                    when _TaxIPI1.BR_NFItemTaxAmount is initial or _TaxIPI1.BR_NFItemTaxAmount is null or
+                         ( _TaxIPI1.BR_NFItemBaseAmount is initial or _TaxIPI1.BR_NFItemBaseAmount is null and
+                           _Doc.BR_NFDocumentType = '6' )
                       then 0
                       else cast(_TaxIPI1.BR_NFItemTaxAmount as abap.dec( 15, 2 ) ) end                                 as ValorIPI,
       //_Lin.BR_ICMSSTMarginAddedPercent                                                                                 as MVA,
@@ -571,23 +577,32 @@ define root view entity ZI_SD_REL_FISCAL_SAIDA_APP
       //@Aggregation.default:#SUM
       //      cast(_TaxICS3.BR_NFItemTaxAmount as logbr_invoicenetamount)                                                                                                      as ValorST,
       case
+        when ( _TaxZCS1.base is initial or _TaxZCS1.base is null and
+               _Doc.BR_NFDocumentType = '6' )
+            then 0
         when _TaxZCS1.taxval is not initial or _TaxZCS1.taxval is not null
             then cast(_TaxZCS1.taxval as abap.dec( 15, 2 ) )
         when not _TaxICS3.BR_NFItemIsStatisticalTax is initial
                   then 0
-        when _TaxICS3.BR_NFItemTaxAmount is initial or _TaxICS3.BR_NFItemTaxAmount is null
+        when _TaxICS3.BR_NFItemTaxAmount is initial or _TaxICS3.BR_NFItemTaxAmount is null or
+             ( _TaxICS3.BR_NFItemBaseAmount is initial or _TaxICS3.BR_NFItemBaseAmount is null and
+               _Doc.BR_NFDocumentType = '6' )
             then 0
             else cast(_TaxICS3.BR_NFItemTaxAmount as abap.dec( 15, 2 ) ) end
             + case
                when not _TaxICS2.BR_NFItemIsStatisticalTax is initial
                   then 0
-               when _TaxICS2.BR_NFItemTaxAmount is initial or _TaxICS2.BR_NFItemTaxAmount is null
+               when _TaxICS2.BR_NFItemTaxAmount is initial or _TaxICS2.BR_NFItemTaxAmount is null or
+                  ( _TaxICS2.BR_NFItemBaseAmount is initial or _TaxICS2.BR_NFItemBaseAmount is null and
+                    _Doc.BR_NFDocumentType = '6' )
                   then 0
                   else cast(_TaxICS2.BR_NFItemTaxAmount as abap.dec( 15, 2 ) ) end
             + case
                when not _TaxICS1.BR_NFItemIsStatisticalTax is initial
                   then 0
-               when _TaxICS1.BR_NFItemTaxAmount is initial or _TaxICS1.BR_NFItemTaxAmount is null
+               when _TaxICS1.BR_NFItemTaxAmount is initial or _TaxICS1.BR_NFItemTaxAmount is null or
+                  ( _TaxICS1.BR_NFItemBaseAmount is initial or _TaxICS1.BR_NFItemBaseAmount is null and
+                    _Doc.BR_NFDocumentType = '6' )
                   then 0
                   else cast(_TaxICS1.BR_NFItemTaxAmount as abap.dec( 15, 2 ) ) end                                     as ValorST,
 
@@ -728,7 +743,8 @@ define root view entity ZI_SD_REL_FISCAL_SAIDA_APP
 
       case
           when _J1BLPP.VlTotalUnPrdConfS > 0
-              then  fltp_to_dec(cast(_Lin.QuantityInBaseUnit as abap.fltp ) * cast(_J1BLPP.VlTotalUnPrdConfS  as abap.fltp ) as abap.dec(15,2))
+//              then  fltp_to_dec(cast(_Lin.QuantityInBaseUnit as abap.fltp ) * cast(_J1BLPP.VlTotalUnPrdConfS  as abap.fltp ) as abap.dec(15,2))
+               then  fltp_to_dec(cast(_Lin.QuantityInBaseUnit as abap.fltp ) * cast( _ConversaoUN.umrez as abap.fltp ) * cast( _J1BLPP.VlUnPrdConfI  as abap.fltp ) as abap.dec(15,2))
       //              fltp_to_dec(_J1BLPP.VlTotalUnPrdConfS as logbr_invoicenetamount)
           else
           fltp_to_dec(cast(_Lin.QuantityInBaseUnit as abap.fltp ) * cast(_ValorVPRS.VlTotal as abap.fltp ) as abap.dec(15,2))
@@ -813,7 +829,52 @@ define root view entity ZI_SD_REL_FISCAL_SAIDA_APP
       _Doc.BR_SUFRAMACode                                                                                              as CodSuframa,
       _DescTip.tdt                                                                                                     as TipoDeclaracaoImposto,
 
-      cast(_Lin.BR_NFNetOtherExpensesAmount as logbr_invoicenetamount)                                                 as despesa,
+      //cast(_Lin.BR_NFNetOtherExpensesAmount as logbr_invoicenetamount)                                                 as despesa,
+      case when _Doc.BR_NFDocumentType = '6'
+           then
+            case
+             when not _TaxIPI1.BR_NFItemIsStatisticalTax is initial
+               then 0
+             when _TaxIPI1.BR_NFItemTaxAmount is initial or _TaxIPI1.BR_NFItemTaxAmount is null
+               then 0
+             else cast(_TaxIPI1.BR_NFItemTaxAmount as abap.dec( 15, 2 ) ) end
+            + case
+             when not _TaxIPI2.BR_NFItemIsStatisticalTax is initial
+               then 0
+             when _TaxIPI2.BR_NFItemTaxAmount is initial or _TaxIPI2.BR_NFItemTaxAmount is null
+               then 0
+             else cast(_TaxIPI2.BR_NFItemTaxAmount as abap.dec( 15, 2 ) ) end
+            + case
+             when not _TaxIPI3.BR_NFItemIsStatisticalTax is initial
+               then 0
+             when _TaxIPI3.BR_NFItemTaxAmount is initial or _TaxIPI3.BR_NFItemTaxAmount is null
+               then 0
+             else cast(_TaxIPI3.BR_NFItemTaxAmount as abap.dec( 15, 2 ) ) end
+            + case
+             when _TaxZCS1.taxval is initial or _TaxZCS1.taxval is null
+               then 0
+             else cast(_TaxZCS1.taxval as abap.dec( 15, 2 ) ) end
+            + case
+             when not _TaxICS1.BR_NFItemIsStatisticalTax is initial
+               then 0
+             when _TaxICS1.BR_NFItemTaxAmount is initial or _TaxICS1.BR_NFItemTaxAmount is null
+               then 0
+              else cast(_TaxICS1.BR_NFItemTaxAmount as abap.dec( 15, 2 ) ) end
+            + case
+              when not _TaxICS2.BR_NFItemIsStatisticalTax is initial
+                then 0
+              when _TaxICS2.BR_NFItemTaxAmount is initial or _TaxICS2.BR_NFItemTaxAmount is null
+                then 0
+              else cast(_TaxICS2.BR_NFItemTaxAmount as abap.dec( 15, 2 ) ) end
+            + case
+              when not _TaxICS3.BR_NFItemIsStatisticalTax is initial
+                then 0
+              when _TaxICS3.BR_NFItemTaxAmount is initial or _TaxICS3.BR_NFItemTaxAmount is null
+                then 0
+              else cast(_TaxICS3.BR_NFItemTaxAmount as abap.dec( 15, 2 ) ) end
+         else
+          cast(_Lin.BR_NFNetOtherExpensesAmount as logbr_invoicenetamount)
+       end                                                                                                             as despesa,
 
       //      cast(_Lin.BR_NFExpensesAmountWithTaxes    as logbr_invoicenetamount)                                                                                             as despesa,
 
@@ -945,12 +1006,14 @@ define root view entity ZI_SD_REL_FISCAL_SAIDA_APP
       //fltp_to_dec( (cast( _Lin.BR_NFValueAmountWithTaxes as abap.fltp ) * cast( _TaxICM3.BR_NFItemTaxRate as abap.fltp ) / cast(100 as abap.fltp) ) as abap.dec(15,2)) as ValorICMSsemBenef,
       case
          when not _TaxICM2.BR_NFItemTaxAmount is initial
-           then cast(_TaxICM2.BR_NFItemTaxAmount as logbr_invoicenetamount)
+           //then cast(_TaxICM2.BR_NFItemTaxAmount as logbr_invoicenetamount)
+           then fltp_to_dec( ( (cast( _TaxICM2.BR_NFItemBaseAmount as abap.fltp ) + cast(_TaxICM2.BR_NFItemExcludedBaseAmount as abap.fltp ) ) * cast( _TaxICM2.BR_NFItemTaxRate as abap.fltp ) / cast(100 as abap.fltp) ) as abap.dec(15,2))
          when not _TaxICM3.BR_NFItemIsStatisticalTax is initial
              then 0
          else
       //fltp_to_dec( (cast( _Lin.BR_NFValueAmountWithTaxes as abap.fltp ) * cast( _TaxICM3.BR_NFItemTaxRate as abap.fltp ) / cast(100 as abap.fltp) ) as abap.dec(15,2))
-            cast(_TaxICM3.BR_NFItemTaxAmount as abap.dec(15,3) )
+           // cast(_TaxICM3.BR_NFItemTaxAmount as abap.dec(15,3) )
+           fltp_to_dec( ( (cast( _TaxICM3.BR_NFItemBaseAmount as abap.fltp ) + cast(_TaxICM3.BR_NFItemExcludedBaseAmount as abap.fltp ) ) * cast( _TaxICM3.BR_NFItemTaxRate as abap.fltp ) / cast(100 as abap.fltp) ) as abap.dec(15,2))
        end                                                                                                             as ValorICMSsemBenef,
       _Lin.InternationalArticleNumber                                                                                  as Gtin,
       _OutboundDelivery.vgbel                                                                                          as DocRem,
@@ -1003,8 +1066,8 @@ define root view entity ZI_SD_REL_FISCAL_SAIDA_APP
             then 0
           when _TaxICM3.BR_NFItemTaxRate <> 0
       //then cast(_Lin.NetValueAmount as abap.dec(15,2) )
-            then cast(_TaxICM3.BR_NFItemBaseAmount as abap.dec(15,2) )
-            else cast(_TaxICM2.BR_NFItemBaseAmount  as abap.dec(15,2) )
+            then cast(_TaxICM3.BR_NFItemBaseAmount as abap.dec(15,2) ) + cast(_TaxICM3.BR_NFItemExcludedBaseAmount as abap.dec(15,2) )
+            else cast(_TaxICM2.BR_NFItemBaseAmount  as abap.dec(15,2) ) + cast(_TaxICM2.BR_NFItemExcludedBaseAmount as abap.dec(15,2) )
           end as abap.dec(15,2) )                                                                                      as ValorBaseCalsemBenef,
 
 
@@ -1030,62 +1093,161 @@ define root view entity ZI_SD_REL_FISCAL_SAIDA_APP
       //      when _Lin.NetValueAmount is initial or _Lin.NetValueAmount is null
       //        then 0
       //      else cast(_Lin.NetValueAmount as abap.dec( 15, 2 ) ) end
+////      case
+////      when _Lin.BR_NFTotalAmountWithTaxes is initial or _Lin.BR_NFValueAmountWithTaxes is null
+////        then 0
+////      else cast(_Lin.BR_NFValueAmountWithTaxes as abap.dec( 15, 2 ) ) end
+////      //      + case
+////      //        when _TaxIPI3.BR_NFItemTaxAmount is initial or _TaxIPI3.BR_NFItemTaxAmount is null
+////      //          then 0
+////      //          else cast(_TaxIPI3.BR_NFItemTaxAmount as abap.dec( 15, 2 ) ) end
+////      //      + case
+////      //        when _TaxIPI2.BR_NFItemTaxAmount is initial or _TaxIPI2.BR_NFItemTaxAmount is null
+////      //          then 0
+////      //          else cast(_TaxIPI2.BR_NFItemTaxAmount as abap.dec( 15, 2 ) ) end
+////      //      + case
+////      //        when _TaxIPI1.BR_NFItemTaxAmount is initial or _TaxIPI1.BR_NFItemTaxAmount is null
+////      //          then 0
+////      //          else cast(_TaxIPI1.BR_NFItemTaxAmount as abap.dec( 15, 2 ) ) end
+////      //      + case
+////      //        when _TaxICS3.BR_NFItemTaxAmount is initial or _TaxICS3.BR_NFItemTaxAmount is null
+////      //          then 0
+////      //          else cast(_TaxICS3.BR_NFItemTaxAmount as abap.dec( 15, 2 ) ) end
+////      //      + case
+////      //        when _TaxICS2.BR_NFItemTaxAmount is initial or _TaxICS2.BR_NFItemTaxAmount is null
+////      //          then 0
+////      //          else cast(_TaxICS2.BR_NFItemTaxAmount as abap.dec( 15, 2 ) ) end
+////      //      + case
+////      //        when _TaxICS1.BR_NFItemTaxAmount is initial or _TaxICS1.BR_NFItemTaxAmount is null
+////      //          then 0
+////      //          else cast(_TaxICS1.BR_NFItemTaxAmount as abap.dec( 15, 2 ) ) end
+////      //       + case
+////      //          when _TaxZCS1.taxval is initial or _TaxZCS1.taxval is null
+////      //            then 0
+////      //            else cast(_TaxZCS1.taxval as abap.dec( 15, 2 ) ) end
+////      //       + case
+////      //          when _TaxZPS2.taxval is initial or _TaxZPS2.taxval is null
+////      //            then 0
+////      //            else cast(_TaxZPS2.taxval as abap.dec( 15, 2 ) ) end
+////      + case
+////        when _Lin.BR_NFNetFreightAmount is initial or _Lin.BR_NFNetFreightAmount is null
+////          then 0
+////          else cast(_Lin.BR_NFNetFreightAmount as abap.dec( 15, 2 ) ) end
+////      + case
+////        when _Lin.BR_NFNetInsuranceAmount is initial or _Lin.BR_NFNetInsuranceAmount is null
+////          then 0
+////          else cast(_Lin.BR_NFNetInsuranceAmount as abap.dec( 15, 2 ) ) end
+////      + case
+////        when _Lin.BR_NFNetOtherExpensesAmount is initial or _Lin.BR_NFNetOtherExpensesAmount is null
+////          then 0
+////          else cast(_Lin.BR_NFNetOtherExpensesAmount as abap.dec( 15, 2 ) ) end
+////      + case
+////        when _Lin.BR_NFNetDiscountAmount is initial or _Lin.BR_NFNetDiscountAmount is null
+////          then 0
+////          else _Lin.BR_NFNetDiscountAmount end
+////      - case
+////        when _Lin.BR_NFFreightAmountWithTaxes is initial or _Lin.BR_NFFreightAmountWithTaxes is null
+////          then 0
+//////          else cast( _Lin.BR_NFDiscountAmountWithTaxes as abap.dec(15,2) ) end                                         as ValorsemFrete,
+////          else cast( _Lin.BR_NFFreightAmountWithTaxes as abap.dec(15,2) ) end                                          as ValorsemFrete,
       case
-      when _Lin.BR_NFValueAmountWithTaxes is initial or _Lin.BR_NFValueAmountWithTaxes is null
-        then 0
-      else cast(_Lin.BR_NFValueAmountWithTaxes as abap.dec( 15, 2 ) ) end
-      //      + case
-      //        when _TaxIPI3.BR_NFItemTaxAmount is initial or _TaxIPI3.BR_NFItemTaxAmount is null
-      //          then 0
-      //          else cast(_TaxIPI3.BR_NFItemTaxAmount as abap.dec( 15, 2 ) ) end
-      //      + case
-      //        when _TaxIPI2.BR_NFItemTaxAmount is initial or _TaxIPI2.BR_NFItemTaxAmount is null
-      //          then 0
-      //          else cast(_TaxIPI2.BR_NFItemTaxAmount as abap.dec( 15, 2 ) ) end
-      //      + case
-      //        when _TaxIPI1.BR_NFItemTaxAmount is initial or _TaxIPI1.BR_NFItemTaxAmount is null
-      //          then 0
-      //          else cast(_TaxIPI1.BR_NFItemTaxAmount as abap.dec( 15, 2 ) ) end
-      //      + case
-      //        when _TaxICS3.BR_NFItemTaxAmount is initial or _TaxICS3.BR_NFItemTaxAmount is null
-      //          then 0
-      //          else cast(_TaxICS3.BR_NFItemTaxAmount as abap.dec( 15, 2 ) ) end
-      //      + case
-      //        when _TaxICS2.BR_NFItemTaxAmount is initial or _TaxICS2.BR_NFItemTaxAmount is null
-      //          then 0
-      //          else cast(_TaxICS2.BR_NFItemTaxAmount as abap.dec( 15, 2 ) ) end
-      //      + case
-      //        when _TaxICS1.BR_NFItemTaxAmount is initial or _TaxICS1.BR_NFItemTaxAmount is null
-      //          then 0
-      //          else cast(_TaxICS1.BR_NFItemTaxAmount as abap.dec( 15, 2 ) ) end
-      //       + case
-      //          when _TaxZCS1.taxval is initial or _TaxZCS1.taxval is null
-      //            then 0
-      //            else cast(_TaxZCS1.taxval as abap.dec( 15, 2 ) ) end
-      //       + case
-      //          when _TaxZPS2.taxval is initial or _TaxZPS2.taxval is null
-      //            then 0
-      //            else cast(_TaxZPS2.taxval as abap.dec( 15, 2 ) ) end
-      + case
-        when _Lin.BR_NFNetFreightAmount is initial or _Lin.BR_NFNetFreightAmount is null
+        when _Lin.BR_NFValueAmountWithTaxes is initial or _Lin.BR_NFValueAmountWithTaxes is null
           then 0
-          else cast(_Lin.BR_NFNetFreightAmount as abap.dec( 15, 2 ) ) end
-      + case
-        when _Lin.BR_NFNetInsuranceAmount is initial or _Lin.BR_NFNetInsuranceAmount is null
-          then 0
-          else cast(_Lin.BR_NFNetInsuranceAmount as abap.dec( 15, 2 ) ) end
-      + case
-        when _Lin.BR_NFNetOtherExpensesAmount is initial or _Lin.BR_NFNetOtherExpensesAmount is null
-          then 0
-          else cast(_Lin.BR_NFNetOtherExpensesAmount as abap.dec( 15, 2 ) ) end
-      + case
-        when _Lin.BR_NFNetDiscountAmount is initial or _Lin.BR_NFNetDiscountAmount is null
-          then 0
-          else _Lin.BR_NFNetDiscountAmount end
-      - case
-        when _Lin.BR_NFFreightAmountWithTaxes is initial or _Lin.BR_NFFreightAmountWithTaxes is null
-          then 0
-          else cast( _Lin.BR_NFDiscountAmountWithTaxes as abap.dec(15,2) ) end                                         as ValorsemFrete,
+                else cast(_Lin.BR_NFValueAmountWithTaxes as abap.dec( 15, 2 ) ) end
+      // ICFP
+               + case
+                      when not _TaxICFP.BR_NFItemIsStatisticalTax is initial
+                        then 0
+                      when _TaxICFP.BR_NFItemTaxAmount is initial or _TaxICFP.BR_NFItemTaxAmount is null
+                        then 0
+                        else cast(_TaxICFP.BR_NFItemTaxAmount as abap.dec( 15, 2 ) ) end
+      // IPI 0
+             + case   when not _TaxIPI0.BR_NFItemIsStatisticalTax is initial
+                        then 0
+                      when _TaxIPI0.BR_NFItemTaxAmount is initial or _TaxIPI0.BR_NFItemTaxAmount is null
+                        then 0
+                      else cast(_TaxIPI0.BR_NFItemTaxAmount as abap.dec( 15, 2 ) ) end
+      // IPI 3
+             + case when not _TaxIPI3.BR_NFItemIsStatisticalTax is initial
+                      then 0
+                    when _TaxIPI3.BR_NFItemTaxAmount is initial or _TaxIPI3.BR_NFItemTaxAmount is null
+                      then 0
+                      else cast(_TaxIPI3.BR_NFItemTaxAmount as abap.dec( 15, 2 ) ) end
+      // IPI 2
+             + case when not _TaxIPI2.BR_NFItemIsStatisticalTax is initial
+                      then 0
+                    when _TaxIPI2.BR_NFItemTaxAmount is initial or _TaxIPI2.BR_NFItemTaxAmount is null
+                      then 0
+                      else cast(_TaxIPI2.BR_NFItemTaxAmount as abap.dec( 15, 2 ) ) end
+      // IPI 1
+             + case
+                    when not _TaxIPI1.BR_NFItemIsStatisticalTax is initial
+                      then 0
+                    when _TaxIPI1.BR_NFItemTaxAmount is initial or _TaxIPI1.BR_NFItemTaxAmount is null
+                      then 0
+                      else cast(_TaxIPI1.BR_NFItemTaxAmount as abap.dec( 15, 2 ) )  end
+      // ICS3
+               + case
+                      when not _TaxICS3.BR_NFItemIsStatisticalTax is initial
+                        then 0
+                      when _TaxICS3.BR_NFItemTaxAmount is initial or _TaxICS3.BR_NFItemTaxAmount is null
+                        then 0
+                        else cast(_TaxICS3.BR_NFItemTaxAmount as abap.dec( 15, 2 ) ) end
+      // ICS2
+                   + case
+                          when not _TaxICS2.BR_NFItemIsStatisticalTax is initial
+                            then 0
+                          when _TaxICS2.BR_NFItemTaxAmount is initial or _TaxICS2.BR_NFItemTaxAmount is null
+                            then 0
+                            else cast(_TaxICS2.BR_NFItemTaxAmount as abap.dec( 15, 2 ) ) end
+      // ICS1
+                   + case
+                          when not _TaxICS1.BR_NFItemIsStatisticalTax is initial
+                            then 0
+                          when _TaxICS1.BR_NFItemTaxAmount is initial or _TaxICS1.BR_NFItemTaxAmount is null
+                            then 0
+                            else cast(_TaxICS1.BR_NFItemTaxAmount as abap.dec( 15, 2 ) ) end
+      // ZCS1
+             + case
+                    when _TaxZCS1.taxval is initial or _TaxZCS1.taxval is null
+                      then 0
+                      else cast(_TaxZCS1.taxval as abap.dec( 15, 2 ) ) end
+      // ZPS2
+             + case
+                    when _TaxZPS2.taxval is initial or _TaxZPS2.taxval is null
+                      then 0
+                      else cast(_TaxZPS2.taxval as abap.dec( 15, 2 ) ) end
+      // FPSO
+               + case
+                      when not _TaxFPSO.BR_NFItemIsStatisticalTax is initial
+                        then 0
+                      when _TaxFPSO.BR_NFItemTaxAmount is initial or _TaxFPSO.BR_NFItemTaxAmount is null
+                        then 0
+                        else cast(_TaxFPSO.BR_NFItemTaxAmount as abap.dec( 15, 2 ) ) end
+       + case
+              when _Lin.BR_NFNetFreightAmount is initial or _Lin.BR_NFNetFreightAmount is null
+                then 0
+                else cast(_Lin.BR_NFNetFreightAmount as abap.dec( 15, 2 ) ) end
+       + case
+              when _Lin.BR_NFNetInsuranceAmount is initial or _Lin.BR_NFNetInsuranceAmount is null
+                then 0
+                else cast(_Lin.BR_NFNetInsuranceAmount as abap.dec( 15, 2 ) ) end
+       + case
+              when _Lin.BR_NFNetOtherExpensesAmount is initial or _Lin.BR_NFNetOtherExpensesAmount is null
+                then 0
+                else cast(_Lin.BR_NFNetOtherExpensesAmount as abap.dec( 15, 2 ) ) end
+       + case
+              when _Lin.BR_ExemptedICMSAmount is initial or _Lin.BR_ExemptedICMSAmount is null
+                then 0
+                else cast(_Lin.BR_ExemptedICMSAmount as abap.dec( 15, 2 ) ) end
+       + case
+              when _Lin.BR_NFNetDiscountAmount is initial or _Lin.BR_NFNetDiscountAmount is null
+                then 0
+                else _Lin.BR_NFNetDiscountAmount end
+       - case
+              when _Lin.BR_NFFreightAmountWithTaxes is initial or _Lin.BR_NFFreightAmountWithTaxes is null
+                then 0
+                else cast( _Lin.BR_NFFreightAmountWithTaxes as abap.dec(15,2) ) end                                    as ValorsemFrete,
 
       _Doc.BR_NFPartnerTaxRegimenCode                                                                                  as CodRegTribNum,
 

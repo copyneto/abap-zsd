@@ -219,6 +219,13 @@ CLASS ZCLSD_ADOBE_NOTA_DEBITO IMPLEMENTATION.
 *        WITH sy-msgv1 sy-msgv2 sy-msgv3 sy-msgv4.
     ENDIF.
 
+    SELECT SINGLE _kna1~stcd1
+      FROM vbrp AS _vbrp
+      JOIN t001w AS _t001w ON _vbrp~werks = _t001w~werks
+      JOIN kna1 AS _kna1 ON _t001w~kunnr = _kna1~kunnr
+      WHERE vbeln EQ @iv_vbeln
+      INTO @DATA(lv_cnpj_emi).
+
     rs_adobe-razao_social = ls_address-name1.
     rs_adobe-endereco     = ls_address-stras.
     rs_adobe-bairro       = ls_address-ort02.
@@ -226,7 +233,8 @@ CLASS ZCLSD_ADOBE_NOTA_DEBITO IMPLEMENTATION.
     rs_adobe-regiao       = ls_address-regio.
     rs_adobe-cep          = ls_address-pstlz.
     rs_adobe-telefone     = ls_address-telf1.
-    rs_adobe-cnpj         = ls_branch_data-stcd1.
+    "rs_adobe-cnpj         = ls_branch_data-stcd1.
+    rs_adobe-cnpj         = lv_cnpj_emi.
     rs_adobe-ins_est      = ls_branch_data-state_insc.
     CONCATENATE iv_data+4(2) '/' iv_data(4) INTO DATA(lv_mes).
     rs_adobe-mes_servico  = lv_mes.

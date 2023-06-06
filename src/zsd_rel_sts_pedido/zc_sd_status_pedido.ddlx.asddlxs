@@ -91,12 +91,12 @@ annotate view ZC_SD_STATUS_PEDIDO with
   @UI.selectionField:  [{ position: 170 }]
   Ship_Point;
 
-  @UI: { lineItem:     [{ position: 180, label: 'Motivo de Recusa' }],
-       identification: [{ position: 180, label: 'Motivo de Recusa' }] }
+  @UI: { lineItem:     [{ position: 180, label: 'Status de Recusa' }],
+       identification: [{ position: 180, label: 'Status de Recusa' }] }
   @UI.selectionField:  [{ position: 160 }]
   Sales_DocRjcnReason;
-  @UI: { lineItem:     [{ position: 190, label: 'Desc. Motivo de Recusa' }],
-       identification: [{ position: 190, label: 'Desc. Motivo de Recusa' }] }
+  @UI: { lineItem:     [{ position: 190, label: 'Desc. Status de Recusa' }],
+       identification: [{ position: 190, label: 'Desc. Status de Recusa' }] }
   DescMotivoRecusa;
   @UI: { lineItem:     [{ position: 200, label: 'Remessa' }],
        identification: [{ position: 200, label: 'Remessa' }] }

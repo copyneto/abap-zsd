@@ -63,10 +63,14 @@ define root view entity ZC_SD_STATUS_PEDIDO
       @EndUserText.label: 'Local de Expedição'
       @Consumption.valueHelpDefinition: [{ entity: { name: 'ZI_CA_VH_VSTEL', element: 'LocalExpedicao' } }]
       Ship_Point,
-      @EndUserText.label: 'Motivo de Recusa'
-      @Consumption.valueHelpDefinition: [{ entity: { name: 'ZI_CA_VH_ABGRU', element: 'SalesDocumentRjcnReason' } }]
+
+      //@EndUserText.label: 'Motivo de Recusa'
+      @EndUserText.label: 'Status de Recusa'
+//      @Consumption.valueHelpDefinition: [{ entity: { name: 'ZI_CA_VH_ABGRU', element: 'SalesDocumentRjcnReason' } }]
+      @Consumption.valueHelpDefinition: [ { entity:  { name: 'ZI_SD_VH_STATUS_PEDIDO_RECUSA', element: 'OverallSDDocumentRejectionSts' } }]
       Sales_DocRjcnReason,
-      @EndUserText.label: 'Desc. Motivo de Recusa'
+      //@EndUserText.label: 'Desc. Motivo de Recusa'
+      @EndUserText.label: 'Desc. Status de Recusa'
       DescMotivoRecusa,
       @EndUserText.label: 'Categ. Remessa'
       SubsequentDocumentCategory,

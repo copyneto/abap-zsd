@@ -289,7 +289,7 @@ define root view entity ZC_SD_REL_FISCAL_SAIDA_APP
           @EndUserText.label:'Base ICMS ST FCP Reembolso'
           BaseICMS_STFCPReemb,
           @EndUserText.label:'Despesas'
-          despesa,
+          despesa, 
           @EndUserText.label:'Aliq. ICMS'
           AliqICMS
 }

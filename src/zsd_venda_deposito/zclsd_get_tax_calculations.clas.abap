@@ -358,10 +358,6 @@ CLASS ZCLSD_GET_TAX_CALCULATIONS IMPLEMENTATION.
        iv_material        IS NOT INITIAL OR
        iv_gp_mercadoria   IS NOT INITIAL.
 
-* LSCHEPP - SD - 8000008090 - Cálc. incorreto tag </vBCSTRet> CST60 - 01.06.2023 Início
-      CLEAR gv_zipival.
-* LSCHEPP - SD - 8000008090 - Cálc. incorreto tag </vBCSTRet> CST60 - 01.06.2023 Fim
-
       gs_centro           =  iv_centro.
       gs_uf               =  iv_uf.
       gs_material         =  iv_material.
@@ -392,7 +388,10 @@ CLASS ZCLSD_GET_TAX_CALCULATIONS IMPLEMENTATION.
       gs_unidade          =  iv_unidade.
 
       IF iv_material NE gv_material_old.
-        CLEAR gs_um.
+        CLEAR: gs_um,
+* LSCHEPP - SD - 8000008095 - CST60 - Valor incorreto tag </vICMSSTRet - 05.06.2023 Início
+               gv_zipival.
+* LSCHEPP - SD - 8000008095 - CST60 - Valor incorreto tag </vICMSSTRet - 05.06.2023 Fim
         SELECT SINGLE zipival
           FROM j_1blpp
           INTO gv_zipival

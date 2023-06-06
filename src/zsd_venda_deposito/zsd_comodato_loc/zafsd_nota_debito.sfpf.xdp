@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<?xfa generator="AdobeLiveCycleDesigner_V11.0.9.20190919.2.937362_SAP" APIVersion="3.6.19049.0"?><xdp:xdp xmlns:xdp="http://ns.adobe.com/xdp/" timeStamp="2023-06-04T14:49:13Z" uuid="64fe8ed6-f84b-4c24-9f11-9221b7486574">
+<?xfa generator="AdobeLiveCycleDesigner_V11.0.9.20190919.2.937362_SAP" APIVersion="3.6.19049.0"?><xdp:xdp xmlns:xdp="http://ns.adobe.com/xdp/" timeStamp="2023-06-06T13:48:20Z" uuid="64fe8ed6-f84b-4c24-9f11-9221b7486574">
 <template xmlns:xliff="urn:oasis:names:tc:xliff:document:1.1" xmlns="http://www.xfa.org/schema/xfa-template/3.3/">
    <?formServer defaultPDFRenderFormat acrobat10.0dynamic?>
    <subform layout="tb" locale="pt_BR" name="data" restoreState="auto">
@@ -148,18 +148,6 @@
                         <text maxChars="16"/>
                      </value>
                   </field>
-                  <draw h="6.35mm" name="Fax" w="53.975mm" x="53.975mm" y="31.75mm">
-                     <ui>
-                        <textEdit/>
-                     </ui>
-                     <value>
-                        <text xliff:rid="87683809-9494-4764-905B-A0B3912BB09D">/ Fax:</text>
-                     </value>
-                     <font size="8pt" typeface="Arial"/>
-                     <margin bottomInset="0.5mm" leftInset="0.5mm" rightInset="0.5mm" topInset="0.5mm"/>
-                     <para vAlign="middle"/>
-                     <?renderCache.bounds 150166 15166 0 0 1417 1417 0 0?>
-                     <?renderCache.textRun 6 / Fax: 0 1417 11316 0 0 0 "Arial" 0 0 8000 ISO-8859-1?></draw>
                   <field h="6.35mm" name="CNPJ" w="53.975mm" x="0mm" y="38.1mm">
                      <ui>
                         <textEdit>
@@ -208,7 +196,7 @@
                         <text name="Anotação do schema">Nº identificação fiscal regional</text>
                      </desc>
                   </field>
-                  <?templateDesigner expand 1?></subform>
+                  <?templateDesigner expand 0?></subform>
                <draw h="6.35mm" name="Numero" w="47.625mm" x="155.575mm" y="19.05mm">
                   <ui>
                      <textEdit/>
@@ -254,7 +242,7 @@
 URL-FIELD = GV_LOGO</exData>
                   </desc>
                </field>
-               <?templateDesigner expand 0?></subform>
+               <?templateDesigner expand 1?></subform>
             <subform h="44.45mm" name="Destinatario" w="203.2mm" x="6.35mm" y="57.15mm">
                <bind match="none"/>
                <draw h="6.35mm" name="Texto3" w="38.1mm" x="3.175mm">
@@ -382,7 +370,7 @@ URL-FIELD = GV_LOGO</exData>
                      </desc>
                      <validate nullTest="error"/>
                   </field>
-                  <?templateDesigner expand 1?></subform>
+                  <?templateDesigner expand 0?></subform>
                <subform h="12.7mm" name="ENDERECO" w="82.55mm" y="19.05mm">
                   <bind match="none"/>
                   <border>
@@ -795,6 +783,9 @@ URL-FIELD = GV_LOGO</exData>
                         <text name="Anotação do schema">Valor líquido na moeda do documento</text>
                      </desc>
                      <validate nullTest="error"/>
+                     <format>
+                        <picture>num{z,zzz,zz9.99}</picture>
+                     </format>
                   </field>
                   <?templateDesigner expand 1?></subform>
                <subform h="12.7mm" w="57.15mm" x="146.05mm" y="19.05mm">
@@ -1652,6 +1643,9 @@ URL-FIELD = GV_LOGO</exData>
                         <text name="Anotação do schema">Valor líquido na moeda do documento</text>
                      </desc>
                      <validate nullTest="error"/>
+                     <format>
+                        <picture>num{z,zzz,zz9.99}</picture>
+                     </format>
                   </field>
                   <?templateDesigner expand 1?></subform>
                <subform h="12.7mm" w="57.15mm" x="146.05mm" y="19.05mm">
@@ -1705,18 +1699,7 @@ URL-FIELD = GV_LOGO</exData>
                   <?templateDesigner expand 1?></subform>
                <?templateDesigner expand 1?></subform>
             <contentArea h="27.125mm" w="31.75mm" x="9.525mm" y="206.375mm"/>
-            <draw h="6.35mm" name="Texto14" w="19.05mm" x="6.35mm" y="6.35mm">
-               <ui>
-                  <textEdit/>
-               </ui>
-               <value>
-                  <text xliff:rid="F7E4F5FE-AC2D-425D-8A03-50451B3006B7">Vendedor:</text>
-               </value>
-               <font typeface="Arial" weight="bold"/>
-               <margin bottomInset="0.5mm" leftInset="0.5mm" rightInset="0.5mm" topInset="0.5mm"/>
-               <?renderCache.bounds 51166 15166 0 0 1417 1417 0 0?>
-               <?renderCache.textRun 9 Vendedor: 0 1417 9313 0 0 0 "Arial" 1 0 10000 ISO-8859-1?></draw>
-            <field h="5.825mm" name="DADOS_VENDEDOR" w="184.15mm" x="25.4mm" y="6.35mm">
+            <field h="5.825mm" name="DADOS_VENDEDOR" w="203.2mm" x="6.35mm" y="6.35mm">
                <ui>
                   <textEdit>
                      <border presence="hidden"/>
@@ -2185,6 +2168,9 @@ URL-FIELD = GV_LOGO</exData>
                      <corner presence="hidden"/>
                      <corner/>
                   </border>
+                  <format>
+                     <picture>num{z,zzz,zz9.99}</picture>
+                  </format>
                </field>
                <field h="9mm" name="VALOR_TOT" w="62mm" y="1.063in">
                   <ui>
@@ -2213,6 +2199,9 @@ URL-FIELD = GV_LOGO</exData>
                      <corner presence="hidden"/>
                      <corner/>
                   </border>
+                  <format>
+                     <picture>num{z,zzz,zz9.99}</picture>
+                  </format>
                </field>
                <assist role="TR"/>
                <occur max="-1"/>
@@ -2419,7 +2408,7 @@ URL-FIELD = GV_LOGO</exData>
       </desc>
       <?templateDesigner expand 1?>
       <?renderCache.subset "Arial" 0 0 ISO-8859-1 4 156 43 000300110012001D00240026002700280029002C002D002F0031003200330035003600370039004200440045004600470048004C004F0050005100520055005600570058005B0070007E00AD00C7 ./:ACDEFIJLNOPRSTV_abcdeilmnorstuxéúÃÊ?>
-      <?renderCache.subset "Arial" 1 0 ISO-8859-1 4 180 52 000300110012001D002400250026002700280029002A002C002D002F0030003100320033003400350036003700380039003B003D0044004500470048004C00510052005500560057005800590064006F007D00AD00C700CB00CF ./:ABCDEFGIJLMNOPQRSTUVXZabdeinorstuvÇçõÃÊÍÓ?>
+      <?renderCache.subset "Arial" 1 0 ISO-8859-1 4 168 49 000300110012002400250026002700280029002A002C002D002F0030003100320033003400350036003700380039003B003D004400450048004C0051005500560057005800590064006F007D00AD00C700CB00CF ./ABCDEFGIJLMNOPQRSTUVXZabeinrstuvÇçõÃÊÍÓ?>
       <?renderCache.subset "Times New Roman" 1 0 ISO-8859-1 4 76 23 000300120024002500270028002C003100320033003500360037003800390064006500AE00C8 /ABDEINOPRSTUVÇÉÕÁ?></subform>
    <?templateDesigner DefaultPreviewDynamic 1?>
    <?templateDesigner DefaultRunAt client?>
@@ -2642,7 +2631,7 @@ URL-FIELD = GV_LOGO</exData>
 <x:xmpmeta xmlns:x="adobe:ns:meta/" x:xmptk="Adobe XMP Core 5.6-c015 81.161580, 2017/12/01-01:38:21        ">
    <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
       <rdf:Description xmlns:xmp="http://ns.adobe.com/xap/1.0/" xmlns:pdf="http://ns.adobe.com/pdf/1.3/" xmlns:xmpMM="http://ns.adobe.com/xap/1.0/mm/" xmlns:desc="http://ns.adobe.com/xfa/promoted-desc/" rdf:about="">
-         <xmp:MetadataDate>2023-06-04T14:49:13Z</xmp:MetadataDate>
+         <xmp:MetadataDate>2023-06-06T13:48:20Z</xmp:MetadataDate>
          <xmp:CreatorTool>Adobe LiveCycle Designer 11.0</xmp:CreatorTool>
          <pdf:Producer>Adobe LiveCycle Designer 11.0</pdf:Producer>
          <xmpMM:DocumentID>uuid:64fe8ed6-f84b-4c24-9f11-9221b7486574</xmpMM:DocumentID>

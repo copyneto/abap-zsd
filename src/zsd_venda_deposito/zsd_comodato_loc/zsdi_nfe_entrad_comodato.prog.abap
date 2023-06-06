@@ -101,7 +101,45 @@
          AND docdat = @sy-datum
         INTO @DATA(ls_doc_ik).
 
-      IF sy-subrc IS INITIAL.
+      IF sy-subrc IS NOT INITIAL.
+
+        SELECT SINGLE
+            _doc~docnum,
+            _doc~nfenum,
+            _doc~docdat,
+            _lin~refkey
+          FROM j_1bnfdoc AS _doc
+          JOIN j_1bnflin AS _lin ON _doc~docnum = _lin~docnum
+         WHERE nfenum = @is_header-nfenum
+           AND nftype = 'IG'
+          INTO @DATA(ls_ref).
+
+        IF ls_ref IS NOT INITIAL.
+
+          SELECT SINGLE bwart
+          FROM mseg
+          WHERE mblnr EQ @ls_ref-refkey(10)
+            AND mjahr EQ @ls_ref-refkey+10(4)
+            AND xblnr_mkpf EQ @is_header-nfenum
+            AND bwart IN ( 'YG6', 'YG8' )
+          INTO @DATA(lv_bwart).
+
+          IF sy-subrc IS INITIAL.
+            ls_doc_ik-docnum = ls_ref-docnum.
+            ls_doc_ik-nfenum = ls_ref-nfenum.
+
+            IF <fs_wa_nf_doc>-docdat <> ls_ref-docdat.
+              <fs_wa_nf_doc>-docdat = ls_ref-docdat.
+            ENDIF.
+
+          ENDIF.
+
+        ENDIF.
+
+      ENDIF.
+
+      IF ls_doc_ik IS NOT INITIAL.
+
         SELECT SINGLE docnum,
                       authcod,
                       authdate,

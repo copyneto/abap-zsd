@@ -16,7 +16,7 @@ define view entity ZI_SD_REL_FISCAL_SAIDA_J1BLPP
       _J1BLPP.lppid,
 
       sum( cast(_J1BLPP.lppbrt as abap.fltp(16) ) + cast(_J1BLPP.subtval as abap.fltp(16) ) ) as VlTotalUnPrdConfS,
-      cast(_J1BLPP.lppbrt as abap.fltp(16) )                                                  as VlUnPrdConfI
+      sum( cast(_J1BLPP.lppbrt as abap.fltp(16) ) + cast(_J1BLPP.zipival as abap.fltp(16) ) ) as VlUnPrdConfI
 
 }
 where
