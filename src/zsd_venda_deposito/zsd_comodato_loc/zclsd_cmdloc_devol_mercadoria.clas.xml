@@ -89,6 +89,12 @@
     </SEOSUBCOTX>
     <SEOSUBCOTX>
      <CMPNAME>CHAMA_BAPIS</CMPNAME>
+     <SCONAME>IV_BSARK</SCONAME>
+     <LANGU>P</LANGU>
+     <DESCRIPT>Tipo de nº do pedido do cliente</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>CHAMA_BAPIS</CMPNAME>
      <SCONAME>IV_ERDAT</SCONAME>
      <LANGU>P</LANGU>
      <DESCRIPT>Data de criação do registro</DESCRIPT>

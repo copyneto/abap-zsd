@@ -637,7 +637,7 @@ CLASS ZCLSD_ADOBE_NOTA_DEBITO IMPLEMENTATION.
 *      APPEND 'Segue em anexo sua nota de débito.' TO lt_message_body.
       APPEND 'Segue arquivo pdf da Nota de Débito e do Boleto referente a sua locação para pagamento.' TO lt_message_body.
       APPEND ' ' TO lt_message_body.
-      APPEND 'Em caso de dúvidas, entrar em contato com o nosso SAC Clientes pelo telefone 0800 591 0232 ou pelo e-mail: sac.crm@3coracoes.com.br.' TO lt_message_body.
+      APPEND 'Em caso de dúvidas, entrar em contato com o nosso SAC Clientes pelo telefone 0800 591 0232 ou pelo e-mail: atendimentoclientes@3coracoes.com.br.' TO lt_message_body.
       APPEND 'Horário de atendimento: de segunda a sexta, das 8h às 18hs, e aos sábados, das 8hs às 12hs.' TO lt_message_body.
       APPEND ' ' TO lt_message_body.
       APPEND ' ' TO lt_message_body.
@@ -646,7 +646,7 @@ CLASS ZCLSD_ADOBE_NOTA_DEBITO IMPLEMENTATION.
       APPEND ' ' TO lt_message_body.
       APPEND 'SAC Clientes' TO lt_message_body.
       APPEND '0800 591 0232' TO lt_message_body.
-      APPEND 'sac.crm@3coracoes.com.br' TO lt_message_body.
+      APPEND 'atendimentoclientes@3coracoes.com.br' TO lt_message_body.
 
       lv_subject = |Nota de Débito|.
     ENDIF.

@@ -29,6 +29,9 @@
     DATA: lv_name_read  TYPE thead-tdname,
           lt_lines_read TYPE tline_tab.
 
+    DATA: lv_break TYPE c VALUE 'X',
+          lv_name  TYPE rvari_vnam VALUE 'ZSDF_RETORNO_SEFAZ_DISTRATO'.
+
     ASSIGN ('(SAPLJ_1B_NFE)WK_HEADER') TO <fs_wk_header>.
     ASSIGN ('(SAPLJ_1B_NFE)WK_HEADER_TEXT') TO <fs_header_text>.
     IF <fs_wk_header> IS ASSIGNED AND
@@ -47,12 +50,18 @@
             AND b~bwart IN ( 'YG6', 'YG8' ).
         IF sy-subrc EQ 0.
 
-*          DATA: lv_break TYPE c VALUE 'X'.
-*          DO.
-*            IF lv_break = ''.
-*              EXIT.
-*            ENDIF.
-*          ENDDO.
+          "LOOP INFINITO, para debugar em background,
+          SELECT COUNT( * )
+            FROM tvarvc
+           WHERE name EQ lv_name
+             AND low  EQ 'X'.
+          IF sy-subrc IS INITIAL.
+            DO.
+              IF lv_break = ''.
+                EXIT.
+              ENDIF.
+            ENDDO.
+          ENDIF.
 
           SELECT SINGLE vbelv
             FROM vbfa
@@ -64,21 +73,39 @@
           IF NOT sy-subrc IS INITIAL AND
             lv_vbelv IS INITIAL.
 
-            SELECT _sd_infdis~contrato,
-                   _sd_infdis~contratoitem,
-                   _sd_infdis~solicitacao AS aditivo,
-                   _sd_infdis~serie
-            FROM zi_sd_inf_distrato_nf as _sd_infdis
-            JOIN vbkd as _vbkd on _sd_infdis~contrato = _vbkd~vbeln and
-                                  _sd_infdis~contratoitem = _vbkd~posnr
-            WHERE _sd_infdis~nfretorno EQ @<fs_wk_header>-nfenum
-            AND   _sd_infdis~docnum EQ @<fs_wk_header>-docnum
-            AND   _sd_infdis~distributionchannel EQ '10'
+            SELECT
+              _ser02~sdaufnr AS contrato,
+              _ser02~posnr AS contratoitem,
+              _vbkd~ihrez AS aditivo,
+              _serie~serialnumber AS serie
+              FROM i_serialnumbermaterialdocument AS _serie
+              JOIN objk AS _objk ON _serie~serialnumber = _objk~sernr AND _objk~taser = 'SER02'
+              JOIN ser02 AS _ser02 ON _objk~obknr = _ser02~obknr
+              JOIN vbkd AS _vbkd ON _ser02~sdaufnr = _vbkd~vbeln AND _ser02~posnr = _vbkd~posnr
+              JOIN vbak AS _vbak ON _ser02~sdaufnr = _vbak~vbeln AND _vbak~vbtyp = 'G'
+            WHERE materialdocument EQ @it_lin-refkey(10)
+              AND materialdocumentyear EQ @it_lin-refkey+10(4)
             INTO TABLE @DATA(lt_contrato).
+
 
             IF NOT sy-subrc IS INITIAL.
 
-              SELECT SINGLE VKORG
+              SELECT _sd_infdis~contrato,
+                     _sd_infdis~contratoitem,
+                     _sd_infdis~solicitacao AS aditivo,
+                     _sd_infdis~serie
+              FROM zi_sd_inf_distrato_nf AS _sd_infdis
+              JOIN vbkd AS _vbkd ON _sd_infdis~contrato = _vbkd~vbeln AND
+                                    _sd_infdis~contratoitem = _vbkd~posnr
+              WHERE _sd_infdis~nfretorno EQ @<fs_wk_header>-nfenum
+              AND   _sd_infdis~docnum EQ @<fs_wk_header>-docnum
+              AND   _sd_infdis~distributionchannel EQ '10'
+              INTO TABLE @lt_contrato.
+            ENDIF.
+
+            IF NOT sy-subrc IS INITIAL.
+
+              SELECT SINGLE vkorg
               FROM t001w
               WHERE j_1bbranch EQ @<fs_wk_header>-branch
               INTO @DATA(lv_orgven).
@@ -87,12 +114,12 @@
                      _sd_infdis~contratoitem,
                      _sd_infdis~solicitacao AS aditivo,
                      _sd_infdis~serie
-              FROM zi_sd_inf_distrato_nf as _sd_infdis
-              JOIN vbkd as _vbkd on _sd_infdis~contrato = _vbkd~vbeln and
+              FROM zi_sd_inf_distrato_nf AS _sd_infdis
+              JOIN vbkd AS _vbkd ON _sd_infdis~contrato = _vbkd~vbeln AND
                                     _sd_infdis~contratoitem = _vbkd~posnr
               WHERE _sd_infdis~nfretorno EQ @<fs_wk_header>-nfenum
               AND   _sd_infdis~docnum EQ @<fs_wk_header>-docnum
-              AND   _sd_infdis~SalesOrganization EQ @lv_orgven
+              AND   _sd_infdis~salesorganization EQ @lv_orgven
               INTO TABLE @lt_contrato.
 
               IF NOT sy-subrc IS INITIAL.
@@ -100,8 +127,8 @@
                        _sd_infdis~contratoitem,
                        _sd_infdis~solicitacao AS aditivo,
                        _sd_infdis~serie
-                FROM zi_sd_inf_distrato_nf as _sd_infdis
-                JOIN vbkd as _vbkd on _sd_infdis~contrato = _vbkd~vbeln and
+                FROM zi_sd_inf_distrato_nf AS _sd_infdis
+                JOIN vbkd AS _vbkd ON _sd_infdis~contrato = _vbkd~vbeln AND
                                       _sd_infdis~contratoitem = _vbkd~posnr
                 WHERE _sd_infdis~nfretorno EQ @<fs_wk_header>-nfenum
                 AND   _sd_infdis~docnum EQ @<fs_wk_header>-docnum

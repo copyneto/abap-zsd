@@ -84,6 +84,7 @@ private section.
       vbbp           TYPE tdobject         VALUE 'VBBP',
       z010           TYPE tdid             VALUE 'Z010',
       zpr1           TYPE kscha            VALUE 'ZPR1',
+      bsark_fluig     TYPE vbak-bsark      VALUE 'FLUI',
     END OF gc_const .
   constants:
     BEGIN OF gc_param,
@@ -112,6 +113,7 @@ private section.
       !IV_VSBED type VSBED optional
       !IT_VBAP type TT_VBAPVB optional
       !IV_IHREZ type IHREZ optional
+      !IV_BSARK type BSARK
     exporting
       !EV_NEW_SALESDOC type VBELN_VA
     returning
@@ -248,6 +250,9 @@ CLASS ZCLSD_CMDLOC_DEVOL_MERCADORIA IMPLEMENTATION.
           lt_auart    TYPE STANDARD TABLE OF vbak-auart,
           lt_item_in  TYPE STANDARD TABLE OF bapisditm,
           lt_item_inx TYPE STANDARD TABLE OF bapisditmx.
+
+    DATA: lt_conditions_in  TYPE STANDARD TABLE OF bapicond,
+          lt_conditions_inx TYPE STANDARD TABLE OF bapicondx.
 
     DATA: ls_header_in  TYPE bapisdh1,
           ls_header_inx TYPE bapisdh1x.
@@ -409,6 +414,22 @@ CLASS ZCLSD_CMDLOC_DEVOL_MERCADORIA IMPLEMENTATION.
 
         lt_item_inx = VALUE #( BASE lt_item_inx ( itm_number = <fs_vbap>-posnr
                                                   store_loc  = abap_true ) ).
+
+        IF iv_vtweg = gc_const-vtweg_macro AND
+          iv_bsark = gc_const-bsark_fluig.
+
+          "Alterar valor da condição
+          APPEND VALUE #( cond_type   = gc_const-zpr1
+                          cond_value  = <fs_vbap>-netwr / 10
+                          itm_number  = <fs_vbap>-posnr ) TO lt_conditions_in.
+
+          APPEND VALUE #( cond_type  = gc_const-zpr1
+                          cond_value = 'X'
+                          itm_number = <fs_vbap>-posnr
+                          updateflag = 'I' ) TO lt_conditions_inx.
+
+        ENDIF.
+
       ENDLOOP.
 
       CALL FUNCTION 'BAPI_SALESORDER_CHANGE'
@@ -419,7 +440,9 @@ CLASS ZCLSD_CMDLOC_DEVOL_MERCADORIA IMPLEMENTATION.
         TABLES
           return           = lt_return
           order_item_in    = lt_item_in
-          order_item_inx   = lt_item_inx.
+          order_item_inx   = lt_item_inx
+          conditions_in    = lt_conditions_in
+          conditions_inx   = lt_conditions_inx.
 
       CALL FUNCTION 'BAPI_TRANSACTION_COMMIT'
         EXPORTING
@@ -940,6 +963,7 @@ CLASS ZCLSD_CMDLOC_DEVOL_MERCADORIA IMPLEMENTATION.
                                          iv_vsbed        = ls_vbak->vsbed
                                          it_vbap         = it_vbap[]
                                          iv_ihrez        = lv_ihrez
+                                         iv_bsark        = ls_xvbak-bsark
                                IMPORTING ev_new_salesdoc = lv_nw_salesdoc ).
 
       APPEND LINES OF lt_return TO rt_mensagens.
@@ -1138,6 +1162,8 @@ CLASS ZCLSD_CMDLOC_DEVOL_MERCADORIA IMPLEMENTATION.
     DATA: lv_entry_qnt       TYPE erfmg,
           lv_ext_base_amount TYPE bapi_j_1bexbase.
 
+    DATA: lv_nfe TYPE c LENGTH 10.
+
     CHECK is_vbak IS NOT INITIAL.
 
     SELECT SINGLE salescontract,
@@ -1247,46 +1273,6 @@ CLASS ZCLSD_CMDLOC_DEVOL_MERCADORIA IMPLEMENTATION.
                 CATCH zcxca_tabela_parametros.
               ENDTRY.
 
-              IF is_vbak-bsark EQ gc_const-bsark_carg. "Contratos via CARGA
-
-                READ TABLE lt_itens ASSIGNING FIELD-SYMBOL(<fs_item_carg>) INDEX 1.
-
-                lv_name = |{ <fs_item_carg>-vbeln }{ <fs_item_carg>-posnr }|.
-
-                CALL FUNCTION 'READ_TEXT'
-                  EXPORTING
-                    id                      = gc_const-z010
-                    language                = sy-langu
-                    name                    = lv_name
-                    object                  = gc_const-vbbp
-                  TABLES
-                    lines                   = lt_lines
-                  EXCEPTIONS
-                    id                      = 1
-                    language                = 2
-                    name                    = 3
-                    not_found               = 4
-                    object                  = 5
-                    reference_check         = 6
-                    wrong_access_to_archive = 7
-                    OTHERS                  = 8.
-
-
-                IF sy-subrc IS INITIAL.
-                  LOOP AT lt_lines ASSIGNING FIELD-SYMBOL(<fs_lines>).
-                    DATA(lv_nfe) = <fs_lines>-tdline+26(8).
-                    SPLIT <fs_lines>-tdline AT '/' INTO DATA(lv_chave) DATA(lv_valor).
-*                    IF lv_nfe IS NOT INITIAL.
-*                      EXIT.
-*                    ENDIF.
-                  ENDLOOP.
-
-                  CONDENSE lv_valor NO-GAPS.
-                  REPLACE ALL OCCURRENCES OF ',' IN lv_valor WITH '.'.
-
-                ENDIF.
-
-              ENDIF.
 
               ls_goodsmvt_header = VALUE #( "pstng_date    = ls_doc-pstdat
                                             pstng_date    = sy-datum
@@ -1319,25 +1305,66 @@ CLASS ZCLSD_CMDLOC_DEVOL_MERCADORIA IMPLEMENTATION.
               LOOP AT lt_itens ASSIGNING FIELD-SYMBOL(<fs_itens>).
                 CLEAR: lv_entry_qnt, lv_ext_base_amount.
 
-                READ TABLE lt_lin ASSIGNING FIELD-SYMBOL(<fs_lin>)
-                                                WITH KEY itmnum = <fs_itens>-posnr
-                                                BINARY SEARCH.
+                IF is_vbak-bsark EQ gc_const-bsark_carg. "Contratos via CARGA
+                  CLEAR: lv_name.
+                  REFRESH lt_lines.
+                  lv_name = |{ <fs_itens>-vbeln }{ <fs_itens>-posnr }|.
 
-                IF sy-subrc IS INITIAL OR
-                  is_vbak-bsark EQ gc_const-bsark_carg.
+                  CALL FUNCTION 'READ_TEXT'
+                    EXPORTING
+                      id                      = gc_const-z010
+                      language                = sy-langu
+                      name                    = lv_name
+                      object                  = gc_const-vbbp
+                    TABLES
+                      lines                   = lt_lines
+                    EXCEPTIONS
+                      id                      = 1
+                      language                = 2
+                      name                    = 3
+                      not_found               = 4
+                      object                  = 5
+                      reference_check         = 6
+                      wrong_access_to_archive = 7
+                      OTHERS                  = 8.
 
-                  READ TABLE lt_lgort ASSIGNING FIELD-SYMBOL(<fs_lgort>)
-                                                  WITH KEY vbeln = <fs_itens>-vbeln
-                                                           posnr = <fs_itens>-posnr BINARY SEARCH.
 
-                  IF is_vbak-bsark EQ gc_const-bsark_carg.
-                    lv_entry_qnt = <fs_itens>-kwmeng.
-                    "lv_ext_base_amount = <fs_itens>-netwr.
-                    lv_ext_base_amount = lv_valor.
-                  ELSE.
+                  IF sy-subrc IS INITIAL.
+                    LOOP AT lt_lines ASSIGNING FIELD-SYMBOL(<fs_lines>).
+                      lv_nfe = <fs_lines>-tdline+26(8).
+                      SPLIT <fs_lines>-tdline AT '/' INTO DATA(lv_chave) DATA(lv_valor).
+
+                      IF ls_goodsmvt_header-ref_doc_no IS INITIAL AND lv_nfe IS NOT INITIAL.
+                        ls_goodsmvt_header-ref_doc_no = lv_nfe.
+                      ENDIF.
+                    ENDLOOP.
+
+                    CONDENSE lv_valor NO-GAPS.
+                    REPLACE ALL OCCURRENCES OF ',' IN lv_valor WITH '.'.
+
+                  ENDIF.
+
+                  lv_entry_qnt = <fs_itens>-kwmeng.
+                  lv_ext_base_amount = lv_valor.
+                ELSE.
+
+                  READ TABLE lt_lin ASSIGNING FIELD-SYMBOL(<fs_lin>)
+                              WITH KEY itmnum = <fs_itens>-posnr
+                              BINARY SEARCH.
+
+                  IF sy-subrc IS INITIAL.
                     lv_entry_qnt = <fs_lin>-menge.
                     lv_ext_base_amount = <fs_lin>-netwr.
                   ENDIF.
+
+                ENDIF.
+
+                READ TABLE lt_lgort ASSIGNING FIELD-SYMBOL(<fs_lgort>)
+                                                WITH KEY vbeln = <fs_itens>-vbeln
+                                                         posnr = <fs_itens>-posnr BINARY SEARCH.
+
+
+                IF sy-subrc IS INITIAL.
 
                   lt_goodsmvt_item = VALUE #( BASE lt_goodsmvt_item ( material        = <fs_itens>-matnr
                                                                       plant           = <fs_lgort>-b_werk
@@ -1354,7 +1381,9 @@ CLASS ZCLSD_CMDLOC_DEVOL_MERCADORIA IMPLEMENTATION.
                                                                       ext_base_amount = lv_ext_base_amount
                                                                       tax_code        = lv_mwskz
                                                                      ) ).
+
                 ENDIF.
+
               ENDLOOP.
 
               LOOP AT lt_serie ASSIGNING FIELD-SYMBOL(<fs_serie>).

@@ -71,6 +71,9 @@ CLASS ZCLSD_RLAT_LUCROEXPL_SINT IMPLEMENTATION.
            doc_type,
            br_nftotalamount,
            valortrans,
+* LSCHEPP - SD - 8000007172 - ERRO ENTRE RELATÓRIOS - 07.06.2023 Início
+           vlrtransliq,
+* LSCHEPP - SD - 8000007172 - ERRO ENTRE RELATÓRIOS - 07.06.2023 Fim
            vlrconfis,
            vlricms,
            vlripi,
@@ -109,9 +112,13 @@ CLASS ZCLSD_RLAT_LUCROEXPL_SINT IMPLEMENTATION.
         ls_relat-vlrconfis_sum                = <fs_relex_item>-vlrconfis.
 *        ls_relat-valortrans                   = <fs_relex_item>-valortrans.
 *        ls_relat-valortrans                   = <fs_relex_item>-br_nftotalamount - <fs_relex_item>-vlripi - <fs_relex_item>-vlrsubtrib.
-        ls_relat-valortrans                   = <fs_relex_item>-br_nftotalamount + <fs_relex_item>-vlripi + <fs_relex_item>-vlrsubtrib.
-        ls_relat-vlrliq                    = ls_relat-valortrans - ( ls_relat-vlricms_sum + ls_relat-vlripi_sum + ls_relat-vlrsubtrib_sum +
-                                                                       ls_relat-vlrpis_sum  +  ls_relat-vlrconfis_sum ).
+* LSCHEPP - SD - 8000007172 - ERRO ENTRE RELATÓRIOS - 07.06.2023 Início
+*        ls_relat-valortrans                   = <fs_relex_item>-br_nftotalamount + <fs_relex_item>-vlripi + <fs_relex_item>-vlrsubtrib.
+*        ls_relat-vlrliq                    = ls_relat-valortrans - ( ls_relat-vlricms_sum + ls_relat-vlripi_sum + ls_relat-vlrsubtrib_sum +
+*                                                                       ls_relat-vlrpis_sum  +  ls_relat-vlrconfis_sum ).
+        ls_relat-valortrans                   = <fs_relex_item>-valortrans.
+        ls_relat-vlrliq                       = <fs_relex_item>-vlrtransliq.
+* LSCHEPP - SD - 8000007172 - ERRO ENTRE RELATÓRIOS - 07.06.2023 Fim
 
         COLLECT ls_relat INTO lt_relat.
         CLEAR ls_relat.

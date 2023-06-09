@@ -112,9 +112,12 @@ define view entity ZI_SD_RELEX_ITEM
 //     else cast( _NFItem.NetValueAmount as abap.dec(15,2))
 //     when _NFItem.BR_NFTotalAmount  is null then cast( 0 as abap.dec(15,2))
 //     else cast( _NFItem.BR_NFTotalAmount as abap.dec(15,2))
-     when _NFItem.BR_NFValueAmountWithTaxes is initial or _NFItem.BR_NFValueAmountWithTaxes is null
+//     when _NFItem.BR_NFValueAmountWithTaxes is initial or _NFItem.BR_NFValueAmountWithTaxes is null
+//     then 0
+//     else cast(_NFItem.BR_NFValueAmountWithTaxes as abap.dec( 15, 2 ) )
+     when _NFItem.BR_NFTotalAmountWithTaxes is initial or _NFItem.BR_NFValueAmountWithTaxes is null
      then 0
-     else cast(_NFItem.BR_NFValueAmountWithTaxes as abap.dec( 15, 2 ) )
+     else cast(_NFItem.BR_NFTotalAmountWithTaxes as abap.dec( 15, 2 ) )
      end
      +
      case
@@ -196,6 +199,12 @@ define view entity ZI_SD_RELEX_ITEM
 
 }
 where
-     _NFItem._BR_NotaFiscal.BR_NFDocumentType = '1'
-  or _NFItem._BR_NotaFiscal.BR_NFDocumentType = '2'
-  or _NFItem._BR_NotaFiscal.BR_NFDocumentType = '6'
+   ( _NFItem._BR_NotaFiscal.BR_NFDocumentType = '1' or
+     _NFItem._BR_NotaFiscal.BR_NFDocumentType = '2' or
+     _NFItem._BR_NotaFiscal.BR_NFDocumentType = '6' )
+  and
+    ( ( ( _BillingDoc.BillingDocumentType = 'Z005' or 
+          _HeaderFat .BillingDocumentType = 'Z005' or
+          _ItemFat.SalesDocumentItemCategory = 'Z005' ) and 
+         _Active.docsta = '1' ) or 
+         _Active.code   = '100' )

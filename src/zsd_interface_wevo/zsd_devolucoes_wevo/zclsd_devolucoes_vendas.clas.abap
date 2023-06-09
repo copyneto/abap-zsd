@@ -12,107 +12,115 @@ CLASS zclsd_devolucoes_vendas DEFINITION
           zcxsd_erro_interface.
 
   PROTECTED SECTION.
-private section.
+PRIVATE SECTION.
 
-  types:
+  TYPES:
     BEGIN OF ty_salesdocument,
-             salesdocument        TYPE i_salesdocument-salesdocument,
-             salesorganization    TYPE i_salesdocument-salesorganization,
-             distributionchannel  TYPE i_salesdocument-distributionchannel,
-             organizationdivision TYPE i_salesdocument-organizationdivision,
-             creationdate         TYPE i_salesdocument-creationdate,
-             sddocumentcategory   TYPE i_salesdocument-sddocumentcategory,
-             salesgroup           TYPE i_salesdocument-salesgroup,
-             salesoffice          TYPE i_salesdocument-salesoffice,
-           END OF ty_salesdocument .
-  types:
+      salesdocument        TYPE i_salesdocument-salesdocument,
+      salesorganization    TYPE i_salesdocument-salesorganization,
+      distributionchannel  TYPE i_salesdocument-distributionchannel,
+      organizationdivision TYPE i_salesdocument-organizationdivision,
+      creationdate         TYPE i_salesdocument-creationdate,
+      sddocumentcategory   TYPE i_salesdocument-sddocumentcategory,
+      salesgroup           TYPE i_salesdocument-salesgroup,
+      salesoffice          TYPE i_salesdocument-salesoffice,
+    END OF ty_salesdocument .
+  TYPES:
     BEGIN OF ty_billingdocumentitembasic,
-             billingdocument             TYPE i_billingdocumentitembasic-billingdocument,
-             billingdocumentitem         TYPE i_billingdocumentitembasic-billingdocumentitem,
-             salesdocument               TYPE i_billingdocumentitembasic-salesdocument,
-             material                    TYPE i_billingdocumentitembasic-material,
-             billingquantity             TYPE i_billingdocumentitembasic-billingquantity,
-             plant                       TYPE i_billingdocumentitembasic-plant,
-             batch                       TYPE i_billingdocumentitembasic-batch,
-             creditrelatedprice          TYPE i_billingdocumentitembasic-creditrelatedprice,
-             transactioncurrency         TYPE i_billingdocumentitembasic-transactioncurrency,
-             billingquantityunit         TYPE i_billingdocumentitembasic-billingquantityunit,
-             billingtobasequantitydnmntr TYPE i_billingdocumentitembasic-billingtobasequantitydnmntr,
-           END OF ty_billingdocumentitembasic .
-  types:
+      billingdocument             TYPE i_billingdocumentitembasic-billingdocument,
+      billingdocumentitem         TYPE i_billingdocumentitembasic-billingdocumentitem,
+      salesdocument               TYPE i_billingdocumentitembasic-salesdocument,
+      material                    TYPE i_billingdocumentitembasic-material,
+      billingquantity             TYPE i_billingdocumentitembasic-billingquantity,
+      plant                       TYPE i_billingdocumentitembasic-plant,
+      batch                       TYPE i_billingdocumentitembasic-batch,
+      creditrelatedprice          TYPE i_billingdocumentitembasic-creditrelatedprice,
+      transactioncurrency         TYPE i_billingdocumentitembasic-transactioncurrency,
+      billingquantityunit         TYPE i_billingdocumentitembasic-billingquantityunit,
+      billingtobasequantitydnmntr TYPE i_billingdocumentitembasic-billingtobasequantitydnmntr,
+    END OF ty_billingdocumentitembasic .
+  TYPES:
     BEGIN OF ty_billingdocumentbasic,
-             billingdocument            TYPE i_billingdocumentbasic-billingdocument,
-             billingdocumentiscancelled TYPE i_billingdocumentbasic-billingdocumentiscancelled,
-             salesorganization          TYPE i_billingdocumentbasic-salesorganization,
-             distributionchannel        TYPE i_billingdocumentbasic-distributionchannel,
-             division                   TYPE i_billingdocumentbasic-division,
-             fixedvaluedate             TYPE i_billingdocumentbasic-fixedvaluedate,
-             sddocumentcategory         TYPE i_billingdocumentbasic-sddocumentcategory,
-           END OF ty_billingdocumentbasic .
-  types:
+      billingdocument            TYPE i_billingdocumentbasic-billingdocument,
+      billingdocumentiscancelled TYPE i_billingdocumentbasic-billingdocumentiscancelled,
+      salesorganization          TYPE i_billingdocumentbasic-salesorganization,
+      distributionchannel        TYPE i_billingdocumentbasic-distributionchannel,
+      division                   TYPE i_billingdocumentbasic-division,
+      fixedvaluedate             TYPE i_billingdocumentbasic-fixedvaluedate,
+      sddocumentcategory         TYPE i_billingdocumentbasic-sddocumentcategory,
+    END OF ty_billingdocumentbasic .
+  TYPES:
     BEGIN OF ty_vbpa,
-             parvw TYPE vbpa-parvw,
-             kunnr TYPE vbpa-kunnr,
-             lifnr TYPE vbpa-lifnr,
-             vbeln TYPE vbpa-vbeln,
-             xcpdk TYPE vbpa-xcpdk,
-             adrnr TYPE vbpa-adrnr,
-           END OF ty_vbpa .
+      parvw TYPE vbpa-parvw,
+      kunnr TYPE vbpa-kunnr,
+      lifnr TYPE vbpa-lifnr,
+      vbeln TYPE vbpa-vbeln,
+      xcpdk TYPE vbpa-xcpdk,
+      adrnr TYPE vbpa-adrnr,
+    END OF ty_vbpa .
+  TYPES:
+    BEGIN OF ty_vbrp,
+      vbeln      TYPE vbrp-vbeln,
+      posnr      TYPE vbrp-posnr,
+      j_1btaxlw1 TYPE vbrp-j_1btaxlw1,
+      j_1btaxlw2 TYPE vbrp-j_1btaxlw2,
+    END OF ty_vbrp .
 
-  constants GC_MODULO_SD type ZTCA_PARAM_PAR-MODULO value 'SD' ##NO_TEXT.
-  constants GC_CHAVE_WEVO type ZTCA_PARAM_PAR-CHAVE1 value 'WEVO' ##NO_TEXT.
-  data GS_INPUT type ZCLSD_MT_DEVOLUCAO_MATERIAL .
-  data:
+  CONSTANTS gc_modulo_sd TYPE ztca_param_par-modulo VALUE 'SD' ##NO_TEXT.
+  CONSTANTS gc_chave_wevo TYPE ztca_param_par-chave1 VALUE 'WEVO' ##NO_TEXT.
+  DATA gs_input TYPE zclsd_mt_devolucao_material .
+  DATA:
     gt_salesdocument            TYPE TABLE OF ty_salesdocument .
-  data:
+  DATA:
     gt_billingdocumentitembasic TYPE TABLE OF ty_billingdocumentitembasic .
-  data:
+  DATA:
     gt_billingdocumentbasic     TYPE TABLE OF ty_billingdocumentbasic .
-  data:
+  DATA:
     gt_param_val                TYPE TABLE OF ztca_param_val .
-  data GS_RETURN_HEADER_IN type BAPISDHD1 .
-  data:
+  DATA gs_return_header_in TYPE bapisdhd1 .
+  DATA:
     gt_return_items_in          TYPE TABLE OF bapisditm .
-  data:
+  DATA:
     gt_return_address           TYPE TABLE OF bapiaddr1 .
-  data GV_SALESDOCUMENT type BAPIVBELN-VBELN .
-  data:
+  DATA gv_salesdocument TYPE bapivbeln-vbeln .
+  DATA:
     gt_return                   TYPE TABLE OF bapiret2 .
-  data:
+  DATA:
     gt_return_schedules_in      TYPE TABLE OF bapischdl .
-  data:
+  DATA:
     gt_return_partners          TYPE TABLE OF bapiparnr .
-  data:
+  DATA:
     gt_return_conditions_in     TYPE TABLE OF bapicond .
-  data:
+  DATA:
     gt_vbpa                     TYPE TABLE OF ty_vbpa .
-  data:
+  DATA:
     gt_ret                      TYPE STANDARD TABLE OF bapiret2 .
-  data:
+  DATA:
     gt_partneradr               TYPE TABLE OF bapiaddr1 .
-
-  methods PROCESS_DATA
-    raising
-      ZCXSD_ERRO_INTERFACE .
-  methods EXTRACTOR_DATA
-    raising
-      ZCXSD_ERRO_INTERFACE .
-  methods DEVOL
-    raising
-      ZCXSD_ERRO_INTERFACE .
-  methods PERDA
-    raising
-      ZCXSD_ERRO_INTERFACE .
-  methods DEBIT
-    raising
-      ZCXSD_ERRO_INTERFACE .
-      "! Raising erro
-  methods ERRO
-    importing
-      !IS_ERRO type SCX_T100KEY
-    raising
-      ZCXSD_ERRO_INTERFACE .
-  methods BAPI_COMMIT .
+  DATA:
+    gt_vbrp                     TYPE TABLE OF ty_vbrp .
+  METHODS process_data
+    RAISING
+      zcxsd_erro_interface .
+  METHODS extractor_data
+    RAISING
+      zcxsd_erro_interface .
+  METHODS devol
+    RAISING
+      zcxsd_erro_interface .
+  METHODS perda
+    RAISING
+      zcxsd_erro_interface .
+  METHODS debit
+    RAISING
+      zcxsd_erro_interface .
+  "! Raising erro
+  METHODS erro
+    IMPORTING
+      !is_erro TYPE scx_t100key
+    RAISING
+      zcxsd_erro_interface .
+  METHODS bapi_commit .
 ENDCLASS.
 
 
@@ -157,6 +165,7 @@ CLASS ZCLSD_DEVOLUCOES_VENDAS IMPLEMENTATION.
     SORT gt_param_val BY chave1.
     SORT gs_input-mt_devolucao_material-itens BY itm_number.
     SORT gt_vbpa BY vbeln.
+    SORT gt_vbrp BY vbeln posnr.
 
     LOOP AT gt_billingdocumentbasic ASSIGNING FIELD-SYMBOL(<fs_billingdocumentbasic>).
 
@@ -203,7 +212,7 @@ CLASS ZCLSD_DEVOLUCOES_VENDAS IMPLEMENTATION.
           CHECK <fs_vbpa>-xcpdk EQ abap_true.
 
           SELECT name1 AS name,
-                 City1 AS city,
+                 city1 AS city,
                  city2 AS district,
                  post_code1 AS postl_cod1,
                  street,
@@ -232,6 +241,13 @@ CLASS ZCLSD_DEVOLUCOES_VENDAS IMPLEMENTATION.
           READ TABLE gs_input-mt_devolucao_material-itens ASSIGNING FIELD-SYMBOL(<fs_itens>) WITH KEY itm_number = <fs_billingdocumentitembasic>-billingdocumentitem BINARY SEARCH.
           IF sy-subrc = 0.
 
+            READ TABLE gt_vbrp ASSIGNING FIELD-SYMBOL(<fs_vbrp>) WITH KEY vbeln = <fs_billingdocumentitembasic>-billingdocument posnr = <fs_billingdocumentitembasic>-billingdocumentitem BINARY SEARCH.
+            IF <fs_vbrp> IS ASSIGNED.
+              DATA(lv_taxlawicms)  = <fs_vbrp>-j_1btaxlw1.
+              DATA(lv_taxlawipi)   = <fs_vbrp>-j_1btaxlw2.
+              UNASSIGN <fs_vbrp>.
+            ENDIF.
+
             APPEND VALUE #(
                 itm_number  = |{ <fs_itens>-itm_number ALPHA = IN }|
                 material    = |{ <fs_itens>-material ALPHA = IN }|
@@ -241,10 +257,10 @@ CLASS ZCLSD_DEVOLUCOES_VENDAS IMPLEMENTATION.
                 ref_doc_ca  = <fs_billingdocumentbasic>-sddocumentcategory
                 plant       = <fs_billingdocumentitembasic>-plant
                 batch       = <fs_billingdocumentitembasic>-batch
-            ) TO gt_return_items_in.
+                taxlawicms  = lv_taxlawicms
+                taxlawipi   = lv_taxlawipi  ) TO gt_return_items_in.
 
-
-
+            CLEAR: lv_taxlawicms,lv_taxlawipi.
 
             APPEND VALUE #(
                   itm_number = <fs_billingdocumentitembasic>-billingdocumentitem
@@ -325,19 +341,20 @@ CLASS ZCLSD_DEVOLUCOES_VENDAS IMPLEMENTATION.
                 CLEAR: lv_condvalue, ls_prcd_elements, lv_knumv.
               ENDIF.
 
-          ENDLOOP.
+            ENDLOOP.
 
-          gs_return_header_in-ref_doc = <fs_billingdocumentitembasic>-billingdocument.
-        ENDIF.
-      ENDLOOP.
+            gs_return_header_in-ref_doc = <fs_billingdocumentitembasic>-billingdocument.
+          ENDIF.
 
-      IF gs_input-mt_devolucao_material-doc_type EQ 'ZR03'.
+        ENDLOOP.
 
-        SELECT SINGLE knumv
-        FROM vbak
-        INTO @lv_knumv
-        WHERE vbeln = @<fs_salesdocument>-salesdocument
-         .
+        IF gs_input-mt_devolucao_material-doc_type EQ 'ZR03'.
+
+          SELECT SINGLE knumv
+          FROM vbak
+          INTO @lv_knumv
+          WHERE vbeln = @<fs_salesdocument>-salesdocument
+           .
 
           IF sy-subrc IS INITIAL.
 
@@ -348,81 +365,81 @@ CLASS ZCLSD_DEVOLUCOES_VENDAS IMPLEMENTATION.
             AND   kposn = ''
             AND   kschl = 'ZFEC'.
 
-              lv_condvalue = ls_prcd_elements-kbetr.
+            lv_condvalue = ls_prcd_elements-kbetr.
 
-
-            ENDIF.
-
-
-            APPEND VALUE #(
-                itm_number     = '000000'
-                cond_type      = 'ZFEC'
-                cond_value     = lv_condvalue
-                currency       = <fs_billingdocumentitembasic>-transactioncurrency
-                cond_unit      = <fs_billingdocumentitembasic>-billingquantityunit
-                cond_p_unt     = <fs_billingdocumentitembasic>-billingtobasequantitydnmntr
-            ) TO gt_return_conditions_in.
-            CLEAR: lv_condvalue, ls_prcd_elements, lv_knumv.
 
           ENDIF.
+
+
+          APPEND VALUE #(
+              itm_number     = '000000'
+              cond_type      = 'ZFEC'
+              cond_value     = lv_condvalue
+              currency       = <fs_billingdocumentitembasic>-transactioncurrency
+              cond_unit      = <fs_billingdocumentitembasic>-billingquantityunit
+              cond_p_unt     = <fs_billingdocumentitembasic>-billingtobasequantitydnmntr
+          ) TO gt_return_conditions_in.
+          CLEAR: lv_condvalue, ls_prcd_elements, lv_knumv.
+
+        ENDIF.
 
 
 
 ******Final Ajuste Cleverson Faria - 18.11.2022******
 
-          CALL FUNCTION 'BAPI_CUSTOMERRETURN_CREATE'
-            EXPORTING
-              return_header_in     = gs_return_header_in
-            IMPORTING
-              salesdocument        = gv_salesdocument
-            TABLES
-              return               = gt_ret
-              return_items_in      = gt_return_items_in
-              return_partners      = gt_return_partners
-              return_schedules_in  = gt_return_schedules_in
-              return_conditions_in = gt_return_conditions_in
-              partneraddresses     = gt_return_address.
+        CALL FUNCTION 'BAPI_CUSTOMERRETURN_CREATE'
+          EXPORTING
+            return_header_in     = gs_return_header_in
+          IMPORTING
+            salesdocument        = gv_salesdocument
+          TABLES
+            return               = gt_ret
+            return_items_in      = gt_return_items_in
+            return_partners      = gt_return_partners
+            return_schedules_in  = gt_return_schedules_in
+            return_conditions_in = gt_return_conditions_in
+            partneraddresses     = gt_return_address.
 
-          IF ( line_exists( gt_ret[ type = 'E' ] ) ) OR  "#EC CI_STDSEQ
-             ( line_exists( gt_ret[ type = 'E' ] ) ).    "#EC CI_STDSEQ
+        IF ( line_exists( gt_ret[ type = 'E' ] ) ) OR    "#EC CI_STDSEQ
+           ( line_exists( gt_ret[ type = 'E' ] ) ).      "#EC CI_STDSEQ
 
-            me->erro( VALUE scx_t100key( msgid = gt_ret[ 1 ]-id
-                                         msgno = gt_ret[ 1 ]-number
-                                         attr1 = gt_ret[ 1 ]-message
-                                         attr2 = gt_ret[ 1 ]-message_v1
-                                         attr3 = gt_ret[ 1 ]-message_v2
-                                         attr4 = gt_ret[ 1 ]-message_v3
-                                          ) ).
-
-          ELSE.
-
-            IF gv_salesdocument IS NOT INITIAL.
-              ls_output-mt_status_ordem-salesdocum = gv_salesdocument.
-              ls_output-mt_status_ordem-purch_no_c = gs_return_header_in-purch_no_c.
-              ls_output-mt_status_ordem-auart = gs_return_header_in-doc_type.
-              TRY.
-                  NEW zclsd_co_si_enviar_status_orde( )->si_enviar_status_ordem_out( output = ls_output ).
-                CATCH cx_ai_system_fault INTO DATA(lo_system_fault).
-                  DATA(lv_msg) = lo_system_fault->get_longtext( ).
-              ENDTRY.
-
-            ENDIF.
-
-            me->bapi_commit(  ).
-          ENDIF.
+          me->erro( VALUE scx_t100key( msgid = gt_ret[ 1 ]-id
+                                       msgno = gt_ret[ 1 ]-number
+                                       attr1 = gt_ret[ 1 ]-message
+                                       attr2 = gt_ret[ 1 ]-message_v1
+                                       attr3 = gt_ret[ 1 ]-message_v2
+                                       attr4 = gt_ret[ 1 ]-message_v3
+                                        ) ).
 
         ELSE.
-          me->erro( VALUE scx_t100key( msgid = TEXT-001
-                                       msgno = '001'
-                                       attr1 = TEXT-002
-          ) ).
 
+          IF gv_salesdocument IS NOT INITIAL.
+            ls_output-mt_status_ordem-salesdocum = gv_salesdocument.
+            ls_output-mt_status_ordem-purch_no_c = gs_return_header_in-purch_no_c.
+            ls_output-mt_status_ordem-auart = gs_return_header_in-doc_type.
+            TRY.
+                NEW zclsd_co_si_enviar_status_orde( )->si_enviar_status_ordem_out( output = ls_output ).
+              CATCH cx_ai_system_fault INTO DATA(lo_system_fault).
+                DATA(lv_msg) = lo_system_fault->get_longtext( ).
+            ENDTRY.
+
+          ENDIF.
+
+          me->bapi_commit(  ).
         ENDIF.
 
-      ENDLOOP.
+      ELSE.
+        me->erro( VALUE scx_t100key( msgid = TEXT-001
+                                     msgno = '001'
+                                     attr1 = TEXT-002
+        ) ).
+
+      ENDIF.
+
+    ENDLOOP.
 
 
-    ENDMETHOD.
+  ENDMETHOD.
 
 
   METHOD perda.
@@ -802,6 +819,16 @@ CLASS ZCLSD_DEVOLUCOES_VENDAS IMPLEMENTATION.
             WHERE salesdocument = @gt_salesdocument-salesdocument.
         IF sy-subrc = 0.
 
+          SELECT vbeln,
+                 posnr,
+                 j_1btaxlw1,
+                 j_1btaxlw2
+            INTO TABLE @gt_vbrp
+            FROM vbrp
+            FOR ALL ENTRIES IN @gt_billingdocumentitembasic
+            WHERE vbeln = @gt_billingdocumentitembasic-billingdocument
+              AND posnr = @gt_billingdocumentitembasic-billingdocumentitem.
+
           SELECT billingdocument,
                  billingdocumentiscancelled,
                  salesorganization,
@@ -899,6 +926,16 @@ CLASS ZCLSD_DEVOLUCOES_VENDAS IMPLEMENTATION.
             WHERE salesdocument = @gt_salesdocument-salesdocument.
         IF sy-subrc = 0.
 
+          SELECT vbeln,
+                 posnr,
+                 j_1btaxlw1,
+                 j_1btaxlw2
+            INTO TABLE @gt_vbrp
+            FROM vbrp
+            FOR ALL ENTRIES IN @gt_billingdocumentitembasic
+            WHERE vbeln = @gt_billingdocumentitembasic-billingdocument
+              AND posnr = @gt_billingdocumentitembasic-billingdocumentitem.
+
           SELECT billingdocument,
                  billingdocumentiscancelled,
                  salesorganization,
@@ -964,12 +1001,22 @@ CLASS ZCLSD_DEVOLUCOES_VENDAS IMPLEMENTATION.
                salesdocument,
                material,
                billingquantity,
-               Plant
+               plant
         INTO TABLE @gt_billingdocumentitembasic
         FROM i_billingdocumentitembasic
         FOR ALL ENTRIES IN @gt_salesdocument
         WHERE salesdocument = @gt_salesdocument-salesdocument.
         IF sy-subrc = 0.
+
+          SELECT vbeln,
+                 posnr,
+                 j_1btaxlw1,
+                 j_1btaxlw2
+            INTO TABLE @gt_vbrp
+            FROM vbrp
+            FOR ALL ENTRIES IN @gt_billingdocumentitembasic
+            WHERE vbeln = @gt_billingdocumentitembasic-billingdocument
+              AND posnr = @gt_billingdocumentitembasic-billingdocumentitem.
 
           SELECT billingdocument,
                  billingdocumentiscancelled,

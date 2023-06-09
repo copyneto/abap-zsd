@@ -1004,17 +1004,18 @@ define root view entity ZI_SD_REL_FISCAL_SAIDA_APP
 
       //cast( _Lin.BR_NFValueAmountWithTaxes as abap.fltp ) * cast( _TaxICOP.BR_NFItemTaxAmount as abap.fltp )       as ValorICMSsemBenef,
       //fltp_to_dec( (cast( _Lin.BR_NFValueAmountWithTaxes as abap.fltp ) * cast( _TaxICM3.BR_NFItemTaxRate as abap.fltp ) / cast(100 as abap.fltp) ) as abap.dec(15,2)) as ValorICMSsemBenef,
-      case
-         when not _TaxICM2.BR_NFItemTaxAmount is initial
+      //case
+        // when not _TaxICM2.BR_NFItemTaxAmount is initial
            //then cast(_TaxICM2.BR_NFItemTaxAmount as logbr_invoicenetamount)
-           then fltp_to_dec( ( (cast( _TaxICM2.BR_NFItemBaseAmount as abap.fltp ) + cast(_TaxICM2.BR_NFItemExcludedBaseAmount as abap.fltp ) ) * cast( _TaxICM2.BR_NFItemTaxRate as abap.fltp ) / cast(100 as abap.fltp) ) as abap.dec(15,2))
-         when not _TaxICM3.BR_NFItemIsStatisticalTax is initial
-             then 0
-         else
+          // then fltp_to_dec( ( (cast( _TaxICM2.BR_NFItemBaseAmount as abap.fltp ) + cast(_TaxICM2.BR_NFItemExcludedBaseAmount as abap.fltp ) ) * cast( _TaxICM2.BR_NFItemTaxRate as abap.fltp ) / cast(100 as abap.fltp) ) as abap.dec(15,2))
+         //when not _TaxICM3.BR_NFItemIsStatisticalTax is initial
+         //    then 0
+         //else
       //fltp_to_dec( (cast( _Lin.BR_NFValueAmountWithTaxes as abap.fltp ) * cast( _TaxICM3.BR_NFItemTaxRate as abap.fltp ) / cast(100 as abap.fltp) ) as abap.dec(15,2))
            // cast(_TaxICM3.BR_NFItemTaxAmount as abap.dec(15,3) )
-           fltp_to_dec( ( (cast( _TaxICM3.BR_NFItemBaseAmount as abap.fltp ) + cast(_TaxICM3.BR_NFItemExcludedBaseAmount as abap.fltp ) ) * cast( _TaxICM3.BR_NFItemTaxRate as abap.fltp ) / cast(100 as abap.fltp) ) as abap.dec(15,2))
-       end                                                                                                             as ValorICMSsemBenef,
+           //fltp_to_dec( ( (cast( _TaxICM3.BR_NFItemBaseAmount as abap.fltp ) + cast(_TaxICM3.BR_NFItemExcludedBaseAmount as abap.fltp ) + cast(_TaxICM3.BR_NFItemOtherBaseAmount as abap.fltp ) ) * cast( _TaxICM3.BR_NFItemTaxRate as abap.fltp ) / cast(100 as abap.fltp) ) as abap.dec(15,2))
+       //end   
+      _Lin.BR_ICMSStatisticalExemptionAmt as ValorICMSsemBenef,
       _Lin.InternationalArticleNumber                                                                                  as Gtin,
       _OutboundDelivery.vgbel                                                                                          as DocRem,
       //      _DocMigo.DocMigo
@@ -1062,12 +1063,12 @@ define root view entity ZI_SD_REL_FISCAL_SAIDA_APP
       //      cast(_TaxICM3.BR_NFItemBaseAmount as abap.dec(15,2) )                                                                                                            as ValorBaseCalsemBenef,
       //      cast(_Lin.NetValueAmount as abap.dec(15,2) )                                                                                                                     as ValorBaseCalsemBenef,
       cast(  case
-          when not _TaxICM3.BR_NFItemIsStatisticalTax is initial
-            then 0
-          when _TaxICM3.BR_NFItemTaxRate <> 0
+          //when not _TaxICM3.BR_NFItemIsStatisticalTax is initial
+          //  then 0
+          when _TaxICM3.BR_NFItemTaxRate = 0
       //then cast(_Lin.NetValueAmount as abap.dec(15,2) )
-            then cast(_TaxICM3.BR_NFItemBaseAmount as abap.dec(15,2) ) + cast(_TaxICM3.BR_NFItemExcludedBaseAmount as abap.dec(15,2) )
-            else cast(_TaxICM2.BR_NFItemBaseAmount  as abap.dec(15,2) ) + cast(_TaxICM2.BR_NFItemExcludedBaseAmount as abap.dec(15,2) )
+            then cast(_TaxICM3.BR_NFItemBaseAmount as abap.dec(15,2) ) + cast(_TaxICM3.BR_NFItemExcludedBaseAmount as abap.dec(15,2) ) + cast(_TaxICM3.BR_NFItemOtherBaseAmount as abap.dec(15,2) )
+            else cast(_TaxICM2.BR_NFItemBaseAmount  as abap.dec(15,2) ) + cast(_TaxICM2.BR_NFItemExcludedBaseAmount as abap.dec(15,2) ) + cast(_TaxICM2.BR_NFItemOtherBaseAmount as abap.dec(15,2) )
           end as abap.dec(15,2) )                                                                                      as ValorBaseCalsemBenef,
 
 
