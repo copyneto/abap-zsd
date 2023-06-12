@@ -112,27 +112,52 @@ define view entity ZI_SD_RELEX_ITEM
 //     else cast( _NFItem.NetValueAmount as abap.dec(15,2))
 //     when _NFItem.BR_NFTotalAmount  is null then cast( 0 as abap.dec(15,2))
 //     else cast( _NFItem.BR_NFTotalAmount as abap.dec(15,2))
-//     when _NFItem.BR_NFValueAmountWithTaxes is initial or _NFItem.BR_NFValueAmountWithTaxes is null
-//     then 0
-//     else cast(_NFItem.BR_NFValueAmountWithTaxes as abap.dec( 15, 2 ) )
-     when _NFItem.BR_NFTotalAmountWithTaxes is initial or _NFItem.BR_NFValueAmountWithTaxes is null
+     when _NFItem.BR_NFValueAmountWithTaxes is initial or _NFItem.BR_NFValueAmountWithTaxes is null
      then 0
-     else cast(_NFItem.BR_NFTotalAmountWithTaxes as abap.dec( 15, 2 ) )
+     else cast(_NFItem.BR_NFValueAmountWithTaxes as abap.dec( 15, 2 ) )
      end
      +
      case
+     when _ImpIPI.BR_NFItemIsStatisticalTax is not null then cast( 0 as abap.dec(15,2))
      when _ImpIPI.BR_NFItemTaxAmount is null then cast( 0 as abap.dec(15,2))
      else cast( _ImpIPI.BR_NFItemTaxAmount as abap.dec(15,2))
      end
      +
      case
+     when _ImpFCP.BR_NFItemIsStatisticalTax is not null then cast( 0 as abap.dec(15,2))
      when _ImpFCP.BR_NFItemTaxAmount is null then cast( 0 as abap.dec(15,2))
      else cast( _ImpFCP.BR_NFItemTaxAmount as abap.dec(15,2))
      end
      +
      case
+     when _ImpSUBTRIB.BR_NFItemIsStatisticalTax is not null then cast( 0 as abap.dec(15,2))
      when _ImpSUBTRIB.BR_NFItemTaxAmount  is null then cast( 0 as abap.dec(15,2))
-     else cast( _ImpSUBTRIB.BR_NFItemTaxAmount  as abap.dec(15,2))
+     else cast( _ImpSUBTRIB.BR_NFItemTaxAmount  as abap.dec(15,2)) 
+     end
+     + 
+     case
+     when _NFItem.BR_NFNetFreightAmount is null then cast( 0 as abap.dec(15,2))
+     else cast(_NFItem.BR_NFNetFreightAmount as abap.dec( 15, 2 ) ) 
+     end
+     + 
+     case
+     when _NFItem.BR_NFNetInsuranceAmount is null then cast( 0 as abap.dec(15,2))
+     else cast(_NFItem.BR_NFNetInsuranceAmount as abap.dec( 15, 2 ) ) 
+     end
+     + 
+     case
+     when _NFItem.BR_NFNetOtherExpensesAmount is null then cast( 0 as abap.dec(15,2))
+     else cast(_NFItem.BR_NFNetOtherExpensesAmount as abap.dec( 15, 2 ) ) 
+     end
+     + 
+     case
+     when _NFItem.BR_ExemptedICMSAmount is null then cast( 0 as abap.dec(15,2))
+     else _NFItem.BR_ExemptedICMSAmount 
+     end
+     + 
+     case
+     when _NFItem.BR_NFNetDiscountAmount is null then cast( 0 as abap.dec(15,2))
+     else _NFItem.BR_NFNetDiscountAmount
      end  as abap.curr(15,2) )                              as ValorTrans,
 
   //  _NFItem.NetValueAmount                                    as ValorTrans,

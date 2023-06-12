@@ -17,5 +17,6 @@ _SD_RELEX_IMPOSTO.Chave3 as GrupoImposto,
       @Semantics.amount.currencyCode:'SalesDocumentCurrency'
       @Aggregation.default:#SUM
 _BR_NFTax.BR_NFItemTaxAmount,
-_BR_NFTax. SalesDocumentCurrency
+_BR_NFTax.SalesDocumentCurrency,
+_BR_NFTax.BR_NFItemIsStatisticalTax
 }

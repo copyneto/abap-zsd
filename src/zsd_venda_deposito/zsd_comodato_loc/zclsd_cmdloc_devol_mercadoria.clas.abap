@@ -418,9 +418,19 @@ CLASS ZCLSD_CMDLOC_DEVOL_MERCADORIA IMPLEMENTATION.
         IF iv_vtweg = gc_const-vtweg_macro AND
           iv_bsark = gc_const-bsark_fluig.
 
+          SELECT SINGLE netwr
+           FROM vbrp
+            WHERE vbeln EQ @iv_fatura
+            AND posnr EQ @<fs_vbap>-posnr
+          INTO @DATA(lv_netwr). "#EC CI_SROFC_NESTED
+
+          IF lv_netwr IS INITIAL.
+            lv_netwr = <fs_vbap>-netwr.
+          ENDIF.
+
           "Alterar valor da condição
           APPEND VALUE #( cond_type   = gc_const-zpr1
-                          cond_value  = <fs_vbap>-netwr / 10
+                          cond_value  = lv_netwr / 10
                           itm_number  = <fs_vbap>-posnr ) TO lt_conditions_in.
 
           APPEND VALUE #( cond_type  = gc_const-zpr1

@@ -50,6 +50,9 @@
             AND b~bwart IN ( 'YG6', 'YG8' ).
         IF sy-subrc EQ 0.
 
+          "Aguardar 10 segundos pois o contrato está sendo "comitado", assim geramos a NF com as informações corretas
+          WAIT UP TO 10 SECONDS.
+
           "LOOP INFINITO, para debugar em background,
           SELECT COUNT( * )
             FROM tvarvc
@@ -69,26 +72,54 @@
             WHERE vbeln   = @lv_xabln
               AND vbtyp_v = 'G'. "Contrato
 
-          "não achou o contrato então vamos tentar encontrar o contrato via NF que está sendo gerada
           IF NOT sy-subrc IS INITIAL AND
             lv_vbelv IS INITIAL.
 
-            SELECT
-              _ser02~sdaufnr AS contrato,
-              _ser02~posnr AS contratoitem,
-              _vbkd~ihrez AS aditivo,
-              _serie~serialnumber AS serie
-              FROM i_serialnumbermaterialdocument AS _serie
-              JOIN objk AS _objk ON _serie~serialnumber = _objk~sernr AND _objk~taser = 'SER02'
-              JOIN ser02 AS _ser02 ON _objk~obknr = _ser02~obknr
-              JOIN vbkd AS _vbkd ON _ser02~sdaufnr = _vbkd~vbeln AND _ser02~posnr = _vbkd~posnr
-              JOIN vbak AS _vbak ON _ser02~sdaufnr = _vbak~vbeln AND _vbak~vbtyp = 'G'
-            WHERE materialdocument EQ @it_lin-refkey(10)
-              AND materialdocumentyear EQ @it_lin-refkey+10(4)
-            INTO TABLE @DATA(lt_contrato).
+            DO 10 TIMES.
+
+              SELECT
+                _ser02~sdaufnr AS contrato,
+                _ser02~posnr AS contratoitem,
+                _vbkd~ihrez AS aditivo,
+                _serie~serialnumber AS serie
+                FROM i_serialnumbermaterialdocument AS _serie
+                JOIN objk AS _objk ON _serie~serialnumber = _objk~sernr AND _objk~taser = 'SER02'
+                JOIN ser02 AS _ser02 ON _objk~obknr = _ser02~obknr
+                JOIN vbkd AS _vbkd ON _ser02~sdaufnr = _vbkd~vbeln AND _ser02~posnr = _vbkd~posnr
+                JOIN vbak AS _vbak ON _ser02~sdaufnr = _vbak~vbeln AND _vbak~vbtyp = 'G'
+              WHERE materialdocument EQ @it_lin-refkey(10)
+                AND materialdocumentyear EQ @it_lin-refkey+10(4)
+                AND _vbkd~ihrez IS NOT INITIAL
+                AND _vbkd~ihrez <> _vbak~ihrez
+              INTO TABLE @DATA(lt_contrato).
+
+              IF lt_contrato[] IS NOT INITIAL.
+                EXIT.
+              ELSE.
+                WAIT UP TO 2 SECONDS.
+              ENDIF.
+
+            ENDDO.
 
 
-            IF NOT sy-subrc IS INITIAL.
+            IF lt_contrato[] IS INITIAL.
+              SELECT
+                _ser02~sdaufnr AS contrato,
+                _ser02~posnr AS contratoitem,
+                _vbkd~ihrez AS aditivo,
+                _serie~serialnumber AS serie
+                FROM i_serialnumbermaterialdocument AS _serie
+                JOIN objk AS _objk ON _serie~serialnumber = _objk~sernr AND _objk~taser = 'SER02'
+                JOIN ser02 AS _ser02 ON _objk~obknr = _ser02~obknr
+                JOIN vbkd AS _vbkd ON _ser02~sdaufnr = _vbkd~vbeln AND _ser02~posnr = _vbkd~posnr
+                JOIN vbak AS _vbak ON _ser02~sdaufnr = _vbak~vbeln AND _vbak~vbtyp = 'G'
+              WHERE materialdocument EQ @it_lin-refkey(10)
+                AND materialdocumentyear EQ @it_lin-refkey+10(4)
+              INTO TABLE @lt_contrato.
+            ENDIF.
+
+            "não achou o contrato então vamos tentar encontrar o contrato via NF que está sendo gerada
+            IF lt_contrato[] IS INITIAL.
 
               SELECT _sd_infdis~contrato,
                      _sd_infdis~contratoitem,
@@ -101,40 +132,6 @@
               AND   _sd_infdis~docnum EQ @<fs_wk_header>-docnum
               AND   _sd_infdis~distributionchannel EQ '10'
               INTO TABLE @lt_contrato.
-            ENDIF.
-
-            IF NOT sy-subrc IS INITIAL.
-
-              SELECT SINGLE vkorg
-              FROM t001w
-              WHERE j_1bbranch EQ @<fs_wk_header>-branch
-              INTO @DATA(lv_orgven).
-
-              SELECT _sd_infdis~contrato,
-                     _sd_infdis~contratoitem,
-                     _sd_infdis~solicitacao AS aditivo,
-                     _sd_infdis~serie
-              FROM zi_sd_inf_distrato_nf AS _sd_infdis
-              JOIN vbkd AS _vbkd ON _sd_infdis~contrato = _vbkd~vbeln AND
-                                    _sd_infdis~contratoitem = _vbkd~posnr
-              WHERE _sd_infdis~nfretorno EQ @<fs_wk_header>-nfenum
-              AND   _sd_infdis~docnum EQ @<fs_wk_header>-docnum
-              AND   _sd_infdis~salesorganization EQ @lv_orgven
-              INTO TABLE @lt_contrato.
-
-              IF NOT sy-subrc IS INITIAL.
-                SELECT _sd_infdis~contrato,
-                       _sd_infdis~contratoitem,
-                       _sd_infdis~solicitacao AS aditivo,
-                       _sd_infdis~serie
-                FROM zi_sd_inf_distrato_nf AS _sd_infdis
-                JOIN vbkd AS _vbkd ON _sd_infdis~contrato = _vbkd~vbeln AND
-                                      _sd_infdis~contratoitem = _vbkd~posnr
-                WHERE _sd_infdis~nfretorno EQ @<fs_wk_header>-nfenum
-                AND   _sd_infdis~docnum EQ @<fs_wk_header>-docnum
-                INTO TABLE @lt_contrato.
-              ENDIF.
-
             ENDIF.
 
             IF NOT lt_contrato[] IS INITIAL.
@@ -158,152 +155,157 @@
               ENDIF.
 
               READ TABLE <fs_header_text> ASSIGNING FIELD-SYMBOL(<fs_header_text_lines_new>) INDEX 1.
-              SEARCH <fs_header_text_lines_new>-text FOR TEXT-f80.
 
-              "Aditivo
-              IF sy-subrc NE 0.
-                lv_aditivo = |{ TEXT-f80 }: { <fs_contrato>-aditivo }|.
-                <fs_header_text_lines_new>-text = |{ <fs_header_text_lines_new>-text } { lv_aditivo }|.
-                lv_modify = abap_true.
-              ENDIF.
+              IF <fs_header_text_lines_new> IS ASSIGNED.
 
-              "Contrato
-              SEARCH <fs_header_text_lines_new>-text FOR TEXT-f92.
-              IF sy-subrc NE 0.
-                <fs_header_text_lines_new>-text = |{ <fs_header_text_lines_new>-text } { TEXT-f92 } { lv_contrato_new }|.
-                lv_modify = abap_true.
-              ENDIF.
+                SEARCH <fs_header_text_lines_new>-text FOR TEXT-f80.
 
-              "NF e Data
-              lv_name_read = |{ <fs_contrato>-contrato }{ <fs_contrato>-contratoitem }|.
-
-              CALL FUNCTION 'READ_TEXT'
-                EXPORTING
-                  id                      = lc_z010
-                  language                = sy-langu
-                  name                    = lv_name_read
-                  object                  = lc_ob_vbbp
-                TABLES
-                  lines                   = lt_lines_read
-                EXCEPTIONS
-                  id                      = 1
-                  language                = 2
-                  name                    = 3
-                  not_found               = 4
-                  object                  = 5
-                  reference_check         = 6
-                  wrong_access_to_archive = 7
-                  OTHERS                  = 8.
-
-              IF sy-subrc IS INITIAL.
-                LOOP AT lt_lines_read ASSIGNING FIELD-SYMBOL(<fs_lines_read>).
-                  DATA(lv_num_nfe) = <fs_lines_read>-tdline+26(8).
-                  DATA(lv_date_nfe) = |{ <fs_lines_read>-tdline+4(2) }/{ <fs_lines_read>-tdline+2(2) }|.
-                ENDLOOP.
-              ENDIF.
-
-              IF NOT lv_num_nfe IS INITIAL AND
-                NOT lv_date_nfe IS INITIAL.
-
-                lv_nfe = TEXT-f58.
-                REPLACE '&1' IN lv_nfe WITH lv_num_nfe.
-                REPLACE '&2' IN lv_nfe WITH lv_date_nfe.
-              ENDIF.
-
-              "mapear serie p equipamento
-              LOOP AT lt_contrato ASSIGNING FIELD-SYMBOL(<fs_serie>).
-
-                CALL FUNCTION 'CONVERSION_EXIT_ALPHA_OUTPUT'
-                  EXPORTING
-                    input  = <fs_serie>-serie
-                  IMPORTING
-                    output = lv_sernr.
-
-                lt_eqp = VALUE #( BASE lt_eqp ( invnr = lv_sernr ) ).
-
-              ENDLOOP.
-
-              "Plaqueta/Imobilizado
-              IF NOT lt_eqp[] IS INITIAL.
-
-                SELECT invnr,
-                       anln1
-                  FROM anla
-                   FOR ALL ENTRIES IN @lt_eqp
-                 WHERE invnr EQ @lt_eqp-invnr
-                  INTO TABLE @DATA(lt_anla_new).
-                IF sy-subrc EQ 0.
-                  SORT lt_anla_new BY invnr.
+                "Aditivo
+                IF sy-subrc NE 0.
+                  lv_aditivo = |{ TEXT-f80 }: { <fs_contrato>-aditivo }|.
+                  <fs_header_text_lines_new>-text = |{ <fs_header_text_lines_new>-text } { lv_aditivo }|.
+                  lv_modify = abap_true.
                 ENDIF.
-              ENDIF.
 
-              CLEAR: lv_pla_imo_nfe.
+                "Contrato
+                SEARCH <fs_header_text_lines_new>-text FOR TEXT-f92.
+                IF sy-subrc NE 0.
+                  <fs_header_text_lines_new>-text = |{ <fs_header_text_lines_new>-text } { TEXT-f92 } { lv_contrato_new }|.
+                  lv_modify = abap_true.
+                ENDIF.
 
-              LOOP AT lt_contrato ASSIGNING <fs_serie>.
+                "NF e Data
+                lv_name_read = |{ <fs_contrato>-contrato }{ <fs_contrato>-contratoitem }|.
 
-                CLEAR: lv_plaqueta,
-                       lv_imobilizado.
+                CALL FUNCTION 'READ_TEXT'
+                  EXPORTING
+                    id                      = lc_z010
+                    language                = sy-langu
+                    name                    = lv_name_read
+                    object                  = lc_ob_vbbp
+                  TABLES
+                    lines                   = lt_lines_read
+                  EXCEPTIONS
+                    id                      = 1
+                    language                = 2
+                    name                    = 3
+                    not_found               = 4
+                    object                  = 5
+                    reference_check         = 6
+                    wrong_access_to_archive = 7
+                    OTHERS                  = 8.
 
-                " Plaqueta
-                IF NOT <fs_serie>-serie IS INITIAL.
+                IF sy-subrc IS INITIAL.
+                  LOOP AT lt_lines_read ASSIGNING FIELD-SYMBOL(<fs_lines_read>).
+                    DATA(lv_num_nfe) = <fs_lines_read>-tdline+26(8).
+                    DATA(lv_date_nfe) = |{ <fs_lines_read>-tdline+4(2) }/{ <fs_lines_read>-tdline+2(2) }|.
+                  ENDLOOP.
+                ENDIF.
 
-                  lv_sernr = <fs_serie>-serie.
+                IF NOT lv_num_nfe IS INITIAL AND
+                  NOT lv_date_nfe IS INITIAL.
+
+                  lv_nfe = TEXT-f58.
+                  REPLACE '&1' IN lv_nfe WITH lv_num_nfe.
+                  REPLACE '&2' IN lv_nfe WITH lv_date_nfe.
+                ENDIF.
+
+                "mapear serie p equipamento
+                LOOP AT lt_contrato ASSIGNING FIELD-SYMBOL(<fs_serie>).
 
                   CALL FUNCTION 'CONVERSION_EXIT_ALPHA_OUTPUT'
                     EXPORTING
-                      input  = lv_sernr
+                      input  = <fs_serie>-serie
                     IMPORTING
                       output = lv_sernr.
 
-                  lv_plaqueta = |{ TEXT-f52 }: { lv_sernr }|.
+                  lt_eqp = VALUE #( BASE lt_eqp ( invnr = lv_sernr ) ).
 
-                ENDIF.
+                ENDLOOP.
 
-                " Imobilizado
-                IF NOT lv_sernr IS INITIAL.
+                "Plaqueta/Imobilizado
+                IF NOT lt_eqp[] IS INITIAL.
 
-                  READ TABLE lt_anla_new ASSIGNING FIELD-SYMBOL(<fs_anla_new>)
-                                                   WITH KEY invnr = lv_sernr
-                                                   BINARY SEARCH.
+                  SELECT invnr,
+                         anln1
+                    FROM anla
+                     FOR ALL ENTRIES IN @lt_eqp
+                   WHERE invnr EQ @lt_eqp-invnr
+                    INTO TABLE @DATA(lt_anla_new).
                   IF sy-subrc EQ 0.
-                    lv_anln1 = <fs_anla_new>-anln1.
-
-                    CALL FUNCTION 'CONVERSION_EXIT_ALPHA_OUTPUT'
-                      EXPORTING
-                        input  = lv_anln1
-                      IMPORTING
-                        output = lv_anln1.
-
-                    lv_imobilizado = |{ TEXT-f53 }: { lv_anln1 }|.
-
+                    SORT lt_anla_new BY invnr.
                   ENDIF.
                 ENDIF.
 
-                CLEAR: lv_sernr,
-                       lv_anln1.
+                CLEAR: lv_pla_imo_nfe.
 
-                lv_pla_imo_nfe = |{ lv_pla_imo_nfe } { lv_plaqueta } { lv_imobilizado } { lv_nfe }|.
+                LOOP AT lt_contrato ASSIGNING <fs_serie>.
 
-              ENDLOOP.
+                  CLEAR: lv_plaqueta,
+                         lv_imobilizado.
 
-              IF NOT lv_pla_imo_nfe IS INITIAL.
-                SEARCH <fs_header_text_lines_new>-text FOR TEXT-f52.
+                  " Plaqueta
+                  IF NOT <fs_serie>-serie IS INITIAL.
 
-                IF sy-subrc NE 0.
-                  <fs_header_text_lines_new>-text = |{ <fs_header_text_lines_new>-text } { lv_pla_imo_nfe }|.
-                  lv_modify = abap_true.
-                ENDIF.
+                    lv_sernr = <fs_serie>-serie.
 
-                SEARCH <fs_header_text_lines_new>-text FOR TEXT-f53.
-                IF sy-subrc NE 0.
-                  <fs_header_text_lines_new>-text = |{ <fs_header_text_lines_new>-text } { lv_pla_imo_nfe }|.
-                  lv_modify = abap_true.
-                ENDIF.
+                    CALL FUNCTION 'CONVERSION_EXIT_ALPHA_OUTPUT'
+                      EXPORTING
+                        input  = lv_sernr
+                      IMPORTING
+                        output = lv_sernr.
 
-                SEARCH <fs_header_text_lines_new>-text FOR 'Referencia NFe'.
-                IF sy-subrc NE 0.
-                  <fs_header_text_lines_new>-text = |{ <fs_header_text_lines_new>-text } { lv_pla_imo_nfe }|.
-                  lv_modify = abap_true.
+                    lv_plaqueta = |{ TEXT-f52 }: { lv_sernr }|.
+
+                  ENDIF.
+
+                  " Imobilizado
+                  IF NOT lv_sernr IS INITIAL.
+
+                    READ TABLE lt_anla_new ASSIGNING FIELD-SYMBOL(<fs_anla_new>)
+                                                     WITH KEY invnr = lv_sernr
+                                                     BINARY SEARCH.
+                    IF sy-subrc EQ 0.
+                      lv_anln1 = <fs_anla_new>-anln1.
+
+                      CALL FUNCTION 'CONVERSION_EXIT_ALPHA_OUTPUT'
+                        EXPORTING
+                          input  = lv_anln1
+                        IMPORTING
+                          output = lv_anln1.
+
+                      lv_imobilizado = |{ TEXT-f53 }: { lv_anln1 }|.
+
+                    ENDIF.
+                  ENDIF.
+
+                  CLEAR: lv_sernr,
+                         lv_anln1.
+
+                  lv_pla_imo_nfe = |{ lv_pla_imo_nfe } { lv_plaqueta } { lv_imobilizado } { lv_nfe }|.
+
+                ENDLOOP.
+
+                IF NOT lv_pla_imo_nfe IS INITIAL.
+                  SEARCH <fs_header_text_lines_new>-text FOR TEXT-f52.
+
+                  IF sy-subrc NE 0.
+                    <fs_header_text_lines_new>-text = |{ <fs_header_text_lines_new>-text } { lv_pla_imo_nfe }|.
+                    lv_modify = abap_true.
+                  ENDIF.
+
+                  SEARCH <fs_header_text_lines_new>-text FOR TEXT-f53.
+                  IF sy-subrc NE 0.
+                    <fs_header_text_lines_new>-text = |{ <fs_header_text_lines_new>-text } { lv_pla_imo_nfe }|.
+                    lv_modify = abap_true.
+                  ENDIF.
+
+                  SEARCH <fs_header_text_lines_new>-text FOR 'Referencia NFe'.
+                  IF sy-subrc NE 0.
+                    <fs_header_text_lines_new>-text = |{ <fs_header_text_lines_new>-text } { lv_pla_imo_nfe }|.
+                    lv_modify = abap_true.
+                  ENDIF.
+
                 ENDIF.
 
               ENDIF.
@@ -381,12 +383,35 @@
 
               CLEAR: lv_aditivo.
 
-              SELECT posnr, ihrez
-                FROM vbkd
-                FOR ALL ENTRIES IN @lt_obknr
-              WHERE vbkd~vbeln = @lv_vbelv
-              AND vbkd~posnr = @lt_obknr-posnr
-                INTO TABLE @DATA(lt_vbkd).
+              DO 10 TIMES.
+
+                SELECT vbkd~posnr, vbkd~ihrez
+                  FROM vbkd
+                  JOIN vbak ON vbkd~vbeln = vbak~vbeln
+                  FOR ALL ENTRIES IN @lt_obknr
+                WHERE vbkd~vbeln = @lv_vbelv
+                AND vbkd~posnr = @lt_obknr-posnr
+                AND vbkd~ihrez IS NOT INITIAL
+                AND vbkd~ihrez <> vbak~ihrez
+                  INTO TABLE @DATA(lt_vbkd).
+
+                IF lt_vbkd[] IS NOT INITIAL.
+                  EXIT.
+                ELSE.
+                  WAIT UP TO 2 SECONDS.
+                ENDIF.
+
+              ENDDO.
+
+              IF lt_vbkd[] IS INITIAL.
+                SELECT vbkd~posnr, vbkd~ihrez
+                  FROM vbkd
+                  JOIN vbak ON vbkd~vbeln = vbak~vbeln
+                  FOR ALL ENTRIES IN @lt_obknr
+                WHERE vbkd~vbeln = @lv_vbelv
+                AND vbkd~posnr = @lt_obknr-posnr
+                  INTO TABLE @lt_vbkd.
+              ENDIF.
 
               IF sy-subrc EQ 0.
                 SORT lt_vbkd BY ihrez.
@@ -408,137 +433,141 @@
                 ENDLOOP.
 
                 READ TABLE <fs_header_text> ASSIGNING FIELD-SYMBOL(<fs_header_text_lines>) INDEX 1.
-                SEARCH <fs_header_text_lines>-text FOR TEXT-f80.
 
-                IF sy-subrc NE 0 AND NOT lt_vbkd[] IS INITIAL.
+                IF <fs_header_text_lines> IS ASSIGNED.
 
-                  READ TABLE lt_vbkd ASSIGNING FIELD-SYMBOL(<fs_vbkd>) INDEX 1.
-                  lv_aditivo = |{ TEXT-f80 }: { <fs_vbkd>-ihrez }|.
-                  <fs_header_text_lines>-text = |{ <fs_header_text_lines>-text } { lv_aditivo }|.
-                  lv_modify = abap_true.
-                ENDIF.
+                  SEARCH <fs_header_text_lines>-text FOR TEXT-f80.
 
-                SELECT SINGLE ihrez
-                FROM vbak
-                WHERE vbeln = @lv_vbelv
-                INTO @DATA(lv_contrato).
+                  IF sy-subrc NE 0 AND NOT lt_vbkd[] IS INITIAL.
 
-                SEARCH <fs_header_text_lines>-text FOR TEXT-f92.
-                IF sy-subrc NE 0.
-                  <fs_header_text_lines>-text = |{ <fs_header_text_lines>-text } { TEXT-f92 } { lv_contrato }|.
-                  lv_modify = abap_true.
-                ENDIF.
-
-                IF NOT lt_eqp[] IS INITIAL.
-
-                  SELECT invnr,
-                         anln1
-                    FROM anla
-                     FOR ALL ENTRIES IN @lt_eqp
-                   WHERE invnr EQ @lt_eqp-invnr
-                    INTO TABLE @DATA(lt_anla).
-                  IF sy-subrc EQ 0.
-                    SORT lt_anla BY invnr.
-                  ENDIF.
-                ENDIF.
-
-                CLEAR: lv_pla_imo_nfe.
-
-                SELECT SINGLE
-                  j_1bnfdoc~nfenum,
-                  j_1bnfdoc~docdat
-                FROM j_1bnflin
-                JOIN j_1bnfdoc ON j_1bnflin~docnum = j_1bnfdoc~docnum
-                WHERE refkey = @lv_xabln
-                INTO @DATA(ls_doc).
-
-                IF sy-subrc IS INITIAL.
-
-                  CALL FUNCTION 'CONVERSION_EXIT_PDATE_OUTPUT'
-                    EXPORTING
-                      input        = ls_doc-docdat
-                    IMPORTING
-                      output       = lv_docdate
-                    EXCEPTIONS
-                      invalid_date = 1
-                      OTHERS       = 2.
-                  IF sy-subrc <> 0.
-                    MESSAGE ID sy-msgid TYPE sy-msgty NUMBER sy-msgno
-                      WITH sy-msgv1 sy-msgv2 sy-msgv3 sy-msgv4 INTO DATA(lv_message).
+                    READ TABLE lt_vbkd ASSIGNING FIELD-SYMBOL(<fs_vbkd>) INDEX 1.
+                    lv_aditivo = |{ TEXT-f80 }: { <fs_vbkd>-ihrez }|.
+                    <fs_header_text_lines>-text = |{ <fs_header_text_lines>-text } { lv_aditivo }|.
+                    lv_modify = abap_true.
                   ENDIF.
 
-                  lv_nfe = TEXT-f58.
-                  REPLACE '&1' IN lv_nfe WITH ls_doc-nfenum.
-                  REPLACE '&2' IN lv_nfe WITH lv_docdate.
+                  SELECT SINGLE ihrez
+                  FROM vbak
+                  WHERE vbeln = @lv_vbelv
+                  INTO @DATA(lv_contrato).
 
-                ENDIF.
-
-                LOOP AT lt_obknr ASSIGNING <fs_obknr>.
-
-                  CLEAR: lv_plaqueta,
-                         lv_imobilizado.
-
-                  " Plaqueta
-                  IF NOT <fs_obknr>-sernr IS INITIAL.
-
-                    lv_sernr = <fs_obknr>-sernr.
-
-                    CALL FUNCTION 'CONVERSION_EXIT_ALPHA_OUTPUT'
-                      EXPORTING
-                        input  = lv_sernr
-                      IMPORTING
-                        output = lv_sernr.
-
-                    lv_plaqueta = |{ TEXT-f52 }: { lv_sernr }|.
-
+                  SEARCH <fs_header_text_lines>-text FOR TEXT-f92.
+                  IF sy-subrc NE 0.
+                    <fs_header_text_lines>-text = |{ <fs_header_text_lines>-text } { TEXT-f92 } { lv_contrato }|.
+                    lv_modify = abap_true.
                   ENDIF.
 
-                  " Imobilizado
-                  IF NOT lv_sernr IS INITIAL.
-                    READ TABLE lt_anla ASSIGNING FIELD-SYMBOL(<fs_anla>)
-                                                     WITH KEY invnr = lv_sernr
-                                                     BINARY SEARCH.
+                  IF NOT lt_eqp[] IS INITIAL.
+
+                    SELECT invnr,
+                           anln1
+                      FROM anla
+                       FOR ALL ENTRIES IN @lt_eqp
+                     WHERE invnr EQ @lt_eqp-invnr
+                      INTO TABLE @DATA(lt_anla).
                     IF sy-subrc EQ 0.
-                      lv_anln1 = <fs_anla>-anln1.
-
-                      CALL FUNCTION 'CONVERSION_EXIT_ALPHA_OUTPUT'
-                        EXPORTING
-                          input  = lv_anln1
-                        IMPORTING
-                          output = lv_anln1.
-
-                      lv_imobilizado = |{ TEXT-f53 }: { lv_anln1 }|.
-
+                      SORT lt_anla BY invnr.
                     ENDIF.
                   ENDIF.
 
-                  CLEAR: lv_sernr,
-                         lv_anln1.
+                  CLEAR: lv_pla_imo_nfe.
 
-                  lv_pla_imo_nfe = |{ lv_pla_imo_nfe } { lv_plaqueta } { lv_imobilizado } { lv_nfe }|.
+                  SELECT SINGLE
+                    j_1bnfdoc~nfenum,
+                    j_1bnfdoc~docdat
+                  FROM j_1bnflin
+                  JOIN j_1bnfdoc ON j_1bnflin~docnum = j_1bnfdoc~docnum
+                  WHERE refkey = @lv_xabln
+                  INTO @DATA(ls_doc).
 
-                ENDLOOP.
+                  IF sy-subrc IS INITIAL.
 
-                IF NOT lv_pla_imo_nfe IS INITIAL.
-                  SEARCH <fs_header_text_lines>-text FOR TEXT-f52.
+                    CALL FUNCTION 'CONVERSION_EXIT_PDATE_OUTPUT'
+                      EXPORTING
+                        input        = ls_doc-docdat
+                      IMPORTING
+                        output       = lv_docdate
+                      EXCEPTIONS
+                        invalid_date = 1
+                        OTHERS       = 2.
+                    IF sy-subrc <> 0.
+                      MESSAGE ID sy-msgid TYPE sy-msgty NUMBER sy-msgno
+                        WITH sy-msgv1 sy-msgv2 sy-msgv3 sy-msgv4 INTO DATA(lv_message).
+                    ENDIF.
 
-                  IF sy-subrc NE 0.
-                    <fs_header_text_lines>-text = |{ <fs_header_text_lines>-text } { lv_pla_imo_nfe }|.
-                    lv_modify = abap_true.
+                    lv_nfe = TEXT-f58.
+                    REPLACE '&1' IN lv_nfe WITH ls_doc-nfenum.
+                    REPLACE '&2' IN lv_nfe WITH lv_docdate.
+
                   ENDIF.
 
-                  SEARCH <fs_header_text_lines>-text FOR TEXT-f53.
-                  IF sy-subrc NE 0.
-                    <fs_header_text_lines>-text = |{ <fs_header_text_lines>-text } { lv_pla_imo_nfe }|.
-                    lv_modify = abap_true.
-                  ENDIF.
+                  LOOP AT lt_obknr ASSIGNING <fs_obknr>.
 
-                  SEARCH <fs_header_text_lines>-text FOR 'Referencia NFe'.
-                  IF sy-subrc NE 0.
-                    <fs_header_text_lines>-text = |{ <fs_header_text_lines>-text } { lv_pla_imo_nfe }|.
-                    lv_modify = abap_true.
-                  ENDIF.
+                    CLEAR: lv_plaqueta,
+                           lv_imobilizado.
 
+                    " Plaqueta
+                    IF NOT <fs_obknr>-sernr IS INITIAL.
+
+                      lv_sernr = <fs_obknr>-sernr.
+
+                      CALL FUNCTION 'CONVERSION_EXIT_ALPHA_OUTPUT'
+                        EXPORTING
+                          input  = lv_sernr
+                        IMPORTING
+                          output = lv_sernr.
+
+                      lv_plaqueta = |{ TEXT-f52 }: { lv_sernr }|.
+
+                    ENDIF.
+
+                    " Imobilizado
+                    IF NOT lv_sernr IS INITIAL.
+                      READ TABLE lt_anla ASSIGNING FIELD-SYMBOL(<fs_anla>)
+                                                       WITH KEY invnr = lv_sernr
+                                                       BINARY SEARCH.
+                      IF sy-subrc EQ 0.
+                        lv_anln1 = <fs_anla>-anln1.
+
+                        CALL FUNCTION 'CONVERSION_EXIT_ALPHA_OUTPUT'
+                          EXPORTING
+                            input  = lv_anln1
+                          IMPORTING
+                            output = lv_anln1.
+
+                        lv_imobilizado = |{ TEXT-f53 }: { lv_anln1 }|.
+
+                      ENDIF.
+                    ENDIF.
+
+                    CLEAR: lv_sernr,
+                           lv_anln1.
+
+                    lv_pla_imo_nfe = |{ lv_pla_imo_nfe } { lv_plaqueta } { lv_imobilizado } { lv_nfe }|.
+
+                  ENDLOOP.
+
+                  IF NOT lv_pla_imo_nfe IS INITIAL.
+                    SEARCH <fs_header_text_lines>-text FOR TEXT-f52.
+
+                    IF sy-subrc NE 0.
+                      <fs_header_text_lines>-text = |{ <fs_header_text_lines>-text } { lv_pla_imo_nfe }|.
+                      lv_modify = abap_true.
+                    ENDIF.
+
+                    SEARCH <fs_header_text_lines>-text FOR TEXT-f53.
+                    IF sy-subrc NE 0.
+                      <fs_header_text_lines>-text = |{ <fs_header_text_lines>-text } { lv_pla_imo_nfe }|.
+                      lv_modify = abap_true.
+                    ENDIF.
+
+                    SEARCH <fs_header_text_lines>-text FOR 'Referencia NFe'.
+                    IF sy-subrc NE 0.
+                      <fs_header_text_lines>-text = |{ <fs_header_text_lines>-text } { lv_pla_imo_nfe }|.
+                      lv_modify = abap_true.
+                    ENDIF.
+
+                  ENDIF.
                 ENDIF.
 
               ENDIF.
