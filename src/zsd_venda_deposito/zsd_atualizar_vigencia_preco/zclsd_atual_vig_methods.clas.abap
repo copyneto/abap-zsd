@@ -5,6 +5,7 @@ CLASS zclsd_atual_vig_methods DEFINITION
 
   PUBLIC SECTION.
     TYPES:
+     "! Estrutura Mensagens de retorno
       tt_return    TYPE TABLE OF bapiret2 .
 
     "! Chama BAPI para atualização das datas das condições de preço
@@ -21,24 +22,57 @@ CLASS zclsd_atual_vig_methods DEFINITION
         !et_return   TYPE tt_return .
   PROTECTED SECTION.
   PRIVATE SECTION.
-    CONSTANTS: gc_update  TYPE c VALUE 'U'.
+    CONSTANTS:
+    "! Constante para marcar como update
+               gc_update  TYPE c VALUE 'U'.
 
     TYPES:
-      ty_lt_bapicondit   TYPE STANDARD TABLE OF bapicondit WITH DEFAULT KEY,
-      ty_lt_bapicondhd   TYPE STANDARD TABLE OF bapicondhd WITH DEFAULT KEY,
-      ty_lt_bapicondct   TYPE STANDARD TABLE OF bapicondct WITH DEFAULT KEY,
-      ty_lt_bapicondit_1 TYPE STANDARD TABLE OF bapicondit WITH DEFAULT KEY,
-      ty_lt_bapicondhd_1 TYPE STANDARD TABLE OF bapicondhd WITH DEFAULT KEY,
-      ty_lt_bapicondct_1 TYPE STANDARD TABLE OF bapicondct WITH DEFAULT KEY,
-      ty_lt_ykonp        TYPE STANDARD TABLE OF konpdb WITH DEFAULT KEY,
-      ty_lt_ykonh        TYPE STANDARD TABLE OF konhdb WITH DEFAULT KEY,
-      ty_lt_xkonh        TYPE STANDARD TABLE OF konhdb WITH DEFAULT KEY,
-      ty_lt_xkonp        TYPE STANDARD TABLE OF konpdb WITH DEFAULT KEY,
-      ty_lt_ykondat      TYPE STANDARD TABLE OF vkondat WITH DEFAULT KEY,
-      ty_lt_xkondat      TYPE STANDARD TABLE OF vkondat WITH DEFAULT KEY,
-      ty_lt_ykonh_1      TYPE STANDARD TABLE OF konhdb WITH DEFAULT KEY,
+     "! Estrutura KONP da BAPI
+      ty_lt_bapicondit   TYPE STANDARD TABLE OF bapicondit WITH DEFAULT KEY.
+    TYPES:
+     "! Estrutura KONH da BAPI
+      ty_lt_bapicondhd   TYPE STANDARD TABLE OF bapicondhd WITH DEFAULT KEY.
+    TYPES:
+     "! Estrutura BAPI p/tabelas de condições (corresp. a COND_RECS)
+      ty_lt_bapicondct   TYPE STANDARD TABLE OF bapicondct WITH DEFAULT KEY.
+    TYPES:
+     "! Estrutura KONP da BAPI
+      ty_lt_bapicondit_1 TYPE STANDARD TABLE OF bapicondit WITH DEFAULT KEY.
+    TYPES:
+     "! Estrutura KONH da BAPI
+      ty_lt_bapicondhd_1 TYPE STANDARD TABLE OF bapicondhd WITH DEFAULT KEY.
+    TYPES:
+     "! Estrutura BAPI p/tabelas de condições (corresp. a COND_RECS)
+      ty_lt_bapicondct_1 TYPE STANDARD TABLE OF bapicondct WITH DEFAULT KEY.
+    TYPES:
+     "! KONP : Estrutura para a atualização
+      ty_lt_ykonp        TYPE STANDARD TABLE OF konpdb WITH DEFAULT KEY.
+    TYPES:
+     "! KONH : Estrutura para a atualização
+      ty_lt_ykonh        TYPE STANDARD TABLE OF konhdb WITH DEFAULT KEY.
+    TYPES:
+     "! KONH : Estrutura para a atualização
+      ty_lt_xkonh        TYPE STANDARD TABLE OF konhdb WITH DEFAULT KEY.
+    TYPES:
+     "! KONP : Estrutura para a atualização
+      ty_lt_xkonp        TYPE STANDARD TABLE OF konpdb WITH DEFAULT KEY.
+    TYPES:
+     "! KONDAT : Estrutura para a atualização
+      ty_lt_ykondat      TYPE STANDARD TABLE OF vkondat WITH DEFAULT KEY.
+    TYPES:
+     "! KONDAT : Estrutura para a atualização
+      ty_lt_xkondat      TYPE STANDARD TABLE OF vkondat WITH DEFAULT KEY.
+    TYPES:
+     "! KONH : Estrutura para a atualização
+      ty_lt_ykonh_1      TYPE STANDARD TABLE OF konhdb WITH DEFAULT KEY.
+    TYPES:
+     "! KONP : Estrutura para a atualização
       ty_lt_ykonp_1      TYPE STANDARD TABLE OF konpdb WITH DEFAULT KEY.
 
+    "! Método para buscar condições de preço
+    "! @parameter is_record | Dados App Atualizar Vigência Preço
+    "! @parameter et_ykonh  | KONH : Estrutura para a atualização Condições (cabeçalho)
+    "! @parameter et_ykonp  | KONP : Estrutura para a atualização Condições (item)
     METHODS busca_condicoes
       IMPORTING
         is_record TYPE zssd_atual_vig
@@ -46,6 +80,13 @@ CLASS zclsd_atual_vig_methods DEFINITION
         et_ykonh  TYPE ty_lt_ykonh_1
         et_ykonp  TYPE ty_lt_ykonp_1.
 
+    "! Método para alterar condições de preço
+    "! @parameter ct_ykonp   | KONP : Estrutura para a atualização Condições (item)
+    "! @parameter ct_ykonh   | KONH : Estrutura para a atualização Condições (cabeçalho)
+    "! @parameter ct_xkonh   | KONH : Estrutura para a atualização Condições (cabeçalho)
+    "! @parameter ct_xkonp   | KONP : Estrutura para a atualização Condições (item)
+    "! @parameter ct_ykondat | Reg.condição: período de validade antigo e novo
+    "! @parameter ct_xkondat | Reg.condição: período de validade antigo e novo
     METHODS altera_condicoes
       CHANGING
         ct_ykonp   TYPE zclsd_atual_vig_methods=>ty_lt_ykonp
@@ -55,6 +96,11 @@ CLASS zclsd_atual_vig_methods DEFINITION
         ct_ykondat TYPE ty_lt_ykondat
         ct_xkondat TYPE ty_lt_xkondat.
 
+    "! Método para atualizar modificacoes condições de preço
+    "! @parameter is_record     | Dados App Atualizar Vigência Preço
+    "! @parameter is_bapicondhd | Estrura KONH da BAPI
+    "! @parameter ct_ykonp      | KONP : Estrutura para a atualização Condições (item)
+    "! @parameter ct_ykonh      | KONH : Estrutura para a atualização Condições (cabeçalho)
     METHODS atualiza_modificacoes
       IMPORTING
         is_record     TYPE zssd_atual_vig
@@ -63,6 +109,15 @@ CLASS zclsd_atual_vig_methods DEFINITION
         ct_ykonp      TYPE ty_lt_ykonp
         ct_ykonh      TYPE ty_lt_ykonh.
 
+    "! Método para alterar dados e enviar na BAPI
+    "! @parameter iv_004        | Parametro de alteração da BAPI
+    "! @parameter iv_data_in    | Data Desde
+    "! @parameter iv_data_fim   | Data Fim
+    "! @parameter is_record     | Dados App Atualizar Vigência Preço
+    "! @parameter ev_delete     | Flag para deleção
+    "! @parameter ct_bapicondit | Estrura KONP da BAPI
+    "! @parameter ct_bapicondhd | Estrura KONH da BAPI
+    "! @parameter ct_bapicondct | Estrutura BAPI p/tabelas de condições (corresp. a COND_RECS)
     METHODS altera_dados_bapi
       IMPORTING
         iv_004        TYPE c
@@ -76,6 +131,12 @@ CLASS zclsd_atual_vig_methods DEFINITION
         ct_bapicondhd TYPE ty_lt_bapicondhd_1
         ct_bapicondct TYPE ty_lt_bapicondct_1.
 
+    "! Método para chamar a BAPI
+    "! @parameter iv_delete     | Flag para deleção
+    "! @parameter et_return     | Mensagem de retorno
+    "! @parameter ct_bapicondit | Estrura KONP da BAPI
+    "! @parameter ct_bapicondhd | Estrura KONH da BAPI
+    "! @parameter ct_bapicondct | Estrutura BAPI p/tabelas de condições (corresp. a COND_RECS)
     METHODS call_bapi
       IMPORTING
         iv_delete     TYPE abap_bool
@@ -85,9 +146,15 @@ CLASS zclsd_atual_vig_methods DEFINITION
         ct_bapicondit TYPE ty_lt_bapicondit
         ct_bapicondhd TYPE ty_lt_bapicondhd
         ct_bapicondct TYPE ty_lt_bapicondct.
+
+    "! Método para dar commit
+    "! @parameter it_return | Mensagem de retorno
     METHODS commit_work
       IMPORTING
         it_return TYPE zclsd_atual_vig_methods=>tt_return.
+
+    "! Método para atualizar tabela de log
+    "! @parameter it_return | Mensagem de retorno
     METHODS update_log_bdcp2
       IMPORTING
         it_return TYPE zclsd_atual_vig_methods=>tt_return.

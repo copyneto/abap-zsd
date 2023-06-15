@@ -9,8 +9,12 @@
     dataClass: #MIXED
 }
 define view ZI_SD_COCKPIT_CTR
-  as select distinct from I_SalesContract as Contrato
-
+  as select distinct from I_SalesContract as Contrato  
+  
+  left outer join ZI_SD_CR_CP_CTR_PG as _Pag on Contrato.SalesContract = _Pag.Contrato    
+  
+  left outer join ZI_SD_CR_CP_OK as _CrCPExiste on Contrato.SalesContract = _CrCPExiste.Contrato  
+  
   left outer join ZI_SD_COCKPIT_CTR_PEDIDO_WF( p_tipo : 'H') as _Reins on Contrato.SalesContract = _Reins.SalesOrder
   
   association [0..1] to ZI_SD_COCKPIT_CONTPAG_CLI    as _PagCli         on  Contrato.SalesContract = _PagCli.Contrato
@@ -83,9 +87,16 @@ define view ZI_SD_COCKPIT_CTR
 
   key        _Ordem.Remessa          as Remessa,
 
-             case when _Ordem.TipoOrdemVenda = 'Z011'
-             then 'S'
-             else 'N' end            as CrCp,
+             
+//             case when _Ordem.TipoOrdemVenda = 'Z011'
+//             then 'S'
+//             else 'N' end            as CrCp,
+             
+             case when ( _CrCPExiste.Contrato is not initial or _CrCPExiste.Contrato is not null)
+             then 'Concluído'
+             else 'Pendente' end            as CrCp,             
+             
+             
              CreationDate            as DataCriacaoContrato,
              SalesContractType       as TipoContrato,
              SalesContractCondition  as Knumv,
@@ -134,10 +145,17 @@ define view ZI_SD_COCKPIT_CTR
              //             _Qty.QtdItens           as QtdItens,
              //             _Tot.QtdTotal           as QtdTotal,
              _Ctr.bsark              as TipoOperacao,
-             case when _Ctr.bsark = 'Z001' and _PagCli.DocCliente is not initial and _PagFor.DocForn is not initial then 'Completo'
-                  when _Ctr.bsark = 'Z001' and _PagCli.DocCliente is initial or _PagFor.DocForn is initial then 'Pendente'
-                  else ''
-             end                     as StatusCP,             
+             
+//             case when _Ctr.bsark = 'Z001' and _PagCli.DocCliente is not initial and _PagFor.DocForn is not initial then 'Completo'
+//                  when _Ctr.bsark = 'Z001' and _PagCli.DocCliente is initial or _PagFor.DocForn is initial then 'Pendente'
+//                  else ''
+//             end                     as StatusCP,
+             
+             case 
+                  when ( _Pag.Contrato is not null or _Pag.Contrato is not initial ) then 'Ok'                    
+                  else 'Pendente'
+             end                     as StatusCP,     
+                          
              //'Pendente' as StatusCP,
              case
                when  _QtdContrato.QtdContrato >= 1 then  _QtdContrato.QtdContrato

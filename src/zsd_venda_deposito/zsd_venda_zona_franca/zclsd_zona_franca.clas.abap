@@ -4,7 +4,15 @@ CLASS zclsd_zona_franca DEFINITION
   CREATE PUBLIC .
 
   PUBLIC SECTION.
+
     METHODS:
+      "! Método para tratamento de regra  Zona Franca IPI na ordem.
+      "! @parameter iv_j_1btaxlw2 |  Direito fiscal: IPI
+      "! @parameter iv_werks      |  Centro
+      "! @parameter iv_txjcd      |  Domicílio fiscal
+      "! @parameter iv_brsch      |  Chave do setor industrial
+      "! @parameter iv_matkl      |  Grupo de mercadorias
+      "! @parameter rv_retorno    |  Direito fiscal: IPI
       execute
         IMPORTING
           iv_j_1btaxlw2     TYPE j_1btaxlw2

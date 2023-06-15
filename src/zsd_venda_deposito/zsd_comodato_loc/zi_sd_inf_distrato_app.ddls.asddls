@@ -25,5 +25,6 @@ define root view entity ZI_SD_INF_DISTRATO_APP
       NFeNumber,
       NFRetorno,
       OrdemFrete,
-      Centro
+      Centro,
+      Material
 }

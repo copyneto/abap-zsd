@@ -5,6 +5,11 @@ CLASS zclsd_atualiza_vigencia DEFINITION
 
   PUBLIC SECTION.
 
+    "! Método para atualizar vigência
+    "! @parameter iv_data_in  | Data Desde
+    "! @parameter iv_data_fim | Data Fim
+    "! @parameter is_record   | Dados App Atualizar Vigência Preço
+    "! @parameter rt_return   | Mensagens de retorno
     METHODS execute
       IMPORTING
         !iv_data_in      TYPE dats
@@ -12,14 +17,21 @@ CLASS zclsd_atualiza_vigencia DEFINITION
         !is_record       TYPE zssd_atual_vig
       RETURNING
         VALUE(rt_return) TYPE tt_bapiret2 .
+
+    "! Método executado após chamada da função background
+    "! @parameter p_task | Parametro obrigatório do método
     CLASS-METHODS setup_messages
       IMPORTING
         !p_task TYPE clike .
   PROTECTED SECTION.
   PRIVATE SECTION.
 
-    CLASS-DATA: gt_return TYPE STANDARD TABLE OF bapiret2.
-    CLASS-DATA gv_wait_async TYPE abap_bool .
+    CLASS-DATA:
+   "! Tabela Mensagens de retorno
+   gt_return TYPE STANDARD TABLE OF bapiret2.
+    CLASS-DATA:
+    "! Variável para controle de chamada de bapi
+    gv_wait_async TYPE abap_bool .
 ENDCLASS.
 
 

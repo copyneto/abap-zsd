@@ -24,9 +24,12 @@ define view ZI_SD_INF_DISTRATO_CTR
                                                                        and Contrato.SalesContractItem = _FlowDoc.posnv
                                                                        and _FlowDoc.vbtyp_n           = 'T'
 
-    left outer join        vbfa                      as _FlowDocFat    on  Contrato.SalesContract     = _FlowDocFat.vbelv
-                                                                       and Contrato.SalesContractItem = _FlowDocFat.posnv
-                                                                       and _FlowDocFat.vbtyp_n        = 'O'
+//    left outer join        vbfa                      as _FlowDocFat    on  Contrato.SalesContract     = _FlowDocFat.vbelv
+//                                                                       and Contrato.SalesContractItem = _FlowDocFat.posnv
+//                                                                       and _FlowDocFat.vbtyp_n        = 'O'
+                                                                       
+    left outer join        ZI_SD_INF_DISTRATO_FAT      as _FlowDocFat    on  Contrato.SalesContract     = _FlowDocFat.vbelv
+                                                                         and Contrato.SalesContractItem = _FlowDocFat.posnv                                                                       
 
   //left outer join        ZI_SD_COCKPIT_FRE     as Frete     on Frete.Remessa = Fatura.ReferenceSDDocument
     left outer join        ZI_SD_COCKPIT_FRE         as Frete          on Frete.Remessa = _FlowDoc.vbeln
@@ -110,7 +113,7 @@ define view ZI_SD_INF_DISTRATO_CTR
       //Fatura.ReferenceSDDocument as Remessa,
       _FlowDoc.vbeln         as Remessa,
       //Fatura.BillingDocument     as Fatura,
-      _FlowDocFat.vbeln      as Fatura,
+      _FlowDocFat.Fatura,
       //max(objk.sernr)                  as Serie,
       _Objk.sernr            as Serie,
       case _Vbkd.bsark
@@ -136,7 +139,8 @@ define view ZI_SD_INF_DISTRATO_CTR
       //_NFDoc.nfenum              as NFRetorno
       case when ContratoHeader.DistributionChannel = '10'
       then _objnf.DocReferencia
-      else _NFDoc.nfenum end as NFRetorno
+      else _NFDoc.nfenum end as NFRetorno,
+      Contrato.Material
 }
 where
   Contrato.SalesDocumentRjcnReason <> ''
@@ -150,7 +154,7 @@ group by
   //Fatura.ReferenceSDDocument,
   _FlowDoc.vbeln,
   //Fatura.BillingDocument,
-  _FlowDocFat.vbeln,
+  _FlowDocFat.Fatura,
   _Objk.sernr,
   _VbapC.matnr,
   _VbapC.arktx,
@@ -165,6 +169,7 @@ group by
   _Vbkd.ihrez,
   _Vbkd.bsark,
   _Objk.equnr,
-  _Eqkt.eqktx
+  _Eqkt.eqktx,
+  Contrato.Material
 //  ,_VbkdCarg.ihrez,
 //  _Vbkd.bstkd

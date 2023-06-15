@@ -12,6 +12,7 @@
 define root view entity ZI_SD_REL_FISCAL_SAIDA_APP
   as select from           I_BR_NFItem                                     as _Lin
     inner join             I_BR_NFDocument                                 as _Doc               on _Doc.BR_NotaFiscal = _Lin.BR_NotaFiscal
+
     left outer join        ZI_SD_REL_FISCAL_SAIDA_TAX(  chave3 : 'IPI0' )  as _TaxIPI0           on  _TaxIPI0.BR_NotaFiscal     = _Lin.BR_NotaFiscal
                                                                                                  and _TaxIPI0.BR_NotaFiscalItem = _Lin.BR_NotaFiscalItem
     left outer join        ZI_SD_REL_FISCAL_SAIDA_TAX(  chave3 : 'IPI3' )  as _TaxIPI3           on  _TaxIPI3.BR_NotaFiscal     = _Lin.BR_NotaFiscal
@@ -187,55 +188,59 @@ define root view entity ZI_SD_REL_FISCAL_SAIDA_APP
   //    left outer join skat                                                                                                               as _SKAT
   //      on  _SKAT.saknr = _MSEG.sakto
   //      and _SKAT.spras = $session.system_language
-  association to I_BR_NFeActive                 as _NFeACtive      on  _NFeACtive.BR_NotaFiscal = _Lin.BR_NotaFiscal
+  association        to I_BR_NFeActive                 as _NFeACtive      on  _NFeACtive.BR_NotaFiscal = _Lin.BR_NotaFiscal
   //  association to I_BR_NFMessage                 as _NFemsg
   //    on _NFemsg.BR_NotaFiscal = _Lin.BR_NotaFiscal
-  association to ZI_SD_REL_FISCAL_SAIDA_ICMSTXT as _ICMSText       on  _ICMSText.BR_ICMSTaxLaw = _Lin.BR_ICMSTaxLaw
-                                                                   and _ICMSText.Language      = $session.system_language
+  association        to ZI_SD_REL_FISCAL_SAIDA_ICMSTXT as _ICMSText       on  _ICMSText.BR_ICMSTaxLaw = _Lin.BR_ICMSTaxLaw
+                                                                          and _ICMSText.Language      = $session.system_language
 
-  association to ZI_SD_REL_FISCAL_SAIDA_IPITXT  as _IPIText        on  _IPIText.BR_IPITaxLaw = _Lin.BR_IPITaxLaw
-                                                                   and _IPIText.Language     = $session.system_language
+  association        to ZI_SD_REL_FISCAL_SAIDA_IPITXT  as _IPIText        on  _IPIText.BR_IPITaxLaw = _Lin.BR_IPITaxLaw
+                                                                          and _IPIText.Language     = $session.system_language
 
   //  association to I_SalesOrder                   as _SalesOrder
   //    on _SalesOrder.SalesOrder = _Lin.BR_NotaFiscal
 
   //  association to I_PurchaseOrderItemAPI01       as _OrderItemAPI01
   //    on _OrderItemAPI01.Material = _Lin.Material
-  association to ZI_SD_REL_FISCAL_SAIDA_SEG     as _Segment        on  _Segment.matnr = _Lin.Material
-                                                                   and _Segment.werks = _Lin.Plant
+  association        to ZI_SD_REL_FISCAL_SAIDA_SEG     as _Segment        on  _Segment.matnr = _Lin.Material
+                                                                          and _Segment.werks = _Lin.Plant
 
-  association to ZI_SD_REL_FISCAL_SAIDA_J1BLPP  as _J1BLPP         on  _J1BLPP.matnr = _Lin.Material
-                                                                   and _J1BLPP.bwkey = _Lin.ValuationArea
-                                                                   and _J1BLPP.bwtar = _Lin.ValuationType
+  association        to ZI_SD_REL_FISCAL_SAIDA_J1BLPP  as _J1BLPP         on  _J1BLPP.matnr = _Lin.Material
+                                                                          and _J1BLPP.bwkey = _Lin.ValuationArea
+                                                                          and _J1BLPP.bwtar = _Lin.ValuationType
 
   //association to ZI_SD_REL_FISCAL_SAIDA_TJ1BLPP  as _TOT_J1BLPP_S on  _TOT_J1BLPP_S.NotaFiscal = _Lin.BR_NotaFiscal and _TOT_J1BLPP_S.lppid = 'S'
   //association to ZI_SD_REL_FISCAL_SAIDA_TJ1BLPP  as _TOT_J1BLPP_DIF on  _TOT_J1BLPP_DIF.NotaFiscal = _Lin.BR_NotaFiscal and _TOT_J1BLPP_DIF.lppid <> 'S'
 
-  association to ZI_SD_REL_FISCAL_SAIDA_PRD_NF  as _VL_PRD_CONF_NF on  _SalesOrder.SalesDocument = _VL_PRD_CONF_NF.SalesOrder
-                                                                   and _Lin.Material             = _VL_PRD_CONF_NF.Material
+  association        to ZI_SD_REL_FISCAL_SAIDA_PRD_NF  as _VL_PRD_CONF_NF on  _SalesOrder.SalesDocument = _VL_PRD_CONF_NF.SalesOrder
+                                                                          and _Lin.Material             = _VL_PRD_CONF_NF.Material
 
-  association to ZI_SD_REL_FISCAL_SAIDA_DescTip as _DescTip        on  _DescTip.kunnr = _Doc.BR_NFPartner
+  association        to ZI_SD_REL_FISCAL_SAIDA_DescTip as _DescTip        on  _DescTip.kunnr = _Doc.BR_NFPartner
   //  association to ZI_SD_REL_FISCAL_SAIDA_IMP_SD  as _CodImpSD         on  _CodImpSD.vbeln = _Lin.BR_NotaFiscal
-  association to ZI_SD_REL_FISCAL_SAIDA_IMP_SD  as _CodImpSD       on  _CodImpSD.vbeln = _Lin.BR_NFSourceDocumentNumber
-                                                                   and _CodImpSD.posnr = _Lin.BR_NFSourceDocumentItem
-  association to ZI_SD_REL_FISCAL_SAIDA_DOCMIGO as _DocMigo        on  _DocMigo.BR_ReferenceNFNumber    = _Lin.BR_NotaFiscal
-                                                                   and _DocMigo.BR_NFSourceDocumentItem = _Lin.BR_NFSourceDocumentItem
-  association to ZI_SD_REL_FISCAL_SAIDA_DOCFAT  as _DocFat         on  _DocFat.BR_NotaFiscal           = _Lin.BR_NotaFiscal
-                                                                   and _DocFat.BR_NFSourceDocumentItem = _Lin.BR_NFSourceDocumentItem
+  association        to ZI_SD_REL_FISCAL_SAIDA_IMP_SD  as _CodImpSD       on  _CodImpSD.vbeln = _Lin.BR_NFSourceDocumentNumber
+                                                                          and _CodImpSD.posnr = _Lin.BR_NFSourceDocumentItem
+  association        to ZI_SD_REL_FISCAL_SAIDA_DOCMIGO as _DocMigo        on  _DocMigo.BR_ReferenceNFNumber    = _Lin.BR_NotaFiscal
+                                                                          and _DocMigo.BR_NFSourceDocumentItem = _Lin.BR_NFSourceDocumentItem
+  association        to ZI_SD_REL_FISCAL_SAIDA_DOCFAT  as _DocFat         on  _DocFat.BR_NotaFiscal           = _Lin.BR_NotaFiscal
+                                                                          and _DocFat.BR_NFSourceDocumentItem = _Lin.BR_NFSourceDocumentItem
   //  association to ZI_SD_REL_FISCAL_SAIDA_DESCFAR as _DescFar     on  _DescFar.BR_ReferenceNFNumber    = _Lin.BR_NotaFiscal
   //                                                                and _DescFar.BR_NFSourceDocumentItem = _Lin.BR_NFSourceDocumentItem
 
 
-  association to I_Material                     as _Material       on  _Material.Material = _Lin.Material
-  association to marm                           as _ConversaoKG    on  _ConversaoKG.matnr = _Lin.Material
-                                                                   and _ConversaoKG.meinh = 'KG'
-  association to marm                           as _ConversaoUN    on  _ConversaoUN.matnr = _Lin.Material
-                                                                   and _ConversaoUN.meinh = _Lin.BaseUnit
-  association to I_Plant                        as _Plant          on  _Plant.Plant = _Lin.Plant
+  association        to I_Material                     as _Material       on  _Material.Material = _Lin.Material
+  association        to marm                           as _ConversaoKG    on  _ConversaoKG.matnr = _Lin.Material
+                                                                          and _ConversaoKG.meinh = 'KG'
+  association        to marm                           as _ConversaoUN    on  _ConversaoUN.matnr = _Lin.Material
+                                                                          and _ConversaoUN.meinh = _Lin.BaseUnit
+  association        to I_Plant                        as _Plant          on  _Plant.Plant = _Lin.Plant
 
-  association to ZI_CA_VH_NFCODSIT              as _DocSit         on  _DocSit.NFCodSit = _Doc.BR_NFSituationCode
+  association        to ZI_CA_VH_NFCODSIT              as _DocSit         on  _DocSit.NFCodSit = _Doc.BR_NFSituationCode
 
-  association to I_Customer                     as _Customer       on  _Customer.Customer = _Doc.BR_NFPartner
+  association        to I_Customer                     as _Customer       on  _Customer.Customer = _Doc.BR_NFPartner
+
+  association [1..1] to ZI_SD_REL_FISCAL_SAIDA_ICMS    as _IcmsByRegio    on  _IcmsByRegio.BR_NotaFiscal = _Doc.BR_NotaFiscal
+
+
 
 {
 
@@ -743,7 +748,7 @@ define root view entity ZI_SD_REL_FISCAL_SAIDA_APP
 
       case
           when _J1BLPP.VlTotalUnPrdConfS > 0
-//              then  fltp_to_dec(cast(_Lin.QuantityInBaseUnit as abap.fltp ) * cast(_J1BLPP.VlTotalUnPrdConfS  as abap.fltp ) as abap.dec(15,2))
+      //              then  fltp_to_dec(cast(_Lin.QuantityInBaseUnit as abap.fltp ) * cast(_J1BLPP.VlTotalUnPrdConfS  as abap.fltp ) as abap.dec(15,2))
                then  fltp_to_dec(cast(_Lin.QuantityInBaseUnit as abap.fltp ) * cast( _ConversaoUN.umrez as abap.fltp ) * cast( _J1BLPP.VlUnPrdConfI  as abap.fltp ) as abap.dec(15,2))
       //              fltp_to_dec(_J1BLPP.VlTotalUnPrdConfS as logbr_invoicenetamount)
           else
@@ -995,7 +1000,8 @@ define root view entity ZI_SD_REL_FISCAL_SAIDA_APP
       //      fltp_to_dec( (cast( _Material.MaterialGrossWeight as abap.fltp ) * cast( _Lin.QuantityInBaseUnit as abap.fltp )) as abap.dec(15,2))                              as PesoBrutoNF,
       case
         when _Vbrp.brgew is initial or _Vbrp.brgew is null
-        then _VolumesTransporte.PesoBrutoVolumes
+//        then _VolumesTransporte.PesoBrutoVolumes
+        then ( cast( _Material.MaterialGrossWeight as abap.fltp ) * cast( _Lin.BR_NFTributaryQuantity as abap.fltp) )
         else cast(_Vbrp.brgew as abap.dec(15,3) )
       end                                                                                                              as PesoBrutoNF,
       _Doc.BR_NFModel                                                                                                  as ModeloNF,
@@ -1006,15 +1012,29 @@ define root view entity ZI_SD_REL_FISCAL_SAIDA_APP
       //fltp_to_dec( (cast( _Lin.BR_NFValueAmountWithTaxes as abap.fltp ) * cast( _TaxICM3.BR_NFItemTaxRate as abap.fltp ) / cast(100 as abap.fltp) ) as abap.dec(15,2)) as ValorICMSsemBenef,
       case
         when not _TaxICM2.BR_NFItemTaxAmount is initial
-           //then cast(_TaxICM2.BR_NFItemTaxAmount as logbr_invoicenetamount)
+      //then cast(_TaxICM2.BR_NFItemTaxAmount as logbr_invoicenetamount)
           then fltp_to_dec( ( (cast( _TaxICM2.BR_NFItemBaseAmount as abap.fltp ) + cast(_TaxICM2.BR_NFItemExcludedBaseAmount as abap.fltp ) ) * cast( _TaxICM2.BR_NFItemTaxRate as abap.fltp ) / cast(100 as abap.fltp) ) as abap.dec(15,2))
           when _TaxICM3.BR_NFItemIsStatisticalTax is initial
-            then _Lin.BR_ICMSStatisticalExemptionAmt
+            then
+                case
+                 when _Lin.BR_ICMSStatisticalExemptionAmt is not initial and _Lin.TaxIncentiveCode is not initial and _TaxICM3.BR_NFItemTaxRate is initial then _Lin.BR_ICMSStatisticalExemptionAmt
+                 when _TaxICM3.BR_NFItemOtherBaseAmount is initial and _TaxICM3.BR_NFItemExcludedBaseAmount is initial and _Lin.TaxIncentiveCode is not initial then cast(_TaxICM3.BR_NFItemTaxAmount as abap.dec(15,3) )
+      //else fltp_to_dec( ( cast(_TaxICM3.BR_NFItemOtherBaseAmount as abap.fltp ) * cast(_IcmsByRegio.Rate as abap.fltp) ) / cast(100 as abap.fltp) as abap.dec(15,3) ) end
+                 else
+                    case 
+                    when _Lin.TaxIncentiveCode is initial then 0
+                    else
+                    fltp_to_dec( ( cast(_Lin.BR_NFTotalAmountWithTaxes as abap.fltp ) * cast(_TaxICM3.BR_NFItemTaxRate as abap.fltp) ) / cast(100 as abap.fltp) as abap.dec(15,3) ) end
+                 end
         else
       //fltp_to_dec( (cast( _Lin.BR_NFValueAmountWithTaxes as abap.fltp ) * cast( _TaxICM3.BR_NFItemTaxRate as abap.fltp ) / cast(100 as abap.fltp) ) as abap.dec(15,2))
-           // cast(_TaxICM3.BR_NFItemTaxAmount as abap.dec(15,3) )
-           fltp_to_dec( ( (cast( _TaxICM3.BR_NFItemBaseAmount as abap.fltp ) + cast(_TaxICM3.BR_NFItemExcludedBaseAmount as abap.fltp ) ) * cast( _TaxICM3.BR_NFItemTaxRate as abap.fltp ) / cast(100 as abap.fltp) ) as abap.dec(15,2))
-       end as ValorICMSsemBenef,
+      // cast(_TaxICM3.BR_NFItemTaxAmount as abap.dec(15,3) )
+            case 
+            when _Lin.TaxIncentiveCode is initial then 0
+            else
+            fltp_to_dec( ( (cast( _TaxICM3.BR_NFItemBaseAmount as abap.fltp ) + cast(_TaxICM3.BR_NFItemExcludedBaseAmount as abap.fltp ) ) * cast( _TaxICM3.BR_NFItemTaxRate as abap.fltp ) / cast(100 as abap.fltp) ) as abap.dec(15,2))
+            end
+       end                                                                                                             as ValorICMSsemBenef,
       //_Lin.BR_ICMSStatisticalExemptionAmt as ValorICMSsemBenef,
       _Lin.InternationalArticleNumber                                                                                  as Gtin,
       _OutboundDelivery.vgbel                                                                                          as DocRem,
@@ -1063,12 +1083,13 @@ define root view entity ZI_SD_REL_FISCAL_SAIDA_APP
       //      cast(_TaxICM3.BR_NFItemBaseAmount as abap.dec(15,2) )                                                                                                            as ValorBaseCalsemBenef,
       //      cast(_Lin.NetValueAmount as abap.dec(15,2) )                                                                                                                     as ValorBaseCalsemBenef,
       cast(  case
-          //when not _TaxICM3.BR_NFItemIsStatisticalTax is initial
-          //  then 0
-          when _TaxICM3.BR_NFItemTaxRate = 0
+      when _Lin.TaxIncentiveCode is not initial //and
+      //  then 0
+      //_TaxICM3.BR_NFItemTaxRate = 0
       //then cast(_Lin.NetValueAmount as abap.dec(15,2) )
             then cast(_TaxICM3.BR_NFItemBaseAmount as abap.dec(15,2) ) + cast(_TaxICM3.BR_NFItemExcludedBaseAmount as abap.dec(15,2) ) + cast(_TaxICM3.BR_NFItemOtherBaseAmount as abap.dec(15,2) )
-            else cast(_TaxICM2.BR_NFItemBaseAmount  as abap.dec(15,2) ) + cast(_TaxICM2.BR_NFItemExcludedBaseAmount as abap.dec(15,2) ) + cast(_TaxICM2.BR_NFItemOtherBaseAmount as abap.dec(15,2) )
+      //else cast(_TaxICM3.BR_NFItemBaseAmount  as abap.dec(15,2) ) + cast(_TaxICM3.BR_NFItemExcludedBaseAmount as abap.dec(15,2) ) + cast(_TaxICM3.BR_NFItemOtherBaseAmount as abap.dec(15,2) )
+            else 0
           end as abap.dec(15,2) )                                                                                      as ValorBaseCalsemBenef,
 
 
@@ -1094,63 +1115,63 @@ define root view entity ZI_SD_REL_FISCAL_SAIDA_APP
       //      when _Lin.NetValueAmount is initial or _Lin.NetValueAmount is null
       //        then 0
       //      else cast(_Lin.NetValueAmount as abap.dec( 15, 2 ) ) end
-////      case
-////      when _Lin.BR_NFTotalAmountWithTaxes is initial or _Lin.BR_NFValueAmountWithTaxes is null
-////        then 0
-////      else cast(_Lin.BR_NFValueAmountWithTaxes as abap.dec( 15, 2 ) ) end
-////      //      + case
-////      //        when _TaxIPI3.BR_NFItemTaxAmount is initial or _TaxIPI3.BR_NFItemTaxAmount is null
-////      //          then 0
-////      //          else cast(_TaxIPI3.BR_NFItemTaxAmount as abap.dec( 15, 2 ) ) end
-////      //      + case
-////      //        when _TaxIPI2.BR_NFItemTaxAmount is initial or _TaxIPI2.BR_NFItemTaxAmount is null
-////      //          then 0
-////      //          else cast(_TaxIPI2.BR_NFItemTaxAmount as abap.dec( 15, 2 ) ) end
-////      //      + case
-////      //        when _TaxIPI1.BR_NFItemTaxAmount is initial or _TaxIPI1.BR_NFItemTaxAmount is null
-////      //          then 0
-////      //          else cast(_TaxIPI1.BR_NFItemTaxAmount as abap.dec( 15, 2 ) ) end
-////      //      + case
-////      //        when _TaxICS3.BR_NFItemTaxAmount is initial or _TaxICS3.BR_NFItemTaxAmount is null
-////      //          then 0
-////      //          else cast(_TaxICS3.BR_NFItemTaxAmount as abap.dec( 15, 2 ) ) end
-////      //      + case
-////      //        when _TaxICS2.BR_NFItemTaxAmount is initial or _TaxICS2.BR_NFItemTaxAmount is null
-////      //          then 0
-////      //          else cast(_TaxICS2.BR_NFItemTaxAmount as abap.dec( 15, 2 ) ) end
-////      //      + case
-////      //        when _TaxICS1.BR_NFItemTaxAmount is initial or _TaxICS1.BR_NFItemTaxAmount is null
-////      //          then 0
-////      //          else cast(_TaxICS1.BR_NFItemTaxAmount as abap.dec( 15, 2 ) ) end
-////      //       + case
-////      //          when _TaxZCS1.taxval is initial or _TaxZCS1.taxval is null
-////      //            then 0
-////      //            else cast(_TaxZCS1.taxval as abap.dec( 15, 2 ) ) end
-////      //       + case
-////      //          when _TaxZPS2.taxval is initial or _TaxZPS2.taxval is null
-////      //            then 0
-////      //            else cast(_TaxZPS2.taxval as abap.dec( 15, 2 ) ) end
-////      + case
-////        when _Lin.BR_NFNetFreightAmount is initial or _Lin.BR_NFNetFreightAmount is null
-////          then 0
-////          else cast(_Lin.BR_NFNetFreightAmount as abap.dec( 15, 2 ) ) end
-////      + case
-////        when _Lin.BR_NFNetInsuranceAmount is initial or _Lin.BR_NFNetInsuranceAmount is null
-////          then 0
-////          else cast(_Lin.BR_NFNetInsuranceAmount as abap.dec( 15, 2 ) ) end
-////      + case
-////        when _Lin.BR_NFNetOtherExpensesAmount is initial or _Lin.BR_NFNetOtherExpensesAmount is null
-////          then 0
-////          else cast(_Lin.BR_NFNetOtherExpensesAmount as abap.dec( 15, 2 ) ) end
-////      + case
-////        when _Lin.BR_NFNetDiscountAmount is initial or _Lin.BR_NFNetDiscountAmount is null
-////          then 0
-////          else _Lin.BR_NFNetDiscountAmount end
-////      - case
-////        when _Lin.BR_NFFreightAmountWithTaxes is initial or _Lin.BR_NFFreightAmountWithTaxes is null
-////          then 0
-//////          else cast( _Lin.BR_NFDiscountAmountWithTaxes as abap.dec(15,2) ) end                                         as ValorsemFrete,
-////          else cast( _Lin.BR_NFFreightAmountWithTaxes as abap.dec(15,2) ) end                                          as ValorsemFrete,
+      ////      case
+      ////      when _Lin.BR_NFTotalAmountWithTaxes is initial or _Lin.BR_NFValueAmountWithTaxes is null
+      ////        then 0
+      ////      else cast(_Lin.BR_NFValueAmountWithTaxes as abap.dec( 15, 2 ) ) end
+      ////      //      + case
+      ////      //        when _TaxIPI3.BR_NFItemTaxAmount is initial or _TaxIPI3.BR_NFItemTaxAmount is null
+      ////      //          then 0
+      ////      //          else cast(_TaxIPI3.BR_NFItemTaxAmount as abap.dec( 15, 2 ) ) end
+      ////      //      + case
+      ////      //        when _TaxIPI2.BR_NFItemTaxAmount is initial or _TaxIPI2.BR_NFItemTaxAmount is null
+      ////      //          then 0
+      ////      //          else cast(_TaxIPI2.BR_NFItemTaxAmount as abap.dec( 15, 2 ) ) end
+      ////      //      + case
+      ////      //        when _TaxIPI1.BR_NFItemTaxAmount is initial or _TaxIPI1.BR_NFItemTaxAmount is null
+      ////      //          then 0
+      ////      //          else cast(_TaxIPI1.BR_NFItemTaxAmount as abap.dec( 15, 2 ) ) end
+      ////      //      + case
+      ////      //        when _TaxICS3.BR_NFItemTaxAmount is initial or _TaxICS3.BR_NFItemTaxAmount is null
+      ////      //          then 0
+      ////      //          else cast(_TaxICS3.BR_NFItemTaxAmount as abap.dec( 15, 2 ) ) end
+      ////      //      + case
+      ////      //        when _TaxICS2.BR_NFItemTaxAmount is initial or _TaxICS2.BR_NFItemTaxAmount is null
+      ////      //          then 0
+      ////      //          else cast(_TaxICS2.BR_NFItemTaxAmount as abap.dec( 15, 2 ) ) end
+      ////      //      + case
+      ////      //        when _TaxICS1.BR_NFItemTaxAmount is initial or _TaxICS1.BR_NFItemTaxAmount is null
+      ////      //          then 0
+      ////      //          else cast(_TaxICS1.BR_NFItemTaxAmount as abap.dec( 15, 2 ) ) end
+      ////      //       + case
+      ////      //          when _TaxZCS1.taxval is initial or _TaxZCS1.taxval is null
+      ////      //            then 0
+      ////      //            else cast(_TaxZCS1.taxval as abap.dec( 15, 2 ) ) end
+      ////      //       + case
+      ////      //          when _TaxZPS2.taxval is initial or _TaxZPS2.taxval is null
+      ////      //            then 0
+      ////      //            else cast(_TaxZPS2.taxval as abap.dec( 15, 2 ) ) end
+      ////      + case
+      ////        when _Lin.BR_NFNetFreightAmount is initial or _Lin.BR_NFNetFreightAmount is null
+      ////          then 0
+      ////          else cast(_Lin.BR_NFNetFreightAmount as abap.dec( 15, 2 ) ) end
+      ////      + case
+      ////        when _Lin.BR_NFNetInsuranceAmount is initial or _Lin.BR_NFNetInsuranceAmount is null
+      ////          then 0
+      ////          else cast(_Lin.BR_NFNetInsuranceAmount as abap.dec( 15, 2 ) ) end
+      ////      + case
+      ////        when _Lin.BR_NFNetOtherExpensesAmount is initial or _Lin.BR_NFNetOtherExpensesAmount is null
+      ////          then 0
+      ////          else cast(_Lin.BR_NFNetOtherExpensesAmount as abap.dec( 15, 2 ) ) end
+      ////      + case
+      ////        when _Lin.BR_NFNetDiscountAmount is initial or _Lin.BR_NFNetDiscountAmount is null
+      ////          then 0
+      ////          else _Lin.BR_NFNetDiscountAmount end
+      ////      - case
+      ////        when _Lin.BR_NFFreightAmountWithTaxes is initial or _Lin.BR_NFFreightAmountWithTaxes is null
+      ////          then 0
+      //////          else cast( _Lin.BR_NFDiscountAmountWithTaxes as abap.dec(15,2) ) end                                         as ValorsemFrete,
+      ////          else cast( _Lin.BR_NFFreightAmountWithTaxes as abap.dec(15,2) ) end                                          as ValorsemFrete,
       case
         when _Lin.BR_NFValueAmountWithTaxes is initial or _Lin.BR_NFValueAmountWithTaxes is null
           then 0

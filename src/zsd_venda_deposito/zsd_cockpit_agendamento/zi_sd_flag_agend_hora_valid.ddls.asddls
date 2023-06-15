@@ -39,7 +39,7 @@ define view entity ZI_SD_FLAG_AGEND_HORA_VALID
       then _HoraAgendaNfe.item
         when _HoraAgendaRemessa.item is not initial
       then  _HoraAgendaRemessa.item
-        else _HoraAgendaOrdem.item
+        else  _HoraAgendaOrdem.item
         end as item,
 
   key
@@ -57,7 +57,7 @@ define view entity ZI_SD_FLAG_AGEND_HORA_VALID
       then _HoraAgendaNfe.nf_e
        when _HoraAgendaRemessa.nf_e is not initial
       then  _HoraAgendaRemessa.nf_e
-       else _HoraAgendaOrdem.nf_e
+       else cast( coalesce(  _HoraAgendaOrdem.nf_e, '' ) as ze_nota_fiscal  )
        end  as nf_e
 
 }

@@ -36,9 +36,13 @@ annotate view ZC_SD_INF_DISTRATO_APP with
          identification:  [ { position: 40, label: 'Número de Série' } ] }
   Serie;
 
-  @UI: { lineItem:        [ { position: 50, label: 'Código Equipamento' } ],
-       identification:  [ { position: 50, label: 'Código Equipamento' } ] }
-  CodigoEquip;
+//  @UI: { lineItem:        [ { position: 50, label: 'Código Equipamento' } ],
+//       identification:  [ { position: 50, label: 'Código Equipamento' } ] }
+//  CodigoEquip;
+
+  @UI: { lineItem:        [ { position: 50, label: 'Material' } ],
+       identification:  [ { position: 50, label: 'Material' } ] }
+  Material;
 
   @UI: { lineItem:        [ { position: 60, label: 'Descrição Equipamento' } ],
        identification:  [ { position: 60, label: 'Descrição Equipamento' } ] }

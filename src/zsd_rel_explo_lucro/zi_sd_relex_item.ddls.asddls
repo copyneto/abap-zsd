@@ -25,7 +25,7 @@ define view entity ZI_SD_RELEX_ITEM
   association [1]    to ZI_SD_RELEX_TAX         as _ImpICMS              on  _NFItem.BR_NotaFiscal     = _ImpICMS.BR_NotaFiscal
                                                                          and _NFItem.BR_NotaFiscalItem = _ImpICMS.BR_NotaFiscalItem
                                                                          and 'ICMS'                    = _ImpICMS.GrupoImposto
-
+                                                                         
   association [1]    to ZI_SD_RELEX_TAX         as _ImpIPI               on  _NFItem.BR_NotaFiscal     = _ImpIPI.BR_NotaFiscal
                                                                          and _NFItem.BR_NotaFiscalItem = _ImpIPI.BR_NotaFiscalItem
                                                                          and 'IPI'                     = _ImpIPI.GrupoImposto
@@ -118,23 +118,23 @@ define view entity ZI_SD_RELEX_ITEM
      end
      +
      case
-     when _ImpIPI.BR_NFItemIsStatisticalTax is not null then cast( 0 as abap.dec(15,2))
      when _ImpIPI.BR_NFItemTaxAmount is null then cast( 0 as abap.dec(15,2))
+     when _ImpIPI.BR_NFItemIsStatisticalTax = 'X' then cast( 0 as abap.dec(15,2)) 
      else cast( _ImpIPI.BR_NFItemTaxAmount as abap.dec(15,2))
      end
      +
      case
-     when _ImpFCP.BR_NFItemIsStatisticalTax is not null then cast( 0 as abap.dec(15,2))
      when _ImpFCP.BR_NFItemTaxAmount is null then cast( 0 as abap.dec(15,2))
+     when _ImpFCP.BR_NFItemIsStatisticalTax = 'X' then cast( 0 as abap.dec(15,2)) 
      else cast( _ImpFCP.BR_NFItemTaxAmount as abap.dec(15,2))
      end
      +
      case
-     when _ImpSUBTRIB.BR_NFItemIsStatisticalTax is not null then cast( 0 as abap.dec(15,2))
-     when _ImpSUBTRIB.BR_NFItemTaxAmount  is null then cast( 0 as abap.dec(15,2))
-     else cast( _ImpSUBTRIB.BR_NFItemTaxAmount  as abap.dec(15,2)) 
+     when _ImpSUBTRIB.BR_NFItemTaxAmount is null then cast( 0 as abap.dec(15,2))
+     when _ImpSUBTRIB.BR_NFItemIsStatisticalTax = 'X' then cast( 0 as abap.dec(15,2)) 
+     else cast( _ImpSUBTRIB.BR_NFItemTaxAmount as abap.dec(15,2))
      end
-     + 
+     +
      case
      when _NFItem.BR_NFNetFreightAmount is null then cast( 0 as abap.dec(15,2))
      else cast(_NFItem.BR_NFNetFreightAmount as abap.dec( 15, 2 ) ) 

@@ -31,6 +31,8 @@ define root view entity ZC_SD_INF_DISTRATO_APP
       OrdemFrete,
       @EndUserText.label: 'NF-e Retorno'
       NFRetorno,
-      Centro
+      Centro,
+      @EndUserText.label: 'Material'
+      Material
 
 }
