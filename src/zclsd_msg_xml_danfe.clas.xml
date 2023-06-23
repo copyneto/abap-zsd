@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<abapGit version="v1.0.0" serializer="LCL_OBJECT_CLAS" serializer_version="v1.0.0">
+ <asx:abap xmlns:asx="http://www.sap.com/abapxml" version="1.0">
+  <asx:values>
+   <VSEOCLASS>
+    <CLSNAME>ZCLSD_MSG_XML_DANFE</CLSNAME>
+    <LANGU>P</LANGU>
+    <DESCRIPT>Mensagens XML e DANFE</DESCRIPT>
+    <STATE>1</STATE>
+    <CLSCCINCL>X</CLSCCINCL>
+    <FIXPT>X</FIXPT>
+    <UNICODE>X</UNICODE>
+   </VSEOCLASS>
+   <DESCRIPTIONS>
+    <SEOCOMPOTX>
+     <CMPNAME>GET_UNIDADE_PRODUTORA_CAFE</CMPNAME>
+     <LANGU>P</LANGU>
+     <DESCRIPT>Mensagem nas Notas fiscais da unidade produtora de Cafés.</DESCRIPT>
+    </SEOCOMPOTX>
+   </DESCRIPTIONS>
+   <DESCRIPTIONS_SUB>
+    <SEOSUBCOTX>
+     <CMPNAME>GET_UNIDADE_PRODUTORA_CAFE</CMPNAME>
+     <SCONAME>RT_TDLINE</SCONAME>
+     <LANGU>P</LANGU>
+     <DESCRIPT>Categoria de tabela para estrutura Tline</DESCRIPT>
+    </SEOSUBCOTX>
+   </DESCRIPTIONS_SUB>
+  </asx:values>
+ </asx:abap>
+</abapGit>

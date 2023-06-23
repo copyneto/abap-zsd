@@ -180,7 +180,7 @@ define root view entity ZI_SD_COCKPIT_APP
           when ( Cockpit.DocnumNfeSaida is initial or Cockpit.DocnumNfeSaida is null ) then 'NF-e Saída pendente'
           when ( _NfeEntrada.Docnum = '0000000000' or _NfeEntrada.Docnum is null ) then 'Documento de entrada pendente'
           when ( Cockpit.StatusCP       is initial or Cockpit.StatusCP is null ) then 'Etapa Financeira pendente'
-            else 'Status do Contrato: Concluído!'
+            else 'Contrato Concluído'
           end                
         ) end as StatusLog,          
 

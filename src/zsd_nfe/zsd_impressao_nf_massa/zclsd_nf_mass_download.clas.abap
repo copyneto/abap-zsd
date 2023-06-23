@@ -491,7 +491,8 @@ CLASS ZCLSD_NF_MASS_DOWNLOAD IMPLEMENTATION.
           ls_documento TYPE ty_documento,
           ls_process   TYPE zsfi_boleto_process.
 
-    DATA: lv_pdf_file	TYPE xstring.
+    DATA: lv_pdf_file	TYPE xstring,
+          lv_key      TYPE ze_key.
 
     CONSTANTS: lc_reftyp TYPE j_1bnflin-reftyp VALUE 'BI'.
 
@@ -537,17 +538,29 @@ CLASS ZCLSD_NF_MASS_DOWNLOAD IMPLEMENTATION.
 
         IF sy-subrc IS INITIAL.
 
+* pferraz 8000008279- App Emissão de Boletos GAP 002 - inicio
+          CLEAR: lv_key.
           LOOP AT lt_boleto ASSIGNING FIELD-SYMBOL(<fs_boleto>).
 
-            APPEND INITIAL LINE TO lt_key ASSIGNING FIELD-SYMBOL(<fs_key>).
-
-            CONCATENATE <fs_boleto>-empresa
+            IF sy-tabix = 1.
+              CONCATENATE <fs_boleto>-empresa
                         <fs_boleto>-documento
                         <fs_boleto>-ano
                         <fs_boleto>-item
-                   INTO <fs_key>.
+                   INTO lv_key.
+            ELSE.
+              CONCATENATE lv_key
+                        ';'
+                        <fs_boleto>-empresa
+                        <fs_boleto>-documento
+                        <fs_boleto>-ano
+                        <fs_boleto>-item
+                   INTO lv_key.
+            ENDIF.
 
           ENDLOOP.
+          APPEND lv_key TO lt_key.
+* pferraz 8000008279- App Emissão de Boletos GAP 002 - Fim
 
           IF lt_key[] IS NOT INITIAL.
 
