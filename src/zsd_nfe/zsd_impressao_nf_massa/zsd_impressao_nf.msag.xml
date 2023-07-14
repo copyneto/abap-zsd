@@ -68,6 +68,12 @@
      <MSGNR>009</MSGNR>
      <TEXT>Download realizado com sucesso!</TEXT>
     </T100>
+    <T100>
+     <SPRSL>P</SPRSL>
+     <ARBGB>ZSD_IMPRESSAO_NF</ARBGB>
+     <MSGNR>010</MSGNR>
+     <TEXT>Doc &amp;1: MDF-e &amp;2 já foi impresso.</TEXT>
+    </T100>
    </T100>
   </asx:values>
  </asx:abap>

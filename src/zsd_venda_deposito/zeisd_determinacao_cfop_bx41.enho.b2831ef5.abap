@@ -17,13 +17,17 @@ TRY.
                            IMPORTING et_range  = lt_auart ).
     IF vbak-auart NOT IN lt_auart.
 
-      DATA(lo_determinacao_cfop) = NEW zclsd_determinacao_cfop( ).
-      DATA(lv_cfop) = lo_determinacao_cfop->determinacao_cfop_bx40_bx41(
-        iv_vbap_posnr  = vbap-posnr
-        iv_xvbap_posnr = xvbap-posnr
-        is_komk        = tkomk
-        it_komv        = xkomv[]
-      ).
+      IF tkomk-wkreg EQ 'PR' AND
+         tkomp-wkreg EQ 'PR'.
+      ELSE.
+        DATA(lo_determinacao_cfop) = NEW zclsd_determinacao_cfop( ).
+        DATA(lv_cfop) = lo_determinacao_cfop->determinacao_cfop_bx40_bx41(
+          iv_vbap_posnr  = vbap-posnr
+          iv_xvbap_posnr = xvbap-posnr
+          is_komk        = tkomk
+          it_komv        = xkomv[]
+        ).
+      ENDIF.
 
       DATA:
          lv_j_1bcfop TYPE j_1bcfop.

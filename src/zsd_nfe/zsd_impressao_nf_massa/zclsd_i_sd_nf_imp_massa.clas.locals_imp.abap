@@ -33,7 +33,7 @@ CLASS lcl_nfs IMPLEMENTATION.
 * ---------------------------------------------------------------------------
 * Imprime cada formulário
 * ---------------------------------------------------------------------------
-    DATA(lo_impressao) = NEW zclsd_nf_mass_download( ).
+    DATA(lo_impressao) = zclsd_nf_mass_download=>get_instance( ).   " CHANGE - JWSILVA - 14.07.2023
 
     LOOP AT keys INTO DATA(ls_keys).               "#EC CI_LOOP_INTO_WA
 

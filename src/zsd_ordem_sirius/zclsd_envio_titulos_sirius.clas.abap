@@ -49,11 +49,11 @@ CLASS zclsd_envio_titulos_sirius DEFINITION
       main.
 
   PROTECTED SECTION.
-  PRIVATE SECTION.
+private section.
 
-    TYPES:
+  types:
       "! Campos dos Títulos que serão exportados ao Sirius
-      BEGIN OF ty_titulo_export,
+    BEGIN OF ty_titulo_export,
         belnr(18),                   " Nº documento (nº título)
         kunnr(10),                   " Nº cliente
         belnr2(10),                  " Nº documento (nº título)
@@ -64,49 +64,52 @@ CLASS zclsd_envio_titulos_sirius DEFINITION
         augdt(10),                   " Data de compensação
         buzei(03),                   " Item
         xblnr      TYPE bsad_view-xblnr,  " Referência
-      END OF ty_titulo_export,
-
+      END OF ty_titulo_export .
+  types:
       "! Categ. tabela Títulos que serão exportados para o Sirius
-      tt_titulo_export TYPE STANDARD TABLE OF ty_titulo_export WITH NON-UNIQUE KEY belnr kunnr belnr2.
+    tt_titulo_export TYPE STANDARD TABLE OF ty_titulo_export WITH NON-UNIQUE KEY belnr kunnr belnr2 .
 
-    DATA:
       "! Ref. ao log SLG1
-      go_log TYPE REF TO zclsd_log_titulos_sirius.
+  data GO_LOG type ref to ZCLSD_LOG_TITULOS_SIRIUS .
 
-    METHODS:
       "! Seleciona títulos do cliente
       "! @parameter rt_result | Títulos dos clientes
-      seleciona_titulos
-        RETURNING VALUE(rt_result) TYPE tt_titulo_export,
-
+  methods SELECIONA_TITULOS
+    returning
+      value(RT_RESULT) type TT_TITULO_EXPORT .
       "! Exporta títulos
-      exporta_titulos,
-
+  methods EXPORTA_TITULOS .
       "! Envia título selecionado ao Sirius via PO
       "! @parameter is_titulo | Título do cliente
       "! @parameter rt_result | Resultado do envio em caso de erro
-      envia_titulo_sirius
-        IMPORTING is_titulo        TYPE ty_titulo_export
-        RETURNING VALUE(rt_result) TYPE bapiret2_tab,
-
+  methods ENVIA_TITULO_SIRIUS
+    importing
+      !IS_TITULO type TY_TITULO_EXPORT
+    returning
+      value(RT_RESULT) type BAPIRET2_TAB .
       "! Determina datas de vencimento
       "! @parameter is_faede    | Determinação de datas de vencimento
       "! @parameter iv_gl_faede | Determ. global de vencimento
       "! @parameter is_bseg     | Segmento Doc. contábil
       "! @parameter is_bkpf     | Cabeçalho Doc. contábil
       "! @parameter rs_result   | Datas de Vencimento atualizadas
-      determine_due_date
-        IMPORTING is_faede         TYPE faede
-                  Iv_GL_FAEDE      TYPE xfeld OPTIONAL
-                  Is_BSEG          TYPE bseg OPTIONAL
-                  Is_BKPF          TYPE bkpf OPTIONAL
-        RETURNING VALUE(rs_result) TYPE faede.
-
+  methods DETERMINE_DUE_DATE
+    importing
+      !IS_FAEDE type FAEDE
+      !IV_GL_FAEDE type XFELD optional
+      !IS_BSEG type BSEG optional
+      !IS_BKPF type BKPF optional
+    returning
+      value(RS_RESULT) type FAEDE .
+  methods HANDLE_SQL_EXCEPTION
+    importing
+      !IS_SQL_EXCEPTION type ref to CX_SQL_EXCEPTION .
 ENDCLASS.
 
 
 
-CLASS zclsd_envio_titulos_sirius IMPLEMENTATION.
+CLASS ZCLSD_ENVIO_TITULOS_SIRIUS IMPLEMENTATION.
+
 
   METHOD main.
 
@@ -120,6 +123,7 @@ CLASS zclsd_envio_titulos_sirius IMPLEMENTATION.
     me->exporta_titulos( ).
 
   ENDMETHOD.
+
 
   METHOD seleciona_titulos.
 
@@ -148,8 +152,8 @@ CLASS zclsd_envio_titulos_sirius IMPLEMENTATION.
             xblnr,
             bschl,
             rebzg,
-            SalesOrganization
-            FROM ZI_SD_TitulosClienteSirius
+            salesorganization
+            FROM zi_sd_titulosclientesirius
             WHERE budat IN @me->gs_selscreen-s_perio
             INTO TABLE @DATA(lt_titulos).
 
@@ -174,7 +178,7 @@ CLASS zclsd_envio_titulos_sirius IMPLEMENTATION.
 
     LOOP AT lt_titulos ASSIGNING FIELD-SYMBOL(<fs_titulos>).
 
-      IF <fs_titulos>-SalesOrganization IS INITIAL.
+      IF <fs_titulos>-salesorganization IS INITIAL.
         CONTINUE.
       ENDIF.
 
@@ -238,24 +242,70 @@ CLASS zclsd_envio_titulos_sirius IMPLEMENTATION.
 
     ENDIF.
 
+    SORT lt_titulos_export.
+    DELETE ADJACENT DUPLICATES FROM lt_titulos_export COMPARING ALL FIELDS.
+
     rt_result = lt_titulos_export.
 
   ENDMETHOD.
+
 
   METHOD constructor.
     me->gs_selscreen = is_selscreen.
   ENDMETHOD.
 
+
   METHOD exporta_titulos.
 
-    DATA:
-      lt_return TYPE bapiret2_tab.
+    DATA lt_return TYPE bapiret2_tab.
+
+    DATA lv_item TYPE i.
 
     DATA(lt_titulos) = me->seleciona_titulos( ).
 
     IF lt_titulos IS INITIAL.
       RETURN.
     ENDIF.
+
+***--> CONECTA COM O BANCO DE DADOS EXTERNO.
+**    EXEC SQL.
+**      CONNECT TO 'PSIRIUS2' AS 'A'
+**    ENDEXEC.
+**
+**    LOOP AT lt_titulos ASSIGNING FIELD-SYMBOL(<fs_titulos>).
+**      lv_item = <fs_titulos>-buzei.
+**      TRY.
+**          EXEC SQL.
+**            UPDATE TITULO SET DATACOMPENSACAO = :<fs_titulos>-AUGDT, DATACONTROLE = GETDATE()
+**                                                           WHERE CODIGO = :<fs_titulos>-BELNR AND
+**                                                                 ITEM   = :LV_ITEM AND
+**                                                                 DATACOMPENSACAO IS NULL
+**          ENDEXEC.
+**        CATCH cx_sy_native_sql_error INTO DATA(lo_exc_ref).
+**          EXEC SQL.
+**            ROLLBACK CONNECTION 'A'
+**            SET CONNECTION DEFAULT
+**            DISCONNECT 'A'
+**          ENDEXEC.
+**          DATA(lv_error_text) = lo_exc_ref->get_text( ).
+**          MESSAGE e000(zsd_ordem_sirius) WITH lv_error_text.
+**        CATCH cx_sql_exception INTO DATA(lo_sqlerr_ref).
+**          handle_sql_exception( lo_sqlerr_ref  ).
+**      ENDTRY.
+**
+**    ENDLOOP.
+**
+**    COMMIT WORK.
+**
+***--> DESCONECTAR.
+**    EXEC SQL.
+**      DISCONNECT 'A'
+**    ENDEXEC.
+**
+***--> VOLTA PARA OS ACESSOS AO BD DEFAULT DO R3.
+**    EXEC SQL.
+**      SET CONNECTION DEFAULT
+**    ENDEXEC.
 
     lt_return = VALUE #( FOR ls_titulo IN lt_titulos
                               FOR ls_return IN me->envia_titulo_sirius( ls_titulo )
@@ -287,7 +337,7 @@ CLASS zclsd_envio_titulos_sirius IMPLEMENTATION.
 
     CALL FUNCTION 'BAPI_TRANSACTION_COMMIT'
       EXPORTING
-        wait = abap_True.
+        wait = abap_true.
 
   ENDMETHOD.
 
@@ -349,6 +399,7 @@ CLASS zclsd_envio_titulos_sirius IMPLEMENTATION.
 
 
   ENDMETHOD.
+
 
   METHOD determine_due_date.
 * A lógica é baseada na função standard DETERMINE_DUE_DATE
@@ -416,4 +467,20 @@ CLASS zclsd_envio_titulos_sirius IMPLEMENTATION.
 
   ENDMETHOD.
 
+
+  METHOD handle_sql_exception.
+
+    FORMAT COLOR COL_NEGATIVE.
+    IF is_sql_exception->db_error = 'X'.
+      WRITE: / 'SQL error occured:', is_sql_exception->sql_code,
+             / is_sql_exception->sql_message.               "#EC NOTEXT
+    ELSE.
+      WRITE:
+        / 'Error from DBI (details in dev-trace):',
+          is_sql_exception->internal_error.                 "#EC NOTEXT
+    ENDIF.
+
+    MESSAGE e000(zsd_ordem_sirius) WITH 'ERRO'.
+
+  ENDMETHOD.
 ENDCLASS.

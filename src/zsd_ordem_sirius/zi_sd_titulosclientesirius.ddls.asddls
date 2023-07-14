@@ -44,8 +44,8 @@ define view entity ZI_SD_TitulosClienteSirius
 
 where
   (
-        saknr                            <> '1120101004'
-    and saknr                            <> '1120101009'
+        saknr                            <> '1130000012'
+    and saknr                            <> '1130000010'
   )
   and(
         bstat                            <> 'M'

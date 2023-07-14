@@ -1,26 +1,37 @@
-class ZCLSD_NF_MASS_DOWNLOAD definition
-  public
-  final
-  create public .
+CLASS zclsd_nf_mass_download DEFINITION
+  PUBLIC
+  FINAL
+  CREATE PUBLIC .
 
-public section.
+  PUBLIC SECTION.
 
-  data GV_PDF_FILE type XSTRING .
-  data GT_RETURN type BAPIRET2_T .
-  data GT_OTF type TSFOTF .
+    DATA: gt_mdfe_printed TYPE SORTED TABLE OF zttm_mdf-mdfenum
+                          WITH UNIQUE KEY table_line.
+
+    DATA gv_pdf_file TYPE xstring .
+    DATA gt_return TYPE bapiret2_t .
+    DATA gt_otf TYPE tsfotf.
+
+    CLASS-DATA go_instance TYPE REF TO zclsd_nf_mass_download.
+
+    CLASS-METHODS:
+      "! Cria instancia
+      get_instance
+        RETURNING
+          VALUE(ro_instance) TYPE REF TO zclsd_nf_mass_download.
 
     "! Responsável por imprimir o formulário
     "! @parameter iv_docnum | Nº Documento NF
     "! @parameter iv_doctype | Tipo de documento (NFE,CCE,BOLETO,MDFE)
     "! @parameter is_parameters | Parâmetros
     "! @parameter et_return | Mensagens de retorno
-  methods IMPRIME_PDF
-    importing
-      !IV_DOCNUM type ANY
-      !IV_DOCTYPE type ANY
-      !IS_PARAMETERS type ZC_SD_NF_IMP_MASSA_PRINTER
-    exporting
-      !ET_RETURN type BAPIRET2_T .
+    METHODS imprime_pdf
+      IMPORTING
+        !iv_docnum     TYPE any
+        !iv_doctype    TYPE any
+        !is_parameters TYPE zc_sd_nf_imp_massa_printer
+      EXPORTING
+        !et_return     TYPE bapiret2_t .
     "! Responsável por gerenciar o tipo de documento solicitado
     "! @parameter iv_docnum | Nº Documento NF
     "! @parameter iv_doctype | Tipo de documento (NFE,CCE,BOLETO,MDFE)
@@ -31,19 +42,30 @@ public section.
     "! @parameter ev_file | Binário do arquivo
     "! @parameter ev_doctype_txt | Descriçãodo tipo escolhido
     "! @parameter et_return | Mensagens de retorno
-  methods GERA_PDF
-    importing
-      !IV_DOCNUM type ANY
-      !IV_DOCTYPE type ANY
-      !IV_PRINTER type RSPOPNAME optional
-    exporting
-      !ET_PDF type TLINE_T
-      !ET_OTF type TSFOTF
-      !EV_FILENAME type STRING
-      !EV_FILESIZE type INT4
-      !EV_FILE type XSTRING
-      !EV_DOCTYPE_TXT type STRING
-      !ET_RETURN type BAPIRET2_T .
+    METHODS gera_pdf
+      IMPORTING
+        !iv_docnum      TYPE any
+        !iv_doctype     TYPE any
+        !iv_printer     TYPE rspopname OPTIONAL
+      EXPORTING
+        !et_pdf         TYPE tline_t
+        !et_otf         TYPE tsfotf
+        !ev_filename    TYPE string
+        !ev_filesize    TYPE int4
+        !ev_file        TYPE xstring
+        !ev_doctype_txt TYPE string
+        !et_return      TYPE bapiret2_t .
+
+    "! Responsável por verificar se NF já foi impressa em outra MDF-e
+    METHODS verifica_mdfe_impressa
+      IMPORTING
+        !iv_docnum       TYPE j_1bdocnum
+        !iv_mdfenum      TYPE zttm_mdf-mdfenum
+      EXPORTING
+        !et_return       TYPE bapiret2_t
+      RETURNING
+        VALUE(rt_return) TYPE bapiret2_t.
+
     "! Recupera o formulário NFE do documento solicitado
     "! @parameter iv_docnum | Nº Documento NF
     "! @parameter et_pdf | Tabela de valores
@@ -51,16 +73,16 @@ public section.
     "! @parameter ev_filesize | Tamanho do arquivo
     "! @parameter ev_file | Binário do arquivo
     "! @parameter et_return | Mensagens de retorno
-  methods GERA_PDF_NFE
-    importing
-      !IV_DOCNUM type J_1BDOCNUM
-      !IV_PRINTER type RSPOPNAME
-    exporting
-      !ET_PDF type TLINE_T
-      !ET_OTF type TSFOTF
-      !EV_FILESIZE type INT4
-      !EV_FILE type XSTRING
-      !ET_RETURN type BAPIRET2_T .
+    METHODS gera_pdf_nfe
+      IMPORTING
+        !iv_docnum   TYPE j_1bdocnum
+        !iv_printer  TYPE rspopname
+      EXPORTING
+        !et_pdf      TYPE tline_t
+        !et_otf      TYPE tsfotf
+        !ev_filesize TYPE int4
+        !ev_file     TYPE xstring
+        !et_return   TYPE bapiret2_t .
     "! Recupera o formulário CCE do documento solicitado
     "! @parameter iv_docnum | Nº Documento NF
     "! @parameter et_pdf | Tabela de valores
@@ -68,16 +90,16 @@ public section.
     "! @parameter ev_filesize | Tamanho do arquivo
     "! @parameter ev_file | Binário do arquivo
     "! @parameter et_return | Mensagens de retorno
-  methods GERA_PDF_CCE
-    importing
-      !IV_DOCNUM type J_1BDOCNUM
-      !IV_PRINTER type RSPOPNAME
-    exporting
-      !ET_PDF type TLINE_T
-      !ET_OTF type TSFOTF
-      !EV_FILESIZE type INT4
-      !EV_FILE type XSTRING
-      !ET_RETURN type BAPIRET2_T .
+    METHODS gera_pdf_cce
+      IMPORTING
+        !iv_docnum   TYPE j_1bdocnum
+        !iv_printer  TYPE rspopname
+      EXPORTING
+        !et_pdf      TYPE tline_t
+        !et_otf      TYPE tsfotf
+        !ev_filesize TYPE int4
+        !ev_file     TYPE xstring
+        !et_return   TYPE bapiret2_t .
     "! Recupera o BOLET do documento solicitado
     "! @parameter iv_docnum | Nº Documento NF
     "! @parameter et_pdf | Tabela de valores
@@ -85,16 +107,16 @@ public section.
     "! @parameter ev_filesize | Tamanho do arquivo
     "! @parameter ev_file | Binário do arquivo
     "! @parameter et_return | Mensagens de retorno
-  methods GERA_PDF_BOLETO
-    importing
-      !IV_DOCNUM type J_1BDOCNUM
-      !IV_PRINTER type RSPOPNAME
-    exporting
-      !ET_PDF type TLINE_T
-      !ET_OTF type TSFOTF
-      !EV_FILESIZE type INT4
-      !EV_FILE type XSTRING
-      !ET_RETURN type BAPIRET2_T .
+    METHODS gera_pdf_boleto
+      IMPORTING
+        !iv_docnum   TYPE j_1bdocnum
+        !iv_printer  TYPE rspopname
+      EXPORTING
+        !et_pdf      TYPE tline_t
+        !et_otf      TYPE tsfotf
+        !ev_filesize TYPE int4
+        !ev_file     TYPE xstring
+        !et_return   TYPE bapiret2_t .
     "! Recupera o formulário MDF-E do documento solicitado
     "! @parameter iv_docnum | Nº Documento NF
     "! @parameter et_lines | Tabela de valores
@@ -102,41 +124,45 @@ public section.
     "! @parameter ev_filesize | Tamanho do arquivo
     "! @parameter ev_file | Binário do arquivo
     "! @parameter et_return | Mensagens de retorno
-  methods GERA_PDF_MDFE
-    importing
-      !IV_DOCNUM type J_1BDOCNUM
-      !IV_PRINTER type RSPOPNAME
-    exporting
-      !ET_LINES type TLINE_T
-      !ET_OTF type TSFOTF
-      !EV_FILESIZE type INT4
-      !EV_FILE type XSTRING
-      !ET_RETURN type BAPIRET2_T .
+    "! @parameter cv_filename | Nome do arquivo
+    METHODS gera_pdf_mdfe
+      IMPORTING
+        !iv_docnum      TYPE j_1bdocnum
+        !iv_printer     TYPE rspopname
+        !iv_doctype_txt TYPE string
+      EXPORTING
+        !et_lines       TYPE tline_t
+        !et_otf         TYPE tsfotf
+        !ev_filesize    TYPE int4
+        !ev_file        TYPE xstring
+        !et_return      TYPE bapiret2_t
+      CHANGING
+        !cv_filename    TYPE string.
     "! Método executado após chamada da função background
     "! @parameter p_task | Parametro obrigatório do método
-  methods TASK_FINISH
-    importing
-      !P_TASK type CLIKE .
-      "! Adiciona mensagens
-      "! @parameter io_context |Objeto com o conteudo
-      "! @parameter it_return  |Tabela com as mensagens
-      "! @parameter ro_message_container | Retorna objeto preecnhido
-  methods ADD_MESSAGE_TO_CONTAINER
-    importing
-      !IO_CONTEXT type ref to /IWBEP/IF_MGW_CONTEXT
-      !IT_RETURN type BAPIRET2_T optional
-    returning
-      value(RO_MESSAGE_CONTAINER) type ref to /IWBEP/IF_MESSAGE_CONTAINER .
-  methods SET_FILTER_STR
-    importing
-      !IV_FILTER_STRING type STRING
-    exporting
-      !ET_FILTER_SELECT_OPTIONS type /IWBEP/T_MGW_SELECT_OPTION .
-      "! Preenche mensagens
-      "! @parameter rv_message |Retorna mensagens
-  methods FILL_MESSAGE
-    returning
-      value(RV_MESSAGE) type BAPI_MSG .
+    METHODS task_finish
+      IMPORTING
+        !p_task TYPE clike .
+    "! Adiciona mensagens
+    "! @parameter io_context |Objeto com o conteudo
+    "! @parameter it_return  |Tabela com as mensagens
+    "! @parameter ro_message_container | Retorna objeto preecnhido
+    METHODS add_message_to_container
+      IMPORTING
+        !io_context                 TYPE REF TO /iwbep/if_mgw_context
+        !it_return                  TYPE bapiret2_t OPTIONAL
+      RETURNING
+        VALUE(ro_message_container) TYPE REF TO /iwbep/if_message_container .
+    METHODS set_filter_str
+      IMPORTING
+        !iv_filter_string         TYPE string
+      EXPORTING
+        !et_filter_select_options TYPE /iwbep/t_mgw_select_option .
+    "! Preenche mensagens
+    "! @parameter rv_message |Retorna mensagens
+    METHODS fill_message
+      RETURNING
+        VALUE(rv_message) TYPE bapi_msg .
   PROTECTED SECTION.
   PRIVATE SECTION.
 
@@ -145,7 +171,18 @@ ENDCLASS.
 
 
 
-CLASS ZCLSD_NF_MASS_DOWNLOAD IMPLEMENTATION.
+CLASS zclsd_nf_mass_download IMPLEMENTATION.
+
+
+  METHOD get_instance.
+
+    IF ( go_instance IS INITIAL ).
+      go_instance = NEW zclsd_nf_mass_download( ).
+    ENDIF.
+
+    ro_instance = go_instance.
+
+  ENDMETHOD.
 
 
   METHOD imprime_pdf.
@@ -366,13 +403,15 @@ CLASS ZCLSD_NF_MASS_DOWNLOAD IMPLEMENTATION.
 
       WHEN gc_doctype-mdfe.
 
-        me->gera_pdf_mdfe( EXPORTING iv_docnum   = lv_docnum
-                                     iv_printer  = iv_printer
-                              IMPORTING et_lines    = et_pdf
-                                        et_otf      = et_otf
-                                        ev_filesize = ev_filesize
-                                        ev_file     = ev_file
-                                        et_return   = lt_return ).
+        me->gera_pdf_mdfe( EXPORTING iv_docnum      = lv_docnum
+                                     iv_printer     = iv_printer
+                                     iv_doctype_txt = ev_doctype_txt    " INSERT - JWSILVA - 14.07.2023
+                           IMPORTING et_lines       = et_pdf
+                                     et_otf         = et_otf
+                                     ev_filesize    = ev_filesize
+                                     ev_file        = ev_file
+                                     et_return      = lt_return
+                           CHANGING  cv_filename    = ev_filename ).    " INSERT - JWSILVA - 14.07.2023
     ENDCASE.
 
 
@@ -405,6 +444,28 @@ CLASS ZCLSD_NF_MASS_DOWNLOAD IMPLEMENTATION.
 ***                                               message_v2 = ev_doctype_txt ) ).
 
 ***    ENDIF.
+
+  ENDMETHOD.
+
+
+  METHOD verifica_mdfe_impressa.
+
+    FREE: et_return.
+
+    READ TABLE gt_mdfe_printed TRANSPORTING NO FIELDS WITH TABLE KEY table_line = iv_mdfenum.
+
+    IF sy-subrc EQ 0.
+      " Doc &1: MDF-e &2 já foi impresso.
+      et_return[] =  VALUE #( BASE et_return ( type       = gc_msg_warnig
+                                               id         = gc_msg_class
+                                               number     = gc_msg_mdfe_ja_impresso
+                                               message_v1 = iv_docnum
+                                               message_v2 = iv_mdfenum ) ).
+      rt_return[] = et_return[].
+      RETURN.
+    ENDIF.
+
+    INSERT iv_mdfenum INTO TABLE gt_mdfe_printed.
 
   ENDMETHOD.
 
@@ -712,78 +773,54 @@ CLASS ZCLSD_NF_MASS_DOWNLOAD IMPLEMENTATION.
           ev_file,
           et_return.
 
-    SELECT SINGLE a~guid, a~statuscode, a~statustext
+    SELECT SINGLE a~guid, a~BR_MDFeNumber, a~statuscode, a~statustext
       FROM zi_tm_mdf AS a
       INNER JOIN zi_tm_mdf_municipio AS b ON a~guid = b~guid
       WHERE b~br_notafiscal EQ @iv_docnum
       INTO @DATA(ls_nfe_data).
-    IF sy-subrc EQ 0.
-      IF ls_nfe_data-statuscode EQ '100'.
-        DATA(lo_pdf) = zcltm_monitor_mdf=>get_instance( ).
-        APPEND VALUE #( guid = ls_nfe_data-guid ) TO lt_id.
-        lo_pdf->print_pdf( EXPORTING it_id       = lt_id
-                                     iv_printer  = iv_printer
-                           IMPORTING ev_pdf_file = ev_file
-                                     et_return   = et_return ).
-      ELSE.
-        et_return[] =  VALUE #( BASE et_return ( type       = gc_msg_warnig
-                                                 id         = gc_msg_class
-                                                 number     = gc_msg_nt_auth
-                                                 message_v1 = iv_docnum
-                                                 message_v2 = ls_nfe_data-statustext ) ).
-      ENDIF.
-    ELSE.
+
+    IF sy-subrc NE 0.
+      " Doc &1: MDF-e inexistente.
       et_return[] =  VALUE #( BASE et_return ( type       = gc_msg_warnig
                                                id         = gc_msg_class
                                                number     = gc_msg_mdfe_nf
                                                message_v1 = iv_docnum ) ).
+      RETURN.
     ENDIF.
 
+    IF ls_nfe_data-statuscode NE '100'.
+      " Doc &1: MDF-e - &2
+      et_return[] =  VALUE #( BASE et_return ( type       = gc_msg_warnig
+                                               id         = gc_msg_class
+                                               number     = gc_msg_nt_auth
+                                               message_v1 = iv_docnum
+                                               message_v2 = ls_nfe_data-statustext ) ).
+      RETURN.
+    ENDIF.
 
-***    CONSTANTS: lc_mdfe TYPE j_1bnfdoc-model VALUE '58'.
-***
-***    FREE: et_lines[],
-***          ev_filesize,
-***          ev_file,
-***          et_return.
-***
-***    SELECT SINGLE code
-***      FROM j_1bnfdoc
-***     WHERE docnum = @iv_docnum
-***       AND model  = @lc_mdfe
-***      INTO @DATA(lv_code).
-***
-***    IF lv_code EQ 100.
-***
-***      CALL FUNCTION 'ZFMSD_GET_MDFE_PDF'
-***        EXPORTING
-***          iv_docnum            = iv_docnum
-***          iv_printer           = iv_printer
-***        IMPORTING
-***          ev_file              = ev_file
-***          ev_filesize          = ev_filesize
-***          et_lines             = et_lines
-***        TABLES
-***          et_otf               = et_otf
-***        EXCEPTIONS
-***          erro_get_form        = 1
-***          conversion_exception = 2
-***          not_authorized       = 3
-***          OTHERS               = 4.
-***
-***      IF sy-subrc <> 0.
-***    et_return[] =  VALUE #( BASE et_return ( type       = gc_msg_warnig
-***                                             id         = gc_msg_class
-***                                             number     = gc_msg_mdfe_nf
-***                                             message_v1 = iv_docnum ) ).
-***      ENDIF.
-***
-***    ELSE.
-***      et_return[] =  VALUE #( BASE et_return ( type       = gc_msg_error
-***                                               id         = gc_msg_class
-***                                               number     = gc_msg_nt_auth
-***                                               message_v1 = iv_docnum ) ).
-***    ENDIF.
+* BEGIN OF INSERT - JWSILVA - 14.07.2023
+* ----------------------------------------------------------------------
+* Verifica se a MDF-e já foi impressa por outra NF na fila
+* ----------------------------------------------------------------------
+    et_return = me->verifica_mdfe_impressa( EXPORTING iv_docnum  = iv_docnum
+                                                      iv_mdfenum = ls_nfe_data-BR_MDFeNumber ).
+
+    IF et_return IS NOT INITIAL.
+      RETURN.
+    ENDIF.
+
+    " Muda nome do arquivo
+    cv_filename = |{ ls_nfe_data-BR_MDFeNumber }_{ iv_doctype_txt }_{ sy-datum }{ sy-uzeit }.pdf|.
+* END OF INSERT - JWSILVA - 14.07.2023
+
+
+    DATA(lo_pdf) = zcltm_monitor_mdf=>get_instance( ).
+    APPEND VALUE #( guid = ls_nfe_data-guid ) TO lt_id.
+
+    lo_pdf->print_pdf( EXPORTING it_id       = lt_id
+                                 iv_printer  = iv_printer
+                       IMPORTING ev_pdf_file = ev_file
+                                 et_return   = et_return ).
 
   ENDMETHOD.
 

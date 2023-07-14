@@ -37,6 +37,14 @@
      <LENGTH>25</LENGTH>
     </item>
    </TPOOL>
+   <DESCRIPTIONS_SUB>
+    <SEOSUBCOTX>
+     <CMPNAME>HANDLE_SQL_EXCEPTION</CMPNAME>
+     <SCONAME>IS_SQL_EXCEPTION</SCONAME>
+     <LANGU>P</LANGU>
+     <DESCRIPT>Exception Class for SQL Error</DESCRIPT>
+    </SEOSUBCOTX>
+   </DESCRIPTIONS_SUB>
   </asx:values>
  </asx:abap>
 </abapGit>

@@ -93,7 +93,7 @@
                           lv_bln_int_transf_e = abap_true.
                         ENDIF.
 
-                        lv_werks_e = ls_transf-werks_receptor.
+                        lv_werks_r = ls_transf-werks_receptor.
 
                       ENDIF.
 
@@ -147,7 +147,7 @@
               SELECT SINGLE j_1bbranch
                 FROM t001w
                 INTO @DATA(lv_branch)
-                WHERE ( werks EQ @lv_werks_e OR werks EQ @lv_werks_r ).
+                WHERE werks EQ @lv_werks_r.
 
               IF sy-subrc EQ 0.
                 CALL FUNCTION 'J_1BREAD_BRANCH_DATA'
