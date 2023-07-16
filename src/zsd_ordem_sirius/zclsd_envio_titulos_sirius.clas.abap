@@ -101,9 +101,6 @@ private section.
       !IS_BKPF type BKPF optional
     returning
       value(RS_RESULT) type FAEDE .
-  methods HANDLE_SQL_EXCEPTION
-    importing
-      !IS_SQL_EXCEPTION type ref to CX_SQL_EXCEPTION .
 ENDCLASS.
 
 
@@ -267,46 +264,6 @@ CLASS ZCLSD_ENVIO_TITULOS_SIRIUS IMPLEMENTATION.
       RETURN.
     ENDIF.
 
-***--> CONECTA COM O BANCO DE DADOS EXTERNO.
-**    EXEC SQL.
-**      CONNECT TO 'PSIRIUS2' AS 'A'
-**    ENDEXEC.
-**
-**    LOOP AT lt_titulos ASSIGNING FIELD-SYMBOL(<fs_titulos>).
-**      lv_item = <fs_titulos>-buzei.
-**      TRY.
-**          EXEC SQL.
-**            UPDATE TITULO SET DATACOMPENSACAO = :<fs_titulos>-AUGDT, DATACONTROLE = GETDATE()
-**                                                           WHERE CODIGO = :<fs_titulos>-BELNR AND
-**                                                                 ITEM   = :LV_ITEM AND
-**                                                                 DATACOMPENSACAO IS NULL
-**          ENDEXEC.
-**        CATCH cx_sy_native_sql_error INTO DATA(lo_exc_ref).
-**          EXEC SQL.
-**            ROLLBACK CONNECTION 'A'
-**            SET CONNECTION DEFAULT
-**            DISCONNECT 'A'
-**          ENDEXEC.
-**          DATA(lv_error_text) = lo_exc_ref->get_text( ).
-**          MESSAGE e000(zsd_ordem_sirius) WITH lv_error_text.
-**        CATCH cx_sql_exception INTO DATA(lo_sqlerr_ref).
-**          handle_sql_exception( lo_sqlerr_ref  ).
-**      ENDTRY.
-**
-**    ENDLOOP.
-**
-**    COMMIT WORK.
-**
-***--> DESCONECTAR.
-**    EXEC SQL.
-**      DISCONNECT 'A'
-**    ENDEXEC.
-**
-***--> VOLTA PARA OS ACESSOS AO BD DEFAULT DO R3.
-**    EXEC SQL.
-**      SET CONNECTION DEFAULT
-**    ENDEXEC.
-
     lt_return = VALUE #( FOR ls_titulo IN lt_titulos
                               FOR ls_return IN me->envia_titulo_sirius( ls_titulo )
                               ( id         = ls_return-id
@@ -464,23 +421,6 @@ CLASS ZCLSD_ENVIO_TITULOS_SIRIUS IMPLEMENTATION.
     ENDIF.
 
     rs_result = ls_FAEDE.
-
-  ENDMETHOD.
-
-
-  METHOD handle_sql_exception.
-
-    FORMAT COLOR COL_NEGATIVE.
-    IF is_sql_exception->db_error = 'X'.
-      WRITE: / 'SQL error occured:', is_sql_exception->sql_code,
-             / is_sql_exception->sql_message.               "#EC NOTEXT
-    ELSE.
-      WRITE:
-        / 'Error from DBI (details in dev-trace):',
-          is_sql_exception->internal_error.                 "#EC NOTEXT
-    ENDIF.
-
-    MESSAGE e000(zsd_ordem_sirius) WITH 'ERRO'.
 
   ENDMETHOD.
 ENDCLASS.
