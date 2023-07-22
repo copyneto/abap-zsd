@@ -2,47 +2,47 @@
 "! Autor: Carlos Adriano Garcia
 "! <br>Data: 03/09/2021
 "!
-class ZCLSD_AUTOM_CONTRATO_DISTRATO definition
-  public
-  final
-  create public .
+CLASS zclsd_autom_contrato_distrato DEFINITION
+  PUBLIC
+  FINAL
+  CREATE PUBLIC .
 
-public section.
+  PUBLIC SECTION.
 
-      "! <p class="shorttext synchronized">Executar contrato distrato</p>
-      "! @parameter iv_erdat  | <p class="shorttext synchronized">Data de criação do registro</p>
-      "! @parameter iv_werks  | <p class="shorttext synchronized">Centro</p>
-      "! @parameter iv_auart  | <p class="shorttext synchronized">Tipo de documento de vendas</p>
-      "! @parameter iv_vbeln  | <p class="shorttext synchronized">Documento de vendas</p>
-      "! @parameter rv_BALLOGHNDL  | <p class="shorttext synchronized">Documento de vendas</p>
-  methods EXECUTAR
-    importing
-      !IV_ERDAT type VBAK-ERDAT
-      !IV_WERKS type VBAP-WERKS
-      !IV_AUART type VBAK-AUART
-      !IV_VBELN type VBAK-VBELN
-      !IV_VTWEG type VBAK-VTWEG
-    exporting
-      !EV_NEW_SALESDOC type VBELN_VA
-    returning
-      value(RV_BALLOGHNDL) type BALLOGHNDL .
-  methods SERNR_UPDATE
-    importing
-      !IS_KEY type ZSSD_KEY_UPDT_SERNR .
-  methods CALL_SHDB_SERNR
-    importing
-      !IV_VBELN type BAPIVBELN-VBELN
-      !IV_LINES type I .
+    "! <p class="shorttext synchronized">Executar contrato distrato</p>
+    "! @parameter iv_erdat  | <p class="shorttext synchronized">Data de criação do registro</p>
+    "! @parameter iv_werks  | <p class="shorttext synchronized">Centro</p>
+    "! @parameter iv_auart  | <p class="shorttext synchronized">Tipo de documento de vendas</p>
+    "! @parameter iv_vbeln  | <p class="shorttext synchronized">Documento de vendas</p>
+    "! @parameter rv_BALLOGHNDL  | <p class="shorttext synchronized">Documento de vendas</p>
+    METHODS executar
+      IMPORTING
+        !iv_erdat            TYPE vbak-erdat
+        !iv_werks            TYPE vbap-werks
+        !iv_auart            TYPE vbak-auart
+        !iv_vbeln            TYPE vbak-vbeln
+        !iv_vtweg            TYPE vbak-vtweg
+      EXPORTING
+        !ev_new_salesdoc     TYPE vbeln_va
+      RETURNING
+        VALUE(rv_balloghndl) TYPE balloghndl .
+    METHODS sernr_update
+      IMPORTING
+        !is_key TYPE zssd_key_updt_sernr .
+    METHODS call_shdb_sernr
+      IMPORTING
+        !iv_vbeln TYPE bapivbeln-vbeln
+        !iv_lines TYPE i .
   PROTECTED SECTION.
-private section.
+  PRIVATE SECTION.
 
-  types:
-        "! <p class="shorttext synchronized">Tipo range de documento de vendas</p>
-    tt_auart TYPE RANGE OF vbak-auart .
+    TYPES:
+          "! <p class="shorttext synchronized">Tipo range de documento de vendas</p>
+      tt_auart TYPE RANGE OF vbak-auart .
 
-  constants:
+    CONSTANTS:
       "! <p class="shorttext synchronized">Constantes da tabela de Parâmetros</p>
-    BEGIN OF gc_param,
+      BEGIN OF gc_param,
         modulo     TYPE ztca_param_par-modulo VALUE 'SD',
         key1       TYPE ztca_param_par-chave1 VALUE 'CONTRATOS FOOD',
         key2       TYPE ztca_param_par-chave2 VALUE 'TIPOS DE CONTRATO',
@@ -56,63 +56,65 @@ private section.
         msg_class  TYPE arbgb                 VALUE 'ZSD_AUTO_CONT_DIS',
       END OF gc_param .
     "! <p class="shorttext synchronized">Constante categoria de documento = Ordem</p>
-  constants GC_VBTYP_N type VBTYP_N value 'C' ##NO_TEXT.
-  constants GC_GOODSMVT_CODE type BAPI2017_GM_CODE value '05' ##NO_TEXT.
-  data GT_MSG_LOG type BAL_T_MSG .
+    CONSTANTS gc_vbtyp_n TYPE vbtyp_n VALUE 'C' ##NO_TEXT.
+    CONSTANTS gc_goodsmvt_code TYPE bapi2017_gm_code VALUE '05' ##NO_TEXT.
+    DATA gt_msg_log TYPE bal_t_msg .
 
     "! <p class="shorttext synchronized">Busca parâmetros</p>
     "! @parameter iv_key1  | <p class="shorttext synchronized">Parâmetro chave 1</p>
     "! @parameter iv_key2  | <p class="shorttext synchronized">Parâmetro chave 2</p>
     "! @parameter iv_key3  | <p class="shorttext synchronized">Parâmetro chave 3</p>
     "! @parameter ev_param | <p class="shorttext synchronized">Parâmetro tipo</p>
-  methods GET_PARAM
-    importing
-      !IV_KEY1 type ZTCA_PARAM_PAR-CHAVE1
-      !IV_KEY2 type ZTCA_PARAM_PAR-CHAVE2
-      !IV_KEY3 type ZTCA_PARAM_PAR-CHAVE3
-    exporting
-      !EV_PARAM type ANY .
+    METHODS get_param
+      IMPORTING
+        !iv_key1  TYPE ztca_param_par-chave1
+        !iv_key2  TYPE ztca_param_par-chave2
+        !iv_key3  TYPE ztca_param_par-chave3
+      EXPORTING
+        !ev_param TYPE any .
     "! <p class="shorttext synchronized">Busca parâmetros range</p>
     "! @parameter iv_key1  | <p class="shorttext synchronized">Parâmetro chave 1</p>
     "! @parameter iv_key2  | <p class="shorttext synchronized">Parâmetro chave 2</p>
     "! @parameter rt_auart | <p class="shorttext synchronized">Parâmetro range</p>
-  methods GET_PARAM_RANGE
-    importing
-      !IV_KEY1 type ZTCA_PARAM_PAR-CHAVE1
-      !IV_KEY2 type ZTCA_PARAM_PAR-CHAVE2
-    returning
-      value(RT_AUART) type TT_AUART .
+    METHODS get_param_range
+      IMPORTING
+        !iv_key1        TYPE ztca_param_par-chave1
+        !iv_key2        TYPE ztca_param_par-chave2
+      RETURNING
+        VALUE(rt_auart) TYPE tt_auart .
     "! <p class="shorttext synchronized">Verifica se contrato possui ordem venda</p>
     "! @parameter iv_vbeln  | <p class="shorttext synchronized">Documento de vendas</p>
     "! @parameter rv_retorno | <p class="shorttext synchronized">Retorno</p>
-  methods CONTRATO_POSSUI_ORDEM_VENDA
-    importing
-      !IV_VBELN type VBAK-VBELN
-    returning
-      value(RV_RETORNO) type ABAP_BOOL .
+    METHODS contrato_possui_ordem_venda
+      IMPORTING
+        !iv_vbeln         TYPE vbak-vbeln
+      RETURNING
+        VALUE(rv_retorno) TYPE abap_bool .
     "! <p class="shorttext synchronized">Busca tipo documento destino</p>
     "! @parameter iv_auart  | <p class="shorttext synchronized">Tipo de Documento Origem</p>
     "! @parameter rv_retorno | <p class="shorttext synchronized">Tipo de Documento Destino</p>
-  methods BUSCA_TIPO_DOCUMENTO_DESTINO
-    importing
-      !IV_AUART type AUART_VON
-      !IV_OPERACAO type ZE_PARAM_CHAVE
-    returning
-      value(RV_RETORNO) type AUART_NACH .
-  methods REGISTRA_LOG
-    returning
-      value(RV_BALLOGHNDL) type BALLOGHNDL .
+    METHODS busca_tipo_documento_destino
+      IMPORTING
+        !iv_auart         TYPE auart_von
+        !iv_operacao      TYPE ze_param_chave
+      RETURNING
+        VALUE(rv_retorno) TYPE auart_nach .
+    METHODS registra_log
+      RETURNING
+        VALUE(rv_balloghndl) TYPE balloghndl .
 ENDCLASS.
 
 
 
-CLASS ZCLSD_AUTOM_CONTRATO_DISTRATO IMPLEMENTATION.
+CLASS zclsd_autom_contrato_distrato IMPLEMENTATION.
 
 
   METHOD get_param_range.
     CLEAR rt_auart.
     TRY.
-        NEW zclca_tabela_parametros( )->m_get_range(
+        DATA(lo_param) = zclca_tabela_parametros=>get_instance( ).      " INSERT - JWSILVA - 21.07.2023
+
+        lo_param->m_get_range(                                          " CHANGE - JWSILVA - 21.07.2023
           EXPORTING
             iv_modulo = gc_param-modulo
             iv_chave1 = iv_key1
@@ -128,11 +130,13 @@ CLASS ZCLSD_AUTOM_CONTRATO_DISTRATO IMPLEMENTATION.
   METHOD get_param.
     CLEAR ev_param.
     TRY.
-        NEW zclca_tabela_parametros( )->m_get_single( EXPORTING iv_modulo = gc_param-modulo
-                                                                iv_chave1 = iv_key1
-                                                                iv_chave2 = iv_key2
-                                                                iv_chave3 = iv_key3
-                                                      IMPORTING ev_param  = ev_param ).
+        DATA(lo_param) = zclca_tabela_parametros=>get_instance( ).      " INSERT - JWSILVA - 21.07.2023
+
+        lo_param->m_get_single( EXPORTING iv_modulo = gc_param-modulo   " CHANGE - JWSILVA - 21.07.2023
+                                          iv_chave1 = iv_key1
+                                          iv_chave2 = iv_key2
+                                          iv_chave3 = iv_key3
+                                IMPORTING ev_param  = ev_param ).
       CATCH zcxca_tabela_parametros.
     ENDTRY.
   ENDMETHOD.
@@ -170,15 +174,15 @@ CLASS ZCLSD_AUTOM_CONTRATO_DISTRATO IMPLEMENTATION.
           lv_salesdocument_ex TYPE vbeln_va.
 
     CONSTANTS: BEGIN OF lc_vtweg,
-                 v1 TYPE vbak-vtweg VALUE '01',
-                 v2 TYPE vbak-vtweg VALUE '02',
-                 v3 TYPE vbak-vtweg VALUE '03',
-                 v4 TYPE vbak-vtweg VALUE '04',
-                 v5 TYPE vbak-vtweg VALUE '05',
-                 v6 TYPE vbak-vtweg VALUE '06',
-                 v7 TYPE vbak-vtweg VALUE '07',
-                 v8 TYPE vbak-vtweg VALUE '08',
-                 v9 TYPE vbak-vtweg VALUE '09',
+                 v1  TYPE vbak-vtweg VALUE '01',
+                 v2  TYPE vbak-vtweg VALUE '02',
+                 v3  TYPE vbak-vtweg VALUE '03',
+                 v4  TYPE vbak-vtweg VALUE '04',
+                 v5  TYPE vbak-vtweg VALUE '05',
+                 v6  TYPE vbak-vtweg VALUE '06',
+                 v7  TYPE vbak-vtweg VALUE '07',
+                 v8  TYPE vbak-vtweg VALUE '08',
+                 v9  TYPE vbak-vtweg VALUE '09',
                  v10 TYPE vbak-vtweg VALUE '10',
                  v14 TYPE vbak-vtweg VALUE '14',
                  v16 TYPE vbak-vtweg VALUE '16',

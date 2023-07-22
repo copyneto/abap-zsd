@@ -1,5 +1,6 @@
 "Name: \PR:SAPFV45P\FO:PREISFINDUNG\SE:END\EI
 ENHANCEMENT 0 ZEISD_DETERMINACAO_CFOP_BX41.
+
 CONSTANTS: BEGIN OF lc_param,
              modulo TYPE ztca_param_par-modulo VALUE 'SD',
              chave1 TYPE ztca_param_par-chave1 VALUE 'NF COMPLEMENTAR',
@@ -17,17 +18,13 @@ TRY.
                            IMPORTING et_range  = lt_auart ).
     IF vbak-auart NOT IN lt_auart.
 
-      IF tkomk-wkreg EQ 'PR' AND
-         tkomp-wkreg EQ 'PR'.
-      ELSE.
-        DATA(lo_determinacao_cfop) = NEW zclsd_determinacao_cfop( ).
-        DATA(lv_cfop) = lo_determinacao_cfop->determinacao_cfop_bx40_bx41(
-          iv_vbap_posnr  = vbap-posnr
-          iv_xvbap_posnr = xvbap-posnr
-          is_komk        = tkomk
-          it_komv        = xkomv[]
-        ).
-      ENDIF.
+      DATA(lo_determinacao_cfop) = NEW zclsd_determinacao_cfop( ).
+      DATA(lv_cfop) = lo_determinacao_cfop->determinacao_cfop_bx40_bx41(
+        iv_vbap_posnr  = vbap-posnr
+        iv_xvbap_posnr = xvbap-posnr
+        is_komk        = tkomk
+        it_komv        = xkomv[]
+      ).
 
       DATA:
          lv_j_1bcfop TYPE j_1bcfop.

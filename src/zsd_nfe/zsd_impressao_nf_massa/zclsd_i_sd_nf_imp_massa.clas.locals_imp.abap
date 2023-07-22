@@ -12,6 +12,9 @@ CLASS lcl_nfs DEFINITION INHERITING FROM cl_abap_behavior_handler.
 
     METHODS get_features FOR FEATURES
       IMPORTING keys REQUEST requested_features FOR nfs RESULT result.
+    METHODS get_printer
+      RETURNING
+        VALUE(rv_print) TYPE zc_sd_nf_imp_massa_printer.
 
 ENDCLASS.
 
@@ -41,7 +44,7 @@ CLASS lcl_nfs IMPLEMENTATION.
         EXPORTING
           iv_docnum     = ls_keys-Docnum
           iv_doctype    = sy-index
-          is_parameters = ls_keys-%param
+          is_parameters = get_printer( )"ls_keys-%param
         IMPORTING
           et_return   = DATA(lt_return)
       ).
@@ -77,6 +80,16 @@ CLASS lcl_nfs IMPLEMENTATION.
                       ( %tky             = ls_keys-%tky
                         %action-imprimir = if_abap_behv=>fc-o-enabled
                       ) ).
+
+  ENDMETHOD.
+
+
+  METHOD get_printer.
+
+    SELECT SINGLE spld FROM usr01
+    WHERE bname =  @sy-uname
+         AND spld IS NOT INITIAL
+     INTO @rv_print.
 
   ENDMETHOD.
 

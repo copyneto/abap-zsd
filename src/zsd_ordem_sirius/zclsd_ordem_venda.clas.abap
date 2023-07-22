@@ -201,6 +201,10 @@ CLASS ZCLSD_ORDEM_VENDA IMPLEMENTATION.
     DATA: lv_doc    TYPE bapivbeln-vbeln,
           lt_return TYPE TABLE OF bapiret2.
 
+    DATA: ls_logic_switch     TYPE bapisdls,
+          ls_order_header_inx TYPE bapisdh1x.
+
+
     me->fill_header( IMPORTING es_header = DATA(ls_header) ).
 
     me->fill_item( IMPORTING et_item = DATA(lt_item) et_itemx = DATA(lt_itemx) ).
@@ -218,6 +222,7 @@ CLASS ZCLSD_ORDEM_VENDA IMPLEMENTATION.
     CALL FUNCTION 'BAPI_SALESORDER_CREATEFROMDAT2' ##COMPATIBLE
       EXPORTING
         order_header_in      = ls_header
+        logic_switch         = ls_logic_switch
       IMPORTING
         salesdocument        = lv_doc
       TABLES
@@ -246,12 +251,35 @@ CLASS ZCLSD_ORDEM_VENDA IMPLEMENTATION.
     IF sy-subrc EQ 0.
       TRY.
           DATA(lv_matnr) = lt_item[ itm_number = <fs_return>-message_v2 ]-material.
-          <fs_return>-message = |{ <fs_return>-message } - Material { lv_matnr }|.
+          <fs_return>-message = |{ <fs_return>-message } { TEXT-001 } { lv_matnr }|.
         CATCH cx_sy_itab_line_not_found.
       ENDTRY.
     ENDIF.
 
     me->send_doc( EXPORTING iv_doc = lv_doc it_return = lt_return ).
+
+********************************************
+
+    IF NOT lv_doc IS INITIAL.
+
+      ls_order_header_inx-updateflag  = 'U'.
+      ls_logic_switch-pricing         = 'C'.
+
+      CALL FUNCTION 'BAPI_SALESORDER_CHANGE'
+        EXPORTING
+          salesdocument    = lv_doc
+          order_header_inx = ls_order_header_inx
+          logic_switch     = ls_logic_switch
+        TABLES
+          return           = lt_return.
+
+      IF line_exists( lt_return[ type = 'S' ] ).
+        me->bapi_commit(  ).
+      ENDIF.
+
+    ENDIF.
+
+********************************************
 
   ENDMETHOD.
 
@@ -421,6 +449,7 @@ CLASS ZCLSD_ORDEM_VENDA IMPLEMENTATION.
 
       et_conditions = VALUE #( BASE et_conditions (
         itm_number = <fs_conditions>-itm_number
+        cond_count = '01'
         cond_type  = lv_cond_type
         cond_value = <fs_conditions>-cond_value
         currency   = <fs_conditions>-currency
@@ -428,7 +457,8 @@ CLASS ZCLSD_ORDEM_VENDA IMPLEMENTATION.
 
       et_conditionsx = VALUE #( BASE et_conditionsx (
         itm_number = <fs_conditions>-itm_number
-        cond_type  = abap_true
+        cond_count = '01'
+        cond_type  = lv_cond_type
         cond_value = abap_true
         currency   = abap_true
        ) ).

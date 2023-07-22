@@ -106,6 +106,22 @@ CLASS ZCLSD_TRATATIVA_DEPOSITO_VENDA IMPLEMENTATION.
       ENDIF.
     ENDIF.
 
+* SD - Ajuste incluindo o centro na chave - 18/07/2023 - Inicio
+    SORT gt_ctr_dep BY auart kunnr werks.
+    READ TABLE gt_ctr_dep ASSIGNING <fs_ctr_dep> WITH KEY auart = gs_vbak-auart
+                                                          kunnr = gs_vbak-kunnr
+                                                          werks = lv_werks
+                                                          bsark = space
+                                                          augru = space
+                                                          matkl = space
+                                                          BINARY SEARCH.
+    IF sy-subrc IS INITIAL.
+      gs_vbap-lgort = <fs_ctr_dep>-lgort.
+      RETURN.
+    ENDIF.
+
+* SD - Ajuste incluindo o centro na chave - 18/07/2023 - Fim
+
     SORT gt_ctr_dep BY auart kunnr.
     READ TABLE gt_ctr_dep ASSIGNING <fs_ctr_dep> WITH KEY auart = gs_vbak-auart
                                                           kunnr = gs_vbak-kunnr

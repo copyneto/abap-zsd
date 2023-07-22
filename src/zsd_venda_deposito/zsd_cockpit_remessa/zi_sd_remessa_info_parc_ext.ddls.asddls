@@ -4,7 +4,7 @@
 @Metadata.ignorePropagatedAnnotations: true
 @ObjectModel.usageType:{
     serviceQuality: #X,
-    sizeCategory: #S,
+    sizeCategory: #L,
     dataClass: #MIXED
 }
 define view entity ZI_SD_REMESSA_INFO_PARC_EXT 

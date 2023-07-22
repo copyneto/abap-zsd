@@ -31,32 +31,39 @@ define root view entity ZC_SD_CKPT_FAT_APP
           @Consumption.valueHelpDefinition: [{ entity: { name: 'ZI_CA_VH_TIPO_PEDIDO_CLIENTE', element: 'Bsark' } } ]
           CustomerPurchaseOrderType,
           @EndUserText.label: 'Lib.Comercial'
+          @Consumption.valueHelpDefinition: [{ entity: { name: 'ZI_SD_VH_STATUS_LIB', element: 'StatusText' } } ]
           StatusDeliveryBlockReason,
           ColorDeliveryBlockReason,
           //          @Consumption.filter.hidden: true
           //          OrderQuantityUnit,
           //          Saldo,
-          @ObjectModel: { virtualElement: true,
-          virtualElementCalculatedBy: 'ABAP:ZCLSD_CKPT_FAT_STATUSFT' }
+          //          @ObjectModel: { virtualElement: true,
+          //          virtualElementCalculatedBy: 'ABAP:ZCLSD_CKPT_FAT_STATUSFT' }
           @EndUserText.label: 'Disponibilidade'
-  virtual Status        : abap.char(15),
+          @Consumption.valueHelpDefinition: [{ entity: { name: 'ZI_SD_VH_STATUS_ESTOQUE', element: 'StatusText' } } ]
+          ////  virtual Status        : abap.char(15),
+          Status,
+          //          @ObjectModel: { virtualElement: true,
+          //          virtualElementCalculatedBy: 'ABAP:ZCLSD_CKPT_FAT_STATUSFT' }
+          //  virtual ColorStatus   : int1,
+          @UI.hidden: true
+          ColorStatus,
 
-          @ObjectModel: { virtualElement: true,
-          virtualElementCalculatedBy: 'ABAP:ZCLSD_CKPT_FAT_STATUSFT' }
-  virtual ColorStatus   : int1,
-
-          @ObjectModel: { virtualElement: true,
-          //          virtualElementCalculatedBy: 'ABAP:ZCLSD_CKPT_FAT_STATUSDF' }
-          virtualElementCalculatedBy: 'ABAP:ZCLSD_CKPT_FAT_STATUSFT' }
+          //          @ObjectModel: { virtualElement: true,
+          //          //          virtualElementCalculatedBy: 'ABAP:ZCLSD_CKPT_FAT_STATUSDF' }
+          //          virtualElementCalculatedBy: 'ABAP:ZCLSD_CKPT_FAT_STATUSFT' }
           @EndUserText.label: 'Disponibilidade DF'
-  virtual StatusDF      : abap.char(15),
-
-          @ObjectModel: { virtualElement: true,
-          //          virtualElementCalculatedBy: 'ABAP:ZCLSD_CKPT_FAT_STATUSDF' }
-          virtualElementCalculatedBy: 'ABAP:ZCLSD_CKPT_FAT_STATUSFT' }
-  virtual ColorStatusDF : int1,
-
+          //  virtual StatusDF      : abap.char(15),
+          @Consumption.valueHelpDefinition: [{ entity: { name: 'ZI_SD_VH_STATUS_ESTOQUE', element: 'StatusText' } } ]
+          StatusDF,
+          //          @ObjectModel: { virtualElement: true,
+          //          //          virtualElementCalculatedBy: 'ABAP:ZCLSD_CKPT_FAT_STATUSDF' }
+          //          virtualElementCalculatedBy: 'ABAP:ZCLSD_CKPT_FAT_STATUSFT' }
+          //  virtual ColorStatusDF : int1,
+          @UI.hidden: true
+          ColorStatusDF,
           @EndUserText.label: 'Lib.Crédito'
+          @Consumption.valueHelpDefinition: [{ entity: { name: 'ZI_SD_VH_STATUS_LIB', element: 'StatusText' } } ]
           StatusTotalCreditCheckStatus,
           ColorTotalCreditCheckStatus,
           @EndUserText.label: 'Valor total'

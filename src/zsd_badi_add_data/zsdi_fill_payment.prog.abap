@@ -26,7 +26,7 @@
   SORT lt_nflin BY reftyp.
 
 * LSCHEPP - Remessa Subcontratação - 01.06.2022 Início
-  DATA(lo_param) = NEW zclca_tabela_parametros( ).
+  DATA(lo_param) = zclca_tabela_parametros=>get_instance( ). " CHANGE - LSCHEPP - 20.07.2023
 
   TRY.
       CALL METHOD lo_param->m_get_single

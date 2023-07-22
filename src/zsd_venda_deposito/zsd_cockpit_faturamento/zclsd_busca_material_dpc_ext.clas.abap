@@ -72,7 +72,7 @@ CLASS ZCLSD_BUSCA_MATERIAL_DPC_EXT IMPLEMENTATION.
                  lc_chave3 TYPE ztca_param_par-chave3 VALUE ''.
 
 ** Seleçao dos parametros
-      DATA(lo_parametros) = NEW zclca_tabela_parametros( ).
+      DATA(lo_parametros) = zclca_tabela_parametros=>get_instance( ).    " CHANGE - JWSILVA - 21.07.2023
       DATA: lr_gbsta   TYPE RANGE OF gbsta.
       CLEAR: lr_gbsta .
 
@@ -173,7 +173,7 @@ CLASS ZCLSD_BUSCA_MATERIAL_DPC_EXT IMPLEMENTATION.
                  lc_chave3 TYPE ztca_param_par-chave3 VALUE ''.
 
 ** Seleçao dos parametros
-      DATA(lo_parametros) = NEW zclca_tabela_parametros( ).
+      DATA(lo_parametros) = zclca_tabela_parametros=>get_instance( ).    " CHANGE - JWSILVA - 21.07.2023
       DATA: lr_gbsta   TYPE RANGE OF gbsta.
       CLEAR: lr_gbsta .
 

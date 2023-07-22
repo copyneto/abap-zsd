@@ -74,6 +74,12 @@
      <MSGNR>010</MSGNR>
      <TEXT>Doc &amp;1: MDF-e &amp;2 já foi impresso.</TEXT>
     </T100>
+    <T100>
+     <SPRSL>P</SPRSL>
+     <ARBGB>ZSD_IMPRESSAO_NF</ARBGB>
+     <MSGNR>011</MSGNR>
+     <TEXT>Impressão foi gerada pelo dispositivo: &amp;1</TEXT>
+    </T100>
    </T100>
   </asx:values>
  </asx:abap>

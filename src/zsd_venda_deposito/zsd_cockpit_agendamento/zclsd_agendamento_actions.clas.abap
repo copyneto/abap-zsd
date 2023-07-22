@@ -239,7 +239,7 @@ CLASS ZCLSD_AGENDAMENTO_ACTIONS IMPLEMENTATION.
         chave2 TYPE ztca_param_par-chave2 VALUE 'GRP_AGENDA',
       END OF gc_parametros.
 
-    DATA(lo_tabela_parametros) = NEW  zclca_tabela_parametros( ).
+    DATA(lo_tabela_parametros) = zclca_tabela_parametros=>get_instance( ).    " CHANGE - JWSILVA - 21.07.2023
 
     CLEAR gr_grp.
     TRY.

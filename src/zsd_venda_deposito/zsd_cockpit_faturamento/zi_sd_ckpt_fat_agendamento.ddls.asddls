@@ -4,7 +4,7 @@
 @Metadata.ignorePropagatedAnnotations: true
 @ObjectModel.usageType:{
     serviceQuality: #X,
-    sizeCategory: #S,
+    sizeCategory: #XL,
     dataClass: #MIXED
 }
 

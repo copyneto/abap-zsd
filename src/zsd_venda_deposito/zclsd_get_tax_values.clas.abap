@@ -409,6 +409,8 @@ CLASS ZCLSD_GET_TAX_VALUES IMPLEMENTATION.
     DATA: lv_um TYPE meins,
           lv_qt TYPE menge_d.
 
+    DATA lo_get_cst60 TYPE REF TO zclsd_get_tables_cst60.
+
     SORT gt_ult_compra BY matnr bwkey.
     READ TABLE gt_ult_compra ASSIGNING FIELD-SYMBOL(<fs_ult_compra>) WITH KEY  matnr = is_item-matnr
                                                                                bwkey = is_item-werks BINARY SEARCH.
@@ -416,11 +418,12 @@ CLASS ZCLSD_GET_TAX_VALUES IMPLEMENTATION.
 
       IF iv_um EQ abap_true.
 
-        NEW zclsd_get_tables_cst60( )->execute( EXPORTING iv_centro         = is_item-werks
-                                                          iv_uf             = iv_uf
-                                                          iv_material       = is_item-matnr
-                                                          iv_gp_mercadoria  = is_item-matkl
-                                                IMPORTING ev_um             = lv_um ).
+
+        zclsd_get_tables_cst60=>get_instance( )->execute( EXPORTING iv_centro         = is_item-werks
+                                                                    iv_uf             = iv_uf
+                                                                    iv_material       = is_item-matnr
+                                                                    iv_gp_mercadoria  = is_item-matkl
+                                                           IMPORTING ev_um            = lv_um ).
 
 * LSCHEPP - SD - 8000007351 - CST 60 - Nota manual - 18.05.2023 Início
         IF lv_um IS INITIAL.

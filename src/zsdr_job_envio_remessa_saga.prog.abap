@@ -7,13 +7,37 @@
 *&---------------------------------------------------------------------*
 REPORT zsdr_job_envio_remessa_saga.
 
+TABLES ztsd_rem_saga.
+
 TYPES ty_remessas_enviadas TYPE STANDARD TABLE OF ztsd_rem_saga WITH DEFAULT KEY.
+
+DATA lt_joblist TYPE STANDARD TABLE OF tbtcjob.
+
+SELECTION-SCREEN BEGIN OF BLOCK b1 WITH FRAME TITLE TEXT-001.
+  SELECT-OPTIONS s_vbeln FOR ztsd_rem_saga-remessa.
+SELECTION-SCREEN END OF BLOCK b1.
 
 **********************************************************************
 START-OF-SELECTION.
+
+  CALL FUNCTION 'ENQUEUE_E_TRDIR'
+    EXPORTING
+      mode_trdir     = 'X'
+      name           = sy-repid
+    EXCEPTIONS
+      foreign_lock   = 1
+      system_failure = 2
+      OTHERS         = 3.
+  IF sy-subrc <> 0.
+    MESSAGE ID sy-msgid TYPE sy-msgty NUMBER sy-msgno
+    WITH sy-msgv1 sy-msgv2 sy-msgv3 sy-msgv4 INTO DATA(lv_message).
+    RETURN.
+  ENDIF.
+
   SELECT *
     FROM ztsd_rem_saga
     WHERE enviado_saga = @space
+      AND remessa IN @s_vbeln
     INTO TABLE @DATA(remessas_saga).
 
   IF sy-subrc <> 0.
@@ -61,10 +85,10 @@ END-OF-SELECTION.
                             ).
         remessa_saga->enviado_saga = abap_true.
 
-        IF lt_return IS NOT INITIAL AND LINES( lt_return ) > 0.
-            WRITE / |{ id_log } - { lt_return[ 1 ]-message } |.
+        IF lt_return IS NOT INITIAL AND lines( lt_return ) > 0.
+          WRITE / |{ id_log } - { lt_return[ 1 ]-message } |.
         ELSE.
-            WRITE / |{ id_log } - Registro enviado com sucesso.|.
+          WRITE / |{ id_log } - Registro enviado com sucesso.|.
         ENDIF.
 
       CATCH cx_mdg_missing_input_parameter INTO DATA(lo_catch).
@@ -87,3 +111,8 @@ END-OF-SELECTION.
 
   ULINE.
   WRITE / |{ lines( remessas_saga ) } remessa(s) processada(s).|.
+
+  CALL FUNCTION 'DEQUEUE_E_TRDIR'
+    EXPORTING
+      mode_trdir = 'X'
+      name       = sy-repid.

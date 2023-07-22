@@ -47,7 +47,7 @@ ENDCLASS.
 
 
 
-CLASS ZCLSD_FORM_COLETA_AVARIA IMPLEMENTATION.
+CLASS zclsd_form_coleta_avaria IMPLEMENTATION.
 
 
   METHOD execute.
@@ -229,15 +229,24 @@ CLASS ZCLSD_FORM_COLETA_AVARIA IMPLEMENTATION.
 
     DATA: lv_printer TYPE rspopname.
 
-    DATA(lo_object) = NEW zclca_tabela_parametros( ).
+* VARAUJO - Incidente 485 Impressao Ordem de Coleta com Erro - 20.07.2023 Início
 
-    TRY.
-        lo_object->m_get_single( EXPORTING iv_modulo = gc_param-modulo
-                                           iv_chave1 = gc_param-chave1
-                                           iv_chave2 = gc_param-chave2
-                                 IMPORTING ev_param  = lv_printer ).
-      CATCH zcxca_tabela_parametros. " Classe de exceção Tabela de Parâmetros
-    ENDTRY.
+*    DATA(lo_object) = NEW zclca_tabela_parametros( ).
+*
+*    TRY.
+*        lo_object->m_get_single( EXPORTING iv_modulo = gc_param-modulo
+*                                           iv_chave1 = gc_param-chave1
+*                                           iv_chave2 = gc_param-chave2
+*                                 IMPORTING ev_param  = lv_printer ).
+*      CATCH zcxca_tabela_parametros. " Classe de exceção Tabela de Parâmetros
+*    ENDTRY.
+
+    SELECT SINGLE spld
+        FROM usr01
+        INTO @lv_printer
+        WHERE bname = @sy-uname.
+
+* VARAUJO - Incidente 485 Impressao Ordem de Coleta com Erro - 20.07.2023 Fim
 
     IF lv_printer IS INITIAL.
       lv_printer = gc_printer.

@@ -4,7 +4,7 @@
 @Metadata.ignorePropagatedAnnotations: true
 @ObjectModel.usageType:{
     serviceQuality: #X,
-    sizeCategory: #S,
+    sizeCategory: #XL,
     dataClass: #MIXED
 }
 define root view entity ZI_SD_CKPT_FAT_APP
@@ -28,74 +28,100 @@ define root view entity ZI_SD_CKPT_FAT_APP
     left outer join ZI_SD_CENTRO_FAT_DF                               as _Centro             on _Centro.CentroFaturamento = _Item.Plant
     left outer join ZI_SD_PEDIDO_AUX                                  as _Aux                on _Aux.SalesOrder = _SalesOrder.SalesOrder
 
-  association        to ZI_SD_CKPT_FAT_PESOBRUTO     as _pesobruto                 on  _pesobruto.SalesOrder = $projection.SalesOrder
+    left outer join ZI_SD_CKPT_AGEND_REMESSA_DT                       as _Agenda             on  _Agenda.ordem = _Item2.SalesOrder
+                                                                                             and _Agenda.item  = _Item2.SalesOrderItem
 
-  association        to I_OverallSDProcessStatusText as _SalesOrderStatus          on  _SalesOrderStatus.OverallSDProcessStatus = _SalesOrder.OverallSDProcessStatus
-                                                                                   and _SalesOrderStatus.Language               = $session.system_language
+    left outer join ztsd_agendamento                                  as _DataAgenda         on  _DataAgenda.ordem         = _Agenda.ordem
+                                                                                             and _DataAgenda.item          = _Agenda.item
+                                                                                             and _DataAgenda.data_registro = _Agenda.DataRegistro
+                                                                                             and _DataAgenda.hora_registro = _Agenda.HoraRegistro
 
-  association        to I_OverallDeliveryStatusText  as _OverallDeliveryStatus     on  _OverallDeliveryStatus.OverallDeliveryStatus = _SalesOrder.OverallDeliveryStatus
-                                                                                   and _OverallDeliveryStatus.Language              = $session.system_language
+  association        to ZI_SD_CKPT_FAT_PESOBRUTO      as _pesobruto                 on  _pesobruto.SalesOrder = $projection.SalesOrder
+
+  association        to I_OverallSDProcessStatusText  as _SalesOrderStatus          on  _SalesOrderStatus.OverallSDProcessStatus = _SalesOrder.OverallSDProcessStatus
+                                                                                    and _SalesOrderStatus.Language               = $session.system_language
+
+  association        to I_OverallDeliveryStatusText   as _OverallDeliveryStatus     on  _OverallDeliveryStatus.OverallDeliveryStatus = _SalesOrder.OverallDeliveryStatus
+                                                                                    and _OverallDeliveryStatus.Language              = $session.system_language
   //  association to ZI_SD_CKPT_FAT_VENDEDOR    as _Vendedor   on  _Vendedor.SalesOrder = $projection.SalesOrder
 
-  association [0..1] to ZI_SD_REMESSA_INFO_PARC_INT  as _VendedorInt               on  _VendedorInt.SalesOrder = $projection.SalesOrder
+  association [0..1] to ZI_SD_REMESSA_INFO_PARC_INT   as _VendedorInt               on  _VendedorInt.SalesOrder = $projection.SalesOrder
 
-  association [0..1] to ZI_SD_REMESSA_INFO_PARC_EXT  as _VendedorExt               on  _VendedorExt.SalesOrder = $projection.SalesOrder
+  association [0..1] to ZI_SD_REMESSA_INFO_PARC_EXT   as _VendedorExt               on  _VendedorExt.SalesOrder = $projection.SalesOrder
 
-  association        to ZI_SD_CKPT_FAT_PARTNER       as _Partner                   on  _Partner.SDDocument = $projection.SalesOrder
-  association        to ZI_SD_CKPT_FAT_DATAFAT       as _datafat                   on  _datafat.SalesOrder = $projection.SalesOrder
+  association        to ZI_SD_CKPT_FAT_PARTNER        as _Partner                   on  _Partner.SDDocument = $projection.SalesOrder
+  association        to ZI_SD_CKPT_FAT_DATAFAT        as _datafat                   on  _datafat.SalesOrder = $projection.SalesOrder
 
-  association        to ZI_SD_CKPT_AGEN_ITEM_APP     as _Agendamento               on  _Agendamento.SalesOrder     = $projection.SalesOrder
-                                                                                   and _Agendamento.SalesOrderItem = _Item.SalesOrderItem
+  //////  association        to ZI_SD_CKPT_AGEN_ITEM_APP     as _Agendamento               on  _Agendamento.SalesOrder     = $projection.SalesOrder
+  //////                                                                                   and _Agendamento.SalesOrderItem = _Item.SalesOrderItem
 
   //  association [0..1] to ZI_SD_CKPT_FAT_AGENDAMENTO  as _agend                     on  _agend.SalesOrder = $projection.SalesOrder
   //                                                                                  and _agend.Customer is not initial
 
-  association        to ZI_SD_CKPT_FAT_COMEX         as _Comex                     on  _Comex.SalesOrder = $projection.SalesOrder
+  association        to ZI_SD_CKPT_FAT_COMEX          as _Comex                     on  _Comex.SalesOrder = $projection.SalesOrder
 
-  association        to ZI_SD_VERIF_DISP_MATERIAL    as _Mat                       on  _Mat.SalesOrder = $projection.SalesOrder
+  association        to ZI_SD_VERIF_DISP_MATERIAL     as _Mat                       on  _Mat.SalesOrder = $projection.SalesOrder
 
-  association        to ZI_SD_CICLO_PO               as _CicloPo001                on  _CicloPo001.ordem_venda = _SalesOrder.SalesOrder
-                                                                                   and _CicloPo001.medicao     = '001'
-  association        to ZI_SD_CICLO_PO               as _CicloPo002                on  _CicloPo002.ordem_venda = _SalesOrder.SalesOrder
-                                                                                   and _CicloPo002.medicao     = '002'
-  association        to ZI_SD_CICLO_PO               as _CicloPo003                on  _CicloPo003.ordem_venda = _SalesOrder.SalesOrder
-                                                                                   and _CicloPo003.medicao     = '003'
-  association        to ZI_SD_CICLO_PO               as _CicloPo004                on  _CicloPo004.ordem_venda = _SalesOrder.SalesOrder
-                                                                                   and _CicloPo004.medicao     = '004'
-  association        to ZI_SD_CICLO_PO               as _CicloPo005                on  _CicloPo005.ordem_venda = _SalesOrder.SalesOrder
-                                                                                   and _CicloPo005.medicao     = '005'
-  association        to ZI_SD_CICLO_PO               as _CicloPo006                on  _CicloPo006.ordem_venda = _SalesOrder.SalesOrder
-                                                                                   and _CicloPo006.medicao     = '006'
-  association        to ZI_SD_CICLO_PO               as _CicloPo007                on  _CicloPo007.ordem_venda = _SalesOrder.SalesOrder
-                                                                                   and _CicloPo007.medicao     = '007'
-  association        to ZI_SD_CICLO_PO               as _CicloPo008                on  _CicloPo008.ordem_venda = _SalesOrder.SalesOrder
-                                                                                   and _CicloPo008.medicao     = '008'
-  association        to ZI_SD_CICLO_PO               as _CicloPo009                on  _CicloPo009.ordem_venda = _SalesOrder.SalesOrder
-                                                                                   and _CicloPo009.medicao     = '009'
-  association        to ZI_SD_CICLO_PO               as _CicloPo010                on  _CicloPo010.ordem_venda = _SalesOrder.SalesOrder
-                                                                                   and _CicloPo010.medicao     = '010'
-  association        to ZI_SD_CICLO_PO               as _CicloPo011                on  _CicloPo011.ordem_venda = _SalesOrder.SalesOrder
-                                                                                   and _CicloPo011.medicao     = '011'
-  association        to ZI_SD_CICLO_PO               as _CicloPo012                on  _CicloPo012.ordem_venda = _SalesOrder.SalesOrder
-                                                                                   and _CicloPo012.medicao     = '012'
-  association        to ZI_SD_CICLO_PO               as _CicloPo013                on  _CicloPo013.ordem_venda = _SalesOrder.SalesOrder
-                                                                                   and _CicloPo013.medicao     = '013'
-  association        to ZI_SD_CICLO_PO               as _CicloPo014                on  _CicloPo014.ordem_venda = _SalesOrder.SalesOrder
-                                                                                   and _CicloPo014.medicao     = '014'
-  association        to ZI_SD_CICLO_PO               as _CicloPo015                on  _CicloPo015.ordem_venda = _SalesOrder.SalesOrder
-                                                                                   and _CicloPo015.medicao     = '015'
-  association        to ZI_SD_CICLO_PO               as _CicloPo016                on  _CicloPo016.ordem_venda = _SalesOrder.SalesOrder
-                                                                                   and _CicloPo016.medicao     = '016'
-  association        to ZI_SD_CICLO_PO               as _CicloPo017                on  _CicloPo017.ordem_venda = _SalesOrder.SalesOrder
-                                                                                   and _CicloPo017.medicao     = '017'
-  association        to ZI_SalesDocumentQuiqkView    as _ZI_SalesDocumentQuickView on  _ZI_SalesDocumentQuickView.SalesDocument = $projection.SalesOrder
+  association        to ZI_SD_CICLO_PO                as _CicloPo001                on  _CicloPo001.ordem_venda = _SalesOrder.SalesOrder
+                                                                                    and _CicloPo001.medicao     = '001'
+  association        to ZI_SD_CICLO_PO                as _CicloPo002                on  _CicloPo002.ordem_venda = _SalesOrder.SalesOrder
+                                                                                    and _CicloPo002.medicao     = '002'
+  association        to ZI_SD_CICLO_PO                as _CicloPo003                on  _CicloPo003.ordem_venda = _SalesOrder.SalesOrder
+                                                                                    and _CicloPo003.medicao     = '003'
+  association        to ZI_SD_CICLO_PO                as _CicloPo004                on  _CicloPo004.ordem_venda = _SalesOrder.SalesOrder
+                                                                                    and _CicloPo004.medicao     = '004'
+  association        to ZI_SD_CICLO_PO                as _CicloPo005                on  _CicloPo005.ordem_venda = _SalesOrder.SalesOrder
+                                                                                    and _CicloPo005.medicao     = '005'
+  association        to ZI_SD_CICLO_PO                as _CicloPo006                on  _CicloPo006.ordem_venda = _SalesOrder.SalesOrder
+                                                                                    and _CicloPo006.medicao     = '006'
+  association        to ZI_SD_CICLO_PO                as _CicloPo007                on  _CicloPo007.ordem_venda = _SalesOrder.SalesOrder
+                                                                                    and _CicloPo007.medicao     = '007'
+  association        to ZI_SD_CICLO_PO                as _CicloPo008                on  _CicloPo008.ordem_venda = _SalesOrder.SalesOrder
+                                                                                    and _CicloPo008.medicao     = '008'
+  association        to ZI_SD_CICLO_PO                as _CicloPo009                on  _CicloPo009.ordem_venda = _SalesOrder.SalesOrder
+                                                                                    and _CicloPo009.medicao     = '009'
+  association        to ZI_SD_CICLO_PO                as _CicloPo010                on  _CicloPo010.ordem_venda = _SalesOrder.SalesOrder
+                                                                                    and _CicloPo010.medicao     = '010'
+  association        to ZI_SD_CICLO_PO                as _CicloPo011                on  _CicloPo011.ordem_venda = _SalesOrder.SalesOrder
+                                                                                    and _CicloPo011.medicao     = '011'
+  association        to ZI_SD_CICLO_PO                as _CicloPo012                on  _CicloPo012.ordem_venda = _SalesOrder.SalesOrder
+                                                                                    and _CicloPo012.medicao     = '012'
+  association        to ZI_SD_CICLO_PO                as _CicloPo013                on  _CicloPo013.ordem_venda = _SalesOrder.SalesOrder
+                                                                                    and _CicloPo013.medicao     = '013'
+  association        to ZI_SD_CICLO_PO                as _CicloPo014                on  _CicloPo014.ordem_venda = _SalesOrder.SalesOrder
+                                                                                    and _CicloPo014.medicao     = '014'
+  association        to ZI_SD_CICLO_PO                as _CicloPo015                on  _CicloPo015.ordem_venda = _SalesOrder.SalesOrder
+                                                                                    and _CicloPo015.medicao     = '015'
+  association        to ZI_SD_CICLO_PO                as _CicloPo016                on  _CicloPo016.ordem_venda = _SalesOrder.SalesOrder
+                                                                                    and _CicloPo016.medicao     = '016'
+  association        to ZI_SD_CICLO_PO                as _CicloPo017                on  _CicloPo017.ordem_venda = _SalesOrder.SalesOrder
+                                                                                    and _CicloPo017.medicao     = '017'
+  association        to ZI_SalesDocumentQuiqkView     as _ZI_SalesDocumentQuickView on  _ZI_SalesDocumentQuickView.SalesDocument = $projection.SalesOrder
 
-  association        to ZI_SD_CKPT_FAT_VLR_MIN_OV    as _ValorMinimoOv             on  _ValorMinimoOv.SalesOrderCondition = _SalesOrder.SalesOrderCondition
-                                                                                   and _ValorMinimoOv.Item                = _Item.SalesOrderItem
+  association        to ZI_SD_CKPT_FAT_VLR_MIN_OV     as _ValorMinimoOv             on  _ValorMinimoOv.SalesOrderCondition = _SalesOrder.SalesOrderCondition
+                                                                                    and _ValorMinimoOv.Item                = _Item.SalesOrderItem
 
-  association        to ZI_SD_CKPT_FAT_VLR_PEND_OV   as _ValorPend                 on  _ValorPend.SalesOrder = $projection.SalesOrder
+  association        to ZI_SD_CKPT_FAT_VLR_PEND_OV    as _ValorPend                 on  _ValorPend.SalesOrder = $projection.SalesOrder
 
-  association        to ZI_VH_SD_LPRIO               as _Lprio                     on  _Lprio.DeliveryPriority = $projection.DeliveryPriority
+  association        to ZI_SD_CKPT_FAT_VALOR_TOTAL    as _ValorTotal                on  _ValorTotal.knumv = _SalesOrder.SalesOrderCondition
+
+  association        to ZI_VH_SD_LPRIO                as _Lprio                     on  _Lprio.DeliveryPriority = $projection.DeliveryPriority
+
+  association        to ZI_SD_CKPT_STATUS_DISP_HEADER as _Status1                   on  _Status1.SalesDocument = _Item2.SalesOrder
+                                                                                    and _Status1.Status        = 'Indisponível'
+                                                                                    and _Status1.StatusDf      = 'Indisponível'
+
+  association        to ZI_SD_CKPT_STATUS_DISP_HEADER as _Status2                   on  _Status2.SalesDocument =  _Item2.SalesOrder
+                                                                                    and _Status2.Status        =  'Indisponível'
+                                                                                    and _Status2.StatusDf      <> 'Indisponível'
+
+  association        to ZI_SD_CKPT_STATUS_DISP_HEADER as _Status3                   on  _Status3.SalesDocument =  _Item2.SalesOrder
+                                                                                    and _Status3.Status        <> 'Indisponível'
+                                                                                    and _Status3.StatusDf      =  'Indisponível'
+
+  association        to ZI_SD_CKPT_STATUS_DISP_HEADER as _Status4                   on  _Status4.SalesDocument = _Item2.SalesOrder
+                                                                                    and _Status4.Status        = 'Disponível'
+                                                                                    and _Status4.StatusDf      = 'Disponível'
 {
   key _SalesOrder.SalesOrder,
   key _Item.SalesOrderItem,
@@ -176,7 +202,8 @@ define root view entity ZI_SD_CKPT_FAT_APP
       _Comex.ColorStatusDeliveryBlockReason        as ColorStatusDeliveryBlockReason,
 
       @Semantics.amount.currencyCode: 'TransactionCurrency'
-      _SalesOrder.TotalNetAmount,
+      //      _SalesOrder.TotalNetAmount,
+      _ValorTotal.ValorTotal                       as TotalNetAmount,
       _SalesOrder.TransactionCurrency,
       _SalesOrder.SalesOrganization,
       _SalesOrder.SalesOffice,
@@ -199,7 +226,8 @@ define root view entity ZI_SD_CKPT_FAT_APP
       _datafat.data_fatura                         as DataFatura,
       _TipoAgendaCliente.GrupoClienteAgenda        as Agendamento,
       _TipoAgendaCliente.GrupoClienteAgendaTexto,
-      _Agendamento.DataAgendada                    as DataAgendamento,
+      //////      _Agendamento.DataAgendada                    as DataAgendamento,
+      _DataAgenda.data_agendada                    as DataAgendamento,
       //      cast('' as flag preserving type )            as ValorMin,
       //      _ValorPend.VlrPendOV                         as VlrPendOVTeste,
       _ValorMinimoOv.ElementAmount,
@@ -261,6 +289,55 @@ define root view entity ZI_SD_CKPT_FAT_APP
       _ValorPend.VlrPendOV                         as VlrPendOV,
       _Aux.CorrespncExternalReference              as PedidoAux,
 
+
+      case
+      when _Status1.Status <> ''
+      then _Status1.Status
+      when _Status2.Status <> ''
+      then _Status2.Status
+      when _Status3.Status <> ''
+      then _Status3.Status
+      when _Status4.Status <> ''
+      then _Status4.Status
+      else ''
+      end                                          as Status,
+
+      case
+      when _Status1.ColorStatus is not null
+      then _Status1.ColorStatus
+      when _Status2.ColorStatus is not null
+      then _Status2.ColorStatus
+      when _Status3.ColorStatus is not null
+      then _Status3.ColorStatus
+      when _Status4.ColorStatus is not null
+      then _Status4.ColorStatus
+      else 0
+      end                                          as ColorStatus,
+
+      case
+      when _Status1.StatusDf <> ''
+      then _Status1.StatusDf
+      when _Status2.StatusDf <> ''
+      then _Status2.StatusDf
+      when _Status3.StatusDf <> ''
+      then _Status3.StatusDf
+      when _Status4.StatusDf <> ''
+      then _Status4.StatusDf
+      else ''
+      end                                          as StatusDF,
+
+      case
+      when _Status1.ColorStatusDf is not null
+      then _Status1.ColorStatusDf
+      when _Status2.ColorStatusDf is not null
+      then _Status2.ColorStatusDf
+      when _Status3.ColorStatusDf is not null
+      then _Status3.ColorStatusDf
+      when _Status4.ColorStatusDf is not null
+      then _Status4.ColorStatusDf
+      else 0
+      end                                          as ColorStatusDF,
+
       _Item.DeliveryPriority,
       _Lprio.DeliveryPriorityDesc,
       _ZI_SalesDocumentQuickView
@@ -290,12 +367,29 @@ group by
   _Item.StorageLocation,
   _Item.Route,
   _Mat.Saldo,
+  _Status1.Status,
+  _Status2.Status,
+  _Status3.Status,
+  _Status4.Status,
+  _Status1.ColorStatus,
+  _Status2.ColorStatus,
+  _Status3.ColorStatus,
+  _Status4.ColorStatus,
+  _Status1.StatusDf,
+  _Status2.StatusDf,
+  _Status3.StatusDf,
+  _Status4.StatusDf,
+  _Status1.ColorStatusDf,
+  _Status2.ColorStatusDf,
+  _Status3.ColorStatusDf,
+  _Status4.ColorStatusDf,
   //  _Disp.Status,
   //  _Disp.ColorStatus,
   _SalesOrder.SalesOrderType,
   _SalesOrder.DeliveryBlockReason,
   _SalesOrder.TotalCreditCheckStatus,
-  _SalesOrder.TotalNetAmount,
+  //  _SalesOrder.TotalNetAmount,
+  _ValorTotal.ValorTotal,
   _SalesOrder.SalesOrganization,
   _SalesOrder.TransactionCurrency,
   _SalesOrder.SalesOffice,
@@ -319,7 +413,8 @@ group by
   _LiberacaoComercial.HoraLiberacao,
   _TipoAgendaCliente.GrupoClienteAgenda,
   _TipoAgendaCliente.GrupoClienteAgendaTexto,
-  _Agendamento.DataAgendada,
+  //  _Agendamento.DataAgendada,
+  _DataAgenda.data_agendada,
   _Comex.StatusDeliveryBlockReasonText,
   _Comex.ColorStatusDeliveryBlockReason,
   _OverallDeliveryStatus.OverallDeliveryStatus,

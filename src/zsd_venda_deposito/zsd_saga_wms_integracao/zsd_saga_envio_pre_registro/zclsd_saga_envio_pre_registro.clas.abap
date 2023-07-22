@@ -380,24 +380,51 @@ CLASS ZCLSD_SAGA_ENVIO_PRE_REGISTRO IMPLEMENTATION.
 *    SELECT SINGLE data_agendada
 *     FROM ztsd_agendamento
 *     WHERE ordem = @ls_vbak-vbeln
-* LSCHEPP - SD - 8000007671 - AGENDAMENTO ORDEM PARCIAL - 26.05.2023 Início
-    SELECT SINGLE dataagendada
-     FROM zi_sd_hist_agendamento
-     WHERE remessa     = @ls_likp-vbeln
-       AND agend_valid = @abap_true
-      INTO @lv_dataagend.
-    IF sy-subrc NE 0.
-* LSCHEPP - SD - 8000007671 - AGENDAMENTO ORDEM PARCIAL - 26.05.2023 Fim
-      SELECT SINGLE dataagendada
-      FROM zi_sd_hist_agendamento
-      WHERE salesorder = @ls_vbak-vbeln
-        AND agend_valid = @abap_true
-***Flávia Leite - 12/04/2023
-     INTO @lv_dataagend.
-* LSCHEPP - SD - 8000007671 - AGENDAMENTO ORDEM PARCIAL - 26.05.2023 Início
-    ENDIF.
-* LSCHEPP - SD - 8000007671 - AGENDAMENTO ORDEM PARCIAL - 26.05.2023 Fim
+** LSCHEPP - SD - 8000007671 - AGENDAMENTO ORDEM PARCIAL - 26.05.2023 Início
+*    SELECT SINGLE dataagendada
+*     FROM zi_sd_hist_agendamento
+*     WHERE remessa     = @ls_likp-vbeln
+*       AND agend_valid = @abap_true
+*      INTO @lv_dataagend.
+*    IF sy-subrc NE 0.
+** LSCHEPP - SD - 8000007671 - AGENDAMENTO ORDEM PARCIAL - 26.05.2023 Fim
+*      SELECT SINGLE dataagendada
+*      FROM zi_sd_hist_agendamento
+*      WHERE salesorder = @ls_vbak-vbeln
+*        AND agend_valid = @abap_true
+****Flávia Leite - 12/04/2023
+*     INTO @lv_dataagend.
+** LSCHEPP - SD - 8000007671 - AGENDAMENTO ORDEM PARCIAL - 26.05.2023 Início
+*    ENDIF.
+** LSCHEPP - SD - 8000007671 - AGENDAMENTO ORDEM PARCIAL - 26.05.2023 Fim
 
+    IF ls_likp-lfart NE 'Z003'.
+      SELECT item, remessa, data_agendada, data_registro, hora_registro
+       FROM ztsd_agendamento
+        INTO TABLE @DATA(lt_remessa)
+       WHERE remessa = @ls_likp-vbeln.
+      IF sy-subrc NE 0.
+        SELECT ordem, item, data_agendada, data_registro, hora_registro
+          FROM ztsd_agendamento
+          INTO TABLE @DATA(lt_ordem)
+          WHERE ordem = @ls_vbak-vbeln.
+        IF sy-subrc EQ 0.
+          SORT lt_ordem BY data_registro DESCENDING hora_registro DESCENDING.
+          TRY.
+              lv_dataagend = lt_ordem[ 1 ]-data_agendada.
+            CATCH cx_sy_itab_line_not_found.
+          ENDTRY.
+        ENDIF.
+      ELSE.
+        SORT lt_remessa BY data_registro DESCENDING hora_registro DESCENDING.
+        TRY.
+            lv_dataagend = lt_remessa[ 1 ]-data_agendada.
+          CATCH cx_sy_itab_line_not_found.
+        ENDTRY.
+      ENDIF.
+      REFRESH: lt_remessa,
+               lt_ordem.
+    ENDIF.
 
     IF lt_lips[] IS NOT INITIAL.
       DATA(lv_lgort) = lt_lips[ 1 ]-lgort.
@@ -421,14 +448,14 @@ CLASS ZCLSD_SAGA_ENVIO_PRE_REGISTRO IMPLEMENTATION.
     "Caso a ordem de frete seja do tipo transit point ou ordem de frete mãe não deve ser enviada para o WMS
     IF lv_ordemfrete_mae = abap_true.
 
-        DATA ls_bapiret2 TYPE bapiret2.
+      DATA ls_bapiret2 TYPE bapiret2.
 
-        ls_bapiret2-id = 'OFFIL'.
-        ls_bapiret2-message = 'Registro não enviado, a OF possui referências a documentos do tipo OFFIL' ##NO_TEXT .
+      ls_bapiret2-id = 'OFFIL'.
+      ls_bapiret2-message = 'Registro não enviado, a OF possui referências a documentos do tipo OFFIL' ##NO_TEXT .
 
-        APPEND ls_bapiret2 TO et_return.
+      APPEND ls_bapiret2 TO et_return.
 
-        RETURN.
+      RETURN.
 
     ENDIF.
 

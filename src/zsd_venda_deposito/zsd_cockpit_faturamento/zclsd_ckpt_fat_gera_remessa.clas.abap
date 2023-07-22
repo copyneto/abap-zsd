@@ -34,44 +34,39 @@ public section.
   methods TASK_FINISH_MOD
     importing
       !P_TASK type CLIKE .
+  methods GET_PARAM_BLOQUEIO
+    returning
+      value(RV_BLOQUEIO) type LIFSK .
   PROTECTED SECTION.
-  PRIVATE SECTION.
-    "! Retorno Mensagem Bapi
-    DATA gt_return TYPE bapiret2_tab .
+private section.
 
     "! Retorno Mensagem Bapi
-    DATA gt_return_change TYPE bapiret2_tab .
-
+  data GT_RETURN type BAPIRET2_TAB .
+    "! Retorno Mensagem Bapi
+  data GT_RETURN_CHANGE type BAPIRET2_TAB .
     "! Remessa
-    DATA gv_delivery TYPE bapishpdelivnumb-deliv_numb.
-
+  data GV_DELIVERY type BAPISHPDELIVNUMB-DELIV_NUMB .
     "! Modificação entrega dados de picking nível de cabeçalho
-    DATA gs_header_data TYPE bapiobdlvhdrchg.
-
+  data GS_HEADER_DATA type BAPIOBDLVHDRCHG .
     "! Dados de controle entrega nível de cabeçalho
-    DATA gs_header_control TYPE bapiobdlvhdrctrlchg.
-
-    CONSTANTS:
+  data GS_HEADER_CONTROL type BAPIOBDLVHDRCTRLCHG .
+  constants:
       "! Constantes para tabela de parâmetros
-      BEGIN OF gc_parametros,
+    BEGIN OF gc_parametros,
         modulo TYPE ze_param_modulo VALUE 'SD',
         chave1 TYPE ztca_param_par-chave1 VALUE 'ADM_FATURAMENTO',
         chave2 TYPE ztca_param_par-chave2 VALUE 'BLOQ_REMESSA',
 *        chave3 TYPE ztca_param_par-chave3 VALUE 'LIB_ROTA',
         chave3 TYPE ztca_param_par-chave3 VALUE 'ANALISE',
-      END OF gc_parametros.
-
+      END OF gc_parametros .
+  data:
     "!  Bloqueio da remessa
-    DATA gs_bloqueio TYPE RANGE OF lifsk.
+    gs_bloqueio TYPE RANGE OF lifsk .
 
-    "! Seleciona Bloqueio da remessa
-    "! @parameter rv_bloqueio |Bloqueio da remessa
-    METHODS get_param_bloqueio RETURNING VALUE(rv_bloqueio) TYPE lifsk.
-    METHODS verifica_cliente
-      IMPORTING
-        iv_ordem_venda TYPE zi_sd_ckpt_fat_app-salesorder
-        iv_cliente     TYPE zi_sd_ckpt_fat_app-customer.
-
+  methods VERIFICA_CLIENTE
+    importing
+      !IV_ORDEM_VENDA type ZI_SD_CKPT_FAT_APP-SALESORDER
+      !IV_CLIENTE type ZI_SD_CKPT_FAT_APP-CUSTOMER .
 ENDCLASS.
 
 
@@ -142,7 +137,7 @@ CLASS ZCLSD_CKPT_FAT_GERA_REMESSA IMPLEMENTATION.
     DATA ls_header_control    TYPE bapiobdlvhdrctrlchg.
 
     "Get single parameter
-    DATA(lv_delivery_block_code) = me->get_param_bloqueio( ).
+***    DATA(lv_delivery_block_code) = me->get_param_bloqueio( ).
 
     "Create delivery
     lt_sales_order_items = VALUE #( ( ref_doc = iv_sales_order ) ).
@@ -176,52 +171,52 @@ CLASS ZCLSD_CKPT_FAT_GERA_REMESSA IMPLEMENTATION.
           wait = abap_true.
 
       "Block delivery
-      IF NOT ( ev_delivery_no         IS INITIAL
-     AND NOT   lv_delivery_block_code IS INITIAL ).
+***      IF NOT ( ev_delivery_no         IS INITIAL
+***     AND NOT   lv_delivery_block_code IS INITIAL ).
+***
+***        LOOP AT lt_return ASSIGNING FIELD-SYMBOL(<fs_return>).
+***
+***          IF <fs_return>-id = 'VL' AND <fs_return>-number = '311'.
+***
+***            ls_header_data = VALUE #( deliv_numb = |{ <fs_return>-message_v1(10) ALPHA = IN  }| "ev_delivery_no
+***                                       dlv_block = lv_delivery_block_code ).
+***
+***            ls_header_control = VALUE #( deliv_numb    = |{ <fs_return>-message_v1(10) ALPHA = IN  }| "ev_delivery_no
+***                                         dlv_block_flg = abap_true ).
+***
+***            CALL FUNCTION 'ZFMSD_CKPT_FAT_MOD_REMESSA'
+***              STARTING NEW TASK 'BACKGROUND_MOD' CALLING task_finish_mod ON END OF TASK
+***              EXPORTING
+***                is_header_data    = ls_header_data
+***                is_header_control = ls_header_control
+***                iv_delivery_no    = ev_delivery_no
+***              TABLES
+***                tt_return         = lt_return.
+***
+****            CALL FUNCTION 'BAPI_OUTB_DELIVERY_CHANGE'
+****              EXPORTING
+****                header_data    = ls_header_data
+****                header_control = ls_header_control
+****                delivery       = ev_delivery_no
+****              TABLES
+****                return         = lt_return.
+****
+****            CALL FUNCTION 'BAPI_TRANSACTION_COMMIT'
+****              EXPORTING
+****                wait = abap_true.
+***
+***            APPEND LINES OF lt_return TO lt_return_aux.
+***
+***          ENDIF.
+***        ENDLOOP.
+***
+***      ENDIF.
 
-        LOOP AT lt_return ASSIGNING FIELD-SYMBOL(<fs_return>).
-
-          IF <fs_return>-id = 'VL' AND <fs_return>-number = '311'.
-
-            ls_header_data = VALUE #( deliv_numb = |{ <fs_return>-message_v1(10) ALPHA = IN  }| "ev_delivery_no
-                                       dlv_block = lv_delivery_block_code ).
-
-            ls_header_control = VALUE #( deliv_numb    = |{ <fs_return>-message_v1(10) ALPHA = IN  }| "ev_delivery_no
-                                         dlv_block_flg = abap_true ).
-
-            CALL FUNCTION 'ZFMSD_CKPT_FAT_MOD_REMESSA'
-              STARTING NEW TASK 'BACKGROUND_MOD' CALLING task_finish_mod ON END OF TASK
-              EXPORTING
-                is_header_data    = ls_header_data
-                is_header_control = ls_header_control
-                iv_delivery_no    = ev_delivery_no
-              TABLES
-                tt_return         = lt_return.
-
-*            CALL FUNCTION 'BAPI_OUTB_DELIVERY_CHANGE'
-*              EXPORTING
-*                header_data    = ls_header_data
-*                header_control = ls_header_control
-*                delivery       = ev_delivery_no
-*              TABLES
-*                return         = lt_return.
-*
-*            CALL FUNCTION 'BAPI_TRANSACTION_COMMIT'
-*              EXPORTING
-*                wait = abap_true.
-
-            APPEND LINES OF lt_return TO lt_return_aux.
-
-          ENDIF.
-        ENDLOOP.
-
-      ENDIF.
-
-      IF lt_return_aux IS NOT INITIAL.
-        SORT lt_return_aux BY id  number message.
-        DELETE ADJACENT DUPLICATES FROM lt_return_aux COMPARING id  number message.
-        lt_return = lt_return_aux.
-      ENDIF.
+***      IF lt_return_aux IS NOT INITIAL.
+***        SORT lt_return_aux BY id  number message.
+***        DELETE ADJACENT DUPLICATES FROM lt_return_aux COMPARING id  number message.
+***        lt_return = lt_return_aux.
+***      ENDIF.
 
       IF line_exists( lt_return[ type = 'E' ] ).         "#EC CI_STDSEQ
         LOOP AT lt_return INTO DATA(ls_return) WHERE type = 'E'. "#EC CI_STDSEQ
@@ -294,9 +289,9 @@ CLASS ZCLSD_CKPT_FAT_GERA_REMESSA IMPLEMENTATION.
 
   METHOD task_finish_mod.
 
- RECEIVE RESULTS FROM FUNCTION 'ZFMSD_CKPT_FAT_MOD_REMESSA'
- IMPORTING
-  tt_return      = me->gt_return.
-
+* RECEIVE RESULTS FROM FUNCTION 'ZFMSD_CKPT_FAT_MOD_REMESSA'
+* IMPORTING
+*  tt_return      = me->gt_return.
+RETURN.
   ENDMETHOD.
 ENDCLASS.

@@ -50,6 +50,18 @@
             IF sy-subrc EQ 0.
               lv_skip_dep = abap_true.
             ENDIF.
+
+            SELECT COUNT( * )
+            FROM ztsd_intercompan
+              WHERE ( processo EQ '1' ) "    OR processo NE '' )     " Transferência entre centros
+              AND ( tipooperacao  EQ 'TRA2') " Depósito Fechado
+              AND purchaseorder EQ @lv_ebeln.
+
+            IF sy-subrc EQ 4.
+              lv_skip_dep = abap_true.
+            ELSE.
+              lv_skip_dep = abap_false.
+            ENDIF.
           ENDIF.
 
           IF lv_skip_dep EQ abap_false.
@@ -143,6 +155,10 @@
                   REPLACE '&1' IN lv_texto_df WITH |entregues no|.
                 WHEN OTHERS.
               ENDCASE.
+
+              IF lv_werks_r IS INITIAL.
+                lv_werks_r = <fs_nflin>-werks.
+              ENDIF.
 
               SELECT SINGLE j_1bbranch
                 FROM t001w

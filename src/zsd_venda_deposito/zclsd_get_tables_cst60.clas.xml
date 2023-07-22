@@ -30,6 +30,36 @@
      <LANGU>P</LANGU>
      <DESCRIPT>Buscar de dados nas tabelas de cadastros CST60</DESCRIPT>
     </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>GET_TABLE</CMPNAME>
+     <SCONAME>EV_TABELA</SCONAME>
+     <LANGU>P</LANGU>
+     <DESCRIPT>Char 20</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>GET_TABLE</CMPNAME>
+     <SCONAME>IV_CENTRO</SCONAME>
+     <LANGU>P</LANGU>
+     <DESCRIPT>Centro (próprio ou externo)</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>GET_TABLE</CMPNAME>
+     <SCONAME>IV_GP_MERCADORIA</SCONAME>
+     <LANGU>P</LANGU>
+     <DESCRIPT>Grupo de mercadorias</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>GET_TABLE</CMPNAME>
+     <SCONAME>IV_MATERIAL</SCONAME>
+     <LANGU>P</LANGU>
+     <DESCRIPT>Nº do material</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>GET_TABLE</CMPNAME>
+     <SCONAME>IV_UF</SCONAME>
+     <LANGU>P</LANGU>
+     <DESCRIPT>UF recebedora</DESCRIPT>
+    </SEOSUBCOTX>
    </DESCRIPTIONS_SUB>
   </asx:values>
  </asx:abap>

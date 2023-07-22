@@ -181,17 +181,19 @@ CLASS ZCLSD_CKPT_FAT_STATUSFT IMPLEMENTATION.
 *      ENDIF.
 *    ENDLOOP.
 
-    IF lt_original_data[] IS NOT INITIAL.
-
-      SELECT *
-      FROM zi_sd_ckpt_fat_disp_estoque
-      INTO TABLE @DATA(lt_sales_materials)
-      FOR ALL ENTRIES IN @lt_original_data
-      WHERE salesdocument = @lt_original_data-salesorder.
-
-      SORT: lt_sales_materials BY salesdocument salesdocumentitem.
-
-    ENDIF.
+*** Inicio Comentário - teste performance - 18/07/23 ***
+*    IF lt_original_data[] IS NOT INITIAL.
+*
+*      SELECT *
+*      FROM zi_sd_ckpt_fat_disp_estoque
+*      INTO TABLE @DATA(lt_sales_materials)
+*      FOR ALL ENTRIES IN @lt_original_data
+*      WHERE salesdocument = @lt_original_data-salesorder.
+*
+*      SORT: lt_sales_materials BY salesdocument salesdocumentitem.
+*
+*    ENDIF.
+*** Fim Comentário - teste performance - 18/07/23 ***
 
 *****    lt_material_stock = CORRESPONDING #( lt_sales_materials ).
 *****    DELETE ADJACENT DUPLICATES FROM lt_material_stock COMPARING material plant storagelocation.
@@ -256,69 +258,71 @@ CLASS ZCLSD_CKPT_FAT_STATUSFT IMPLEMENTATION.
 *** Atualizando os campos de Status
 **********************************************************************
 
-    LOOP AT lt_original_data ASSIGNING FIELD-SYMBOL(<fs_data>).
-
-      READ TABLE lt_sales_materials TRANSPORTING NO FIELDS WITH KEY salesdocument = <fs_data>-salesorder BINARY SEARCH.
-
-      CHECK sy-subrc IS INITIAL.
-
-      LOOP AT lt_sales_materials ASSIGNING FIELD-SYMBOL(<fs_material>) FROM sy-tabix.
-        IF <fs_material>-salesdocument <> <fs_data>-salesorder.
-          EXIT.
-        ENDIF.
-
-        "Verificando se foi encontrado registro no estoque tanto para o centro da ordem ou para
-        "o centro do depósito fechado.
-        IF <fs_material>-stockmardexist IS INITIAL AND <fs_material>-stockdfmardexist IS INITIAL.
-          EXIT.
-        ENDIF.
-
-*****        READ TABLE lt_material_stock ASSIGNING <fs_material_stock> WITH KEY material        = <fs_material>-material
-*****                                                                              plant           = <fs_material>-plant
-*****                                                                              storagelocation = <fs_material>-storagelocation
-*****                                                                              BINARY SEARCH.
-
-*****        IF sy-subrc IS INITIAL.
-          IF <fs_material>-stockmardexist = abap_true.
-            IF <fs_data>-status <> TEXT-002.
-*****              IF <fs_material>-sdprocessstatus = 'C' OR <fs_material_stock>-stock >= 0.
-              IF <fs_material>-sdprocessstatus = 'C' OR <fs_material>-saldolivre > 0.
-                <fs_data>-status      = TEXT-001. "Disponível
-                <fs_data>-colorstatus = 3.
-              ELSE.
-                <fs_data>-status      = TEXT-002. "Indisponível
-                <fs_data>-colorstatus = 1.
-              ENDIF.
-            ENDIF.
-          ELSE.
-            <fs_data>-status      = TEXT-002. "Indisponível
-            <fs_data>-colorstatus = 1.
-          ENDIF.
-*****        ENDIF.
-
-        IF <fs_material>-stockdfmardexist = abap_true.
-          IF <fs_data>-statusdf <> TEXT-002.
-*****            lv_saldo = <fs_material>-stockdf - <fs_material>-orderquantity.
-
-            IF <fs_material>-saldodf > 0.
-              <fs_data>-statusdf      = TEXT-001. "Disponível
-              <fs_data>-colorstatusdf = 3.
-            ELSE.
-              <fs_data>-statusdf      = TEXT-002. "Indisponível
-              <fs_data>-colorstatusdf = 1.
-            ENDIF.
-          ENDIF.
-        ELSE.
-          <fs_data>-statusdf      = TEXT-002. "Indisponível
-          <fs_data>-colorstatusdf = 1.
-        ENDIF.
-
-        "Verificando se os dois status estão indisponíveis. Caso sim, sair do loop
-        IF <fs_data>-status = TEXT-002 AND <fs_data>-statusdf <> TEXT-002.
-          EXIT.
-        ENDIF.
-      ENDLOOP.
-    ENDLOOP.
+*** Inicio Comentário - teste performance - 18/07/23 ***
+*    LOOP AT lt_original_data ASSIGNING FIELD-SYMBOL(<fs_data>).
+*
+*      READ TABLE lt_sales_materials TRANSPORTING NO FIELDS WITH KEY salesdocument = <fs_data>-salesorder BINARY SEARCH.
+*
+*      CHECK sy-subrc IS INITIAL.
+*
+*      LOOP AT lt_sales_materials ASSIGNING FIELD-SYMBOL(<fs_material>) FROM sy-tabix.
+*        IF <fs_material>-salesdocument <> <fs_data>-salesorder.
+*          EXIT.
+*        ENDIF.
+*
+*        "Verificando se foi encontrado registro no estoque tanto para o centro da ordem ou para
+*        "o centro do depósito fechado.
+*        IF <fs_material>-stockmardexist IS INITIAL AND <fs_material>-stockdfmardexist IS INITIAL.
+*          EXIT.
+*        ENDIF.
+*
+******        READ TABLE lt_material_stock ASSIGNING <fs_material_stock> WITH KEY material        = <fs_material>-material
+******                                                                              plant           = <fs_material>-plant
+******                                                                              storagelocation = <fs_material>-storagelocation
+******                                                                              BINARY SEARCH.
+*
+******        IF sy-subrc IS INITIAL.
+*          IF <fs_material>-stockmardexist = abap_true.
+*            IF <fs_data>-status <> TEXT-002.
+******              IF <fs_material>-sdprocessstatus = 'C' OR <fs_material_stock>-stock >= 0.
+*              IF <fs_material>-sdprocessstatus = 'C' OR <fs_material>-saldolivre > 0.
+*                <fs_data>-status      = TEXT-001. "Disponível
+*                <fs_data>-colorstatus = 3.
+*              ELSE.
+*                <fs_data>-status      = TEXT-002. "Indisponível
+*                <fs_data>-colorstatus = 1.
+*              ENDIF.
+*            ENDIF.
+*          ELSE.
+*            <fs_data>-status      = TEXT-002. "Indisponível
+*            <fs_data>-colorstatus = 1.
+*          ENDIF.
+******        ENDIF.
+*
+*        IF <fs_material>-stockdfmardexist = abap_true.
+*          IF <fs_data>-statusdf <> TEXT-002.
+******            lv_saldo = <fs_material>-stockdf - <fs_material>-orderquantity.
+*
+*            IF <fs_material>-saldodf > 0.
+*              <fs_data>-statusdf      = TEXT-001. "Disponível
+*              <fs_data>-colorstatusdf = 3.
+*            ELSE.
+*              <fs_data>-statusdf      = TEXT-002. "Indisponível
+*              <fs_data>-colorstatusdf = 1.
+*            ENDIF.
+*          ENDIF.
+*        ELSE.
+*          <fs_data>-statusdf      = TEXT-002. "Indisponível
+*          <fs_data>-colorstatusdf = 1.
+*        ENDIF.
+*
+*        "Verificando se os dois status estão indisponíveis. Caso sim, sair do loop
+*        IF <fs_data>-status = TEXT-002 AND <fs_data>-statusdf <> TEXT-002.
+*          EXIT.
+*        ENDIF.
+*      ENDLOOP.
+*    ENDLOOP.
+*** Fim Comentário - teste performance - 18/07/23 ***
 
     ct_calculated_data = CORRESPONDING #(  lt_original_data ).
 

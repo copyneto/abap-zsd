@@ -348,7 +348,7 @@ CLASS ZCLSD_CAFTRATAR_CONTABILIZACAO IMPLEMENTATION.
 
   METHOD seleciona_tp_faturamento.
 
-    DATA(lo_tabela_parametros) = NEW  zclca_tabela_parametros( ).
+    DATA(lo_tabela_parametros) = zclca_tabela_parametros=>get_instance( ).    " CHANGE - JWSILVA - 21.07.2023
 
     CLEAR  gr_fkart.
 

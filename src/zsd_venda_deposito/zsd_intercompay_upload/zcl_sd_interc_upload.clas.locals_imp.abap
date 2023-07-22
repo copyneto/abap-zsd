@@ -461,7 +461,7 @@ CLASS lcl_IntercompanyUpload IMPLEMENTATION.
     IF ls_cockpit-tpfrete EQ '001'  " CIF
     OR ls_cockpit-tpfrete EQ '002'. " FOB
 
-      DATA(lo_param) = NEW zclca_tabela_parametros( ).
+      DATA(lo_param) = zclca_tabela_parametros=>get_instance( ).    " CHANGE - JWSILVA - 21.07.2023
 
       TRY.
           lo_param->m_get_range(

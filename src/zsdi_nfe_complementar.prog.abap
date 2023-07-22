@@ -6,7 +6,7 @@
 
     DATA lr_nftype TYPE RANGE OF j_1bnfdoc-nftype.
 
-    DATA(lo_nftype) = NEW zclca_tabela_parametros( ).
+    DATA(lo_nftype) = zclca_tabela_parametros=>get_instance( ). " CHANGE - LSCHEPP - 20.07.2023
 
     TRY.
         lo_nftype->m_get_range(

@@ -20,7 +20,7 @@
       DATA(lv_augru) = <fs_vbrp>-augru_auft.
     ENDIF.
 
-    DATA(lo_param1) = NEW zclca_tabela_parametros( ).
+    DATA(lo_param1) = zclca_tabela_parametros=>get_instance( ). " CHANGE - LSCHEPP - 20.07.2023
     TRY.
         lo_param1->m_get_range( EXPORTING iv_modulo = lc_param-modulo
                                           iv_chave1 = lc_param-chave1

@@ -3,7 +3,7 @@
 @Metadata.ignorePropagatedAnnotations: true
 @ObjectModel.usageType:{
     serviceQuality: #X,
-    sizeCategory: #S,
+    sizeCategory: #XL,
     dataClass: #MIXED
 }
 define view entity ZI_SD_VERIF_DISP_MATERIAL

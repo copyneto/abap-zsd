@@ -6,13 +6,15 @@
     <fs_wa_nf_stx_xml> TYPE j_1bnfstx_tab,
     <fs_wk_item_xml>   TYPE j_1bnflin_tab.
 
-  IF is_header-land1 = 'BR' AND
+  IF is_header-land1 EQ 'BR' AND
+     is_header-form NE 'ZF55' AND
      check_coligada( is_header ) IS INITIAL.
     DATA(ls_nflin_index1) = VALUE #( it_nflin[ 1 ] OPTIONAL ).
 
     IF ls_nflin_index1-itmtyp <> '2'  AND
-       ls_nflin_index1-itmtyp <> '72' AND                     "Inclusão de condição para Comodato - VARAUJO 23.05.2023 - Def. 8000007682
-       ls_nflin_index1-itmtyp <> '75'.                        "Inclusão de condição para Locação  - VARAUJO 24.05.2023 - Def. 8000007649
+       ls_nflin_index1-itmtyp <> '72' AND                         "Inclusão de condição para Comodato - VARAUJO 23.05.2023 - Def. 8000007682
+       ls_nflin_index1-itmtyp <> '75' AND                         "Inclusão de condição para Locação  - VARAUJO 24.05.2023 - Def. 8000007649
+       ls_nflin_index1-itmtyp <> '33'.                            "Inclusão de condição para simbólico de transporte subcontratação  - VARAUJO 18.07.2023 -
       ASSIGN ('(SAPLJ1BF)WA_NF_LIN[]') TO <fs_wa_nf_lin_xml>.
       ASSIGN ('(SAPLJ1BF)WA_NF_STX[]') TO <fs_wa_nf_stx_xml>.
       IF <fs_wa_nf_lin_xml> IS ASSIGNED AND <fs_wa_nf_stx_xml> IS ASSIGNED.

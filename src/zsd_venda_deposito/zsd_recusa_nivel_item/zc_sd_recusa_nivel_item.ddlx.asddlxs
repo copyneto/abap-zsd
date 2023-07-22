@@ -2,8 +2,7 @@
 @UI: { headerInfo: { typeName      : 'Motivo Recusa',
                      typeNamePlural: 'Documentos',
                      title         : { type: #STANDARD,
-                                       value: 'SalesOrder' }
-  }
+                                       value: 'SalesOrder' } }
 }
 annotate view ZC_SD_RECUSA_NIVEL_ITEM with
 {

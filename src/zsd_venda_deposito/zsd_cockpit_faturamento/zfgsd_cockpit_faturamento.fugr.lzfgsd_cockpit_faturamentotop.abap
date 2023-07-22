@@ -11,3 +11,4 @@ CONSTANTS:
 
 * INCLUDE LZFGSD_COCKPIT_FATURAMENTOD...     " Local class definition
 DATA gv_app_fat TYPE abap_bool VALUE abap_true.
+DATA gv_bloqueio TYPE	lifsk.

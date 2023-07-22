@@ -1,148 +1,148 @@
-class ZCLSD_CMDLOC_DEVOL_MERCADORIA definition
-  public
-  final
-  create public .
+CLASS zclsd_cmdloc_devol_mercadoria DEFINITION
+  PUBLIC
+  FINAL
+  CREATE PUBLIC .
 
-public section.
+  PUBLIC SECTION.
 
-  methods CHAMADA_EXIT
-    importing
-      !IS_VBAK type TDS_XVBAK optional
-      !IT_VBAP type TT_VBAPVB optional
-    returning
-      value(RT_MENSAGENS) type BAPIRET2_TAB .
-  methods FUNCAO_DEVOLUCAO
-    importing
-      !IS_KEY type ZSSD_KEY_COMODLOC
-      !IV_MICRO type CHAR1 optional
-      !IS_VBAK type TDS_XVBAK optional
-      !IT_VBAP type TT_VBAPVB optional
-    returning
-      value(RT_MENSAGENS) type BAPIRET2_TAB .
-  methods FUNCAO_MOVIMENTO_MM
-    importing
-      !IS_VBAK type TDS_XVBAK
-      !IT_VBAP type TT_VBAPVB .
-  methods DEVOLUCAO
-    importing
-      !IS_KEY type ZSSD_KEY_COMODLOC
-      !IS_VBAK type TDS_XVBAK
-      !IT_VBAP type TT_VBAPVB
-    returning
-      value(RT_MENSAGENS) type BAPIRET2_TAB .
-  methods MOVIMENTO_MM
-    importing
-      !IS_VBAK type TDS_XVBAK
-      !IT_VBAP type TT_VBAPVB
-    exporting
-      !EV_MAT_DOC type BAPI2017_GM_HEAD_RET-MAT_DOC
-      !EV_DOC_YEAR type BAPI2017_GM_HEAD_RET-DOC_YEAR .
-  class-methods SETUP_MESSAGES
-    importing
-      !P_TASK type CLIKE .
-  methods CALL_SHDB_SERNR
-    importing
-      !IV_VBELN type BAPIVBELN-VBELN
-      !IV_LINES type I .
-protected section.
-private section.
+    METHODS chamada_exit
+      IMPORTING
+        !is_vbak            TYPE tds_xvbak OPTIONAL
+        !it_vbap            TYPE tt_vbapvb OPTIONAL
+      RETURNING
+        VALUE(rt_mensagens) TYPE bapiret2_tab .
+    METHODS funcao_devolucao
+      IMPORTING
+        !is_key             TYPE zssd_key_comodloc
+        !iv_micro           TYPE char1 OPTIONAL
+        !is_vbak            TYPE tds_xvbak OPTIONAL
+        !it_vbap            TYPE tt_vbapvb OPTIONAL
+      RETURNING
+        VALUE(rt_mensagens) TYPE bapiret2_tab .
+    METHODS funcao_movimento_mm
+      IMPORTING
+        !is_vbak TYPE tds_xvbak
+        !it_vbap TYPE tt_vbapvb .
+    METHODS devolucao
+      IMPORTING
+        !is_key             TYPE zssd_key_comodloc
+        !is_vbak            TYPE tds_xvbak
+        !it_vbap            TYPE tt_vbapvb
+      RETURNING
+        VALUE(rt_mensagens) TYPE bapiret2_tab .
+    METHODS movimento_mm
+      IMPORTING
+        !is_vbak     TYPE tds_xvbak
+        !it_vbap     TYPE tt_vbapvb
+      EXPORTING
+        !ev_mat_doc  TYPE bapi2017_gm_head_ret-mat_doc
+        !ev_doc_year TYPE bapi2017_gm_head_ret-doc_year .
+    CLASS-METHODS setup_messages
+      IMPORTING
+        !p_task TYPE clike .
+    METHODS call_shdb_sernr
+      IMPORTING
+        !iv_vbeln TYPE bapivbeln-vbeln
+        !iv_lines TYPE i .
+  PROTECTED SECTION.
+  PRIVATE SECTION.
 
-  data GT_MSG_LOG type BAL_T_MSG .
-  constants:
-    "! <p class="shorttext synchronized">Constantes da tabela de Parâmetros</p>
-    BEGIN OF gc_const,
-      msg_class      TYPE sy-msgid         VALUE 'ZSD_AUTO_CONT_DIS',
-      msg_sucess     TYPE sy-msgty         VALUE 'S',
-      msg_error      TYPE sy-msgty         VALUE 'E',
-      object         TYPE balobj_d         VALUE 'ZSD_AUTO',
-      subobject      TYPE balsubobj        VALUE 'ZSD_AUTO',
-      msg_10         TYPE sy-msgno         VALUE '010',
-      msg_11         TYPE sy-msgno         VALUE '011',
-      vtweg_macro    TYPE vbak-vtweg       VALUE '10',
-      mtv_rec_08     TYPE vbap-abgru       VALUE '08',
-      mtv_rec_09     TYPE vbap-abgru       VALUE '09',
-      auart_z023     TYPE vbak-auart       VALUE 'Z023',
-      auart_z024     TYPE vbak-auart       VALUE 'Z024',
-      auart_yd74     TYPE vbak-auart       VALUE 'YD74',
-      auart_yd75     TYPE vbak-auart       VALUE 'YD75',
-      auart_yd76     TYPE vbak-auart       VALUE 'YD76',
-      auart_yd77     TYPE vbak-auart       VALUE 'YD77',
-      auart_yr74     TYPE vbak-auart       VALUE 'YR74',
-      auart_yr77     TYPE vbak-auart       VALUE 'YR77',
-      auart_yr75     TYPE vbak-auart       VALUE 'YR75',
-      auart_yr76     TYPE vbak-auart       VALUE 'YR76',
-      ord_rea_r06    TYPE augru            VALUE 'R06',
-      ord_rea_r07    TYPE augru            VALUE 'R07',
-      tp_opera_macro TYPE char5            VALUE 'Macro',
-      goods_mov      TYPE bapi2017_gm_code VALUE '05',
-      movtyp_yg6     TYPE bwart            VALUE 'YG6',
-      movtyp_yg8     TYPE bwart            VALUE 'YG8',
-      cat_devol      TYPE vbtypl_n         VALUE 'H',
-      chg_tabname    TYPE tabname          VALUE 'VBAP',
-      chg_field      TYPE fieldname        VALUE 'ABGRU',
-      bsark_carg     TYPE vbak-bsark       VALUE 'CARG',
-      vbbp           TYPE tdobject         VALUE 'VBBP',
-      z010           TYPE tdid             VALUE 'Z010',
-      zpr1           TYPE kscha            VALUE 'ZPR1',
-      bsark_fluig     TYPE vbak-bsark      VALUE 'FLUI',
-    END OF gc_const .
-  constants:
-    BEGIN OF gc_param,
-      modulo     TYPE ze_param_modulo  VALUE 'SD',
-      chv1_food  TYPE ze_param_chave   VALUE 'CONTRATOS FOOD',
-      chv2_demc  TYPE ze_param_chave   VALUE 'DEVOLUÇÃOMACRO',
-      chv2_mm    TYPE ze_param_chave   VALUE 'ENTRADA MM',
+    DATA gt_msg_log TYPE bal_t_msg .
+    CONSTANTS:
+      "! <p class="shorttext synchronized">Constantes da tabela de Parâmetros</p>
+      BEGIN OF gc_const,
+        msg_class      TYPE sy-msgid         VALUE 'ZSD_AUTO_CONT_DIS',
+        msg_sucess     TYPE sy-msgty         VALUE 'S',
+        msg_error      TYPE sy-msgty         VALUE 'E',
+        object         TYPE balobj_d         VALUE 'ZSD_AUTO',
+        subobject      TYPE balsubobj        VALUE 'ZSD_AUTO',
+        msg_10         TYPE sy-msgno         VALUE '010',
+        msg_11         TYPE sy-msgno         VALUE '011',
+        vtweg_macro    TYPE vbak-vtweg       VALUE '10',
+        mtv_rec_08     TYPE vbap-abgru       VALUE '08',
+        mtv_rec_09     TYPE vbap-abgru       VALUE '09',
+        auart_z023     TYPE vbak-auart       VALUE 'Z023',
+        auart_z024     TYPE vbak-auart       VALUE 'Z024',
+        auart_yd74     TYPE vbak-auart       VALUE 'YD74',
+        auart_yd75     TYPE vbak-auart       VALUE 'YD75',
+        auart_yd76     TYPE vbak-auart       VALUE 'YD76',
+        auart_yd77     TYPE vbak-auart       VALUE 'YD77',
+        auart_yr74     TYPE vbak-auart       VALUE 'YR74',
+        auart_yr77     TYPE vbak-auart       VALUE 'YR77',
+        auart_yr75     TYPE vbak-auart       VALUE 'YR75',
+        auart_yr76     TYPE vbak-auart       VALUE 'YR76',
+        ord_rea_r06    TYPE augru            VALUE 'R06',
+        ord_rea_r07    TYPE augru            VALUE 'R07',
+        tp_opera_macro TYPE char5            VALUE 'Macro',
+        goods_mov      TYPE bapi2017_gm_code VALUE '05',
+        movtyp_yg6     TYPE bwart            VALUE 'YG6',
+        movtyp_yg8     TYPE bwart            VALUE 'YG8',
+        cat_devol      TYPE vbtypl_n         VALUE 'H',
+        chg_tabname    TYPE tabname          VALUE 'VBAP',
+        chg_field      TYPE fieldname        VALUE 'ABGRU',
+        bsark_carg     TYPE vbak-bsark       VALUE 'CARG',
+        vbbp           TYPE tdobject         VALUE 'VBBP',
+        z010           TYPE tdid             VALUE 'Z010',
+        zpr1           TYPE kscha            VALUE 'ZPR1',
+        bsark_fluig    TYPE vbak-bsark      VALUE 'FLUI',
+      END OF gc_const .
+    CONSTANTS:
+      BEGIN OF gc_param,
+        modulo     TYPE ze_param_modulo  VALUE 'SD',
+        chv1_food  TYPE ze_param_chave   VALUE 'CONTRATOS FOOD',
+        chv2_demc  TYPE ze_param_chave   VALUE 'DEVOLUÇÃOMACRO',
+        chv2_mm    TYPE ze_param_chave   VALUE 'ENTRADA MM',
 *      chv3_movtp TYPE ze_param_chave_3 VALUE 'MOVE_TYPE',
-      chv3_mwskz TYPE ze_param_chave_3 VALUE 'MWSKZ',
-    END OF gc_param .
-  class-data GT_MENSAGENS type BAPIRET2_T .
-  class-data GV_WAIT_ASYNC type ABAP_BOOL .
-  constants GC_UPDT type UPDKZ_D value 'U' ##NO_TEXT.
-  constants GC_DELT type UPDKZ_D value 'D' ##NO_TEXT.
+        chv3_mwskz TYPE ze_param_chave_3 VALUE 'MWSKZ',
+      END OF gc_param .
+    CLASS-DATA gt_mensagens TYPE bapiret2_t .
+    CLASS-DATA gv_wait_async TYPE abap_bool .
+    CONSTANTS gc_updt TYPE updkz_d VALUE 'U' ##NO_TEXT.
+    CONSTANTS gc_delt TYPE updkz_d VALUE 'D' ##NO_TEXT.
 
-  methods CHAMA_BAPIS
-    importing
-      !IV_ERDAT type VBAK-ERDAT
-      !IV_WERKS type VBAP-WERKS
-      !IV_AUART type VBAK-AUART
-      !IV_VBELN type VBAK-VBELN
-      !IV_VTWEG type VBAK-VTWEG
-      !IV_ABGRU type VBAP-ABGRU
-      !IV_FATURA type VBELN_NACH
-      !IV_XBLNR type XBLNR_V
-      !IV_VSBED type VSBED optional
-      !IT_VBAP type TT_VBAPVB optional
-      !IV_IHREZ type IHREZ optional
-      !IV_BSARK type BSARK
-    exporting
-      !EV_NEW_SALESDOC type VBELN_VA
-    returning
-      value(RT_RETURN) type BAPIRET2_T .
-  methods SERNR_UPDATE
-    importing
-      !IS_KEY type ZSSD_KEY_UPDT_SERNR .
-  methods REGISTRA_LOG
-    returning
-      value(RV_BALLOGHNDL) type BALLOGHNDL .
-  methods GET_PARAM_SIMPL
-    importing
-      !IV_CHAVE1 type ZE_PARAM_CHAVE
-      !IV_CHAVE2 type ZE_PARAM_CHAVE
-      !IV_CHAVE3 type ZE_PARAM_CHAVE_3
-    returning
-      value(RV_VALOR) type ZE_PARAM_LOW .
-  methods VALIDA_POSNR
-    importing
-      !IV_POSNR type POSNR_VA
-    changing
-      !CV_MULTIPLO type ABAP_BOOL
-    returning
-      value(RV_MULTIPLICADOR) type I .
+    METHODS chama_bapis
+      IMPORTING
+        !iv_erdat        TYPE vbak-erdat
+        !iv_werks        TYPE vbap-werks
+        !iv_auart        TYPE vbak-auart
+        !iv_vbeln        TYPE vbak-vbeln
+        !iv_vtweg        TYPE vbak-vtweg
+        !iv_abgru        TYPE vbap-abgru
+        !iv_fatura       TYPE vbeln_nach
+        !iv_xblnr        TYPE xblnr_v
+        !iv_vsbed        TYPE vsbed OPTIONAL
+        !it_vbap         TYPE tt_vbapvb OPTIONAL
+        !iv_ihrez        TYPE ihrez OPTIONAL
+        !iv_bsark        TYPE bsark
+      EXPORTING
+        !ev_new_salesdoc TYPE vbeln_va
+      RETURNING
+        VALUE(rt_return) TYPE bapiret2_t .
+    METHODS sernr_update
+      IMPORTING
+        !is_key TYPE zssd_key_updt_sernr .
+    METHODS registra_log
+      RETURNING
+        VALUE(rv_balloghndl) TYPE balloghndl .
+    METHODS get_param_simpl
+      IMPORTING
+        !iv_chave1      TYPE ze_param_chave
+        !iv_chave2      TYPE ze_param_chave
+        !iv_chave3      TYPE ze_param_chave_3
+      RETURNING
+        VALUE(rv_valor) TYPE ze_param_low .
+    METHODS valida_posnr
+      IMPORTING
+        !iv_posnr               TYPE posnr_va
+      CHANGING
+        !cv_multiplo            TYPE abap_bool
+      RETURNING
+        VALUE(rv_multiplicador) TYPE i .
 ENDCLASS.
 
 
 
-CLASS ZCLSD_CMDLOC_DEVOL_MERCADORIA IMPLEMENTATION.
+CLASS zclsd_cmdloc_devol_mercadoria IMPLEMENTATION.
 
 
   METHOD call_shdb_sernr.
@@ -422,7 +422,7 @@ CLASS ZCLSD_CMDLOC_DEVOL_MERCADORIA IMPLEMENTATION.
            FROM vbrp
             WHERE vbeln EQ @iv_fatura
             AND posnr EQ @<fs_vbap>-posnr
-          INTO @DATA(lv_netwr). "#EC CI_SROFC_NESTED
+          INTO @DATA(lv_netwr).                    "#EC CI_SROFC_NESTED
 
           IF lv_netwr IS INITIAL.
             lv_netwr = <fs_vbap>-netwr.
@@ -1176,17 +1176,37 @@ CLASS ZCLSD_CMDLOC_DEVOL_MERCADORIA IMPLEMENTATION.
 
     CHECK is_vbak IS NOT INITIAL.
 
+* BEGIN OF CHANGE - JWSILVA - 19.07.2023
+* ---------------------------------------------------------------------------
+* Busca os dados de contrato
+* ---------------------------------------------------------------------------
+*    SELECT SINGLE salescontract,
+*                  solicitacao,
+*                  tpoperacao,
+*                  docnumnfesaida,
+*                  docnumentrada,
+*                  docfatura,
+*                  centrodestino,
+*                  centroorigem
+*      FROM zi_sd_cockpit_app
+*     WHERE salescontract = @is_vbak-vbeln
+*      INTO @DATA(ls_cockpit).
+**
+** ---------------------------------------------------------------------------
+** Busca os dados de contrato (otimizada)
+** ---------------------------------------------------------------------------
     SELECT SINGLE salescontract,
-                  solicitacao,
+                  Solicitacao,
                   tpoperacao,
                   docnumnfesaida,
                   docnumentrada,
                   docfatura,
                   centrodestino,
                   centroorigem
-      FROM zi_sd_cockpit_app
-     WHERE salescontract = @is_vbak-vbeln
-      INTO @DATA(ls_cockpit).
+    FROM zi_sd_cmdloc_devol_merc_mov_mm
+    WHERE salescontract = @is_vbak-vbeln
+    INTO @DATA(ls_cockpit).
+* BEGIN OF CHANGE - JWSILVA - 19.07.2023
 
     IF sy-subrc IS INITIAL.
       IF ls_cockpit-tpoperacao     EQ gc_const-tp_opera_macro
@@ -1627,14 +1647,31 @@ CLASS ZCLSD_CMDLOC_DEVOL_MERCADORIA IMPLEMENTATION.
 
   METHOD chamada_exit.
 
+* BEGIN OF CHANGE - JWSILVA - 19.07.2023
+** ---------------------------------------------------------------------------
+** Busca os dados de contrato
+** ---------------------------------------------------------------------------
+*    SELECT SINGLE salescontract,
+*                  solicitacao,
+*                  tpoperacao,
+*                  docfatura,
+*                  nfesaida
+*      FROM zi_sd_cockpit_app
+*     WHERE salescontract = @is_vbak-vbeln
+*      INTO @DATA(ls_cockpit).
+*
+* ---------------------------------------------------------------------------
+* Busca os dados de contrato (otimizada)
+* ---------------------------------------------------------------------------
     SELECT SINGLE salescontract,
                   solicitacao,
                   tpoperacao,
                   docfatura,
                   nfesaida
-      FROM zi_sd_cockpit_app
-     WHERE salescontract = @is_vbak-vbeln
-      INTO @DATA(ls_cockpit).
+    FROM zi_sd_cmdloc_devol_merc_mov_mm
+    WHERE salescontract = @is_vbak-vbeln
+    INTO @DATA(ls_cockpit).
+* BEGIN OF CHANGE - JWSILVA - 19.07.2023
 
     IF sy-subrc IS INITIAL.
 

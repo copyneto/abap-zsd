@@ -45,7 +45,7 @@
 
   ASSIGN ('(SAPLJ1BG)wnfref[]') TO <fs_wnfref_tab>.
 
-  DATA(lo_parametros) = NEW zclca_tabela_parametros( ).
+  DATA(lo_parametros) = zclca_tabela_parametros=>get_instance( ). " CHANGE - LSCHEPP - 20.07.2023
 
   TRY.
       lo_parametros->m_get_range(

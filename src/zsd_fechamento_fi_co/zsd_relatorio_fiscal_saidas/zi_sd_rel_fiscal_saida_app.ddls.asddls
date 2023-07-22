@@ -67,6 +67,8 @@ define root view entity ZI_SD_REL_FISCAL_SAIDA_APP
                                                                                                  and _TaxFPS2.BR_NotaFiscalItem = _Lin.BR_NotaFiscalItem
     left outer join        ZI_SD_REL_FISCAL_SAIDA_TAX(  chave3 : 'FPSO' )  as _TaxFPSO           on  _TaxFPSO.BR_NotaFiscal     = _Lin.BR_NotaFiscal
                                                                                                  and _TaxFPSO.BR_NotaFiscalItem = _Lin.BR_NotaFiscalItem
+    left outer join        ZI_SD_REL_FISCAL_SAIDA_TAX(  chave3 : 'ICZF' )  as _TaxICZF           on  _TaxICZF.BR_NotaFiscal     = _Lin.BR_NotaFiscal
+                                                                                                 and _TaxICZF.BR_NotaFiscalItem = _Lin.BR_NotaFiscalItem
     left outer join        ZI_SD_REL_FISCAL_ZONA_FRANCA                    as _TaxZF             on  _TaxZF.BR_NotaFiscal     = _Lin.BR_NotaFiscal
                                                                                                  and _TaxZF.BR_NotaFiscalItem = _Lin.BR_NotaFiscalItem
     left outer join        ZI_SD_REL_FISCAL_SAIDA_PARTNER                  as _Partner           on _Partner.BR_NotaFiscal = _Lin.BR_NotaFiscal
@@ -666,7 +668,24 @@ define root view entity ZI_SD_REL_FISCAL_SAIDA_APP
       cast( ABS(_TaxZF.BR_NFItemTaxAmount) as logbr_invoicenetamount)                                                  as ICMS_ZN,
       //      _Lin.BR_ISSBenefitCode                                                                                 as CodBenef,
       _Lin.TaxIncentiveCode                                                                                            as CodBenef,
-      _Lin.BR_ICMSStatisticalExemptionAmt                                                                              as ICMSDeson,
+      case
+        when _Lin.BR_ExemptedICMSAmount is initial or _Lin.BR_ExemptedICMSAmount is null
+            then (case
+                     when cast(_TaxICZF.BR_NFItemTaxAmount as logbr_invoicenetamount ) >= 0
+                        then cast(_TaxICZF.BR_NFItemTaxAmount as logbr_invoicenetamount )
+                     else
+                        cast (_TaxICZF.BR_NFItemTaxAmount as logbr_invoicenetamount) * -1
+                     end
+                 )
+        else
+            (case
+                 when _Lin.BR_ExemptedICMSAmount >= 0
+                    then _Lin.BR_ExemptedICMSAmount
+                 else
+                    _Lin.BR_ExemptedICMSAmount * -1
+                 end
+            )
+      end                                                                                                              as ICMSDeson,
       _Lin.BR_ICMSTaxSituation                                                                                         as ST_ICMS,
       _Lin.BR_ICMSTaxLaw                                                                                               as LF_ICMS,
       _Partner.Industry                                                                                                as SetorIndustrial,
@@ -1000,7 +1019,7 @@ define root view entity ZI_SD_REL_FISCAL_SAIDA_APP
       //      fltp_to_dec( (cast( _Material.MaterialGrossWeight as abap.fltp ) * cast( _Lin.QuantityInBaseUnit as abap.fltp )) as abap.dec(15,2))                              as PesoBrutoNF,
       case
         when _Vbrp.brgew is initial or _Vbrp.brgew is null
-//        then _VolumesTransporte.PesoBrutoVolumes
+      //        then _VolumesTransporte.PesoBrutoVolumes
         then ( cast( _Material.MaterialGrossWeight as abap.fltp ) * cast( _Lin.BR_NFTributaryQuantity as abap.fltp) )
         else cast(_Vbrp.brgew as abap.dec(15,3) )
       end                                                                                                              as PesoBrutoNF,
@@ -1021,7 +1040,7 @@ define root view entity ZI_SD_REL_FISCAL_SAIDA_APP
                  when _TaxICM3.BR_NFItemOtherBaseAmount is initial and _TaxICM3.BR_NFItemExcludedBaseAmount is initial and _Lin.TaxIncentiveCode is not initial then cast(_TaxICM3.BR_NFItemTaxAmount as abap.dec(15,3) )
       //else fltp_to_dec( ( cast(_TaxICM3.BR_NFItemOtherBaseAmount as abap.fltp ) * cast(_IcmsByRegio.Rate as abap.fltp) ) / cast(100 as abap.fltp) as abap.dec(15,3) ) end
                  else
-                    case 
+                    case
                     when _Lin.TaxIncentiveCode is initial then 0
                     else
                     fltp_to_dec( ( cast(_Lin.BR_NFTotalAmountWithTaxes as abap.fltp ) * cast(_TaxICM3.BR_NFItemTaxRate as abap.fltp) ) / cast(100 as abap.fltp) as abap.dec(15,3) ) end
@@ -1029,7 +1048,7 @@ define root view entity ZI_SD_REL_FISCAL_SAIDA_APP
         else
       //fltp_to_dec( (cast( _Lin.BR_NFValueAmountWithTaxes as abap.fltp ) * cast( _TaxICM3.BR_NFItemTaxRate as abap.fltp ) / cast(100 as abap.fltp) ) as abap.dec(15,2))
       // cast(_TaxICM3.BR_NFItemTaxAmount as abap.dec(15,3) )
-            case 
+            case
             when _Lin.TaxIncentiveCode is initial then 0
             else
             fltp_to_dec( ( (cast( _TaxICM3.BR_NFItemBaseAmount as abap.fltp ) + cast(_TaxICM3.BR_NFItemExcludedBaseAmount as abap.fltp ) ) * cast( _TaxICM3.BR_NFItemTaxRate as abap.fltp ) / cast(100 as abap.fltp) ) as abap.dec(15,2))

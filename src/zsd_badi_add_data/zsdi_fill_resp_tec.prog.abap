@@ -16,7 +16,7 @@
           lr_email   TYPE RANGE OF j_1bnfe_email,
           lr_phone   TYPE RANGE OF j_1bnfe_phone.
 
-    DATA(lo_param) = NEW zclca_tabela_parametros( ).
+    DATA(lo_param) = zclca_tabela_parametros=>get_instance( ). " CHANGE - LSCHEPP - 20.07.2023
 
     "CNPJ
     TRY.

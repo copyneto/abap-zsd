@@ -165,6 +165,11 @@ CLASS zclsd_nf_mass_download DEFINITION
         VALUE(rv_message) TYPE bapi_msg .
   PROTECTED SECTION.
   PRIVATE SECTION.
+    METHODS check_messages
+      IMPORTING
+        iv_print  TYPE rspopname
+      CHANGING
+        ct_return TYPE bapiret2_t.
 
 
 ENDCLASS.
@@ -329,6 +334,12 @@ CLASS zclsd_nf_mass_download IMPLEMENTATION.
 
 
     ENDDO.
+
+    check_messages(
+         EXPORTING
+            iv_print = lv_dest
+         CHANGING
+            ct_return = et_return ).
 
 ***    " Caso nenhum documento impresso, mostrar todos os erros
 ***    IF et_return IS INITIAL.
@@ -945,4 +956,18 @@ CLASS zclsd_nf_mass_download IMPLEMENTATION.
            sy-msgv3
            sy-msgv4.
   ENDMETHOD.
+
+  METHOD check_messages.
+
+    IF line_exists( ct_return[  type = 'S' ] ).
+      APPEND VALUE bapiret2(
+                                             type              = 'S'
+                                             id                  = 'ZSD_IMPRESSAO_NF'
+                                             number         = '011'
+                                             message_v1 = iv_print
+                                              ) TO ct_return.
+    ENDIF.
+
+  ENDMETHOD.
+
 ENDCLASS.

@@ -10,6 +10,8 @@ FUNCTION zfmsd_ckpt_fat_gerar_remessa.
 *"----------------------------------------------------------------------
   DATA(lo_gerar_remessa) = NEW zclsd_ckpt_fat_gera_remessa( ).
 
+  gv_bloqueio = lo_gerar_remessa->get_param_bloqueio( ).
+
   lo_gerar_remessa->call_bapi_create(
     EXPORTING
       iv_sales_order    = iv_sales_order

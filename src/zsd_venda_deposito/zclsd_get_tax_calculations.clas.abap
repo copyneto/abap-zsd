@@ -296,11 +296,16 @@ CLASS ZCLSD_GET_TAX_CALCULATIONS IMPLEMENTATION.
 
   METHOD select.
 
-    DATA lo_get_cst60 TYPE REF TO zclsd_get_tables_cst60.
+* DMANTEIGA - Ajuste Performance - 21.07.2023 Início
+  "obs-> da forma que estava a SAP questionou e disse que tinha muitas chamadas na tabela sem (where) e isso impactava o desempenho
+  "então para testarmos alterei para usar o select single
 
-***    DATA(lo_get_cst60) = NEW zclsd_get_tables_cst60( ).
+    DATA(lo_get_cst60) = NEW zclsd_get_tables_cst60( ).
 
-    lo_get_cst60 = zclsd_get_tables_cst60=>get_instance( ).
+*    DATA lo_get_cst60 TYPE REF TO zclsd_get_tables_cst60.
+*    lo_get_cst60 = zclsd_get_tables_cst60=>get_instance( ).
+
+* DMANTEIGA - Ajuste Performance - 21.07.2023 Fim
 
     CLEAR: gs_tabela,
            gs_agregado,

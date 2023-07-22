@@ -4,7 +4,7 @@
 @Metadata.ignorePropagatedAnnotations: true
 @ObjectModel.usageType:{
     serviceQuality: #X,
-    sizeCategory: #S,
+    sizeCategory: #XL,
     dataClass: #MIXED
 }
 define view entity ZI_SD_CKPT_FAT_VLR_PEND_OV

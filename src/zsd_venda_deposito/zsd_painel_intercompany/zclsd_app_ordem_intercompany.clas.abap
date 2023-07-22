@@ -44,7 +44,7 @@ CLASS zclsd_app_ordem_intercompany IMPLEMENTATION.
 
     DATA: lv_ok TYPE char1.
 
-    DATA(lo_param) = NEW zclca_tabela_parametros( ).
+    DATA(lo_param) = zclca_tabela_parametros=>get_instance( ).    " CHANGE - JWSILVA - 21.07.2023
 
     IF is_cockpit-tpfrete EQ '001' " CIF
     OR is_cockpit-tpfrete EQ '002'. " FOB

@@ -586,7 +586,7 @@ CLASS ZCLSD_ADOBE_NOTA_DEBITO IMPLEMENTATION.
     ENDTRY.
 
     " Message body and subject -----------------------------------------------------
-    DATA(lo_prm_send) = NEW zclca_tabela_parametros( ).
+    DATA(lo_prm_send) = zclca_tabela_parametros=>get_instance( ).    " CHANGE - JWSILVA - 21.07.2023
 
 * INICIO - TGRACA - RICEFW BD9-451F16 - 07/10/2021
 *    IF line_exists( gs_tipo_condicao[ low = iv_fkart ] ).
@@ -848,7 +848,7 @@ CLASS ZCLSD_ADOBE_NOTA_DEBITO IMPLEMENTATION.
 
 
   METHOD get_param_type_cond.
-    DATA(lo_tabela_parametros) = NEW  zclca_tabela_parametros( ).
+    DATA(lo_tabela_parametros) = zclca_tabela_parametros=>get_instance( ).    " CHANGE - JWSILVA - 21.07.2023
 
     CLEAR gs_tipo_condicao.
 

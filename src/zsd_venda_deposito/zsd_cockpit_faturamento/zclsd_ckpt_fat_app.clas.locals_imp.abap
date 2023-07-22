@@ -59,11 +59,20 @@ CLASS lcl_cockpitfaturamento IMPLEMENTATION.
       RETURN.
     ENDIF.
 
-    READ ENTITIES OF zi_sd_ckpt_fat_app IN LOCAL MODE
-    ENTITY cockpitfaturamento
-      FIELDS ( salesorder ) WITH CORRESPONDING #( keys )
-    RESULT DATA(lt_cockpit)
-    FAILED failed.
+*    READ ENTITIES OF zi_sd_ckpt_fat_app IN LOCAL MODE
+*    ENTITY cockpitfaturamento
+*      FIELDS ( salesorder ) WITH CORRESPONDING #( keys )
+*    RESULT DATA(lt_cockpit)
+*    FAILED failed.
+
+    SELECT doc~vbeln, cliente~kunnr
+    FROM vbpa AS doc
+    INNER JOIN @keys AS chaves
+    ON doc~vbeln = chaves~salesorder
+    INNER JOIN kna1 AS cliente
+    ON cliente~kunnr = doc~kunnr
+    WHERE doc~parvw  = 'AG'
+    INTO TABLE  @DATA(lt_cockpit).
 
 *    SORT lt_cockpit BY SalesOrder SalesOrderItem.
 *    DELETE lt_cockpit WHERE SalesOrderItem <> '000010'. "#EC CI_STDSEQ
@@ -72,8 +81,8 @@ CLASS lcl_cockpitfaturamento IMPLEMENTATION.
       DATA(lo_gera_remesa) = NEW zclsd_ckpt_fat_gera_remessa( ).
       CALL METHOD lo_gera_remesa->main
         EXPORTING
-          iv_ordem_venda = <fs_cockpit>-SalesOrder
-          iv_cliente     = <fs_cockpit>-Customer
+          iv_ordem_venda = <fs_cockpit>-vbeln "<fs_cockpit>-salesorder
+          iv_cliente     = <fs_cockpit>-kunnr "<fs_cockpit>-customer
         RECEIVING
           rt_return      = DATA(lt_return).
 
@@ -107,70 +116,60 @@ CLASS lcl_cockpitfaturamento IMPLEMENTATION.
 *  ENDMETHOD.
 
   METHOD get_features.
-    DATA lv_gerarremessa_action TYPE if_abap_behv=>t_xflag.
-    DATA lv_recusaordem_action  TYPE if_abap_behv=>t_xflag.
 
-
-    READ ENTITIES OF zi_sd_ckpt_fat_app IN LOCAL MODE
-    ENTITY cockpitfaturamento
-      FIELDS ( salesorder ) WITH CORRESPONDING #( keys )
-    RESULT DATA(lt_cockpit)
-    FAILED failed.
+    SELECT _chaves~salesorder,
+           _chaves~salesorderitem,
+           _salesorder~totalcreditcheckstatus,
+           _salesorder~deliveryblockreason,
+           _salesorder~overalldeliverystatus
+    FROM i_salesorder AS _salesorder
+    INNER JOIN @keys AS _chaves
+     ON _salesorder~salesorder = _chaves~salesorder
+    INTO TABLE @DATA(lt_cockpit).
 
     LOOP AT lt_cockpit ASSIGNING FIELD-SYMBOL(<fs_cockpit>).
 
-      IF <fs_cockpit>-statustotalcreditcheckstatus EQ gc_status-concluida
-     AND <fs_cockpit>-statusdeliveryblockreason    EQ gc_status-concluida
-     AND <fs_cockpit>-OverallDeliveryStatus        NE 'C'.
-        lv_gerarremessa_action = if_abap_behv=>fc-o-enabled.
+      IF ( <fs_cockpit>-totalcreditcheckstatus <> 'B' AND
+           <fs_cockpit>-totalcreditcheckstatus <> 'C' ) AND   "= gc_status-concluida
+           <fs_cockpit>-deliveryblockreason    IS INITIAL AND "= gc_status-concluida
+           <fs_cockpit>-overalldeliverystatus  <> 'C'.
+        DATA(lv_gerarremessa_action) = if_abap_behv=>fc-o-enabled.
       ELSE.
         lv_gerarremessa_action = if_abap_behv=>fc-o-disabled.
-
-
       ENDIF.
 
       APPEND VALUE #(
-        %tky = <fs_cockpit>-%key
+        %tky = VALUE #( salesorder = <fs_cockpit>-salesorder
+                        salesorderitem = <fs_cockpit>-salesorderitem )
         %features-%action-gerarremessa = lv_gerarremessa_action
       ) TO result.
     ENDLOOP.
 
+*    DATA lv_gerarremessa_action TYPE if_abap_behv=>t_xflag.
+*    DATA lv_recusaordem_action  TYPE if_abap_behv=>t_xflag.
+
 *    READ ENTITIES OF zi_sd_ckpt_fat_app IN LOCAL MODE
-*      ENTITY cockpitfaturamento
-*      FIELDS ( salesorder )
-*      WITH CORRESPONDING #( keys )
-*      RESULT DATA(lt_monitor)
-*      FAILED failed.
-
-*    result = VALUE #( FOR ls_monitor IN lt_monitor
-*      ( %tky-salesorder = ls_monitor-salesorder
-*      %features-%action-saidamercadoria = COND #(
-*        WHEN ls_monitor-remessa IS NOT INITIAL
-*        THEN if_abap_behv=>fc-o-enabled
-*        ELSE if_abap_behv=>fc-o-disabled )
+*    ENTITY cockpitfaturamento
+*      FIELDS ( salesorder ) WITH CORRESPONDING #( keys )
+*    RESULT DATA(lt_cockpit)
+*    FAILED failed.
 *
-*      %features-%action-gerarfaturamento = COND #(
-*        WHEN ls_monitor-remessa IS NOT INITIAL
-*        THEN if_abap_behv=>fc-o-enabled
-*        ELSE if_abap_behv=>fc-o-disabled )
+*    LOOP AT lt_cockpit ASSIGNING FIELD-SYMBOL(<fs_cockpit>).
 *
-**      %features-%action-gerarOrdemFrete = COND #(
-**        WHEN ls_monitor-????? IS NOT INITIAL
-**        THEN if_abap_behv=>fc-o-enabled
-**        ELSE if_abap_behv=>fc-o-disabled )
+*      IF <fs_cockpit>-statustotalcreditcheckstatus EQ gc_status-concluida
+*     AND <fs_cockpit>-statusdeliveryblockreason    EQ gc_status-concluida
+*     AND <fs_cockpit>-overalldeliverystatus        NE 'C'.
+*        lv_gerarremessa_action = if_abap_behv=>fc-o-enabled.
+*      ELSE.
+*        lv_gerarremessa_action = if_abap_behv=>fc-o-disabled.
 *
-*      %features-%action-imprimirnfe = COND #(
-*        WHEN ls_monitor-nfenum IS NOT INITIAL
-*        THEN if_abap_behv=>fc-o-enabled
-*        ELSE if_abap_behv=>fc-o-disabled )
+*      ENDIF.
 *
-*      %features-%action-desbloquearordem = COND #(
-*        WHEN ls_monitor-salesorder IS NOT INITIAL
-*        THEN if_abap_behv=>fc-o-enabled
-*        ELSE if_abap_behv=>fc-o-disabled )
-
-*    ) ).
-
+*      APPEND VALUE #(
+*        %tky = <fs_cockpit>-%key
+*        %features-%action-gerarremessa = lv_gerarremessa_action
+*      ) TO result.
+*    ENDLOOP.
 
   ENDMETHOD.
 

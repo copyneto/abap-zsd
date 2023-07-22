@@ -31,7 +31,7 @@ annotate view ZC_SD_NF_IMP_MASSA with
   TorId;
   
   @UI.hidden: true
-  StopOrder;
+  stoporder;
   @UI: { lineItem:        [ { position: 40, label: 'Cliente' } ],
          identification:  [ { position: 40, label: 'Cliente' } ] }
   Parid;

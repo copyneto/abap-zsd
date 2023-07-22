@@ -56,6 +56,14 @@ public section.
       !EV_CALC_EFETIVO type CHAR1
       !EV_PERC_BC_ICMS type ZE_PERC_BC_ICMS .
   methods CONSTRUCTOR .
+  methods GET_TABLE
+    importing
+      !IV_CENTRO type WERKS_EXT
+      !IV_UF type ZE_UF_RECEB
+      !IV_MATERIAL type MATNR
+      !IV_GP_MERCADORIA type MATKL
+    exporting
+      !EV_TABELA type CHAR20 .
   PROTECTED SECTION.
 private section.
 
@@ -209,19 +217,25 @@ CLASS ZCLSD_GET_TABLES_CST60 IMPLEMENTATION.
 
       READ TABLE gt_gp_mercadoria INTO gs_gp_mercadoria WITH KEY centro        = gv_centro
                                                                  uf            = gv_uf
-                                                                 grpmercadoria = gv_gp_mercadoria.
+                                                                 grpmercadoria = gv_gp_mercadoria BINARY SEARCH.
       IF sy-subrc IS INITIAL.
         rv_return = abap_true.
       ENDIF.
 
     ELSE.
 
-      SELECT SINGLE *
-         INTO gs_gp_mercadoria
-         FROM ztsd_gp_mercador
-         WHERE centro = gv_centro
-           AND uf = gv_uf
-           AND grpmercadoria = gv_gp_mercadoria.
+      SELECT SINGLE
+        centro , uf , grpmercadoria , descricao , agregado ,
+        icms_dest , icms_orig , compra_interna , base_red_orig ,
+        base_red_dest , taxa_fcp , icms_efet , baseredefet ,
+        preco_compar , preco_pauta , agregado_pauta , nro_unids ,
+        um , modalidade , calc_efetivo , perc_bc_icms
+      INTO CORRESPONDING FIELDS OF @gs_gp_mercadoria
+        FROM ztsd_gp_mercador
+        WHERE centro = @gv_centro
+        AND uf = @gv_uf
+        AND grpmercadoria = @gv_gp_mercadoria.
+
       IF sy-subrc IS INITIAL.
         rv_return = abap_true.
       ENDIF.
@@ -237,19 +251,25 @@ CLASS ZCLSD_GET_TABLES_CST60 IMPLEMENTATION.
 
       READ TABLE gt_material INTO gs_material WITH KEY centro   = gv_centro
                                                        uf       = gv_uf
-                                                       material = gv_material.
+                                                       material = gv_material BINARY SEARCH.
       IF sy-subrc IS INITIAL.
         rv_return = abap_true.
       ENDIF.
 
     ELSE.
 
-      SELECT SINGLE *
-        INTO gs_material
+      SELECT SINGLE
+        centro , uf , material , descricao , agregado ,
+        icms_dest , icms_orig , compra_interna , base_red_orig ,
+        base_red_dest , taxa_fcp , icms_efet , baseredefet ,
+        preco_compar , preco_pauta , agregado_pauta , nro_unids ,
+        um , modalidade , calc_efetivo , perc_bc_icms
+      INTO CORRESPONDING FIELDS OF @gs_material
         FROM ztsd_material
-        WHERE centro = gv_centro
-          AND uf = gv_uf
-          AND material = gv_material.
+        WHERE centro = @gv_centro
+        AND uf = @gv_uf
+        AND material = @gv_material.
+
       IF sy-subrc IS INITIAL.
         rv_return = abap_true.
       ENDIF.
@@ -329,13 +349,32 @@ CLASS ZCLSD_GET_TABLES_CST60 IMPLEMENTATION.
 
     IF NOT gv_instance IS INITIAL.
 
-      SELECT *
-        FROM ztsd_material
-        INTO TABLE @gt_material.
+      SELECT
+        centro , uf , material , descricao , agregado ,
+        icms_dest , icms_orig , compra_interna , base_red_orig ,
+        base_red_dest , taxa_fcp , icms_efet , baseredefet ,
+        preco_compar , preco_pauta , agregado_pauta , nro_unids ,
+        um , modalidade , calc_efetivo , perc_bc_icms
+      FROM ztsd_material
+      INTO CORRESPONDING FIELDS OF TABLE @gt_material.
 
-      SELECT *
-        FROM ztsd_gp_mercador
-        INTO TABLE @gt_gp_mercadoria.
+      IF sy-subrc IS INITIAL.
+        SORT gt_material BY centro uf material.
+      ENDIF.
+
+      SELECT
+        centro , uf , grpmercadoria , descricao , agregado ,
+        icms_dest , icms_orig , compra_interna , base_red_orig ,
+        base_red_dest , taxa_fcp , icms_efet , baseredefet ,
+        preco_compar , preco_pauta , agregado_pauta , nro_unids ,
+        um , modalidade , calc_efetivo , perc_bc_icms
+      FROM ztsd_gp_mercador
+      INTO CORRESPONDING FIELDS OF TABLE @gt_gp_mercadoria.
+
+      IF sy-subrc IS INITIAL.
+        SORT gt_gp_mercadoria BY centro uf grpmercadoria.
+      ENDIF.
+
 
     ENDIF.
 
@@ -350,6 +389,33 @@ CLASS ZCLSD_GET_TABLES_CST60 IMPLEMENTATION.
     ENDIF.
 
     ro_instance = go_instance.
+
+  ENDMETHOD.
+
+
+  METHOD get_table.
+
+    SELECT COUNT( * )
+      FROM ztsd_material
+      WHERE centro = @gv_centro
+      AND uf = @gv_uf
+      AND material = @gv_material.
+
+    IF sy-subrc IS INITIAL.
+      ev_tabela = gc_material.
+    ELSE.
+
+      SELECT COUNT( * )
+        FROM ztsd_gp_mercador
+        WHERE centro = @gv_centro
+        AND uf = @gv_uf
+        AND grpmercadoria = @gv_gp_mercadoria.
+
+      IF sy-subrc IS INITIAL.
+        ev_tabela = gc_gpmercadoria.
+      ENDIF.
+
+    ENDIF.
 
   ENDMETHOD.
 ENDCLASS.

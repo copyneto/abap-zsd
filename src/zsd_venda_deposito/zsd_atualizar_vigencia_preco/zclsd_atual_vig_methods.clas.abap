@@ -283,7 +283,7 @@ CLASS ZCLSD_ATUAL_VIG_METHODS IMPLEMENTATION.
     ls_bapicondit-cond_value     = is_record-kbetr.
     ls_bapicondit-condcurr       = lc_brl.
     ls_bapicondit-cond_p_unt     = 1.
-    ls_bapicondit-cond_unit      = lc_un.
+    ls_bapicondit-cond_unit      = is_record-meins.
     ls_bapicondit-conditidx_long = 1.
     ls_bapicondit-lowerlimit     = is_record-mxwrt.
     ls_bapicondit-upperlimit     = is_record-gkwrt.

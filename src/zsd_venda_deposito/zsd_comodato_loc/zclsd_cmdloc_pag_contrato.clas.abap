@@ -64,7 +64,7 @@ CLASS ZCLSD_CMDLOC_PAG_CONTRATO IMPLEMENTATION.
 
     CHECK iv_vbeln IS NOT INITIAL.
 
-    DO 10 TIMES.
+    DO 50 TIMES.
 
       SELECT bukrs,
              kunnr,
@@ -84,7 +84,7 @@ CLASS ZCLSD_CMDLOC_PAG_CONTRATO IMPLEMENTATION.
       IF sy-subrc EQ 0.
         EXIT.
       ELSE.
-        WAIT UP TO '0.5' SECONDS.
+        WAIT UP TO 10 SECONDS.
       ENDIF.
 
     ENDDO.
