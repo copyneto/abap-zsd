@@ -103,7 +103,7 @@ CLASS ZCLSD_VERIF_UTIL_ORDEM IMPLEMENTATION.
 
   METHOD get_prreg.
 
-    DATA(lo_tabela_parametros) = NEW  zclca_tabela_parametros( ).
+    DATA(lo_tabela_parametros) = zclca_tabela_parametros=>get_instance( ). " CHANGE - LSCHEPP - 24.07.2023
 
     CLEAR gs_prreg.
 
@@ -131,7 +131,7 @@ CLASS ZCLSD_VERIF_UTIL_ORDEM IMPLEMENTATION.
 
   METHOD get_atpab.
 
-    DATA(lo_tabela_parametros) = NEW  zclca_tabela_parametros( ).
+    DATA(lo_tabela_parametros) = zclca_tabela_parametros=>get_instance( ). " CHANGE - LSCHEPP - 24.07.2023
 
     CLEAR gs_atpab.
 

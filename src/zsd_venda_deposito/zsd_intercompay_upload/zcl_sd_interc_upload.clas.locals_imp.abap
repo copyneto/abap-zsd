@@ -928,8 +928,19 @@ CLASS lcl_IntercompanyUpload IMPLEMENTATION.
 
         UNPACK ls_key-%param-Incoterms         TO ls_key-%param-Incoterms.
         UNPACK ls_key-%param-CondicaoExpedicao TO ls_key-%param-CondicaoExpedicao.
-        UNPACK ls_key-%param-AgenteFrete       TO ls_key-%param-AgenteFrete.
-        UNPACK ls_key-%param-Motorista         TO ls_key-%param-Motorista.
+
+*** Início 07.08.2023 - Chamado 1836
+*        UNPACK ls_key-%param-AgenteFrete       TO ls_key-%param-AgenteFrete.
+*        UNPACK ls_key-%param-Motorista         TO ls_key-%param-Motorista.
+
+        IF ls_key-%param-AgenteFrete IS NOT INITIAL.
+          UNPACK ls_key-%param-AgenteFrete TO ls_key-%param-AgenteFrete.
+        ENDIF.
+
+        IF ls_key-%param-Motorista IS NOT INITIAL.
+          UNPACK ls_key-%param-Motorista TO ls_key-%param-Motorista.
+        ENDIF.
+*** Fim 07.08.2023 - Chamado 1836
 
         DATA(ls_cockpit) = VALUE ztsd_intercompan(  guid                         = NEW cl_system_uuid( )->if_system_uuid~create_uuid_x16( )
                                                     Processo                     = ls_key-%param-processo

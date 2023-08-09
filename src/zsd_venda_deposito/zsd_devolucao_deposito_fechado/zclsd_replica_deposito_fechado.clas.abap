@@ -275,7 +275,10 @@ CLASS zclsd_replica_deposito_fechado DEFINITION
 
 ENDCLASS.
 
-CLASS zclsd_replica_deposito_fechado IMPLEMENTATION.
+
+
+CLASS ZCLSD_REPLICA_DEPOSITO_FECHADO IMPLEMENTATION.
+
 
   METHOD executar.
 
@@ -287,12 +290,14 @@ CLASS zclsd_replica_deposito_fechado IMPLEMENTATION.
 
   ENDMETHOD.
 
+
   METHOD dados_globais.
 
     gv_data1 =  iv_data1.
     gv_data2 =  iv_data2.
 
   ENDMETHOD.
+
 
   METHOD trata_select_options.
 
@@ -318,6 +323,7 @@ CLASS zclsd_replica_deposito_fechado IMPLEMENTATION.
     ENDLOOP.
 
   ENDMETHOD.
+
 
   METHOD selecao_dados.
 
@@ -357,9 +363,10 @@ CLASS zclsd_replica_deposito_fechado IMPLEMENTATION.
 
   ENDMETHOD.
 
+
   METHOD get_param_ctg_nf.
 
-    DATA(lo_tabela_parametros) = NEW  zclca_tabela_parametros( ).
+    DATA(lo_tabela_parametros) = zclca_tabela_parametros=>get_instance( ). " CHANGE - LSCHEPP - 24.07.2023
 
     TRY.
         lo_tabela_parametros->m_get_range(
@@ -378,9 +385,10 @@ CLASS zclsd_replica_deposito_fechado IMPLEMENTATION.
 
   ENDMETHOD.
 
+
   METHOD get_param_centro.
 
-    DATA(lo_tabela_parametros) = NEW  zclca_tabela_parametros( ).
+    DATA(lo_tabela_parametros) = zclca_tabela_parametros=>get_instance( ). " CHANGE - LSCHEPP - 24.07.2023
 
     TRY.
         lo_tabela_parametros->m_get_range(
@@ -403,7 +411,7 @@ CLASS zclsd_replica_deposito_fechado IMPLEMENTATION.
 
   METHOD get_param_tp_mov_saida.
 
-    DATA(lo_tabela_parametros) = NEW  zclca_tabela_parametros( ).
+    DATA(lo_tabela_parametros) = zclca_tabela_parametros=>get_instance( ). " CHANGE - LSCHEPP - 24.07.2023
 
     TRY.
         lo_tabela_parametros->m_get_range(
@@ -425,9 +433,10 @@ CLASS zclsd_replica_deposito_fechado IMPLEMENTATION.
 
   ENDMETHOD.
 
+
   METHOD  get_param_codigo_iva.
 
-    DATA(lo_tabela_parametros) = NEW  zclca_tabela_parametros( ).
+    DATA(lo_tabela_parametros) = zclca_tabela_parametros=>get_instance( ). " CHANGE - LSCHEPP - 24.07.2023
 
     TRY.
         lo_tabela_parametros->m_get_range(
@@ -449,9 +458,10 @@ CLASS zclsd_replica_deposito_fechado IMPLEMENTATION.
 
   ENDMETHOD.
 
+
   METHOD  get_param_deposito.
 
-    DATA(lo_tabela_parametros) = NEW  zclca_tabela_parametros( ).
+    DATA(lo_tabela_parametros) = zclca_tabela_parametros=>get_instance( ). " CHANGE - LSCHEPP - 24.07.2023
 
     TRY.
         lo_tabela_parametros->m_get_range(
@@ -473,9 +483,10 @@ CLASS zclsd_replica_deposito_fechado IMPLEMENTATION.
 
   ENDMETHOD.
 
+
   METHOD   get_param_cfpo.
 
-    DATA(lo_tabela_parametros) = NEW  zclca_tabela_parametros( ).
+    DATA(lo_tabela_parametros) = zclca_tabela_parametros=>get_instance( ). " CHANGE - LSCHEPP - 24.07.2023
 
     TRY.
         lo_tabela_parametros->m_get_range(
@@ -498,9 +509,10 @@ CLASS zclsd_replica_deposito_fechado IMPLEMENTATION.
 
   ENDMETHOD.
 
+
   METHOD get_param_tp_mov_trans.
 
-    DATA(lo_tabela_parametros) = NEW  zclca_tabela_parametros( ).
+    DATA(lo_tabela_parametros) = zclca_tabela_parametros=>get_instance( ). " CHANGE - LSCHEPP - 24.07.2023
 
     TRY.
         lo_tabela_parametros->m_get_range(
@@ -521,6 +533,7 @@ CLASS zclsd_replica_deposito_fechado IMPLEMENTATION.
     ENDTRY.
 
   ENDMETHOD.
+
 
   METHOD processa_replicacao.
 
@@ -593,6 +606,7 @@ CLASS zclsd_replica_deposito_fechado IMPLEMENTATION.
 
   ENDMETHOD.
 
+
   METHOD preenche_transferencia.
 
     APPEND VALUE #( material      = is_item_nf-matnr
@@ -608,6 +622,7 @@ CLASS zclsd_replica_deposito_fechado IMPLEMENTATION.
                     ) TO gt_goodsmvt_item_transf.
 
   ENDMETHOD.
+
 
   METHOD preenche_entrada_mercadoria.
 
@@ -625,6 +640,7 @@ CLASS zclsd_replica_deposito_fechado IMPLEMENTATION.
 
   ENDMETHOD.
 
+
   METHOD seleciona_deposito.
 
     READ TABLE gt_item_fat ASSIGNING FIELD-SYMBOL(<fs_item_fat>) WITH KEY vbeln = is_item_nf-refkey(10)
@@ -634,6 +650,7 @@ CLASS zclsd_replica_deposito_fechado IMPLEMENTATION.
 
   ENDMETHOD.
 
+
   METHOD seleciona_fornecedor.
 
     READ TABLE gt_centros ASSIGNING FIELD-SYMBOL(<fs_centros>) WITH KEY werks = is_item_nf-werks BINARY SEARCH.
@@ -642,6 +659,7 @@ CLASS zclsd_replica_deposito_fechado IMPLEMENTATION.
 
   ENDMETHOD.
 
+
   METHOD seleciona_local_negocios.
 
     READ TABLE gt_centros ASSIGNING FIELD-SYMBOL(<fs_centros>) WITH KEY werks = is_item_nf-werks BINARY SEARCH.
@@ -649,6 +667,7 @@ CLASS zclsd_replica_deposito_fechado IMPLEMENTATION.
     rv_j_1bbranch = <fs_centros>-j_1bbranch.
 
   ENDMETHOD.
+
 
   METHOD cria_transferencia.
 
@@ -669,11 +688,13 @@ CLASS zclsd_replica_deposito_fechado IMPLEMENTATION.
 
   ENDMETHOD.
 
+
   METHOD call_commit.
 
     CALL FUNCTION 'BAPI_TRANSACTION_COMMIT'.
 
   ENDMETHOD.
+
 
   METHOD cria_entrada_mercadoria.
 
@@ -694,6 +715,7 @@ CLASS zclsd_replica_deposito_fechado IMPLEMENTATION.
     call_commit( ).
 
   ENDMETHOD.
+
 
   METHOD cria_writer_nota_replicada.
 
@@ -745,6 +767,7 @@ CLASS zclsd_replica_deposito_fechado IMPLEMENTATION.
 
   ENDMETHOD.
 
+
   METHOD atualiza_dados_nota_replicada.
 
     SORT ct_obj_item       BY docnum itmnum.
@@ -792,6 +815,7 @@ CLASS zclsd_replica_deposito_fechado IMPLEMENTATION.
   METHOD limpa_globais.
     CLEAR:gt_goodsmvt_item_transf, gt_goodsmvt_item_merc, gs_goodsmvt_header,gs_goodsmvt_code, gt_return.
   ENDMETHOD.
+
 
   METHOD processa_log.
 
@@ -850,5 +874,4 @@ CLASS zclsd_replica_deposito_fechado IMPLEMENTATION.
     ENDTRY.
 
   ENDMETHOD.
-
 ENDCLASS.

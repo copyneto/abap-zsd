@@ -60,6 +60,12 @@
      <LANGU>P</LANGU>
      <DESCRIPT>UF recebedora</DESCRIPT>
     </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>SET_TABLES</CMPNAME>
+     <SCONAME>IV_CENTRO</SCONAME>
+     <LANGU>P</LANGU>
+     <DESCRIPT>Centro (próprio ou externo)</DESCRIPT>
+    </SEOSUBCOTX>
    </DESCRIPTIONS_SUB>
   </asx:values>
  </asx:abap>

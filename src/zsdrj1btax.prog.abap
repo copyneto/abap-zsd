@@ -1804,26 +1804,27 @@ FORM batch_input_alt .
   wf_opt-nobiend  = 'X'.
 
   CLEAR wv_where.
-  LOOP AT wt_campos INTO wf_campos.
-    CHECK wf_campos-key = 'X'.
-    IF wv_where IS NOT INITIAL.
-      CONCATENATE wv_where '#AND#' INTO wv_where.
-    ENDIF.
-    CONCATENATE wv_where
-                wf_campos-fieldname
-                '#=#'
-                wv_tab
-                '-'
-                wf_campos-fieldname
-           INTO wv_where.
-  ENDLOOP.
+*  LOOP AT wt_campos INTO wf_campos.
+*    CHECK wf_campos-key = 'X'.
+*    IF wv_where IS NOT INITIAL.
+*      CONCATENATE wv_where '#AND#' INTO wv_where.
+*    ENDIF.
+*    CONCATENATE wv_where
+*                wf_campos-fieldname
+*                '#=#'
+*                wv_tab
+*                '-'
+*                wf_campos-fieldname
+*           INTO wv_where.
+*  ENDLOOP.
 
-  TRANSLATE wv_where USING '# '.
+*  TRANSLATE wv_where USING '# '.
 
   ASSIGN (wv_tab) TO <tabela>.
   CHECK sy-subrc = 0.
 
   LOOP AT wt_z005 INTO wf_z005 FROM 2.
+    CLEAR wv_where.
     wv_tabix = sy-tabix.
 
     LOOP AT wt_campos INTO wf_campos.
@@ -1879,6 +1880,12 @@ FORM batch_input_alt .
         <campo> = <z005>.
       ENDIF.
 
+      CHECK wf_campos-key = 'X'.
+      IF wv_where IS NOT INITIAL.
+        wv_where = |{ wv_where } AND |.
+      ENDIF.
+      wv_where = |{ wv_where }{ wf_campos-fieldname } = '{ <campo> }'|.
+
     ENDLOOP.
 
 * Valida se o Registro realmente existe
@@ -1921,6 +1928,7 @@ FORM batch_input_alt .
     ELSE.
       "Registro não existe
       wf_z005-msg = TEXT-016.
+      MODIFY wt_z005 FROM wf_z005 INDEX wv_tabix.
     ENDIF.
 
   ENDLOOP.

@@ -230,7 +230,7 @@ CLASS ZCLSD_DADOS_ADD_BONIFICACAO IMPLEMENTATION.
 
   METHOD get_param_tipo_fat.
 
-    DATA(lo_tabela_parametros) = NEW  zclca_tabela_parametros( ).
+    DATA(lo_tabela_parametros) = zclca_tabela_parametros=>get_instance( ).    " CHANGE - JWSILVA - 22.07.2023
 
     CLEAR gs_tipo_fat.
 

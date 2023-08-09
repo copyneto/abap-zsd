@@ -370,7 +370,7 @@ CLASS zclsd_cmdloc_devol_mercadoria IMPLEMENTATION.
              CAST( substring(  a~refkey, 11, 4 ) AS NUMC ) AS mjahr
         FROM j_1bnflin AS a
         INNER JOIN j_1bnfdoc AS b ON a~docnum = b~docnum
-        WHERE b~nfenum EQ @iv_xblnr
+        WHERE b~nfenum EQ substring( @iv_xblnr, 1, 9 )       "VARAUJO - 02.08.2023 - Validação para retirar número de série
           AND a~reftyp EQ 'MD'
         INTO TABLE @DATA(lt_doc_mat).
       IF sy-subrc EQ 0.
@@ -1139,7 +1139,7 @@ CLASS zclsd_cmdloc_devol_mercadoria IMPLEMENTATION.
 
     TRY.
 
-        DATA(lo_object) = NEW zclca_tabela_parametros( ).
+        DATA(lo_object) = zclca_tabela_parametros=>get_instance( ).    " CHANGE - JWSILVA - 22.07.2023
 
         lo_object->m_get_single( EXPORTING iv_modulo = gc_param-modulo
                                            iv_chave1 = iv_chave1
@@ -1293,7 +1293,7 @@ CLASS zclsd_cmdloc_devol_mercadoria IMPLEMENTATION.
                 INTO @DATA(ls_t001w).
 
               TRY.
-                  DATA(lo_param) = NEW zclca_tabela_parametros( ).
+                  DATA(lo_param) = zclca_tabela_parametros=>get_instance( ).    " CHANGE - JWSILVA - 22.07.2023
 
                   lo_param->m_get_single( EXPORTING iv_modulo = gc_param-modulo
                                                     iv_chave1 = gc_param-chv1_food

@@ -390,40 +390,41 @@ CLASS zclsd_gestao_preco_events DEFINITION
         !p_task TYPE clike .
   PROTECTED SECTION.
 
-private section.
+  PRIVATE SECTION.
 
-  data GV_APROVAR type ABAP_BOOL .
-  data GT_ITEM_UMB type TY_T_ITEM .
-  data GV_VIGENCIA type ABAP_BOOL .
-  data GV_PERIODO type ABAP_BOOL .
-  class-data:
-      "!Armazenamento das mensagens de processamento
-    gt_messages TYPE STANDARD TABLE OF bapiret2 .
-  class-data GT_MARM type TY_T_MARM .
+    DATA gv_aprovar TYPE abap_bool .
+    DATA gt_item_umb TYPE ty_t_item .
+    DATA gv_vigencia TYPE abap_bool .
+    DATA gv_alt_excl TYPE abap_bool.
+    DATA gv_periodo TYPE abap_bool .
+    CLASS-DATA:
+        "!Armazenamento das mensagens de processamento
+      gt_messages TYPE STANDARD TABLE OF bapiret2 .
+    CLASS-DATA gt_marm TYPE ty_t_marm .
     "!Flag para sincronizar o processamento da função de criação de ordens de produção
-  class-data GV_WAIT_ASYNC type ABAP_BOOL .
-  data GV_INCLUSAO type ABAP_BOOL .
+    CLASS-DATA gv_wait_async TYPE abap_bool .
+    DATA gv_inclusao TYPE abap_bool .
 
     "! Recupera próximo número GUID
     "! @parameter ev_guid | Número GUID
     "! @parameter et_return | Mensagens de retorno
     "! @parameter rv_guid | Número GUID
-  methods GET_NEXT_GUID
-    exporting
-      !EV_GUID type SYSUUID_X16
-      !ET_RETURN type BAPIRET2_T
-    returning
-      value(RV_GUID) type SYSUUID_X16 .
+    METHODS get_next_guid
+      EXPORTING
+        !ev_guid       TYPE sysuuid_x16
+        !et_return     TYPE bapiret2_t
+      RETURNING
+        VALUE(rv_guid) TYPE sysuuid_x16 .
     "! Recupera próximo Número de documento
     "! @parameter ev_id | Número do documento
     "! @parameter et_return | Mensagens de retorno
     "! @parameter rv_id | Número do documento
-  methods GET_NEXT_ID
-    exporting
-      !EV_ID type ZTSD_PRECO_H-ID
-      !ET_RETURN type BAPIRET2_T
-    returning
-      value(RV_ID) type ZTSD_PRECO_H-ID .
+    METHODS get_next_id
+      EXPORTING
+        !ev_id       TYPE ztsd_preco_h-id
+        !et_return   TYPE bapiret2_t
+      RETURNING
+        VALUE(rv_id) TYPE ztsd_preco_h-id .
     "! Recupera dados para futura validação
     "! @parameter is_header | Dados de cabeçalho
     "! @parameter it_item | Dados de item
@@ -437,38 +438,38 @@ private section.
     "! @parameter et_t189 | Dados de Tipo de lista de preço
     "! @parameter et_mara | Dados de material
     "! @parameter et_mbew | Avaliação do material
-  methods GET_INFO
-    importing
-      !IS_HEADER type TY_HEADER
-      !IT_ITEM type TY_T_ITEM optional
-      !IT_MINIMUM type TY_T_MINIMUM optional
-      !IT_INVASION type TY_T_INVASION optional
-    exporting
-      !ET_USR21 type TY_T_USR21
-      !ET_T001W type TY_T_T001W
-      !ET_A817 type TY_T_A817
-      !ET_A816 type TY_T_A816
-      !ET_A627 type TY_T_A627
-      !ET_A626 type TY_T_A626
-      !ET_KONP type TY_T_KONP
-      !ET_KNVV type TY_T_KNVV
-      !ET_TVTW type TY_T_TVTW
-      !ET_T189 type TY_T_T189
-      !ET_MARA type TY_T_MARA
-      !ET_MBEW type TY_T_MBEW .
+    METHODS get_info
+      IMPORTING
+        !is_header   TYPE ty_header
+        !it_item     TYPE ty_t_item OPTIONAL
+        !it_minimum  TYPE ty_t_minimum OPTIONAL
+        !it_invasion TYPE ty_t_invasion OPTIONAL
+      EXPORTING
+        !et_usr21    TYPE ty_t_usr21
+        !et_t001w    TYPE ty_t_t001w
+        !et_a817     TYPE ty_t_a817
+        !et_a816     TYPE ty_t_a816
+        !et_a627     TYPE ty_t_a627
+        !et_a626     TYPE ty_t_a626
+        !et_konp     TYPE ty_t_konp
+        !et_knvv     TYPE ty_t_knvv
+        !et_tvtw     TYPE ty_t_tvtw
+        !et_t189     TYPE ty_t_t189
+        !et_mara     TYPE ty_t_mara
+        !et_mbew     TYPE ty_t_mbew .
     "! Validação a nível de campos - Cabeçalho
     "! @parameter iv_msgty | Tipo da mensagem retornada
     "! @parameter is_header | Dados de cabeçalho
     "! @parameter it_t001w | Dados de centro
     "! @parameter ct_validation | Resultado da validação
-  methods VALIDATE_HEADER_FIELDS
-    importing
-      !IV_MSGTY type SY-MSGTY default 'I'
-      !IS_HEADER type TY_HEADER
-      !IT_USR21 type TY_T_USR21
-      !IT_T001W type TY_T_T001W
-    changing
-      !CT_VALIDATION type TY_T_VALIDATION .
+    METHODS validate_header_fields
+      IMPORTING
+        !iv_msgty      TYPE sy-msgty DEFAULT 'I'
+        !is_header     TYPE ty_header
+        !it_usr21      TYPE ty_t_usr21
+        !it_t001w      TYPE ty_t_t001w
+      CHANGING
+        !ct_validation TYPE ty_t_validation .
     "! Validação a nível de campos - Item
     "! @parameter iv_msgty | Tipo da mensagem retornada
     "! @parameter is_header | Dados de cabeçalho
@@ -481,24 +482,24 @@ private section.
     "! @parameter it_mara | Dados de material
     "! @parameter it_mbew | Avaliação do material
     "! @parameter ct_validation | Resultado da validação
-  methods VALIDATE_ITEM_FIELDS
-    importing
-      !IV_MSGTY type SY-MSGTY default 'I'
-      !IS_HEADER type TY_HEADER
-      !IT_ITEM type TY_T_ITEM
-      !IT_A817 type TY_T_A817
-      !IT_A816 type TY_T_A816
-      !IT_A627 type TY_T_A627
-      !IT_A626 type TY_T_A626
-      !IT_TVTW type TY_T_TVTW
-      !IT_T189 type TY_T_T189
-      !IT_MARA type TY_T_MARA
-      !IT_MBEW type TY_T_MBEW
-      !IT_T001W type TY_T_T001W
-      !IT_KONP type TY_T_KONP
-      !IT_KNVV type TY_T_KNVV
-    changing
-      !CT_VALIDATION type TY_T_VALIDATION .
+    METHODS validate_item_fields
+      IMPORTING
+        !iv_msgty      TYPE sy-msgty DEFAULT 'I'
+        !is_header     TYPE ty_header
+        !it_item       TYPE ty_t_item
+        !it_a817       TYPE ty_t_a817
+        !it_a816       TYPE ty_t_a816
+        !it_a627       TYPE ty_t_a627
+        !it_a626       TYPE ty_t_a626
+        !it_tvtw       TYPE ty_t_tvtw
+        !it_t189       TYPE ty_t_t189
+        !it_mara       TYPE ty_t_mara
+        !it_mbew       TYPE ty_t_mbew
+        !it_t001w      TYPE ty_t_t001w
+        !it_konp       TYPE ty_t_konp
+        !it_knvv       TYPE ty_t_knvv
+      CHANGING
+        !ct_validation TYPE ty_t_validation .
     "! Validação a nível de campos - Alerta mínimo
     "! @parameter iv_msgty | Tipo da mensagem retornada
     "! @parameter is_header | Dados de cabeçalho
@@ -506,17 +507,17 @@ private section.
     "! @parameter it_A626 | Dados de preço (Centro/Material)
     "! @parameter it_mara | Dados de material
     "! @parameter ct_validation | Resultado da validação
-  methods VALIDATE_MINIMUM_FIELDS
-    importing
-      !IV_MSGTY type SY-MSGTY default 'I'
-      !IS_HEADER type TY_HEADER
-      !IT_MINIMUM type TY_T_MINIMUM
-      !IT_A626 type TY_T_A626
-      !IT_MARA type TY_T_MARA
-      !IT_T001W type TY_T_T001W
-      !IT_TVTW type TY_T_TVTW
-    changing
-      !CT_VALIDATION type TY_T_VALIDATION .
+    METHODS validate_minimum_fields
+      IMPORTING
+        !iv_msgty      TYPE sy-msgty DEFAULT 'I'
+        !is_header     TYPE ty_header
+        !it_minimum    TYPE ty_t_minimum
+        !it_a626       TYPE ty_t_a626
+        !it_mara       TYPE ty_t_mara
+        !it_t001w      TYPE ty_t_t001w
+        !it_tvtw       TYPE ty_t_tvtw
+      CHANGING
+        !ct_validation TYPE ty_t_validation .
     "! Validação a nível de campos - Invasão
     "! @parameter iv_msgty | Tipo da mensagem retornada
     "! @parameter is_header | Dados de cabeçalho
@@ -524,16 +525,16 @@ private section.
     "! @parameter it_a627 | Dados de preço (Centro/Lst.preços)
     "! @parameter it_t189 | Dados de Tipo de lista de preço
     "! @parameter ct_validation | Resultado da validação
-  methods VALIDATE_INVASION_FIELDS
-    importing
-      !IV_MSGTY type SY-MSGTY default 'I'
-      !IS_HEADER type TY_HEADER
-      !IT_INVASION type TY_T_INVASION
-      !IT_A627 type TY_T_A627
-      !IT_T189 type TY_T_T189
-      !IT_KNVV type TY_T_KNVV
-    changing
-      !CT_VALIDATION type TY_T_VALIDATION .
+    METHODS validate_invasion_fields
+      IMPORTING
+        !iv_msgty      TYPE sy-msgty DEFAULT 'I'
+        !is_header     TYPE ty_header
+        !it_invasion   TYPE ty_t_invasion
+        !it_a627       TYPE ty_t_a627
+        !it_t189       TYPE ty_t_t189
+        !it_knvv       TYPE ty_t_knvv
+      CHANGING
+        !ct_validation TYPE ty_t_validation .
     "! Atualiza dados após validações - Item
     "! @parameter it_a817 | Dados de preço (CanalDistr/Lst.preços/Centro/Material)
     "! @parameter it_a816 | Dados de preço (CanalDistr/Centro/Lst.preços)
@@ -542,54 +543,54 @@ private section.
     "! @parameter it_mbew | Avaliação do material
     "! @parameter cs_header | Dados de cabeçalho
     "! @parameter ct_item | Dados de item
-  methods UPDATE_ITEM_FIELDS
-    importing
-      !IT_A817 type TY_T_A817
-      !IT_A816 type TY_T_A816
-      !IT_A626 type TY_T_A626
-      !IT_KONP type TY_T_KONP
-      !IT_MBEW type TY_T_MBEW
-    changing
-      !CS_HEADER type TY_HEADER
-      !CT_ITEM type TY_T_ITEM .
+    METHODS update_item_fields
+      IMPORTING
+        !it_a817   TYPE ty_t_a817
+        !it_a816   TYPE ty_t_a816
+        !it_a626   TYPE ty_t_a626
+        !it_konp   TYPE ty_t_konp
+        !it_mbew   TYPE ty_t_mbew
+      CHANGING
+        !cs_header TYPE ty_header
+        !ct_item   TYPE ty_t_item .
     "! Atualiza dados após validações - Alerta mínimo
     "! @parameter it_A626 | Dados de preço (Centro/Material)
     "! @parameter it_konp | Dados de Condição
     "! @parameter cs_header | Dados de cabeçalho
     "! @parameter ct_minimum | Dados de alerta mínimo
-  methods UPDATE_MINIMUM_FIELDS
-    importing
-      !IT_A626 type TY_T_A626
-      !IT_KONP type TY_T_KONP
-    changing
-      !CS_HEADER type TY_HEADER
-      !CT_MINIMUM type TY_T_MINIMUM .
+    METHODS update_minimum_fields
+      IMPORTING
+        !it_a626    TYPE ty_t_a626
+        !it_konp    TYPE ty_t_konp
+      CHANGING
+        !cs_header  TYPE ty_header
+        !ct_minimum TYPE ty_t_minimum .
     "! Atualiza dados após validações - Invasão
     "! @parameter it_a627 | Dados de preço (Centro/Lst.preços)
     "! @parameter it_konp | Dados de Condição
     "! @parameter cs_header | Dados de cabeçalho
     "! @parameter ct_invasion | Dados de invasão
-  methods UPDATE_INVASION_FIELDS
-    importing
-      !IT_A627 type TY_T_A627
-      !IT_KONP type TY_T_KONP
-      !IT_KNVV type TY_T_KNVV
-    changing
-      !CS_HEADER type TY_HEADER
-      !CT_INVASION type TY_T_INVASION .
+    METHODS update_invasion_fields
+      IMPORTING
+        !it_a627     TYPE ty_t_a627
+        !it_konp     TYPE ty_t_konp
+        !it_knvv     TYPE ty_t_knvv
+      CHANGING
+        !cs_header   TYPE ty_header
+        !ct_invasion TYPE ty_t_invasion .
     "! Atualiza campo criticalidade
     "! @parameter is_validation | Resultado da validação
     "! @parameter cs_data | Dados de cabeçalho/item
-  methods UPDATE_FIELD_CRITICALITY
-    importing
-      !IS_VALIDATION type TY_VALIDATION optional
-    changing
-      !CS_DATA type ANY .
+    METHODS update_field_criticality
+      IMPORTING
+        !is_validation TYPE ty_validation OPTIONAL
+      CHANGING
+        !cs_data       TYPE any .
     "! Ordena resultado da validação por ordem de prioridade
     "! @parameter ct_validation | Resultado da validação
-  methods SORT_VALIDATION
-    changing
-      !CT_VALIDATION type TY_T_VALIDATION .
+    METHODS sort_validation
+      CHANGING
+        !ct_validation TYPE ty_t_validation .
     "! Chama BAPI para lançar registros de condição de uso de preço
     "! @parameter it_a817 | Dados de preço (CanalDistr/Lst.preços/Centro/Material)
     "! @parameter it_a816 | Dados de preço (CanalDistr/Centro/Material)
@@ -599,20 +600,20 @@ private section.
     "! @parameter et_return | Mensagens de retorno
     "! @parameter cs_header | Dados de cabeçalho
     "! @parameter ct_item | Dados de item
-  methods CREATE_PRICE_CONDITION
-    importing
-      !IT_A817 type TY_T_A817 optional
-      !IT_A816 type TY_T_A816 optional
-      !IT_A627 type TY_T_A627 optional
-      !IT_A626 type TY_T_A626 optional
-      !IT_KONP type TY_T_KONP
-    exporting
-      !ET_RETURN type BAPIRET2_T
-    changing
-      !CS_HEADER type TY_HEADER
-      !CT_ITEM type TY_T_ITEM optional
-      !CT_MINIMUM type TY_T_MINIMUM optional
-      !CT_INVASION type TY_T_INVASION optional .
+    METHODS create_price_condition
+      IMPORTING
+        !it_a817     TYPE ty_t_a817 OPTIONAL
+        !it_a816     TYPE ty_t_a816 OPTIONAL
+        !it_a627     TYPE ty_t_a627 OPTIONAL
+        !it_a626     TYPE ty_t_a626 OPTIONAL
+        !it_konp     TYPE ty_t_konp
+      EXPORTING
+        !et_return   TYPE bapiret2_t
+      CHANGING
+        !cs_header   TYPE ty_header
+        !ct_item     TYPE ty_t_item OPTIONAL
+        !ct_minimum  TYPE ty_t_minimum OPTIONAL
+        !ct_invasion TYPE ty_t_invasion OPTIONAL .
     "! Monta configurações que serão utilizados na montagem da BAPI
     "! @parameter it_a817 | Dados de preço (CanalDistr/Lst.preços/Centro/Material)
     "! @parameter it_a816 | Dados de preço (CanalDistr/Centro/Material)
@@ -621,146 +622,146 @@ private section.
     "! @parameter it_item | Dados de item
     "! @parameter es_bapiconfig | Configurações
     "! @parameter et_item_qs | Itens que compõem o lançamento atual
-  methods GET_PRICE_CONFIGURATION
-    importing
-      !IS_HEADER type TY_HEADER
-      !IS_ITEM type TY_ITEM
-      !IT_A817 type TY_T_A817 optional
-      !IT_A816 type TY_T_A816 optional
-      !IT_A627 type TY_T_A627 optional
-      !IT_A626 type TY_T_A626 optional
-      !IT_INVASION type TY_T_INVASION optional
-      !IT_ITEM type TY_T_ITEM
-    exporting
-      !ES_BAPICONFIG type BAPICONDCT
-      !ET_ITEM_QS type TY_T_ITEM .
-  methods DELETE_PRICE_CONDITION
-    importing
-      !IT_A817 type TY_T_A817 optional
-      !IT_A816 type TY_T_A816 optional
-      !IT_A627 type TY_T_A627 optional
-      !IT_A626 type TY_T_A626 optional
-      !IT_KONP type TY_T_KONP
-    exporting
-      !ET_RETURN type BAPIRET2_T
-    changing
-      !CS_HEADER type TY_HEADER
-      !CT_ITEM type TY_T_ITEM optional
-      !CT_MINIMUM type TY_T_MINIMUM optional
-      !CT_INVASION type TY_T_INVASION optional .
-  methods COMPARE_DATA_GET_STATUS
-    changing
-      value(CV_STATUS_NEW) type ZTSD_PRECO_H-STATUS
-      !CS_HEADER type TY_HEADER
-      !CT_ITEM type TY_T_ITEM
-      !CT_MINIMUM type TY_T_MINIMUM
-      !CT_INVASION type TY_T_INVASION .
-  methods UPDATE_FIELD_MESSAGE
-    importing
-      !IT_VALIDATION type TY_T_VALIDATION
-    changing
-      !CT_RETURN type BAPIRET2_T .
-  methods CLEAR_MESSAGE
-    importing
-      !IS_HEADER_CDS type ZCLSD_GESTAO_PRECO_EVENTS=>TY_HEADER_CDS .
-  methods VALIDATION_INITIAL_ITEM_FIELD
-    importing
-      !IV_MSGTY type SY-MSGTY
-      !IS_ITEM type ZCLSD_GESTAO_PRECO_EVENTS=>TY_ITEM
-    changing
-      !CT_VALIDATION type ZCLSD_GESTAO_PRECO_EVENTS=>TY_T_VALIDATION .
-  methods VALIDATION_INITIAL_MIN_FIELD
-    importing
-      !IV_MSGTY type SY-MSGTY
-      !IS_MINIMUM type ZCLSD_GESTAO_PRECO_EVENTS=>TY_MINIMUM
-    changing
-      !CT_VALIDATION type ZCLSD_GESTAO_PRECO_EVENTS=>TY_T_VALIDATION .
-  methods VALIDATION_INITIAL_INV_FIELD
-    importing
-      !IV_MSGTY type SY-MSGTY
-      !IS_INVASION type ZCLSD_GESTAO_PRECO_EVENTS=>TY_INVASION
-    changing
-      !CT_VALIDATION type ZCLSD_GESTAO_PRECO_EVENTS=>TY_T_VALIDATION .
-  methods DATA_CALCULATION
-    importing
-      !IV_DATA type BEGDA
-      !IV_SINAL type CHAR1
-    returning
-      value(RV_DATA) type BEGDA .
-  methods DELETE_PRICE_LIST
-    changing
-      !CT_ITEM_ELIM type TY_T_ITEM
-      !CT_ITEM type TY_T_ITEM
-      !CS_HEADER type TY_HEADER
-      !CT_RETURN type BAPIRET2_T .
-  methods DELETE_INVASION
-    changing
-      !CT_INV_ELIM type TY_T_INVASION
-      !CT_INVASION type TY_T_INVASION
-      !CS_HEADER type TY_HEADER
-      !CT_RETURN type BAPIRET2_T .
-  methods UPDATE_DATA
-    importing
-      !IS_ITEM_KEY type ZTSD_PRECO_I
-      !IT_ITEM type TY_T_ITEM
-    exporting
-      !ET_RETURN type BAPIRET2_T .
-  methods CONVERT_UMB
-    importing
-      !IS_ITEM_KEY type ZTSD_PRECO_I
-    returning
-      value(RV_KMEIN) type KONP-KMEIN .
-  methods CHECK_DATA_SAP_FILE
-    importing
-      !IT_A817 type TY_T_A817
-      !IT_A816 type TY_T_A816
-      !IS_ITEM_KEY type ZCLSD_GESTAO_PRECO_EVENTS=>TY_ITEM
-      !IT_KONP type TY_T_KONP .
-  methods CONVERSION_UNIT
-    importing
-      !IV_BASE_UNIT type MEINS
-    returning
-      value(RV_MEINH) type MARM-MEINH .
-  methods GET_FRAN
-    importing
-      !IS_ITEM type ZCLSD_GESTAO_PRECO_EVENTS=>TY_ITEM
-    returning
-      value(RV_DEC) type CHAR3 .
-  methods VALIDATION_DATA
-    importing
-      !IV_MSGTY type SY-MSGTY
-      !IV_FROM_DATA type SY-DATUM
-      !IV_TO_DATA type SY-DATUM
-      !IV_GUID type SYSUUID_X16
-      !IV_LINE type BAPI_LINE
-    changing
-      !CT_VALIDATION type ZCLSD_GESTAO_PRECO_EVENTS=>TY_T_VALIDATION .
-  methods VALIDATION_DATA_UPDATE
-    importing
-      !IV_FROM_DATA type SY-DATUM
-      !IV_TO_DATA type SY-DATUM
-    changing
-      !CT_RETURN type BAPIRET2_T .
-  methods VALIDATION_FIELDS_ON_UPDATE
-    importing
-      !IV_MSGTY type SYST_MSGTY default 'I'
-      !IT_INVASION type ZCLSD_GESTAO_PRECO_EVENTS=>TY_T_INVASION
-      !IT_MINIMUM type ZCLSD_GESTAO_PRECO_EVENTS=>TY_T_MINIMUM
-      !IT_ITEM type ZCLSD_GESTAO_PRECO_EVENTS=>TY_T_ITEM
-    changing
-      !CT_RETURN type BAPIRET2_T
-      !CT_VALIDATION type TY_T_VALIDATION .
-  methods UPDATE_LOG_BDCP2
-    importing
-      !IT_RETURN type BAPIRET2_T .
-  methods GET_COND_NO
-    changing
-      !CS_BAPICONFIG type BAPICONDCT .
+    METHODS get_price_configuration
+      IMPORTING
+        !is_header     TYPE ty_header
+        !is_item       TYPE ty_item
+        !it_a817       TYPE ty_t_a817 OPTIONAL
+        !it_a816       TYPE ty_t_a816 OPTIONAL
+        !it_a627       TYPE ty_t_a627 OPTIONAL
+        !it_a626       TYPE ty_t_a626 OPTIONAL
+        !it_invasion   TYPE ty_t_invasion OPTIONAL
+        !it_item       TYPE ty_t_item
+      EXPORTING
+        !es_bapiconfig TYPE bapicondct
+        !et_item_qs    TYPE ty_t_item .
+    METHODS delete_price_condition
+      IMPORTING
+        !it_a817     TYPE ty_t_a817 OPTIONAL
+        !it_a816     TYPE ty_t_a816 OPTIONAL
+        !it_a627     TYPE ty_t_a627 OPTIONAL
+        !it_a626     TYPE ty_t_a626 OPTIONAL
+        !it_konp     TYPE ty_t_konp
+      EXPORTING
+        !et_return   TYPE bapiret2_t
+      CHANGING
+        !cs_header   TYPE ty_header
+        !ct_item     TYPE ty_t_item OPTIONAL
+        !ct_minimum  TYPE ty_t_minimum OPTIONAL
+        !ct_invasion TYPE ty_t_invasion OPTIONAL .
+    METHODS compare_data_get_status
+      CHANGING
+        VALUE(cv_status_new) TYPE ztsd_preco_h-status
+        !cs_header           TYPE ty_header
+        !ct_item             TYPE ty_t_item
+        !ct_minimum          TYPE ty_t_minimum
+        !ct_invasion         TYPE ty_t_invasion .
+    METHODS update_field_message
+      IMPORTING
+        !it_validation TYPE ty_t_validation
+      CHANGING
+        !ct_return     TYPE bapiret2_t .
+    METHODS clear_message
+      IMPORTING
+        !is_header_cds TYPE zclsd_gestao_preco_events=>ty_header_cds .
+    METHODS validation_initial_item_field
+      IMPORTING
+        !iv_msgty      TYPE sy-msgty
+        !is_item       TYPE zclsd_gestao_preco_events=>ty_item
+      CHANGING
+        !ct_validation TYPE zclsd_gestao_preco_events=>ty_t_validation .
+    METHODS validation_initial_min_field
+      IMPORTING
+        !iv_msgty      TYPE sy-msgty
+        !is_minimum    TYPE zclsd_gestao_preco_events=>ty_minimum
+      CHANGING
+        !ct_validation TYPE zclsd_gestao_preco_events=>ty_t_validation .
+    METHODS validation_initial_inv_field
+      IMPORTING
+        !iv_msgty      TYPE sy-msgty
+        !is_invasion   TYPE zclsd_gestao_preco_events=>ty_invasion
+      CHANGING
+        !ct_validation TYPE zclsd_gestao_preco_events=>ty_t_validation .
+    METHODS data_calculation
+      IMPORTING
+        !iv_data       TYPE begda
+        !iv_sinal      TYPE char1
+      RETURNING
+        VALUE(rv_data) TYPE begda .
+    METHODS delete_price_list
+      CHANGING
+        !ct_item_elim TYPE ty_t_item
+        !ct_item      TYPE ty_t_item
+        !cs_header    TYPE ty_header
+        !ct_return    TYPE bapiret2_t .
+    METHODS delete_invasion
+      CHANGING
+        !ct_inv_elim TYPE ty_t_invasion
+        !ct_invasion TYPE ty_t_invasion
+        !cs_header   TYPE ty_header
+        !ct_return   TYPE bapiret2_t .
+    METHODS update_data
+      IMPORTING
+        !is_item_key TYPE ztsd_preco_i
+        !it_item     TYPE ty_t_item
+      EXPORTING
+        !et_return   TYPE bapiret2_t .
+    METHODS convert_umb
+      IMPORTING
+        !is_item_key    TYPE ztsd_preco_i
+      RETURNING
+        VALUE(rv_kmein) TYPE konp-kmein .
+    METHODS check_data_sap_file
+      IMPORTING
+        !it_a817     TYPE ty_t_a817
+        !it_a816     TYPE ty_t_a816
+        !is_item_key TYPE zclsd_gestao_preco_events=>ty_item
+        !it_konp     TYPE ty_t_konp .
+    METHODS conversion_unit
+      IMPORTING
+        !iv_base_unit   TYPE meins
+      RETURNING
+        VALUE(rv_meinh) TYPE marm-meinh .
+    METHODS get_fran
+      IMPORTING
+        !is_item      TYPE zclsd_gestao_preco_events=>ty_item
+      RETURNING
+        VALUE(rv_dec) TYPE char3 .
+    METHODS validation_data
+      IMPORTING
+        !iv_msgty      TYPE sy-msgty
+        !iv_from_data  TYPE sy-datum
+        !iv_to_data    TYPE sy-datum
+        !iv_guid       TYPE sysuuid_x16
+        !iv_line       TYPE bapi_line
+      CHANGING
+        !ct_validation TYPE zclsd_gestao_preco_events=>ty_t_validation .
+    METHODS validation_data_update
+      IMPORTING
+        !iv_from_data TYPE sy-datum
+        !iv_to_data   TYPE sy-datum
+      CHANGING
+        !ct_return    TYPE bapiret2_t .
+    METHODS validation_fields_on_update
+      IMPORTING
+        !iv_msgty      TYPE syst_msgty DEFAULT 'I'
+        !it_invasion   TYPE zclsd_gestao_preco_events=>ty_t_invasion
+        !it_minimum    TYPE zclsd_gestao_preco_events=>ty_t_minimum
+        !it_item       TYPE zclsd_gestao_preco_events=>ty_t_item
+      CHANGING
+        !ct_return     TYPE bapiret2_t
+        !ct_validation TYPE ty_t_validation .
+    METHODS update_log_bdcp2
+      IMPORTING
+        !it_return TYPE bapiret2_t .
+    METHODS get_cond_no
+      CHANGING
+        !cs_bapiconfig TYPE bapicondct .
 ENDCLASS.
 
 
 
-CLASS ZCLSD_GESTAO_PRECO_EVENTS IMPLEMENTATION.
+CLASS zclsd_gestao_preco_events IMPLEMENTATION.
 
 
   METHOD get_layout.
@@ -4191,7 +4192,7 @@ CLASS ZCLSD_GESTAO_PRECO_EVENTS IMPLEMENTATION.
     FREE ev_value.
 
     TRY.
-        DATA(lo_param) = NEW zclca_tabela_parametros( ).
+        DATA(lo_param) = zclca_tabela_parametros=>get_instance( ).    " CHANGE - JWSILVA - 22.07.2023
 
         lo_param->m_get_single( EXPORTING iv_modulo = is_param-modulo
                                           iv_chave1 = is_param-chave1
@@ -5466,13 +5467,16 @@ CLASS ZCLSD_GESTAO_PRECO_EVENTS IMPLEMENTATION.
     ENDLOOP.
 
     IF gt_marm IS INITIAL.
-      SELECT matnr, meinh, umrez, ean11
-          FROM marm
-          INTO TABLE @gt_marm
-          FOR ALL ENTRIES IN @ct_item
-          WHERE matnr EQ @ct_item-material
-            AND meinh EQ @ct_item-base_unit
-            AND ean11 NE @space.
+
+      IF ct_item IS NOT INITIAL.
+        SELECT matnr, meinh, umrez, ean11
+            FROM marm
+            INTO TABLE @gt_marm
+            FOR ALL ENTRIES IN @ct_item
+            WHERE matnr EQ @ct_item-material
+              AND meinh EQ @ct_item-base_unit
+              AND ean11 NE @space.
+      ENDIF.
     ENDIF.
 
     IF lt_material_base IS NOT INITIAL.
@@ -5486,11 +5490,13 @@ CLASS ZCLSD_GESTAO_PRECO_EVENTS IMPLEMENTATION.
       SORT lt_marm_base BY matnr meinh.
     ENDIF.
 
-    SELECT matnr, meins
-    FROM mara
-    INTO TABLE @DATA(lt_mara)
-    FOR ALL ENTRIES IN @ct_item
-    WHERE matnr EQ @ct_item-material.
+    IF ct_item IS NOT INITIAL.
+      SELECT matnr, meins
+      FROM mara
+      INTO TABLE @DATA(lt_mara)
+      FOR ALL ENTRIES IN @ct_item
+      WHERE matnr EQ @ct_item-material.
+    ENDIF.
     SORT lt_mara BY matnr.
 
     SORT lt_material_base BY line material.
@@ -5614,12 +5620,12 @@ CLASS ZCLSD_GESTAO_PRECO_EVENTS IMPLEMENTATION.
 
       IF ls_item->operation_type(1)  NE gc_tipo_operacao-inclusao.
 
-      " Tipo Operação Exclusão
+        " Tipo Operação Exclusão
         IF  ls_item->zzdelete = 'X' OR ls_item->zzdelete = 'x'.
           ls_item->operation_type(1)  =  gc_tipo_operacao-exclusao.
         ELSE.
 
-      " Tipo Operação Aumento
+          " Tipo Operação Aumento
           IF ls_item->min_value > ls_item->active_min_value.
             IF ls_item->operation_type+2(3) = gc_tipo_operacao-aumento_a817+2(3).
               ls_item->operation_type  = gc_tipo_operacao-aumento_a817.
@@ -6802,26 +6808,32 @@ CLASS ZCLSD_GESTAO_PRECO_EVENTS IMPLEMENTATION.
     WHERE guid = @cs_header-guid
     INTO @DATA(ls_header).
 
-    SELECT *
-    FROM ztsd_preco_i
-    FOR ALL ENTRIES IN @ct_item
-    WHERE guid = @ct_item-guid
-    AND guid_line = @ct_item-guid_line
-    INTO TABLE @DATA(lt_item).
+    IF ct_item IS NOT INITIAL.
+      SELECT *
+      FROM ztsd_preco_i
+      FOR ALL ENTRIES IN @ct_item
+      WHERE guid = @ct_item-guid
+      AND guid_line = @ct_item-guid_line
+      INTO TABLE @DATA(lt_item).
+    ENDIF.
 
-    SELECT *
-    FROM ztsd_preco_m
-    FOR ALL ENTRIES IN @ct_minimum
-    WHERE guid = @ct_minimum-guid
-    AND guid_line = @ct_minimum-guid_line
-    INTO TABLE @DATA(lt_minimo).
+    IF ct_minimum IS NOT INITIAL.
+      SELECT *
+      FROM ztsd_preco_m
+      FOR ALL ENTRIES IN @ct_minimum
+      WHERE guid = @ct_minimum-guid
+      AND guid_line = @ct_minimum-guid_line
+      INTO TABLE @DATA(lt_minimo).
+    ENDIF.
 
-    SELECT *
-    FROM ztsd_preco_inv
-    FOR ALL ENTRIES IN @ct_invasion
-    WHERE guid = @ct_invasion-guid
-    AND guid_line = @ct_invasion-guid_line
-    INTO TABLE @DATA(lt_invasao).
+    IF ct_invasion IS NOT INITIAL.
+      SELECT *
+      FROM ztsd_preco_inv
+      FOR ALL ENTRIES IN @ct_invasion
+      WHERE guid = @ct_invasion-guid
+      AND guid_line = @ct_invasion-guid_line
+      INTO TABLE @DATA(lt_invasao).
+    ENDIF.
 
     IF cs_header IS NOT INITIAL AND ls_header IS NOT INITIAL AND cs_header NE ls_header.
       cv_status_new = gc_status-pendente.
@@ -6862,6 +6874,7 @@ CLASS ZCLSD_GESTAO_PRECO_EVENTS IMPLEMENTATION.
     DATA: lt_new_scale TYPE ty_t_item .
     DATA: lt_old_scale TYPE ty_t_item .
 
+    DATA(lv_operation_type) = is_item_key-operation_type.
 
     SELECT  *
       FROM zi_sd_lista_de_preco
@@ -6874,6 +6887,29 @@ CLASS ZCLSD_GESTAO_PRECO_EVENTS IMPLEMENTATION.
            AND datbi    >= @is_item_key-date_to
            AND datab    <= @is_item_key-date_from
            INTO TABLE @DATA(lt_lista_preco_del).
+
+    " INSERT - LSCHEPP - 07.08.2023
+    IF lt_lista_preco_del IS INITIAL.
+      SELECT  *
+        FROM zi_sd_lista_de_preco
+           WHERE kappl    EQ @gc_preco-aplicacao_sd
+             AND kschl    EQ @gs_parameter-kschl_zpr0
+             AND vtweg    EQ @is_item_key-dist_channel
+             AND pltyp    EQ @is_item_key-price_list
+             AND werks    EQ @is_item_key-plant
+             AND matnr    EQ @is_item_key-material
+             AND ( datbi  >= @is_item_key-date_from
+             AND   datbi  NE '99991231' )
+           INTO TABLE @lt_lista_preco_del.
+
+      IF NOT lt_lista_preco_del IS INITIAL.
+        lv_operation_type = 'A'.
+        CLEAR gv_vigencia.
+        gv_alt_excl = abap_true.
+      ENDIF.
+
+    ENDIF.
+    " INSERT - LSCHEPP - 07.08.2023
 
     IF gv_vigencia EQ abap_true.
       SELECT  *
@@ -6964,6 +7000,7 @@ CLASS ZCLSD_GESTAO_PRECO_EVENTS IMPLEMENTATION.
           is_newitem         = ls_newitem
           iv_altera_vigencia = gv_vigencia
           iv_altera_periodo  = gv_periodo
+          iv_altera_exclusao = gv_alt_excl " INSERT - LSCHEPP - 07.08.2023
         TABLES
           it_new_scale       = lt_new_scale
           it_old_scale       = lt_old_scale.

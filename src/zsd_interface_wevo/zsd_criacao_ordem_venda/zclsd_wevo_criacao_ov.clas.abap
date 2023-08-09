@@ -61,7 +61,7 @@ CLASS ZCLSD_WEVO_CRIACAO_OV IMPLEMENTATION.
           lv_lprio            TYPE lprio.
 
 
-    DATA(lo_param) = NEW zclca_tabela_parametros( ).
+    DATA(lo_param) = zclca_tabela_parametros=>get_instance( ). " CHANGE - LSCHEPP - 24.07.2023
 
     TRY.
         lo_param->m_get_single( EXPORTING iv_modulo = lc_param-modulo

@@ -31,6 +31,7 @@ define root view entity ZC_SD_HIST_AGENDAMENTO
             DataRegistro,
             @EndUserText.label: 'Hora do Registro'
             HoraRegistro,
+            @ObjectModel.text.element:  [ 'UserName' ]
             Usuario,
             @Consumption.filter.hidden: true
             @Consumption.hidden: true
@@ -43,6 +44,8 @@ define root view entity ZC_SD_HIST_AGENDAMENTO
             Canal,
             @Consumption.filter.hidden: true
             @UI.hidden: true
-            TextoMotivo
+            TextoMotivo,
+            FlagCriticality,
+            UserName
 
 }

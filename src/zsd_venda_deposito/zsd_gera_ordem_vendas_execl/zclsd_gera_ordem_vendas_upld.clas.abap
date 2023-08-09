@@ -88,7 +88,7 @@ CLASS zclsd_gera_ordem_vendas_upld IMPLEMENTATION.
 
   METHOD get_param_tipo_bp.
 
-    DATA(lo_tabela_parametros) = NEW  zclca_tabela_parametros( ).
+    DATA(lo_tabela_parametros) = zclca_tabela_parametros=>get_instance( ).    " CHANGE - JWSILVA - 22.07.2023
 
     CLEAR gs_tipo_bp.
 
@@ -114,7 +114,7 @@ CLASS zclsd_gera_ordem_vendas_upld IMPLEMENTATION.
 
   METHOD get_param_tipo_cond.
 
-    DATA(lo_tabela_parametros) = NEW  zclca_tabela_parametros( ).
+    DATA(lo_tabela_parametros) = zclca_tabela_parametros=>get_instance( ).    " CHANGE - JWSILVA - 22.07.2023
 
     CLEAR gs_tipo_cond.
 

@@ -11,7 +11,7 @@ CONSTANTS: BEGIN OF lc_param,
 DATA lt_fkart TYPE RANGE OF vbrk-fkart.
 
 
-DATA(lo_param) = NEW zclca_tabela_parametros( ).
+DATA(lo_param) = zclca_tabela_parametros=>get_instance( ). " CHANGE - LSCHEPP - 24.07.2023
 TRY.
     lo_param->m_get_range( EXPORTING iv_modulo = lc_param-modulo
                                      iv_chave1 = lc_param-chave1
@@ -21,12 +21,14 @@ TRY.
     DATA(lt_xaccit_aux) = xaccit[].
     DELETE lt_xaccit_aux WHERE posnr GE '0000001000'.
     DELETE lt_xaccit_aux WHERE rebzg EQ space.
-    SELECT vbeln
-      FROM vbrk
-      INTO TABLE @DATA(lt_vbrk)
-      FOR ALL ENTRIES IN @lt_xaccit_aux
-      WHERE vbeln EQ @lt_xaccit_aux-rebzg
-        AND fkart IN @lt_fkart.
+    IF lt_xaccit_aux IS NOT INITIAL.
+      SELECT vbeln
+        FROM vbrk
+        INTO TABLE @DATA(lt_vbrk)
+        FOR ALL ENTRIES IN @lt_xaccit_aux
+        WHERE vbeln EQ @lt_xaccit_aux-rebzg
+          AND fkart IN @lt_fkart.
+    ENDIF.
   CATCH cx_sy_itab_line_not_found zcxca_tabela_parametros.
 ENDTRY.
 

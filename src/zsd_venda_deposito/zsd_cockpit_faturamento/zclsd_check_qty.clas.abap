@@ -28,7 +28,7 @@ ENDCLASS.
 
 
 
-CLASS zclsd_check_qty IMPLEMENTATION.
+CLASS ZCLSD_CHECK_QTY IMPLEMENTATION.
 
 
   METHOD if_sadl_exit_calc_element_read~calculate.
@@ -135,9 +135,10 @@ CLASS zclsd_check_qty IMPLEMENTATION.
 
   ENDMETHOD.
 
+
   METHOD get_prreg.
 
-    DATA(lo_tabela_parametros) = NEW  zclca_tabela_parametros( ).
+    DATA(lo_tabela_parametros) = zclca_tabela_parametros=>get_instance( ). " CHANGE - LSCHEPP - 24.07.2023
 
     CLEAR gs_prreg.
 
@@ -161,6 +162,7 @@ CLASS zclsd_check_qty IMPLEMENTATION.
     ENDTRY.
 
   ENDMETHOD.
+
 
   METHOD get_atpab.
 
@@ -189,8 +191,8 @@ CLASS zclsd_check_qty IMPLEMENTATION.
 
   ENDMETHOD.
 
+
   METHOD if_sadl_exit_calc_element_read~get_calculation_info.
     RETURN.
   ENDMETHOD.
-
 ENDCLASS.

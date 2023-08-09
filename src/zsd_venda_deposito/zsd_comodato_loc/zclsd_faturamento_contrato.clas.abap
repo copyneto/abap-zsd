@@ -175,7 +175,7 @@ CLASS ZCLSD_FATURAMENTO_CONTRATO IMPLEMENTATION.
 
   METHOD check_data.
 
-    DATA(lo_object) = NEW zclca_tabela_parametros( ).
+    DATA(lo_object) = zclca_tabela_parametros=>get_instance( ).    " CHANGE - JWSILVA - 22.07.2023
 
     TRY.
         lo_object->m_get_single( EXPORTING iv_modulo = gc_param-modulo

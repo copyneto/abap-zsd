@@ -40,14 +40,16 @@ CLASS ZCLSD_CONTRIBUINTE_ICMS IMPLEMENTATION.
     DATA lr_icms TYPE RANGE OF j_1bicmstaxpay.
     DATA lr_kozgf TYPE RANGE OF t682i-kozgf.
     TRY.
-        NEW zclca_tabela_parametros( )->m_get_range(
+        DATA(lo_param) = zclca_tabela_parametros=>get_instance( ).    " INSERT - JWSILVA - 22.07.2023
+
+        lo_param->m_get_range(                                        " CHANGE - JWSILVA - 22.07.2023
           EXPORTING
             iv_modulo = gc_modulo_sd
             iv_chave1 = gc_chave1_contr_icms
           IMPORTING
             et_range  = lr_icms
         ).
-        NEW zclca_tabela_parametros( )->m_get_range(
+        lo_param->m_get_range(                                        " CHANGE - JWSILVA - 22.07.2023
           EXPORTING
             iv_modulo = gc_modulo_sd
             iv_chave1 = gc_chave1_reg_mg

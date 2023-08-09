@@ -59,6 +59,7 @@ define root view entity ZI_SD_SUBSTITUIR_APP
     left outer join konp                     as _Cond_a816       on  _Cond_a816.knumh    = _a816.knumh
                                                                  and _Cond_a816.loevm_ko = ''
 
+
     left outer join tvak                     as _TipoOrdem       on _TipoOrdem.auart = _sales.SalesOrderType
 
   association to makt as _matx2 on  _matx2.matnr = $projection.MaterialAtual
@@ -67,6 +68,9 @@ define root view entity ZI_SD_SUBSTITUIR_APP
                                 and _matx.spras = $session.system_language
   //  association to I_SalesOrderItem as _salesIt on  _salesIt.SalesOrder     = $projection.SalesOrder
   //                                              and _salesIt.SalesOrderItem = $projection.SalesOrderItem
+
+  //  association to ZI_SD_SUBSTITUIR_MIN_MAX as _Limite on  _Limite.SalesOrder     = $projection.SalesOrder
+  //                                                     and _Limite.SalesOrderItem = $projection.SalesOrderItem
 {
   key   _verif.SalesOrder                 as SalesOrder,
   key   _verif.SalesOrderItem             as SalesOrderItem,
@@ -156,7 +160,20 @@ define root view entity ZI_SD_SUBSTITUIR_APP
         then _Cond_a817.kmein
         else _Cond_a816.kmein
         end
-        end                               as UmPreco
+        end                               as UmPreco,
+
+        case
+        when _Cond_a817.knumh is not initial
+        then cast( _Cond_a817.mxwrt as abap.dec( 11, 2 ) )
+        else cast( _Cond_a816.mxwrt as abap.dec( 11, 2 ) )
+        end                               as ValorMin,
+
+        case
+        when _Cond_a817.knumh is not initial
+        then cast( _Cond_a817.gkwrt as abap.dec( 11, 2 ) )
+        else cast( _Cond_a816.gkwrt as abap.dec( 11, 2 ) )
+        end                               as ValorMax
+
 
 }
 where

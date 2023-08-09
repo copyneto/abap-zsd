@@ -18,32 +18,6 @@
      <DESCRIPT>Valida Tipo de Operação da Condição</DESCRIPT>
     </SEOCOMPOTX>
    </DESCRIPTIONS>
-   <DESCRIPTIONS_SUB>
-    <SEOSUBCOTX>
-     <CMPNAME>EXECUTE</CMPNAME>
-     <SCONAME>IV_KNUMP</SCONAME>
-     <LANGU>P</LANGU>
-     <DESCRIPT>Nº da condição de documento - determinação de preço</DESCRIPT>
-    </SEOSUBCOTX>
-    <SEOSUBCOTX>
-     <CMPNAME>EXECUTE</CMPNAME>
-     <SCONAME>IV_POSNR</SCONAME>
-     <LANGU>P</LANGU>
-     <DESCRIPT>Item de remessa</DESCRIPT>
-    </SEOSUBCOTX>
-    <SEOSUBCOTX>
-     <CMPNAME>EXECUTE</CMPNAME>
-     <SCONAME>RV_SUBRC</SCONAME>
-     <LANGU>P</LANGU>
-     <DESCRIPT>Campo do sistema ABAP: código de retorno de instruções ABAP</DESCRIPT>
-    </SEOSUBCOTX>
-    <SEOSUBCOTX>
-     <CMPNAME>GET_INSTANCE</CMPNAME>
-     <SCONAME>RO_INSTANCE</SCONAME>
-     <LANGU>P</LANGU>
-     <DESCRIPT>Valida Tipo de Operação da Condição</DESCRIPT>
-    </SEOSUBCOTX>
-   </DESCRIPTIONS_SUB>
   </asx:values>
  </asx:abap>
 </abapGit>

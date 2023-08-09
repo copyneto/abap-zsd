@@ -273,7 +273,7 @@ CLASS zclsd_gera_ov_devolucao IMPLEMENTATION.
 
   METHOD get_param_tipo_ov.
 
-    DATA(lo_tabela_parametros) = NEW  zclca_tabela_parametros( ).
+    DATA(lo_tabela_parametros) = zclca_tabela_parametros=>get_instance( ).    " CHANGE - JWSILVA - 22.07.2023
 
     CLEAR gt_tipo_ov.
 
@@ -776,7 +776,7 @@ CLASS zclsd_gera_ov_devolucao IMPLEMENTATION.
 
   METHOD get_cond_expo.
 
-    DATA(lo_tabela_parametros) = NEW  zclca_tabela_parametros( ).
+    DATA(lo_tabela_parametros) = zclca_tabela_parametros=>get_instance( ).    " CHANGE - JWSILVA - 22.07.2023
 
     TRY.
         lo_tabela_parametros->m_get_range(
@@ -793,7 +793,7 @@ CLASS zclsd_gera_ov_devolucao IMPLEMENTATION.
 
   METHOD get_cond_ecom.
 
-    DATA(lo_tabela_parametros) = NEW  zclca_tabela_parametros( ).
+    DATA(lo_tabela_parametros) = zclca_tabela_parametros=>get_instance( ).    " CHANGE - JWSILVA - 22.07.2023
 
     TRY.
         lo_tabela_parametros->m_get_range(
@@ -811,7 +811,7 @@ CLASS zclsd_gera_ov_devolucao IMPLEMENTATION.
 
   METHOD cond_preco.
 
-    DATA(lo_tabela_parametros) = NEW  zclca_tabela_parametros( ).
+    DATA(lo_tabela_parametros) = zclca_tabela_parametros=>get_instance( ).    " CHANGE - JWSILVA - 22.07.2023
 
     TRY.
         lo_tabela_parametros->m_get_range(
@@ -860,7 +860,7 @@ CLASS zclsd_gera_ov_devolucao IMPLEMENTATION.
 
   METHOD busca_desconto.
 
-    DATA(lo_tabela_parametros) = NEW  zclca_tabela_parametros( ).
+    DATA(lo_tabela_parametros) = zclca_tabela_parametros=>get_instance( ).    " CHANGE - JWSILVA - 22.07.2023
 
     TRY.
         lo_tabela_parametros->m_get_range(
@@ -1010,7 +1010,7 @@ CLASS zclsd_gera_ov_devolucao IMPLEMENTATION.
   ENDMETHOD.
   METHOD get_preco_cond_expo.
 
-    DATA(lo_tabela_parametros) = NEW  zclca_tabela_parametros( ).
+    DATA(lo_tabela_parametros) = zclca_tabela_parametros=>get_instance( ).    " CHANGE - JWSILVA - 22.07.2023
 
     TRY.
         lo_tabela_parametros->m_get_range(
@@ -1027,7 +1027,7 @@ CLASS zclsd_gera_ov_devolucao IMPLEMENTATION.
 
   METHOD get_preco_cond_ecom.
 
-    DATA(lo_tabela_parametros) = NEW  zclca_tabela_parametros( ).
+    DATA(lo_tabela_parametros) = zclca_tabela_parametros=>get_instance( ).    " CHANGE - JWSILVA - 22.07.2023
 
     TRY.
         lo_tabela_parametros->m_get_range(

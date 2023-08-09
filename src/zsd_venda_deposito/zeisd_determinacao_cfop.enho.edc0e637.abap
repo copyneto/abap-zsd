@@ -2,4 +2,10 @@
 ENHANCEMENT 0 ZEISD_DETERMINACAO_CFOP.
   DATA(lo_determinacao_cfop) = NEW zclsd_determinacao_cfop( ).
   lo_determinacao_cfop->entrada_funcao_determinac_cfop( cfop_parameters ).
+
+*  zclmm_determinacao_cfop=>get_instance( )->execute(
+*    CHANGING
+*      cv_spcsto = cfop_parameters-spcsto
+*  ).
+
 ENDENHANCEMENT.

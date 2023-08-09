@@ -10,7 +10,7 @@ CONSTANTS: BEGIN OF lc_param,
 DATA lt_auart TYPE RANGE OF auart.
 
 
-DATA(lo_param) = NEW zclca_tabela_parametros( ).
+DATA(lo_param) = zclca_tabela_parametros=>get_instance( ). " CHANGE - LSCHEPP - 24.07.2023
 TRY.
     lo_param->m_get_range( EXPORTING iv_modulo = lc_param-modulo
                                      iv_chave1 = lc_param-chave1

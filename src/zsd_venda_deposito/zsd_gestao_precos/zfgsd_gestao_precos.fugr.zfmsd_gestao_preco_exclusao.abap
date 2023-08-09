@@ -9,6 +9,7 @@ FUNCTION zfmsd_gestao_preco_exclusao.
 *"     VALUE(IV_OP_TYPE) TYPE  CHAR5 OPTIONAL
 *"     VALUE(IV_ALTERA_VIGENCIA) TYPE  CHAR1 OPTIONAL
 *"     VALUE(IV_ALTERA_PERIODO) TYPE  CHAR1 OPTIONAL
+*"     VALUE(IV_ALTERA_EXCLUSAO) TYPE  CHAR1 OPTIONAL
 *"  EXPORTING
 *"     VALUE(ET_RETURN) TYPE  BAPIRET2_T
 *"  TABLES
@@ -50,6 +51,22 @@ FUNCTION zfmsd_gestao_preco_exclusao.
       et_return = et_return
   CHANGING
       cs_newitem   = is_newitem ).
+
+" INSERT - LSCHEPP - 07.08.2023
+  ELSEIF iv_altera_exclusao EQ abap_true.
+
+    lo_atual->exclusao_inclusao(
+      EXPORTING
+          iv_data_in   = iv_data_in
+          iv_data_fim  = iv_data_fim
+          iv_op_type   = iv_op_type
+          is_record    = is_record
+          is_newitem   = is_newitem
+          it_scale     = it_new_scale[]
+          it_old_scale = it_old_scale[]
+      IMPORTING
+          et_return = et_return ).
+" INSERT - LSCHEPP - 07.08.2023
 
   ELSE.
 

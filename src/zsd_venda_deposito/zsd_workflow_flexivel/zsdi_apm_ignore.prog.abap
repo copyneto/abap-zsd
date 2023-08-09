@@ -22,7 +22,7 @@
                lc_tcode   TYPE ze_param_chave  VALUE 'TCODE'.
 
     DATA lv_tcode TYPE sy-tcode.
-    DATA(lo_param) = NEW zclca_tabela_parametros(  ).
+    DATA(lo_param) = zclca_tabela_parametros=>get_instance( ). " CHANGE - LSCHEPP - 24.07.2023
 
     TRY.
         lo_param->m_get_single(

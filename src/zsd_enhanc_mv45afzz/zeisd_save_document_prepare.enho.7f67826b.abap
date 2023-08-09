@@ -15,6 +15,8 @@ ENHANCEMENT 0 ZEISD_SAVE_DOCUMENT_PREPARE.
 
   INCLUDE zsdi_subst_prod_costcenter IF FOUND.
 
+  INCLUDE zsdi_verifica_dupli_ov_cafet IF FOUND.
+
   INCLUDE zsdi_wevo_order IF FOUND.
 
 ENDENHANCEMENT.

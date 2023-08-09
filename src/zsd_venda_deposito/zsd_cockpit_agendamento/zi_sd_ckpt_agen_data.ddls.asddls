@@ -12,7 +12,7 @@ define view entity ZI_SD_CKPT_AGEN_DATA
 {
   key ordem,
   key remessa,
-  key nf_e,
+   nf_e,
       max( data_registro ) as Max_data_registro
 
 }

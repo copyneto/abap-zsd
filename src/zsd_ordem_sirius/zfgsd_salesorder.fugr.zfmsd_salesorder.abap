@@ -11,7 +11,7 @@ FUNCTION zfmsd_salesorder.
 *        lv_param TYPE TABLE OF ztca_param_val.
         lr_param TYPE TABLE OF ztca_param_val.
 
-  DATA(lo_param) = NEW zclca_tabela_parametros( ).
+  DATA(lo_param) = zclca_tabela_parametros=>get_instance( ). " CHANGE - LSCHEPP - 24.07.2023
 
   TRY.
 

@@ -27,6 +27,17 @@ public section.
       !IT_OLD_SCALE type TY_T_ITEM optional
     exporting
       !ET_RETURN type TT_RETURN .
+  methods EXCLUSAO_INCLUSAO
+    importing
+      !IV_DATA_IN type DATS
+      !IV_DATA_FIM type DATS
+      !IS_RECORD type ZI_SD_LISTA_DE_PRECO
+      !IV_OP_TYPE type CHAR5
+      !IS_NEWITEM type ZI_SD_LISTA_DE_PRECO
+      !IT_SCALE type TY_T_ITEM optional
+      !IT_OLD_SCALE type TY_T_ITEM optional
+    exporting
+      !ET_RETURN type TT_RETURN .
   methods ATUALIZAR_PERIODO
     importing
       !IV_DATA_IN type DATS
@@ -136,6 +147,7 @@ private section.
       !IV_OPERATION type C
       !IV_DATA_IN type DATS
       !IV_DATA_FIM type DATS
+      !IV_INCLUSAO type XFELD optional
       !IS_RECORD type ZI_SD_LISTA_DE_PRECO
       !IT_ITEM_SCALE type TY_T_ITEM optional
       !IV_NEW_SCALE type ABAP_BOOL optional
@@ -159,6 +171,7 @@ private section.
     importing
       !IV_DATA_IN type DATS optional
       !IV_DATA_FIM type DATS optional
+      !IV_INCLUSAO type XFELD optional
       !IS_RECORD type ZI_SD_LISTA_DE_PRECO
       !IV_OPERATION type CHAR3
       !IT_ITEM_SCALE type TY_T_ITEM optional
@@ -213,6 +226,10 @@ private section.
   methods UPDATE_LOG_BDCP2
     importing
       !IT_RETURN type ZCLSD_GESTAO_PRECO_EXCLUSAO=>TT_RETURN .
+  methods ELIMINA_REGISTRO
+    importing
+      !IS_RECORD type ZI_SD_LISTA_DE_PRECO
+      !IV_OP_TYPE type CHAR5 .
 ENDCLASS.
 
 
@@ -252,7 +269,8 @@ CLASS ZCLSD_GESTAO_PRECO_EXCLUSAO IMPLEMENTATION.
     READ TABLE ct_bapicondit ASSIGNING FIELD-SYMBOL(<fs_bapicondit>) INDEX 1.
     IF sy-subrc = 0.
       <fs_bapicondit>-operation = iv_operation.
-      IF iv_data_in EQ iv_data_fim.
+      IF iv_data_in EQ iv_data_fim OR
+         iv_inclusao EQ abap_true. " INSERT - LSCHEPP - 07.08.2023
         <fs_bapicondit>-indidelete = ' '.
         get_cond( CHANGING cs_newitem = lv_cond ).
         <fs_bapicondit>-cond_no = lv_cond.
@@ -260,6 +278,7 @@ CLASS ZCLSD_GESTAO_PRECO_EXCLUSAO IMPLEMENTATION.
         <fs_bapicondit>-cond_unit  = is_record-kmein.
         <fs_bapicondit>-lowerlimit = is_record-mxwrt.
         <fs_bapicondit>-upperlimit = is_record-gkwrt.
+        <fs_bapicondit>-cond_value = is_record-kbetr.
 *** Fim -Inclusão para ajuste card 8000007283
       ELSE.
         <fs_bapicondit>-indidelete = 'X'.
@@ -462,6 +481,7 @@ CLASS ZCLSD_GESTAO_PRECO_EXCLUSAO IMPLEMENTATION.
                             is_record     = is_record
                             iv_data_fim   = iv_data_fim
                             iv_data_in    = iv_data_in
+                            iv_inclusao   = iv_inclusao " INSERT - LSCHEPP - 07.08.2023
                             it_item_scale = it_item_scale " ***Inclusão para ajuste card 8000007283
                             iv_new_scale  = iv_new_scale
                            CHANGING
@@ -1194,6 +1214,174 @@ CLASS ZCLSD_GESTAO_PRECO_EXCLUSAO IMPLEMENTATION.
                  ct_bapicondqs = lt_bapicondqs ).
 
     commit_work( et_return ).
+
+  ENDMETHOD.
+
+
+  METHOD exclusao_inclusao.
+
+    CONSTANTS lc_003 TYPE char3 VALUE '003'.
+    CONSTANTS lc_004 TYPE char3 VALUE '004'.
+    CONSTANTS lc_009 TYPE char3 VALUE '009'.
+    DATA lt_ykonh TYPE ty_lt_ykonh.
+    DATA lt_ykonp TYPE ty_lt_ykonp.
+    DATA lt_bapicondct TYPE ty_lt_bapicondct.
+    DATA lt_bapicondhd TYPE ty_lt_bapicondhd.
+    DATA lt_bapicondit TYPE ty_lt_bapicondit.
+    DATA lt_bapicondqs TYPE ty_lt_bapicondqs_2.
+    DATA ls_bapicondct TYPE bapicondct.
+    DATA ls_bapicondhd TYPE bapicondhd.
+
+* ---------------------------------------------------------------------------
+* Exclui o registro existente
+* ---------------------------------------------------------------------------
+    fill_bapi( EXPORTING
+               iv_data_in    = iv_data_in
+               iv_data_fim   = iv_data_fim
+               is_record     = is_record
+               iv_op_type    = iv_op_type
+               iv_operation  = lc_003
+               it_item_scale = it_old_scale
+               IMPORTING
+               et_bapicondct = lt_bapicondct
+               et_bapicondhd = lt_bapicondhd
+               et_bapicondit = lt_bapicondit
+               et_bapicondqs = lt_bapicondqs ).
+
+    call_bapi( IMPORTING
+                 et_return = et_return
+               CHANGING
+                 ct_bapicondit = lt_bapicondit
+                 ct_bapicondhd = lt_bapicondhd
+                 ct_bapicondct = lt_bapicondct
+                 ct_bapicondqs = lt_bapicondqs ).
+
+    commit_work( et_return ).
+
+    " INSERT - LSCHEPP - 07.08.2023
+    "Elimina o Registro da tabela A816/A817
+    elimina_registro( EXPORTING
+                       is_record  = is_record
+                       iv_op_type = iv_op_type ).
+    " INSERT - LSCHEPP - 07.08.2023
+
+* ---------------------------------------------------------------------------
+* Inclui uma linha igual a existente e modifica o "Data até" do registro excluido com o D-1
+* ---------------------------------------------------------------------------
+    DATA(lv_data_fim) = data_calculation( iv_data = iv_data_in iv_sinal = '-' ).
+    add_data_conditons( EXPORTING
+                         iv_data_fim   = lv_data_fim
+                         is_record     = is_record
+                         iv_operation  = lc_004
+                         iv_inclusao   = abap_true " INSERT - LSCHEPP - 07.08.2023
+                         it_item_scale = it_old_scale
+                        CHANGING
+                         ct_return = et_return
+                         ct_bapicondct = lt_bapicondct
+                         ct_bapicondhd = lt_bapicondhd
+                         ct_bapicondit = lt_bapicondit
+                         ct_bapicondqs = lt_bapicondqs ).
+
+
+* ---------------------------------------------------------------------------
+* Inclui uma linha igual a existente e modifica o "Data desde/até" , sendo datas iguais
+* ---------------------------------------------------------------------------
+    CLEAR lt_bapicondqs.
+    add_data_conditons( EXPORTING
+                         iv_data_in    = iv_data_in
+                         iv_data_fim   = iv_data_fim
+                         is_record     = is_newitem
+                         iv_inclusao   = abap_true " INSERT - LSCHEPP - 07.08.2023
+                         iv_operation  = lc_004
+                         it_item_scale = it_scale
+                         iv_new_scale  = abap_true
+                        CHANGING
+                         ct_return = et_return
+                         ct_bapicondct = lt_bapicondct
+                         ct_bapicondhd = lt_bapicondhd
+                         ct_bapicondit = lt_bapicondit
+                         ct_bapicondqs = lt_bapicondqs ).
+
+
+    busca_condicoes( EXPORTING
+                is_record = is_newitem
+               IMPORTING
+                et_ykonh = lt_ykonh
+                et_ykonp = lt_ykonp ).
+
+    atualiza_modificacoes( EXPORTING
+                            is_record     = is_newitem
+                            iv_valid_from = iv_data_in
+                           CHANGING
+                            ct_ykonp = lt_ykonp
+                            ct_ykonh = lt_ykonh ).
+
+    commit_work( et_return ).
+
+
+
+  ENDMETHOD.
+
+
+  METHOD elimina_registro.
+
+    DATA: lv_tab   TYPE tabname,
+          lv_where TYPE string.
+
+    DATA: lt_a816 TYPE TABLE OF a816,
+          lt_a817 TYPE TABLE OF a817.
+
+    FIELD-SYMBOLS <fs_table> TYPE ANY TABLE.
+
+
+    IF NOT iv_op_type IS INITIAL.
+      lv_tab = iv_op_type+1(4).
+      CASE lv_tab.
+        WHEN 'A816'.
+          ASSIGN lt_a816 TO <fs_table>.
+        WHEN 'A817'.
+          ASSIGN lt_a817 TO <fs_table>.
+      ENDCASE.
+    ENDIF.
+
+    IF NOT is_record-kappl IS INITIAL.
+      lv_where = | KAPPL = '{ is_record-kappl }'|.
+    ENDIF.
+
+    IF NOT is_record-kschl IS INITIAL.
+      lv_where = |{ lv_where } AND KSCHL = '{ is_record-kschl }'|.
+    ENDIF.
+
+    IF NOT is_record-vtweg IS INITIAL.
+      lv_where = |{ lv_where } AND VTWEG = '{ is_record-vtweg }'|.
+    ENDIF.
+
+    IF NOT is_record-pltyp IS INITIAL.
+      lv_where = |{ lv_where } AND PLTYP = '{ is_record-pltyp }'|.
+    ENDIF.
+
+    IF NOT is_record-werks IS INITIAL.
+      lv_where = |{ lv_where } AND WERKS = '{ is_record-werks }'|.
+    ENDIF.
+
+    IF NOT is_record-matnr IS INITIAL.
+      lv_where = |{ lv_where } AND MATNR = '{ is_record-matnr }'|.
+    ENDIF.
+
+    IF NOT is_record-datab IS INITIAL.
+      lv_where = |{ lv_where } AND DATBI = '{ is_record-datbi }'|.
+    ENDIF.
+
+    SELECT *
+      FROM (lv_tab)
+      INTO TABLE <fs_table>
+      WHERE (lv_where).
+    IF sy-subrc EQ 0.
+      DELETE (lv_tab) FROM TABLE <fs_table>.
+      IF sy-subrc EQ 0.
+        CALL FUNCTION 'DB_COMMIT'.
+      ENDIF.
+    ENDIF.
 
   ENDMETHOD.
 ENDCLASS.

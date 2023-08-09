@@ -48,7 +48,7 @@ CLASS ZCLSD_INSERI_DADOS_COMEX IMPLEMENTATION.
 
     DATA: ls_comex TYPE ztsd_comiss_cmx.
 
-    DATA(lo_param) = NEW zclca_tabela_parametros( ).
+    DATA(lo_param) = zclca_tabela_parametros=>get_instance( ).    " CHANGE - JWSILVA - 22.07.2023
 
     CONSTANTS: BEGIN OF lc_param,
                  modulo TYPE ztca_param_par-modulo VALUE 'SD',

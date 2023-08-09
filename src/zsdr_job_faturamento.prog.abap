@@ -239,7 +239,7 @@ CLASS lcl_report IMPLEMENTATION.
 
     SORT lt_lvkdfi BY vbeln.
 
-    DATA(lo_param) = NEW zclca_tabela_parametros( ).
+    DATA(lo_param) = zclca_tabela_parametros=>get_instance( ). " CHANGE - LSCHEPP - 24.07.2023
 
     TRY.
         lo_param->m_get_range( EXPORTING iv_modulo = gc_param-modulo
@@ -265,12 +265,35 @@ CLASS lcl_report IMPLEMENTATION.
         SORT lt_remessa BY vbeln.
       ENDIF.
 
+      "Filtra remessas que não podem ser "reprocessadas"
+      SELECT _vbfa~vbelv
+       FROM vbfa AS _vbfa
+       INTO TABLE @DATA(lt_rem_n_processar)
+       FOR ALL ENTRIES IN @lt_lvkdfi
+       WHERE _vbfa~vbelv EQ @lt_lvkdfi-vbeln
+        AND _vbfa~vbtyp_n EQ 'S'.
+
+      IF sy-subrc EQ 0.
+        SORT lt_rem_n_processar BY vbelv.
+      ENDIF.
+
       LOOP AT lt_lvkdfi ASSIGNING FIELD-SYMBOL(<fs_lvkdfi>).
         DATA(lv_tabix) = sy-tabix.
-        READ TABLE lt_remessa TRANSPORTING NO FIELDS WITH KEY vbeln = <fs_lvkdfi>-vbeln BINARY SEARCH.
-        IF sy-subrc NE 0.
-          DELETE lt_lvkdfi INDEX lv_tabix.
-        ENDIF.
+        IF NOT <fs_lvkdfi>-vbeln IS INITIAL . " INSERT - LSCHEPP - 04.08.2023
+          READ TABLE lt_remessa TRANSPORTING NO FIELDS WITH KEY vbeln = <fs_lvkdfi>-vbeln BINARY SEARCH.
+          IF sy-subrc NE 0.
+            DELETE lt_lvkdfi INDEX lv_tabix.
+            CONTINUE.                          " INSERT - JWSILVA - 01.08.2023
+          ENDIF.
+
+          "Tratamento remessas que não podem ser reprocessadas
+          READ TABLE lt_rem_n_processar TRANSPORTING NO FIELDS WITH KEY vbelv = <fs_lvkdfi>-vbeln BINARY SEARCH.
+          IF sy-subrc IS INITIAL.
+            DELETE lt_lvkdfi INDEX lv_tabix.
+            CONTINUE.                          " INSERT - JWSILVA - 01.08.2023
+          ENDIF.
+        ENDIF.                                " INSERT - LSCHEPP - 04.08.2023
+
       ENDLOOP.
 
       "Filtra remessas com pedidos de compra - Intercompany
@@ -304,6 +327,7 @@ CLASS lcl_report IMPLEMENTATION.
           CONTINUE.
         ENDIF.
       ENDIF.
+
       APPEND INITIAL LINE TO gt_output ASSIGNING FIELD-SYMBOL(<fs_output>).
       MOVE-CORRESPONDING <fs_lvkdfi> TO <fs_output>.
     ENDLOOP.

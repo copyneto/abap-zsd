@@ -10,7 +10,7 @@
 define root view entity ZI_SD_NF_IMP_MASSA
   as select from j_1bnfdoc as _Doc
 
-  association [0..1] to ZI_SD_NF_ITEMS as _Items on  _Items.Docnum = _Doc.docnum
+  association [0..1] to ZI_IMP_NOTAFISCAL_MASSA_SCR as _Items on  _Items.Docnum = _Doc.docnum
   association [0..1] to j_1bnfe_event  as _Event on  _Event.docnum    = _Doc.docnum
                                                  and _Event.int_event = 'EV_CCE'
                                                  and (

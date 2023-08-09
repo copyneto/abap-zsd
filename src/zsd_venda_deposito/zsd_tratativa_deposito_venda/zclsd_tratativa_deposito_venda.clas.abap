@@ -154,6 +154,24 @@ CLASS ZCLSD_TRATATIVA_DEPOSITO_VENDA IMPLEMENTATION.
       ENDIF.
     ENDIF.
 
+    IF lv_werks IS NOT INITIAL.
+      IF gs_vbak-augru IS NOT INITIAL.
+        SORT gt_ctr_dep BY auart augru werks.
+        READ TABLE gt_ctr_dep ASSIGNING <fs_ctr_dep> WITH KEY auart = gs_vbak-auart
+                                                              augru = gs_vbak-augru
+                                                              werks = lv_werks
+                                                              matkl = space
+                                                              kunnr = space
+                                                              bsark = space
+                                                              BINARY SEARCH.
+        IF sy-subrc IS INITIAL.
+          gs_vbap-lgort = <fs_ctr_dep>-lgort.
+          RETURN.
+        ENDIF.
+      ENDIF.
+    ENDIF.
+
+
     IF gs_vbak-augru IS NOT INITIAL.
       SORT gt_ctr_dep BY auart augru.
       READ TABLE gt_ctr_dep ASSIGNING <fs_ctr_dep> WITH KEY auart = gs_vbak-auart
@@ -213,6 +231,13 @@ CLASS ZCLSD_TRATATIVA_DEPOSITO_VENDA IMPLEMENTATION.
     gs_vbkd	 = is_vbkd.
     gs_vbap	 = is_vbap.
     gv_dwerk = iv_dwerk.
+
+    IF gs_vbap-matkl IS INITIAL.
+      SELECT SINGLE matkl
+        FROM mara
+        INTO @gs_vbap-matkl
+        WHERE matnr = @gs_vbap-matnr.
+    ENDIF.
 
   ENDMETHOD.
 

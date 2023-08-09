@@ -725,7 +725,7 @@ CLASS ZCLTM_PROCESS_OF_INTERCOMPANY IMPLEMENTATION.
 
   METHOD fu_type_ecommerce.
 
-    DATA(lo_param) = NEW zclca_tabela_parametros( ).
+    DATA(lo_param) = zclca_tabela_parametros=>get_instance( ). " CHANGE - LSCHEPP - 24.07.2023
 
     TRY.
         lo_param->m_get_range( EXPORTING iv_modulo = 'TM'
@@ -744,7 +744,7 @@ CLASS ZCLTM_PROCESS_OF_INTERCOMPANY IMPLEMENTATION.
           lt_fu_key         TYPE /bobf/t_frw_key,
           lt_fu_data        TYPE /scmtms/t_tor_root_k.
 
-    DATA(lo_param) = NEW zclca_tabela_parametros( ).
+    DATA(lo_param) = zclca_tabela_parametros=>get_instance( ). " CHANGE - LSCHEPP - 24.07.2023
 
     TRY.
         lo_param->m_get_range( EXPORTING iv_modulo = 'TM'

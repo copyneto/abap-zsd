@@ -61,7 +61,7 @@ ENDCLASS.
 
 
 
-CLASS zclsd_verif_disp_actions IMPLEMENTATION.
+CLASS ZCLSD_VERIF_DISP_ACTIONS IMPLEMENTATION.
 
 
   METHOD acionar_logistica.
@@ -401,7 +401,7 @@ CLASS zclsd_verif_disp_actions IMPLEMENTATION.
 
     ENDIF.
 
-    DATA(lv_caldisponivilidade) = lv_qtdestoquelivre + lv_gtdepositofechado - (  lv_qtdordem +  lv_qtdremessa ).
+    DATA(lv_caldisponivilidade) = CONV mng01( lv_qtdestoquelivre + lv_gtdepositofechado - (  lv_qtdordem +  lv_qtdremessa ) ).
 
     IF lv_caldisponivilidade > 0.
       rv_return = abap_true. "Disponível
@@ -436,7 +436,7 @@ CLASS zclsd_verif_disp_actions IMPLEMENTATION.
 
   METHOD get_atpab.
 
-    DATA(lo_tabela_parametros) = NEW  zclca_tabela_parametros( ).
+    DATA(lo_tabela_parametros) = zclca_tabela_parametros=>get_instance( ). " CHANGE - LSCHEPP - 24.07.2023
 
     CLEAR gs_atpab.
 

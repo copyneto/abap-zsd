@@ -34,15 +34,18 @@ define view entity ZI_SD_CKPT_FAT_PRECO_UNIT
        //  key  _Item.SalesOrderItem,
   key  _SalesOrder.SalesOrder,
   key  _SalesOrder.SalesOrderItem,
-       _Preco.knumv                                                                                    as SalesOrderCondition,
+       _Preco.knumv                                                                                                  as SalesOrderCondition,
        _Preco.waerk,
        //       @Semantics.amount.currencyCode : 'waerk'
 
        //       case when _Item.OrderQuantity is not null and _Item.OrderQuantity <> 0 then
-//       div( cast(_Preco.kwert as abap.dec( 15, 2 )), cast( _Item.OrderQuantity as abap.dec( 15, 3 )) ) as PrecoUnit
+       //       div( cast(_Preco.kwert as abap.dec( 15, 2 )), cast( _Item.OrderQuantity as abap.dec( 15, 3 )) ) as PrecoUnit
        //       else 0
        //       end          as PrecoUnit
+
+
+       //cast( cast(_Preco.kwert as abap.dec( 15, 2 )) / cast( _SalesOrder.OrderQuantity as abap.dec( 15, 3 )) as abap.dec( 15, 2 )) as teste,
+       DIVISION( cast(_Preco.kwert as abap.dec( 15, 2 )), cast( _SalesOrder.OrderQuantity as abap.dec( 15, 3 )), 3 ) as PrecoUnit
        
-       div( cast(_Preco.kwert as abap.dec( 15, 2 )), cast( _SalesOrder.OrderQuantity as abap.dec( 15, 3 )) ) as PrecoUnit
 
 }

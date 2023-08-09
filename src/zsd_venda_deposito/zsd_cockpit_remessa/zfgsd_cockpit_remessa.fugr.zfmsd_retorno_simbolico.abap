@@ -12,18 +12,20 @@ FUNCTION zfmsd_retorno_simbolico.
   DATA lt_return TYPE TABLE OF bapiret2.
   DATA lv_value TYPE likp-lifsk.
 
-  DATA(lo_param) = NEW zclca_tabela_parametros( ).
+  DATA(lo_param) = zclca_tabela_parametros=>get_instance( ). " CHANGE - LSCHEPP - 24.07.2023
 
   DATA(ls_parameter) = VALUE ztca_param_val( modulo = 'SD'
                                          chave1 = 'ADM_FATURAMENTO'
                                          chave2 = 'BLOQ_DF_AGUARDA' ).
 
-  lo_param->m_get_single( EXPORTING iv_modulo = ls_parameter-modulo
-                                    iv_chave1 = ls_parameter-chave1
-                                    iv_chave2 = ls_parameter-chave2
-                                    iv_chave3 = ls_parameter-chave3
-                      IMPORTING ev_param  = lv_value ).
-
+  TRY.
+      lo_param->m_get_single( EXPORTING iv_modulo = ls_parameter-modulo
+                                        iv_chave1 = ls_parameter-chave1
+                                        iv_chave2 = ls_parameter-chave2
+                                        iv_chave3 = ls_parameter-chave3
+                          IMPORTING ev_param  = lv_value ).
+    CATCH zcxca_tabela_parametros.
+  ENDTRY.
 
   ls_header_data-deliv_numb = iv_remessa.
   ls_header_data-dlv_block  = lv_value.

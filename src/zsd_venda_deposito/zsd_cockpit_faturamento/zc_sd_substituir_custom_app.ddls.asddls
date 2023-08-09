@@ -143,10 +143,17 @@ define root custom entity ZC_SD_SUBSTITUIR_CUSTOM_APP
       @UI.hidden                 : true
       Unit                       : meins;
 
+      @EndUserText.label         : 'Limite Inferior'
+      @Semantics.amount.currencyCode : 'Moeda'
+      ValorMin                   : mxwrt;
+      @EndUserText.label         : 'Limite Superior'
+      @Semantics.amount.currencyCode : 'Moeda'
+      ValorMax                   : gkwrt;
       // ------------------------------------------------------
       // Buttons information
       // ------------------------------------------------------
-      @UI.lineItem               : [{ position: 10, type: #FOR_ACTION, dataAction: 'SubstituirProduto', label: 'Substituir produto', invocationGrouping: #CHANGE_SET  }]
+      @UI.lineItem               : [{ position: 10, type: #FOR_ACTION, dataAction: 'SubstituirProduto', label: 'Substituir produto', invocationGrouping: #CHANGE_SET  },
+                                    { position: 20, type: #FOR_ACTION, dataAction: 'SubstituirProdutoTeste', label: 'Substituir produto teste', invocationGrouping: #CHANGE_SET  }]
       @UI.hidden                 : true
       Action                     : abap.char(1);
 }

@@ -17,7 +17,8 @@ annotate view ZC_SD_SUBSTITUIR_APP with
   // Informações de campo
   // ------------------------------------------------------
   @UI: {  lineItem:       [ { position: 10, label: 'Ordem' },
-                             { type: #FOR_ACTION, dataAction: 'SubstituirProduto', label: 'Substituir Produto'  } ],
+                             { type: #FOR_ACTION, dataAction: 'SubstituirProduto', label: 'Substituir Produto'  } ,
+                             { type: #FOR_ACTION, dataAction: 'SubstituirProdutoTeste', label: 'Substituir Produto Teste'  } ],
           identification: [ { position: 10, label: 'Ordem'} ],
           selectionField: [ { position: 10 } ] }
   SalesOrder;

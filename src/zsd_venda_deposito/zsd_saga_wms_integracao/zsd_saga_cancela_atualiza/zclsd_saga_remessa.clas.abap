@@ -1,34 +1,34 @@
-class ZCLSD_SAGA_REMESSA definition
-  public
-  inheriting from ZCLSD_SAGA_INTEGRACOES
-  abstract
-  create public .
+CLASS zclsd_saga_remessa DEFINITION
+  PUBLIC
+  INHERITING FROM zclsd_saga_integracoes
+  ABSTRACT
+  CREATE PUBLIC .
 
-public section.
+  PUBLIC SECTION.
 
-  methods VALORES_BADI_NFE
-    returning
-      value(RV_NFENUM) type J_1BNFDOC-NFENUM .
+    METHODS valores_badi_nfe
+      RETURNING
+        VALUE(rv_nfenum) TYPE j_1bnfdoc-nfenum .
 
-  methods ZIFSD_SAGA_INTEGRACOES~BUILD
-    redefinition .
+    METHODS zifsd_saga_integracoes~build
+        REDEFINITION .
   PROTECTED SECTION.
 
     DATA lt_docflow TYPE tdt_docflow.
 
-private section.
+  PRIVATE SECTION.
 
-  types:
-    ty_lr_lfart TYPE RANGE OF likp-lfart .
+    TYPES:
+      ty_lr_lfart TYPE RANGE OF likp-lfart .
 
-  methods BUSCA_LFART
-    returning
-      value(RR_LFART) type TY_LR_LFART .
+    METHODS busca_lfart
+      RETURNING
+        VALUE(rr_lfart) TYPE ty_lr_lfart .
 ENDCLASS.
 
 
 
-CLASS ZCLSD_SAGA_REMESSA IMPLEMENTATION.
+CLASS zclsd_saga_remessa IMPLEMENTATION.
 
 
   METHOD zifsd_saga_integracoes~build.
@@ -48,28 +48,37 @@ CLASS ZCLSD_SAGA_REMESSA IMPLEMENTATION.
     gs_proxy-mt_cancelar_atualizar_remessa-ztipoope = COND #( WHEN gs_likp-vbtyp = |J| THEN '2' WHEN gs_likp-vbtyp = |T| THEN '1'  ELSE gs_likp-vbtyp ).
 
 *** Flávia Leite- Chamado 8000005968 - REAGENDAMENTO
-*    SELECT SINGLE nf_e, data_agendada
-*      FROM ztsd_agendamento
-*     WHERE remessa = @gs_likp-vbeln
-**       AND nf_e = @gs_likp-xblnr
-*       AND data_registro = @sy-datum
-*      INTO @DATA(ls_agenda).
-*
-*    IF NOT sy-subrc is initial.
-*
-*      SELECT SINGLE nf_e, data_agendada
-*   FROM ztsd_agendamento
-*   WHERE remessa = @gs_likp-vbeln
-*   AND nf_e = @gs_likp-xblnr
-*   INTO @ls_agenda.
-*
-*    ENDIF.
+    SELECT nf_e, data_agendada, hora_agendada
+      FROM ztsd_agendamento
+     WHERE remessa = @gs_likp-vbeln
+*       AND nf_e = @gs_likp-xblnr
+       AND data_registro = @sy-datum
+      INTO TABLE @DATA(lt_agenda).
 
-    SELECT SINGLE docnum AS nf_e, dataagendada AS data_agendada
-      FROM zi_sd_hist_agendamento
-     WHERE remessa     EQ @gs_likp-vbeln
-       AND agend_valid EQ @abap_true
-      INTO @DATA(ls_agenda).
+    IF NOT sy-subrc IS INITIAL.
+      SELECT nf_e, data_agendada, hora_agendada
+        FROM ztsd_agendamento
+        WHERE remessa = @gs_likp-vbeln
+        AND nf_e = @gs_likp-xblnr
+        INTO TABLE @lt_agenda.
+
+    ENDIF.
+
+    IF lt_agenda IS NOT INITIAL.
+      SORT lt_agenda BY data_agendada DESCENDING hora_agendada DESCENDING.
+      TRY.
+          DATA(ls_agenda) = lt_agenda[ 1 ].
+        CATCH cx_sy_itab_line_not_found.
+
+      ENDTRY.
+
+    ENDIF.
+
+*    SELECT SINGLE docnum AS nf_e, dataagendada AS data_agendada
+*      FROM zi_sd_hist_agendamento
+*     WHERE remessa     EQ @gs_likp-vbeln
+*       AND agend_valid EQ @abap_true
+*      INTO @DATA(ls_agenda).
 *** Flávia Leite - Chamado 8000005968 - REAGENDAMENTO
 
 *    gs_proxy-nfnum = ls_agenda-nf_e.
@@ -108,7 +117,7 @@ CLASS ZCLSD_SAGA_REMESSA IMPLEMENTATION.
 
   METHOD busca_lfart.
 
-    DATA(lo_tabela_parametros_lfart) = NEW zclca_tabela_parametros( ).
+    DATA(lo_tabela_parametros_lfart) = zclca_tabela_parametros=>get_instance( ). " CHANGE - LSCHEPP - 24.07.2023
 
     DATA lv_lfart(8) TYPE c.
     lv_lfart = gs_likp-lfart.

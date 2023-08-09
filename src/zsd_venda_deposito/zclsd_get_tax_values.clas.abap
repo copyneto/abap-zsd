@@ -423,7 +423,7 @@ CLASS ZCLSD_GET_TAX_VALUES IMPLEMENTATION.
                                                                     iv_uf             = iv_uf
                                                                     iv_material       = is_item-matnr
                                                                     iv_gp_mercadoria  = is_item-matkl
-                                                           IMPORTING ev_um            = lv_um ).
+                                                          IMPORTING ev_um             = lv_um ).
 
 * LSCHEPP - SD - 8000007351 - CST 60 - Nota manual - 18.05.2023 Início
         IF lv_um IS INITIAL.
@@ -558,7 +558,7 @@ CLASS ZCLSD_GET_TAX_VALUES IMPLEMENTATION.
 
   METHOD get_param_type_cond.
 
-    DATA(lo_tabela_parametros) = NEW  zclca_tabela_parametros( ).
+    DATA(lo_tabela_parametros) = zclca_tabela_parametros=>get_instance( ). " CHANGE - LSCHEPP - 24.07.2023
 
     CLEAR gs_tipo_condicao.
 

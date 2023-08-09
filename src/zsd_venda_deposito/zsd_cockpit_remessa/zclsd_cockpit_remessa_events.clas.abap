@@ -753,7 +753,7 @@ CLASS zclsd_cockpit_remessa_events IMPLEMENTATION.
     FREE: et_value.
 
     TRY.
-        DATA(lo_param) = NEW zclca_tabela_parametros( ).
+        DATA(lo_param) = zclca_tabela_parametros=>get_instance( ).    " CHANGE - JWSILVA - 22.07.2023
 
         " Recupera valor único
         IF ev_value IS SUPPLIED.

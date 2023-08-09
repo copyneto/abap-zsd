@@ -1,14 +1,14 @@
-CLASS zclsd_verif_util_sub DEFINITION
-  PUBLIC
-  FINAL
-  CREATE PUBLIC .
+class ZCLSD_VERIF_UTIL_SUB definition
+  public
+  final
+  create public .
 
-  PUBLIC SECTION.
+public section.
 
-    TYPES:
-      ty_sub_prod TYPE TABLE OF zc_sd_substituir_custom_app .
-    TYPES:
-      BEGIN OF ty_ordem_cond,
+  types:
+    ty_sub_prod TYPE TABLE OF zc_sd_substituir_custom_app .
+  types:
+    BEGIN OF ty_ordem_cond,
         salesorder          TYPE i_salesorder-salesorder,
         salesorderitem      TYPE i_salesorderitem-salesorderitem,
         pricelisttype       TYPE i_salesorder-pricelisttype,
@@ -17,14 +17,14 @@ CLASS zclsd_verif_util_sub DEFINITION
         plant               TYPE i_salesorderitem-plant,
         material            TYPE i_salesorderitem-material,
       END OF ty_ordem_cond .
-    TYPES:
-      BEGIN OF ty_item_qtd,
+  types:
+    BEGIN OF ty_item_qtd,
         salesorder        TYPE i_salesorderitem-salesorder,
         salesorderitem    TYPE i_salesorderitem-salesorderitem,
         orderquantityunit TYPE i_salesorderitem-orderquantityunit,
       END OF ty_item_qtd .
-    TYPES:
-      BEGIN OF ty_salesdocumentitem,
+  types:
+    BEGIN OF ty_salesdocumentitem,
         salesdocument     TYPE i_salesdocumentitem-salesdocument,
         salesdocumentitem TYPE i_salesdocumentitem-salesdocumentitem,
         plant             TYPE i_salesdocumentitem-plant,
@@ -32,16 +32,16 @@ CLASS zclsd_verif_util_sub DEFINITION
         targetquantity    TYPE i_salesdocumentitem-targetquantity,
         requestedquantity TYPE i_salesdocumentitem-requestedquantity,
       END OF ty_salesdocumentitem .
-    TYPES:
-      BEGIN OF ty_knumh,
+  types:
+    BEGIN OF ty_knumh,
         vtweg TYPE a817-vtweg,
         werks TYPE a817-werks,
         matnr TYPE a817-matnr,
         kbetr TYPE konp-kbetr,
         pltyp TYPE a817-pltyp,
       END OF ty_knumh .
-    TYPES:
-      BEGIN OF ty_prcd_elements,
+  types:
+    BEGIN OF ty_prcd_elements,
         knumv TYPE prcd_elements-knumv,
         kschl TYPE prcd_elements-kschl,
         kposn TYPE prcd_elements-kposn,
@@ -49,84 +49,85 @@ CLASS zclsd_verif_util_sub DEFINITION
         kmein TYPE prcd_elements-kmein,
         pltyp TYPE a817-pltyp,
       END OF ty_prcd_elements .
-    TYPES:
-      BEGIN OF ty_cond,
+  types:
+    BEGIN OF ty_cond,
         knumv TYPE knumv,
         kposn TYPE kposn,
         kbetr TYPE kbetr,
         kschl TYPE kschl,
       END OF ty_cond .
 
-    DATA:
-      gt_cond TYPE TABLE OF ty_cond .
-    DATA:
-     gt_costcenter TYPE TABLE OF zssd_sub_prod_costcenter.
-    DATA gv_paramsub TYPE ze_param_low .
-    DATA:
-      gt_pricing_old TYPE TABLE OF ty_prcd_elements .
-    DATA:
-      gt_condition TYPE TABLE OF ty_knumh .
-    DATA:
-      gt_ordem_cond TYPE TABLE OF ty_ordem_cond .
-    DATA:
-      gt_salesdocumentitem TYPE TABLE OF ty_salesdocumentitem .
-    DATA:
-      gt_return_subs TYPE STANDARD TABLE OF bapiret2 .
-    DATA:
-      gt_order_item_in TYPE STANDARD TABLE OF bapisditm .
-    DATA:
-      gt_order_item_inclui_in TYPE STANDARD TABLE OF bapisditm .
-    DATA:
-      gt_order_item_desc_in TYPE STANDARD TABLE OF bapisditm .
-    DATA:
-  gt_order_item_desfaz_in TYPE STANDARD TABLE OF bapisditm .
-    DATA:
-      gt_order_item_inx TYPE STANDARD TABLE OF bapisditmx .
-    DATA:
-      gt_order_item_inclui_inx TYPE STANDARD TABLE OF bapisditmx .
-    DATA:
-      gt_order_item_desc_inx TYPE STANDARD TABLE OF bapisditmx .
-    DATA:
-  gt_order_item_desfaz_inx TYPE STANDARD TABLE OF bapisditmx .
-    DATA:
-      gt_schedule_lines  TYPE STANDARD TABLE OF bapischdl .
-    DATA:
-      gt_schedule_linesx TYPE STANDARD TABLE OF bapischdlx .
-    DATA:
-      gt_schedule_recusa_lines  TYPE STANDARD TABLE OF bapischdl .
-    DATA:
-      gt_schedule_recusa_linesx TYPE STANDARD TABLE OF bapischdlx .
-    DATA gs_schedule_lines TYPE bapischdl .
-    DATA gs_schedule_linesx TYPE bapischdlx .
-    DATA:
-      gt_conditions_in   TYPE STANDARD TABLE OF bapicond .
-    DATA:
-      gt_conditions_inx  TYPE STANDARD TABLE OF bapicondx .
-    DATA gs_conditions_in TYPE bapicond .
-    DATA gs_conditions_inx TYPE bapicondx .
+  data:
+    gt_cond TYPE TABLE OF ty_cond .
+  data:
+    gt_costcenter TYPE TABLE OF zssd_sub_prod_costcenter .
+  data GV_PARAMSUB type ZE_PARAM_LOW .
+  data:
+    gt_pricing_old TYPE TABLE OF ty_prcd_elements .
+  data:
+    gt_condition TYPE TABLE OF ty_knumh .
+  data:
+    gt_ordem_cond TYPE TABLE OF ty_ordem_cond .
+  data:
+    gt_salesdocumentitem TYPE TABLE OF ty_salesdocumentitem .
+  data:
+    gt_return_subs TYPE STANDARD TABLE OF bapiret2 .
+  data:
+    gt_order_item_in TYPE STANDARD TABLE OF bapisditm .
+  data:
+    gt_order_item_inclui_in TYPE STANDARD TABLE OF bapisditm .
+  data:
+    gt_order_item_desc_in TYPE STANDARD TABLE OF bapisditm .
+  data:
+    gt_order_item_desfaz_in TYPE STANDARD TABLE OF bapisditm .
+  data:
+    gt_order_item_inx TYPE STANDARD TABLE OF bapisditmx .
+  data:
+    gt_order_item_inclui_inx TYPE STANDARD TABLE OF bapisditmx .
+  data:
+    gt_order_item_desc_inx TYPE STANDARD TABLE OF bapisditmx .
+  data:
+    gt_order_item_desfaz_inx TYPE STANDARD TABLE OF bapisditmx .
+  data:
+    gt_schedule_lines  TYPE STANDARD TABLE OF bapischdl .
+  data:
+    gt_schedule_linesx TYPE STANDARD TABLE OF bapischdlx .
+  data:
+    gt_schedule_recusa_lines  TYPE STANDARD TABLE OF bapischdl .
+  data:
+    gt_schedule_recusa_linesx TYPE STANDARD TABLE OF bapischdlx .
+  data GS_SCHEDULE_LINES type BAPISCHDL .
+  data GS_SCHEDULE_LINESX type BAPISCHDLX .
+  data:
+    gt_conditions_in   TYPE STANDARD TABLE OF bapicond .
+  data:
+    gt_conditions_inx  TYPE STANDARD TABLE OF bapicondx .
+  data GS_CONDITIONS_IN type BAPICOND .
+  data GS_CONDITIONS_INX type BAPICONDX .
+  data GV_TESTE type ABAP_BOOL .
 
-    METHODS substituir_produto
-      IMPORTING
-        !iv_order           TYPE vbeln_va
-        !it_sub_prod        TYPE ty_sub_prod
-      RETURNING
-        VALUE(rt_mensagens) TYPE bapiret2_tab .
-    METHODS selection_data
-      IMPORTING
-        !it_sub_prod TYPE ty_sub_prod .
-    METHODS get_parametrosub .
-    METHODS task_desconto
-      IMPORTING
-        !p_task TYPE clike .
-    METHODS task_substituir
-      IMPORTING
-        !p_task TYPE clike .
-    METHODS task_recusa
-      IMPORTING
-        !p_task TYPE clike .
-    METHODS task_desfaz_recusa
-      IMPORTING
-        !p_task TYPE clike .
+  methods SUBSTITUIR_PRODUTO
+    importing
+      !IV_ORDER type VBELN_VA
+      !IT_SUB_PROD type TY_SUB_PROD
+    returning
+      value(RT_MENSAGENS) type BAPIRET2_TAB .
+  methods SELECTION_DATA
+    importing
+      !IT_SUB_PROD type TY_SUB_PROD .
+  methods GET_PARAMETROSUB .
+  methods TASK_DESCONTO
+    importing
+      !P_TASK type CLIKE .
+  methods TASK_SUBSTITUIR
+    importing
+      !P_TASK type CLIKE .
+  methods TASK_RECUSA
+    importing
+      !P_TASK type CLIKE .
+  methods TASK_DESFAZ_RECUSA
+    importing
+      !P_TASK type CLIKE .
   PROTECTED SECTION.
 PRIVATE SECTION.
 
@@ -354,7 +355,8 @@ CLASS ZCLSD_VERIF_UTIL_SUB IMPLEMENTATION.
     IF gt_return_subs IS NOT INITIAL.
       APPEND LINES OF  gt_return_subs TO rt_mensagens.
 
-      IF  gt_order_item_in IS INITIAL.
+*      IF  gt_order_item_in IS INITIAL.
+      IF  gt_order_item_inclui_in IS INITIAL.
         EXIT.
       ENDIF.
 
@@ -626,7 +628,7 @@ WHERE modulo = 'SD'
 
     DATA: lr_kschl TYPE RANGE OF kschl.
 
-    DATA(lo_param) = NEW zclca_tabela_parametros( ).
+    DATA(lo_param) = zclca_tabela_parametros=>get_instance( ). " CHANGE - LSCHEPP - 24.07.2023
 
     TRY.
 
@@ -829,14 +831,15 @@ WHERE modulo = 'SD'
     DATA lv_order TYPE  vbeln_va.
     DATA ls_orderx TYPE  bapisdh1x.
 
-    IF  NOT line_exists( gt_return_subs[ type = 'E' ] ).
+***    IF  NOT line_exists( gt_return_subs[ type = 'E' ] ).
 
-      CLEAR gt_return_subs.
-      lv_order = iv_order.
-      ls_orderx  = gs_order_header_inx.
+    CLEAR gt_return_subs.
+    lv_order = iv_order.
+    ls_orderx  = gs_order_header_inx.
 
-      FREE: gt_return_subs.
+    FREE: gt_return_subs.
 
+    IF gv_teste IS INITIAL.
 *      CALL FUNCTION 'ZFMSD_SUBSTITUIR_PRODUTO'
       CALL FUNCTION 'ZFMSD_SUBSTITUIR_DESCONTO'
         STARTING NEW TASK 'SUBSTITUIR' CALLING task_substituir ON END OF TASK
@@ -854,6 +857,23 @@ WHERE modulo = 'SD'
           tt_costcenter      = gt_costcenter.
 
       WAIT FOR ASYNCHRONOUS TASKS UNTIL gt_return_subs IS NOT INITIAL.
+    ELSE.
+      CALL FUNCTION 'ZFMSD_SUBSTITUIR_DESCONTO'
+        EXPORTING
+          iv_order           = lv_order
+          is_orderx          = ls_orderx
+        TABLES
+          tt_return          = lt_return
+          tt_item            = gt_order_item_inclui_in
+          tt_itemx           = gt_order_item_inclui_inx
+          tt_schedule_lines  = gt_schedule_lines
+          tt_schedule_linesx = gt_schedule_linesx
+          tt_conditions_in   = gt_conditions_in
+          tt_conditions_inx  = gt_conditions_inx
+          tt_costcenter      = gt_costcenter.
+
+          APPEND LINES OF lt_return to gt_return_subs.
+    ENDIF.
 
 *
 *      IF  NOT line_exists( gt_return_subs[ type = 'E' ] ).
@@ -882,7 +902,8 @@ WHERE modulo = 'SD'
 *        call_bapi_desfaz_recusa_item( iv_order = iv_order ).
 *
 *      ENDIF.
-    ENDIF.
+
+***    ENDIF.
 
   ENDMETHOD.
 

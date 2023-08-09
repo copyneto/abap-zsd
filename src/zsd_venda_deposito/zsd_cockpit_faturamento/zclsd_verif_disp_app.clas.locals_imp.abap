@@ -36,7 +36,7 @@ CLASS lcl_verifdisp IMPLEMENTATION.
           FOR ALL ENTRIES IN @keys
           WHERE material = @keys-material
             AND plant    = @keys-plant
-            AND Deposito = @keys-Deposito
+            AND deposito = @keys-deposito
 *      AND SalesOrder = @keys-SalesOrder
           INTO CORRESPONDING FIELDS OF TABLE @result.
         CATCH cx_root.
@@ -57,20 +57,20 @@ CLASS lcl_verifdisp IMPLEMENTATION.
     IF sy-subrc IS  INITIAL.
 
       READ ENTITIES OF zi_sd_verif_disp_app IN LOCAL MODE
-      ENTITY VerifDisp
+      ENTITY verifdisp
 *        FIELDS ( Material Plant SalesOrder ) WITH CORRESPONDING #( keys )
-        FIELDS ( Material Plant Deposito ) WITH CORRESPONDING #( keys )
-      RESULT DATA(lt_VerifDisp)
+        FIELDS ( material plant deposito ) WITH CORRESPONDING #( keys )
+      RESULT DATA(lt_verifdisp)
       FAILED failed.
 
       DATA(lo_actions) = NEW zclsd_verif_disp_actions( ).
-      reported-verifdisp = VALUE #( FOR ls_VerifDisp IN lt_VerifDisp
+      reported-verifdisp = VALUE #( FOR ls_verifdisp IN lt_verifdisp
         FOR ls_mensagem IN lo_actions->acionar_logistica(  EXPORTING:
-                                                                      iv_material  =  ls_VerifDisp-Material
-                                                                      iv_centro    =  ls_VerifDisp-Plant
-                                                                      iv_deposito  =  ls_VerifDisp-Deposito
-                                                                      iv_status    =  ls_VerifDisp-Status  )
-        ( %tky = ls_VerifDisp-%tky
+                                                                      iv_material  =  ls_verifdisp-material
+                                                                      iv_centro    =  ls_verifdisp-plant
+                                                                      iv_deposito  =  ls_verifdisp-deposito
+                                                                      iv_status    =  ls_verifdisp-status  )
+        ( %tky = ls_verifdisp-%tky
           %msg        =
             new_message(
               id       = ls_mensagem-id
@@ -103,10 +103,10 @@ CLASS lcl_verifdisp IMPLEMENTATION.
     IF sy-subrc IS INITIAL.
 
       READ ENTITIES OF zi_sd_verif_disp_app IN LOCAL MODE
-      ENTITY VerifDisp
+      ENTITY verifdisp
 *        FIELDS ( Material Plant SalesOrder ) WITH CORRESPONDING #( keys )
-        FIELDS ( Material Plant Deposito ) WITH CORRESPONDING #( keys )
-      RESULT DATA(lt_VerifDisp)
+        FIELDS ( material plant deposito ) WITH CORRESPONDING #( keys )
+      RESULT DATA(lt_verifdisp)
       FAILED failed.
 
       DATA(lo_actions) = NEW zclsd_verif_disp_actions( ).
@@ -117,8 +117,8 @@ CLASS lcl_verifdisp IMPLEMENTATION.
 *                                                                      iv_acao =  ls_VerifDisp-acaoNecessaria
 *                                                                      iv_data_solic =  ls_VerifDisp-DataSolic )
       reported-verifdisp = VALUE #( FOR ls_key IN keys
-        FOR ls_mensagem IN lo_actions->atribuir_motivo(  EXPORTING: iv_material = ls_key-Material
-                                                                    iv_centro =  ls_key-Plant
+        FOR ls_mensagem IN lo_actions->atribuir_motivo(  EXPORTING: iv_material = ls_key-material
+                                                                    iv_centro =  ls_key-plant
                                                                     iv_motivo =  ls_key-%param-motivo
                                                                     iv_acao =  ls_key-%param-acao )
         ( %tky = ls_key-%tky
@@ -147,24 +147,55 @@ CLASS lcl_verifdisp IMPLEMENTATION.
 
   METHOD get_features.
 
-    READ ENTITIES OF zi_sd_verif_disp_app IN LOCAL MODE
-        ENTITY verifdisp
-*        FIELDS ( Material Plant SalesOrder )
-        FIELDS ( Material Plant Deposito  )
-        WITH CORRESPONDING #( keys )
-        RESULT DATA(lt_verifdisp)
-        FAILED failed.
+
+    SELECT
+      _mard~matnr,
+      _mard~werks,
+      _mard~lgort,
+      _soliclog~acaolog,
+      _soliclog~data_solic
+      FROM mard AS _mard
+      INNER JOIN @keys AS _keys
+      ON  _keys~material = _mard~matnr
+      AND _keys~plant    = _mard~werks
+      AND _keys~deposito = _mard~lgort
+      LEFT OUTER JOIN zi_sd_tf_verif_disp AS _soliclog
+      ON  _soliclog~material = _mard~matnr
+      AND _soliclog~centro   = _mard~werks
+    WHERE
+      _mard~lgort IS NOT NULL
+      GROUP BY
+      _mard~matnr,
+      _mard~werks,
+      _mard~lgort,
+      _soliclog~acaolog,
+      _soliclog~data_solic
+    INTO TABLE @DATA(lt_verifdisp).
+
+*    READ ENTITIES OF zi_sd_verif_disp_app IN LOCAL MODE
+*        ENTITY verifdisp
+**        FIELDS ( Material Plant SalesOrder )
+*        FIELDS ( Material Plant Deposito  )
+*        WITH CORRESPONDING #( keys )
+*        RESULT DATA(lt_verifdisp)
+*        FAILED failed.
 
 
     result = VALUE #( FOR ls_verifdisp IN lt_verifdisp
-      ( %tky = ls_verifdisp-%tky
+*      ( %tky = ls_verifdisp-%tky
+      ( %tky = VALUE #(
+          material = ls_verifdisp-matnr
+          plant = ls_verifdisp-werks
+          deposito = ls_verifdisp-lgort
+      )
 *        %features-%action-AcionaLogistica = COND #(
 *        WHEN ls_verifdisp-Status = 'Indisponível'
 *        THEN if_abap_behv=>fc-o-enabled
 *        ELSE if_abap_behv=>fc-o-disabled )
 *
-      %features-%action-AtribuiMoticoAcao = COND #(
-        WHEN ls_verifdisp-acaoLogistica = 'X'
+      %features-%action-atribuimoticoacao = COND #(
+*        WHEN ls_verifdisp-acaologistica = 'X'
+        WHEN ls_verifdisp-acaolog = 'X' AND ls_verifdisp-data_solic = sy-datum
         THEN if_abap_behv=>fc-o-enabled
         ELSE if_abap_behv=>fc-o-disabled )
 

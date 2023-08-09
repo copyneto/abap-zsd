@@ -8,4 +8,5 @@ define behavior for ZC_SD_SUBSTITUIR_CUSTOM_APP alias SubstPrd
 {
 
 action SubstituirProduto;
+//action SubstituirProdutoTeste;
 }

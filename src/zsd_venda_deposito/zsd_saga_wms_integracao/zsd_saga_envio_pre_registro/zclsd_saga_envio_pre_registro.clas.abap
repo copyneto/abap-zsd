@@ -161,14 +161,16 @@ CLASS ZCLSD_SAGA_ENVIO_PRE_REGISTRO IMPLEMENTATION.
                INTO @DATA(lv_ekes_xblnr)
               WHERE vbeln EQ @iv_remessa.
 
-      IF sy-subrc EQ 0.
+      IF lv_ekes_xblnr IS NOT INITIAL.
+
+        DATA(lv_refnum) = lv_ekes_xblnr(10).
 
         SELECT SINGLE xblnr
        FROM mkpf
        INTO @DATA(lv_mkpf_xblnr)
-      WHERE le_vbeln EQ @lv_ekes_xblnr.
+      WHERE le_vbeln EQ @lv_refnum.
 
-        IF sy-subrc EQ 0.
+        IF lv_mkpf_xblnr IS NOT INITIAL.
 
           SELECT SINGLE cnpj_bupla
                    FROM j_1bnfdoc
@@ -176,7 +178,7 @@ CLASS ZCLSD_SAGA_ENVIO_PRE_REGISTRO IMPLEMENTATION.
                   WHERE nftype EQ 'YC'
                     AND nfenum EQ @lv_mkpf_xblnr.
 
-          IF sy-subrc EQ 0.
+          IF lv_cgc IS NOT INITIAL.
 
             SELECT SINGLE *
                      FROM i_supplier
@@ -578,7 +580,7 @@ CLASS ZCLSD_SAGA_ENVIO_PRE_REGISTRO IMPLEMENTATION.
     lv_chave3_4 = is_likp-lfart.
 
 ** Seleçao dos parametros
-    DATA(lo_parametros) = NEW zclca_tabela_parametros( ).
+    DATA(lo_parametros) = zclca_tabela_parametros=>get_instance( ). " CHANGE - LSCHEPP - 24.07.2023
 
 *Buscar
     TRY.

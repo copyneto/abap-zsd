@@ -5,7 +5,7 @@ FUNCTION ZFMSD_READ_EMAIL.
 *"     VALUE(ET_RETURN) TYPE  EFG_TAB_RANGES
 *"----------------------------------------------------------------------
 
-    DATA(lo_tabela_parametros) = NEW  zclca_tabela_parametros( ).
+    DATA(lo_tabela_parametros) = zclca_tabela_parametros=>get_instance( ). " CHANGE - LSCHEPP - 24.07.2023
 
     TRY.
         lo_tabela_parametros->m_get_range(

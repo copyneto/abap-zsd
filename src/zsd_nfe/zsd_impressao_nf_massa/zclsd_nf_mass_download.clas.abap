@@ -651,7 +651,7 @@ CLASS zclsd_nf_mass_download IMPLEMENTATION.
 *
 *            ev_file = lv_pdf_file.
 
-            CALL FUNCTION 'ZFMSD_GERAR_BOLETO'
+            CALL FUNCTION 'ZFMSD_GERAR_BOLETO' DESTINATION 'NONE'
               STARTING NEW TASK 'GERA_BOLETO' CALLING task_finish ON END OF TASK
               EXPORTING
                 is_process = ls_process

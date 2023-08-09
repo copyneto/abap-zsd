@@ -189,15 +189,17 @@ CLASS ZCLSD_CRIACAO_CONTRATOS IMPLEMENTATION.
 *                          desc_processado = REDUCE string( INIT lv_concat TYPE string
 *                                                            FOR ls_ret IN lt_return
 *                                                           NEXT lv_concat = lv_concat && ls_ret-message && ' - ' ) ) TO ls_output-mt_status_contrato-form_fields-lista.
-          APPEND VALUE #( processado      = TEXT-003
-                          desc_processado = VALUE #( lt_return[ 1 ]-message OPTIONAL ) ) TO ls_output-mt_status_contrato-form_fields-lista.
+          APPEND VALUE #( processado      = TEXT-003 && ls_salesdocument-salesdocument
+                          desc_processado = TEXT-004 && lv_salesdocument_u ) TO ls_output-mt_status_contrato-form_fields-lista.
 
-        ELSE.
+
+         ELSE.
 
           me->bapi_commit(  ).
 
+
           APPEND VALUE #( processado      = TEXT-003 && ls_salesdocument-salesdocument
-                          desc_processado = TEXT-002 && lv_salesdocument_u ) TO ls_output-mt_status_contrato-form_fields-lista.
+                          desc_processado = TEXT-004 && lv_salesdocument_u ) TO ls_output-mt_status_contrato-form_fields-lista.
 
         ENDIF.
 
@@ -463,7 +465,9 @@ CLASS ZCLSD_CRIACAO_CONTRATOS IMPLEMENTATION.
 
 * LSCHEPP - 8000006993 -  Erro Criação OVs Y074 e Y075 - GAP 158 - 08.05.2023 Início
           TRY.
-              NEW zclca_tabela_parametros( )->m_get_range(
+              DATA(lo_param) = zclca_tabela_parametros=>get_instance( ).    " INSERT - JWSILVA - 22.07.2023
+
+              lo_param->m_get_range(                                        " CHANGE - JWSILVA - 22.07.2023
                 EXPORTING
                   iv_modulo = 'SD'
                   iv_chave1 = 'FLUIG'

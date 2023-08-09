@@ -41,7 +41,7 @@
  DATA(lv_tabix) = svbep-tabix.
 
 ** Seleçao dos parametros
- DATA(lo_parametros) = NEW zclca_tabela_parametros( ).
+ DATA(lo_parametros) = zclca_tabela_parametros=>get_instance( ). " CHANGE - LSCHEPP - 24.07.2023
 
 *Buscar Tipo de Ordem Saída
  TRY.

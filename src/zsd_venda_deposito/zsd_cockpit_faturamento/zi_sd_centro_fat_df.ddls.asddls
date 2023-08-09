@@ -3,7 +3,7 @@
 @EndUserText.label: 'De-Para’s dos centros faturamento/Centros depósito fechado'
 @Metadata.ignorePropagatedAnnotations: true
 @ObjectModel.usageType:{
-    serviceQuality: #X,
+    serviceQuality: #C,
     sizeCategory: #S,
     dataClass: #MIXED
 }

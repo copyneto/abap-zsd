@@ -80,7 +80,10 @@ CLASS zclsd_retorna_devolucao_replic DEFINITION
 
 ENDCLASS.
 
-CLASS zclsd_retorna_devolucao_replic IMPLEMENTATION.
+
+
+CLASS ZCLSD_RETORNA_DEVOLUCAO_REPLIC IMPLEMENTATION.
+
 
   METHOD executar.
 
@@ -92,9 +95,10 @@ CLASS zclsd_retorna_devolucao_replic IMPLEMENTATION.
 
   ENDMETHOD.
 
+
   METHOD get_param_tp_mov_saida.
 
-    DATA(lo_tabela_parametros) = NEW  zclca_tabela_parametros( ).
+    DATA(lo_tabela_parametros) = zclca_tabela_parametros=>get_instance( ). " CHANGE - LSCHEPP - 24.07.2023
 
     TRY.
         lo_tabela_parametros->m_get_range(
@@ -113,9 +117,10 @@ CLASS zclsd_retorna_devolucao_replic IMPLEMENTATION.
 
   ENDMETHOD.
 
+
   METHOD get_param_tp_mov_trans.
 
-    DATA(lo_tabela_parametros) = NEW  zclca_tabela_parametros( ).
+    DATA(lo_tabela_parametros) = zclca_tabela_parametros=>get_instance( ). " CHANGE - LSCHEPP - 24.07.2023
 
     TRY.
         lo_tabela_parametros->m_get_range(
@@ -133,6 +138,7 @@ CLASS zclsd_retorna_devolucao_replic IMPLEMENTATION.
     ENDTRY.
 
   ENDMETHOD.
+
 
   METHOD saida_transferencia.
 
@@ -154,6 +160,7 @@ CLASS zclsd_retorna_devolucao_replic IMPLEMENTATION.
 
   ENDMETHOD.
 
+
   METHOD em_transferencia.
 
     CHECK gs_mkpf IS NOT INITIAL.
@@ -166,6 +173,7 @@ CLASS zclsd_retorna_devolucao_replic IMPLEMENTATION.
 
   ENDMETHOD.
 
+
   METHOD devolucao.
 
     SELECT SINGLE br_notafiscal
@@ -177,6 +185,7 @@ CLASS zclsd_retorna_devolucao_replic IMPLEMENTATION.
 
   ENDMETHOD.
 
+
   METHOD converte_documento.
 
     CALL FUNCTION 'CONVERSION_EXIT_ALPHA_OUTPUT'
@@ -186,6 +195,4 @@ CLASS zclsd_retorna_devolucao_replic IMPLEMENTATION.
         output = gs_xblnr.
 
   ENDMETHOD.
-
-
 ENDCLASS.

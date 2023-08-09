@@ -201,8 +201,8 @@ CLASS ZCLSD_ORDEM_VENDA IMPLEMENTATION.
     DATA: lv_doc    TYPE bapivbeln-vbeln,
           lt_return TYPE TABLE OF bapiret2.
 
-    DATA: ls_logic_switch     TYPE bapisdls,
-          ls_order_header_inx TYPE bapisdh1x.
+***    DATA: ls_logic_switch     TYPE bapisdls,
+***          ls_order_header_inx TYPE bapisdh1x.
 
 
     me->fill_header( IMPORTING es_header = DATA(ls_header) ).
@@ -222,7 +222,7 @@ CLASS ZCLSD_ORDEM_VENDA IMPLEMENTATION.
     CALL FUNCTION 'BAPI_SALESORDER_CREATEFROMDAT2' ##COMPATIBLE
       EXPORTING
         order_header_in      = ls_header
-        logic_switch         = ls_logic_switch
+***        logic_switch         = ls_logic_switch
       IMPORTING
         salesdocument        = lv_doc
       TABLES
@@ -260,24 +260,24 @@ CLASS ZCLSD_ORDEM_VENDA IMPLEMENTATION.
 
 ********************************************
 
-    IF NOT lv_doc IS INITIAL.
-
-      ls_order_header_inx-updateflag  = 'U'.
-      ls_logic_switch-pricing         = 'C'.
-
-      CALL FUNCTION 'BAPI_SALESORDER_CHANGE'
-        EXPORTING
-          salesdocument    = lv_doc
-          order_header_inx = ls_order_header_inx
-          logic_switch     = ls_logic_switch
-        TABLES
-          return           = lt_return.
-
-      IF line_exists( lt_return[ type = 'S' ] ).
-        me->bapi_commit(  ).
-      ENDIF.
-
-    ENDIF.
+***    IF NOT lv_doc IS INITIAL.
+***
+***      ls_order_header_inx-updateflag  = 'U'.
+***      ls_logic_switch-pricing         = 'C'.
+***
+***      CALL FUNCTION 'BAPI_SALESORDER_CHANGE'
+***        EXPORTING
+***          salesdocument    = lv_doc
+***          order_header_inx = ls_order_header_inx
+***          logic_switch     = ls_logic_switch
+***        TABLES
+***          return           = lt_return.
+***
+***      IF line_exists( lt_return[ type = 'S' ] ).
+***        me->bapi_commit(  ).
+***      ENDIF.
+***
+***    ENDIF.
 
 ********************************************
 
@@ -397,7 +397,7 @@ CLASS ZCLSD_ORDEM_VENDA IMPLEMENTATION.
                END OF lc_param.
 
     TRY.
-        NEW zclca_tabela_parametros(  )->m_get_range(
+        zclca_tabela_parametros=>get_instance( )->m_get_range( " CHANGE - LSCHEPP - 24.07.2023
             EXPORTING
                 iv_modulo = 'SD'
                 iv_chave1 = 'SIRIUS'
@@ -443,8 +443,35 @@ CLASS ZCLSD_ORDEM_VENDA IMPLEMENTATION.
       IF lv_regio IN lt_regio AND
          <fs_conditions>-cond_type IN lt_cond_type.
         DATA(lv_cond_type) = 'ZBOS'.
+        READ TABLE gs_sirius-mt_criacao_ordem_venda-order_items_in ASSIGNING FIELD-SYMBOL(<fs_item>) WITH KEY itm_number = <fs_conditions>-itm_number.
+        IF sy-subrc EQ 0.
+          DATA(lv_cond_unit) = CONV kpein( <fs_item>-target_qty ).
+          IF NOT lv_cond_unit IS INITIAL.
+            DATA(lv_cond_unitx) = abap_true.
+          ENDIF.
+          DATA(lv_target_qu) = <fs_item>-target_qu.
+          IF NOT lv_target_qu IS INITIAL.
+            DATA(lv_target_qux) = abap_true.
+          ENDIF.
+        ENDIF.
       ELSE.
-        lv_cond_type = <fs_conditions>-cond_type.
+        IF <fs_conditions>-cond_type EQ 'ZBON'.
+          lv_cond_type = 'ZBON'.
+          READ TABLE gs_sirius-mt_criacao_ordem_venda-order_items_in ASSIGNING <fs_item> WITH KEY itm_number = <fs_conditions>-itm_number.
+          IF sy-subrc EQ 0.
+            lv_cond_unit = CONV kpein( <fs_item>-target_qty ).
+            IF NOT lv_cond_unit IS INITIAL.
+              lv_cond_unitx = abap_true.
+            ENDIF.
+            lv_target_qu = <fs_item>-target_qu.
+            IF NOT lv_target_qu IS INITIAL.
+              lv_target_qux = abap_true.
+            ENDIF.
+          ENDIF.
+        ELSE.
+          lv_cond_type = <fs_conditions>-cond_type.
+        ENDIF.
+
       ENDIF.
 
       et_conditions = VALUE #( BASE et_conditions (
@@ -453,6 +480,8 @@ CLASS ZCLSD_ORDEM_VENDA IMPLEMENTATION.
         cond_type  = lv_cond_type
         cond_value = <fs_conditions>-cond_value
         currency   = <fs_conditions>-currency
+        cond_unit  = lv_target_qu
+        cond_p_unt = lv_cond_unit
        ) ).
 
       et_conditionsx = VALUE #( BASE et_conditionsx (
@@ -461,7 +490,14 @@ CLASS ZCLSD_ORDEM_VENDA IMPLEMENTATION.
         cond_type  = lv_cond_type
         cond_value = abap_true
         currency   = abap_true
+        cond_unit  = lv_target_qux
+        cond_p_unt = lv_cond_unitx
        ) ).
+
+      CLEAR: lv_cond_unit,
+             lv_target_qu,
+             lv_cond_unitx,
+             lv_target_qux.
 
     ENDLOOP.
 

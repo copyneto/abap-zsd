@@ -11,10 +11,14 @@ ENDCLASS.
 
 
 
-CLASS zclsd_cl_si_processar_fatura_i IMPLEMENTATION.
+CLASS ZCLSD_CL_SI_PROCESSAR_FATURA_I IMPLEMENTATION.
 
 
   METHOD zclsd_ii_si_processar_fatura_i~si_processar_fatura_in.
+
+* BEGIN OF INSERT - 27.07.2023 - RPORTES - 1218 Erro - Erro no agrupamento manual E40
+    CONSTANTS: lc_tp_user TYPE xuustyp VALUE 'S'.
+* END OF INSERT - 27.07.2023 - RPORTES - 1218 Erro - Erro no agrupamento manual E40
 
     DATA(ls_input) = input.
 
@@ -82,6 +86,13 @@ CLASS zclsd_cl_si_processar_fatura_i IMPLEMENTATION.
       CLEAR lt_gkot001.
     ENDIF.
 
+* BEGIN OF INSERT - 27.07.2023 - RPORTES - 1218 Erro - Erro no agrupamento manual E40
+    SELECT SINGLE ustyp
+      FROM usr02
+      INTO @DATA(lv_tp_user)
+     WHERE bname EQ @sy-uname.
+* END OF INSERT - 27.07.2023 - RPORTES - 1218 Erro - Erro no agrupamento manual E40
+
     " Atualiza status
     LOOP AT lt_gkot001 ASSIGNING FIELD-SYMBOL(<fs_gkot001>).
       TRY.
@@ -90,6 +101,9 @@ CLASS zclsd_cl_si_processar_fatura_i IMPLEMENTATION.
           lr_gko_process->set_status( iv_status   = COND #( WHEN NOT line_exists( lt_return[ type = 'E' ] )
                                                             THEN zcltm_gko_process=>gc_codstatus-agrupamento_efetuado
                                                             WHEN sy-batch EQ abap_true
+* BEGIN OF INSERT - 27.07.2023 - RPORTES - 1218 Erro - Erro no agrupamento manual E40
+                                                              OR lv_tp_user = lc_tp_user
+* END OF INSERT - 27.07.2023 - RPORTES - 1218 Erro - Erro no agrupamento manual E40
                                                             THEN zcltm_gko_process=>gc_codstatus-erro_agrupamento
                                                             ELSE zcltm_gko_process=>gc_codstatus-erro_agrupamento_manual )
                                       it_bapi_ret = lt_return ). "#EC CI_STDSEQ
@@ -108,5 +122,4 @@ CLASS zclsd_cl_si_processar_fatura_i IMPLEMENTATION.
     ENDIF.
 
   ENDMETHOD.
-
 ENDCLASS.

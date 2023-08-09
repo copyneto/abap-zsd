@@ -467,7 +467,7 @@ CLASS ZCLSD_IONZ_CRIAR_OV IMPLEMENTATION.
 
   METHOD get_param.
 
-    DATA(lo_tabela_parametros) = NEW  zclca_tabela_parametros( ).
+    DATA(lo_tabela_parametros) = zclca_tabela_parametros=>get_instance( ). " CHANGE - LSCHEPP - 24.07.2023
 
     TRY.
         lo_tabela_parametros->m_get_range(

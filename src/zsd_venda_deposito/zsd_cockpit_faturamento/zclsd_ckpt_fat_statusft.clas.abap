@@ -345,7 +345,7 @@ CLASS ZCLSD_CKPT_FAT_STATUSFT IMPLEMENTATION.
 
   METHOD get_atpab.
 
-    DATA(lo_tabela_parametros) = NEW  zclca_tabela_parametros( ).
+    DATA(lo_tabela_parametros) = zclca_tabela_parametros=>get_instance( ).    " CHANGE - JWSILVA - 22.07.2023
 
     CLEAR gs_atpab.
 

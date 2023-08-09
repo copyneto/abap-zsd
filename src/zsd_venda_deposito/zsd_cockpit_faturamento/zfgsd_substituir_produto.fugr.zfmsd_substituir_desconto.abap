@@ -22,8 +22,33 @@ FUNCTION zfmsd_substituir_desconto.
   "Exporta a variável para o enhancement ZEIMM_PRICING_COMPLETE - início da função PRICING_COMPLETE
   EXPORT gv_sub_prod FROM gv_sub_prod TO MEMORY ID 'ZSD_SUB_PROD'.
 
-" Tabela será recuperada no include ZSDI_SUBST_PROD_COSTCENTER para passar o cost center ao novo item
+  " Tabela será recuperada no include ZSDI_SUBST_PROD_COSTCENTER para passar o cost center ao novo item
   gt_costcenter[] = tt_costcenter[].
+
+
+**********************************************************************
+* desconto - 07.08.2023
+  SORT tt_item BY itm_number.
+  SORT tt_schedule_lines BY itm_number.
+  SORT tt_conditions_inx BY itm_number cond_type.
+  LOOP AT tt_conditions_in ASSIGNING FIELD-SYMBOL(<fs_conditions_in>)
+    WHERE cond_type = 'ZBON' OR cond_type = 'ZBOS'.
+    READ TABLE tt_schedule_lines ASSIGNING FIELD-SYMBOL(<fs_schedule_lines>) WITH KEY itm_number = <fs_conditions_in>-itm_number BINARY SEARCH.
+    IF sy-subrc = 0.
+      <fs_conditions_in>-cond_p_unt = <fs_schedule_lines>-req_qty.
+      READ TABLE tt_item ASSIGNING FIELD-SYMBOL(<fs_item>) WITH KEY itm_number = <fs_conditions_in>-itm_number BINARY SEARCH.
+      IF sy-subrc = 0.
+        <fs_conditions_in>-cond_unit = <fs_item>-sales_unit.
+      ENDIF.
+      READ TABLE tt_conditions_inx ASSIGNING FIELD-SYMBOL(<fs_conditions_inx>)
+      WITH KEY itm_number = <fs_conditions_in>-itm_number cond_type = <fs_conditions_in>-cond_type BINARY SEARCH.
+      IF sy-subrc = 0.
+        <fs_conditions_inx>-cond_p_unt = abap_true.
+        <fs_conditions_inx>-cond_unit = abap_true.
+      ENDIF.
+    ENDIF.
+  ENDLOOP.
+**********************************************************************
 
   CALL FUNCTION 'BAPI_SALESORDER_CHANGE'
     EXPORTING

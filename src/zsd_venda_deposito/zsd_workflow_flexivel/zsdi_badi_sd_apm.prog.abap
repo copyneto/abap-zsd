@@ -20,7 +20,7 @@
                lc_reject TYPE ztca_param_par-chave1 VALUE 'REJECT'.
 
 
-    DATA(lo_param) = NEW zclca_tabela_parametros( ).
+    DATA(lo_param) = zclca_tabela_parametros=>get_instance( ). " CHANGE - LSCHEPP - 24.07.2023
 
 
     TRY.

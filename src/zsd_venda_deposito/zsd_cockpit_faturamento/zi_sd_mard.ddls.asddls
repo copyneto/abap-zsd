@@ -3,8 +3,8 @@
 @EndUserText.label: 'Dados mard'
 @Metadata.ignorePropagatedAnnotations: true
 @ObjectModel.usageType:{
-  serviceQuality: #X,
-  sizeCategory: #XL,
+  serviceQuality: #C,
+  sizeCategory: #L,
   dataClass: #MIXED
 }
 define view entity zi_sd_mard

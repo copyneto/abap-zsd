@@ -78,24 +78,27 @@ CLASS ZCLSD_NOTAS_AUTORIZADAS IMPLEMENTATION.
 *          INTO TABLE lt_ionz
 *          FROM ztsd_ionz
 *          WHERE referencia IN lr_ref.
-        SELECT *
-          INTO TABLE @lt_ionz
-          FROM ztsd_sint_proces
-          WHERE doc_fat IN @lr_ref .
+        IF lv_doc_fat IS NOT INITIAL.
 
-        IF sy-subrc = 0.
-          LOOP AT lt_ionz ASSIGNING FIELD-SYMBOL(<fs_ionz>).
+          SELECT *
+            INTO TABLE @lt_ionz
+            FROM ztsd_sint_proces
+            WHERE doc_fat IN @lr_ref .
 
-            <fs_ionz>-nr_nfe     = is_header-nfenum.
-            gs_dados_nota-id     = <fs_ionz>-id.
-            gs_dados_nota-nr_nfe = <fs_ionz>-nr_nfe.
+          IF sy-subrc = 0.
+            LOOP AT lt_ionz ASSIGNING FIELD-SYMBOL(<fs_ionz>).
 
-            MODIFY ztsd_sint_proces FROM <fs_ionz>.
+              <fs_ionz>-nr_nfe     = is_header-nfenum.
+              gs_dados_nota-id     = <fs_ionz>-id.
+              gs_dados_nota-nr_nfe = <fs_ionz>-nr_nfe.
 
-            CHECK sy-subrc = 0.
-            interface_ionz( ).
+              MODIFY ztsd_sint_proces FROM <fs_ionz>.
 
-          ENDLOOP.
+              CHECK sy-subrc = 0.
+              interface_ionz( ).
+
+            ENDLOOP.
+          ENDIF.
         ENDIF.
       ENDIF.
 

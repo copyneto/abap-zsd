@@ -32,15 +32,15 @@ IF t180-trtyp = 'H'.
         sales_reason = vbak-augru.
       ENDIF.
 
-      NEW zclca_tabela_parametros( )->m_get_single(
-                                        EXPORTING
-                                          iv_modulo = lc_module_sd
-                                          iv_chave1 = lc_parameter_wevo
-                                          iv_chave2 = lc_parameter_augru
-                                          iv_chave3 = lc_parameter_devol
-                                        IMPORTING
-                                          ev_param  = parameter_value
-                                      ).
+      zclca_tabela_parametros=>get_instance( )->m_get_single(    " CHANGE - LSCHEPP - 24.07.2023
+                                                    EXPORTING
+                                                      iv_modulo = lc_module_sd
+                                                      iv_chave1 = lc_parameter_wevo
+                                                      iv_chave2 = lc_parameter_augru
+                                                      iv_chave3 = lc_parameter_devol
+                                                    IMPORTING
+                                                      ev_param  = parameter_value
+                                                  ).
 
       IF sales_reason = parameter_value.
         CLEAR xlikp[ 1 ]-lifsk.

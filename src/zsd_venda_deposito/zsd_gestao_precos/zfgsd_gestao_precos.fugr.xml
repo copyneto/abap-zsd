@@ -145,6 +145,11 @@
        <OPTIONAL>X</OPTIONAL>
        <TYP>CHAR1</TYP>
       </RSIMP>
+      <RSIMP>
+       <PARAMETER>IV_ALTERA_EXCLUSAO</PARAMETER>
+       <OPTIONAL>X</OPTIONAL>
+       <TYP>CHAR1</TYP>
+      </RSIMP>
      </IMPORT>
      <EXPORT>
       <RSEXP>
@@ -193,6 +198,10 @@
       </RSFDO>
       <RSFDO>
        <PARAMETER>IV_ALTERA_PERIODO</PARAMETER>
+       <KIND>P</KIND>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>IV_ALTERA_EXCLUSAO</PARAMETER>
        <KIND>P</KIND>
       </RSFDO>
       <RSFDO>

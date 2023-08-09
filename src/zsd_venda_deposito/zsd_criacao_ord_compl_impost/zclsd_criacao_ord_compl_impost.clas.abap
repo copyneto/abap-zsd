@@ -109,7 +109,7 @@ CLASS ZCLSD_CRIACAO_ORD_COMPL_IMPOST IMPLEMENTATION.
                lc_chave2 TYPE ztca_param_par-chave2 VALUE 'TP_OV_COMPL'.
     DATA: lr_param  TYPE RANGE OF bwart,
           lv_minimo TYPE char50.
-    DATA(lo_parametros) = NEW zclca_tabela_parametros( ).
+    DATA(lo_parametros) = zclca_tabela_parametros=>get_instance( ).    " CHANGE - JWSILVA - 22.07.2023
 
     TRY.
         lo_parametros->m_get_range(
@@ -279,7 +279,7 @@ CLASS ZCLSD_CRIACAO_ORD_COMPL_IMPOST IMPLEMENTATION.
 
     DATA: lr_param  TYPE RANGE OF bwart,
           lv_minimo TYPE char50.
-    DATA(lo_parametros) = NEW zclca_tabela_parametros( ).
+    DATA(lo_parametros) = zclca_tabela_parametros=>get_instance( ).    " CHANGE - JWSILVA - 22.07.2023
 
     TRY.
         lo_parametros->m_get_range(
@@ -315,7 +315,7 @@ CLASS ZCLSD_CRIACAO_ORD_COMPL_IMPOST IMPLEMENTATION.
 
     DATA: lr_param  TYPE RANGE OF bwart,
           lv_minimo TYPE char50.
-    DATA(lo_parametros) = NEW zclca_tabela_parametros( ).
+    DATA(lo_parametros) = zclca_tabela_parametros=>get_instance( ).    " CHANGE - JWSILVA - 22.07.2023
 
 *    TRY.
 *        lo_parametros->m_get_range(

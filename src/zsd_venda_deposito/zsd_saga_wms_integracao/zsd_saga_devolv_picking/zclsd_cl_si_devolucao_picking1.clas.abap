@@ -20,6 +20,7 @@ CLASS ZCLSD_CL_SI_DEVOLUCAO_PICKING1 IMPLEMENTATION.
 
     DATA ls_proxy TYPE zclsd_saga_devolv_picking=>ty_proxy_wa.
     DATA lr_proxy TYPE REF TO zclsd_saga_devolv_picking.
+    DATA lt_rem_saga TYPE TABLE OF ztsd_rem_saga.
 
     lr_proxy ?= zclsd_saga_integracoes=>factory( ).
 
@@ -36,6 +37,30 @@ CLASS ZCLSD_CL_SI_DEVOLUCAO_PICKING1 IMPLEMENTATION.
     DELETE ADJACENT DUPLICATES FROM lt_pedido_aux COMPARING vbeln.
 
     IF lt_pedido_aux[] IS NOT INITIAL.
+
+      REFRESH: lt_rem_saga.
+      SELECT remessa , ordem_frete ,
+             enviado_saga , tipo_remessa , centro
+        FROM ztsd_rem_saga
+         FOR ALL ENTRIES IN @lt_pedido_aux
+       WHERE remessa = @lt_pedido_aux-vbeln
+        INTO TABLE @DATA(lt_dados_rem_saga).
+
+      lt_rem_saga = VALUE #( FOR ls_saga
+                              IN lt_dados_rem_saga ( remessa = ls_saga-remessa
+                                                     ordem_frete = ls_saga-ordem_frete
+                                                     enviado_saga = ls_saga-enviado_saga
+                                                     tipo_remessa = ls_saga-tipo_remessa
+                                                     centro = ls_saga-centro
+                                                     data = sy-datum
+                                                     hora = sy-uzeit ) ).
+
+      IF lines( lt_rem_saga ) > 0.
+        CALL FUNCTION 'ZFMTM_REMESSA_SAGA'
+          TABLES
+            it_remessa = lt_rem_saga.
+      ENDIF.
+
       SELECT vbeln,
              kostk
         FROM likp

@@ -3,8 +3,8 @@
 {
 "FROM":
 [
-"NSDM_E_MARD_DIFF",
-"ZI_SD_MARD"
+"ZI_SD_MARD",
+"ZI_SD_NSDM_MARD_DIFF"
 ],
 "ASSOCIATED":
 [],

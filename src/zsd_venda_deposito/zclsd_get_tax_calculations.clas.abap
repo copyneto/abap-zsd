@@ -272,7 +272,7 @@ CLASS ZCLSD_GET_TAX_CALCULATIONS IMPLEMENTATION.
 
     IF gv_contribuinte_icms_check IS INITIAL.
 
-      DATA(lo_tabela_parametros) = NEW zclca_tabela_parametros( ).
+      DATA(lo_tabela_parametros) = zclca_tabela_parametros=>get_instance( ). " CHANGE - LSCHEPP - 24.07.2023
 
       TRY.
           lo_tabela_parametros->m_get_range(
@@ -296,16 +296,8 @@ CLASS ZCLSD_GET_TAX_CALCULATIONS IMPLEMENTATION.
 
   METHOD select.
 
-* DMANTEIGA - Ajuste Performance - 21.07.2023 Início
-  "obs-> da forma que estava a SAP questionou e disse que tinha muitas chamadas na tabela sem (where) e isso impactava o desempenho
-  "então para testarmos alterei para usar o select single
-
-    DATA(lo_get_cst60) = NEW zclsd_get_tables_cst60( ).
-
-*    DATA lo_get_cst60 TYPE REF TO zclsd_get_tables_cst60.
-*    lo_get_cst60 = zclsd_get_tables_cst60=>get_instance( ).
-
-* DMANTEIGA - Ajuste Performance - 21.07.2023 Fim
+    DATA lo_get_cst60 TYPE REF TO zclsd_get_tables_cst60.
+    lo_get_cst60 = zclsd_get_tables_cst60=>get_instance( ).
 
     CLEAR: gs_tabela,
            gs_agregado,

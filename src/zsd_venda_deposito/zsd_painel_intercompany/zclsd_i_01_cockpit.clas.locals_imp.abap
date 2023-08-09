@@ -227,6 +227,32 @@ CLASS lcl_cockpit IMPLEMENTATION.
         RETURN.
       ENDIF.
 
+      IF ls_cockpit-tipooperacao <> 'TRA2'.
+        SELECT COUNT( * )
+          FROM ztsd_centrofatdf
+          UP TO 1 ROWS
+          WHERE centrofaturamento EQ @ls_cockpit-werks_origem.
+        IF  sy-subrc IS INITIAL.
+          reported-cockpit = VALUE #( BASE reported-cockpit ( %element-werks_receptor = if_abap_behv=>mk-on
+                                                              %msg = new_message( id       = 'ZSD_INTERCOMPANY'
+                                                                                  number   = '050'
+                                                                                  severity = CONV #( 'E' ) ) ) ).
+          RETURN.
+        ENDIF.
+
+        SELECT COUNT( * )
+          FROM ztsd_centrofatdf
+          UP TO 1 ROWS
+          WHERE centrofaturamento EQ @ls_cockpit-werks_destino.
+        IF  sy-subrc IS INITIAL.
+          reported-cockpit = VALUE #( BASE reported-cockpit ( %element-werks_receptor = if_abap_behv=>mk-on
+                                                              %msg = new_message( id       = 'ZSD_INTERCOMPANY'
+                                                                                  number   = '049'
+                                                                                  severity = CONV #( 'E' ) ) ) ).
+          RETURN.
+        ENDIF.
+      ENDIF.
+
       IF ls_cockpit-tipooperacao EQ 'TRA2'.
         SELECT SINGLE centrodepfechado
           FROM ztsd_centrofatdf
@@ -351,7 +377,7 @@ CLASS lcl_cockpit IMPLEMENTATION.
     IF ls_cockpit-tpfrete EQ '001'  " CIF
     OR ls_cockpit-tpfrete EQ '002'. " FOB
 
-      DATA(lo_param) = NEW zclca_tabela_parametros( ).
+      DATA(lo_param) = zclca_tabela_parametros=>get_instance( ).    " CHANGE - JWSILVA - 22.07.2023
 
       TRY.
           lo_param->m_get_range(

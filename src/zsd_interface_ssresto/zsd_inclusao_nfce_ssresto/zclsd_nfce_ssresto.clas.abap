@@ -101,7 +101,7 @@ CLASS ZCLSD_NFCE_SSRESTO IMPLEMENTATION.
           lv_role             TYPE parvw,
           lv_cond_type        TYPE kscha.
 
-    DATA(lo_tabela_parametros) = NEW zclca_tabela_parametros( ).
+    DATA(lo_tabela_parametros) = zclca_tabela_parametros=>get_instance( ). " CHANGE - LSCHEPP - 24.07.2023
 
     "Montando os dados de cabeçalho da ordem de venda"
 
@@ -675,7 +675,7 @@ CLASS ZCLSD_NFCE_SSRESTO IMPLEMENTATION.
 
     CONSTANTS: lc_chave2 TYPE ztca_param_par-chave2 VALUE 'ZLSCH'.
 
-    DATA(lo_tabela_parametros) = NEW  zclca_tabela_parametros( ).
+    DATA(lo_tabela_parametros) = zclca_tabela_parametros=>get_instance( ). " CHANGE - LSCHEPP - 24.07.2023
 
     IF gs_interface-mt_criar_nfce-pagamentos IS NOT INITIAL.
       lv_item = 1.

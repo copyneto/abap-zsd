@@ -23,7 +23,7 @@
                lc_chav3_3 TYPE ztca_param_par-chave3 VALUE 'AUART'.
 
 ** Seleçao dos parametros
-    DATA(lo_parametro) = NEW zclca_tabela_parametros( ).
+    DATA(lo_parametro) = zclca_tabela_parametros=>get_instance( ). " CHANGE - LSCHEPP - 24.07.2023
 
     DATA: lr_exit_mv50afz1 TYPE RANGE OF flag,
           lr_kschl         TYPE RANGE OF kschl,

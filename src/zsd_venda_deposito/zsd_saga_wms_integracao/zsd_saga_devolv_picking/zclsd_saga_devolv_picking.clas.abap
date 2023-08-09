@@ -45,11 +45,11 @@ CLASS zclsd_saga_devolv_picking DEFINITION
     DATA: gs_vbkok TYPE vbkok,
           gt_vbpok TYPE vbpok_t.
 
-  PRIVATE SECTION.
+private section.
 
-    METHODS is_suppl_qty_diff_from_pick
-      RETURNING
-        VALUE(result) TYPE abap_bool .
+  methods IS_SUPPL_QTY_DIFF_FROM_PICK
+    returning
+      value(RV_RESULT) type ABAP_BOOL .
 ENDCLASS.
 
 
@@ -104,7 +104,7 @@ CLASS ZCLSD_SAGA_DEVOLV_PICKING IMPLEMENTATION.
           END OF ls_param.
 
     DATA: lt_ret TYPE STANDARD TABLE OF bapiret2.
-    DATA(lo_parametros) = NEW  zclca_tabela_parametros( ).
+    DATA(lo_parametros) = zclca_tabela_parametros=>get_instance( ). " CHANGE - LSCHEPP - 24.07.2023
     DATA: lr_lfart TYPE RANGE OF likp-lfart.
 
     TRY.
@@ -216,7 +216,7 @@ CLASS ZCLSD_SAGA_DEVOLV_PICKING IMPLEMENTATION.
 * LSCHEPP - 8000006985 - CORE 1 - Quantidade DANFE - 05.05.2023 Início
 *    gs_vbkok-anzpk    = is_proxy-anzpk.
     TRY.
-        NEW zclca_tabela_parametros( )->m_get_range(
+        zclca_tabela_parametros=>get_instance( )->m_get_range( " CHANGE - LSCHEPP - 24.07.2023
           EXPORTING
             iv_modulo = 'SD'
             iv_chave1 = 'SAGA'
@@ -269,7 +269,7 @@ CLASS ZCLSD_SAGA_DEVOLV_PICKING IMPLEMENTATION.
           END OF ls_param.
 
     DATA: lt_ret TYPE STANDARD TABLE OF bapiret2.
-    DATA(lo_parametros) = NEW  zclca_tabela_parametros( ).
+    DATA(lo_parametros) = zclca_tabela_parametros=>get_instance( ). " CHANGE - LSCHEPP - 24.07.2023
     DATA: lr_lfart TYPE RANGE OF likp-lfart.
 
     TRY.
@@ -388,7 +388,7 @@ CLASS ZCLSD_SAGA_DEVOLV_PICKING IMPLEMENTATION.
       TRY.
           IF ls_lips->lfimg <> gt_vbpok[ vbeln = ls_lips->vbeln
                                          posnn = ls_lips->posnr ]-pikmg.
-            result = abap_true.
+            rv_result = abap_true.
             RETURN.
           ENDIF.
 

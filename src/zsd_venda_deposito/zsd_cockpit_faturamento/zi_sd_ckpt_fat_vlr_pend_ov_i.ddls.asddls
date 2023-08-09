@@ -19,9 +19,8 @@ define view entity ZI_SD_CKPT_FAT_VLR_PEND_OV_I
        _QtdPendete.OrderQuantityUnit,
        @Semantics.quantity.unitOfMeasure: 'OrderQuantityUnit'
        _QtdPendete.QtdPendete,
-              _PrecoUnit.waerk,
-              @Semantics.amount.currencyCode : 'waerk'
+       _PrecoUnit.waerk,
+       @Semantics.amount.currencyCode : 'waerk'
        _PrecoUnit.PrecoUnit,
-       coalesce( _QtdPendete.QtdPendete, 0 )  * coalesce( _PrecoUnit.PrecoUnit, 0 ) as VlrPendItem
-
+       cast( _QtdPendete.QtdPendete  * _PrecoUnit.PrecoUnit as abap.dec( 15, 2 )) as VlrPendItem
 }

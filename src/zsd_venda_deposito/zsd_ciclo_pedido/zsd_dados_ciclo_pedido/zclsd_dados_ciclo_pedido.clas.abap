@@ -110,7 +110,7 @@ CLASS ZCLSD_DADOS_CICLO_PEDIDO IMPLEMENTATION.
 
 
   METHOD constructor.
-    go_parametros               = NEW #( ).
+    go_parametros               = zclca_tabela_parametros=>get_instance( ).    " CHANGE - JWSILVA - 22.07.2023
     go_ciclo_pedido_faturamento = NEW #( ).
     go_ciclo_pedido_util        = NEW #( ).
     go_ciclo_po_updater         = NEW #( ).
@@ -133,7 +133,7 @@ CLASS ZCLSD_DADOS_CICLO_PEDIDO IMPLEMENTATION.
 
     DATA: lr_auart TYPE RANGE OF vbak-auart.
 
-    DATA(lo_parametros) = NEW  zclca_tabela_parametros( ).
+    DATA(lo_parametros) = zclca_tabela_parametros=>get_instance( ).    " CHANGE - JWSILVA - 22.07.2023
 
     TRY.
 

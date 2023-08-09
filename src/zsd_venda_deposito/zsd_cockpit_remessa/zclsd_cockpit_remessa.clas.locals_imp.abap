@@ -28,8 +28,8 @@ CLASS lcl_cockpit DEFINITION INHERITING FROM cl_abap_behavior_handler.
     METHODS checkparam FOR MODIFY
       IMPORTING keys FOR ACTION cockpit~checkparam.
 
-    METHODS rba_Log FOR READ
-      IMPORTING keys_rba FOR READ Cockpit\_CockpitLog FULL result_requested RESULT result LINK association_links.
+    METHODS rba_log FOR READ
+      IMPORTING keys_rba FOR READ cockpit\_cockpitlog FULL result_requested RESULT result LINK association_links.
 
 *    METHODS returnsymbol FOR MODIFY
 *      IMPORTING keys FOR ACTION cockpit~returnsymbol.
@@ -48,11 +48,35 @@ CLASS lcl_cockpit IMPLEMENTATION.
 * ---------------------------------------------------------------------------
 * Recupera dados das linhas selecionadas
 * ---------------------------------------------------------------------------
-    READ ENTITIES OF zi_sd_cockpit_remessa IN LOCAL MODE ENTITY cockpit
-      ALL FIELDS
-      WITH CORRESPONDING #( keys )
-      RESULT DATA(lt_cockpit)
-      FAILED failed.
+*    READ ENTITIES OF zi_sd_cockpit_remessa IN LOCAL MODE ENTITY cockpit
+*      ALL FIELDS
+*      WITH CORRESPONDING #( keys )
+*      RESULT DATA(lt_cockpit)
+*      FAILED failed.
+
+    SELECT
+    _deliverydocumentitem~referencesddocument AS salesdocument,
+    _deliverydocumentitem~deliverydocument AS outbounddelivery,
+    MIN( _deliverydocumentitem~referencesddocumentitem ) AS salesdocumentfirstitem,
+    _deliverydocument~deliveryblockreason
+    FROM i_deliverydocumentitem AS _deliverydocumentitem
+    INNER JOIN @keys AS _keys
+    ON _deliverydocumentitem~referencesddocument = _keys~salesdocument
+    AND _deliverydocumentitem~deliverydocument   = _keys~outbounddelivery
+    INNER JOIN i_salesdocumentbasic AS _salesdocumentbasic
+    ON _salesdocumentbasic~salesdocument = _deliverydocumentitem~referencesddocument
+    INNER JOIN ztca_param_val AS _param_val
+    ON  _param_val~modulo = 'SD'
+    AND _param_val~chave1 = 'ADM_FATURAMENTO'
+    AND _param_val~chave2 = 'TIPOS_OV'
+    AND _param_val~low    = _salesdocumentbasic~salesdocumenttype
+    LEFT OUTER JOIN i_deliverydocument AS _deliverydocument
+    ON _deliverydocument~deliverydocument = _deliverydocumentitem~deliverydocument
+    GROUP BY
+    _deliverydocumentitem~referencesddocument,
+    _deliverydocumentitem~deliverydocument,
+    _deliverydocument~deliveryblockreason
+    INTO TABLE @DATA(lt_cockpit).
 
 * ---------------------------------------------------------------------------
 * Recupera parâmetros
@@ -69,7 +93,8 @@ CLASS lcl_cockpit IMPLEMENTATION.
 
         result = VALUE #( FOR ls_cockpit IN lt_cockpit
 
-                        ( %tky                        = ls_cockpit-%tky
+                        ( %tky                        = VALUE #( salesdocument = ls_cockpit-salesdocument
+                                                                 outbounddelivery = ls_cockpit-outbounddelivery ) "ls_cockpit-%tky
 
                           %action-checkparam          = COND #( WHEN lt_return IS NOT INITIAL
                                                                 THEN if_abap_behv=>fc-o-enabled
@@ -208,14 +233,15 @@ CLASS lcl_cockpit IMPLEMENTATION.
 * ---------------------------------------------------------------------------
 * Recupera dados das linhas selecionadas
 * ---------------------------------------------------------------------------
-    READ ENTITIES OF zi_sd_cockpit_remessa IN LOCAL MODE ENTITY cockpit
-      ALL FIELDS
-      WITH CORRESPONDING #( keys )
-      RESULT DATA(lt_cockpit)
-      FAILED failed.
+*    READ ENTITIES OF zi_sd_cockpit_remessa IN LOCAL MODE ENTITY cockpit
+*      ALL FIELDS
+*      WITH CORRESPONDING #( keys )
+*      RESULT DATA(lt_cockpit)
+*      FAILED failed.
 
     TRY.
-        DATA(ls_cockpit) = lt_cockpit[ 1 ].
+*        DATA(ls_cockpit) = lt_cockpit[ 1 ].
+        DATA(ls_cockpit) = keys[ 1 ].
       CATCH cx_root.
     ENDTRY.
 

@@ -60,7 +60,7 @@ CLASS zclsd_envio_fatura_sap_sirius IMPLEMENTATION.
       lr_valid_code         TYPE RANGE OF j_1bnfdoc-code,
       lr_tipo_pedido_sirius TYPE RANGE OF ZI_SD_NFitemSirius-CustomerPurchaseOrderType.
 
-    DATA(lo_param) = NEW zclca_tabela_parametros(  ).
+    DATA(lo_param) = zclca_tabela_parametros=>get_instance( ).    " CHANGE - JWSILVA - 22.07.2023
 
     TRY.
         lo_param->m_get_range(

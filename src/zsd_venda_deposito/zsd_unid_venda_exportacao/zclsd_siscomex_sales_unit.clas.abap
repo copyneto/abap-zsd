@@ -72,7 +72,7 @@ CLASS ZCLSD_SISCOMEX_SALES_UNIT IMPLEMENTATION.
 
   METHOD get_param_cfop.
 
-    DATA(lo_tabela_parametros) = NEW  zclca_tabela_parametros( ).
+    DATA(lo_tabela_parametros) = zclca_tabela_parametros=>get_instance( ). " CHANGE - LSCHEPP - 24.07.2023
 
     CLEAR gs_cfop.
 

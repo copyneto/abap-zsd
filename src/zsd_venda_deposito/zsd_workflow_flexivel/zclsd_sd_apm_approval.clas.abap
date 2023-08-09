@@ -29,7 +29,7 @@ CLASS ZCLSD_SD_APM_APPROVAL IMPLEMENTATION.
                lc_reason TYPE sd_apm_approval_reason VALUE '0001'.
 
 
-    DATA(lo_param) = NEW zclca_tabela_parametros( ).
+    DATA(lo_param) = zclca_tabela_parametros=>get_instance( ). " CHANGE - LSCHEPP - 24.07.2023
     DATA: ls_vbak  TYPE vbak,
           lt_xvbak TYPE STANDARD TABLE OF vbakvb,
           ls_xvbak TYPE vbakvb,

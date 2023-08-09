@@ -13,7 +13,7 @@
 ***-------------------------------------------------------------------*
 *** 08/04/22  | LFREITAS       | Cópia ECC to S4                      *
 ***********************************************************************
-REPORT ZSDR_GNRE003 MESSAGE-ID zsd_gnre.
+REPORT zsdr_gnre003 MESSAGE-ID zsd_gnre.
 
 * Tipos Internos
 *-----------------------------------------------------------------------
@@ -36,17 +36,17 @@ DATA: gv_docnum_error            TYPE ztsd_gnret001-docnum,
 * Tabelas Internas e Work Area
 *-----------------------------------------------------------------------
 DATA: ls_ztsd_gnret001 TYPE ty_s_gnret001,
-      ls_gnret011 TYPE ztsd_gnret011,
+      ls_gnret011      TYPE ztsd_gnret011,
       gt_ztsd_gnret001 TYPE TABLE OF ty_s_gnret001,
-      gt_gnret011_ins TYPE TABLE OF ztsd_gnret011,
-      gt_gnret011_del TYPE TABLE OF ztsd_gnret011.
+      gt_gnret011_ins  TYPE TABLE OF ztsd_gnret011,
+      gt_gnret011_del  TYPE TABLE OF ztsd_gnret011.
 
 * Parâmetros de seleção
 *-----------------------------------------------------------------------
-SELECTION-SCREEN BEGIN OF BLOCK b1 WITH FRAME TITLE text-t01. "Critérios de seleção
-SELECT-OPTIONS: s_docnum FOR ls_ztsd_gnret001-docnum,     "Nº documento
-                s_dcguia FOR ls_ztsd_gnret001-docguia,    "Nº interno de Guia
-                s_chadat FOR ls_ztsd_gnret001-chadat.     "Modificado em
+SELECTION-SCREEN BEGIN OF BLOCK b1 WITH FRAME TITLE TEXT-t01. "Critérios de seleção
+  SELECT-OPTIONS: s_docnum FOR ls_ztsd_gnret001-docnum,     "Nº documento
+                  s_dcguia FOR ls_ztsd_gnret001-docguia,    "Nº interno de Guia
+                  s_chadat FOR ls_ztsd_gnret001-chadat.     "Modificado em
 SELECTION-SCREEN END OF BLOCK b1.
 
 START-OF-SELECTION.
@@ -231,10 +231,34 @@ START-OF-SELECTION.
 
   ENDLOOP.
 
-
+  " INSERT - LSCHEPP - 07.08.2023
+  SORT gt_gnret011_ins BY docnum acao.
+  DELETE ADJACENT DUPLICATES FROM gt_gnret011_ins COMPARING docnum acao.
+  DELETE gt_gnret011_ins WHERE docnum IS INITIAL.
   IF gt_gnret011_ins[] IS NOT INITIAL.
-    INSERT ztsd_gnret011 FROM TABLE gt_gnret011_ins.
-    COMMIT WORK AND WAIT.
+    SELECT *
+      FROM ztsd_gnret011
+      INTO TABLE @DATA(lt_gnret011_check)
+      FOR ALL ENTRIES IN @gt_gnret011_ins
+      WHERE docnum EQ @gt_gnret011_ins-docnum
+        AND acao   EQ @gt_gnret011_ins-acao.
+    IF sy-subrc EQ 0.
+      SORT lt_gnret011_check BY docnum acao.
+      LOOP AT gt_gnret011_ins ASSIGNING FIELD-SYMBOL(<fs_gnret011_ins>).
+        DATA(lv_tabix) = sy-tabix.
+        READ TABLE lt_gnret011_check TRANSPORTING NO FIELDS WITH KEY docnum = <fs_gnret011_ins>-docnum
+                                                                     acao   = <fs_gnret011_ins>-acao BINARY SEARCH.
+        IF sy-subrc EQ 0.
+          DELETE gt_gnret011_ins INDEX lv_tabix.
+        ENDIF.
+      ENDLOOP.
+    ENDIF.
+    " INSERT - LSCHEPP - 07.08.2023
+
+    IF gt_gnret011_ins[] IS NOT INITIAL.
+      INSERT ztsd_gnret011 FROM TABLE gt_gnret011_ins.
+      COMMIT WORK AND WAIT.
+    ENDIF.
   ENDIF.
 
   IF gt_gnret011_del[] IS NOT INITIAL.

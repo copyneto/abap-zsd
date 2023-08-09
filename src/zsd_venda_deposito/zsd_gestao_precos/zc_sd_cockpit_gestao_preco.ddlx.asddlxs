@@ -1,9 +1,10 @@
 @Metadata.layer: #CORE
 @UI: { headerInfo: { title: { type: #STANDARD, value: 'IdText' },
                      typeName: 'Solicitação',
-                     typeNamePlural: 'Solicitações' },
+                     typeNamePlural: 'Solicitações' }
 
-       presentationVariant: [{ sortOrder: [{ by: 'Id', direction:  #DESC }] }] }
+//       presentationVariant: [{ sortOrder: [{ by: 'Id', direction:  #DESC }] }]
+       }
 
 @UI.selectionVariant: [{ id: 'ZPR0', text: 'Preço', filter: 'PresentationType EQ "ZPR0"' },
                        { id: 'ZVMC', text: 'Alerta mínimo', filter: 'PresentationType EQ "ZVMC"' },
@@ -15,6 +16,7 @@
 
 @UI.lineItem: [{criticality: 'StatusCriticality'} ]
 
+@UI.presentationVariant: [{ sortOrder: [{ by: 'Id', direction: #ASC }] }]
 annotate view ZC_SD_COCKPIT_GESTAO_PRECO with
 {
 

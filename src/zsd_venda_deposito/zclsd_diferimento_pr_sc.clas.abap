@@ -50,8 +50,10 @@ CLASS ZCLSD_DIFERIMENTO_PR_SC IMPLEMENTATION.
     DATA lr_regio TYPE RANGE OF regio.
     DATA lr_kozgf TYPE RANGE OF t682i-kozgf.
 
+    DATA(lo_param) = zclca_tabela_parametros=>get_instance( ).    " INSERT - JWSILVA - 22.07.2023
+
     TRY.
-        NEW zclca_tabela_parametros( )->m_get_range(
+        lo_param->m_get_range(                                    " CHANGE - JWSILVA - 22.07.2023
           EXPORTING
             iv_modulo = gc_modulo
             iv_chave1 = gc_chave1
@@ -76,7 +78,7 @@ CLASS ZCLSD_DIFERIMENTO_PR_SC IMPLEMENTATION.
     IF lv_regio = abap_false.
 
       TRY.
-          NEW zclca_tabela_parametros( )->m_get_range(
+          lo_param->m_get_range(                                  " CHANGE - JWSILVA - 22.07.2023
             EXPORTING
               iv_modulo = gc_modulo
               iv_chave1 = gc_chave1_dif
@@ -94,7 +96,7 @@ CLASS ZCLSD_DIFERIMENTO_PR_SC IMPLEMENTATION.
       IF lv_regra_st = abap_false.
         TRY.
             CLEAR lr_kozgf.
-            NEW zclca_tabela_parametros( )->m_get_range(
+            lo_param->m_get_range(                                " CHANGE - JWSILVA - 22.07.2023
               EXPORTING
                 iv_modulo = gc_modulo
                 iv_chave1 = gc_chave1_dif
@@ -118,7 +120,7 @@ CLASS ZCLSD_DIFERIMENTO_PR_SC IMPLEMENTATION.
 
       IF lv_regra_st = abap_true.
         TRY.
-            NEW zclca_tabela_parametros( )->m_get_range(
+            lo_param->m_get_range(                                " CHANGE - JWSILVA - 22.07.2023
               EXPORTING
                 iv_modulo = gc_modulo
                 iv_chave1 = gc_chave1

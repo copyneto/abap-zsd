@@ -122,17 +122,18 @@ CLASS ZCLSD_CONDICAO_CONTRATO IMPLEMENTATION.
 
 
   METHOD get_cliente.
+    rs_cliente = zclsd_cond_contr_get_cliente=>get_cliente( iv_kunnr ).
 
-    SELECT SINGLE
-      kna1~kdkg1,
-      kna1~katr2,
-      kna1~katr10
-    FROM
-      kna1
-    WHERE
-      kunnr = @iv_kunnr
-    INTO
-      @rs_cliente.
+*    SELECT SINGLE
+*      kna1~kdkg1,
+*      kna1~katr2,
+*      kna1~katr10
+*    FROM
+*      kna1
+*    WHERE
+*      kunnr = @iv_kunnr
+*    INTO
+*      @rs_cliente.
 
   ENDMETHOD.
 

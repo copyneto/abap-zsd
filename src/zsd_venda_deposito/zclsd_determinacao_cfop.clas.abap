@@ -46,7 +46,8 @@ CLASS ZCLSD_DETERMINACAO_CFOP IMPLEMENTATION.
 
     IMPORT lt_cfop_parameters TO lt_cfop_parameters FROM MEMORY ID 'LT_CFOP_PARAMETERS'.
 
-    ASSIGN ('(SAPLJ1BJ)VBAP-POSNR') TO FIELD-SYMBOL(<fs_posnr>).
+*    ASSIGN ('(SAPLJ1BJ)VBAP-POSNR') TO FIELD-SYMBOL(<fs_posnr>).
+    ASSIGN ('(SAPFV45P)VBAP-POSNR') TO FIELD-SYMBOL(<fs_posnr>).
     IF sy-subrc = 0.
       READ TABLE lt_cfop_parameters ASSIGNING FIELD-SYMBOL(<fs_cfop_parameters>)
                                     WITH KEY posnr = <fs_posnr>. "#EC CI_STDSEQ
@@ -57,6 +58,8 @@ CLASS ZCLSD_DETERMINACAO_CFOP IMPLEMENTATION.
       ELSE.
         MOVE-CORRESPONDING is_cfop_parameters TO <fs_cfop_parameters>.
       ENDIF.
+
+      FREE MEMORY ID 'LT_CFOP_PARAMETERS'.
 
       EXPORT lt_cfop_parameters FROM lt_cfop_parameters TO MEMORY ID 'LT_CFOP_PARAMETERS'.
 
@@ -72,7 +75,8 @@ CLASS ZCLSD_DETERMINACAO_CFOP IMPLEMENTATION.
 
     IMPORT lt_cfop_parameters TO lt_cfop_parameters FROM MEMORY ID 'LT_CFOP_PARAMETERS'.
 
-    ASSIGN ('(SAPLJ1BJ)VBAP-POSNR') TO FIELD-SYMBOL(<fs_posnr>).
+*    ASSIGN ('(SAPLJ1BJ)VBAP-POSNR') TO FIELD-SYMBOL(<fs_posnr>).
+    ASSIGN ('(SAPFV45P)VBAP-POSNR') TO FIELD-SYMBOL(<fs_posnr>).
     IF sy-subrc = 0.
       READ TABLE lt_cfop_parameters ASSIGNING FIELD-SYMBOL(<fs_cfop_parameters>)
                                     WITH KEY posnr = <fs_posnr>. "#EC CI_STDSEQ
@@ -83,6 +87,8 @@ CLASS ZCLSD_DETERMINACAO_CFOP IMPLEMENTATION.
       ELSE.
         MOVE-CORRESPONDING is_cfop_parameters TO <fs_cfop_parameters>.
       ENDIF.
+
+      FREE MEMORY ID 'LT_CFOP_PARAMETERS'.
 
       EXPORT lt_cfop_parameters FROM lt_cfop_parameters TO MEMORY ID 'LT_CFOP_PARAMETERS'.
 

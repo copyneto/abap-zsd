@@ -23,7 +23,7 @@ define view entity ZI_SD_NF_ITEMS
       _Lin.werks          as Werks,
       max( _Comp.Tor_id ) as Tor_id,
       _Comp.StopOrder     as StopOrder,
-      _Vbrk.fkart         as Fkart,
+      _Vbrk.fkart         as Fkart, 
       _Vbrk.vbtyp         as Vbtyp,
       _Vbrk.belnr         as Belnr
 }

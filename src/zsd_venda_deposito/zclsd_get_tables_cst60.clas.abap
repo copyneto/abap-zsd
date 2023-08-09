@@ -55,7 +55,6 @@ public section.
       !EV_MODALIDADE type ZE_MODALIDADE
       !EV_CALC_EFETIVO type CHAR1
       !EV_PERC_BC_ICMS type ZE_PERC_BC_ICMS .
-  methods CONSTRUCTOR .
   methods GET_TABLE
     importing
       !IV_CENTRO type WERKS_EXT
@@ -65,46 +64,109 @@ public section.
     exporting
       !EV_TABELA type CHAR20 .
   PROTECTED SECTION.
-private section.
+PRIVATE SECTION.
 
-  class-data GO_INSTANCE type ref to ZCLSD_GET_TABLES_CST60 .
-  data GV_CENTRO type WERKS_EXT .
-  data GV_UF type ZE_UF_RECEB .
-  data GV_MATERIAL type MATNR .
-  data GV_GP_MERCADORIA type MATKL .
-  data GS_MATERIAL type ZTSD_MATERIAL .
-  data GS_GP_MERCADORIA type ZTSD_GP_MERCADOR .
-  constants GC_MATERIAL type CHAR20 value 'ZTSD_MATERIAL' ##NO_TEXT.
-  constants GC_GPMERCADORIA type CHAR20 value 'ZTSD_GP_MERCADOR' ##NO_TEXT.
-  class-data:
-    gt_material TYPE TABLE OF ztsd_material .
-  class-data:
-    gt_gp_mercadoria TYPE TABLE OF ztsd_gp_mercador .
-  class-data GV_INSTANCE type ABAP_BOOL .
+  TYPES:
+    BEGIN OF ty_werks_filtered,
+      werks TYPE werks_ext,
+    END OF ty_werks_filtered,
+
+    BEGIN OF ty_material,
+      centro         TYPE werks_ext,
+      uf             TYPE ze_uf_receb,
+      material       TYPE matnr,
+      descricao      TYPE maktx,
+      agregado       TYPE ze_agregado,
+      icms_dest      TYPE ze_icms_dest,
+      icms_orig      TYPE ze_icms_orig,
+      compra_interna TYPE ze_compra_interna,
+      base_red_orig  TYPE ze_base_red_orig,
+      base_red_dest  TYPE ze_base_red_dest,
+      taxa_fcp       TYPE ze_taxa_fcp,
+      icms_efet      TYPE ze_icms_efet,
+      baseredefet    TYPE ze_baseredefet,
+      preco_compar   TYPE ze_preco_compar,
+      preco_pauta    TYPE ze_preco_pauta,
+      agregado_pauta TYPE ze_agregado_pauta,
+      nro_unids      TYPE ze_nro_unids,
+      um             TYPE ze_um,
+      modalidade     TYPE ze_modalidade,
+      calc_efetivo   TYPE ze_calc_efetivo,
+      perc_bc_icms   TYPE ze_perc_bc_icms,
+    END OF ty_material,
+
+    BEGIN OF ty_gp_merc,
+      centro         TYPE werks_ext,
+      uf             TYPE ze_uf_receb,
+      grpmercadoria  TYPE matkl,
+      descricao      TYPE wgbez,
+      agregado       TYPE ze_agregado,
+      icms_dest      TYPE ze_icms_dest,
+      icms_orig      TYPE ze_icms_orig,
+      compra_interna TYPE ze_compra_interna,
+      base_red_orig  TYPE ze_base_red_orig,
+      base_red_dest  TYPE ze_base_red_dest,
+      taxa_fcp       TYPE ze_taxa_fcp,
+      icms_efet      TYPE ze_icms_efet,
+      baseredefet    TYPE ze_baseredefet,
+      preco_compar   TYPE ze_preco_compar,
+      preco_pauta    TYPE ze_preco_pauta,
+      agregado_pauta TYPE ze_agregado_pauta,
+      nro_unids      TYPE ze_nro_unids,
+      um             TYPE ze_um,
+      modalidade     TYPE ze_modalidade,
+      calc_efetivo   TYPE ze_calc_efetivo,
+      perc_bc_icms   TYPE ze_perc_bc_icms,
+    END OF ty_gp_merc,
+
+    ty_t_werks_filtered TYPE SORTED TABLE OF ty_werks_filtered WITH UNIQUE KEY werks,
+    ty_t_material       TYPE SORTED TABLE OF ty_material WITH UNIQUE KEY centro uf material,
+    ty_t_gp_mercadoria  TYPE SORTED TABLE OF ty_gp_merc WITH UNIQUE KEY centro uf grpmercadoria.
+
+  CLASS-DATA go_instance TYPE REF TO zclsd_get_tables_cst60 .
+  DATA gv_centro TYPE werks_ext .
+  DATA gv_uf TYPE ze_uf_receb .
+  DATA gv_material TYPE matnr .
+  DATA gv_gp_mercadoria TYPE matkl .
+  "DATA gs_material TYPE ztsd_material .
+  DATA gs_material TYPE ty_material.
+  "DATA gs_gp_mercadoria TYPE ztsd_gp_mercador .
+  DATA gs_gp_mercadoria TYPE ty_gp_merc.
+
+  CONSTANTS gc_material TYPE char20 VALUE 'ZTSD_MATERIAL' ##NO_TEXT.
+  CONSTANTS gc_gpmercadoria TYPE char20 VALUE 'ZTSD_GP_MERCADOR' ##NO_TEXT.
+  CLASS-DATA:
+    "gt_material TYPE TABLE OF ztsd_material .
+    gt_material TYPE ty_t_material.
+  CLASS-DATA:
+    "gt_gp_mercadoria TYPE TABLE OF ztsd_gp_mercador .
+    gt_gp_mercadoria TYPE ty_t_gp_mercadoria.
+  CLASS-DATA gv_instance TYPE abap_bool .
+  CLASS-DATA gt_werks_filtered TYPE ty_t_werks_filtered .
 
   "! Salva os parametros de entrada em variáveis globais
   "! @parameter iv_centro           | Centro
   "! @parameter iv_uf               | Estado
   "! @parameter iv_material         | Nº Material
   "! @parameter iv_gp_mercadoria    | Nº Grupo de Mercadoria
-  methods SET_PARAMETER_INPUT
-    importing
-      !IV_CENTRO type WERKS_EXT
-      !IV_UF type ZE_UF_RECEB
-      !IV_MATERIAL type MATNR
-      !IV_GP_MERCADORIA type MATKL
-    returning
-      value(RV_RETURN) type ABAP_BOOL .
+  METHODS set_parameter_input
+    IMPORTING
+      !iv_centro        TYPE werks_ext
+      !iv_uf            TYPE ze_uf_receb
+      !iv_material      TYPE matnr
+      !iv_gp_mercadoria TYPE matkl
+    RETURNING
+      VALUE(rv_return)  TYPE abap_bool .
   "! Seleciona dados do Material
   "! @parameter rv_return           | Retorno boleano; True = Encontrou registro, False se não encontrou registro
-  methods GET_MATERIAL
-    returning
-      value(RV_RETURN) type ABAP_BOOL .
+  METHODS get_material
+    RETURNING
+      VALUE(rv_return) TYPE abap_bool .
   "! Seleciona dados do Grupo de Mercadoria
   "! @parameter rv_return           | Retorno boleano; True = Encontrou registro, False se não encontrou registro
-  methods GET_GP_MERCADORIA
-    returning
-      value(RV_RETURN) type ABAP_BOOL .
+  METHODS get_gp_mercadoria
+    RETURNING
+      VALUE(rv_return) TYPE abap_bool .
   "! Retorna os parametros encontrados
   "! @parameter ev_tabela           | Nome da tabela retornada
   "! @parameter ev_agregado         | Agregado
@@ -123,28 +185,31 @@ private section.
   "! @parameter ev_um               | Unidade de medida
   "! @parameter ev_modalidade       | Modalidade
   "! @parameter ev_calc_efetivo     | Não calcular efetivo
-  methods SET_OUTPUT
-    importing
-      !IV_TABLE type CHAR20
-    exporting
-      !EV_TABELA type CHAR20
-      !EV_AGREGADO type ZE_AGREGADO
-      !EV_ICMS_DEST type ZE_ICMS_DEST
-      !EV_ICMS_ORIG type ZE_ICMS_ORIG
-      !EV_COMPRA_INTERNA type CHAR1
-      !EV_BASE_RED_ORIG type ZE_BASE_RED_ORIG
-      !EV_BASE_RED_DEST type ZE_BASE_RED_DEST
-      !EV_TAXA_FCP type ZE_TAXA_FCP
-      !EV_ICMS_EFET type ZE_ICMS_EFET
-      !EV_BASEREDEFET type ZE_BASEREDEFET
-      !EV_PRECO_COMPAR type ZE_PRECO_COMPAR
-      !EV_PRECO_PAUTA type ZE_PRECO_PAUTA
-      !EV_AGREGADO_PAUTA type ZE_AGREGADO_PAUTA
-      !EV_NRO_UNIDS type ZE_NRO_UNIDS
-      !EV_UM type ZE_UM
-      !EV_MODALIDADE type ZE_MODALIDADE
-      !EV_CALC_EFETIVO type CHAR1
-      !EV_PERC_BC_ICMS type ZE_PERC_BC_ICMS .
+  METHODS set_output
+    IMPORTING
+      !iv_table          TYPE char20
+    EXPORTING
+      !ev_tabela         TYPE char20
+      !ev_agregado       TYPE ze_agregado
+      !ev_icms_dest      TYPE ze_icms_dest
+      !ev_icms_orig      TYPE ze_icms_orig
+      !ev_compra_interna TYPE char1
+      !ev_base_red_orig  TYPE ze_base_red_orig
+      !ev_base_red_dest  TYPE ze_base_red_dest
+      !ev_taxa_fcp       TYPE ze_taxa_fcp
+      !ev_icms_efet      TYPE ze_icms_efet
+      !ev_baseredefet    TYPE ze_baseredefet
+      !ev_preco_compar   TYPE ze_preco_compar
+      !ev_preco_pauta    TYPE ze_preco_pauta
+      !ev_agregado_pauta TYPE ze_agregado_pauta
+      !ev_nro_unids      TYPE ze_nro_unids
+      !ev_um             TYPE ze_um
+      !ev_modalidade     TYPE ze_modalidade
+      !ev_calc_efetivo   TYPE char1
+      !ev_perc_bc_icms   TYPE ze_perc_bc_icms .
+  CLASS-METHODS set_tables
+    IMPORTING
+      !iv_centro TYPE werks_ext .
 ENDCLASS.
 
 
@@ -152,7 +217,7 @@ ENDCLASS.
 CLASS ZCLSD_GET_TABLES_CST60 IMPLEMENTATION.
 
 
-  METHOD EXECUTE.
+  METHOD execute.
 
     DATA(lv_erro) =  set_parameter_input( EXPORTING  iv_centro           =  iv_centro
                                                      iv_uf               =  iv_uf
@@ -160,6 +225,16 @@ CLASS ZCLSD_GET_TABLES_CST60 IMPLEMENTATION.
                                                      iv_gp_mercadoria    =  iv_gp_mercadoria  ).
 
     IF lv_erro IS INITIAL.
+
+      IF gv_instance = abap_true.
+
+        IF NOT line_exists( gt_werks_filtered[ werks = iv_centro ] ).
+          INSERT VALUE #( werks = iv_centro ) INTO TABLE gt_werks_filtered.
+          "abastecer a tabela em memória
+          set_tables( iv_centro = iv_centro ).
+        ENDIF.
+
+      ENDIF.
 
       IF get_material(  ) = abap_true.
         set_output( EXPORTING iv_table = gc_material
@@ -345,42 +420,6 @@ CLASS ZCLSD_GET_TABLES_CST60 IMPLEMENTATION.
   ENDMETHOD.
 
 
-  METHOD constructor.
-
-    IF NOT gv_instance IS INITIAL.
-
-      SELECT
-        centro , uf , material , descricao , agregado ,
-        icms_dest , icms_orig , compra_interna , base_red_orig ,
-        base_red_dest , taxa_fcp , icms_efet , baseredefet ,
-        preco_compar , preco_pauta , agregado_pauta , nro_unids ,
-        um , modalidade , calc_efetivo , perc_bc_icms
-      FROM ztsd_material
-      INTO CORRESPONDING FIELDS OF TABLE @gt_material.
-
-      IF sy-subrc IS INITIAL.
-        SORT gt_material BY centro uf material.
-      ENDIF.
-
-      SELECT
-        centro , uf , grpmercadoria , descricao , agregado ,
-        icms_dest , icms_orig , compra_interna , base_red_orig ,
-        base_red_dest , taxa_fcp , icms_efet , baseredefet ,
-        preco_compar , preco_pauta , agregado_pauta , nro_unids ,
-        um , modalidade , calc_efetivo , perc_bc_icms
-      FROM ztsd_gp_mercador
-      INTO CORRESPONDING FIELDS OF TABLE @gt_gp_mercadoria.
-
-      IF sy-subrc IS INITIAL.
-        SORT gt_gp_mercadoria BY centro uf grpmercadoria.
-      ENDIF.
-
-
-    ENDIF.
-
-  ENDMETHOD.
-
-
   METHOD get_instance.
 
     IF NOT go_instance IS BOUND.
@@ -415,6 +454,38 @@ CLASS ZCLSD_GET_TABLES_CST60 IMPLEMENTATION.
         ev_tabela = gc_gpmercadoria.
       ENDIF.
 
+    ENDIF.
+
+  ENDMETHOD.
+
+
+  METHOD set_tables.
+    SELECT
+      centro , uf , material , descricao , agregado ,
+      icms_dest , icms_orig , compra_interna , base_red_orig ,
+      base_red_dest , taxa_fcp , icms_efet , baseredefet ,
+      preco_compar , preco_pauta , agregado_pauta , nro_unids ,
+      um , modalidade , calc_efetivo , perc_bc_icms
+    FROM ztsd_material
+      WHERE centro = @iv_centro
+    INTO TABLE @DATA(lt_material).
+
+    IF sy-subrc IS INITIAL.
+      INSERT LINES OF lt_material INTO TABLE gt_material.
+    ENDIF.
+
+    SELECT
+      centro , uf , grpmercadoria , descricao , agregado ,
+      icms_dest , icms_orig , compra_interna , base_red_orig ,
+      base_red_dest , taxa_fcp , icms_efet , baseredefet ,
+      preco_compar , preco_pauta , agregado_pauta , nro_unids ,
+      um , modalidade , calc_efetivo , perc_bc_icms
+    FROM ztsd_gp_mercador
+      WHERE centro = @iv_centro
+    INTO TABLE @DATA(lt_grpmercadoria).
+
+    IF sy-subrc IS INITIAL.
+      INSERT LINES OF lt_grpmercadoria INTO TABLE gt_gp_mercadoria.
     ENDIF.
 
   ENDMETHOD.

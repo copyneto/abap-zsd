@@ -50,7 +50,7 @@
 *    DATA(lo_object) = NEW zclsd_saga_envio_pre_registro( ).
 
 ** Seleçao dos parametros
-      DATA(lo_parametros) = NEW zclca_tabela_parametros( ).
+      DATA(lo_parametros) = zclca_tabela_parametros=>get_instance( ). " CHANGE - LSCHEPP - 24.07.2023
 
       DATA: lr_lfart      TYPE RANGE OF lfart,
             lr_werks      TYPE RANGE OF werks,

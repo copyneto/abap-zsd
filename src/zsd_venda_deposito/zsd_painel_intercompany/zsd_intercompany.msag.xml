@@ -302,6 +302,18 @@
      <MSGNR>048</MSGNR>
      <TEXT>Saída de Mercadoria da Remessa &amp;1 Não Foi Estornada!</TEXT>
     </T100>
+    <T100>
+     <SPRSL>P</SPRSL>
+     <ARBGB>ZSD_INTERCOMPANY</ARBGB>
+     <MSGNR>049</MSGNR>
+     <TEXT>&quot;Centro de Destino&quot; é um Centro com Depósito Fechado - Use TRA2</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>P</SPRSL>
+     <ARBGB>ZSD_INTERCOMPANY</ARBGB>
+     <MSGNR>050</MSGNR>
+     <TEXT>&quot;Centro de Origem&quot; é um Centro com Depósito Fechado - Use TRA2</TEXT>
+    </T100>
    </T100>
   </asx:values>
  </asx:abap>

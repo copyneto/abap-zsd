@@ -24,7 +24,7 @@ FUNCTION zfmsd_envio_nf_saga.
 
   IF is_header-code EQ lc_parametro-v100.
 
-    DATA(lo_tabela_parametros_vstel) = NEW zclca_tabela_parametros( ).
+    DATA(lo_tabela_parametros_vstel) = zclca_tabela_parametros=>get_instance( ). " CHANGE - LSCHEPP - 24.07.2023
 
     WAIT UP TO 10 SECONDS.
 

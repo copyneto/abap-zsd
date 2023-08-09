@@ -95,6 +95,9 @@ END-OF-SELECTION.
         WRITE / |{ id_log } - Erro na chamada do método de envio de registros à SAGA.|.
         CONTINUE.
     ENDTRY.
+** BEGIN OF INSERT - 26.07.2023 - RPORTES - 1068 -  OF's não estão chegando no SAGA
+*    WAIT UP TO 1 SECONDS.
+** END OF INSERT - 26.07.2023 - RPORTES - 1068 -  OF's não estão chegando no SAGA
   ENDLOOP.
 
   "Atualização das remessas enviadas

@@ -18,6 +18,24 @@ REPORT zsdr_ionz_criar_ov.
 TABLES ztsd_sint_proces.
 
 *----------------------------------------------------------------------*
+* VERIFICA SE O PROGRAMA ESTÁ EM FUNCIONAMENTO
+*----------------------------------------------------------------------*
+
+  CALL FUNCTION 'ENQUEUE_E_TRDIR'
+    EXPORTING
+      mode_trdir     = 'X'
+      name           = sy-repid
+    EXCEPTIONS
+      foreign_lock   = 1
+      system_failure = 2
+      OTHERS         = 3.
+  IF sy-subrc <> 0.
+    MESSAGE ID sy-msgid TYPE sy-msgty NUMBER sy-msgno
+    WITH sy-msgv1 sy-msgv2 sy-msgv3 sy-msgv4 INTO DATA(gv_message).
+    RETURN.
+  ENDIF.
+
+*----------------------------------------------------------------------*
 * TELA DE SELEÇÃO
 *----------------------------------------------------------------------*
 SELECTION-SCREEN BEGIN OF BLOCK b1 WITH FRAME TITLE TEXT-001.

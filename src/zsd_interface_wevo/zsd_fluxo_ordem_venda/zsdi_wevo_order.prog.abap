@@ -10,7 +10,7 @@
         END OF ls_param.
 
   DATA: lr_auart TYPE RANGE OF vbak-auart.
-  DATA(lo_parametros_order) = NEW  zclca_tabela_parametros( ).
+  DATA(lo_parametros_order) = zclca_tabela_parametros=>get_instance( ). " CHANGE - LSCHEPP - 24.07.2023
 
   TRY.
 

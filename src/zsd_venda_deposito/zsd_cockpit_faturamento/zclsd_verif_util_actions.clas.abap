@@ -898,7 +898,7 @@ CLASS ZCLSD_VERIF_UTIL_ACTIONS IMPLEMENTATION.
 
     DATA: lr_kschl TYPE RANGE OF kschl.
 
-    DATA(lo_param) = NEW zclca_tabela_parametros( ).
+    DATA(lo_param) = zclca_tabela_parametros=>get_instance( ). " CHANGE - LSCHEPP - 24.07.2023
 
     FREE: gt_cond.
 
