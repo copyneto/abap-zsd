@@ -446,6 +446,12 @@
      <MSGNR>072</MSGNR>
      <TEXT>&apos;Válido até&apos; menor que &apos;Válido desde&apos;.</TEXT>
     </T100>
+    <T100>
+     <SPRSL>P</SPRSL>
+     <ARBGB>ZSD_GESTAO_PRECOS</ARBGB>
+     <MSGNR>073</MSGNR>
+     <TEXT>Linha &amp;1: Registro já foi eliminado.</TEXT>
+    </T100>
    </T100>
    <LONGTEXTS>
     <item>

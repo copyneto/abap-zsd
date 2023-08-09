@@ -761,7 +761,7 @@ ENDCLASS.
 
 
 
-CLASS zclsd_gestao_preco_events IMPLEMENTATION.
+CLASS ZCLSD_GESTAO_PRECO_EVENTS IMPLEMENTATION.
 
 
   METHOD get_layout.
@@ -2479,6 +2479,19 @@ CLASS zclsd_gestao_preco_events IMPLEMENTATION.
                                            kschl = gs_parameter-kschl_zpr0
                                            vtweg = ls_item-dist_channel
                                            matnr = ls_item-material ].
+            ENDIF.
+
+            IF line_exists( it_konp[ knumh = ls_a817_del-knumh loevm_ko = abap_true ] ).
+              " Linha &1:Registro já foi eliminado.
+              ct_validation = VALUE #( BASE ct_validation ( guid       = ls_item-guid
+                                                            line       = ls_item-line
+                                                            row        = ls_item-line
+                                                            status     = gc_status-erro
+                                                            type       = iv_msgty
+                                                            id         = 'ZSD_GESTAO_PRECOS'
+                                                            number     = '073'
+                                                            message_v1 = ls_item-line
+                                                            field      = 'LINE' ) ).
             ENDIF.
 
           CATCH cx_root.
